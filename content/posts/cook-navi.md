@@ -41,11 +41,11 @@ title = '自己做饭教程导航'
 
 #### 火候控制
 
-1. [什么是“火候”，家庭厨房该怎么控制火候，视频详解#辣椒炒肉](https://www.douyin.com/video/7068426288901541150?modeFrom=searchResult)
+1. [什么是“火候”，家庭厨房该怎么控制火候](https://www.douyin.com/video/7068426288901541150?modeFrom=searchResult)
 
 2. [炒菜必备基础知识 火候和油温的控制技巧](https://www.douyin.com/video/7202938212967255356?modeFrom=searchResult)
 
-3. [一个视频教会你，极牌煎锅到底怎么用才好！ ](https://www.douyin.com/video/7498294597433560383?modeFrom=searchResult)
+3. [4种火候控制 ](https://www.douyin.com/video/7498294597433560383?modeFrom=searchResult)
 
 #### 调味
 
@@ -80,7 +80,7 @@ title = '自己做饭教程导航'
 
 2. [葱爆鸡蛋](https://www.douyin.com/video/7288617655383182592?modeFrom=searchResult)
 
-3. [江西下饭菜-辣椒炒蛋](https://www.douyin.com/video/7362484525177261366?modeFrom=searchResult)
+3. [辣椒炒蛋](https://www.douyin.com/video/7362484525177261366?modeFrom=searchResult)
 
 4. [蒜苗炒鸡蛋](https://www.douyin.com/video/7159464810508291365?modeFrom=searchResult)
 
@@ -98,7 +98,7 @@ title = '自己做饭教程导航'
 
 11. [青椒火腿炒蛋](https://www.douyin.com/video/7528703672516103451?modeFrom=searchResult)
 
-12. [鸡蛋最好吃的，15种神仙做法](https://www.douyin.com/video/7495227128754015538?modeFrom=searchResult)
+12. [鸡蛋最好吃的15种神仙做法](https://www.douyin.com/video/7495227128754015538?modeFrom=searchResult)
 
 #### 炒牛肉
 
@@ -114,7 +114,7 @@ title = '自己做饭教程导航'
 
 1. [猪肉去腥](https://www.douyin.com/video/7203299347134418236?modeFrom=searchResult)
 
-2. [3种家庭炒肉，解决炒肉柴，硬，不好吃的问题](https://www.douyin.com/video/6990289124204891427?modeFrom=searchResult)
+2. [解决炒肉柴，硬，不好吃的问题](https://www.douyin.com/video/6990289124204891427?modeFrom=searchResult)
 
 3. [葱爆肉](https://www.douyin.com/video/7239223249215737145?modeFrom=searchResult)
 
@@ -141,13 +141,13 @@ title = '自己做饭教程导航'
 
 2. [调味料分类大全](http://ye.angelyeast.com/contents/3956/66774.html)
 
-3. [34种常见厨房调料用法大全，今天一次性告诉你！](https://www.bilibili.com/opus/281081351552384967)
+3. [34种常见厨房调料用法大全](https://www.bilibili.com/opus/281081351552384967)
 
 ## 认识厨具
 
-1. [厨房新手指南：你到底需要什么厨具？](https://zhuanlan.zhihu.com/p/33353513)
+1. [你到底需要什么厨具？](https://zhuanlan.zhihu.com/p/33353513)
 
-2. [新手厨房厨具选购指南](https://post.smzdm.com/p/a25gg94q/)
+2. [厨具选购指南](https://post.smzdm.com/p/a25gg94q/)
 
 ## 菜单食谱
 1. [像老乡鸡那样做饭](https://cooklikehoc.soilzhu.su/)
