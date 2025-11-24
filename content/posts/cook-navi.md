@@ -13,6 +13,12 @@ title = '自己做饭教程导航'
 
 ### 专项教程
 
+#### 通用原理和方法
+
+1. [做菜基本原理](https://www.douyin.com/video/7494647707194133811?modeFrom=searchResult)
+
+2. [做菜万能公式](https://www.douyin.com/video/7343887183859813671?modeFrom=searchResult)
+
 #### 刀工
 
 1. [刀工教学技术核心](https://www.douyin.com/video/7506099089554476299?modeFrom=searchResult)
@@ -55,15 +61,9 @@ title = '自己做饭教程导航'
 
 3. [卤肉香料深层次知识讲解](https://www.douyin.com/video/7422972632557047078?modeFrom=searchResult)
 
-#### 通用原理和方法
-
-1. [做菜基本原理](https://www.douyin.com/video/7494647707194133811?modeFrom=searchResult)
-
-2. [做菜万能公式](https://www.douyin.com/video/7343887183859813671?modeFrom=searchResult)
-
 #### 蒸米饭
 
-1. [蒸米饭10秒教会你无电饭锅蒸米饭](https://www.douyin.com/video/7464519711754177830?modeFrom=searchResult)
+1. [10秒教会你无电饭锅蒸米饭](https://www.douyin.com/video/7464519711754177830?modeFrom=searchResult)
 
 2. [炒锅直接做米饭](https://www.douyin.com/video/7559188922266783033?modeFrom=searchResult)
 
