@@ -54,8 +54,11 @@ title = '自己做饭教程导航'
 
 [卤肉香料深层次知识讲解](https://www.douyin.com/video/7422972632557047078?modeFrom=searchResult)
 
-#### 原理
+#### 通用原理和方法
+
 [做菜基本原理](https://www.douyin.com/video/7494647707194133811?modeFrom=searchResult)
+
+[做菜万能公式](https://www.douyin.com/video/7343887183859813671?modeFrom=searchResult)
 
 #### 蒸米饭
 
