@@ -125,10 +125,16 @@ title = '自己做饭教程导航'
 #### 炒鸡肉
 
 1. [葱姜炒鸡](https://www.douyin.com/video/7402437456647245106?modeFrom=searchResult)
-
 2. [家常小炒鸡](https://www.douyin.com/video/7512022444308925753?modeFrom=searchResult)
-
 3. [青椒辣子鸡，简单好吃又下饭](https://www.douyin.com/video/7227407762920197376?modeFrom=searchResult)
+
+### 卤菜
+
+1. [甜辣鸭货](https://www.douyin.com/video/7490845901460622646?modeFrom=searchResult)
+
+2. [五香卤菜](https://www.douyin.com/video/7531286364915010868?modeFrom=searchResult)
+
+3. [弄懂卤水的底层逻辑](https://www.douyin.com/video/7543080845452561679?modeFrom=searchResult)
 
 ## 认识食材
 
