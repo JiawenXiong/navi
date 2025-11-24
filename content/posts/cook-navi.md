@@ -142,6 +142,11 @@ title = '自己做饭教程导航'
 
 3. [弄懂卤水的底层逻辑](https://www.douyin.com/video/7543080845452561679?modeFrom=searchResult)
 
+### 烧烤
+
+1. [家庭小烧烤](https://www.douyin.com/video/7521347351698640154?modeFrom=searchResult)
+2. [烤箱版懒人烧烤](https://www.douyin.com/video/7444608004974054690?modeFrom=searchResult)
+
 ## 认识食材
 
 1. [26种蔬菜辨别图片，带你认识不同的蔬菜和吃法](https://www.sohu.com/a/541356869_120458538)
@@ -158,8 +163,11 @@ title = '自己做饭教程导航'
 ## 认识厨具
 
 1. [你到底需要什么厨具？](https://zhuanlan.zhihu.com/p/33353513)
-
 2. [厨具选购指南](https://post.smzdm.com/p/a25gg94q/)
+
+### 烤箱
+
+1. [烤箱使用教程](https://www.douyin.com/video/7324513149409873163?modeFrom=searchResult)
 
 ## 菜单食谱
 1. [像老乡鸡那样做饭](https://cooklikehoc.soilzhu.su/)
