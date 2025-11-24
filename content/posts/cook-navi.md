@@ -19,6 +19,8 @@ title = '自己做饭教程导航'
 
 2. [做菜万能公式](https://www.douyin.com/video/7343887183859813671?modeFrom=searchResult)
 
+3. [改掉炒菜时的10个坏毛病](https://www.douyin.com/video/7547072867046722879?modeFrom=searchResult)
+
 #### 刀工
 
 1. [刀工教学技术核心](https://www.douyin.com/video/7506099089554476299?modeFrom=searchResult)
@@ -37,13 +39,13 @@ title = '自己做饭教程导航'
 
 4. [一条视频说清楚，关于食物焯水](https://www.douyin.com/video/7544212586124840207?modeFrom=searchResult)
 
-#### 颠勺/翻勺
+#### 颠勺/翻勺/翻锅
 
 1. [30秒学会颠勺技巧](https://www.douyin.com/video/7287058378470214912?modeFrom=searchResult)
-
 2. [翻勺小秘诀，一招学会](https://www.douyin.com/video/7452924126039215396?modeFrom=searchResult)
-
 3. [翻锅小技巧](https://www.douyin.com/video/7458262778361416971?modeFrom=searchResult)
+4. [翻锅分解训练方法](https://www.douyin.com/video/7204489741000002855?modeFrom=searchResult)
+5. [一推 二翘 三拉勺子往前推](https://www.douyin.com/video/7546551064373513482?modeFrom=searchResult)
 
 #### 火候控制
 
@@ -72,7 +74,6 @@ title = '自己做饭教程导航'
 #### 养锅
 
 1. [超详细二次开锅教程](https://www.douyin.com/video/7526093471929912602?modeFrom=searchResult)
-
 2. [怎样是真正的养锅](https://www.douyin.com/video/7421841364075285797?modeFrom=searchResult)
 
 ### 下饭菜
@@ -133,6 +134,14 @@ title = '自己做饭教程导航'
 1. [葱姜炒鸡](https://www.douyin.com/video/7402437456647245106?modeFrom=searchResult)
 2. [家常小炒鸡](https://www.douyin.com/video/7512022444308925753?modeFrom=searchResult)
 3. [青椒辣子鸡，简单好吃又下饭](https://www.douyin.com/video/7227407762920197376?modeFrom=searchResult)
+
+#### 炒贝类
+
+1. [爆炒花甲](https://www.douyin.com/video/7163568540660829470?modeFrom=searchResult)
+
+2. [法式蒜香青口贝](https://www.douyin.com/video/7407660080117615882?modeFrom=searchResult)
+
+3. [水煮青口贝](https://www.douyin.com/video/7148791623541886244?modeFrom=searchResult)
 
 ### 卤菜
 
