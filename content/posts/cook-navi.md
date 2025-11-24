@@ -69,6 +69,12 @@ title = '自己做饭教程导航'
 
 3. [高级蒸米饭技巧](https://www.douyin.com/video/7345686080185814299?modeFrom=searchResult)
 
+#### 养锅
+
+1. [超详细二次开锅教程](https://www.douyin.com/video/7526093471929912602?modeFrom=searchResult)
+
+2. [怎样是真正的养锅](https://www.douyin.com/video/7421841364075285797?modeFrom=searchResult)
+
 ### 下饭菜
 
 #### 炒菜
