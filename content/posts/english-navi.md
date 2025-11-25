@@ -34,8 +34,8 @@ title = '英语学习资源导航'
 ### 背单词
 
 1. [Qwerty Learner 官网 — 为键盘工作者设计的单词与肌肉记忆锻炼软件](https://qwerty.kaiyi.cool/)
-
 2. [Type Words 官网 - 词文记 | 单词跟打 · 文章跟打](https://2study.top/)
+3. [Vocabulary.com - Learn Words - English Dictionary](https://www.vocabulary.com/)
 
 ### 句子
 
@@ -167,10 +167,9 @@ title = '英语学习资源导航'
 ### 演讲
 
 1. [English Speech Feast的抖音 - 抖音](https://www.douyin.com/user/MS4wLjABAAAAynTJQDtFZdkHJisQf4SxUjT3oZXG4xVD5QmimQ-hMmwRBh5g-OP7XlX35_NvKwbh?from_tab_name=main)
-
 2. [TED今日演讲的抖音 - 抖音](https://www.douyin.com/user/MS4wLjABAAAA7hfyYjV5Iiqd3AM5EdiWK6_MAdoJYU66Yfo9FRpprKhYBm4RxPTAVcI-9r7ML9vJ?from_tab_name=main)
-
 3. [英文视频的抖音 - 抖音](https://www.douyin.com/user/MS4wLjABAAAAfzyZEgK3LAOAkyXA6G306VXz3-XHYNj58mIsPc-nwCTuxcj3qvAnsPxSUW3quljC?from_tab_name=main)
+4. [TED 演讲的抖音 - 抖音](https://www.douyin.com/user/MS4wLjABAAAAybf5fIC1JRCQdwO5XSPSv5PEaVlnDXHRiaQYRz0prXMeOgYz1LGsqa2pvAvYhVoL?from_tab_name=main)
 
 ### 访谈
 
@@ -242,7 +241,8 @@ title = '英语学习资源导航'
 1. [妙爸英语学习路线图 - 知乎](https://zhuanlan.zhihu.com/p/662011227)
 
 2. [英语及口语学习路线图 - 再熬夜不给糖吃 - 博客园](https://www.cnblogs.com/candy7258/p/18427837)
+3. [零基础学英语：打造你的英语学习路线图](https://www.xhd.cn/zxzx/195819.html)
 
-3. [英文阅读好网址_英语学习网站大全](https://www.yywz123.com/web/favorite.php?typeid=10)
+4. [英文阅读好网址_英语学习网站大全](https://www.yywz123.com/web/favorite.php?typeid=10)
 
-4. [学英语万万不能错过的24个英文网站](https://zhuanlan.zhihu.com/p/39732314)
+5. [学英语万万不能错过的24个英文网站](https://zhuanlan.zhihu.com/p/39732314)
