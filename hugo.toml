@@ -6,5 +6,5 @@ enableEmoji = true
 
 [params]
 showToc = true
-
+tocopen = true
 
