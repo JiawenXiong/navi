@@ -7,13 +7,13 @@ title = '滑雪学习资源导航'
 ## 双板滑雪
 
 ### 进阶路线
-1. [双板滑雪技术等级标准来](https://www.toutiao.com/article/7468607174005998107/?channel=&source=search_tab)
+1. [双板滑雪技术等级标准](https://www.toutiao.com/article/7468607174005998107/?channel=&source=search_tab)
 
 2. [大众滑雪等级标准](https://www.toutiao.com/article/6645241033967813134/?channel=&source=search_tab)
 
 ### 原理
 
-1. [滑雪中的物理原理 - 双板滑雪教程02_哔哩哔哩_bilibili](https://www.bilibili.com/video/BV1g14y1j7tc/?spm_id_from=333.788.player.switch&vd_source=4572c73dbbfb598c49de5434f0520dae&trackid=web_related_0.router-related-2206419-dk9pw.1763932067790.557)
+1. [滑雪中的物理原理](https://www.bilibili.com/video/BV1g14y1j7tc/?spm_id_from=333.788.player.switch&vd_source=4572c73dbbfb598c49de5434f0520dae&trackid=web_related_0.router-related-2206419-dk9pw.1763932067790.557)
 
 	> 滑雪的本质就是通过控制髋部和脚踝，来调整板的压力和压力点（内外刃，板面），从而控制板在雪面上的运动形态，从而实现滑动、制动、转弯；
 
