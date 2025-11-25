@@ -1,8 +1,16 @@
 baseURL = "https://jiawenxiong.github.io/navi/"
-languageCode = 'en-us'
+# languageCode = 'en-us'
 title = '家文的资源导航网站'
 theme = "PaperMod"
 enableEmoji = true
+
+defaultContentLanguage = "zh-cn"
+
+[languages]
+[languages.zh-cn]
+languageCode = "zh-CN"
+languageName = "简体中文"
+weight = 1
 
 [params]
 showToc = true
