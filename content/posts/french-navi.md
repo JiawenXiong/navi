@@ -103,25 +103,26 @@ title = '法语学习资源'
 
 3. [【50集全】跟着法国小学生轻松学法语，5小时记完900个单词](https://www.bilibili.com/video/BV1ng4y1N7tQ?spm_id_from=333.788.recommend_more_video.2&trackid=web_related_0.router-related-2206419-2xpqp.1764359126122.601&vd_source=4572c73dbbfb598c49de5434f0520dae)
 4. [法语阅读理解必备词汇整理](https://www.xiaohongshu.com/explore/680fe1f0000000000e0074ad?xsec_token=ABJquXTEPWl3HkAWZOXHkTM8WQkdJDQSbaYan4F2Z8x-8=&xsec_source=pc_search&source=unknown)
+5. [常见法语词汇分类](https://www.beiwaiclass.com/bulletins/buldetail-349-2154.html)
+6. [【法语1000单词】简直是我法语单词匮乏的救星！日常磨耳朵！A1~A2常用单词大全，一个星期就能记完1000单词！_哔哩哔哩_bilibili](https://www.bilibili.com/video/BV1Fc411E7uj/?vd_source=4572c73dbbfb598c49de5434f0520dae)
 
 ## 句子
 
 ### 常用句
 
 1. [法语日常用语谐音](https://www.xiaohongshu.com/explore/674d4e39000000000703ade2?xsec_token=ABWFVIl0S93_ShQ143tQmuOxoaQ5-7wnh0XxBcvGhvNZA=&xsec_source=pc_search&source=web_explore_feed)
-2. [法语220个让表达逻辑起飞的连接词！](https://www.xiaohongshu.com/explore/68a81423000000001d038398?xsec_token=ABthOOX-Q6cSb5xJCB9nyDnmM8m5H1PxP57KyY2NU0WqI=&xsec_source=pc_search&source=web_explore_feed)
+2. [法语基本日常用语](https://zh.speaklanguages.com/%E6%B3%95%E8%AF%AD/%E6%97%A5%E5%B8%B8%E7%94%A8%E8%AF%AD/%E8%8B%B1%E8%AF%AD%E5%9F%BA%E6%9C%AC%E6%97%A5%E5%B8%B8%E7%94%A8%E8%AF%AD)
+3. [法语220个让表达逻辑起飞的连接词！](https://www.xiaohongshu.com/explore/68a81423000000001d038398?xsec_token=ABthOOX-Q6cSb5xJCB9nyDnmM8m5H1PxP57KyY2NU0WqI=&xsec_source=pc_search&source=web_explore_feed)
+4. [50句法语日常谐音句子！](https://www.xiaohongshu.com/explore/674446e50000000006016ada?xsec_token=AB4jim9GbZxTatDZuKpkauLad00qGj4vxPqfc9UXH-jlw=&xsec_source=pc_search&source=web_explore_feed)
+5. [法语口语实用句 ](https://www.xiaohongshu.com/explore/681c5c60000000000f032ecd?xsec_token=AB70pLqSfFKJiYdBpXW15EvO3lsIK0_iOPuR9UYpIrwSY=&xsec_source=pc_search&source=web_explore_feed)
+6. [法国旅游一定会用到的100句口语！出国必备](https://www.xiaohongshu.com/explore/66c986c3000000001f01a64a?xsec_token=ABztN-yq5xpvBRIRxXLng1aET3yRiLxEB7AMrl_jLPLgw=&xsec_source=pc_search&source=web_explore_feed)
 
-3. [50句法语日常谐音句子！](https://www.xiaohongshu.com/explore/674446e50000000006016ada?xsec_token=AB4jim9GbZxTatDZuKpkauLad00qGj4vxPqfc9UXH-jlw=&xsec_source=pc_search&source=web_explore_feed)
+7. [去法国旅游常用语](https://www.xiaohongshu.com/explore/6883604b000000001203010f?xsec_token=ABTz_8J9-Y5ljzhjDtdxeszt7ScrRDNStTs_VJqs7xvOs=&xsec_source=pc_search&source=web_explore_feed)
+8. [法语很重要的固定搭配！分类详](https://www.xiaohongshu.com/explore/6926c1c4000000001e007b66?xsec_token=ABbznh-SBE8QAx6JXv7hIu8NkPCZ320c2mRvHpJdWNkes=&xsec_source=pc_search&source=web_explore_feed)
 
-4. [法语口语实用句 ](https://www.xiaohongshu.com/explore/681c5c60000000000f032ecd?xsec_token=AB70pLqSfFKJiYdBpXW15EvO3lsIK0_iOPuR9UYpIrwSY=&xsec_source=pc_search&source=web_explore_feed)
-5. [法国旅游一定会用到的100句口语！出国必备](https://www.xiaohongshu.com/explore/66c986c3000000001f01a64a?xsec_token=ABztN-yq5xpvBRIRxXLng1aET3yRiLxEB7AMrl_jLPLgw=&xsec_source=pc_search&source=web_explore_feed)
+9. [职场必备！900句外企打工人常用法语口语！](https://www.xiaohongshu.com/explore/688c5755000000000303130b?xsec_token=AB7D_kRfDnXW6O1tmuhTsE3WlnnjcAGyB1Z-jM1KauRsI=&xsec_source=pc_search&source=web_explore_feed)
 
-6. [去法国旅游常用语](https://www.xiaohongshu.com/explore/6883604b000000001203010f?xsec_token=ABTz_8J9-Y5ljzhjDtdxeszt7ScrRDNStTs_VJqs7xvOs=&xsec_source=pc_search&source=web_explore_feed)
-7. [法语很重要的固定搭配！分类详](https://www.xiaohongshu.com/explore/6926c1c4000000001e007b66?xsec_token=ABbznh-SBE8QAx6JXv7hIu8NkPCZ320c2mRvHpJdWNkes=&xsec_source=pc_search&source=web_explore_feed)
-
-8. [职场必备！900句外企打工人常用法语口语！](https://www.xiaohongshu.com/explore/688c5755000000000303130b?xsec_token=AB7D_kRfDnXW6O1tmuhTsE3WlnnjcAGyB1Z-jM1KauRsI=&xsec_source=pc_search&source=web_explore_feed)
-
-9. [法语口语实用句](https://www.xiaohongshu.com/explore/681c5c60000000000f032ecd?xsec_token=AB70pLqSfFKJiYdBpXW15EvO3lsIK0_iOPuR9UYpIrwSY=&xsec_source=pc_search&source=unknown)
+10. [法语口语实用句](https://www.xiaohongshu.com/explore/681c5c60000000000f032ecd?xsec_token=AB70pLqSfFKJiYdBpXW15EvO3lsIK0_iOPuR9UYpIrwSY=&xsec_source=pc_search&source=unknown)
 
 ### 俚语
 
