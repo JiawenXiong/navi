@@ -246,3 +246,56 @@ title = '英语学习资源导航'
 4. [英文阅读好网址_英语学习网站大全](https://www.yywz123.com/web/favorite.php?typeid=10)
 
 5. [学英语万万不能错过的24个英文网站](https://zhuanlan.zhihu.com/p/39732314)
+
+## 英语口语听力
+
+[【法语1000单词】简直是我法语单词匮乏的救星！日常磨耳朵！A1~A2常用单词大全，一个星期就能记完1000单词！_哔哩哔哩_bilibili](https://www.bilibili.com/video/BV1Fc411E7uj/?vd_source=4572c73dbbfb598c49de5434f0520dae)
+
+### 单词
+
+### 情景对话
+
+1. [【Easy English】油管上几千万播放量的日常英语口语练习素材，最全合集_哔哩哔哩_bilibili](https://www.bilibili.com/video/BV1X54y1p7Dd/?spm_id_from=333.337.search-card.all.click&vd_source=4572c73dbbfb598c49de5434f0520dae)
+2. [【68集 英语口语 2000个场景 实景教学】场景话题 Ariannita 日常交流 生活口语 地道英文听力材料 素材干货学习 外教老师讲解技巧 雅思合集 字幕_哔哩哔哩_bilibili](https://www.bilibili.com/video/BV1emBiYcEAV/?spm_id_from=333.337.search-card.all.click&vd_source=4572c73dbbfb598c49de5434f0520dae)
+
+### 故事
+
+1. [【1000集全】听力干货 精选英文动画故事系列_哔哩哔哩_bilibili](https://www.bilibili.com/video/BV1n7411J7EQ/?spm_id_from=333.337.search-card.all.click&vd_source=4572c73dbbfb598c49de5434f0520dae)
+2. [听故事学英文 | 奥黛丽·赫本的一生 |通过故事学英语 |初级英语_哔哩哔哩_bilibili](https://www.bilibili.com/video/BV1T9USBgEyd/?spm_id_from=333.337.search-card.all.click&vd_source=4572c73dbbfb598c49de5434f0520dae)
+3. [对于美国小学生可能过于幼稚但对于国内大学生刚刚好，多个高质量英语动画故事帮助巩固英语语法和听力_哔哩哔哩_bilibili](https://www.bilibili.com/video/BV1iv4y117Fk/?spm_id_from=333.337.search-card.all.click&vd_source=4572c73dbbfb598c49de5434f0520dae)
+
+### 访谈
+
+1. [英伟达创始人兼CEO黄仁勋深度访谈：超级人工智能的未来、英伟达接下来的发展方向【大佬访谈vol.3】（中英校译）_哔哩哔哩_bilibili](https://www.bilibili.com/video/BV1TALWzYETS/?spm_id_from=333.337.search-card.all.click&vd_source=4572c73dbbfb598c49de5434f0520dae)
+2. [【1080P双语字幕】阿黛尔最新深度专访完整版 离婚/减肥/与父亲和解/新恋情_哔哩哔哩_bilibili](https://www.bilibili.com/video/BV1LS4y1R7JE/?spm_id_from=333.337.search-card.all.click&vd_source=4572c73dbbfb598c49de5434f0520dae)
+3. [（中英校译）谷爱凌的高效人生管理术：我如何平衡生活中的一切【EmpowerHer vol.282】_哔哩哔哩_bilibili](https://www.bilibili.com/video/BV16b3DzREVF?spm_id_from=333.788.videopod.sections&vd_source=4572c73dbbfb598c49de5434f0520dae)
+4. [好莱坞女星圆桌会议群星闪耀【明星访谈 vol.1】（中英校译）_哔哩哔哩_bilibili](https://www.bilibili.com/video/BV1YyZHYvEzw/?spm_id_from=333.337.search-card.all.click&vd_source=4572c73dbbfb598c49de5434f0520dae)
+5. [【全20集】油管顶流博主Sydney Serena日常生活纪实（中英翻译版）外教英语深度学习 原汁原味练口语听力 视频+文档_哔哩哔哩_bilibili](https://www.bilibili.com/video/BV1pNbKzLEQ2/?spm_id_from=333.337.search-card.all.click&vd_source=4572c73dbbfb598c49de5434f0520dae)
+6. [高端访谈丨专访斐济议长 吉托科_哔哩哔哩_bilibili](https://www.bilibili.com/video/BV151ZcY5EAE?spm_id_from=333.788.videopod.sections&vd_source=4572c73dbbfb598c49de5434f0520dae)
+7. [【英语播客】采访全球最具影响力的思想领袖和重要人物。英语丨英语听力丨英语口语丨考试丨高考丨四六级丨雅思丨托福_哔哩哔哩_bilibili](https://www.bilibili.com/video/BV18srKYLELG?spm_id_from=333.788.videopod.sections&vd_source=4572c73dbbfb598c49de5434f0520dae)
+
+### 播客
+
+1. [【YouTube最好的英语播客】初级版 | 适合每天磨耳朵，绝佳的英语听力素材_哔哩哔哩_bilibili](https://www.bilibili.com/video/BV1MN4dewEQZ/?spm_id_from=333.337.search-card.all.click&vd_source=4572c73dbbfb598c49de5434f0520dae)
+2. [（最全合集）最适合英语人的播客 The Balance Theory Podcast | 自我成长播客 | 听力磨耳朵_哔哩哔哩_bilibili](https://www.bilibili.com/video/BV1JS42197BD/?spm_id_from=333.337.search-card.all.click&vd_source=4572c73dbbfb598c49de5434f0520dae)
+3. [英语播客｜职业困惑与建议: 关于工作倦怠、职业迷茫、职场恐惧、梦想与现实落差等｜Anything goes with Emma_哔哩哔哩_bilibili](https://www.bilibili.com/video/BV1tfUkBXEqF?spm_id_from=333.788.videopod.sections&vd_source=4572c73dbbfb598c49de5434f0520dae)
+4. [【雅思播客 全100集】油管最好的学雅思播客之一_用播客对话学习英语，发音，速度，声音都非常完美，绝佳雅思学习素材！雅思丨雅思听力丨雅思口语丨雅思小白丨雅思网课_哔哩哔哩_bilibili](https://www.bilibili.com/video/BV1rq4CeDE1h/?spm_id_from=333.337.search-card.all.click&vd_source=4572c73dbbfb598c49de5434f0520dae)
+5. [英语播客｜190. 在二十多岁时学会享受独处 | The Psychology of your 20s｜心理学英文播客 Podcast_哔哩哔哩_bilibili](https://www.bilibili.com/video/BV1Kx4y1z7CN/?spm_id_from=333.337.search-card.all.click&vd_source=4572c73dbbfb598c49de5434f0520dae)
+6. [【英语播客】采访全球最具影响力的思想领袖和重要人物。英语丨英语听力丨英语口语丨考试丨高考丨四六级丨雅思丨托福_哔哩哔哩_bilibili](https://www.bilibili.com/video/BV11JJPz9ERx/?spm_id_from=333.337.search-card.all.click&vd_source=4572c73dbbfb598c49de5434f0520dae)
+7. [【BBC新闻播客】20251127: Dozens killed in Hong Kong fire | BBC News_哔哩哔哩_bilibili](https://www.bilibili.com/video/BV125SGBNEZC/?spm_id_from=333.337.search-card.all.click&vd_source=4572c73dbbfb598c49de5434f0520dae)
+8. [【YouTube最好播客】成长、情感、生活英语播客，英文CC外挂字幕，非常适合英语人，学英语磨耳朵！_哔哩哔哩_bilibili](https://www.bilibili.com/video/BV1dBcJekEpc/?spm_id_from=333.337.search-card.all.click&vd_source=4572c73dbbfb598c49de5434f0520dae)
+9. [【YouTube最好的英语播客】初级版 | 适合每天磨耳朵，绝佳的英语听力素材_哔哩哔哩_bilibili](https://www.bilibili.com/video/BV1MN4dewEQZ/?spm_id_from=333.337.search-card.all.click)
+10. [【英语播客】最适合英语人的播客93集合集 | 每天一个话题，带你进入全英文语境 | 绝佳的口语听力素材_哔哩哔哩_bilibili](https://www.bilibili.com/video/BV1gcCqB8EqB/?spm_id_from=333.337.search-card.all.click)
+11. [（最全合集）最适合英语人的播客 The Balance Theory Podcast | 自我成长播客 | 听力磨耳朵_哔哩哔哩_bilibili](https://www.bilibili.com/video/BV1JS42197BD/?spm_id_from=333.337.search-card.all.click)
+12. [【雅思播客 全100集】油管最好的学雅思播客之一_用播客对话学习英语，发音，速度，声音都非常完美，绝佳雅思学习素材！雅思丨雅思听力丨雅思口语丨雅思小白丨雅思网课_哔哩哔哩_bilibili](https://www.bilibili.com/video/BV1rq4CeDE1h/?spm_id_from=333.337.search-card.all.click&vd_source=4572c73dbbfb598c49de5434f0520dae)
+13. [【英语播客磨耳朵】5:00AM：大脑黄金时间_哔哩哔哩_bilibili](https://www.bilibili.com/video/BV1gk4Rz4EfV/?spm_id_from=333.337.search-card.all.click&vd_source=4572c73dbbfb598c49de5434f0520dae)
+14. [英语播客｜远离社交媒体成瘾，替代无休刷手机的趣味活动｜Anything goes with Emma | 英文 Podcast_哔哩哔哩_bilibili](https://www.bilibili.com/video/BV1h5tsemEc2/?spm_id_from=333.337.search-card.all.click&vd_source=4572c73dbbfb598c49de5434f0520dae)
+15. [【英语播客】50集合集|沉浸式狂练口语听力|一个月提升N个Level_哔哩哔哩_bilibili](https://www.bilibili.com/video/BV1xwUCBDEsn/?spm_id_from=333.337.search-card.all.click&vd_source=4572c73dbbfb598c49de5434f0520dae)
+16. [英语播客-哲学 | 为什么"优绩主义"会腐蚀社会 （迈克尔·桑德尔）｜Philosophize This Podcast_哔哩哔哩_bilibili](https://www.bilibili.com/video/BV1ke6NY4EvB/?spm_id_from=333.337.search-card.all.click&vd_source=4572c73dbbfb598c49de5434f0520dae)
+17. [【英语播客】一口气重温 ⌈甄嬛传⌋ 主线剧情！| 英文字幕_哔哩哔哩_bilibili](https://www.bilibili.com/video/BV1xaNbzQEHL/?spm_id_from=333.337.search-card.all.click&vd_source=4572c73dbbfb598c49de5434f0520dae)
+18. [【英语素材】英国乡村生活播客（一），绝佳的英语学习素材，英语/雅思/托福/考试/知识/校园学习_哔哩哔哩_bilibili](https://www.bilibili.com/video/BV18NKjeKEN8/?spm_id_from=333.337.search-card.all.click&vd_source=4572c73dbbfb598c49de5434f0520dae)
+19. [【英语播客】Podcast And Chill | 请同学们把耳朵调回英文频道 | 绝佳的听力口语训练素材_哔哩哔哩_bilibili](https://www.bilibili.com/video/BV1Qry3BFEWT/?spm_id_from=333.337.search-card.all.click&vd_source=4572c73dbbfb598c49de5434f0520dae)
+20. [【71集】English For Work | 商务英语 | 外企上班族必备_哔哩哔哩_bilibili](https://www.bilibili.com/video/BV1V2n9zVEFV/?spm_id_from=333.337.search-card.all.click&vd_source=4572c73dbbfb598c49de5434f0520dae)
+21. [【YouTube最好英语播客】CEO日记-不再迷茫系列，绝佳的英语听力素材，英语/考试/雅思/托福_哔哩哔哩_bilibili](https://www.bilibili.com/video/BV1CrFWeAESB/?spm_id_from=333.337.search-card.all.click&vd_source=4572c73dbbfb598c49de5434f0520dae)
+22. [【8分钟英语】油管超受欢迎的8分钟播客合集50集 | 我可以躺平吗 | 超级有趣又实用的听力磨耳朵素材_哔哩哔哩_bilibili](https://www.bilibili.com/video/BV1mvfKYJEqf/?spm_id_from=333.337.search-card.all.click&vd_source=4572c73dbbfb598c49de5434f0520dae)
+23. [【英语播客】克里斯·威廉姆森《现代智慧》系列，英语/英语听力/英语口语/高考/四六级/托福/雅思_哔哩哔哩_bilibili](https://www.bilibili.com/video/BV1hBLUz1EYh/?spm_id_from=333.337.search-card.all.click&vd_source=4572c73dbbfb598c49de5434f0520dae)
