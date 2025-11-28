@@ -5,16 +5,111 @@ title = '英语学习资源导航'
 
 +++
 
-## 听力材料
+## 单词
 
-1. [【Easy English】日常英语对话](https://www.bilibili.com/video/BV1qbrUYkEcJ/?spm_id_from=333.337.search-card.all.click&vd_source=4572c73dbbfb598c49de5434f0520dae)
+1. [基础差背500个高频词🔥英语有救了！ - 小红书](https://www.xiaohongshu.com/explore/68c9595d0000000013036fe7?xsec_token=ABBavEdN5CsheK8M1z6oaoXIL6u_qTVblzogfzsofOsxA=&xsec_source=pc_search&source=unknown)
 
-2. [【TED-ED 700集】B站最好英语合集](https://www.bilibili.com/video/BV1Dk4y1q781?spm_id_from=333.788.videopod.episodes&vd_source=4572c73dbbfb598c49de5434f0520dae)
+2. [基础差必背2000词🔥背完你的词汇量暴涨 - 小红书](https://www.xiaohongshu.com/explore/690f0043000000000302fff3?xsec_token=ABdvrrx4tjmtwUP6X-_yiCdUc9l_D0Wc6wCtGqHRg56OA=&xsec_source=pc_search&source=web_explore_feed)
+
+3. [英语逆袭必备背3500基础词！暴涨词汇量！ - 小红书](https://www.xiaohongshu.com/explore/68708b77000000002001b0f3?xsec_token=ABFRvLa70sra9xjBxqabhIszRvdD3XP1dJBgL6K9aj3a8=&xsec_source=pc_search&source=unknown)
+
+4. [基础差必背3500词！词汇量暴涨！太顶了！ - 小红书](https://www.xiaohongshu.com/explore/66508d29000000001401a3b7?xsec_token=AB-RMeGghgZtGjw2gQ4Jjvfm97zkEB4mXbuC5sH5-4Vbw=&xsec_source=pc_search&source=unknown)
+
+5. [超全办公英文单词大汇总来咯～📌 - 小红书](https://www.xiaohongshu.com/explore/680b3d93000000001b038882?xsec_token=ABDLZie3X02rzBoVj5BnOlb67one7uiM7O0xQqAZqn9wM=&xsec_source=pc_search&source=unknown)
+
+6. [英语四六级阅读高频词！赶紧背背吧 - 小红书](https://www.xiaohongshu.com/explore/684612fb000000002001d518?xsec_token=ABjzHc-qyTW_KKxRsTsKCKIlA9-AWWKTlRt6D0oWdCGVM=&xsec_source=pc_search&source=unknown)
+
+7. [外贸词汇，无非就这 115词，背完稳了 - 小红书](https://www.xiaohongshu.com/explore/68ad18e4000000001d00b1a8?xsec_token=AB543441GZQp2zKz5mogbX6Su0-9jTVsKOQ3HKNISFLTA=&xsec_source=pc_search&source=unknown)
+
+8. [计算机专用词汇](https://www.xiaohongshu.com/explore/671268ad000000001402e200?xsec_token=AB_XyRvjNSoqOZS7CSu7UFza2iuWU9k2KqA0I-AmoIO_k=&xsec_source=pc_search&source=unknown)
+
+9. [程序员必背500单词 - 小红书](https://www.xiaohongshu.com/explore/68c8afd0000000001d007ea0?xsec_token=ABy_bdSm7obDjDS6CGo44TwHNQQ0Fk0R9N0WbyYl9x_gE=&xsec_source=pc_search&source=unknown)
+
+10. [写邮件常用的100个英文单词✌ - 小红书](https://www.xiaohongshu.com/explore/667fe181000000001d0194a9?xsec_token=AB3JZ_Uatmm-cSUtmASNhp44fXSujDVibPJW9vDwPrlWg=&xsec_source=pc_search&source=unknown)
+
+11. [职场工作常用的英语基础词汇 - 小红书](https://www.xiaohongshu.com/explore/67282462000000001b02bec2?xsec_token=ABMnS2RBizF0SrDDqY9QmqDBAiqSeHunwuyBKBUWXYslU=&xsec_source=pc_search&source=unknown)
+
+12. [英语口语——跟上班有关的英语表达 - 小红书](https://www.xiaohongshu.com/explore/67e3a174000000001d016fc6?xsec_token=ABG7kiBkcFXSRyF7l5BDIFzjfKI3HM7AzpNZBLsPYeYz0=&xsec_source=pc_search&source=unknown)
+
+13. [✨外企人必备！50个高频缩写全解析✨ - 小红书](https://www.xiaohongshu.com/explore/68cc172e000000001201d5f5?xsec_token=ABmIFxI4ttbbJ5VBnUNdimuXJuSfT5jY8hDRpPDxjJOYE=&xsec_source=pc_search&source=unknown)
+
+14. [外企中常用的“高频表达” - 小红书](https://www.xiaohongshu.com/explore/6913fb4000000000050006ef?xsec_token=ABp8b7Mki8amajA5MU6aSGgu6vJFqej9ih_cQknOJ-4AA=&xsec_source=pc_search&source=unknown)
+
+15. [外企干货 | 职场常用英语单词 - 小红书](https://www.xiaohongshu.com/explore/691fc3ee000000001d03aa35?xsec_token=AB8CXWHTD6OwU8POuPz386hBwg-RwLyIyLHm4LIK21zT8=&xsec_source=pc_search&source=unknown)
+
+16. [✨常见办公用品英语词汇（一） - 小红书](https://www.xiaohongshu.com/explore/673c2caf00000000070372ed?xsec_token=ABhVMIwz9lj2gjHxugojOgDQX0IVLI89qCvi67o-OjFrc=&xsec_source=pc_search&source=unknown)
+
+17. [职场英文| 背完50个高频动词，英文突飞猛进！ - 小红书](https://www.xiaohongshu.com/explore/66a5c99d000000000d03268e?xsec_token=ABXqIqbP0u0yVW-zGc9XnM_-NiWR38LAJ_-JtsD7hyKTM=&xsec_source=pc_search&source=unknown)
+
+18. [收藏❗️4A广告圈日常沟通常用英文黑话总结 - 小红书](https://www.xiaohongshu.com/explore/67bebd74000000002902a685?xsec_token=ABsO-fHsws7AQUl_VXRj-QsfiM39W7Y1LXtyWq98_M8rc=&xsec_source=pc_search&source=unknown)
+
+## 句子
+
+1. [英语口语积累👍 - 小红书](https://www.xiaohongshu.com/explore/67811c4d000000000b0330c2?xsec_token=ABsHcB4bnDt5dq-w-3LJ3zRaVNEzs_eJ6o3EE5hlirdQs=&xsec_source=pc_search&source=unknown)
+
+### 交流
+
+1. [职场商务英语口语精选120句！ - 小红书](https://www.xiaohongshu.com/explore/6731cc78000000001d038311?xsec_token=ABp_TQsixKvGOVDFU3oQFjHOOEpQ9p9gnGVBT1RqDfNFc=&xsec_source=pc_search&source=unknown)
+2. [职场常用英语表达 - 小红书](https://www.xiaohongshu.com/explore/68b6db89000000001b037b40?xsec_token=ABmS1GMN8JIv6-S8zvuthHezUq5noVHnDyyhhLfP_5BR0=&xsec_source=pc_search&source=unknown)
+3. [外企英语 | 老外都在用的100个职场高频短语 - 小红书](https://www.xiaohongshu.com/explore/67fb6b56000000001d02607f?xsec_token=ABKWr8zy_7c-zsBOlKWGdldCDuZYu8N4vN4RtNOoHrElY=&xsec_source=pc_search&source=unknown)
+4. [外贸人嘴边常挂的500句口头禅 - 小红书](https://www.xiaohongshu.com/explore/684ee77f000000000c039044?xsec_token=ABLUi3qnFotwYzY5uWdQ3p_I-7SW0GblmXDHOoJdBRE6k=&xsec_source=pc_search&source=unknown)
+5. [🇲🇾 15句外企职场英文 - 小红书](https://www.xiaohongshu.com/explore/6875eb910000000023005615?xsec_token=ABLnK3oWpXhM0Ac2gUFQhFOCZywCIF-2shU4QJT8PNta8=&xsec_source=pc_search&source=unknown)
+6. [外企英语！3天背完这80句你就厉害啦！ - 小红书](https://www.xiaohongshu.com/explore/66b39c79000000001e0188b7?xsec_token=ABe0EDGvexD1hyG3Jdo85RplQjmcsfWl2XUIHpi0DdVi4=&xsec_source=pc_search&source=unknown)
+7. [英语沟通力UP！50句搞定所有“已完成” - 小红书](https://www.xiaohongshu.com/explore/691aac5c000000000401794d?xsec_token=ABYSmwSd6_dTtNSGkctbpWbialviD-ajICz9c1iqe7CSw=&xsec_source=pc_search&source=unknown)
+
+### 汇报
+
+1. [【职场英语进阶】外企汇报短语让你自信发言 - 小红书](https://www.xiaohongshu.com/explore/67519db20000000008005439?xsec_token=ABmJDFTbCpb-dWxBc7PKB4dnBxjpY7Hi13yATpKL3EsZU=&xsec_source=pc_search&source=unknown)
+
+### 面试
+
+1. [职场面试常用英语口语表达 - 小红书](https://www.xiaohongshu.com/explore/68b96fd4000000001d013884?xsec_token=ABU7B1Et9z0jLO_RGBzi_ggjKvJmu-EazlJAFq14vozL4=&xsec_source=pc_search&source=unknown)
+2. [全英面试11个常见问题，必备回答模板 - 小红书](https://www.xiaohongshu.com/explore/69088686000000000700294c?xsec_token=AB6JSbu6h3gkHN-TkLTje_xShiS_mhVNad4ySQKiBZ4GI=&xsec_source=pc_search&source=unknown)
+
+### 邮件
+
+1. [外企英语邮件必备格式句子 100 句（含话术 - 小红书](https://www.xiaohongshu.com/explore/68d35fab000000000e00ec5e?xsec_token=ABSGcpmN2GyGlJ4_We8s3rgV7Ub4mfrIAEfsqChWnc-84=&xsec_source=pc_search&source=unknown)
+2. [外企职场人必备！48句地道英文邮件结尾句型 - 小红书](https://www.xiaohongshu.com/explore/6777233b000000000b020131?xsec_token=ABOR_5BN6d78Nc89IqyxsJSvqb0Yy-5ZMxKDSUMYwLVHI=&xsec_source=pc_search&source=unknown)
+
+### 会议
+
+1. [实用干货分享❗️英文会议必备76个句型 - 小红书](https://www.xiaohongshu.com/explore/65ec805c00000000030347c1?xsec_token=ABVr8gzT3I9h49d8DnrQRthMiqkpX6o2Om8i7YKvtCZ60=&xsec_source=pc_search&source=unknown)
+
+2. [300个句子搞定商务英文会议✅ - 小红书](https://www.xiaohongshu.com/explore/6643151d000000001e027ab3?xsec_token=AB9mjKpzwCSzsGarBwEZUfSqwvS73Vcb0re46A1sPfbjw=&xsec_source=pc_search&source=unknown)
+
+## 语法
+
+1. [李咏梅大神语法笔记-一篇吃透零基础语法 - 小红书](https://www.xiaohongshu.com/explore/673c117000000000070346dd?xsec_token=ABhVMIwz9lj2gjHxugojOgDbmaVaFTqzV55efbbIazbe8=&xsec_source=pc_search&source=web_explore_feed)
+
+2. [英语语法+完形秒懂 - 小红书](https://www.xiaohongshu.com/explore/6923ad46000000001f00d593?xsec_token=ABWfx4egD7UqGLN6JNTy2vgtKHA4-tSeCMKbYwUdnOdAQ=&xsec_source=pc_search&source=web_explore_feed)
+
+3. [英语零基础语法体系！终于有人讲清楚了！太爽 - 小红书](https://www.xiaohongshu.com/explore/68e674f2000000000500304b?xsec_token=ABcO1jaM7IO9VLtbzQArwaRAmmk8Pl-gVvLsi2xzktV0g=&xsec_source=pc_search&source=web_explore_feed)
+
+### 时态
+
+1. [英语10六大时态。嘎嘎记！ - 小红书](https://www.xiaohongshu.com/explore/67d785f900000000070340c6?xsec_token=ABLHC8c514R-k2j9b9Ka0UFW1nPka7CDgNv1aEM0a_XhU=&xsec_source=pc_search&source=web_explore_feed)
+
+### 介词
+
+1. [🔥超全的介词合集🔥🔥 - 小红书](https://www.xiaohongshu.com/explore/65f30ece000000001302435d?xsec_token=ABtTexAkEeN4g6KLtbWpmw7ReHho7b6PyIVTTd13qSsS4=&xsec_source=pc_search&source=web_explore_feed)
+
+2. [挖到宝🌟超详细介词图解😄秒懂介词 - 小红书](https://www.xiaohongshu.com/explore/67c85ccb00000000290337ef?xsec_token=ABrV4_SINH4lpaxmZqBJlsy2v0-zrvxKZsCr0HqLSt-yA=&xsec_source=pc_search&source=web_explore_feed)
+
+3. [一眼秒懂‼️英语介词！这样学英语太厉害了！ - 小红书](https://www.xiaohongshu.com/explore/6616a4be000000001a00d449?xsec_token=ABVwdpD5iQhbEQ77kHA_hKhpotumIdesLYTNYDIlOaTrY=&xsec_source=pc_search&source=web_explore_feed)
+
+## 常用短语
+
+1. [英语完形填空高频固定搭配！！！ - 小红书](https://www.xiaohongshu.com/explore/68b1667f000000001d001d76?xsec_token=AB5eUAQ3wCiZMJdHzXyPEShglaNpsAzPb9ScdIZOUSNtQ=&xsec_source=pc_search&source=web_explore_feed)
+2. [一定要背的英语短语！ - 小红书](https://www.xiaohongshu.com/explore/68b2a78f000000001d0100cd?xsec_token=AB1x-UdoF_Lhkbhwlg49N510P4cftAm0-Ct206wD_RVvk=&xsec_source=pc_search&source=web_explore_feed)
+
+## 常用句子
+
+1. [背完这1200句，2个月可以全英交流了！﻿ - 小红书](https://www.xiaohongshu.com/explore/689f086e000000001c00cf69?xsec_token=AByoxQdH3YzS5yjJY1ybHPPG405T-1jywsfVSfwm9YDQ4=&xsec_source=pc_search&source=web_explore_feed)
+2. [英语实用1000句地道口语，日常交流可用 - 小红书](https://www.xiaohongshu.com/explore/689ff641000000001d03427f?xsec_token=AByoxQdH3YzS5yjJY1ybHPPEmXZ0Z7PLqALEEjRimby0g=&xsec_source=pc_search&source=web_explore_feed)
 
 ## 在线学习
 
 1. [多邻国 - 全球火爆的学习平台](https://www.duolingo.com/)
-
 2. [可可英语-年轻人的英语听说训练平台](https://www.kekenet.com/)
 
 ## 在线练习
@@ -257,6 +352,7 @@ title = '英语学习资源导航'
 
 1. [【Easy English】油管上几千万播放量的日常英语口语练习素材，最全合集_哔哩哔哩_bilibili](https://www.bilibili.com/video/BV1X54y1p7Dd/?spm_id_from=333.337.search-card.all.click&vd_source=4572c73dbbfb598c49de5434f0520dae)
 2. [【68集 英语口语 2000个场景 实景教学】场景话题 Ariannita 日常交流 生活口语 地道英文听力材料 素材干货学习 外教老师讲解技巧 雅思合集 字幕_哔哩哔哩_bilibili](https://www.bilibili.com/video/BV1emBiYcEAV/?spm_id_from=333.337.search-card.all.click&vd_source=4572c73dbbfb598c49de5434f0520dae)
+3. [【TED-ED 700集】B站最好英语合集](https://www.bilibili.com/video/BV1Dk4y1q781?spm_id_from=333.788.videopod.episodes&vd_source=4572c73dbbfb598c49de5434f0520dae)
 
 ### 故事
 
