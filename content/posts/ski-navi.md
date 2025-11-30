@@ -52,11 +52,11 @@ title = '滑雪学习资源导航'
 
 #### 专项-犁式转平行
 
-[一个教程逐步帮你从犁式学会平行式](https://www.douyin.com/video/7457984773781196091?modeFrom=searchResult)
+1. [一个教程逐步帮你从犁式学会平行式](https://www.douyin.com/video/7457984773781196091?modeFrom=searchResult)
 
 #### 专项-平行点杖
 
-[学习如何点杖，来辅助进弯时机](https://www.douyin.com/video/7564400354319633721?modeFrom=searchResult)
+1. [学习如何点杖，来辅助进弯时机](https://www.douyin.com/video/7564400354319633721?modeFrom=searchResult)
 
 ### 重要技巧
 
@@ -171,6 +171,20 @@ title = '滑雪学习资源导航'
 1. [法国各地二手体育用品 - leboncoin](https://www.leboncoin.fr/recherche?category=29&shippable=1&sports_hobbies_activity=ski,skidefondetderandonnee,skinautique)
 
 2. [滑雪装备 | Vinted](https://www.vinted.fr/catalog/4713-ski-equipment)
+
+## 滑雪安全第一
+
+1. [开板一定注意安全！ - 抖音](https://www.douyin.com/video/7440080101171023116?modeFrom=searchResult)
+
+2. [今年滑雪听劝❗️4个雪季💰5位数总结的保命贴！ - 抖音](https://www.douyin.com/video/7559088810102918451?modeFrom=searchResult)
+
+3. [国外民间大神170kmh放直板卡刃，9根骨头骨折，包括5根肋骨，太吓人了😨😨😨 - 抖音](https://www.douyin.com/video/7574041001406445733)
+
+4. [单板劝退合集 - 抖音](https://www.douyin.com/video/7571325588004361915?modeFrom=searchResult)
+
+5. [千万要避开滑雪最爱骨折的3个点！- 抖音](https://www.douyin.com/video/7430384248177036580?modeFrom=searchResult)
+
+6. [9台手术7台滑雪导致的。大家滑雪的时候还是要多多注意安全 - 抖音](https://www.douyin.com/video/7063016139626007838?modeFrom=searchResult)
 
 
 
