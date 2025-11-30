@@ -130,6 +130,13 @@ title = '滑雪学习资源导航'
 
 ### 待补充 ...
 
+## 工具APP
+
+1. [有什么实用滑雪App推荐 - 小红书](https://www.xiaohongshu.com/explore/6783e1920000000018010869?xsec_token=ABZbwP5SU9_lO8GClhTjVKrMe7NnG91PP0sSyQGG5lkW0=&xsec_source=pc_search&source=web_explore_feed)
+2. [滑雪人必备｜🏂6款超级实用的滑雪APP - 小红书](https://www.xiaohongshu.com/explore/664ec35c000000000f00ef91?xsec_token=ABHeJr83M6zoLO2Io9qxeNCjtYdN82LeZkKYlcxzSalSw=&xsec_source=pc_search&source=web_explore_feed)
+3. [【主观评测】滑雪好用的软件2024版 - 小红书](https://www.xiaohongshu.com/explore/65a48266000000001a000445?xsec_token=ABtGB3d9XbEgEft0aGMUWKzleyb0H7QfYE7xH_BnWHsRA=&xsec_source=pc_search&source=web_explore_feed)
+4. [北美滑雪必备的APP推荐🎿 - 小红书](https://www.xiaohongshu.com/explore/656768ce00000000380352b7?xsec_token=ABU4RRHz-byPsbqw_66EqgYN_GfwaCRh4zjcDnlDzr2Gs=&xsec_source=pc_search&source=web_explore_feed)
+
 ## 工具网站
 
 ### 天气雪况
