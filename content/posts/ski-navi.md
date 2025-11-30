@@ -127,16 +127,12 @@ title = '滑雪学习资源导航'
 ### 天气雪况
 
 1. [雪况报告 | 降雪量及积雪深度](https://www.onthesnow.com/skireport)
-
 2. [Windy: 风力图和天气预报](https://www.windy.com/?39.775,19.876,4,m:eOsafD2)
-
 3. [降雪预报、降雪报告和雪况](https://www.snow-forecast.com/)
-
 4. [Skiresort.info | 全球最大的滑雪度假村测评门户网站](https://www.skiresort.info/)
-
-5. [SNOW VACATION](https://www.snow-vacation.com/)
-
-6. [雪景指南](https://bestsnow.net/)
+5. [开放的滑雪度假村 --- open ski resorts](https://www.skiresort.info/snow-reports/filter/open-ski-resorts/)
+6. [SNOW VACATION](https://www.snow-vacation.com/)
+7. [雪景指南](https://bestsnow.net/)
 
 ### 装备购置
 
