@@ -21,15 +21,15 @@ title = '滑雪学习资源导航'
 
 #### 系列教程【强烈推荐:star::star::star::star::star:】
 
-1. [小污SKI-双板滑雪教程](https://www.douyin.com/user/MS4wLjABAAAAD_zWbQmiyKXb90u6Jz67SBZyN6776LiuFKwtt0n9qP0?from_tab_name=main&modal_id=7155121348598041893&showSubTab=compilation)
+1. [小污SKI-双板滑雪教程-抖音](https://www.douyin.com/user/MS4wLjABAAAAD_zWbQmiyKXb90u6Jz67SBZyN6776LiuFKwtt0n9qP0?from_tab_name=main&modal_id=7155121348598041893&showSubTab=compilation) 或者 [哔哩哔哩视频](https://space.bilibili.com/438560308/lists/1869233?type=season)
 
    > 偏原理、要领讲解
 
-2. [爱滑雪的赵云阳-双板滑雪教程](https://www.douyin.com/user/MS4wLjABAAAAXoEvuHsvVD4zMa8LLQktC8hs9we0-tvjpHEfG8R_A5o?from_tab_name=main&modal_id=7287891103171530023&relation=0&showSubTab=compilation&vid=7291251832540761355)
+2. [爱滑雪的赵云阳-双板滑雪教程-抖音](https://www.douyin.com/user/MS4wLjABAAAAXoEvuHsvVD4zMa8LLQktC8hs9we0-tvjpHEfG8R_A5o?from_tab_name=main&modal_id=7287891103171530023&relation=0&showSubTab=compilation&vid=7291251832540761355) 或者  [哔哩哔哩视频](https://space.bilibili.com/502278709/upload/video)
 
    > 全技术体系讲解
 
-3. [双板滑雪自学教程零基础到平行式](https://www.douyin.com/video/7454190272415550747?modeFrom=searchResult)
+4. [山魂雪线-双板滑雪自学教程零基础到平行式-抖音](https://www.douyin.com/video/7454190272415550747?modeFrom=searchResult)
 
 #### 专项-入门
 
@@ -75,6 +75,14 @@ title = '滑雪学习资源导航'
 	> 反弓（倾斜骨盆）和弯腰的关键区别就是：反弓侧身时，外侧腿会自然提起来；如果强行保持两只脚同时着地侧身，那样肯定会弯腰；
 
 2. [双板滑雪中你的反弓姿态做对了吗？](https://www.douyin.com/video/7453434679388114217?modeFrom=searchResult)
+
+#### 上下身分离
+
+1. [真的需要大反弓和大分离，还能滑吗？自然一点不是更轻松！？ - 抖音](https://www.douyin.com/video/7343207502919650594?modeFrom=searchResult)
+
+2. [坐在椅子上学会上下身分离#山魂雪线  - 抖音](https://www.douyin.com/video/7330192997474176297?modeFrom=)
+
+3. [5步上下身分离，双板滑雪进阶关键！小回转，粉雪，蘑菇必备教学 - 抖音](https://www.douyin.com/video/7074166716065942823?modeFrom=searchResult)
 
 ### 器材选择
 
