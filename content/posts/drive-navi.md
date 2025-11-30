@@ -238,4 +238,14 @@ https://chatgpt.com/share/692767d3-a054-8005-a16e-f4f8c3578cb9
 
 [了解不同汽车悬架的区别，你的爱车是哪种？ - 小红书](https://www.xiaohongshu.com/explore/68c4309c000000001b03debb?xsec_token=ABpZcsn4fma1PptsJ0ZaAbwH6L3Z_8IRHnURAZwJ3tPuc=&xsec_source=pc_search&source=web_explore_feed)
 
+## 油价
+
+[今日油价查询_92号汽油价格_95号汽油价格_98号汽油价格_柴油价格查询-汽车之家](https://www.autohome.com.cn/oil)
+
+[今日油价查询_95_92号汽油价格_柴油价格查询_汽油价格网](http://www.qiyoujiage.com/)
+
+[汽油价格 in 巴黎, 法国 - GlobalPetrolPrices.com](https://zh.globalpetrolprices.com/France/Paris/gasoline_prices/)
+
+
+
 
