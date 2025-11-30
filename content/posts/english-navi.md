@@ -117,14 +117,11 @@ title = '英语学习资源导航'
 ### 听力练习
 
 1. [巴别英语 - 看美剧学英语](https://www.babelabc.com/)
-
 2. [NCE Flow](https://nce.luzhenhua.cn/)
-
-3. [英语听力逐句精听](https://www.youzack.com/)
-
-4. [英文 听写练习](https://speechling.com/zh/dictation/english)
-
-5. [《每日英语听力》专业好用的离线英语听力软件](https://www.eudic.net/v4/en/app/ting)
+3. [新概念英语 | NewConceptEnglish.com](https://newconceptenglish.com/)
+4. [英语听力逐句精听](https://www.youzack.com/)
+5. [英文 听写练习](https://speechling.com/zh/dictation/english)
+6. [《每日英语听力》专业好用的离线英语听力软件](https://www.eudic.net/v4/en/app/ting)
 
 ### 背单词
 
