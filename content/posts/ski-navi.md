@@ -124,9 +124,13 @@ title = '滑雪学习资源导航'
 
 ## 单板滑雪
 
-进阶路线
+### 进阶路线
 
-[单板滑雪1～9 级](https://www.toutiao.com/article/7463164603678065162/?channel=&source=search_tab)
+1. [单板滑雪1～9 级](https://www.toutiao.com/article/7463164603678065162/?channel=&source=search_tab)
+
+### 教程
+
+1. [滑雪的山椒 Share - 自学单板义父级教学](https://www.douyin.com/user/MS4wLjABAAAAxMLffFZPI4XonJ1CrqRrWE_cQN_i_e-RQJ-OpfosiHP7PpmFh2LnEiwS-Mn8W9KZ?from_tab_name=main&modal_id=7556974375049170185&showSubTab=compilation&vid=7556974375049170185)
 
 ### 待补充 ...
 
