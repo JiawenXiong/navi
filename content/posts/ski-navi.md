@@ -127,6 +127,7 @@ title = '滑雪学习资源导航'
 ### 进阶路线
 
 1. [单板滑雪1～9 级](https://www.toutiao.com/article/7463164603678065162/?channel=&source=search_tab)
+2. [展示一下滑雪的各个阶段 - 抖音](https://www.douyin.com/video/7475781023456906553?modeFrom=searchResult)
 
 ### 教程
 
