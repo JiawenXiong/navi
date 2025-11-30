@@ -45,14 +45,16 @@ title = '财经资源导航'
 
 ## 经济数据
 
-1. [中国宏观经济数据_新浪财经](https://finance.sina.com.cn/mac/)
-2. [财新数据通](https://cxdata.caixin.com/index/newsTab?source=caixinweb)
-3. [国家数据](https://data.stats.gov.cn/)
-4. [统计数据](http://www.pbc.gov.cn/diaochatongjisi/116219/116319/index.html)
-5. [经济指标 | ZH | TRADINGECONOMICS.COM](https://zh.tradingeconomics.com/)
-6. [World Bank Open Data | Data](https://data.worldbank.org.cn/)
-7. [中国 | Data](https://data.worldbank.org.cn/country/%E4%B8%AD%E5%9B%BD)
-8. [WTO Tariff & Trade Data | China - Member profile](https://ttd.wto.org/en/profiles/china)
+1. [财经数据 _ 居民消费价格指数(CPI) _ 数据中心 _ 东方财富网](https://data.eastmoney.com/cjsj/cpi.html)
+2. [财经数据 _ 工业品出厂价格指数(PPI) _ 数据中心 _ 东方财富网](https://data.eastmoney.com/cjsj/ppi.html)
+3. [中国宏观经济数据_新浪财经](https://finance.sina.com.cn/mac/)
+4. [财新数据通](https://cxdata.caixin.com/index/newsTab?source=caixinweb)
+5. [国家数据](https://data.stats.gov.cn/)
+6. [统计数据](http://www.pbc.gov.cn/diaochatongjisi/116219/116319/index.html)
+7. [经济指标 | ZH | TRADINGECONOMICS.COM](https://zh.tradingeconomics.com/)
+8. [World Bank Open Data | Data](https://data.worldbank.org.cn/)
+9. [中国 | Data](https://data.worldbank.org.cn/country/%E4%B8%AD%E5%9B%BD)
+10. [WTO Tariff & Trade Data | China - Member profile](https://ttd.wto.org/en/profiles/china)
 
 ## 基金数据
 
