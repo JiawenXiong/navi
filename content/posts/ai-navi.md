@@ -29,39 +29,31 @@ title = 'AI 学习资源导航'
 ## AI接口供应商
 
 1. [Groq is fast, low cost inference.](https://groq.com/)
-
 2. [OpenRouter](https://openrouter.ai/)
 3. [APIPark – Open-Source AI Gateway & API Developer Portal](https://apipark.com/zh/home-zh-cn)
-
 4. [BigModel | 全球100+主流大模型API聚合平台 | 企业级AI供应商](https://bigmodel.org/)
-5. [火山引擎-你的AI云](https://www.volcengine.com/)
-
-6. [大模型服务平台百炼 - 大模型应用构建 - 阿里云](https://cn.aliyun.com/product/bailian?from_alibabacloud=)
-
-7. [硅基流动 SiliconFlow - 致力于成为全球领先的 AI 能力提供商](https://siliconflow.cn/)
 8. [API 平台 | OpenAI](https://openai.com/zh-Hans-CN/api/)
 9. [Claude Developer Platform | Claude](https://www.claude.com/platform/api)
 10. [Gemini Developer API | Gemma open models  |  Google AI for Developers](https://ai.google.dev/)
 11. [Qwen](https://qwen.ai/apiplatform)
-12. [Your First API Call | DeepSeek API Docs](https://api-docs.deepseek.com/)
+12. [DeepSeek API Docs](https://api-docs.deepseek.com/)
 13. [Mistra AI API Specs](https://docs.mistral.ai/api)
 14. [Inference Providers](https://huggingface.co/docs/inference-providers/en/index)
+12. [AI 大模型推理服务 - 七牛云](https://www.qiniu.com/ai/chat)
+13. [火山引擎-你的AI云](https://www.volcengine.com/)
+14. [大模型服务平台百炼 - 大模型应用构建 - 阿里云](https://cn.aliyun.com/product/bailian?from_alibabacloud=)
+15. [硅基流动 SiliconFlow - 致力于成为全球领先的 AI 能力提供商](https://siliconflow.cn/)
 
 ## AI工具
 
 1. [AI工具集官网 | 1000+ AI工具集合，国内外AI工具集导航大全](https://ai-bot.cn/)
-
 2. [千问-Qwen最新模型体验-通义千问](https://www.qianwen.com/)
-
 3. [ChatGPT](https://chatgpt.com/)
-
 4. [豆包 - 字节跳动旗下 AI 智能助手](https://www.doubao.com/chat/?from_login=1)
-
 5. [Google Gemini](https://gemini.google.com/app)
-
 6. [Microsoft Copilot: Your AI companion](https://copilot.microsoft.com/)
-
 7. [Perplexity](https://www.perplexity.ai/?login-source=floatingSignup)
+8. [ChatGPT](https://chatgpt.com/)
 
 ## AI 学习
 
