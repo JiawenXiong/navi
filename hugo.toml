@@ -4,6 +4,7 @@ baseURL = "https://jiawenxiong.github.io/navi/"
 title = '家文的资源导航网站'
 theme = "PaperMod"
 enableEmoji = true
+pagination.pagerSize = 10
 
 defaultContentLanguage = "zh-cn"
 
@@ -16,4 +17,12 @@ weight = 1
 [params]
 showToc = true
 tocopen = true
+ShowReadingTime = true
+# ShowShareButtons = true
+ShowPostNavLinks = true
+# ShowBreadCrumbs = true
+
+[taxonomies]
+category = "categories"
+tag = "tags"
 
