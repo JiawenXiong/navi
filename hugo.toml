@@ -1,6 +1,6 @@
-# baseURL = "https://jiawenxiong.github.io/navi/"
+baseURL = "https://jiawenxiong.github.io/navi/"
 # languageCode = 'en-us'
-baseURL = getenv "HUGO_BASEURL" "http://localhost:1313/"
+# baseURL = getenv "HUGO_BASEURL" "http://localhost:1313/"
 title = '家文的资源导航网站'
 theme = "PaperMod"
 enableEmoji = true
