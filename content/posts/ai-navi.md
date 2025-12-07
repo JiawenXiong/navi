@@ -6,13 +6,13 @@ title = 'AI 学习资源导航'
 
 ## AI信息网站
 
-[机器之心](https://www.jiqizhixin.com/)
+1. [机器之心](https://www.jiqizhixin.com/)
 
-[量子位 | 追踪人工智能新趋势，报道科技行业新突破](https://www.qbitai.com/)
+2. [量子位 | 追踪人工智能新趋势，报道科技行业新突破](https://www.qbitai.com/)
 
-[每日AI资讯、热点、动态、融资、产品发布 | AI工具集](https://ai-bot.cn/daily-ai-news/)
+3. [每日AI资讯、热点、动态、融资、产品发布 | AI工具集](https://ai-bot.cn/daily-ai-news/)
 
-[AI日报 - 每天三分钟关注AI行业趋势_AIBase](https://news.aibase.com/zh/daily)
+4. [AI日报 - 每天三分钟关注AI行业趋势_AIBase](https://news.aibase.com/zh/daily)
 
 ## AI模型库
 
@@ -47,7 +47,7 @@ title = 'AI 学习资源导航'
 13. [Mistra AI API Specs](https://docs.mistral.ai/api)
 14. [Inference Providers](https://huggingface.co/docs/inference-providers/en/index)
 
-## AI助手
+## AI工具
 
 1. [AI工具集官网 | 1000+ AI工具集合，国内外AI工具集导航大全](https://ai-bot.cn/)
 
@@ -114,4 +114,75 @@ title = 'AI 学习资源导航'
 1. [动手学ROS2](https://fishros.com/d2lros2/#/)
 
 1. [GitHub - AI 具身智能技术指南 Embodied-AI-Guide](https://github.com/TianxingChen/Embodied-AI-Guide)
+
+## 书单
+
+### 数学基础
+
+1. [线性代数及其应用（中文版）.pdf ](https://github.com/jingyuexing/Ebook/blob/master/Math/%E7%BA%BF%E6%80%A7%E4%BB%A3%E6%95%B0%E5%8F%8A%E5%85%B6%E5%BA%94%E7%94%A8%EF%BC%88%E4%B8%AD%E6%96%87%E7%89%88%EF%BC%89.pdf)
+
+2. [概率论及其应用(3rd 威廉费勒).pdf](https://github.com/zhangbc/eBooks/blob/master/%E4%BA%BA%E5%B7%A5%E6%99%BA%E8%83%BD%E7%B1%BB/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0/%E6%A6%82%E7%8E%87%E8%AE%BA%E5%8F%8A%E5%85%B6%E5%BA%94%E7%94%A8\(3rd%20%E5%A8%81%E5%BB%89%E8%B4%B9%E5%8B%92\).pdf)
+
+3. [统计学习基础 (豆瓣)](https://book.douban.com/subject/3578359/)
+
+### 机器学习
+
+1. [机器学习 (豆瓣)](https://book.douban.com/subject/26708119/)
+
+2. [百面机器学习 (豆瓣)](https://book.douban.com/subject/30285146/)
+
+3. [机器学习实战（原书第3版） (豆瓣)](https://book.douban.com/subject/37022272/)
+
+### 深度学习
+
+1. [深度学习 (豆瓣)](https://book.douban.com/subject/27087503/)
+2. [动手学深度学习 (豆瓣)](https://book.douban.com/subject/33450010/)
+3. [神经网络与深度学习 (豆瓣)](https://book.douban.com/subject/35044046/)
+4. [深入浅出神经网络与深度学习 (豆瓣)](https://book.douban.com/subject/35128111/)
+
+### 强化学习
+
+1. [强化学习（第2版） (豆瓣)](https://book.douban.com/subject/34809689/)
+2. [深度强化学习 (豆瓣)](https://book.douban.com/subject/36161659/)
+3. [动手学强化学习 (豆瓣)](https://book.douban.com/subject/35818782/)
+4. [Easy RL：强化学习教程 (豆瓣)](https://book.douban.com/subject/35781275/)
+5. [强化学习的数学原理 (豆瓣)](https://book.douban.com/subject/37309451/)
+
+### 自然语言处理
+
+1. [自然语言处理综论（第二版） (豆瓣)](https://book.douban.com/subject/30195974/)
+2. [深度学习进阶 (豆瓣)](https://book.douban.com/subject/35225413/)
+3. [基于深度学习的自然语言处理 (豆瓣)](https://book.douban.com/subject/30236842/)
+4. [Python自然语言处理 (豆瓣)](https://book.douban.com/subject/5336893/)
+5. [自然语言处理入门 (豆瓣)](https://book.douban.com/subject/34856701/)
+6. [统计自然语言处理 (豆瓣)](https://book.douban.com/subject/3076996/)
+
+### 机器视觉
+
+1. [机器视觉 (豆瓣)](https://book.douban.com/subject/25950517/)
+2. [机器视觉教程 (豆瓣)](https://book.douban.com/subject/1435000/)
+3. [机器视觉 (豆瓣)](https://book.douban.com/subject/1323691/)
+4. [计算机视觉 (豆瓣)](https://book.douban.com/subject/10465997/)
+5. [深度学习与计算机视觉：核心算法与应用 (豆瓣)](https://book.douban.com/subject/36437656/)
+
+### 大模型
+
+1. [大模型算法：强化学习、微调与对齐 (豆瓣)](https://book.douban.com/subject/37331056/)
+2. [从零构建大模型 (豆瓣)](https://book.douban.com/subject/37305124/)
+3. [大模型技术30讲 (豆瓣)](https://book.douban.com/subject/37258887/)
+4. [解构大语言模型 (豆瓣)](https://book.douban.com/subject/36873291/)
+5. [百面大模型 (豆瓣)](https://book.douban.com/subject/37331025/)
+6. [GPT图解 (豆瓣)](https://book.douban.com/subject/36668702/)
+7. [大模型应用开发 动手做AI Agent (豆瓣)](https://book.douban.com/subject/36884058/)
+8. [图解大模型 (豆瓣)](https://book.douban.com/subject/37339504/)
+9. [揭秘大模型：从原理到实战 (豆瓣)](https://book.douban.com/subject/37159677/)
+10. [大模型时代 (豆瓣)](https://book.douban.com/subject/36397929/)
+
+### AI伦理与前沿
+
+1. [人工智能：一种现代的方法（第３版）.pdf](https://github.com/Youquan1/Artificial-intelligence-books/blob/master/%E4%BA%BA%E5%B7%A5%E6%99%BA%E8%83%BD%EF%BC%9A%E4%B8%80%E7%A7%8D%E7%8E%B0%E4%BB%A3%E7%9A%84%E6%96%B9%E6%B3%95%EF%BC%88%E7%AC%AC%EF%BC%93%E7%89%88%EF%BC%89.pdf)
+
+
+
+
 
