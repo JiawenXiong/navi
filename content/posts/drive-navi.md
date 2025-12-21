@@ -206,6 +206,26 @@ https://chatgpt.com/share/692767d3-a054-8005-a16e-f4f8c3578cb9
 
 [每天吃透一条产业链｜自动驾驶](https://www.xiaohongshu.com/explore/679384530000000029036765?xsec_token=ABezRvmJSTHZGuIaAuE0TEwIsFfQ_d1K915Y-Nz5CxGHI=&xsec_source=pc_search&source=web_explore_feed)
 
+[收藏看懂汽车产业链分层，OEM/Tier1/2/3是 - 小红书](https://www.xiaohongshu.com/explore/6778d798000000000b01724f?xsec_token=ABG-anKvOPZQSrxIjBhrv6LKFl08tN4O2PSCtQfxkTNm4=&xsec_source=pc_search&source=web_explore_feed)
+
+### 厂商
+
+[中国十大汽车巨头，姜还是老的辣？ - 小红书](https://www.xiaohongshu.com/explore/68f39ea40000000007039e7f?xsec_token=ABAej4gshKewqtCIr6jX9J4XWfqq86SPbAuRqSPiKVUDc=&xsec_source=pc_search&source=web_explore_feed)
+
+### 品牌
+
+[一图看懂不同汽车品牌之间的关系 - 小红书](https://www.xiaohongshu.com/explore/6825e6fa0000000012003db4?xsec_token=ABSqfs0BN6a2Cnu0sVDZMXpZNa8qLj4PEJu1oel2r4tEo=&xsec_source=pc_search&source=web_explore_feed)
+
+[一张图看懂国外巨头车企家族 - 小红书](https://www.xiaohongshu.com/explore/691752eb00000000040047de?xsec_token=AB7C5zHeTrFyU3LzcqIOiO3pGk4hs3Gll6NJNu5Cxm9o8=&xsec_source=pc_search&source=unknown)
+
+[⚠️三角关系！雷诺日产三菱联盟全品牌图谱 - 小红书](https://www.xiaohongshu.com/explore/6522d919000000002101e62f?xsec_token=ABNJ4sGFfeqgSFQRuRGcqjXTtHeJ3s0GYOA_fIXA1BbJ0=&xsec_source=pc_search&source=unknown)
+
+[一图看懂奔驰全家福！轿车/SUV/跑车/电车❗ - 小红书](https://www.xiaohongshu.com/explore/685f39ae000000001c030742?xsec_token=ABBLSd4bSBbAj6B10o1uugzmpCEzsR8xitfi7Eaxm_6MM=&xsec_source=pc_search&source=web_explore_feed)
+
+[法国老百姓都开什么车？ - 小红书](https://www.xiaohongshu.com/explore/68e2078600000000070311b3?xsec_token=ABj1LegD83d_yxB3QLBH4ph4YwVBM61sbzQBZI15fQeAM=&xsec_source=pc_search&source=unknown)
+
+[法国2023年热门汽车榜单 - 小红书](https://www.xiaohongshu.com/explore/65acc853000000002e0074f2?xsec_token=ABXF5ZG3rWSLRNf0RSWrLfG2-5bip4T-xgLVezZ-r53Ec=&xsec_source=pc_search&source=unknown)
+
 ## 配件
 
 [🚗常用汽车配件，你买了几个？ - 小红书](https://www.xiaohongshu.com/explore/680ce7d4000000001202dc96?source=webshare&xhsshare=pc_web&xsec_token=ABGvxoHYrGJ5VoKBTGeNXaVswPLDeNHFadI4hWyI0j_0I=&xsec_source=pc_share)
@@ -246,6 +266,21 @@ https://chatgpt.com/share/692767d3-a054-8005-a16e-f4f8c3578cb9
 
 [汽油价格 in 巴黎, 法国 - GlobalPetrolPrices.com](https://zh.globalpetrolprices.com/France/Paris/gasoline_prices/)
 
+## 分级
+
+[如果汽车有段位，教女友认识汽车 - 小红书](https://www.xiaohongshu.com/explore/669899c9000000002501484b?xsec_token=ABSjXsjpXsy5aVNGGtNcxVJtON3BQY-ihQNCEkPnfUmiU=&xsec_source=pc_search&source=web_explore_feed)
+
+[一图看懂轿车怎么分级 - 小红书](https://www.xiaohongshu.com/explore/69187474000000000503130c?xsec_token=ABfs38p4BAk0et9n0NJ_DaAsYtjmz_lvgHu3e_90Ok5vo=&xsec_source=pc_search&source=web_explore_feed)
+
+[让女朋友秒懂汽车车标和排名，你学会了吗？ - 小红书](https://www.xiaohongshu.com/explore/673aeaca00000000020385ad?xsec_token=ABNvhrdSXGJTEp6Cv_3w8TkYLF5go17O8BOYm4EBLSFe0=&xsec_source=pc_search&source=web_explore_feed)
+
+[教女友认车标，汽车常见车标 - 小红书](https://www.xiaohongshu.com/explore/68142738000000000703630a?xsec_token=ABma7fxIi31S5Dn-k3ptmgfYTaHL1gNmnzEhkB4P52aQE=&xsec_source=pc_search&source=web_explore_feed)
+
+[🚗✨从迷你到豪华，一图看懂轿车等级划分。 - 小红书](https://www.xiaohongshu.com/explore/67d2da4e000000001b03e369?xsec_token=ABd1jFoWOeMXeGUTz5FSu5k8WSes21IqNjMOWY5rnl_ck=&xsec_source=pc_search&source=web_explore_feed)
+
+[怎么区分汽车ABCD等级 - 小红书](https://www.xiaohongshu.com/explore/660982da000000001a00d455?xsec_token=ABPUoIazkNN5jZ-3fyLvknUbr_oAk1n5iDX8gSafjE_m8=&xsec_source=pc_search&source=web_explore_feed)
+
+[一张图教你汽车等级划分，快收藏起来吧! - 小红书](https://www.xiaohongshu.com/explore/65dd315f000000000b020c9c?xsec_token=ABEHAFyl7a62pV71ZhjBEGQxwQwwyrCVfIEVduBg8vZNQ=&xsec_source=pc_search&source=web_explore_feed)
 
 
 
