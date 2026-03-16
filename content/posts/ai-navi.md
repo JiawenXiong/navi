@@ -77,6 +77,7 @@ title = 'AI 学习资源导航'
 ### 强化学习
 
 1. [初探强化学习](https://hrl.boyuai.com/chapter/1/%E5%88%9D%E6%8E%A2%E5%BC%BA%E5%8C%96%E5%AD%A6%E4%B9%A0/)
+2. [【强化学习的数学原理】课程：从零开始到透彻理解（完结）_](https://www.bilibili.com/video/BV1sd4y167NS/?spm_id_from=333.337.search-card.all.click&vd_source=4572c73dbbfb598c49de5434f0520dae)
 
 ### 深度学习
 
@@ -175,6 +176,52 @@ title = 'AI 学习资源导航'
 1. [人工智能：一种现代的方法（第３版）.pdf](https://github.com/Youquan1/Artificial-intelligence-books/blob/master/%E4%BA%BA%E5%B7%A5%E6%99%BA%E8%83%BD%EF%BC%9A%E4%B8%80%E7%A7%8D%E7%8E%B0%E4%BB%A3%E7%9A%84%E6%96%B9%E6%B3%95%EF%BC%88%E7%AC%AC%EF%BC%93%E7%89%88%EF%BC%89.pdf)
 
 
+## 速查表
 
+1. 66个掌握人工智能的关键主题 - 终极速查表 - 知乎
+   https://zhuanlan.zhihu.com/p/1963991484056449264
 
+2. AI速查表全集 — AI与数据科学各类工具库相关速查表与参考代码 » ShowMeAI
+   https://blog.showmeai.tech/awesome-ai-cheatsheets-resources/
+
+3. 大模型结构速查表
+   rasbt/llm-architecture-gallery: LLM Architecture Gallery source data
+   https://github.com/rasbt/llm-architecture-gallery
+
+4. 
+   AI速查表全集 — AI与数据科学各类工具库相关速查表与参考代码 » ShowMeAI
+   https://blog.showmeai.tech/awesome-ai-cheatsheets-resources/
+
+5. Cheat Sheets - 开发者速查表 | 匠人学院
+   https://jiangren.com.au/cheat-sheets
+
+6. 十张机器学习和深度学习的速查表 – Tim's Path
+   https://xiaoxubeii.github.io/articles/mldl-cheatsheets/
+
+7. caiyongji/MachineLearningCheatsheets: 机器学习速查表(cheatsheet)资源汇总
+   https://github.com/caiyongji/MachineLearningCheatsheets
+
+8. 27 张 AI 速查手册！涵盖神经网络、机器学习、数据可视化等 - 知乎
+   https://zhuanlan.zhihu.com/p/64222669
+
+9. CS 229 速查表
+   https://stanford.edu/~shervine/l/zh/teaching/cs-229/
+
+10. 50个数据科学和机器学习速查表【转】 - fuleying - 博客园
+    https://www.cnblogs.com/fuleying/p/4672605.html
+
+11. 【CheatSheets】AI速查表集合 一图胜千言-CSDN博客
+    https://blog.csdn.net/yanqianglifei/article/details/112349072
+
+12. PyTorch Cheat Sheet - 数据科学 速查表 | 匠人学院
+    https://jiangren.com.au/cheat-sheets/pytorch
+
+13. TensorFlow Cheat Sheet - 数据科学 速查表 | 匠人学院
+    https://jiangren.com.au/cheat-sheets/tensorflow
+
+14. 深度强化学习算法一图流 | LiuZhaoze
+    https://liuzhaoze.github.io/posts/%E6%B7%B1%E5%BA%A6%E5%BC%BA%E5%8C%96%E5%AD%A6%E4%B9%A0%E7%AE%97%E6%B3%95%E4%B8%80%E5%9B%BE%E6%B5%81/
+
+15. OpenClaw超级速查表 - 53AI-AI知识库|企业AI知识库|大模型知识库|AIHub
+    https://www.53ai.com/news/Openclaw/2026030424918.html
 
