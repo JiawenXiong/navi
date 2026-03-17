@@ -5,7 +5,7 @@ title = 'AI 学习资源导航'
 
 +++
 
-## AI信息网站
+## AI 信息网站
 
 1. [机器之心](https://www.jiqizhixin.com/)
 
@@ -15,19 +15,23 @@ title = 'AI 学习资源导航'
 
 4. [AI日报 - 每天三分钟关注AI行业趋势_AIBase](https://news.aibase.com/zh/daily)
 
-## AI模型库
+## AI 模型库
 
 1. [Models – Hugging Face](https://huggingface.co/models)
-
 2. [Ollama Search](https://ollama.com/search)
-
 3. [模型库首页 · 魔搭社区](https://modelscope.cn/models)
-
 4. [模型库 - 飞桨AI Studio星河社区 - 人工智能学习与实训社区](https://aistudio.baidu.com/modelsoverview)
-
 5. [模型 - 模力方舟（Gitee AI）](https://ai.gitee.com/models)
 
-## AI接口供应商
+## AI大模型排行榜
+
+1. [LLM Leaderboard - Comparison of over 100 AI models from OpenAI, Google, DeepSeek & others](https://artificialanalysis.ai/leaderboards/models)
+2. [Arena Leaderboard | Compare & Benchmark the Best Frontier AI Models](https://arena.ai/leaderboard)
+3. [LLM Rank - 大型语言模型评测及排行榜](https://llmrank.cn/)
+4. [大模型排名 - HelloGitHub](https://hellogithub.com/report/lm-rank)
+5. [CLUEbenchmark/SuperCLUE: SuperCLUE: 中文通用大模型综合性基准 | A Benchmark for Foundation Models in Chinese](https://github.com/CLUEbenchmark/SuperCLUE)
+
+## AI大模型接口供应商
 
 1. [Groq is fast, low cost inference.](https://groq.com/)
 2. [OpenRouter](https://openrouter.ai/)
@@ -57,6 +61,11 @@ title = 'AI 学习资源导航'
 8. [ChatGPT](https://chatgpt.com/)
 
 ## AI 学习
+
+### 产业
+
+1. [一天吃透一条产业链：NO.49 AI大模型 - 小红书](https://www.xiaohongshu.com/explore/698446bd000000002103d850?xsec_token=ABik-2L0aEFCVHA3iO_1Zuv-XXO6IwHotUUg1ZqiEu8c0=&xsec_source=pc_search&source=web_search_result_notes)
+2. [中国AI产业十层冰山图（科技巨头定位） - 小红书](https://www.xiaohongshu.com/explore/6963e87d00000000210316b3?xsec_token=ABzJmdi1B6aB8ucXobqYWwuSHt-JoZfxJt9Nl0b5nQCR4=&xsec_source=pc_search&source=web_search_result_notes)
 
 ### 路线图
 
@@ -106,8 +115,8 @@ title = 'AI 学习资源导航'
 
 ## 具身智能
 1. [动手学ROS2](https://fishros.com/d2lros2/#/)
-
 1. [GitHub - AI 具身智能技术指南 Embodied-AI-Guide](https://github.com/TianxingChen/Embodied-AI-Guide)
+1. [一天吃透一条产业链：NO.32 具身智能 - 小红书](https://www.xiaohongshu.com/explore/692f0527000000001e008a65?xsec_token=ABKWqhVeUao3pY_ezFzOCOH9POrrq6Bkcm_cgoHTYOBKY=&xsec_source=pc_search&source=web_explore_feed)
 
 ## 书单
 
