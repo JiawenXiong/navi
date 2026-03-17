@@ -22,7 +22,7 @@ ShowReadingTime = true
 # ShowShareButtons = true
 ShowPostNavLinks = true
 # ShowBreadCrumbs = true
-externalLinkTarget: "_blank"
+externalLinkTarget = "_blank"
 
 [taxonomies]
 category = "categories"
