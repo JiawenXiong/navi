@@ -123,6 +123,13 @@ title = '导航网站汇总'
 
 1. [色影123|摄影师导航 | 你的摄影工具箱](https://www.seying123.com/)
 
+## 广告营销导航
+
+1. [addog.vip | 广告人的网址导航 | 品牌/策划/营销/创意/文案](https://www.addog.vip/#hot0)
+2. [DigiChuan|数字营销导航|数字营销图谱 | 数字营销|新媒体运营|灵感创意](https://www.digichuan.com/)
+3. [广告公司导航 | 广告公司营销案例与招聘](https://daohang.ganhuoku.cn/)
+4. [广告人干货库-品牌营销 - 广告人干货库](https://www.ganhuoku.cn/yingxiao)
+
 ## 理财导航
 
 1. [投资工具 - DCA定投计算器、DCF估值器、抄底信号仪表盘 | 投资导航](https://invest-nav.com/tools/)
