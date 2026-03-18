@@ -9,6 +9,9 @@ title = '导航网站汇总'
 
 1. [265上网导航](https://www.265.com/)
 2. [Tbox导航 | 只收录优质在线工具的导航网站](https://www.tboxn.com/)
+3. [终极导航 - 优质网站网址导航大全](https://www.zjnav.com/)
+4. [今日热榜官网](https://tophub.today/)
+5. [易猫网址导航 - 专注于 AI 和互联网领域的网址导航工具](https://url.imtvr.com/)
 
 ## AI导航
 
@@ -120,6 +123,22 @@ title = '导航网站汇总'
 
 1. [色影123|摄影师导航 | 你的摄影工具箱](https://www.seying123.com/)
 
+## 理财导航
+
+1. [投资工具 - DCA定投计算器、DCF估值器、抄底信号仪表盘 | 投资导航](https://invest-nav.com/tools/)
+2. [理财计算器_财经_新浪网](https://finance.sina.com.cn/calc/)
+3. [和讯数据-专业金融数据门户](https://data.hexun.com/)
+4. [价值投资导航 - 学习价值投资从value500投资导航开始！](http://value500.com/)
+5. [财经导航 有为财经](https://upsort.com/dh)
+6. [投资导航 - 专为美股&加密货币投资而生，新人投资者必备一站式导航网站](https://invest-nav.com/)
+7. [投资驿站 | 打造优质优雅的投资导航网站](https://touzihub.com/)
+8. [个人理财_个人理财规划_理财产品排行_新浪财经_新浪网](https://money.sina.com.cn/)
+9. [同花顺财经__让投资变得更简单](https://www.10jqka.com.cn/)
+10. [理财 - 265上网导航](https://www.265.com/Touzi_Licai/)
+11. [财经网址_360导航上网主页](https://hao.360.com/sub/caijing_website_nav.html)
+12. [东方财富网：财经门户，提供专业的财经、股票、行情、证券、基金、理财、银行、保险、信托、期货、黄金、股吧、博客等各类财经资讯及数据](https://www.eastmoney.com/)
+13. [英为财情Investing.com_全球金融行情资讯专家|外汇,股票,期货,债券,数字货币行情和财经新闻](https://cn.investing.com/)
+
 ## 副业导航
 
 1. [副业导航 | 摸鱼人副业集中营-摸鱼导航](https://moyu.games/side-gig)
@@ -131,6 +150,13 @@ title = '导航网站汇总'
 4. [全球副业导航 | 跨境收入机会一站式平台](https://www.makemoneyonline.mom/)
 
 5. [ai副业赚钱大集合，教你如何利用ai做一些副业项目，赚取更多额外收益。](https://github.com/XiaomingX/ai-money-maker-handbook)
+
+## 数字游民导航
+
+1. [世移先生导航-Mr41.com数字游民导航站 | 世移(世界移民)-海内外华人数字游民导航家园](https://www.mr41.com/)
+2. [自由职业者/数字游民/一人公司网址导航 - 不上班研究所](https://www.toocool.cc/links)
+3. [xuf-95/digital-nomad: 数字游民部落](https://github.com/xuf-95/digital-nomad)
+4. [数字移民导航](https://www.shuziyimin.org/)
 
 ## 影视资源导航
 
