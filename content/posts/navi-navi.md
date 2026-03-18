@@ -19,7 +19,10 @@ title = '导航网站汇总'
 2. [AI工具集官网 | 1000+ AI工具集合，国内外AI工具集导航大全](https://ai-bot.cn/)
 3. [AIGC工具导航 | 生成式AI工具导航,AIGC公共服务平台官网](https://www.aigc.cn/)
 4. [发现AI - 专业AI导航网站,一站式AI导航,发现AI官网](https://www.faxianai.com/)
-5. [国产AI大模型网址集锦（附介绍）](https://zhuanlan.zhihu.com/p/657196096)
+5. [AI工具导航 - 1200+全球最新AI工具 - 优设旗下AI工具导航官网](https://ai.uisdc.com/)
+6. [whataicc/aitools: AI工具大全｜国内外AI工具导航｜AI工具排行榜 | 1000+国内外AI工具集导航，AI工具箱一站式解决方案](https://github.com/whataicc/aitools)
+7. [AI工具导航 - 精选AI工具集合 | AI Tools Directory](https://ai.keenchase.com/)
+8. [国产AI大模型网址集锦（附介绍）](https://zhuanlan.zhihu.com/p/657196096)
 
 ## 学习导航
 

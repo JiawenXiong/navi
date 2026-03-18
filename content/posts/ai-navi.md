@@ -105,6 +105,46 @@ title = 'AI 学习资源导航'
 
 1. [动手学大模型应用开发](https://datawhalechina.github.io/llm-universe/#/)
 
+### 提示词
+
+#### 提示词参考
+
+1. [提示词.com (ChatGPT 提示词 Prompts) | 提示词.com (ChatGPT 提示词)](https://xn--o0uq09burn.com/)
+
+2. [AiShort - AI提示词库 | 精选Prompt模板，即刻提升AI效率 | AiShort - Advanced AI Agent & Prompt Platform | Build, Share, and Multiply Productivity with One Click](https://www.aishort.top/)
+
+3. [AI 提示词 - WayToAGI](https://www.waytoagi.com/zh/prompts)
+
+
+#### 提示词工程
+
+1. [K-Render/best-chinese-prompt: AI中文提示词秘籍ChatGPT中文提示词秘籍（Prompt圣经）K-Render整理](https://github.com/K-Render/best-chinese-prompt)
+2. [提示工程指南 | Prompt Engineering Guide](https://www.promptingguide.ai/zh)
+
+3. [提示词工程 | 菜鸟教程](https://www.runoob.com/ai-agent/prompt-engineering.html)
+
+4. [linshenkx/prompt-optimizer: 一款提示词优化器，助力于编写高质量的提示词](https://github.com/linshenkx/prompt-optimizer)
+
+5. [holmquistc407/ai-tishici: 2025年最好的AI提示词合集：ChatGPT、Claude、Gemini 提示词大全](https://github.com/holmquistc407/ai-tishici)
+
+#### 文生图提示词
+
+1. [文生图提示词教程模板：N个提示词模板资源，1000余个 Nano Banana Pro/即梦/豆包等文生图提示词模板及提示词编写技巧 – 智慧城市行业分析](https://www.smartcity.team/consultingskills/tools/%E6%96%87%E7%94%9F%E5%9B%BE%E6%8F%90%E7%A4%BA%E8%AF%8D%E6%95%99%E7%A8%8B%E6%A8%A1%E6%9D%BF/)
+
+2. [ 文生图提示词教程，建议收藏 - 知乎](https://zhuanlan.zhihu.com/p/1887815718436849440)
+
+3. [‍‌‬﻿⁠﻿﻿﻿‬文生图篇（text2img） - 飞书云文档](https://my.feishu.cn/wiki/Y1xLwtEbjiYOxckETSHcxqeinhb)
+
+4. [万字长文详解文生图提示词万能公式，看这一篇就够了 - 知乎](https://zhuanlan.zhihu.com/p/1918775648866014131)
+
+5. [langgptai/awesome-doubao-prompts: 🚀 最全面的豆包AI提示词库 | DoubaoAI Prompts Collection | 字节跳动豆包提示词 | AI Prompt Engineering](https://github.com/langgptai/awesome-doubao-prompts)
+
+6. [【豆包AI】一键生成情侣AI写真（附9套提示词） - 知乎](https://zhuanlan.zhihu.com/p/1998134249262446237)
+
+7. [豆包文生图提示词 - Tao's Blog](https://www.ubitools.com/zh/%E8%B1%86%E5%8C%85%E6%96%87%E7%94%9F%E5%9B%BE%E6%8F%90%E7%A4%BA%E8%AF%8D/)
+
+8. [豆包太权威了，废图秒变CG大片（附8组提示词） - 知乎](https://zhuanlan.zhihu.com/p/2002483518152926171)
+
 ### 智能体
 
 1. [datawhalechina/hello-agents: 📚 《从零开始构建智能体》——从零开始的智能体原理与实践教程](https://github.com/datawhalechina/hello-agents)
