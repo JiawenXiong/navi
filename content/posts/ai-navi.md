@@ -105,13 +105,19 @@ title = 'AI 学习资源导航'
 
 1. [动手学大模型应用开发](https://datawhalechina.github.io/llm-universe/#/)
 
+### 智能体
+
+1. [datawhalechina/hello-agents: 📚 《从零开始构建智能体》——从零开始的智能体原理与实践教程](https://github.com/datawhalechina/hello-agents)
+2. [AI Agent(智能体) 教程 | 菜鸟教程](https://www.runoob.com/ai-agent/ai-agent-tutorial.html)
+
 ### 学习资源
 
 1. [AI学习终极指南：全网最全学习资源网站，从入门到专家一步到位！](https://zhuanlan.zhihu.com/p/27471533210)
-
 2. [重磅 | 完备的 AI 学习路线，最详细的资源整理！ - 哔哩哔哩](https://www.bilibili.com/opus/276302861130178455)
-
 3. [tangyudi/Ai-Learn: 人工智能学习路线图，整理近200个实战案例与项目，免费提供配套教材，零基础入门，就业实战！包括：Python，数学，机器学习，数据分析，深度学习，计算机视觉，自然语言处理](https://github.com/tangyudi/Ai-Learn)
+4. [0voice/learning-Journey-AI: learning-Journey-AI 是一个2025年最新整理推出AI学习资料归纳，包含了基础理论知识，书籍，文章和论文以方便学习，还提供了各种实战项目和工具以方便练习。](https://github.com/0voice/learning-Journey-AI)
+5. [liyupi/ai-guide: 程序员鱼皮的 AI 资源大全 + Vibe Coding 零基础教程，分享大模型选择指南（DeepSeek / GPT / Gemini / Claude）、最新 AI 资讯、Prompt 提示词大全、AI 知识百科（RAG / MCP / A2A）、AI 编程教程、AI 工具用法（Cursor / Claude Code / OpenClaw / TRAE / Lovable / Agent Skills）、AI 开发框架教程（Spring AI / LangChain）、AI 产品变现指南，帮你快速掌握 AI 技术，走在时代前沿。本项目为开源文档版本，已升级为鱼皮 AI 导航网站](https://github.com/liyupi/ai-guide)
+6. [2025 从0开始学习 AI的完整指南 - 知乎](https://zhuanlan.zhihu.com/p/688720248)
 
 ## 具身智能
 1. [动手学ROS2](https://fishros.com/d2lros2/#/)

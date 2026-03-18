@@ -20,9 +20,10 @@ title = '导航网站汇总'
 
 ## 学习导航
 
-1. [学吧导航 | 四十万学习爱好者都在用的学霸导航网站](https://www.xue8nav.com/)
-2. [熊猫学吧_熊猫学习导航_学霸导航_一站式学习导航导航站_学习爱好者都在用的学霸导航网站_Panda_learnbar](https://learn.xmsoushu.com/#/)
-3. [学习资源导航](https://ibridgelab.com/nav/page/learn-resource)
+1. [1纳米学习网站导航](http://1nami.com/)
+2. [学吧导航 | 四十万学习爱好者都在用的学霸导航网站](https://www.xue8nav.com/)
+3. [熊猫学吧_熊猫学习导航_学霸导航_一站式学习导航导航站_学习爱好者都在用的学霸导航网站_Panda_learnbar](https://learn.xmsoushu.com/#/)
+4. [学习资源导航](https://ibridgelab.com/nav/page/learn-resource)
 
 ## 学术导航
 
@@ -50,20 +51,14 @@ title = '导航网站汇总'
 ## 程序员导航
 
 1. [技术导航网 - 学习技术从这里开始！](https://www.jishu5.com/)
-
-2. [程序员宝盒 - 开发者常用导航大全 - 一站式效率提升平台](https://www.baoboxs.com/)
-
-3. [程序员导航](https://code-nav.top/myblog/home)
-
-4. [程序员导航网_一站式程序员工作学习导航网站](https://www.haonav.cn/)
-
-5. [开发者导航 - 程序员一站式工具导航 | 程序员工具大全](http://www.cxy521.com/)
-
-6. [程序员网址导航 - 程序员、站长必备的网址导航](https://w3to.dev/)
-
-7. [程序员导航](https://hao.ui520.com/coding)
-
-8. [程序员盒子 coderutil 编程导航，助力200万程序员编程学习提效【官网】](https://www.coderutil.com/)
+2. [ctimbai/awesome-things: 程序员开拓眼界和提升效率——持续更新。。。](https://github.com/ctimbai/awesome-things?tab=readme-ov-file)
+3. [程序员宝盒 - 开发者常用导航大全 - 一站式效率提升平台](https://www.baoboxs.com/)
+4. [程序员导航](https://code-nav.top/myblog/home)
+5. [程序员导航网_一站式程序员工作学习导航网站](https://www.haonav.cn/)
+6. [开发者导航 - 程序员一站式工具导航 | 程序员工具大全](http://www.cxy521.com/)
+7. [程序员网址导航 - 程序员、站长必备的网址导航](https://w3to.dev/)
+8. [程序员导航](https://hao.ui520.com/coding)
+9. [程序员盒子 coderutil 编程导航，助力200万程序员编程学习提效【官网】](https://www.coderutil.com/)
 
 ## 产品经理导航
 
