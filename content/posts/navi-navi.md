@@ -63,6 +63,19 @@ title = '导航网站汇总'
 8. [程序员导航](https://hao.ui520.com/coding)
 9. [程序员盒子 coderutil 编程导航，助力200万程序员编程学习提效【官网】](https://www.coderutil.com/)
 
+## 硬件/电子/机器人工程师导航
+
+1. [斯塔克电子导航网-电子工程师、硬件工程师、嵌入式开发工程师导航网站](https://nav.starkmcu.cn/)
+2. [象导航 - 热爱可抵岁月漫长](https://xiangwangli.github.io/)
+3. [知路导航 | 导航，用这个就够了](http://xn--k7y238b.com/)
+4. [电子工程师必备网站 - 知乎](https://zhuanlan.zhihu.com/p/67881959)
+5. [分享电子工程师的10个好助手网站_我爱ic导航网-CSDN博客](https://blog.csdn.net/lanhua_123/article/details/6683232)
+6. [硬件工程师《十大系统，入门合集》 - Go语言中文网 - Golang中文社区](https://studygolang.com/articles/40391)
+7. [The-path-of-robotics-engineers/机器人工程师的成长之路.md at master · izh20/The-path-of-robotics-engineers](https://github.com/izh20/The-path-of-robotics-engineers/blob/master/%E6%9C%BA%E5%99%A8%E4%BA%BA%E5%B7%A5%E7%A8%8B%E5%B8%88%E7%9A%84%E6%88%90%E9%95%BF%E4%B9%8B%E8%B7%AF.md)
+8. [SolidWorks机械工程师网——最大的SolidWorks学习平台](https://www.swbbsc.com/?ref=xxnav.com)
+9. [li-yizhi/Mechanical-Engineer: 机械工程师必备知识](https://github.com/li-yizhi/Mechanical-Engineer?tab=readme-ov-file)
+10. [机器人资源汇总 - 图书资源](https://book.guyuehome.com/ROS2/4.%E8%B5%84%E6%BA%90%E6%B1%87%E6%80%BB/4.%E8%B5%84%E6%BA%90%E6%B1%87%E6%80%BB/)
+
 ## 产品经理导航
 
 1. [AI产品导航 | 产品经理导航、运营导航、职场人每日必看](https://www.pmbaobao.com/)
