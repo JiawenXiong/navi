@@ -30,6 +30,11 @@ title = '导航网站汇总'
 2. [学吧导航 | 四十万学习爱好者都在用的学霸导航网站](https://www.xue8nav.com/)
 3. [熊猫学吧_熊猫学习导航_学霸导航_一站式学习导航导航站_学习爱好者都在用的学霸导航网站_Panda_learnbar](https://learn.xmsoushu.com/#/)
 4. [学习资源导航](https://ibridgelab.com/nav/page/learn-resource)
+5. [英语学习导航 | 柒导航](https://www.7udh.com/xyy)
+6. [英语学习资源导航 | 全网最全](https://en.knowledgefxg.com/)
+7. [EngLearner - 英语学习工具导航网站 - 学英语不求人](https://www.englearner.site/cn/index.html)
+8. [knowledgefxg/learning-english: 精选优质英语学习资源合集，专注于听说读写等核心技能的提升。包含语法、词汇和媒体资源，助您更好地学习英语。](https://github.com/knowledgefxg/learning-english)
+9. [法语学习导航 - Bold Edition](https://learnfr.de/)
 
 ## 学术导航
 
@@ -65,19 +70,22 @@ title = '导航网站汇总'
 7. [程序员网址导航 - 程序员、站长必备的网址导航](https://w3to.dev/)
 8. [程序员导航](https://hao.ui520.com/coding)
 9. [程序员盒子 coderutil 编程导航，助力200万程序员编程学习提效【官网】](https://www.coderutil.com/)
+10. [算法导航 - 交互式算法学习与可视化平台](https://algo.codefather.cn/)
+11. [OI Wiki - OI Wiki](https://oi-wiki.org/)
 
 ## 硬件/电子/机器人工程师导航
 
-1. [斯塔克电子导航网-电子工程师、硬件工程师、嵌入式开发工程师导航网站](https://nav.starkmcu.cn/)
-2. [象导航 - 热爱可抵岁月漫长](https://xiangwangli.github.io/)
-3. [知路导航 | 导航，用这个就够了](http://xn--k7y238b.com/)
-4. [电子工程师必备网站 - 知乎](https://zhuanlan.zhihu.com/p/67881959)
-5. [分享电子工程师的10个好助手网站_我爱ic导航网-CSDN博客](https://blog.csdn.net/lanhua_123/article/details/6683232)
-6. [硬件工程师《十大系统，入门合集》 - Go语言中文网 - Golang中文社区](https://studygolang.com/articles/40391)
-7. [The-path-of-robotics-engineers/机器人工程师的成长之路.md at master · izh20/The-path-of-robotics-engineers](https://github.com/izh20/The-path-of-robotics-engineers/blob/master/%E6%9C%BA%E5%99%A8%E4%BA%BA%E5%B7%A5%E7%A8%8B%E5%B8%88%E7%9A%84%E6%88%90%E9%95%BF%E4%B9%8B%E8%B7%AF.md)
-8. [SolidWorks机械工程师网——最大的SolidWorks学习平台](https://www.swbbsc.com/?ref=xxnav.com)
-9. [li-yizhi/Mechanical-Engineer: 机械工程师必备知识](https://github.com/li-yizhi/Mechanical-Engineer?tab=readme-ov-file)
-10. [机器人资源汇总 - 图书资源](https://book.guyuehome.com/ROS2/4.%E8%B5%84%E6%BA%90%E6%B1%87%E6%80%BB/4.%E8%B5%84%E6%BA%90%E6%B1%87%E6%80%BB/)
+1. [电子人导航 - 实用的电子行业网址导航！](https://www.dianzinav.com/)
+2. [斯塔克电子导航网-电子工程师、硬件工程师、嵌入式开发工程师导航网站](https://nav.starkmcu.cn/)
+3. [象导航 - 热爱可抵岁月漫长](https://xiangwangli.github.io/)
+4. [知路导航 | 导航，用这个就够了](http://xn--k7y238b.com/)
+5. [电子工程师必备网站 - 知乎](https://zhuanlan.zhihu.com/p/67881959)
+6. [分享电子工程师的10个好助手网站_我爱ic导航网-CSDN博客](https://blog.csdn.net/lanhua_123/article/details/6683232)
+7. [硬件工程师《十大系统，入门合集》 - Go语言中文网 - Golang中文社区](https://studygolang.com/articles/40391)
+8. [The-path-of-robotics-engineers/机器人工程师的成长之路.md at master · izh20/The-path-of-robotics-engineers](https://github.com/izh20/The-path-of-robotics-engineers/blob/master/%E6%9C%BA%E5%99%A8%E4%BA%BA%E5%B7%A5%E7%A8%8B%E5%B8%88%E7%9A%84%E6%88%90%E9%95%BF%E4%B9%8B%E8%B7%AF.md)
+9. [SolidWorks机械工程师网——最大的SolidWorks学习平台](https://www.swbbsc.com/?ref=xxnav.com)
+10. [li-yizhi/Mechanical-Engineer: 机械工程师必备知识](https://github.com/li-yizhi/Mechanical-Engineer?tab=readme-ov-file)
+11. [机器人资源汇总 - 图书资源](https://book.guyuehome.com/ROS2/4.%E8%B5%84%E6%BA%90%E6%B1%87%E6%80%BB/4.%E8%B5%84%E6%BA%90%E6%B1%87%E6%80%BB/)
 
 ## 产品经理导航
 
@@ -90,14 +98,11 @@ title = '导航网站汇总'
 ## 自媒体导航
 
 1. [考拉新媒体导航——新媒体人的专属门户网站](https://www.kaolamedia.com/)
-
 2. [新榜 新媒体导航——新媒体人必备的导航工具](https://nav.newrank.cn/)
-
 3. [可达新媒体导航 | 专注新媒体运营工具应用分享](https://kedaxmt.com/)
-
 4. [自媒体导航 | 新媒体人的必备导航网站](https://www.zhouxingbin.com/)
-
 5. [黑马自媒体导航 | 短视频自媒体运营素材网址导航网](https://hmwww.cn/)
+6. [剪辑迷网址导航](https://nav.jianjimi.cn/)
 
 ## 运营导航
 
@@ -108,16 +113,12 @@ title = '导航网站汇总'
 ## 跨境电商导航
 
 1. [AMZ123亚马逊导航-跨境电商出海门户](https://www.amz123.com/)
-
 2. [DNY123东南亚跨境导航-Shopee虾皮、Lazada、TikTok等东南亚平台卖家导航栏](https://www.dny123.com/)
-
 3. [跨境知道卖家导航-集合跨境卖家出海所需的一切资源门户网站_跨境知道](https://tools.ikjzd.com/)
-
 4. [TT123卖家导航-TikTok电商门户|海外短视频运营导航](https://www.tt123.com/)
-
 5. [跨境导航-集合跨境电商卖家出海一切资源网站 - 234跨境导航](https://www.234.cn/)
-
 6. [M123跨境工具导航 - 跨境电商品牌出海工具网址目录](https://www.m123.com/)
+7. [独角兽出海导航](https://www.dujiaoshou.ws/)
 
 ## 建筑师导航
 
@@ -184,8 +185,8 @@ title = '导航网站汇总'
 ## 影视资源导航
 
 1. [影视宝藏导航 | 一个有用好用的网址导航](https://tv.baozangdh.com/)
-
 2. [聚玩导航 - 免费在线影视资源聚合站,影视游戏BT下载导航](https://www.juwandh.com/)
+3. [音乐 - 265上网导航](https://www.265.com/Yinyue_Mp3/)
 
 ## 游戏导航
 
