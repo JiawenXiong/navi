@@ -35,6 +35,7 @@ title = 'AI 学习资源导航'
 8. [OpenCompass司南 - 评测榜单](https://rank.opencompass.org.cn/home)
 9. [LLM Leaderboard - Vellum](https://www.vellum.ai/llm-leaderboard)
 10. [Open LLM Leaderboard - a Hugging Face Space by open-llm-leaderboard](https://huggingface.co/spaces/open-llm-leaderboard/open_llm_leaderboard#/)
+11. [PinchBench - Success Rate Leaderboard Openclaw 模型排行榜](https://pinchbench.com/)
 
 ## AI大模型接口供应商
 
