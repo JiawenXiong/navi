@@ -27,9 +27,14 @@ title = 'AI 学习资源导航'
 
 1. [LLM Leaderboard - Comparison of over 100 AI models from OpenAI, Google, DeepSeek & others](https://artificialanalysis.ai/leaderboards/models)
 2. [Arena Leaderboard | Compare & Benchmark the Best Frontier AI Models](https://arena.ai/leaderboard)
-3. [LLM Rank - 大型语言模型评测及排行榜](https://llmrank.cn/)
-4. [大模型排名 - HelloGitHub](https://hellogithub.com/report/lm-rank)
-5. [CLUEbenchmark/SuperCLUE: SuperCLUE: 中文通用大模型综合性基准 | A Benchmark for Foundation Models in Chinese](https://github.com/CLUEbenchmark/SuperCLUE)
+3. [LLM Rankings | OpenRouter](https://openrouter.ai/rankings)
+4. [LLM Rank - 大型语言模型评测及排行榜](https://llmrank.cn/)
+5. [大模型排名 - HelloGitHub](https://hellogithub.com/report/lm-rank)
+6. [LiveBench](https://livebench.ai/#/?highunseenbias=true)
+7. [CLUEbenchmark/SuperCLUE: SuperCLUE: 中文通用大模型综合性基准 | A Benchmark for Foundation Models in Chinese](https://github.com/CLUEbenchmark/SuperCLUE)
+8. [OpenCompass司南 - 评测榜单](https://rank.opencompass.org.cn/home)
+9. [LLM Leaderboard - Vellum](https://www.vellum.ai/llm-leaderboard)
+10. [Open LLM Leaderboard - a Hugging Face Space by open-llm-leaderboard](https://huggingface.co/spaces/open-llm-leaderboard/open_llm_leaderboard#/)
 
 ## AI大模型接口供应商
 
