@@ -1,0 +1,481 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>中国投资者导航 · 每日必看</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+SC:wght@400;500;700;900&family=Playfair+Display:wght@700&display=swap" rel="stylesheet">
+<style>
+:root {
+  --bg: #0f0f14;
+  --surface: #1a1a24;
+  --surface-hover: #24243a;
+  --border: #2a2a3e;
+  --text: #e8e8f0;
+  --text-dim: #8888a0;
+  --gold: #d4a84b;
+  --gold-light: #f0d080;
+  --gold-glow: rgba(212, 168, 75, 0.15);
+  --red: #e74c5e;
+  --green: #2ecc71;
+  --radius: 14px;
+  --shadow: 0 4px 24px rgba(0,0,0,0.4);
+}
+
+*, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+html { scroll-behavior: smooth; }
+
+body {
+  font-family: 'Noto Sans SC', -apple-system, 'PingFang SC', 'Microsoft YaHei', sans-serif;
+  background: var(--bg);
+  color: var(--text);
+  min-height: 100vh;
+  line-height: 1.6;
+}
+
+::selection { background: var(--gold); color: #0f0f14; }
+
+/* Scrollbar */
+::-webkit-scrollbar { width: 6px; }
+::-webkit-scrollbar-track { background: var(--bg); }
+::-webkit-scrollbar-thumb { background: var(--border); border-radius: 3px; }
+::-webkit-scrollbar-thumb:hover { background: var(--text-dim); }
+
+/* Header */
+.header {
+  position: sticky; top: 0; z-index: 100;
+  background: rgba(15,15,20,0.85);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  border-bottom: 1px solid var(--border);
+}
+.header-inner {
+  max-width: 1200px; margin: 0 auto;
+  padding: 16px 24px;
+  display: flex; align-items: center; justify-content: space-between; gap: 20px;
+}
+.logo {
+  display: flex; align-items: center; gap: 12px;
+  font-size: 22px; font-weight: 900; letter-spacing: -0.5px;
+  white-space: nowrap;
+}
+.logo-icon {
+  width: 36px; height: 36px;
+  background: linear-gradient(135deg, var(--gold), var(--gold-light));
+  border-radius: 10px;
+  display: flex; align-items: center; justify-content: center;
+  font-size: 18px; color: #0f0f14; font-weight: 700;
+}
+.logo span { color: var(--gold); }
+
+.search-box {
+  flex: 1; max-width: 360px; position: relative;
+}
+.search-box input {
+  width: 100%; padding: 10px 16px 10px 40px;
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: 10px;
+  color: var(--text); font-size: 14px;
+  outline: none; transition: 0.25s;
+  font-family: inherit;
+}
+.search-box input:focus {
+  border-color: var(--gold);
+  box-shadow: 0 0 0 3px var(--gold-glow);
+}
+.search-box input::placeholder { color: var(--text-dim); }
+.search-icon {
+  position: absolute; left: 12px; top: 50%; transform: translateY(-50%);
+  color: var(--text-dim); font-size: 16px; pointer-events: none;
+}
+
+.count-badge {
+  font-size: 13px; color: var(--text-dim);
+  white-space: nowrap;
+  background: var(--surface); padding: 6px 14px;
+  border-radius: 20px; border: 1px solid var(--border);
+}
+
+/* Hero */
+.hero {
+  max-width: 1200px; margin: 0 auto;
+  padding: 48px 24px 32px;
+  text-align: center;
+}
+.hero h1 {
+  font-size: clamp(28px, 5vw, 52px);
+  font-weight: 900;
+  letter-spacing: -1px;
+  line-height: 1.2;
+}
+.hero h1 em { font-style: normal; color: var(--gold); }
+.hero p {
+  margin-top: 12px;
+  color: var(--text-dim);
+  font-size: 15px; max-width: 500px; margin-inline: auto;
+}
+
+/* Category filter pills */
+.pills {
+  max-width: 1200px; margin: 0 auto;
+  padding: 0 24px 20px;
+  display: flex; flex-wrap: wrap; gap: 8px;
+  justify-content: center;
+}
+.pill {
+  padding: 6px 18px;
+  border-radius: 20px;
+  background: var(--surface);
+  border: 1px solid var(--border);
+  color: var(--text-dim);
+  font-size: 13px; cursor: pointer;
+  transition: 0.2s; user-select: none;
+  font-family: inherit;
+}
+.pill:hover { border-color: var(--gold); color: var(--text); }
+.pill.active {
+  background: var(--gold);
+  color: #0f0f14; border-color: var(--gold);
+  font-weight: 700;
+}
+
+/* Grid */
+.grid {
+  max-width: 1200px; margin: 0 auto;
+  padding: 0 24px 80px;
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+  gap: 14px;
+}
+
+/* Card */
+.card {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  padding: 18px 20px;
+  text-decoration: none; color: inherit;
+  transition: 0.25s ease;
+  position: relative; overflow: hidden;
+  cursor: pointer;
+  display: flex; flex-direction: column; gap: 6px;
+}
+.card::before {
+  content: '';
+  position: absolute; inset: 0;
+  background: linear-gradient(135deg, var(--gold-glow), transparent 70%);
+  opacity: 0; transition: 0.35s;
+}
+.card:hover {
+  border-color: var(--gold);
+  transform: translateY(-2px);
+  box-shadow: var(--shadow);
+}
+.card:hover::before { opacity: 1; }
+.card:active { transform: translateY(0); }
+
+.card-cat {
+  font-size: 11px; font-weight: 700; letter-spacing: 0.8px;
+  text-transform: uppercase;
+  color: var(--gold);
+  margin-bottom: 2px;
+  position: relative; z-index: 1;
+}
+.card-title {
+  font-size: 15px; font-weight: 700;
+  position: relative; z-index: 1;
+  display: flex; align-items: center; gap: 8px;
+}
+.card-title .tag {
+  font-size: 10px; font-weight: 700;
+  padding: 1px 8px; border-radius: 4px;
+  background: var(--gold-glow); color: var(--gold-light);
+}
+.card-desc {
+  font-size: 12px; color: var(--text-dim);
+  line-height: 1.5;
+  position: relative; z-index: 1;
+}
+.card-url {
+  font-size: 11px; color: var(--text-dim);
+  opacity: 0.5; margin-top: auto;
+  overflow: hidden; text-overflow: ellipsis; white-space: nowrap;
+  position: relative; z-index: 1;
+}
+.card:hover .card-url { opacity: 0.8; }
+
+/* No results */
+.no-results {
+  grid-column: 1 / -1;
+  text-align: center; padding: 60px 20px;
+  color: var(--text-dim);
+}
+.no-results strong { color: var(--text); }
+
+/* Footer */
+.footer {
+  text-align: center;
+  padding: 32px 24px;
+  border-top: 1px solid var(--border);
+  color: var(--text-dim);
+  font-size: 13px;
+}
+
+/* Animations */
+@keyframes fadeUp {
+  from { opacity: 0; transform: translateY(16px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+.card { animation: fadeUp 0.5s ease both; }
+.card:nth-child(1) { animation-delay: 0.02s; }
+.card:nth-child(2) { animation-delay: 0.04s; }
+.card:nth-child(3) { animation-delay: 0.06s; }
+.card:nth-child(4) { animation-delay: 0.08s; }
+.card:nth-child(5) { animation-delay: 0.10s; }
+.card:nth-child(6) { animation-delay: 0.12s; }
+.card:nth-child(7) { animation-delay: 0.14s; }
+.card:nth-child(8) { animation-delay: 0.16s; }
+.card:nth-child(9) { animation-delay: 0.18s; }
+.card:nth-child(10) { animation-delay: 0.20s; }
+.card:nth-child(11) { animation-delay: 0.22s; }
+.card:nth-child(12) { animation-delay: 0.24s; }
+.card:nth-child(13) { animation-delay: 0.26s; }
+.card:nth-child(14) { animation-delay: 0.28s; }
+.card:nth-child(15) { animation-delay: 0.30s; }
+.card:nth-child(16) { animation-delay: 0.32s; }
+
+/* Mobile */
+@media (max-width: 640px) {
+  .header-inner { padding: 12px 16px; flex-wrap: wrap; }
+  .logo { font-size: 18px; }
+  .search-box { max-width: 100%; order: 3; }
+  .count-badge { display: none; }
+  .grid { grid-template-columns: 1fr; gap: 10px; padding: 0 16px 60px; }
+  .hero { padding: 28px 16px 20px; }
+  .pills { padding: 0 16px 16px; }
+  .card { padding: 14px 16px; }
+}
+</style>
+</head>
+<body>
+
+<header class="header">
+  <div class="header-inner">
+    <a href="#" class="logo" onclick="resetAll(); return false;">
+      <div class="logo-icon">投</div>
+      中国投资者<span>导航</span>
+    </a>
+    <div class="search-box">
+      <span class="search-icon">&#x1F50D;</span>
+      <input type="text" id="search" placeholder="搜索网站名称或关键词…" oninput="filterCards()">
+    </div>
+    <div class="count-badge" id="countBadge">62 个站点</div>
+  </div>
+</header>
+
+<section class="hero">
+  <h1>每日必看 · <em>投资导航</em></h1>
+  <p>为中国投资者精选的优质网站，覆盖行情、资讯、研报、社区与工具</p>
+</section>
+
+<div class="pills" id="pills"></div>
+
+<div class="grid" id="grid"></div>
+
+<footer class="footer">
+  <p>中国投资者导航 · 最后更新 2026年5月</p>
+</footer>
+
+<script>
+const sites = [
+  // 财经门户
+  { cat: '财经门户', title: '东方财富网', desc: '国内最大财经门户，行情+资讯+社区+数据一体', url: 'https://www.eastmoney.com', tag: '首选' },
+  { cat: '财经门户', title: '新浪财经', desc: '老牌门户，7×24快讯，自选股工具完善', url: 'https://finance.sina.com.cn' },
+  { cat: '财经门户', title: '和讯网', desc: '综合财经，股票/基金/外汇/期货全覆盖', url: 'https://www.hexun.com' },
+  { cat: '财经门户', title: '金融界', desc: '7×24电报，龙虎榜，涨停复盘', url: 'https://www.jrj.com.cn' },
+  { cat: '财经门户', title: '证券之星', desc: '行情数据+龙虎榜+资金流向', url: 'https://www.stockstar.com' },
+  { cat: '财经门户', title: '中金在线', desc: '财经资讯+分析师观点+选股器', url: 'https://www.zhongjincn.com' },
+  { cat: '财经门户', title: '财新网', desc: '深度财经新闻，权威调查报道', url: 'https://www.caixin.com' },
+  { cat: '财经门户', title: '财经网', desc: '《财经》杂志官网，深度报道', url: 'https://www.caijing.com.cn' },
+  { cat: '财经门户', title: '凤凰财经', desc: '财经资讯+独家观点', url: 'https://finance.ifeng.com' },
+  { cat: '财经门户', title: '第一财经', desc: '专业财经媒体，宏观分析', url: 'https://www.yicai.com' },
+
+  // 行情数据
+  { cat: '行情数据', title: '东方财富行情', desc: '沪深港美实时行情，资金流向', url: 'https://quote.eastmoney.com', tag: '核心' },
+  { cat: '行情数据', title: '同花顺', desc: 'Level-2行情，技术指标齐全', url: 'https://www.10jqka.com.cn' },
+  { cat: '行情数据', title: '新浪自选股', desc: '自选股管理，实时行情', url: 'https://vip.stock.finance.sina.com.cn' },
+  { cat: '行情数据', title: '英为财情', desc: '全球行情，外汇/商品/指数', url: 'https://cn.investing.com' },
+  { cat: '行情数据', title: '雪球行情', desc: '行情+讨论一体化', url: 'https://xueqiu.com/S/SH000001' },
+  { cat: '行情数据', title: '东方财富数据中心', desc: '龙虎榜/资金流向/融资融券', url: 'https://data.eastmoney.com' },
+  { cat: '行情数据', title: '中财网数据引擎', desc: '财报数据，行业数据查询', url: 'https://data.cfi.cn' },
+
+  // 投资社区
+  { cat: '投资社区', title: '雪球', desc: '高质量投资者社区，组合管理', url: 'https://xueqiu.com', tag: '热门' },
+  { cat: '投资社区', title: '淘股吧', desc: '短线/题材/打板交流社区', url: 'https://www.taoguba.com.cn' },
+  { cat: '投资社区', title: '东方财富股吧', desc: '最大股票论坛', url: 'https://guba.eastmoney.com' },
+  { cat: '投资社区', title: '集思录', desc: '可转债/分级基金/套利专业社区', url: 'https://www.jisilu.cn' },
+  { cat: '投资社区', title: '宁稳网', desc: '可转债/债券数据与讨论', url: 'https://www.ninwin.cn' },
+  { cat: '投资社区', title: '互动易', desc: '深交所投资者互动平台', url: 'https://irm.cninfo.com.cn' },
+  { cat: '投资社区', title: '上证e互动', desc: '上交所投资者互动', url: 'https://sns.sseinfo.com' },
+
+  // 基金理财
+  { cat: '基金理财', title: '天天基金网', desc: '基金净值/排行/申购费率低', url: 'https://fund.eastmoney.com', tag: '首选' },
+  { cat: '基金理财', title: '好买基金网', desc: '基金评测+私募数据', url: 'https://www.howbuy.com' },
+  { cat: '基金理财', title: '晨星中国', desc: '权威基金评级', url: 'https://www.morningstar.cn' },
+  { cat: '基金理财', title: '私募排排网', desc: '私募数据/排名/业绩', url: 'https://www.simuwang.com' },
+  { cat: '基金理财', title: '且慢', desc: '基金组合投顾平台', url: 'https://qieman.com' },
+  { cat: '基金理财', title: '中国理财网', desc: '银行理财产品查询', url: 'https://www.chinawealth.com.cn' },
+
+  // 快讯电报
+  { cat: '快讯电报', title: '财联社', desc: '7×24实时财经快讯，短线必备', url: 'https://www.cls.cn', tag: '必备' },
+  { cat: '快讯电报', title: '蓝鲸财经', desc: '一线财经记者报道', url: 'https://www.lanjinger.com' },
+  { cat: '快讯电报', title: '钛媒体', desc: '科技财经深度报道', url: 'https://www.tmtpost.com' },
+  { cat: '快讯电报', title: '36氪', desc: '创投/科技/商业快讯', url: 'https://36kr.com' },
+  { cat: '快讯电报', title: '虎嗅', desc: '商业科技深度文章', url: 'https://www.huxiu.com' },
+
+  // 港美股
+  { cat: '港美股', title: '富途牛牛', desc: '港美股行情交易+牛牛圈社区', url: 'https://www.futunn.com', tag: '热门' },
+  { cat: '港美股', title: '老虎国际', desc: '美港股交易/资讯/社区', url: 'https://www.tigerbrokers.com.cn' },
+  { cat: '港美股', title: '华盛证券', desc: '港美股行情与交易', url: 'https://www.vbkr.com' },
+  { cat: '港美股', title: '雪盈证券', desc: '雪球旗下港美股交易平台', url: 'https://www.snowballsecurities.com' },
+
+  // 量化投研
+  { cat: '量化投研', title: '聚宽', desc: '量化交易平台/策略回测', url: 'https://www.joinquant.com' },
+  { cat: '量化投研', title: '米筐', desc: '量化投资研究平台', url: 'https://www.ricequant.com' },
+  { cat: '量化投研', title: 'BigQuant', desc: 'AI量化投资平台', url: 'https://bigquant.com' },
+  { cat: '量化投研', title: '优矿', desc: '量化金融研究平台', url: 'https://uqer.io' },
+  { cat: '量化投研', title: 'Tushare', desc: '免费量化数据接口', url: 'https://tushare.pro' },
+
+  // 企业信息
+  { cat: '企业信息', title: '天眼查', desc: '企业工商信息/股权穿透/司法风险', url: 'https://www.tianyancha.com', tag: '实用' },
+  { cat: '企业信息', title: '企查查', desc: '企业信用/风险/招投标查询', url: 'https://www.qichacha.com' },
+  { cat: '企业信息', title: '启信宝', desc: '企业信息/商业查询', url: 'https://www.qixin.com' },
+
+  // 期货衍生品
+  { cat: '期货衍生品', title: '上期所', desc: '有色/贵金属/能化期货行情规则', url: 'https://www.shfe.com.cn' },
+  { cat: '期货衍生品', title: '大商所', desc: '农产品/黑色系期货', url: 'https://www.dce.com.cn' },
+  { cat: '期货衍生品', title: '郑商所', desc: '农产品/化工期货', url: 'https://www.czce.com.cn' },
+  { cat: '期货衍生品', title: '中金所', desc: '股指期货/国债期货', url: 'https://www.cffex.com.cn' },
+  { cat: '期货衍生品', title: '上期能源', desc: '原油期货/国际能源期货', url: 'https://www.ine.cn' },
+
+  // 研报与公告
+  { cat: '研报公告', title: '巨潮资讯网', desc: '证监会指定信息披露平台', url: 'https://www.cninfo.com.cn', tag: '必备' },
+  { cat: '研报公告', title: '上交所公告', desc: '上交所上市公司公告', url: 'https://www.sse.com.cn/disclosure' },
+  { cat: '研报公告', title: '深交所公告', desc: '深交所上市公司公告', url: 'https://www.szse.cn/disclosure' },
+  { cat: '研报公告', title: '渐飞研报', desc: '券商研究报告汇总', url: 'https://www.yanbao.cn' },
+  { cat: '研报公告', title: '股票报告网', desc: '免费研报下载', url: 'https://www.nxny.com' },
+  { cat: '研报公告', title: '迈博汇金', desc: '券商研报查询', url: 'https://www.hibor.com.cn' },
+
+  // 打新
+  { cat: 'IPO打新', title: '东方财富新股中心', desc: 'A股IPO日历/中签查询', url: 'https://stock.eastmoney.com/a_ipoxg.html' },
+  { cat: 'IPO打新', title: '中签网', desc: '新股中签查询', url: 'https://www.zhongqianwang.com' },
+
+  // 官方机构
+  { cat: '官方机构', title: '中国证监会', desc: '政策法规/监管动态', url: 'https://www.csrc.gov.cn' },
+  { cat: '官方机构', title: '上交所', desc: '规则/数据/上市公司', url: 'https://www.sse.com.cn' },
+  { cat: '官方机构', title: '深交所', desc: '规则/数据/上市公司', url: 'https://www.szse.cn' },
+  { cat: '官方机构', title: '港交所', desc: '港股规则/数据', url: 'https://www.hkex.com.hk' },
+  { cat: '官方机构', title: '中国结算', desc: '证券登记/结算/查询', url: 'https://www.chinaclear.cn' },
+  { cat: '官方机构', title: '中证指数', desc: '指数编制/查询', url: 'https://www.csindex.com.cn' },
+  { cat: '官方机构', title: '国家统计局', desc: 'CPI/PPI/GDP等宏观数据', url: 'https://www.stats.gov.cn' },
+  { cat: '官方机构', title: '中国人民银行', desc: '货币政策/利率/汇率', url: 'https://www.pbc.gov.cn' },
+
+  // 国际财经
+  { cat: '国际财经', title: '华尔街日报中文', desc: '全球财经深度报道', url: 'https://cn.wsj.com' },
+  { cat: '国际财经', title: 'FT中文网', desc: '金融时报中文版', url: 'https://www.ftchinese.com' },
+  { cat: '国际财经', title: '华尔街见闻', desc: '全球市场快讯', url: 'https://wallstreetcn.com' },
+  { cat: '国际财经', title: '路透中文网', desc: '全球财经新闻', url: 'https://cn.reuters.com' },
+  { cat: '国际财经', title: '金十数据', desc: '外汇/商品/全球市场快讯', url: 'https://www.jin10.com' },
+  { cat: '国际财经', title: '汇通财经', desc: '外汇/黄金行情与资讯', url: 'https://www.fx678.com' },
+
+  // 专业工具
+  { cat: '专业工具', title: '问财', desc: '同花顺智能选股/数据查询', url: 'https://www.iwencai.com', tag: '好用' },
+  { cat: '专业工具', title: '雪球选股器', desc: '条件选股', url: 'https://xueqiu.com/hq/stock' },
+  { cat: '专业工具', title: '东方财富选股器', desc: '多维条件选股', url: 'https://xuangubao.eastmoney.com' },
+  { cat: '专业工具', title: '芝士财富', desc: '智能选股/基金评分/诊股工具', url: 'https://www.zhishilive.com' },
+  { cat: '专业工具', title: '乌龟量化', desc: '指数/基金历史数据回测', url: 'https://www.wugu.com.cn' },
+  { cat: '专业工具', title: '百度指数', desc: '搜索热度/趋势分析', url: 'https://index.baidu.com' },
+  { cat: '专业工具', title: 'SHIBOR', desc: '上海银行间同业拆放利率', url: 'https://www.shibor.org' },
+  { cat: '专业工具', title: '中国债券信息网', desc: '国债收益率/债市数据', url: 'https://www.chinabond.com.cn' },
+  { cat: '专业工具', title: 'XE汇率', desc: '实时汇率换算', url: 'https://www.xe.com/zh-CN' },
+  { cat: '专业工具', title: '看准网', desc: '公司评价/薪资/面试查询', url: 'https://www.kanzhun.com' },
+];
+
+const cats = [...new Set(sites.map(s => s.cat))];
+const grid = document.getElementById('grid');
+const pills = document.getElementById('pills');
+const search = document.getElementById('search');
+const countBadge = document.getElementById('countBadge');
+let activeCat = '全部';
+
+function renderPills() {
+  const allPill = document.createElement('button');
+  allPill.className = 'pill active';
+  allPill.textContent = '全部';
+  allPill.dataset.cat = '全部';
+  allPill.onclick = () => setCat('全部');
+  pills.appendChild(allPill);
+  cats.forEach(c => {
+    const btn = document.createElement('button');
+    btn.className = 'pill';
+    btn.textContent = c;
+    btn.dataset.cat = c;
+    btn.onclick = () => setCat(c);
+    pills.appendChild(btn);
+  });
+}
+
+function setCat(c) {
+  activeCat = c;
+  document.querySelectorAll('.pill').forEach(p => {
+    p.classList.toggle('active', p.dataset.cat === c);
+  });
+  filterCards();
+}
+
+function filterCards() {
+  const q = search.value.trim().toLowerCase();
+  const filtered = sites.filter(s => {
+    const matchCat = activeCat === '全部' || s.cat === activeCat;
+    const matchSearch = !q || s.title.toLowerCase().includes(q) || s.desc.toLowerCase().includes(q) || s.cat.toLowerCase().includes(q);
+    return matchCat && matchSearch;
+  });
+  renderGrid(filtered);
+  countBadge.textContent = filtered.length + ' 个站点';
+}
+
+function renderGrid(items) {
+  if (items.length === 0) {
+    grid.innerHTML = `<div class="no-results">没有找到匹配 "<strong>${search.value}</strong>" 的站点</div>`;
+    return;
+  }
+  grid.innerHTML = items.map((s, i) => {
+    const tagHtml = s.tag ? `<span class="tag">${s.tag}</span>` : '';
+    const host = s.url.replace(/^https?:\/\//, '').replace(/\/.*$/, '');
+    return `<a class="card" href="${s.url}" target="_blank" rel="noopener" style="animation-delay:${(i % 16) * 0.03}s">
+      <div class="card-cat">${s.cat}</div>
+      <div class="card-title">${s.title}${tagHtml}</div>
+      <div class="card-desc">${s.desc}</div>
+      <div class="card-url">${host}</div>
+    </a>`;
+  }).join('');
+}
+
+function resetAll() {
+  activeCat = '全部';
+  search.value = '';
+  document.querySelectorAll('.pill').forEach(p => {
+    p.classList.toggle('active', p.dataset.cat === '全部');
+  });
+  filterCards();
+}
+
+renderPills();
+renderGrid(sites);
+countBadge.textContent = sites.length + ' 个站点';
+</script>
+</body>
+</html>
