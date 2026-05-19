@@ -272,7 +272,7 @@ body {
       <span class="search-icon">&#x1F50D;</span>
       <input type="text" id="search" placeholder="搜索网站名称或关键词…" oninput="filterCards()">
     </div>
-    <div class="count-badge" id="countBadge">62 个站点</div>
+    <div class="count-badge" id="countBadge">80 个站点</div>
   </div>
 </header>
 
@@ -329,6 +329,32 @@ const sites = [
   { cat: '基金理财', title: '且慢', desc: '基金组合投顾平台', url: 'https://qieman.com' },
   { cat: '基金理财', title: '中国理财网', desc: '银行理财产品查询', url: 'https://www.chinawealth.com.cn' },
 
+  // 投资学习
+  { cat: '投资学习', title: '有知有行', desc: '系统化投资教育，投资第一课经典', url: 'https://youzhiyouxing.cn', tag: '推荐' },
+  { cat: '投资学习', title: '中国投资者网学习中心', desc: '证监会主管，官方投教课程/视频/刊物', url: 'https://www.investor.org.cn/xxzx/' },
+  { cat: '投资学习', title: '新华财经投教基地', desc: '国家级投教平台，进阶学习+热点专题', url: 'https://edu.cnfin.com/tj/' },
+  { cat: '投资学习', title: '东方财富投教基地', desc: '财富书院+视频专区+模拟交易', url: 'http://toujiao.eastmoney.com/' },
+  { cat: '投资学习', title: '新浪投教基地', desc: '小白手册+视频中心，覆盖A/港/美股/期货/基金', url: 'http://toujiao.sina.com.cn/' },
+  { cat: '投资学习', title: '招商证券投教基地', desc: '牛牛学院初/中/高级课程+模拟体验', url: 'https://edu.cmschina.com' },
+  { cat: '投资学习', title: '华夏基金投教基地', desc: '基金理财教育，全生命周期投教体系', url: 'https://edu.chinaamc.com/lcjy/' },
+  { cat: '投资学习', title: '兴业证券兴E课堂', desc: '理财学院视频+模拟炒股/融资融券体验', url: 'https://edu.xyzq.cn' },
+  { cat: '投资学习', title: '长投学堂', desc: '理财干货+大咖视频+每日听书', url: 'https://edu.ichangtou.com' },
+  { cat: '投资学习', title: '证券之星投资学堂', desc: '基础到进阶，技术分析/基本面/操盘攻略', url: 'https://school.stockstar.com/school/' },
+  { cat: '投资学习', title: '钱百科', desc: '让小白秒懂金融，期权/基金/ETF通俗讲解', url: 'https://qianbaike.com' },
+  { cat: '投资学习', title: '小钱书', desc: '一站式财商教育训练营', url: 'https://www.qianshu.com' },
+  { cat: '投资学习', title: 'Hi-Finance', desc: '专业系统金融学习平台，实务课程', url: 'https://web.hi-finance.com.cn' },
+
+  // 独立博客
+  { cat: '独立博客', title: '兜兜爸投资笔记', desc: '每日更新，A/港/美股+加密货币，活跃度极高', url: 'https://ddbzhou.com', tag: '活跃' },
+  { cat: '独立博客', title: 'Yachen\'s Blog', desc: '独立开发者转型投资人，价值投资实践分享', url: 'https://yachen.com' },
+  { cat: '独立博客', title: '果赖投研', desc: '价值投资方法论+实盘持仓，深度研报', url: 'https://guolaitouyan.com' },
+  { cat: '独立博客', title: '小邱博客', desc: '日拱一卒，价值投资+年报深度解析', url: 'https://xiaoqiuqiu.cn' },
+  { cat: '独立博客', title: 'Terance Jiang', desc: '上市公司6维度商业质量评估，深度研究', url: 'https://terancejiang.com' },
+  { cat: '独立博客', title: 'Damo投资博客', desc: '一站式投资资源+工具+市场洞察', url: 'https://damoinvest.com' },
+  { cat: '独立博客', title: '辛道义博客', desc: '巴菲特/芒格价值投资理念传播', url: 'https://www.xindaoyi.com' },
+  { cat: '独立博客', title: '老罗投资', desc: '实盘周记+价值投资读书笔记', url: 'https://invest.zdyi.com' },
+  { cat: '独立博客', title: '码农五十年', desc: '程序员视角的投资感悟', url: 'https://james-qin.me/investments/' },
+
   // 快讯电报
   { cat: '快讯电报', title: '财联社', desc: '7×24实时财经快讯，短线必备', url: 'https://www.cls.cn', tag: '必备' },
   { cat: '快讯电报', title: '蓝鲸财经', desc: '一线财经记者报道', url: 'https://www.lanjinger.com' },
@@ -365,14 +391,11 @@ const sites = [
   { cat: '研报公告', title: '巨潮资讯网', desc: '证监会指定信息披露平台', url: 'https://www.cninfo.com.cn', tag: '必备' },
   { cat: '研报公告', title: '上交所公告', desc: '上交所上市公司公告', url: 'https://www.sse.com.cn/disclosure' },
   { cat: '研报公告', title: '深交所公告', desc: '深交所上市公司公告', url: 'https://www.szse.cn/disclosure' },
-  { cat: '研报公告', title: '渐飞研报', desc: '券商研究报告汇总', url: 'https://www.yanbao.cn' },
   { cat: '研报公告', title: '股票报告网', desc: '免费研报下载', url: 'https://www.nxny.com' },
   { cat: '研报公告', title: '迈博汇金', desc: '券商研报查询', url: 'https://www.hibor.com.cn' },
 
   // 打新
   { cat: 'IPO打新', title: '东方财富新股中心', desc: 'A股IPO日历/中签查询', url: 'https://stock.eastmoney.com/a_ipoxg.html' },
-  { cat: 'IPO打新', title: '中签网', desc: '新股中签查询', url: 'https://www.zhongqianwang.com' },
-
   // 官方机构
   { cat: '官方机构', title: '中国证监会', desc: '政策法规/监管动态', url: 'https://www.csrc.gov.cn' },
   { cat: '官方机构', title: '上交所', desc: '规则/数据/上市公司', url: 'https://www.sse.com.cn' },
@@ -395,8 +418,6 @@ const sites = [
   { cat: '专业工具', title: '问财', desc: '同花顺智能选股/数据查询', url: 'https://www.iwencai.com', tag: '好用' },
   { cat: '专业工具', title: '雪球选股器', desc: '条件选股', url: 'https://xueqiu.com/hq/stock' },
   { cat: '专业工具', title: '东方财富选股器', desc: '多维条件选股', url: 'https://xuangubao.eastmoney.com' },
-  { cat: '专业工具', title: '芝士财富', desc: '智能选股/基金评分/诊股工具', url: 'https://www.zhishilive.com' },
-  { cat: '专业工具', title: '乌龟量化', desc: '指数/基金历史数据回测', url: 'https://www.wugu.com.cn' },
   { cat: '专业工具', title: '百度指数', desc: '搜索热度/趋势分析', url: 'https://index.baidu.com' },
   { cat: '专业工具', title: 'SHIBOR', desc: '上海银行间同业拆放利率', url: 'https://www.shibor.org' },
   { cat: '专业工具', title: '中国债券信息网', desc: '国债收益率/债市数据', url: 'https://www.chinabond.com.cn' },

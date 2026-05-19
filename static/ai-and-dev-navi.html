@@ -1,0 +1,623 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>AI & Dev 导航 · 从业者常用网站</title>
+<style>
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+  :root {
+    --bg: #f5f7fa;
+    --card: #ffffff;
+    --text: #1a1d23;
+    --text2: #5a6170;
+    --border: #e4e8ee;
+    --accent: #6366f1;
+    --accent2: #8b5cf6;
+    --tag-bg: #eef0ff;
+    --tag-text: #6366f1;
+    --shadow: 0 1px 3px rgba(0,0,0,.06), 0 1px 2px rgba(0,0,0,.04);
+    --radius: 12px;
+    --radius-sm: 8px;
+    --gap: 12px;
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, 'Noto Sans SC', sans-serif;
+  }
+  .dark {
+    --bg: #0f1117;
+    --card: #1a1d26;
+    --text: #e8eaed;
+    --text2: #9aa0a6;
+    --border: #2d3140;
+    --shadow: 0 1px 3px rgba(0,0,0,.3);
+    --tag-bg: #23263a;
+    --tag-text: #a5b4fc;
+  }
+  body { background: var(--bg); color: var(--text); transition: background .3s, color .3s; }
+  .container { max-width: 1280px; margin: 0 auto; padding: 0 20px; }
+
+  /* Header */
+  header {
+    position: sticky; top: 0; z-index: 100;
+    background: color-mix(in srgb, var(--bg) 85%, transparent);
+    backdrop-filter: blur(16px) saturate(1.4);
+    -webkit-backdrop-filter: blur(16px) saturate(1.4);
+    border-bottom: 1px solid var(--border);
+  }
+  header .container {
+    display: flex; align-items: center; justify-content: space-between;
+    height: 64px; gap: 16px;
+  }
+  .logo { display: flex; align-items: center; gap: 10px; font-weight: 700; font-size: 20px; white-space: nowrap; }
+  .logo svg { flex-shrink: 0; }
+  .logo span { background: linear-gradient(135deg, var(--accent), var(--accent2)); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text; }
+  .logo small { font-weight: 400; font-size: 13px; color: var(--text2); -webkit-text-fill-color: var(--text2); }
+
+  .search-wrap { flex: 1; max-width: 420px; position: relative; }
+  .search-wrap input {
+    width: 100%; height: 40px; padding: 0 16px 0 40px;
+    border: 1px solid var(--border); border-radius: 20px;
+    background: var(--card); color: var(--text); font-size: 14px;
+    outline: none; transition: border .2s;
+  }
+  .search-wrap input:focus { border-color: var(--accent); }
+  .search-wrap .icon { position: absolute; left: 14px; top: 50%; transform: translateY(-50%); color: var(--text2); pointer-events: none; }
+
+  header .actions { display: flex; align-items: center; gap: 8px; }
+  .theme-btn {
+    width: 38px; height: 38px; border: 1px solid var(--border); border-radius: var(--radius-sm);
+    background: var(--card); color: var(--text); cursor: pointer; display: grid; place-items: center;
+    font-size: 18px; transition: all .2s;
+  }
+  .theme-btn:hover { border-color: var(--accent); }
+
+  /* Categories nav */
+  .cats-wrap {
+    position: sticky; top: 64px; z-index: 50;
+    background: color-mix(in srgb, var(--bg) 90%, transparent);
+    backdrop-filter: blur(12px); -webkit-backdrop-filter: blur(12px);
+    border-bottom: 1px solid var(--border);
+  }
+  .cats {
+    display: flex; flex-wrap: wrap; gap: 4px; padding: 10px 20px; max-width: 1280px; margin: 0 auto;
+  }
+  .cats a {
+    flex-shrink: 0; padding: 6px 14px; border-radius: 20px;
+    font-size: 13px; font-weight: 500; color: var(--text2); text-decoration: none;
+    transition: all .2s; white-space: nowrap;
+  }
+  .cats a:hover, .cats a.active { background: var(--tag-bg); color: var(--tag-text); }
+
+  /* Section */
+  main { padding: 24px 0 60px; }
+  section { margin-bottom: 32px; }
+  section h2 {
+    display: flex; align-items: center; gap: 8px;
+    font-size: 17px; font-weight: 600; margin-bottom: 14px;
+    padding: 0 20px; max-width: 1280px; margin-left: auto; margin-right: auto;
+  }
+  section h2 .emoji { font-size: 20px; }
+  section h2 .count {
+    font-size: 12px; font-weight: 400; color: var(--text2);
+    background: var(--tag-bg); padding: 1px 8px; border-radius: 10px;
+  }
+
+  .grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
+    gap: var(--gap);
+    padding: 0 20px;
+    max-width: 1280px;
+    margin: 0 auto;
+  }
+
+  .card {
+    background: var(--card); border: 1px solid var(--border); border-radius: var(--radius);
+    padding: 14px 16px; transition: all .2s; box-shadow: var(--shadow);
+    display: flex; flex-direction: column; gap: 4px;
+  }
+  .card:hover {
+    border-color: var(--accent); box-shadow: 0 4px 12px rgba(99,102,241,.12);
+    transform: translateY(-1px);
+  }
+  .card-top { display: flex; align-items: center; justify-content: space-between; gap: 8px; }
+  .card-title { font-size: 14px; font-weight: 600; }
+  .card-title a { color: var(--text); text-decoration: none; }
+  .card-title a:hover { color: var(--accent); }
+  .card-desc { font-size: 12px; color: var(--text2); line-height: 1.5; }
+  .card-tags { display: flex; gap: 4px; flex-wrap: wrap; margin-top: 2px; }
+  .tag { font-size: 11px; padding: 1px 8px; border-radius: 10px; background: var(--tag-bg); color: var(--tag-text); }
+
+  /* Scroll to top */
+  .top-btn {
+    position: fixed; bottom: 32px; right: 32px; z-index: 200;
+    width: 44px; height: 44px; border-radius: 50%;
+    background: var(--accent); color: #fff; border: none; cursor: pointer;
+    display: none; place-items: center; font-size: 20px;
+    box-shadow: 0 4px 16px rgba(99,102,241,.35); transition: all .2s;
+  }
+  .top-btn:hover { transform: scale(1.08); }
+  .top-btn.show { display: grid; }
+
+  /* Empty */
+  .empty { text-align: center; padding: 60px 20px; color: var(--text2); }
+  .empty svg { opacity: .3; margin-bottom: 12px; }
+  .empty p { font-size: 14px; }
+
+  @media (max-width: 640px) {
+    .container { padding: 0 12px; }
+    header .container { height: 56px; }
+    .logo { font-size: 16px; }
+    .logo small { display: none; }
+    .search-wrap { max-width: 100%; }
+    .grid { grid-template-columns: 1fr; padding: 0 12px; }
+    section h2 { padding: 0 12px; font-size: 15px; }
+    .cats { padding: 8px 12px; }
+    .top-btn { bottom: 20px; right: 20px; width: 40px; height: 40px; font-size: 18px; }
+  }
+  @media (min-width: 641px) and (max-width: 900px) {
+    .grid { grid-template-columns: repeat(2, 1fr); }
+  }
+
+  /* Animations */
+  @keyframes fadeUp {
+    from { opacity: 0; transform: translateY(12px); }
+    to { opacity: 1; transform: translateY(0); }
+  }
+  section { animation: fadeUp .4s ease both; }
+</style>
+</head>
+<body>
+
+<header>
+  <div class="container">
+    <div class="logo">
+      <svg width="28" height="28" viewBox="0 0 28 28" fill="none"><path d="M14 2L6 8v12l8 6 8-6V8l-8-6z" stroke="url(#g)" stroke-width="1.8" stroke-linejoin="round" fill="none"/><circle cx="14" cy="14" r="4" fill="url(#g)"/><defs><linearGradient id="g" x1="6" y1="2" x2="22" y2="26"><stop stop-color="#6366f1"/><stop offset="1" stop-color="#8b5cf6"/></linearGradient></defs></svg>
+      <span>AI & Dev <small>导航</small></span>
+    </div>
+    <div class="search-wrap">
+      <span class="icon"><svg width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><circle cx="7" cy="7" r="5.5"/><path d="M11 11l4 4"/></svg></span>
+      <input type="text" id="search" placeholder="搜索网站名称或说明…" autocomplete="off">
+    </div>
+    <div class="actions">
+      <button class="theme-btn" id="themeToggle" title="切换主题">🌙</button>
+    </div>
+  </div>
+</header>
+
+<nav class="cats-wrap" id="catNav">
+  <div class="cats" id="catList"></div>
+</nav>
+
+<main class="container" id="main"></main>
+
+<button class="top-btn" id="topBtn" title="回到顶部">↑</button>
+
+<script>
+const data = [
+  {
+    name: "AI 平台与模型", emoji: "🤖",
+    items: [
+      { name: "ChatGPT", url: "https://chat.openai.com", desc: "OpenAI 旗舰对话 AI", tags: ["AI", "对话"] },
+      { name: "Claude", url: "https://claude.ai", desc: "Anthropic 智能助手", tags: ["AI", "对话"] },
+      { name: "Gemini", url: "https://gemini.google.com", desc: "Google 多模态 AI", tags: ["AI", "对话"] },
+      { name: "DeepSeek", url: "https://chat.deepseek.com", desc: "国产开源大模型", tags: ["AI", "对话"] },
+      { name: "Perplexity", url: "https://perplexity.ai", desc: "AI 搜索引擎", tags: ["AI", "搜索"] },
+      { name: "Grok", url: "https://grok.com", desc: "xAI 对话 AI", tags: ["AI", "对话"] },
+      { name: "Kimi", url: "https://kimi.moonshot.cn", desc: "月之暗面长文本 AI", tags: ["AI", "对话"] },
+      { name: "豆包", url: "https://doubao.com", desc: "字节跳动 AI 助手", tags: ["AI", "对话"] },
+      { name: "通义千问", url: "https://tongyi.aliyun.com", desc: "阿里云 AI 大模型", tags: ["AI", "对话"] },
+      { name: "文心一言", url: "https://yiyan.baidu.com", desc: "百度 AI 对话", tags: ["AI", "对话"] },
+      { name: "混元", url: "https://hunyuan.tencent.com", desc: "腾讯 AI 大模型", tags: ["AI", "对话"] },
+      { name: "Hugging Face", url: "https://huggingface.co", desc: "模型/数据集/空间中心", tags: ["模型", "社区"] },
+      { name: "Poe", url: "https://poe.com", desc: "Quora 多模型聚合平台", tags: ["AI", "聚合"] },
+      { name: "OpenAI API", url: "https://platform.openai.com", desc: "OpenAI 开发者平台", tags: ["API", "开发"] },
+      { name: "Google AI Studio", url: "https://aistudio.google.com", desc: "Gemini API 调试平台", tags: ["API", "开发"] },
+      { name: "Anthropic Console", url: "https://console.anthropic.com", desc: "Anthropic API 控制台", tags: ["API", "开发"] },
+      { name: "Mistral AI", url: "https://mistral.ai", desc: "法国开源 AI 平台", tags: ["AI", "开源"] },
+      { name: "Cohere", url: "https://cohere.com", desc: "企业级 AI API", tags: ["API", "企业"] },
+      { name: "Replicate", url: "https://replicate.com", desc: "云端模型运行平台", tags: ["API", "推理"] },
+      { name: "Together AI", url: "https://together.ai", desc: "开源模型推理 API", tags: ["API", "推理"] },
+      { name: "Groq", url: "https://groq.com", desc: "超快推理芯片 + 开源模型", tags: ["AI", "推理"] },
+      { name: "OpenRouter", url: "https://openrouter.ai", desc: "多模型统一 API", tags: ["API", "多模型"] },
+      { name: "Fireworks AI", url: "https://fireworks.ai", desc: "快速推理平台", tags: ["API", "推理"] },
+      { name: "SiliconFlow", url: "https://siliconflow.cn", desc: "国产 AI 推理平台", tags: ["API", "推理"] },
+    ]
+  },
+  {
+    name: "AI 编程工具", emoji: "🛠",
+    items: [
+      { name: "GitHub Copilot", url: "https://github.com/features/copilot", desc: "微软 AI 编程助手", tags: ["编程", "IDE"] },
+      { name: "Cursor", url: "https://cursor.com", desc: "AI 原生代码编辑器", tags: ["编程", "IDE"] },
+      { name: "Claude Code", url: "https://claude.ai/code", desc: "Anthropic 终端编程代理", tags: ["编程", "代理"] },
+      { name: "Windsurf", url: "https://codeium.com/windsurf", desc: "智能 IDE（原 Codeium）", tags: ["编程", "IDE"] },
+      { name: "Cline", url: "https://cline.bot", desc: "VS Code AI 代理扩展", tags: ["编程", "扩展"] },
+      { name: "Continue", url: "https://continue.dev", desc: "开源 AI 编程助手", tags: ["编程", "开源"] },
+      { name: "v0", url: "https://v0.dev", desc: "Vercel AI 前端生成", tags: ["前端", "生成"] },
+      { name: "Replit", url: "https://replit.com", desc: "在线 IDE + AI 代理", tags: ["IDE", "在线"] },
+      { name: "Bolt.new", url: "https://bolt.new", desc: "全栈 AI 应用生成", tags: ["全栈", "生成"] },
+      { name: "Zed AI", url: "https://zed.dev", desc: "高性能 AI 代码编辑器", tags: ["编程", "IDE"] },
+      { name: "JetBrains AI", url: "https://www.jetbrains.com/ai", desc: "JetBrains IDE AI 集成", tags: ["编程", "IDE"] },
+      { name: "Tabnine", url: "https://tabnine.com", desc: "AI 代码补全", tags: ["编程", "补全"] },
+      { name: "Amazon Q Developer", url: "https://aws.amazon.com/q/developer", desc: "AWS 开发助手", tags: ["编程", "AWS"] },
+      { name: "Gemini Code Assist", url: "https://cloud.google.com/gemini-code-assist", desc: "Google 代码助手", tags: ["编程", "IDE"] },
+      { name: "Supermaven", url: "https://supermaven.com", desc: "超快 AI 代码补全", tags: ["编程", "补全"] },
+      { name: "Sourcegraph Cody", url: "https://sourcegraph.com/cody", desc: "代码库感知 AI 助手", tags: ["编程", "搜索"] },
+      { name: "Augment Code", url: "https://augmentcode.com", desc: "深度代码理解助手", tags: ["编程", "代理"] },
+      { name: "Qodo", url: "https://www.qodo.ai", desc: "AI 代码审查与测试", tags: ["审查", "测试"] },
+      { name: "CodeRabbit", url: "https://coderabbit.ai", desc: "AI 代码审查", tags: ["审查", "PR"] },
+      { name: "Lovable", url: "https://lovable.dev", desc: "AI 全栈构建器", tags: ["全栈", "生成"] },
+      { name: "Sweep AI", url: "https://sweep.dev", desc: "AI 自动修 Bug", tags: ["编程", "自动化"] },
+      { name: "Tabby", url: "https://tabby.tabbyml.com", desc: "自托管 AI 代码补全", tags: ["编程", "自托管"] },
+      { name: "OpenClaw", url: "https://openclaw.ai", desc: "全渠道 AI 个人助手", tags: ["AI", "助手"] },
+    ]
+  },
+  {
+    name: "代码托管与协作", emoji: "💻",
+    items: [
+      { name: "GitHub", url: "https://github.com", desc: "全球最大代码托管平台", tags: ["托管", "协作"] },
+      { name: "GitLab", url: "https://gitlab.com", desc: "DevOps 一体化平台", tags: ["托管", "DevOps"] },
+      { name: "Bitbucket", url: "https://bitbucket.org", desc: "Atlassian 代码托管", tags: ["托管", "协作"] },
+      { name: "Gitee", url: "https://gitee.com", desc: "国产代码托管平台", tags: ["托管", "国内"] },
+      { name: "Codeberg", url: "https://codeberg.org", desc: "开源社区代码托管", tags: ["托管", "开源"] },
+      { name: "SourceForge", url: "https://sourceforge.net", desc: "开源项目托管", tags: ["托管", "开源"] },
+    ]
+  },
+  {
+    name: "学习与教程", emoji: "📚",
+    items: [
+      { name: "freeCodeCamp", url: "https://freecodecamp.org", desc: "免费编程教程", tags: ["编程", "免费"] },
+      { name: "Codecademy", url: "https://codecademy.com", desc: "交互式编程学习", tags: ["编程", "交互"] },
+      { name: "MDN Web Docs", url: "https://developer.mozilla.org", desc: "Web 开发权威文档", tags: ["文档", "Web"] },
+      { name: "W3Schools", url: "https://w3schools.com", desc: "Web 技术入门教程", tags: ["教程", "Web"] },
+      { name: "The Odin Project", url: "https://theodinproject.com", desc: "全栈 Web 开发课程", tags: ["全栈", "课程"] },
+      { name: "Full Stack Open", url: "https://fullstackopen.com", desc: "现代 Web 开发深度课程", tags: ["全栈", "课程"] },
+      { name: "DeepLearning.AI", url: "https://deeplearning.ai", desc: "Andrew Ng 课程平台", tags: ["ML", "课程"] },
+      { name: "fast.ai", url: "https://fast.ai", desc: "实战深度学习课程", tags: ["ML", "课程"] },
+      { name: "Scrimba", url: "https://scrimba.com", desc: "互动式编程课程", tags: ["编程", "交互"] },
+      { name: "Exercism", url: "https://exercism.org", desc: "多语言编程练习", tags: ["编程", "练习"] },
+      { name: "Frontend Masters", url: "https://frontendmasters.com", desc: "前端进阶课程", tags: ["前端", "课程"] },
+      { name: "Pluralsight", url: "https://pluralsight.com", desc: "技术技能提升平台", tags: ["课程", "技术"] },
+      { name: "O'Reilly Learning", url: "https://learning.oreilly.com", desc: "技术书籍/视频/实验室", tags: ["书籍", "课程"] },
+      { name: "MIT OpenCourseWare", url: "https://ocw.mit.edu", desc: "MIT 免费课程", tags: ["课程", "免费"] },
+      { name: "Stanford Online", url: "https://online.stanford.edu", desc: "斯坦福在线课程", tags: ["课程", "免费"] },
+      { name: "Roadmap.sh", url: "https://roadmap.sh", desc: "开发者成长路线图", tags: ["路线", "规划"] },
+      { name: "Programiz", url: "https://programiz.com", desc: "免费编程学习", tags: ["编程", "免费"] },
+      { name: "Kaggle Learn", url: "https://kaggle.com/learn", desc: "ML 微课程", tags: ["ML", "教程"] },
+      { name: "Learn Prompting", url: "https://learnprompting.org", desc: "AI 提示工程指南", tags: ["AI", "提示"] },
+      { name: "Hugging Face Learn", url: "https://huggingface.co/learn", desc: "HF 机器学习课程", tags: ["ML", "课程"] },
+    ]
+  },
+  {
+    name: "竞赛与评测", emoji: "🏆",
+    items: [
+      { name: "LeetCode", url: "https://leetcode.com", desc: "算法面试刷题", tags: ["算法", "面试"] },
+      { name: "Kaggle", url: "https://kaggle.com", desc: "ML 竞赛/数据集/Notebook", tags: ["竞赛", "ML"] },
+      { name: "HackerRank", url: "https://hackerrank.com", desc: "编程挑战/技术面试", tags: ["竞赛", "面试"] },
+      { name: "Codeforces", url: "https://codeforces.com", desc: "竞赛编程平台", tags: ["竞赛", "算法"] },
+      { name: "Codewars", url: "https://codewars.com", desc: "格斗式编程训练", tags: ["训练", "算法"] },
+      { name: "AtCoder", url: "https://atcoder.jp", desc: "日本竞赛编程", tags: ["竞赛", "算法"] },
+      { name: "CodeChef", url: "https://codechef.com", desc: "印度竞赛编程", tags: ["竞赛", "算法"] },
+      { name: "TopCoder", url: "https://topcoder.com", desc: "老牌竞赛编程平台", tags: ["竞赛", "算法"] },
+      { name: "Chatbot Arena", url: "https://lmarena.ai", desc: "LLM 竞技场排行榜", tags: ["排行榜", "LLM"] },
+      { name: "Open LLM Leaderboard", url: "https://huggingface.co/spaces/open-llm-leaderboard", desc: "开源 LLM 排行", tags: ["排行榜", "LLM"] },
+      { name: "Artificial Analysis", url: "https://artificialanalysis.ai", desc: "AI 模型性能对比", tags: ["对比", "模型"] },
+      { name: "SWE-bench", url: "https://swebench.com", desc: "AI 编码能力评测", tags: ["评测", "AI"] },
+      { name: "LiveCodeBench", url: "https://livecodebench.github.io", desc: "LLM 编码能力排行", tags: ["评测", "LLM"] },
+    ]
+  },
+  {
+    name: "问答与社区", emoji: "❓",
+    items: [
+      { name: "Stack Overflow", url: "https://stackoverflow.com", desc: "技术问答第一站", tags: ["问答", "社区"] },
+      { name: "Hacker News", url: "https://news.ycombinator.com", desc: "YC 旗下科技社区", tags: ["社区", "新闻"] },
+      { name: "Twitter/X", url: "https://x.com", desc: "技术圈即时动态", tags: ["社交", "动态"] },
+      { name: "r/programming", url: "https://reddit.com/r/programming", desc: "编程综合讨论", tags: ["社区", "编程"] },
+      { name: "r/MachineLearning", url: "https://reddit.com/r/MachineLearning", desc: "ML 社区", tags: ["社区", "ML"] },
+      { name: "r/LocalLLaMA", url: "https://reddit.com/r/LocalLLaMA", desc: "本地 LLM 社区", tags: ["社区", "LLM"] },
+      { name: "知乎", url: "https://zhihu.com", desc: "中文知识问答", tags: ["问答", "国内"] },
+      { name: "V2EX", url: "https://v2ex.com", desc: "国内技术社区", tags: ["社区", "国内"] },
+      { name: "掘金", url: "https://juejin.cn", desc: "中文技术文章平台", tags: ["文章", "国内"] },
+      { name: "Dev.to", url: "https://dev.to", desc: "开发者博客社区", tags: ["社区", "博客"] },
+      { name: "SegmentFault", url: "https://segmentfault.com", desc: "中文技术问答", tags: ["问答", "国内"] },
+      { name: "Bluesky", url: "https://bsky.app", desc: "去中心化社交/技术圈", tags: ["社交", "动态"] },
+      { name: "Mastodon", url: "https://mastodon.social", desc: "联邦式社交/技术圈", tags: ["社交", "动态"] },
+    ]
+  },
+  {
+    name: "技术文档与参考", emoji: "📖",
+    items: [
+      { name: "MDN Web Docs", url: "https://developer.mozilla.org", desc: "Web 标准权威参考", tags: ["文档", "Web"] },
+      { name: "DevDocs", url: "https://devdocs.io", desc: "多语言文档聚合", tags: ["文档", "聚合"] },
+      { name: "Read the Docs", url: "https://readthedocs.org", desc: "开源项目文档托管", tags: ["文档", "托管"] },
+      { name: "GitBook", url: "https://gitbook.com", desc: "现代化文档平台", tags: ["文档", "平台"] },
+      { name: "Python Docs", url: "https://docs.python.org", desc: "Python 官方文档", tags: ["文档", "Python"] },
+      { name: "PyPI", url: "https://pypi.org", desc: "Python 包索引", tags: ["包管理", "Python"] },
+      { name: "npm", url: "https://npmjs.com", desc: "Node.js 包注册表", tags: ["包管理", "Node"] },
+      { name: "crates.io", url: "https://crates.io", desc: "Rust 包注册表", tags: ["包管理", "Rust"] },
+      { name: "Go Docs", url: "https://go.dev/doc", desc: "Go 官方文档", tags: ["文档", "Go"] },
+      { name: "Rust Docs", url: "https://doc.rust-lang.org", desc: "Rust 官方文档", tags: ["文档", "Rust"] },
+      { name: "Microsoft Learn", url: "https://learn.microsoft.com", desc: "微软技术文档", tags: ["文档", "微软"] },
+      { name: "Regex101", url: "https://regex101.com", desc: "正则表达式测试", tags: ["工具", "正则"] },
+      { name: "QuickRef", url: "https://quickref.me", desc: "速查表集合", tags: ["速查", "参考"] },
+      { name: "DevHints", url: "https://devhints.io", desc: "开发者速查卡", tags: ["速查", "参考"] },
+      { name: "ExplainShell", url: "https://explainshell.com", desc: "Shell 命令解释", tags: ["工具", "Shell"] },
+      { name: "cheat.sh", url: "https://cheat.sh", desc: "命令行速查工具", tags: ["工具", "命令行"] },
+      { name: "The Neural Base", url: "https://theneuralbase.com", desc: "AI/ML 开发者参考", tags: ["文档", "AI"] },
+    ]
+  },
+  {
+    name: "新闻与趋势", emoji: "📰",
+    items: [
+      { name: "Hacker News", url: "https://news.ycombinator.com", desc: "极客新闻聚合", tags: ["新闻", "社区"] },
+      { name: "TechCrunch", url: "https://techcrunch.com", desc: "科技创业新闻", tags: ["新闻", "科技"] },
+      { name: "The Verge", url: "https://theverge.com", desc: "科技消费新闻", tags: ["新闻", "科技"] },
+      { name: "ArXiv", url: "https://arxiv.org", desc: "学术预印本论文", tags: ["论文", "学术"] },
+      { name: "Papers with Code", url: "https://paperswithcode.com", desc: "论文+代码+排行榜", tags: ["论文", "代码"] },
+      { name: "Ars Technica", url: "https://arstechnica.com", desc: "深度科技报道", tags: ["新闻", "深度"] },
+      { name: "MIT Tech Review", url: "https://technologyreview.com", desc: "MIT 科技评论", tags: ["新闻", "科技"] },
+      { name: "Wired", url: "https://wired.com", desc: "科技文化杂志", tags: ["新闻", "科技"] },
+      { name: "Semantic Scholar", url: "https://semanticscholar.org", desc: "学术论文搜索引擎", tags: ["论文", "搜索"] },
+      { name: "36氪", url: "https://36kr.com", desc: "科技商业媒体", tags: ["新闻", "商业"] },
+      { name: "机器之心", url: "https://jiqizhixin.com", desc: "中文 AI 媒体", tags: ["新闻", "国内"] },
+      { name: "量子位", url: "https://qbitai.com", desc: "中文 AI 科技媒体", tags: ["新闻", "国内"] },
+      { name: "The Information", url: "https://theinformation.com", desc: "深度科技商业报道", tags: ["新闻", "商业"] },
+      { name: "Techmeme", url: "https://techmeme.com", desc: "科技新闻聚合", tags: ["新闻", "聚合"] },
+      { name: "InfoQ", url: "https://infoq.com", desc: "软件开发趋势", tags: ["新闻", "开发"] },
+      { name: "daily.dev", url: "https://daily.dev", desc: "开发者个性化资讯", tags: ["新闻", "订阅"] },
+      { name: "爱范儿", url: "https://ifanr.com", desc: "数字生活/科技媒体", tags: ["新闻", "国内"] },
+      { name: "少数派", url: "https://sspai.com", desc: "效率/科技生活方式", tags: ["新闻", "效率"] },
+      { name: "LWN.net", url: "https://lwn.net", desc: "Linux/开源深度报道", tags: ["新闻", "开源"] },
+      { name: "OpenReview", url: "https://openreview.net", desc: "开放学术评审平台", tags: ["论文", "学术"] },
+      { name: "Google Research", url: "https://research.google", desc: "Google 研究成果", tags: ["研究", "论文"] },
+      { name: "OpenAI Research", url: "https://openai.com/research", desc: "OpenAI 研究成果", tags: ["研究", "论文"] },
+      { name: "AI Stack Digest", url: "https://aistackdigest.com", desc: "AI 工具对比与新闻", tags: ["新闻", "AI"] },
+      { name: "The Decoder", url: "https://the-decoder.com", desc: "AI 行业新闻", tags: ["新闻", "AI"] },
+    ]
+  },
+  {
+    name: "设计与素材", emoji: "🎨",
+    items: [
+      { name: "Figma", url: "https://figma.com", desc: "协作 UI 设计", tags: ["设计", "协作"] },
+      { name: "Dribbble", url: "https://dribbble.com", desc: "UI/UX 设计作品集", tags: ["设计", "灵感"] },
+      { name: "Behance", url: "https://behance.net", desc: "Adobe 设计社区", tags: ["设计", "社区"] },
+      { name: "Unsplash", url: "https://unsplash.com", desc: "免费商用图片", tags: ["图片", "免费"] },
+      { name: "Google Fonts", url: "https://fonts.google.com", desc: "免费 Web 字体", tags: ["字体", "免费"] },
+      { name: "Icons8", url: "https://icons8.com", desc: "图标/插画/照片", tags: ["图标", "素材"] },
+      { name: "Iconify", url: "https://iconify.design", desc: "开源图标聚合框架", tags: ["图标", "开源"] },
+      { name: "Lucide", url: "https://lucide.dev", desc: "开源图标库", tags: ["图标", "开源"] },
+      { name: "Coolors", url: "https://coolors.co", desc: "配色方案生成", tags: ["配色", "工具"] },
+      { name: "Colorhunt", url: "https://colorhunt.co", desc: "配色灵感集合", tags: ["配色", "灵感"] },
+      { name: "Excalidraw", url: "https://excalidraw.com", desc: "手绘风格白板", tags: ["工具", "白板"] },
+      { name: "Mermaid", url: "https://mermaid.live", desc: "图表即代码", tags: ["工具", "图表"] },
+    ]
+  },
+  {
+    name: "效率与工具", emoji: "🔧",
+    items: [
+      { name: "Notion", url: "https://notion.so", desc: "全能笔记/文档/维基", tags: ["笔记", "协作"] },
+      { name: "Obsidian", url: "https://obsidian.md", desc: "本地知识库", tags: ["笔记", "知识库"] },
+      { name: "Linear", url: "https://linear.app", desc: "极简项目管理", tags: ["项目", "管理"] },
+      { name: "Postman", url: "https://postman.com", desc: "API 调试工具", tags: ["API", "调试"] },
+      { name: "Raycast", url: "https://raycast.com", desc: "Mac 效率启动器", tags: ["效率", "Mac"] },
+      { name: "CodeSandbox", url: "https://codesandbox.io", desc: "在线沙盒 IDE", tags: ["IDE", "在线"] },
+      { name: "StackBlitz", url: "https://stackblitz.com", desc: "浏览器内 IDE", tags: ["IDE", "在线"] },
+      { name: "CodePen", url: "https://codepen.io", desc: "前端代码实验场", tags: ["前端", "实验"] },
+      { name: "JSFiddle", url: "https://jsfiddle.net", desc: "在线 JavaScript 调试", tags: ["JS", "调试"] },
+      { name: "Hoppscotch", url: "https://hoppscotch.io", desc: "开源 API 调试", tags: ["API", "开源"] },
+      { name: "Bruno", url: "https://usebruno.com", desc: "离线 API 客户端", tags: ["API", "客户端"] },
+      { name: "Insomnia", url: "https://insomnia.rest", desc: "API 设计与调试", tags: ["API", "设计"] },
+      { name: "Swagger", url: "https://swagger.io", desc: "API 规范与文档", tags: ["API", "文档"] },
+      { name: "Carbon", url: "https://carbon.now.sh", desc: "代码截图美化", tags: ["工具", "截图"] },
+      { name: "Ray.so", url: "https://ray.so", desc: "代码/界面截图美化", tags: ["工具", "截图"] },
+      { name: "JSON Crack", url: "https://jsoncrack.com", desc: "JSON 可视化工具", tags: ["工具", "JSON"] },
+      { name: "DevToys", url: "https://devtoys.app", desc: "开发者瑞士军刀", tags: ["工具", "实用"] },
+      { name: "Ngrok", url: "https://ngrok.com", desc: "内网穿透/本地暴露", tags: ["工具", "网络"] },
+      { name: "Pastebin", url: "https://pastebin.com", desc: "代码片段分享", tags: ["工具", "分享"] },
+    ]
+  },
+  {
+    name: "云平台与主机", emoji: "☁️",
+    items: [
+      { name: "AWS", url: "https://aws.amazon.com", desc: "亚马逊云服务", tags: ["云", "AWS"] },
+      { name: "Google Cloud", url: "https://cloud.google.com", desc: "Google 云平台", tags: ["云", "GCP"] },
+      { name: "Azure", url: "https://azure.microsoft.com", desc: "微软云平台", tags: ["云", "Azure"] },
+      { name: "Cloudflare", url: "https://cloudflare.com", desc: "CDN/安全/Workers", tags: ["CDN", "安全"] },
+      { name: "Vercel", url: "https://vercel.com", desc: "前端部署平台", tags: ["部署", "前端"] },
+      { name: "DigitalOcean", url: "https://digitalocean.com", desc: "开发者友好云主机", tags: ["云", "主机"] },
+      { name: "Netlify", url: "https://netlify.com", desc: "静态网站托管", tags: ["部署", "托管"] },
+      { name: "Linode", url: "https://linode.com", desc: "高性能云主机", tags: ["云", "主机"] },
+      { name: "Vultr", url: "https://vultr.com", desc: "全球云服务器", tags: ["云", "主机"] },
+      { name: "Hetzner", url: "https://hetzner.com", desc: "欧洲高性价比云主机", tags: ["云", "主机"] },
+      { name: "Railway", url: "https://railway.app", desc: "全栈部署平台", tags: ["部署", "全栈"] },
+      { name: "Render", url: "https://render.com", desc: "云应用托管", tags: ["部署", "云"] },
+      { name: "Fly.io", url: "https://fly.io", desc: "边缘应用部署", tags: ["部署", "边缘"] },
+    ]
+  },
+  {
+    name: "数据库与后端", emoji: "🗄️",
+    items: [
+      { name: "Supabase", url: "https://supabase.com", desc: "Firebase 开源替代", tags: ["后端", "BaaS"] },
+      { name: "MongoDB Atlas", url: "https://mongodb.com/atlas", desc: "MongoDB 云服务", tags: ["数据库", "NoSQL"] },
+      { name: "Redis", url: "https://redis.io", desc: "内存数据库/缓存", tags: ["数据库", "缓存"] },
+      { name: "PlanetScale", url: "https://planetscale.com", desc: "MySQL 无服务器数据库", tags: ["数据库", "Serverless"] },
+      { name: "Neon", url: "https://neon.tech", desc: "Serverless PostgreSQL", tags: ["数据库", "Serverless"] },
+      { name: "Docker Hub", url: "https://hub.docker.com", desc: "容器镜像仓库", tags: ["容器", "Docker"] },
+    ]
+  },
+  {
+    name: "推理与基础设施", emoji: "📡",
+    items: [
+      { name: "Ollama", url: "https://ollama.ai", desc: "本地 LLM 运行", tags: ["本地", "LLM"] },
+      { name: "LangChain", url: "https://langchain.com", desc: "LLM 应用开发框架", tags: ["框架", "LLM"] },
+      { name: "LlamaIndex", url: "https://llamaindex.ai", desc: "数据索引框架", tags: ["框架", "RAG"] },
+      { name: "vLLM", url: "https://vllm.ai", desc: "高性能推理引擎", tags: ["推理", "引擎"] },
+      { name: "Dify", url: "https://dify.ai", desc: "AI 应用可视化构建", tags: ["平台", "低代码"] },
+      { name: "Weights & Biases", url: "https://wandb.ai", desc: "ML 实验追踪", tags: ["实验", "ML"] },
+      { name: "MLflow", url: "https://mlflow.org", desc: "开源 ML 生命周期管理", tags: ["ML", "生命周期"] },
+      { name: "Ray", url: "https://ray.io", desc: "分布式 AI 计算框架", tags: ["计算", "分布式"] },
+      { name: "Milvus", url: "https://milvus.io", desc: "开源向量数据库", tags: ["数据库", "向量"] },
+      { name: "Kubeflow", url: "https://kubeflow.org", desc: "Kubernetes ML 平台", tags: ["ML", "K8s"] },
+      { name: "BentoML", url: "https://bentoml.com", desc: "AI 模型部署框架", tags: ["部署", "模型"] },
+      { name: "Prefect", url: "https://prefect.io", desc: "数据工作流编排", tags: ["编排", "数据"] },
+      { name: "Dagster", url: "https://dagster.io", desc: "数据感知编排器", tags: ["编排", "数据"] },
+      { name: "Comet ML", url: "https://comet.com", desc: "ML 实验管理平台", tags: ["实验", "ML"] },
+      { name: "DVC", url: "https://dvc.org", desc: "数据与 ML 管道版本控制", tags: ["版本", "数据"] },
+      { name: "Qdrant", url: "https://qdrant.tech", desc: "Rust 向量数据库", tags: ["数据库", "向量"] },
+      { name: "Chroma", url: "https://trychroma.com", desc: "轻量向量数据库", tags: ["数据库", "向量"] },
+      { name: "Evidently AI", url: "https://evidentlyai.com", desc: "ML 模型监控", tags: ["监控", "ML"] },
+      { name: "Arize AI", url: "https://arize.com", desc: "AI 可观测性平台", tags: ["监控", "可观测"] },
+      { name: "Langfuse", url: "https://langfuse.com", desc: "LLM 可观测性", tags: ["监控", "LLM"] },
+      { name: "Feast", url: "https://feast.dev", desc: "开源特征仓库", tags: ["特征", "ML"] },
+      { name: "LiteLLM", url: "https://litellm.ai", desc: "统一 LLM 网关", tags: ["网关", "LLM"] },
+      { name: "OpenTelemetry", url: "https://opentelemetry.io", desc: "可观测性标准框架", tags: ["监控", "标准"] },
+    ]
+  },
+  {
+    name: "DevOps 与监控", emoji: "🚀",
+    items: [
+      { name: "Kubernetes", url: "https://kubernetes.io", desc: "容器编排平台", tags: ["容器", "K8s"] },
+      { name: "Terraform", url: "https://terraform.io", desc: "基础设施即代码", tags: ["IaC", "自动化"] },
+      { name: "Grafana", url: "https://grafana.com", desc: "监控可视化面板", tags: ["监控", "可视化"] },
+      { name: "Prometheus", url: "https://prometheus.io", desc: "开源监控系统", tags: ["监控", "指标"] },
+      { name: "Ansible", url: "https://ansible.com", desc: "自动化运维工具", tags: ["运维", "自动化"] },
+      { name: "Datadog", url: "https://datadoghq.com", desc: "全栈监控平台", tags: ["监控", "APM"] },
+      { name: "Sentry", url: "https://sentry.io", desc: "错误追踪平台", tags: ["监控", "错误"] },
+      { name: "Helm", url: "https://helm.sh", desc: "Kubernetes 包管理", tags: ["K8s", "包管理"] },
+      { name: "ArgoCD", url: "https://argoproj.github.io/cd", desc: "Kubernetes GitOps", tags: ["GitOps", "K8s"] },
+      { name: "Pulumi", url: "https://pulumi.com", desc: "编程语言 IaC", tags: ["IaC", "编程"] },
+      { name: "OpenTofu", url: "https://opentofu.org", desc: "Terraform 开源 Fork", tags: ["IaC", "开源"] },
+      { name: "Better Stack", url: "https://betterstack.com", desc: "现代化日志/监控", tags: ["监控", "日志"] },
+      { name: "Snyk", url: "https://snyk.io", desc: "开发者安全平台", tags: ["安全", "依赖"] },
+      { name: "Dependabot", url: "https://dependabot.com", desc: "依赖自动更新", tags: ["依赖", "自动化"] },
+    ]
+  },
+  {
+    name: "求职与职业", emoji: "💼",
+    items: [
+      { name: "LinkedIn", url: "https://linkedin.com", desc: "职业社交网络", tags: ["求职", "社交"] },
+      { name: "Indeed", url: "https://indeed.com", desc: "综合性招聘", tags: ["求职", "招聘"] },
+      { name: "Glassdoor", url: "https://glassdoor.com", desc: "公司评价+招聘", tags: ["求职", "评价"] },
+      { name: "BOSS 直聘", url: "https://zhipin.com", desc: "国内招聘平台", tags: ["求职", "国内"] },
+      { name: "Levels.fyi", url: "https://levels.fyi", desc: "薪资/职级对比", tags: ["薪资", "对比"] },
+      { name: "Wellfound", url: "https://wellfound.com", desc: "startups 招聘", tags: ["求职", "创业"] },
+      { name: "Remote OK", url: "https://remoteok.com", desc: "远程工作", tags: ["求职", "远程"] },
+      { name: "拉勾", url: "https://lagou.com", desc: "互联网行业招聘", tags: ["求职", "国内"] },
+      { name: "电鸭社区", url: "https://eleduck.com", desc: "远程/自由职业社区", tags: ["求职", "远程"] },
+    ]
+  }
+];
+
+// Render
+const mainEl = document.getElementById('main');
+const catList = document.getElementById('catList');
+const searchInput = document.getElementById('search');
+
+function render(filter = '') {
+  const q = filter.toLowerCase().trim();
+  let html = '';
+  let visibleSections = 0;
+
+  data.forEach(section => {
+    const filtered = section.items.filter(item =>
+      !q || item.name.toLowerCase().includes(q) || item.desc.toLowerCase().includes(q) || item.tags.some(t => t.toLowerCase().includes(q))
+    );
+    if (!filtered.length && q) return;
+    visibleSections++;
+
+    html += `<section data-cat="${section.name}">
+      <h2>
+        <span class="emoji">${section.emoji}</span> ${section.name}
+        <span class="count">${filtered.length}</span>
+      </h2>
+      <div class="grid">`;
+    filtered.forEach(item => {
+      html += `<div class="card">
+        <div class="card-top">
+          <div class="card-title"><a href="${item.url}" target="_blank" rel="noopener">${item.name}</a></div>
+        </div>
+        <div class="card-desc">${item.desc}</div>
+        <div class="card-tags">${item.tags.map(t => `<span class="tag">${t}</span>`).join('')}</div>
+      </div>`;
+    });
+    html += `</div></section>`;
+  });
+
+  if (!html) {
+    html = `<div class="empty">
+      <svg width="48" height="48" fill="none" stroke="currentColor" stroke-width="1.5"><circle cx="24" cy="24" r="20"/><path d="M16 20l8 8 8-8" stroke-linecap="round"/></svg>
+      <p>没有找到匹配 "${searchInput.value}" 的网站</p>
+    </div>`;
+  }
+
+  mainEl.innerHTML = html;
+
+  // Update cat nav active
+  if (q) {
+    document.querySelectorAll('.cats a').forEach(a => a.classList.remove('active'));
+  }
+}
+
+// Category nav
+function buildCatNav() {
+  let html = '<a href="#" class="active" data-cat="all">全部</a>';
+  data.forEach(s => {
+    html += `<a href="#" data-cat="${s.name}">${s.emoji} ${s.name}</a>`;
+  });
+  catList.innerHTML = html;
+
+  catList.addEventListener('click', e => {
+    const a = e.target.closest('a');
+    if (!a) return;
+    e.preventDefault();
+    document.querySelectorAll('.cats a').forEach(x => x.classList.remove('active'));
+    a.classList.add('active');
+    searchInput.value = '';
+    const cat = a.dataset.cat;
+    if (cat === 'all') {
+      render('');
+    } else {
+      // Scroll to section
+      const el = document.querySelector(`section[data-cat="${cat}"]`);
+      if (el) {
+        const offset = document.querySelector('header').offsetHeight + document.querySelector('.cats-wrap').offsetHeight;
+        const top = el.getBoundingClientRect().top + window.scrollY - offset;
+        window.scrollTo({ top, behavior: 'smooth' });
+      }
+    }
+  });
+}
+
+// Search
+searchInput.addEventListener('input', () => {
+  render(searchInput.value);
+  // Reset cat active
+  document.querySelectorAll('.cats a').forEach(a => a.classList.remove('active'));
+  document.querySelector('.cats a[data-cat="all"]').classList.add('active');
+});
+
+// Theme
+const themeToggle = document.getElementById('themeToggle');
+const saved = localStorage.getItem('theme');
+if (saved === 'dark' || (!saved && window.matchMedia('(prefers-color-scheme:dark)').matches)) {
+  document.documentElement.classList.add('dark');
+  themeToggle.textContent = '☀️';
+}
+themeToggle.addEventListener('click', () => {
+  const isDark = document.documentElement.classList.toggle('dark');
+  themeToggle.textContent = isDark ? '☀️' : '🌙';
+  localStorage.setItem('theme', isDark ? 'dark' : 'light');
+});
+
+// Scroll to top
+const topBtn = document.getElementById('topBtn');
+window.addEventListener('scroll', () => {
+  topBtn.classList.toggle('show', window.scrollY > 400);
+});
+topBtn.addEventListener('click', () => window.scrollTo({ top: 0, behavior: 'smooth' }));
+
+// Initial render
+buildCatNav();
+render('');
+</script>
+</body>
+</html>
