@@ -5,5 +5,5 @@ title = '静态页面索引'
 +++
 
 1. [中国投资理财导航](/navi/invest-in-china-navi.html)或者[中国投资理财导航2](/invest-in-china-navi.html)
-2. [AI与开发者常用网站导肮](/navi/ai-and-dev-navi.html)或者[AI与开发者常用网站导肮2](/ai-and-dev-navi.html)
+2. [AI与开发者常用网站导航](/navi/ai-and-dev-navi.html)或者[AI与开发者常用网站导航2](/ai-and-dev-navi.html)
 3. [高质量信息源导航](/navi/high-quality-info-source.html)或者[高质量信息源导航2](/high-quality-info-source.html)
