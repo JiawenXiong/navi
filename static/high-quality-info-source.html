@@ -1,0 +1,712 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>信息源导航 · 高质量信息源精选</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+SC:wght@300;400;500;700;900&family=JetBrains+Mono:wght@400;600&display=swap" rel="stylesheet">
+<style>
+:root {
+  --bg: #0b0d11;
+  --surface: #13161c;
+  --surface2: #1a1f28;
+  --border: #262d3a;
+  --text: #e4e8ee;
+  --text2: #929aab;
+  --text3: #5a6275;
+  --accent: #f0b429;
+  --accent2: #d4900e;
+  --accent-glow: rgba(240, 180, 41, 0.15);
+  --nav-bg: linear-gradient(180deg, rgba(11,13,17,0.95) 0%, rgba(11,13,17,0.85) 80%, transparent 100%);
+  --card-shadow: rgba(240,180,41,0.08);
+  --selection: #0b0d11;
+  --radius: 12px;
+  --radius-sm: 6px;
+}
+html.light {
+  --bg: #f5f2eb;
+  --surface: #ffffff;
+  --surface2: #f0ede6;
+  --border: #e0dbd2;
+  --text: #2c2a26;
+  --text2: #6b6560;
+  --text3: #9e9690;
+  --accent: #c99200;
+  --accent2: #a67700;
+  --accent-glow: rgba(201, 146, 0, 0.1);
+  --nav-bg: linear-gradient(180deg, rgba(245,242,235,0.95) 0%, rgba(245,242,235,0.85) 80%, transparent 100%);
+  --card-shadow: rgba(201, 146, 0, 0.08);
+  --selection: #ffffff;
+}
+* { margin: 0; padding: 0; box-sizing: border-box; }
+html { scroll-behavior: smooth; }
+body {
+  font-family: 'Noto Sans SC', -apple-system, sans-serif;
+  background: var(--bg);
+  color: var(--text);
+  line-height: 1.6;
+  overflow-x: hidden;
+}
+::selection { background: var(--accent); color: var(--selection); }
+
+.bg-glow {
+  position: fixed; inset: 0; z-index: -1;
+  overflow: hidden; pointer-events: none;
+}
+.bg-glow::before {
+  content: ''; position: absolute;
+  width: 1200px; height: 1200px;
+  top: -400px; left: 50%;
+  transform: translateX(-50%);
+  background: radial-gradient(ellipse at center, rgba(240,180,41,0.04) 0%, transparent 70%);
+  animation: breathe 8s ease-in-out infinite alternate;
+}
+html.light .bg-glow::before {
+  background: radial-gradient(ellipse at center, rgba(201,146,0,0.06) 0%, transparent 70%);
+}
+@keyframes breathe {
+  0% { opacity: 0.4; transform: translateX(-50%) scale(1); }
+  100% { opacity: 1; transform: translateX(-50%) scale(1.1); }
+}
+
+header {
+  padding: 60px 24px 40px;
+  text-align: center;
+  position: relative;
+}
+header::after {
+  content: ''; position: absolute;
+  bottom: 0; left: 50%; transform: translateX(-50%);
+  width: 200px; height: 1px;
+  background: linear-gradient(90deg, transparent, var(--accent), transparent);
+}
+.badge {
+  display: inline-flex; align-items: center; gap: 6px;
+  font-size: 11px; font-weight: 500;
+  letter-spacing: 3px; text-transform: uppercase;
+  color: var(--accent); background: var(--accent-glow);
+  padding: 4px 14px; border-radius: 20px;
+  margin-bottom: 20px;
+  border: 1px solid rgba(240,180,41,0.15);
+}
+h1 {
+  font-size: clamp(32px, 6vw, 64px);
+  font-weight: 900;
+  letter-spacing: -0.03em;
+  line-height: 1.15;
+  margin-bottom: 12px;
+}
+h1 span {
+  background: linear-gradient(135deg, var(--accent) 0%, #f5d654 50%, var(--accent2) 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+.subtitle {
+  color: var(--text2);
+  font-size: clamp(14px, 2vw, 18px);
+  font-weight: 300;
+  max-width: 520px;
+  margin: 0 auto 32px;
+  letter-spacing: 0.3px;
+}
+
+.theme-toggle {
+  position: fixed; top: 20px; right: 24px;
+  z-index: 20;
+  width: 40px; height: 40px;
+  border-radius: 50%;
+  border: 1px solid var(--border);
+  background: var(--surface);
+  color: var(--text2);
+  font-size: 18px;
+  cursor: pointer;
+  display: flex; align-items: center; justify-content: center;
+  transition: all 0.3s;
+}
+.theme-toggle:hover {
+  border-color: var(--accent);
+  color: var(--accent);
+  transform: scale(1.1);
+}
+
+.lang-filter {
+  display: flex; justify-content: center; gap: 6px;
+  margin-top: 16px;
+}
+.lang-btn {
+  padding: 4px 14px;
+  border: 1px solid var(--border);
+  border-radius: 16px;
+  background: transparent;
+  color: var(--text2);
+  font-size: 12px; font-family: inherit;
+  cursor: pointer;
+  transition: all 0.2s;
+}
+.lang-btn:hover {
+  border-color: var(--accent);
+  color: var(--accent);
+  background: var(--accent-glow);
+}
+.lang-btn.active {
+  background: var(--accent);
+  color: var(--selection);
+  border-color: var(--accent);
+  font-weight: 600;
+}
+
+.search-box {
+  max-width: 480px; margin: 0 auto;
+  position: relative;
+}
+.search-box input {
+  width: 100%; padding: 12px 20px 12px 44px;
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: 100px;
+  color: var(--text);
+  font-size: 14px; font-family: inherit;
+  outline: none; transition: all 0.3s;
+}
+.search-box input:focus {
+  border-color: var(--accent);
+  box-shadow: 0 0 0 4px var(--accent-glow);
+}
+.search-box input::placeholder { color: var(--text3); }
+.search-box .icon {
+  position: absolute; left: 16px; top: 50%;
+  transform: translateY(-50%);
+  color: var(--text3); font-size: 16px;
+  pointer-events: none;
+}
+
+.stats {
+  display: flex; justify-content: center; gap: 24px;
+  margin-top: 20px;
+  font-size: 13px; color: var(--text3);
+}
+.stats strong { color: var(--text); font-weight: 500; }
+
+nav.categories-nav {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 6px;
+  padding: 24px 16px 8px;
+  position: sticky;
+  top: 0;
+  z-index: 10;
+  background: var(--nav-bg);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+}
+.nav-btn {
+  padding: 6px 14px;
+  border: 1px solid var(--border);
+  border-radius: 20px;
+  background: transparent;
+  color: var(--text2);
+  font-size: 12px; font-family: inherit;
+  cursor: pointer;
+  transition: all 0.2s;
+  white-space: nowrap;
+}
+.nav-btn:hover {
+  border-color: var(--accent);
+  color: var(--accent);
+  background: var(--accent-glow);
+}
+.nav-btn.active {
+  background: var(--accent);
+  color: var(--selection);
+  border-color: var(--accent);
+  font-weight: 600;
+}
+
+main {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 20px 24px 80px;
+}
+
+.section {
+  margin-bottom: 48px;
+  opacity: 0;
+  transform: translateY(20px);
+  transition: all 0.5s ease;
+}
+.section.visible { opacity: 1; transform: translateY(0); }
+
+.section-header {
+  display: flex; align-items: center;
+  gap: 12px; margin-bottom: 20px;
+  padding-bottom: 8px;
+  border-bottom: 1px solid var(--border);
+}
+.section-icon {
+  width: 32px; height: 32px;
+  display: flex; align-items: center; justify-content: center;
+  border-radius: 8px;
+  background: var(--accent-glow);
+  color: var(--accent);
+  font-size: 16px;
+}
+.section h2 {
+  font-size: 18px; font-weight: 700;
+  letter-spacing: 0.5px;
+}
+.section .count {
+  font-size: 12px; color: var(--text3);
+  font-weight: 400;
+  margin-left: auto;
+}
+
+.grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
+  gap: 10px;
+}
+
+.card {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  padding: 16px 18px;
+  text-decoration: none;
+  color: inherit;
+  transition: all 0.25s ease;
+  display: flex; flex-direction: column;
+  position: relative;
+  overflow: hidden;
+}
+.card::before {
+  content: ''; position: absolute;
+  top: 0; left: 0; right: 0; height: 2px;
+  background: var(--accent);
+  transform: scaleX(0);
+  transform-origin: left;
+  transition: transform 0.3s ease;
+}
+.card:hover::before { transform: scaleX(1); }
+.card:hover {
+  border-color: var(--accent);
+  transform: translateY(-2px);
+  box-shadow: 0 8px 30px var(--card-shadow);
+}
+.card:active { transform: translateY(0); }
+
+.card-name {
+  font-size: 14px; font-weight: 600;
+  margin-bottom: 2px;
+  display: flex; align-items: center; gap: 6px;
+}
+.card-desc {
+  font-size: 12px; color: var(--text3);
+  line-height: 1.4;
+  flex: 1;
+}
+.card-meta {
+  margin-top: 8px;
+  display: flex; align-items: center; gap: 6px;
+}
+.tag {
+  font-size: 10px;
+  padding: 1px 8px;
+  border-radius: 10px;
+  background: var(--surface2);
+  color: var(--text2);
+  border: 1px solid var(--border);
+  white-space: nowrap;
+}
+.tag.ai { border-color: rgba(240,180,41,0.3); color: var(--accent); }
+.tag.dev { border-color: rgba(100,200,255,0.3); color: #64c8ff; }
+.tag.fin { border-color: rgba(100,255,180,0.3); color: #64ffb4; }
+.tag.news { border-color: rgba(255,150,100,0.3); color: #ff9664; }
+.tag.overseas { border-color: rgba(180,140,255,0.3); color: #b48cff; }
+.tag.comm { border-color: rgba(255,200,100,0.3); color: #ffc864; }
+.tag.data { border-color: rgba(100,220,255,0.3); color: #64dcff; }
+
+.card .arrow {
+  margin-left: auto;
+  color: var(--text3);
+  font-size: 12px;
+  transition: transform 0.2s, color 0.2s;
+}
+.card:hover .arrow { transform: translateX(3px); color: var(--accent); }
+
+.tag-zh { border-color: rgba(240,80,80,0.3) !important; color: #f05050 !important; }
+.tag-en { border-color: rgba(80,160,255,0.3) !important; color: #50a0ff !important; }
+
+.note-card {
+  background: rgba(240,180,41,0.04);
+  border: 1px solid rgba(240,180,41,0.12);
+  border-radius: var(--radius);
+  padding: 16px 20px;
+  margin-top: 12px;
+  font-size: 13px; color: var(--text2);
+  line-height: 1.5;
+}
+.note-card strong { color: var(--accent); font-weight: 500; }
+
+footer {
+  text-align: center;
+  padding: 32px 24px;
+  border-top: 1px solid var(--border);
+  color: var(--text3);
+  font-size: 12px;
+  letter-spacing: 0.3px;
+}
+
+@media (max-width: 640px) {
+  header { padding: 36px 16px 28px; }
+  .stats { gap: 12px; font-size: 12px; flex-wrap: wrap; }
+  .lang-filter { flex-wrap: wrap; }
+  nav.categories-nav {
+    padding: 16px 12px 4px;
+    gap: 4px;
+  }
+  .nav-btn { font-size: 11px; padding: 4px 10px; }
+  main { padding: 16px 12px 60px; }
+  .grid { grid-template-columns: 1fr; gap: 8px; }
+  .section { margin-bottom: 32px; }
+  .card { padding: 14px 16px; }
+}
+
+@media (min-width: 641px) and (max-width: 1024px) {
+  .grid { grid-template-columns: repeat(2, 1fr); }
+}
+
+.fade-in { animation: fadeUp 0.4s ease forwards; }
+@keyframes fadeUp {
+  from { opacity: 0; transform: translateY(12px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+.no-results {
+  text-align: center; padding: 60px 20px;
+  color: var(--text3); font-size: 14px;
+  display: none;
+}
+</style>
+</head>
+<body>
+
+<div class="bg-glow"></div>
+
+<header>
+  <div class="badge">✦ 精选导航</div>
+  <h1><span>信息源</span>导航</h1>
+  <p class="subtitle">81 个高质量信息源 · 9 大分类 · 精心筛选</p>
+  <div class="search-box">
+    <span class="icon">⌕</span>
+    <input type="text" id="search" placeholder="搜索网站名称、领域或关键词..." oninput="filterCards()">
+  </div>
+  <div class="lang-filter">
+    <button class="lang-btn active" data-lang="all" onclick="setLang(this)">🌍 全部</button>
+    <button class="lang-btn" data-lang="zh" onclick="setLang(this)">🇨🇳 中文</button>
+    <button class="lang-btn" data-lang="en" onclick="setLang(this)">🇬🇧 English</button>
+  </div>
+  <div class="stats">
+    <span>网站 <strong id="totalCount">81</strong></span>
+    <span>分类 <strong>9</strong></span>
+    <span><strong>★</strong> 每日更新</span>
+  </div>
+  <button class="theme-toggle" id="themeToggle" aria-label="切换主题" onclick="toggleTheme()">🌙</button>
+</header>
+
+<nav class="categories-nav" id="nav"></nav>
+
+<main id="main"></main>
+
+<footer>
+  高质量信息源导航 · 持续更新
+</footer>
+
+<script>
+const data = [
+  {
+    name: '科技媒体',
+    icon: '⚡',
+    items: [
+      { name: '36氪', url: 'https://www.36kr.com', desc: '全赛道覆盖，一手资讯，深度案例', tag: '科技/创投', tagClass: 'ai', lang: 'zh' },
+      { name: '虎嗅', url: 'https://www.huxiu.com', desc: '深度分析，敢于直言行业本质', tag: '科技/商业', tagClass: 'ai', lang: 'zh' },
+      { name: '钛媒体', url: 'https://www.tmtpost.com', desc: '严谨专业，产业洞察', tag: '科技/新经济', tagClass: 'ai', lang: 'zh' },
+      { name: '科创板日报', url: 'https://www.chinastarmarket.cn', desc: '专注硬科技与新兴产业', tag: '科创/资本', tagClass: 'ai', lang: 'zh' },
+      { name: '晚点', url: 'https://www.latepost.com', desc: '深度报道，文笔出色', tag: '科技/商业', tagClass: 'ai', lang: 'zh' },
+      { name: '潮起网', url: 'https://www.ichaoqi.com', desc: '新锐自媒体平台', tag: '科技财经', tagClass: 'ai', lang: 'zh' },
+      { name: '界面新闻', url: 'https://www.jiemian.com', desc: '优质深度报道', tag: '深度报道', tagClass: 'news', lang: 'zh' },
+      { name: '澎湃新闻', url: 'https://www.thepaper.cn', desc: '优质原创新闻', tag: '综合新闻', tagClass: 'news', lang: 'zh' },
+      { name: '腾讯新闻', url: 'https://news.qq.com', desc: '重大事件报道', tag: '综合新闻', tagClass: 'news', lang: 'zh' },
+      { name: '彭博社', url: 'https://www.bloomberg.com', desc: '全球财经资讯', tag: '财经新闻', tagClass: 'news', lang: 'en' },
+      { name: '路透社', url: 'https://www.reuters.com', desc: '全球新闻资讯', tag: '财经/综合', tagClass: 'news', lang: 'en' },
+      { name: 'TechCrunch', url: 'https://techcrunch.com', desc: '全球科技创业动态', tag: '科技新闻', tagClass: 'overseas', lang: 'en' },
+      { name: 'The Verge', url: 'https://www.theverge.com', desc: '产品评测，科技文化', tag: '科技/消费', tagClass: 'overseas', lang: 'en' },
+      { name: 'Wired', url: 'https://www.wired.com', desc: '科技趋势深度报道', tag: '科技/文化', tagClass: 'overseas', lang: 'en' },
+      { name: 'CNET', url: 'https://www.cnet.com', desc: '产品评测，新闻资讯', tag: '科技消费', tagClass: 'overseas', lang: 'en' },
+      { name: 'Digital Trends', url: 'https://www.digitaltrends.com', desc: '产品指南', tag: '科技消费', tagClass: 'overseas', lang: 'en' },
+      { name: 'MIT Technology Review', url: 'https://www.technologyreview.com', desc: '麻省理工科技评论', tag: '科技前沿', tagClass: 'overseas', lang: 'en' },
+      { name: 'Ars Technica', url: 'https://arstechnica.com', desc: '深度技术报道', tag: '科技/科学', tagClass: 'overseas', lang: 'en' },
+      { name: 'Engadget', url: 'https://www.engadget.com', desc: '消费电子资讯', tag: '科技消费', tagClass: 'overseas', lang: 'en' },
+    ]
+  },
+  {
+    name: '人工智能与前沿技术',
+    icon: '🤖',
+    items: [
+      { name: '机器之心', url: 'https://www.jiqizhixin.com', desc: '专业AI媒体，产业服务', tag: 'AI', tagClass: 'ai', lang: 'zh' },
+      { name: '智东西', url: 'https://www.zhidx.com', desc: 'AI领域深度报道', tag: 'AI', tagClass: 'ai', lang: 'zh' },
+      { name: 'OpenAI Blog', url: 'https://openai.com/blog', desc: 'OpenAI官方博客', tag: 'AI', tagClass: 'ai', lang: 'en' },
+      { name: 'Anthropic Blog', url: 'https://www.anthropic.com', desc: 'Claude官方博客', tag: 'AI', tagClass: 'ai', lang: 'en' },
+      { name: '量子位', url: 'https://www.qbitai.com', desc: 'AI资讯与技术解读', tag: 'AI', tagClass: 'ai', lang: 'zh' },
+      { name: 'Hugging Face', url: 'https://huggingface.co', desc: '全球最大AI模型与数据集社区', tag: 'AI平台', tagClass: 'ai', lang: 'en' },
+      { name: 'Papers With Code', url: 'https://paperswithcode.com', desc: '论文实现与性能基准平台', tag: '学术', tagClass: 'data', lang: 'en' },
+      { name: 'Google Scholar', url: 'https://scholar.google.com', desc: '全球学术文献搜索引擎', tag: '学术', tagClass: 'data', lang: 'en' },
+      { name: '智源社区', url: 'https://hub.baai.ac.cn', desc: 'AI前沿技术社区', tag: 'AI', tagClass: 'ai', lang: 'zh' },
+      { name: 'arXiv', url: 'https://arxiv.org', desc: '全球最大预印本平台', tag: '学术', tagClass: 'data', lang: 'en' },
+      { name: 'ChinaXiv', url: 'https://www.chinaxiv.org', desc: '中国科技论文预发布平台', tag: '学术', tagClass: 'data', lang: 'zh' },
+      { name: '中国科技论文在线', url: 'https://www.paper.edu.cn', desc: '国内学术论文库', tag: '学术', tagClass: 'data', lang: 'zh' },
+    ]
+  },
+  {
+    name: '财经投资',
+    icon: '📈',
+    items: [
+      { name: '东方财富网', url: 'https://www.eastmoney.com', desc: '数据全面，股吧活跃', tag: '财经综合', tagClass: 'fin', lang: 'zh' },
+      { name: '新浪财经', url: 'https://finance.sina.com.cn', desc: '解读速度快，Level2数据', tag: '财经综合', tagClass: 'fin', lang: 'zh' },
+      { name: '财联社', url: 'https://www.cls.cn', desc: '实时资讯，盘中快讯', tag: '财经快讯', tagClass: 'fin', lang: 'zh' },
+      { name: '雪球', url: 'https://xueqiu.com', desc: '社交投资，实盘记录', tag: '投资社区', tagClass: 'fin', lang: 'zh' },
+      { name: '同花顺', url: 'https://www.10jqka.com.cn', desc: '免费Level-2行情', tag: '股票数据', tagClass: 'fin', lang: 'zh' },
+      { name: '财新网', url: 'https://www.caixin.com', desc: '深度调查，付费阅读', tag: '财经深度', tagClass: 'fin', lang: 'zh' },
+      { name: '华尔街见闻', url: 'https://www.wallstreetcn.com', desc: '金融市场资讯', tag: '财经', tagClass: 'fin', lang: 'zh' },
+    ]
+  },
+  {
+    name: '开发者社区',
+    icon: '💻',
+    items: [
+      { name: 'Stack Overflow', url: 'https://stackoverflow.com', desc: '全球最大开发者问答社区', tag: '编程问答', tagClass: 'dev', lang: 'en' },
+      { name: 'GitHub', url: 'https://github.com', desc: '全球最大开源代码平台', tag: '代码托管', tagClass: 'dev', lang: 'en' },
+      { name: 'CSS-Tricks', url: 'https://css-tricks.com', desc: 'CSS权威资源', tag: '前端开发', tagClass: 'dev', lang: 'en' },
+      { name: 'Smashing Magazine', url: 'https://www.smashingmagazine.com', desc: '高质量开发教程', tag: '前端开发', tagClass: 'dev', lang: 'en' },
+      { name: 'Dev.to', url: 'https://dev.to', desc: '社区驱动，技术文章', tag: '开发者社区', tagClass: 'dev', lang: 'en' },
+      { name: 'Hacker Noon', url: 'https://hackernoon.com', desc: '深度技术文章', tag: '技术博客', tagClass: 'dev', lang: 'en' },
+      { name: 'GitLab', url: 'https://gitlab.com', desc: '企业级代码管理', tag: '代码托管', tagClass: 'dev', lang: 'en' },
+      { name: 'CSDN', url: 'https://blog.csdn.net', desc: '中文开发者社区', tag: '技术社区', tagClass: 'dev', lang: 'zh' },
+      { name: '掘金', url: 'https://juejin.cn', desc: '开发者社区', tag: '技术社区', tagClass: 'dev', lang: 'zh' },
+      { name: 'InfoQ', url: 'https://www.infoq.cn', desc: '技术趋势与架构实践', tag: '技术社区', tagClass: 'dev', lang: 'zh' },
+      { name: '开源中国', url: 'https://www.oschina.net', desc: '中文开源社区', tag: '开源', tagClass: 'dev', lang: 'zh' },
+      { name: '博客园', url: 'https://www.cnblogs.com', desc: '老牌技术博客平台', tag: '技术博客', tagClass: 'dev', lang: 'zh' },
+    ]
+  },
+  {
+    name: '个人独立博客',
+    icon: '✍️',
+    items: [
+      { name: '阮一峰的网络日志', url: 'https://www.ruanyifeng.com/blog', desc: '科技爱好者周刊，每周五更新', tag: '技术', tagClass: 'dev', lang: 'zh' },
+      { name: '云风', url: 'https://blog.codingnow.com', desc: '游戏开发/系统/随笔', tag: '技术', tagClass: 'dev', lang: 'zh' },
+      { name: '张鑫旭', url: 'https://www.zhangxinxu.com', desc: 'CSS/前端技术博客', tag: '前端', tagClass: 'dev', lang: 'zh' },
+      { name: '苏洋', url: 'https://soulteary.com', desc: '开发/运维/开源折腾笔记', tag: '技术', tagClass: 'dev', lang: 'zh' },
+      { name: '谢益辉', url: 'https://yihui.org', desc: 'R语言/统计/编程', tag: '编程', tagClass: 'dev', lang: 'zh' },
+      { name: 'Dan Abramov', url: 'https://overreacted.io', desc: 'React/前端/编程思想', tag: '前端', tagClass: 'dev', lang: 'en' },
+      { name: 'Julia Evans', url: 'https://jvns.ca', desc: '系统/网络/命令行', tag: '系统', tagClass: 'dev', lang: 'en' },
+      { name: 'Josh W. Comeau', url: 'https://joshwcomeau.com', desc: 'CSS/React交互教程', tag: '前端', tagClass: 'dev', lang: 'en' },
+      { name: 'Paul Graham', url: 'https://paulgraham.com', desc: '创业/科技/编程思想', tag: '创业', tagClass: 'news', lang: 'en' },
+      { name: 'Coding Horror', url: 'https://blog.codinghorror.com', desc: 'Jeff Atwood 软件工程博客', tag: '软件工程', tagClass: 'dev', lang: 'en' },
+    ]
+  },
+  {
+    name: '行业垂直媒体',
+    icon: '🎯',
+    items: [
+      { name: '爱范儿', url: 'https://www.ifanr.com', desc: '数字生活方式', tag: '科技/消费', tagClass: 'news', lang: 'zh' },
+      { name: '极客公园', url: 'https://www.geekpark.net', desc: '科技产品与创业', tag: '科技/创业', tagClass: 'news', lang: 'zh' },
+      { name: '少数派', url: 'https://sspai.com', desc: '效率工具与数字生活', tag: '数字生活', tagClass: 'news', lang: 'zh' },
+      { name: '品玩', url: 'https://www.pingwest.com', desc: '科技商业报道', tag: '科技/商业', tagClass: 'news', lang: 'zh' },
+      { name: '甲子光年', url: 'https://www.jazzyear.com', desc: '中国科技产业智库', tag: '科技产业', tagClass: 'news', lang: 'zh' },
+    ]
+  },
+  {
+    name: '信息聚合与导航',
+    icon: '🧭',
+    items: [
+      { name: 'BestBlogs.dev', url: 'https://bestblogs.dev', desc: '开发者信息源筛选平台', tag: '信息聚合', tagClass: 'dev', lang: 'zh' },
+      { name: 'GitHub·程序员网站合集', url: 'https://github.com/sdmg15/Best-websites-a-programmer-should-visit', desc: '200+技术网站合集', tag: '网站导航', tagClass: 'dev', lang: 'en' },
+      { name: 'GitHub·科技信息源', url: 'https://github.com/promptagi/awesome-open-tech-info', desc: '高质量科技信息源分享', tag: '信息聚合', tagClass: 'dev', lang: 'zh' },
+      { name: 'Hacker News', url: 'https://news.ycombinator.com', desc: 'YC旗下极客新闻社区', tag: '信息聚合', tagClass: 'dev', lang: 'en' },
+      { name: 'Product Hunt', url: 'https://www.producthunt.com', desc: '全球新产品发现平台', tag: '产品发现', tagClass: 'overseas', lang: 'en' },
+    ]
+  },
+  {
+    name: '问答与知识社区',
+    icon: '💬',
+    items: [
+      { name: '知乎', url: 'https://www.zhihu.com', desc: '中文最大问答平台', tag: '问答社区', tagClass: 'comm', lang: 'zh' },
+      { name: 'Quora', url: 'https://www.quora.com', desc: '英文问答平台', tag: '问答社区', tagClass: 'comm', lang: 'en' },
+      { name: '豆瓣', url: 'https://www.douban.com', desc: '书籍、电影等文化内容', tag: '社区', tagClass: 'comm', lang: 'zh' },
+      { name: 'Reddit', url: 'https://www.reddit.com', desc: '全球最大社区论坛', tag: '社区', tagClass: 'comm', lang: 'en' },
+    ]
+  },
+  {
+    name: '数据与研究报告',
+    icon: '📊',
+    items: [
+      { name: '艾瑞咨询', url: 'https://www.iresearch.com.cn', desc: '行业研究报告', tag: '行业研究', tagClass: 'data', lang: 'zh' },
+      { name: '易观分析', url: 'https://www.analysys.cn', desc: '数字经济分析', tag: '行业研究', tagClass: 'data', lang: 'zh' },
+      { name: 'QuestMobile', url: 'https://www.questmobile.com.cn', desc: '移动互联网数据', tag: '移动数据', tagClass: 'data', lang: 'zh' },
+      { name: '36氪研究院', url: 'https://research.36kr.com', desc: '行业研究与咨询', tag: '行业研究', tagClass: 'data', lang: 'zh' },
+    ]
+  }
+];
+
+let total = 0;
+data.forEach(s => total += s.items.length);
+document.getElementById('totalCount').textContent = total;
+
+function setTheme(theme) {
+  const html = document.documentElement;
+  const btn = document.getElementById('themeToggle');
+  if (theme === 'light') {
+    html.classList.add('light');
+    btn.textContent = '☀️';
+  } else {
+    html.classList.remove('light');
+    btn.textContent = '🌙';
+  }
+  localStorage.setItem('theme', theme);
+}
+
+function toggleTheme() {
+  const html = document.documentElement;
+  setTheme(html.classList.contains('light') ? 'dark' : 'light');
+}
+
+(function initTheme() {
+  const saved = localStorage.getItem('theme');
+  if (saved) {
+    setTheme(saved);
+    return;
+  }
+  const h = new Date().getHours();
+  setTheme(h >= 6 && h < 18 ? 'light' : 'dark');
+})();
+
+let currentLang = 'all';
+let currentCat = 'all';
+
+function setLang(el) {
+  document.querySelectorAll('.lang-btn').forEach(b => b.classList.remove('active'));
+  el.classList.add('active');
+  currentLang = el.dataset.lang;
+  document.getElementById('search').value = '';
+  applyFilters();
+}
+
+function render() {
+  const nav = document.getElementById('nav');
+  const main = document.getElementById('main');
+  nav.innerHTML = '';
+  main.innerHTML = '';
+
+  const allBtn = document.createElement('button');
+  allBtn.className = 'nav-btn active';
+  allBtn.textContent = '全部';
+  allBtn.dataset.cat = 'all';
+  nav.appendChild(allBtn);
+
+  data.forEach((section, i) => {
+    const btn = document.createElement('button');
+    btn.className = 'nav-btn';
+    btn.textContent = section.icon + ' ' + section.name;
+    btn.dataset.cat = 'cat' + i;
+    nav.appendChild(btn);
+  });
+
+  data.forEach((section, i) => {
+    const sec = document.createElement('div');
+    sec.className = 'section visible';
+    sec.id = 'cat' + i;
+
+    let itemsHtml = '';
+    section.items.forEach(item => {
+      itemsHtml += `
+        <a href="${item.url}" target="_blank" rel="noopener" class="card" data-lang="${item.lang}">
+          <div class="card-name">
+            ${item.name}
+            <span class="arrow">↗</span>
+          </div>
+          <div class="card-desc">${item.desc}</div>
+          <div class="card-meta">
+            <span class="tag ${item.tagClass}">${item.tag}</span>
+            <span class="tag lang-tag ${item.lang === 'zh' ? 'tag-zh' : 'tag-en'}">${item.lang === 'zh' ? '中' : 'EN'}</span>
+          </div>
+        </a>
+      `;
+    });
+
+    sec.innerHTML = `
+      <div class="section-header">
+        <div class="section-icon">${section.icon}</div>
+        <h2>${section.name}</h2>
+        <span class="count">${section.items.length} 个网站</span>
+      </div>
+      <div class="grid">${itemsHtml}</div>
+    `;
+    main.appendChild(sec);
+  });
+
+  const noRes = document.createElement('div');
+  noRes.className = 'no-results';
+  noRes.id = 'noResults';
+  noRes.textContent = '没有找到匹配的网站，试试其他关键词';
+  main.appendChild(noRes);
+
+  nav.addEventListener('click', e => {
+    if (e.target.classList.contains('nav-btn')) {
+      document.querySelectorAll('.nav-btn').forEach(b => b.classList.remove('active'));
+      e.target.classList.add('active');
+      currentCat = e.target.dataset.cat;
+      document.getElementById('search').value = '';
+      applyFilters();
+    }
+  });
+}
+
+function applyFilters() {
+  const q = document.getElementById('search').value.trim().toLowerCase();
+
+  let anyVisible = false;
+
+  document.querySelectorAll('.section').forEach(sec => {
+    if (currentCat !== 'all' && sec.id !== currentCat) {
+      sec.style.display = 'none';
+      return;
+    }
+    const cards = sec.querySelectorAll('.card');
+    let secHasVisible = false;
+    cards.forEach(card => {
+      let show = true;
+      if (currentLang !== 'all' && card.dataset.lang !== currentLang) show = false;
+      if (show && q) {
+        const text = card.textContent.toLowerCase();
+        if (!text.includes(q)) show = false;
+      }
+      card.style.display = show ? '' : 'none';
+      if (show) secHasVisible = true;
+    });
+    sec.style.display = secHasVisible ? '' : 'none';
+    if (secHasVisible) anyVisible = true;
+  });
+
+  document.getElementById('noResults').style.display = anyVisible ? 'none' : 'block';
+}
+
+function filterCards() {
+  applyFilters();
+}
+
+render();
+</script>
+</body>
+</html>
