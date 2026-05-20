@@ -405,16 +405,15 @@ const sites = [
 
   // 快讯电报
   { cat: '快讯电报', title: '财联社', desc: '7×24实时财经快讯，短线必备', url: 'https://www.cls.cn', tag: '必备' },
-  { cat: '快讯电报', title: '蓝鲸财经', desc: '一线财经记者报道', url: 'https://www.lanjinger.com' },
-  { cat: '快讯电报', title: '钛媒体', desc: '科技财经深度报道', url: 'https://www.tmtpost.com' },
   { cat: '快讯电报', title: '36氪', desc: '创投/科技/商业快讯', url: 'https://36kr.com' },
   { cat: '快讯电报', title: '虎嗅', desc: '商业科技深度文章', url: 'https://www.huxiu.com' },
+  { cat: '快讯电报', title: '蓝鲸财经', desc: '一线财经记者报道', url: 'https://www.lanjinger.com' },
+  { cat: '快讯电报', title: '钛媒体', desc: '科技财经深度报道', url: 'https://www.tmtpost.com' },
 
   // 港美股
+  { cat: '港美股', title: '老虎国际', desc: '美港股交易/资讯/社区', url: 'https://www.itiger.com/sg/hans/' },
   { cat: '港美股', title: '富途牛牛', desc: '港美股行情交易+牛牛圈社区', url: 'https://www.futunn.com', tag: '热门' },
-  { cat: '港美股', title: '老虎国际', desc: '美港股交易/资讯/社区', url: 'https://www.tigerbrokers.com.cn' },
   { cat: '港美股', title: '华盛证券', desc: '港美股行情与交易', url: 'https://www.vbkr.com' },
-  { cat: '港美股', title: '雪盈证券', desc: '雪球旗下港美股交易平台', url: 'https://www.snowballsecurities.com' },
 
   // 量化投研
   { cat: '量化投研', title: '聚宽', desc: '量化交易平台/策略回测', url: 'https://www.joinquant.com' },
@@ -430,14 +429,14 @@ const sites = [
 
   // 期货衍生品
   { cat: '期货衍生品', title: '上期所', desc: '有色/贵金属/能化期货行情规则', url: 'https://www.shfe.com.cn' },
-  { cat: '期货衍生品', title: '大商所', desc: '农产品/黑色系期货', url: 'https://www.dce.com.cn' },
+  { cat: '期货衍生品', title: '大商所', desc: '农产品/黑色系期货', url: 'http://www.dce.com.cn/' },
   { cat: '期货衍生品', title: '郑商所', desc: '农产品/化工期货', url: 'https://www.czce.com.cn' },
-  { cat: '期货衍生品', title: '中金所', desc: '股指期货/国债期货', url: 'https://www.cffex.com.cn' },
+  { cat: '期货衍生品', title: '中金所', desc: '股指期货/国债期货', url: 'http://www.cffex.com.cn/cn/index.html' },
   { cat: '期货衍生品', title: '上期能源', desc: '原油期货/国际能源期货', url: 'https://www.ine.cn' },
 
   // 研报与公告
   { cat: '研报公告', title: '巨潮资讯网', desc: '证监会指定信息披露平台', url: 'https://www.cninfo.com.cn', tag: '必备' },
-  { cat: '研报公告', title: '上交所公告', desc: '上交所上市公司公告', url: 'https://www.sse.com.cn/disclosure' },
+  { cat: '研报公告', title: '上交所公告', desc: '上交所上市公司公告', url: 'https://www.sse.com.cn/disclosure/listedinfo/announcement/' },
   { cat: '研报公告', title: '深交所公告', desc: '深交所上市公司公告', url: 'https://www.szse.cn/disclosure' },
   { cat: '研报公告', title: '股票报告网', desc: '免费研报下载', url: 'https://www.nxny.com' },
   { cat: '研报公告', title: '迈博汇金', desc: '券商研报查询', url: 'https://www.hibor.com.cn' },
@@ -448,7 +447,7 @@ const sites = [
   { cat: '官方机构', title: '中国证监会', desc: '政策法规/监管动态', url: 'https://www.csrc.gov.cn' },
   { cat: '官方机构', title: '上交所', desc: '规则/数据/上市公司', url: 'https://www.sse.com.cn' },
   { cat: '官方机构', title: '深交所', desc: '规则/数据/上市公司', url: 'https://www.szse.cn' },
-  { cat: '官方机构', title: '港交所', desc: '港股规则/数据', url: 'https://www.hkex.com.hk' },
+  { cat: '官方机构', title: '港交所', desc: '港股规则/数据', url: 'https://www.hkex.com.hk/?sc_lang=zh-hk' },
   { cat: '官方机构', title: '中国结算', desc: '证券登记/结算/查询', url: 'https://www.chinaclear.cn' },
   { cat: '官方机构', title: '中证指数', desc: '指数编制/查询', url: 'https://www.csindex.com.cn' },
   { cat: '官方机构', title: '国家统计局', desc: 'CPI/PPI/GDP等宏观数据', url: 'https://www.stats.gov.cn' },
@@ -464,13 +463,12 @@ const sites = [
 
   // 专业工具
   { cat: '专业工具', title: '问财', desc: '同花顺智能选股/数据查询', url: 'https://www.iwencai.com', tag: '好用' },
-  { cat: '专业工具', title: '雪球选股器', desc: '条件选股', url: 'https://xueqiu.com/hq/stock' },
-  { cat: '专业工具', title: '东方财富选股器', desc: '多维条件选股', url: 'https://xuangubao.eastmoney.com' },
+  { cat: '专业工具', title: '雪球选股器', desc: '条件选股', url: 'https://xueqiu.com/1894299685/83986683' },
+  { cat: '专业工具', title: '东方财富选股器', desc: '多维条件选股', url: 'https://data.eastmoney.com/xuangu/' },
   { cat: '专业工具', title: '百度指数', desc: '搜索热度/趋势分析', url: 'https://index.baidu.com' },
-  { cat: '专业工具', title: 'SHIBOR', desc: '上海银行间同业拆放利率', url: 'https://www.shibor.org' },
+  { cat: '专业工具', title: 'SHIBOR', desc: '上海银行间同业拆放利率', url: 'https://www.shibor.sh.cn/shibor/index.html' },
   { cat: '专业工具', title: '中国债券信息网', desc: '国债收益率/债市数据', url: 'https://www.chinabond.com.cn' },
   { cat: '专业工具', title: 'XE汇率', desc: '实时汇率换算', url: 'https://www.xe.com/zh-CN' },
-  { cat: '专业工具', title: '看准网', desc: '公司评价/薪资/面试查询', url: 'https://www.kanzhun.com' },
 ];
 
 const cats = [...new Set(sites.map(s => s.cat))];
