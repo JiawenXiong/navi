@@ -1,0 +1,468 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<script>!function(){var h=new Date().getHours(),t=h>=6&&h<18?'light':'dark';document.documentElement.setAttribute('data-theme',t)}()</script>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>铝合金门窗从业者导航</title>
+<style>
+  :root {
+    --bg: #f5f7fa;
+    --card-bg: #fff;
+    --text: #1a1a2e;
+    --text-secondary: #555;
+    --border: #e2e8f0;
+    --accent: #1e6f9f;
+    --accent-light: #e8f4fd;
+    --tag-bg: #e8f4fd;
+    --tag-text: #1e6f9f;
+    --shadow: 0 2px 12px rgba(0,0,0,0.06);
+    --header-bg: rgba(255,255,255,0.85);
+    --divider: #e2e8f0;
+    --toggle-bg: #e2e8f0;
+    --toggle-dot: #fff;
+  }
+
+  [data-theme="dark"] {
+    --bg: #0f172a;
+    --card-bg: #1e293b;
+    --text: #e2e8f0;
+    --text-secondary: #94a3b8;
+    --border: #334155;
+    --accent: #38bdf8;
+    --accent-light: #1e293b;
+    --tag-bg: #1e293b;
+    --tag-text: #38bdf8;
+    --shadow: 0 2px 12px rgba(0,0,0,0.3);
+    --header-bg: rgba(15,23,42,0.9);
+    --divider: #334155;
+    --toggle-bg: #475569;
+    --toggle-dot: #0f172a;
+  }
+
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+  body {
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "PingFang SC", "Microsoft YaHei", sans-serif;
+    background: var(--bg);
+    color: var(--text);
+    line-height: 1.6;
+    transition: background .3s, color .3s;
+    min-height: 100vh;
+  }
+
+  header {
+    position: sticky; top: 0; z-index: 100;
+    background: var(--header-bg);
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+    border-bottom: 1px solid var(--border);
+    padding: 0 24px;
+    transition: background .3s, border-color .3s;
+  }
+
+  .header-inner {
+    max-width: 1200px; margin: 0 auto;
+    display: flex; align-items: center; justify-content: space-between;
+    height: 64px;
+  }
+
+  .logo {
+    display: flex; align-items: center; gap: 10px;
+    font-size: 20px; font-weight: 700; letter-spacing: -.5px;
+  }
+
+  .logo-icon {
+    width: 32px; height: 32px;
+    background: var(--accent); border-radius: 8px;
+    display: flex; align-items: center; justify-content: center;
+    color: #fff; font-size: 18px; font-weight: 800;
+    flex-shrink: 0;
+  }
+
+  .header-right { display: flex; align-items: center; gap: 12px; }
+
+  .theme-toggle {
+    position: relative; width: 52px; height: 28px;
+    background: var(--toggle-bg); border-radius: 14px;
+    cursor: pointer; border: none; padding: 0;
+    transition: background .3s;
+    flex-shrink: 0;
+  }
+
+  .theme-toggle::after {
+    content: '';
+    position: absolute; top: 3px; left: 3px;
+    width: 22px; height: 22px;
+    background: var(--toggle-dot); border-radius: 50%;
+    transition: transform .3s, background .3s;
+    box-shadow: 0 1px 3px rgba(0,0,0,.2);
+  }
+
+  [data-theme="dark"] .theme-toggle::after { transform: translateX(24px); }
+
+  .theme-icons {
+    position: absolute; top: 50%; transform: translateY(-50%);
+    font-size: 13px; pointer-events: none;
+    display: flex; justify-content: space-between; width: 100%;
+    padding: 0 7px;
+  }
+
+  .theme-status {
+    font-size: 13px; color: var(--text-secondary);
+    transition: color .3s;
+    white-space: nowrap;
+  }
+
+  .container {
+    max-width: 1200px; margin: 0 auto; padding: 24px 20px 60px;
+  }
+
+  .hero {
+    text-align: center; padding: 40px 0 36px;
+  }
+
+  .hero h1 {
+    font-size: 28px; font-weight: 800;
+    background: linear-gradient(135deg, var(--accent), #6366f1);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+  }
+
+  .hero p {
+    color: var(--text-secondary); font-size: 15px;
+    margin-top: 8px; max-width: 560px; margin-inline: auto;
+  }
+
+  .hero .update-badge {
+    display: inline-block; margin-top: 12px;
+    font-size: 12px; color: var(--text-secondary);
+    background: var(--card-bg); border: 1px solid var(--border);
+    padding: 4px 14px; border-radius: 20px;
+  }
+
+  .count-summary {
+    display: flex; justify-content: center; gap: 24px;
+    margin-bottom: 32px; flex-wrap: wrap;
+  }
+
+  .count-item {
+    text-align: center; padding: 12px 24px;
+    background: var(--card-bg); border-radius: 12px;
+    border: 1px solid var(--border);
+    box-shadow: var(--shadow);
+    min-width: 100px;
+  }
+
+  .count-item .num {
+    font-size: 24px; font-weight: 800; color: var(--accent);
+    display: block;
+  }
+
+  .count-item .label {
+    font-size: 13px; color: var(--text-secondary);
+  }
+
+  .section { margin-bottom: 40px; }
+
+  .section-title {
+    font-size: 20px; font-weight: 700;
+    display: flex; align-items: center; gap: 10px;
+    margin-bottom: 16px; padding-bottom: 10px;
+    border-bottom: 2px solid var(--accent);
+  }
+
+  .section-title .icon { font-size: 22px; }
+
+  .grid {
+    display: grid; gap: 12px;
+    grid-template-columns: repeat(auto-fill, minmax(340px, 1fr));
+  }
+
+  .card {
+    background: var(--card-bg); border-radius: 12px;
+    border: 1px solid var(--border); padding: 16px 18px;
+    box-shadow: var(--shadow);
+    transition: transform .15s, box-shadow .15s, background .3s, border-color .3s;
+  }
+
+  .card:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 4px 20px rgba(0,0,0,.1);
+  }
+
+  .card-title {
+    font-size: 16px; font-weight: 600;
+    margin-bottom: 4px; display: flex; align-items: center; gap: 8px;
+  }
+
+  .card-title a {
+    color: var(--accent); text-decoration: none;
+  }
+
+  .card-title a:hover { text-decoration: underline; }
+
+  .card-desc {
+    font-size: 14px; color: var(--text-secondary);
+    line-height: 1.5;
+  }
+
+  .card-meta {
+    display: flex; flex-wrap: wrap; gap: 6px; margin-top: 10px;
+  }
+
+  .tag {
+    font-size: 11px; padding: 2px 10px;
+    border-radius: 20px;
+    background: var(--tag-bg); color: var(--tag-text);
+    font-weight: 500;
+  }
+
+  .brand-grid {
+    display: grid; gap: 8px;
+    grid-template-columns: repeat(auto-fill, minmax(160px, 1fr));
+  }
+
+  .brand-item {
+    background: var(--card-bg); border: 1px solid var(--border);
+    border-radius: 10px; padding: 10px 14px; text-align: center;
+    font-size: 14px; font-weight: 500;
+    box-shadow: var(--shadow);
+    transition: background .3s, border-color .3s;
+  }
+
+  .brand-sub { font-size: 12px; color: var(--text-secondary); font-weight: 400; display: block; margin-top: 2px; }
+
+  .inline-link { color: var(--accent); text-decoration: none; font-size: 13px; }
+  .inline-link:hover { text-decoration: underline; }
+
+  footer {
+    text-align: center; padding: 32px 20px;
+    border-top: 1px solid var(--border);
+    color: var(--text-secondary); font-size: 13px;
+  }
+
+  @media (max-width: 640px) {
+    .header-inner { height: 56px; }
+    .logo { font-size: 17px; }
+    .logo-icon { width: 28px; height: 28px; font-size: 15px; }
+    .hero h1 { font-size: 22px; }
+    .hero p { font-size: 14px; }
+    .grid { grid-template-columns: 1fr; }
+    .brand-grid { grid-template-columns: repeat(2, 1fr); }
+    .container { padding: 16px 14px 40px; }
+    .count-summary { gap: 12px; }
+    .count-item { min-width: 80px; padding: 10px 16px; }
+    .count-item .num { font-size: 20px; }
+    .theme-status { display: none; }
+  }
+</style>
+</head>
+<body>
+
+<header>
+  <div class="header-inner">
+    <div class="logo">
+      <div class="logo-icon">窗</div>
+      <span>门窗从业者导航</span>
+    </div>
+    <div class="header-right">
+      <span class="theme-status" id="themeStatus">跟随系统</span>
+      <button class="theme-toggle" id="themeToggle" aria-label="切换主题">
+        <span class="theme-icons">
+          <span>☀️</span>
+          <span>🌙</span>
+        </span>
+      </button>
+    </div>
+  </div>
+</header>
+
+<div class="container">
+  <div class="hero">
+    <h1>铝合金门窗从业者工具与网站导航</h1>
+    <p>整理汇总行业常用软件工具、信息平台、价格行情、品牌厂商等资源，助力高效工作</p>
+    <div class="update-badge">📅 2026 年 5 月更新</div>
+  </div>
+
+  <div class="count-summary" id="countSummary"></div>
+
+  <div class="section">
+    <div class="section-title"><span class="icon">🎨</span> 设计绘图与算料软件</div>
+    <div class="grid" data-category="design"></div>
+  </div>
+
+  <div class="section">
+    <div class="section-title"><span class="icon">📰</span> 行业门户与信息平台</div>
+    <div class="grid" data-category="portal"></div>
+  </div>
+
+  <div class="section">
+    <div class="section-title"><span class="icon">💰</span> 价格行情查询</div>
+    <div class="grid" data-category="price"></div>
+  </div>
+
+  <div class="section">
+    <div class="section-title"><span class="icon">🧰</span> 在线工具箱</div>
+    <div class="grid" data-category="tools"></div>
+  </div>
+
+  <div class="section">
+    <div class="section-title"><span class="icon">🏛️</span> 行业展会 &amp; 协会</div>
+    <div class="grid" data-category="events"></div>
+  </div>
+
+  <div class="section">
+    <div class="section-title"><span class="icon">🏭</span> 知名型材品牌</div>
+    <div class="brand-grid" id="brandGrid"></div>
+  </div>
+
+  <div class="section">
+    <div class="section-title"><span class="icon">🔩</span> 常用五金配件品牌</div>
+    <div class="brand-grid" id="hardwareGrid"></div>
+  </div>
+</div>
+
+<footer>
+  数据整理自公开行业资料 · 信息仅供参考，以官方最新发布为准
+</footer>
+
+<script>
+const DATA = {
+  design: [
+    { name: '三维家', url: 'https://www.3vjia.com', desc: '2D/3D 门窗设计、一键报价、CAD 大样图、拆单 BOM，支持异形窗与阳光房', tags: ['云端', '设计', '报价'] },
+    { name: '杜特门窗管家 / 大师傅', url: 'http://www.duteruanjian.com', desc: '出图算料、型材优化、报价、ERP 管理，覆盖从门店到工厂全流程', tags: ['本地+云端', '算料', 'ERP'] },
+    { name: '中力企达门窗下料软件', url: 'http://www.mc58.com.cn', desc: '门窗绘图、算料、成本核算、报价、财务一体化，三端数据同步', tags: ['本地', '算料', '财务'] },
+    { name: '长风门窗算料软件', url: 'http://www.changfengruanjian.com/index.php', desc: '中小型门窗企业专用，支持订单管理、算料优化、三维图片导出', tags: ['本地', '算料', '优化'] },
+    { name: '无忧门窗下料', desc: '门店/铝材店专用，自动计算、切料优化、玻璃优化、成本估算', tags: ['本地', '下料', '优化'] },
+    { name: '铝业通 V3 门窗版（健壹）', url: 'http://www.jiane.net', desc: '门窗算料、生产管理、销售/采购/仓储/财务全流程 ERP', tags: ['本地', 'ERP', '生产管理'] },
+    { name: 'RA Workshop', url: 'https://www.raworkshop.com', desc: '铝合金 / uPVC / 木 / 钢门窗设计、报价、生产、CNC 对接', tags: ['国际', '全能型', 'CNC'] },
+    { name: 'CCG Profiles', url: 'https://www.ccg-bg.com', desc: '铝合金 / PVC 门窗设计、报价、切割优化，现已免费发布', tags: ['国际', '免费', '优化'] },
+    { name: 'ProF2 (FOM)', url: 'https://www.fomsoftware.com', desc: 'CAD 环境门窗设计，支持铝合金 / PVC / 钢，对接生产设备', tags: ['国际', 'CAD', '生产'] },
+    { name: 'Matrix 系列', url: 'https://matrix-software.com', desc: '涵盖设计报价、ERP/MRP、CNC 控制、在线商城', tags: ['国际', '全流程', 'CNC'] },
+    { name: 'AluSync', url: 'https://alusync.com', desc: '铝合金 / uPVC 门窗制造 ERP，AI 切割优化、库存管理', tags: ['云端 ERP', 'AI优化'] }
+  ],
+  portal: [
+    { name: '中国幕墙网 ALwindoor', url: 'http://www.alwindoor.com', desc: '最权威的门窗幕墙行业门户，新闻、技术、标准、采购、品牌排行', tags: ['门户', '权威'] },
+    { name: '灵通铝材网', url: 'http://www.lvcai.com.cn', desc: '铝材行业综合信息平台，行情报价、企业库、供求商机', tags: ['行情', 'B2B'] },
+    { name: '大沥铝材网', url: 'https://www.lvdingjia.com', desc: '铝锭/铝型材实时行情、价格查询、铝业工具箱', tags: ['行情', '工具箱'] },
+    { name: '上海有色网 (SMM)', url: 'https://hq.smm.cn', desc: '铝型材价格行情、开工率数据、深度行业分析', tags: ['行情', '数据'] },
+    { name: '门窗幕墙大百科', url: 'http://bbs.alwindoor.com', desc: '行业技术知识库、专家库、标准规范下载', tags: ['知识库', '标准'] },
+    { name: '系统门窗采购平台', url: 'http://www.alwindoor.com/mc168', desc: '系统门窗品牌展示与采购对接', tags: ['采购', '品牌'] },
+    { name: '造价通', url: 'https://www.zjtcn.com', desc: '铝合金门窗产品价格信息与工程造价数据', tags: ['造价', '价格'] }
+  ],
+  price: [
+    { name: '大沥铝材网 - 行情中心', url: 'https://www.lvdingjia.com', desc: '南海灵通铝锭价、长江现货铝价、废铝价、铝型材价格', tags: ['铝锭', '铝型材'] },
+    { name: '上海有色网 - 铝型材', url: 'https://hq.smm.cn', desc: '佛山/山东/南昌铝型材坯料、喷涂、电泳价格', tags: ['铝型材', '区域'] },
+    { name: '灵通铝材网 - 价格', url: 'http://www.lvcai.com.cn', desc: '铝锭/铝材/废铝价格、国际铝价、企业报价', tags: ['综合', '国际'] },
+    { name: '南海灵通铝锭价', url: 'https://www.lvdingjia.com/price/nanhai', desc: '铝锭含税/不含税价格，行业定价基准', tags: ['基准价', '含税'] }
+  ],
+  tools: [
+    { name: '铝合金工具箱', url: 'https://tools.lvdingjia.com', desc: '价格比对 · 报价计算 · 型材算料 · 成分查询 · 性能查询 · 密度查询 · 硬度换算 · 成本计算 · 模具报价 · 税率计算', tags: ['多功能', '免费'] }
+  ],
+  events: [
+    { name: 'WINDOOR 门窗幕墙新产品博览会', url: 'https://www.windoorexpo.com', desc: '亚洲领先的门窗幕墙展，每年 3 月广州保利世贸博览馆举办，覆盖系统门窗、型材、五金、设备等全产业链', tags: ['展会', '广州'] },
+    { name: '铝门窗幕墙行业年会', desc: '每年 3 月与博览会同期举办，由中国建筑金属结构协会铝门窗幕墙分会主办，发布行业报告与趋势分析', tags: ['年会', '行业报告'] },
+    { name: '中国建筑金属结构协会铝门窗幕墙分会', desc: '全国性行业组织，主办年会、博览会、标准制定、行业统计', tags: ['协会', '官方'] }
+  ]
+};
+
+const BRANDS = [
+  { name: '兴发铝业', sub: '广东 · 上市企业' },
+  { name: '凤铝铝业', sub: '广东 · 市场占有率高' },
+  { name: '坚美铝材', sub: '广东 · 高端定位' },
+  { name: '亚铝', sub: '广东 · 规模领先' },
+  { name: '华建铝业', sub: '山东 · 北方龙头' },
+  { name: '伟业铝材', sub: '广东 · 双渠道覆盖' },
+  { name: '广亚铝材', sub: '广东 · 万科合作' },
+  { name: '伟昌铝材', sub: '广东 · 华昌旗下' }
+];
+
+const HARDWARE = [
+  { name: '坚朗', sub: '门窗五金 · 幕墙配件' },
+  { name: '合和', sub: '传动器 · 执手 · 滑撑' },
+  { name: '立兴', sub: '地弹簧 · 闭门器' },
+  { name: '春光', sub: '滑撑 · 摩擦铰链' },
+  { name: '国强', sub: '门窗五金全系列' },
+  { name: '丝吉利娅', sub: '德国 · 平开下悬' },
+  { name: '诺托', sub: '德国 · 平开下悬' },
+  { name: '格屋', sub: '德国 · 高端五金' }
+];
+
+function renderCards(container, items) {
+  container.innerHTML = items.map(item => {
+    const title = item.url ? `<a href="${item.url}" target="_blank" rel="noopener">${item.name}</a>` : item.name;
+    const tags = (item.tags || []).map(t => `<span class="tag">${t}</span>`).join('');
+    return `<div class="card"><div class="card-title">${title}</div><div class="card-desc">${item.desc}</div><div class="card-meta">${tags}</div></div>`;
+  }).join('');
+}
+
+function renderBrands(container, items) {
+  container.innerHTML = items.map(item =>
+    `<div class="brand-item">${item.name}<span class="brand-sub">${item.sub}</span></div>`
+  ).join('');
+}
+
+function updateCounts() {
+  const total = Object.values(DATA).reduce((s, arr) => s + arr.length, 0) + BRANDS.length + HARDWARE.length;
+  const softwareCount = DATA.design.length;
+  const siteCount = DATA.portal.length + DATA.price.length + DATA.tools.length;
+  document.getElementById('countSummary').innerHTML = `
+    <div class="count-item"><span class="num">${total}</span><span class="label">总计收录</span></div>
+    <div class="count-item"><span class="num">${softwareCount}</span><span class="label">软件工具</span></div>
+    <div class="count-item"><span class="num">${siteCount}</span><span class="label">行业网站</span></div>
+    <div class="count-item"><span class="num">${BRANDS.length + HARDWARE.length}</span><span class="label">品牌厂商</span></div>
+  `;
+}
+
+// Theme
+let themeMode = 'auto'; // 'auto' | 'light' | 'dark'
+
+function getThemeFromTime() {
+  const h = new Date().getHours();
+  return (h >= 6 && h < 18) ? 'light' : 'dark';
+}
+
+function applyTheme(mode) {
+  themeMode = mode;
+  let actual;
+  if (mode === 'auto') {
+    actual = getThemeFromTime();
+  } else {
+    actual = mode;
+  }
+  document.documentElement.setAttribute('data-theme', actual);
+  const status = document.getElementById('themeStatus');
+  if (mode === 'auto') {
+    status.textContent = '自动 (' + (actual === 'dark' ? '暗' : '明') + ')';
+  } else {
+    status.textContent = mode === 'dark' ? '暗色' : '亮色';
+  }
+}
+
+function toggleTheme() {
+  if (themeMode === 'auto') {
+    applyTheme('light');
+  } else if (themeMode === 'light') {
+    applyTheme('dark');
+  } else {
+    applyTheme('auto');
+  }
+}
+
+// Init
+document.addEventListener('DOMContentLoaded', () => {
+  Object.keys(DATA).forEach(key => {
+    const el = document.querySelector(`[data-category="${key}"]`);
+    if (el) renderCards(el, DATA[key]);
+  });
+  renderBrands(document.getElementById('brandGrid'), BRANDS);
+  renderBrands(document.getElementById('hardwareGrid'), HARDWARE);
+  updateCounts();
+  document.getElementById('themeToggle').addEventListener('click', toggleTheme);
+  applyTheme('auto');
+});
+</script>
+</body>
+</html>
