@@ -1,0 +1,743 @@
+<!DOCTYPE html>
+<html lang="zh-CN" data-theme="dark">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>中国70城房价收入比报告（2024年度）</title>
+<script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.0/dist/chart.umd.min.js"></script>
+<style>
+:root, [data-theme="dark"] {
+  --bg: #0f172a;
+  --card-bg: #1e293b;
+  --text: #e2e8f0;
+  --text-secondary: #94a3b8;
+  --accent: #38bdf8;
+  --danger: #ef4444;
+  --warning: #f59e0b;
+  --success: #22c55e;
+  --border: #334155;
+  --hover: #2d3a4f;
+  --thead-bg: #253349;
+  --note: #64748b;
+}
+[data-theme="light"] {
+  --bg: #f1f5f9;
+  --card-bg: #ffffff;
+  --text: #1e293b;
+  --text-secondary: #64748b;
+  --accent: #0284c7;
+  --danger: #dc2626;
+  --warning: #d97706;
+  --success: #16a34a;
+  --border: #e2e8f0;
+  --hover: #f1f5f9;
+  --thead-bg: #e2e8f0;
+  --note: #94a3b8;
+}
+* { margin: 0; padding: 0; box-sizing: border-box; }
+body {
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Noto Sans SC', sans-serif;
+  background: var(--bg);
+  color: var(--text);
+  line-height: 1.6;
+}
+.container { max-width: 1400px; margin: 0 auto; padding: 24px; }
+
+/* Header */
+.header {
+  text-align: center;
+  padding: 40px 44px 24px;
+  border-bottom: 1px solid var(--border);
+  margin-bottom: 32px;
+  position: relative;
+}
+.header h1 {
+  font-size: 28px;
+  font-weight: 700;
+  letter-spacing: 1px;
+  margin-bottom: 8px;
+}
+.header .subtitle {
+  color: var(--text-secondary);
+  font-size: 14px;
+}
+.header .note {
+  margin-top: 12px;
+  font-size: 12px;
+  color: var(--note);
+}
+
+/* Summary Cards */
+.summary {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 16px;
+  margin-bottom: 32px;
+}
+.summary-card {
+  background: var(--card-bg);
+  border-radius: 12px;
+  padding: 20px;
+  border: 1px solid var(--border);
+}
+.summary-card .label {
+  font-size: 12px;
+  color: var(--text-secondary);
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  margin-bottom: 8px;
+}
+.summary-card .value {
+  font-size: 28px;
+  font-weight: 700;
+}
+.summary-card .value.high { color: var(--danger); }
+.summary-card .value.warn { color: var(--warning); }
+.summary-card .value.info { color: var(--accent); }
+.summary-card .value.good { color: var(--success); }
+.summary-card .detail {
+  font-size: 12px;
+  color: var(--text-secondary);
+  margin-top: 6px;
+}
+
+/* Filters */
+.filters {
+  display: flex;
+  gap: 12px;
+  margin-bottom: 24px;
+  flex-wrap: wrap;
+  align-items: center;
+}
+.filter-group {
+  display: flex;
+  gap: 6px;
+}
+.filter-btn {
+  padding: 6px 16px;
+  border: 1px solid var(--border);
+  border-radius: 20px;
+  background: var(--card-bg);
+  color: var(--text-secondary);
+  cursor: pointer;
+  font-size: 13px;
+  transition: all 0.2s;
+}
+.filter-btn:hover { background: var(--hover); color: var(--text); }
+.filter-btn.active { background: var(--accent); color: #0f172a; border-color: var(--accent); font-weight: 600; }
+.search-box {
+  margin-left: auto;
+  padding: 8px 16px;
+  border-radius: 20px;
+  border: 1px solid var(--border);
+  background: var(--card-bg);
+  color: var(--text);
+  font-size: 13px;
+  width: 200px;
+  outline: none;
+}
+.search-box:focus { border-color: var(--accent); }
+
+/* Table */
+.table-wrap {
+  background: var(--card-bg);
+  border-radius: 12px;
+  border: 1px solid var(--border);
+  overflow: hidden;
+  margin-bottom: 32px;
+}
+table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 13px;
+}
+thead th {
+  background: var(--thead-bg);
+  padding: 12px 14px;
+  text-align: left;
+  font-weight: 600;
+  color: var(--text-secondary);
+  font-size: 12px;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  cursor: pointer;
+  user-select: none;
+  white-space: nowrap;
+}
+thead th:hover { color: var(--accent); }
+thead th .arrow { margin-left: 4px; font-size: 10px; }
+tbody td {
+  padding: 10px 14px;
+  border-bottom: 1px solid var(--border);
+  white-space: nowrap;
+}
+tbody tr:hover { background: var(--hover); }
+tbody tr:last-child td { border-bottom: none; }
+
+.rank { color: var(--text-secondary); font-size: 12px; font-weight: 500; }
+.city-name { font-weight: 600; }
+.tier-badge {
+  display: inline-block;
+  padding: 2px 8px;
+  border-radius: 10px;
+  font-size: 11px;
+  font-weight: 600;
+}
+.tier-badge.t1 { background: rgba(239,68,68,0.2); color: #ef4444; }
+.tier-badge.t2 { background: rgba(245,158,11,0.2); color: #f59e0b; }
+.tier-badge.t3 { background: rgba(56,189,248,0.2); color: #38bdf8; }
+.tier-badge.t4 { background: rgba(148,163,184,0.2); color: #94a3b8; }
+
+.ratio-bar-wrap {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+.ratio-bar {
+  height: 6px;
+  border-radius: 3px;
+  min-width: 4px;
+}
+.ratio-bar.danger { background: var(--danger); }
+.ratio-bar.warning { background: var(--warning); }
+.ratio-bar.info { background: var(--accent); }
+.ratio-bar.success { background: var(--success); }
+
+.price, .income { font-variant-numeric: tabular-nums; }
+.price::after { content: ' 元/㎡'; color: var(--text-secondary); font-size: 11px; }
+.income::after { content: ' 元/年'; color: var(--text-secondary); font-size: 11px; }
+
+/* Charts Section */
+.charts-section {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 24px;
+  margin-bottom: 32px;
+}
+.chart-card {
+  background: var(--card-bg);
+  border-radius: 12px;
+  border: 1px solid var(--border);
+  padding: 20px;
+}
+.chart-card h3 {
+  font-size: 15px;
+  margin-bottom: 16px;
+  color: var(--text);
+}
+.chart-wrap { position: relative; height: 350px; }
+.chart-wrap canvas { width: 100% !important; }
+
+/* Footer */
+.footer {
+  text-align: center;
+  padding: 24px 0;
+  border-top: 1px solid var(--border);
+  color: var(--text-secondary);
+  font-size: 12px;
+}
+.footer p { margin: 4px 0; }
+
+/* Theme toggle */
+.theme-toggle {
+  position: absolute;
+  top: 50%;
+  right: 16px;
+  transform: translateY(-50%);
+  width: 36px;
+  height: 36px;
+  border-radius: 50%;
+  border: 1px solid var(--border);
+  background: var(--card-bg);
+  color: var(--text-secondary);
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: all 0.2s;
+}
+.theme-toggle:hover { background: var(--hover); color: var(--accent); }
+.theme-toggle svg { transition: transform 0.3s; }
+.theme-toggle:hover svg { transform: rotate(30deg); }
+
+/* Mobile */
+@media (max-width: 768px) {
+  .summary { grid-template-columns: repeat(2, 1fr); }
+  .charts-section { grid-template-columns: 1fr; }
+  .filters { flex-direction: column; align-items: stretch; }
+  .search-box { margin-left: 0; width: 100%; }
+  .table-wrap { overflow-x: auto; }
+}
+</style>
+</head>
+<body>
+<div class="container">
+
+<div class="header">
+  <button class="theme-toggle" id="themeToggle" aria-label="切换主题">
+    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="sun"><circle cx="12" cy="12" r="5"/><line x1="12" y1="1" x2="12" y2="3"/><line x1="12" y1="21" x2="12" y2="23"/><line x1="4.22" y1="4.22" x2="5.64" y2="5.64"/><line x1="18.36" y1="18.36" x2="19.78" y2="19.78"/><line x1="1" y1="12" x2="3" y2="12"/><line x1="21" y1="12" x2="23" y2="12"/><line x1="4.22" y1="19.78" x2="5.64" y2="18.36"/><line x1="18.36" y1="5.64" x2="19.78" y2="4.22"/></svg>
+    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="moon" style="display:none"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/></svg>
+  </button>
+  <h1>中国70个大中城市房价收入比报告</h1>
+  <div class="subtitle">2024年度 · 新建商品住宅均价 · 城镇居民人均可支配收入</div>
+  <div class="note">数据来源：国家统计局、中国房价行情网(禧泰数据)、各城市统计公报、麟评居住大数据研究院<br>
+  房价收入比 = 新房均价 × 90㎡ ÷ (城镇居民人均可支配收入 × 家庭系数) ，部分城市为第三方机构测算值。数据仅供参考。</div>
+</div>
+
+<div class="summary" id="summary"></div>
+
+<div class="filters">
+  <div class="filter-group" id="tierFilters">
+    <button class="filter-btn active" data-tier="all">全部</button>
+    <button class="filter-btn" data-tier="一线">一线</button>
+    <button class="filter-btn" data-tier="新一线">新一线</button>
+    <button class="filter-btn" data-tier="二线">二线</button>
+    <button class="filter-btn" data-tier="三四线">三四线</button>
+  </div>
+  <div class="filter-group" id="regionFilters">
+    <button class="filter-btn active" data-region="all">全部区域</button>
+    <button class="filter-btn" data-region="华北">华北</button>
+    <button class="filter-btn" data-region="东北">东北</button>
+    <button class="filter-btn" data-region="华东">华东</button>
+    <button class="filter-btn" data-region="华中">华中</button>
+    <button class="filter-btn" data-region="华南">华南</button>
+    <button class="filter-btn" data-region="西南">西南</button>
+    <button class="filter-btn" data-region="西北">西北</button>
+  </div>
+  <input type="text" class="search-box" id="searchBox" placeholder="搜索城市...">
+</div>
+
+<div class="table-wrap">
+  <table>
+    <thead>
+      <tr>
+        <th data-sort="rank"># <span class="arrow"></span></th>
+        <th data-sort="city">城市 <span class="arrow"></span></th>
+        <th data-sort="tier">城市等级 <span class="arrow"></span></th>
+        <th data-sort="region">区域 <span class="arrow"></span></th>
+        <th data-sort="price">新房均价 <span class="arrow"></span></th>
+        <th data-sort="income">人均可支配收入 <span class="arrow"></span></th>
+        <th data-sort="ratio">房价收入比 <span class="arrow"></span></th>
+        <th>购房压力</th>
+      </tr>
+    </thead>
+    <tbody id="tableBody"></tbody>
+  </table>
+</div>
+
+<div class="charts-section">
+  <div class="chart-card">
+    <h3>TOP 20 城市房价收入比</h3>
+    <div class="chart-wrap"><canvas id="chartRatio"></canvas></div>
+  </div>
+  <div class="chart-card">
+    <h3>各区域房价收入比分布</h3>
+    <div class="chart-wrap"><canvas id="chartRegion"></canvas></div>
+  </div>
+  <div class="chart-card">
+    <h3>城市等级房价收入比对比</h3>
+    <div class="chart-wrap"><canvas id="chartTier"></canvas></div>
+  </div>
+  <div class="chart-card">
+    <h3>房价 vs 收入 散点分布</h3>
+    <div class="chart-wrap"><canvas id="chartScatter"></canvas></div>
+  </div>
+</div>
+
+<div class="footer">
+  <p>中国70个大中城市房价收入比报告 · 2024年度</p>
+  <p>数据整理截至 2025年5月 | 由国家统计局等公开数据汇编，仅供参考</p>
+</div>
+
+</div>
+
+<script>
+const RAW_DATA = [{"city": "深圳", "price": 68244, "income": 81123, "ratio": 34.8, "tier": "一线", "region": "华南"}, {"city": "三亚", "price": 29813, "income": 45000, "ratio": 29.4, "tier": "二线", "region": "华南"}, {"city": "上海", "price": 59855, "income": 93095, "ratio": 28.9, "tier": "一线", "region": "华东"}, {"city": "北京", "price": 57172, "income": 92464, "ratio": 27.8, "tier": "一线", "region": "华北"}, {"city": "厦门", "price": 34175, "income": 76118, "ratio": 21.9, "tier": "新一线", "region": "华东"}, {"city": "杭州", "price": 33719, "income": 83356, "ratio": 18.2, "tier": "新一线", "region": "华东"}, {"city": "福州", "price": 20259, "income": 60600, "ratio": 17.5, "tier": "新一线", "region": "华东"}, {"city": "广州", "price": 31577, "income": 83436, "ratio": 17.0, "tier": "一线", "region": "华南"}, {"city": "海口", "price": 16800, "income": 46000, "ratio": 16.4, "tier": "二线", "region": "华南"}, {"city": "西安", "price": 16300, "income": 52500, "ratio": 14.0, "tier": "新一线", "region": "西北"}, {"city": "天津", "price": 17800, "income": 57705, "ratio": 13.9, "tier": "新一线", "region": "华北"}, {"city": "南京", "price": 25720, "income": 83084, "ratio": 13.9, "tier": "新一线", "region": "华东"}, {"city": "成都", "price": 17500, "income": 58500, "ratio": 13.4, "tier": "新一线", "region": "西南"}, {"city": "合肥", "price": 16800, "income": 62685, "ratio": 12.1, "tier": "新一线", "region": "华东"}, {"city": "宁波", "price": 22000, "income": 83110, "ratio": 12.0, "tier": "新一线", "region": "华东"}, {"city": "郑州", "price": 12800, "income": 51000, "ratio": 11.3, "tier": "新一线", "region": "华中"}, {"city": "重庆", "price": 12500, "income": 50180, "ratio": 11.2, "tier": "新一线", "region": "西南"}, {"city": "大连", "price": 13500, "income": 54000, "ratio": 11.2, "tier": "新一线", "region": "东北"}, {"city": "石家庄", "price": 12500, "income": 49990, "ratio": 11.2, "tier": "二线", "region": "华北"}, {"city": "温州", "price": 19500, "income": 81527, "ratio": 10.8, "tier": "二线", "region": "华东"}, {"city": "武汉", "price": 15200, "income": 64346, "ratio": 10.6, "tier": "新一线", "region": "华中"}, {"city": "青岛", "price": 16000, "income": 68813, "ratio": 10.5, "tier": "新一线", "region": "华东"}, {"city": "南宁", "price": 10200, "income": 45000, "ratio": 10.2, "tier": "二线", "region": "华南"}, {"city": "昆明", "price": 11800, "income": 52500, "ratio": 10.1, "tier": "新一线", "region": "西南"}, {"city": "金华", "price": 17200, "income": 76866, "ratio": 10.1, "tier": "二线", "region": "华东"}, {"city": "徐州", "price": 10500, "income": 47000, "ratio": 10.1, "tier": "二线", "region": "华东"}, {"city": "济南", "price": 14500, "income": 65364, "ratio": 10.0, "tier": "新一线", "region": "华东"}, {"city": "太原", "price": 10600, "income": 47930, "ratio": 10.0, "tier": "二线", "region": "华北"}, {"city": "扬州", "price": 13200, "income": 59614, "ratio": 10.0, "tier": "二线", "region": "华东"}, {"city": "泉州", "price": 13500, "income": 61000, "ratio": 10.0, "tier": "二线", "region": "华东"}, {"city": "无锡", "price": 17500, "income": 80003, "ratio": 9.8, "tier": "新一线", "region": "华东"}, {"city": "湛江", "price": 8500, "income": 39000, "ratio": 9.8, "tier": "三四线", "region": "华南"}, {"city": "秦皇岛", "price": 10500, "income": 48700, "ratio": 9.7, "tier": "三四线", "region": "华北"}, {"city": "惠州", "price": 11500, "income": 54000, "ratio": 9.6, "tier": "二线", "region": "华南"}, {"city": "兰州", "price": 9500, "income": 46000, "ratio": 9.3, "tier": "二线", "region": "西北"}, {"city": "西宁", "price": 8500, "income": 42000, "ratio": 9.1, "tier": "二线", "region": "西北"}, {"city": "哈尔滨", "price": 8800, "income": 44000, "ratio": 9.0, "tier": "二线", "region": "东北"}, {"city": "沈阳", "price": 10800, "income": 55000, "ratio": 8.8, "tier": "新一线", "region": "东北"}, {"city": "南昌", "price": 11200, "income": 57294, "ratio": 8.8, "tier": "二线", "region": "华东"}, {"city": "贵阳", "price": 9200, "income": 47500, "ratio": 8.7, "tier": "二线", "region": "西南"}, {"city": "长春", "price": 9200, "income": 48000, "ratio": 8.6, "tier": "二线", "region": "东北"}, {"city": "赣州", "price": 8200, "income": 45000, "ratio": 8.2, "tier": "三四线", "region": "华东"}, {"city": "襄阳", "price": 7800, "income": 43000, "ratio": 8.2, "tier": "三四线", "region": "华中"}, {"city": "洛阳", "price": 8200, "income": 46000, "ratio": 8.0, "tier": "二线", "region": "华中"}, {"city": "银川", "price": 7500, "income": 42854, "ratio": 7.9, "tier": "二线", "region": "西北"}, {"city": "大理", "price": 7500, "income": 43000, "ratio": 7.8, "tier": "三四线", "region": "西南"}, {"city": "宜昌", "price": 7500, "income": 44000, "ratio": 7.7, "tier": "三四线", "region": "华中"}, {"city": "乌鲁木齐", "price": 8500, "income": 50324, "ratio": 7.6, "tier": "二线", "region": "西北"}, {"city": "呼和浩特", "price": 9800, "income": 59540, "ratio": 7.4, "tier": "二线", "region": "华北"}, {"city": "唐山", "price": 9000, "income": 55121, "ratio": 7.3, "tier": "三四线", "region": "华北"}, {"city": "烟台", "price": 9800, "income": 62060, "ratio": 7.1, "tier": "二线", "region": "华东"}, {"city": "蚌埠", "price": 6800, "income": 43000, "ratio": 7.1, "tier": "三四线", "region": "华东"}, {"city": "长沙", "price": 10800, "income": 69658, "ratio": 7.0, "tier": "新一线", "region": "华中"}, {"city": "九江", "price": 7200, "income": 46000, "ratio": 7.0, "tier": "三四线", "region": "华东"}, {"city": "济宁", "price": 7200, "income": 47812, "ratio": 6.8, "tier": "三四线", "region": "华东"}, {"city": "韶关", "price": 6000, "income": 40000, "ratio": 6.8, "tier": "三四线", "region": "华南"}, {"city": "丹东", "price": 5600, "income": 38000, "ratio": 6.6, "tier": "三四线", "region": "东北"}, {"city": "岳阳", "price": 6200, "income": 42000, "ratio": 6.6, "tier": "三四线", "region": "华中"}, {"city": "吉林", "price": 5800, "income": 40000, "ratio": 6.5, "tier": "三四线", "region": "东北"}, {"city": "安庆", "price": 6500, "income": 45659, "ratio": 6.4, "tier": "三四线", "region": "华东"}, {"city": "常德", "price": 5800, "income": 41000, "ratio": 6.4, "tier": "三四线", "region": "华中"}, {"city": "平顶山", "price": 5500, "income": 39000, "ratio": 6.3, "tier": "三四线", "region": "华中"}, {"city": "桂林", "price": 5800, "income": 42000, "ratio": 6.2, "tier": "三四线", "region": "华南"}, {"city": "南充", "price": 5500, "income": 40000, "ratio": 6.2, "tier": "三四线", "region": "西南"}, {"city": "泸州", "price": 5800, "income": 44000, "ratio": 5.9, "tier": "三四线", "region": "西南"}, {"city": "牡丹江", "price": 4800, "income": 38000, "ratio": 5.7, "tier": "三四线", "region": "东北"}, {"city": "北海", "price": 5200, "income": 41000, "ratio": 5.7, "tier": "三四线", "region": "华南"}, {"city": "锦州", "price": 5200, "income": 42005, "ratio": 5.6, "tier": "三四线", "region": "东北"}, {"city": "遵义", "price": 5200, "income": 42000, "ratio": 5.6, "tier": "三四线", "region": "西南"}, {"city": "包头", "price": 6200, "income": 57008, "ratio": 4.9, "tier": "三四线", "region": "华北"}];
+
+let currentTier = 'all';
+let currentRegion = 'all';
+let currentSort = { field: 'ratio', asc: false };
+let searchQuery = '';
+
+function getTierClass(tier) {
+  if (tier === '一线') return 't1';
+  if (tier === '新一线') return 't2';
+  if (tier === '二线') return 't3';
+  return 't4';
+}
+
+function getRatioClass(ratio) {
+  if (ratio >= 20) return 'danger';
+  if (ratio >= 12) return 'warning';
+  if (ratio >= 8) return 'info';
+  return 'success';
+}
+
+function getRatioLabel(ratio) {
+  if (ratio >= 20) return '极高';
+  if (ratio >= 12) return '偏高';
+  if (ratio >= 8) return '中等';
+  return '较低';
+}
+
+function getRatioBarWidth(ratio) {
+  return Math.min(100, (ratio / 35) * 100);
+}
+
+function fmtNumber(n) {
+  return n.toLocaleString('zh-CN');
+}
+
+function getChartColors() {
+  const isLight = document.documentElement.dataset.theme === 'light';
+  return {
+    grid: isLight ? '#e2e8f0' : '#334155',
+    tick: isLight ? '#64748b' : '#94a3b8',
+    label: isLight ? '#1e293b' : '#e2e8f0',
+    legend: isLight ? '#64748b' : '#94a3b8',
+    axisTitle: isLight ? '#64748b' : '#94a3b8',
+  };
+}
+
+function renderSummary(data) {
+  const filtered = filterData(data);
+  const n = filtered.length;
+  const avgRatio = (filtered.reduce((s, d) => s + d.ratio, 0) / n).toFixed(1);
+  const avgPrice = Math.round(filtered.reduce((s, d) => s + d.price, 0) / n);
+  const avgIncome = Math.round(filtered.reduce((s, d) => s + d.income, 0) / n);
+  const maxRatio = Math.max(...filtered.map(d => d.ratio));
+  const maxCity = filtered.find(d => d.ratio === maxRatio).city;
+  const minRatio = Math.min(...filtered.map(d => d.ratio));
+  const minCity = filtered.find(d => d.ratio === minRatio).city;
+
+  document.getElementById('summary').innerHTML = `
+    <div class="summary-card">
+      <div class="label">平均房价收入比</div>
+      <div class="value ${avgRatio >= 12 ? 'high' : avgRatio >= 8 ? 'warn' : 'good'}">${avgRatio}</div>
+      <div class="detail">${n} 城市均值 · 家庭需 ${avgRatio} 年收入购房</div>
+    </div>
+    <div class="summary-card">
+      <div class="label">平均新房均价</div>
+      <div class="value info">${fmtNumber(avgPrice)}</div>
+      <div class="detail">元/平方米 · 新建商品住宅</div>
+    </div>
+    <div class="summary-card">
+      <div class="label">平均人均可支配收入</div>
+      <div class="value good">${fmtNumber(avgIncome)}</div>
+      <div class="detail">元/年 · 城镇居民</div>
+    </div>
+    <div class="summary-card">
+      <div class="label">极值范围</div>
+      <div class="value warn">${minRatio} ~ ${maxRatio}</div>
+      <div class="detail">${minCity}（最低）→ ${maxCity}（最高）</div>
+    </div>
+  `;
+}
+
+function filterData(data) {
+  return data.filter(d => {
+    if (currentTier !== 'all' && d.tier !== currentTier) return false;
+    if (currentRegion !== 'all' && d.region !== currentRegion) return false;
+    if (searchQuery && !d.city.includes(searchQuery)) return false;
+    return true;
+  });
+}
+
+function sortData(data) {
+  const { field, asc } = currentSort;
+  return [...data].sort((a, b) => {
+    let va = a[field], vb = b[field];
+    if (typeof va === 'string') return asc ? va.localeCompare(vb) : vb.localeCompare(va);
+    return asc ? va - vb : vb - va;
+  });
+}
+
+function renderTable(data) {
+  const filtered = filterData(data);
+  const sorted = sortData(filtered);
+  const tbody = document.getElementById('tableBody');
+  tbody.innerHTML = sorted.map((d, i) => {
+    const rc = getRatioClass(d.ratio);
+    return `
+    <tr>
+      <td class="rank">${i + 1}</td>
+      <td class="city-name">${d.city}</td>
+      <td><span class="tier-badge ${getTierClass(d.tier)}">${d.tier}</span></td>
+      <td>${d.region}</td>
+      <td class="price">${fmtNumber(d.price)}</td>
+      <td class="income">${fmtNumber(d.income)}</td>
+      <td>
+        <div class="ratio-bar-wrap">
+          <div class="ratio-bar ${rc}" style="width:${getRatioBarWidth(d.ratio)}%"></div>
+          <strong>${d.ratio}</strong>
+        </div>
+      </td>
+      <td><span class="tier-badge ${d.ratio >= 20 ? 't1' : d.ratio >= 12 ? 't2' : d.ratio >= 8 ? 't3' : 't4'}">${getRatioLabel(d.ratio)}</span></td>
+    </tr>`;
+  }).join('');
+}
+
+// Charts
+let chartRatio, chartRegion, chartTier, chartScatter;
+
+function renderChartRatio(data) {
+  const top20 = [...data].sort((a, b) => b.ratio - a.ratio).slice(0, 20);
+  const ctx = document.getElementById('chartRatio').getContext('2d');
+  if (chartRatio) chartRatio.destroy();
+  chartRatio = new Chart(ctx, {
+    type: 'bar',
+    data: {
+      labels: top20.map(d => d.city),
+      datasets: [{
+        label: '房价收入比',
+        data: top20.map(d => d.ratio),
+        backgroundColor: top20.map(d => d.ratio >= 25 ? '#ef4444' : d.ratio >= 15 ? '#f59e0b' : '#38bdf8'),
+        borderRadius: 6,
+        borderSkipped: false,
+      }]
+    },
+    options: {
+      indexAxis: 'y',
+      responsive: true,
+      maintainAspectRatio: false,
+      plugins: {
+        legend: { display: false },
+        tooltip: {
+          callbacks: {
+            label: ctx => `房价收入比: ${ctx.raw} 年`
+          }
+        }
+      },
+      scales: {
+        x: {
+          grid: { color: getChartColors().grid },
+          ticks: { color: getChartColors().tick, callback: v => v + '年' }
+        },
+        y: {
+          grid: { display: false },
+          ticks: { color: getChartColors().label, font: { size: 11 } }
+        }
+      }
+    }
+  });
+}
+
+function renderChartRegion(data) {
+  const regions = ['华北', '东北', '华东', '华中', '华南', '西南', '西北'];
+  const regionData = regions.map(r => {
+    const cities = data.filter(d => d.region === r);
+    return {
+      region: r,
+      avg: cities.length ? (cities.reduce((s, d) => s + d.ratio, 0) / cities.length).toFixed(1) : 0,
+      count: cities.length
+    };
+  });
+  const ctx = document.getElementById('chartRegion').getContext('2d');
+  if (chartRegion) chartRegion.destroy();
+  chartRegion = new Chart(ctx, {
+    type: 'bar',
+    data: {
+      labels: regionData.map(d => `${d.region} (${d.count}城)`),
+      datasets: [{
+        label: '平均房价收入比',
+        data: regionData.map(d => d.avg),
+        backgroundColor: ['#f59e0b', '#22c55e', '#ef4444', '#38bdf8', '#a78bfa', '#fb923c', '#4ade80'],
+        borderRadius: 8,
+      }]
+    },
+    options: {
+      responsive: true,
+      maintainAspectRatio: false,
+      plugins: {
+        legend: { display: false },
+        tooltip: { callbacks: { label: ctx => `房价收入比: ${ctx.raw} 年` } }
+      },
+      scales: {
+        y: {
+          grid: { color: getChartColors().grid },
+          ticks: { color: getChartColors().tick, callback: v => v + '年' }
+        },
+        x: {
+          grid: { display: false },
+          ticks: { color: getChartColors().label }
+        }
+      }
+    }
+  });
+}
+
+function renderChartTier(data) {
+  const tiers = ['一线', '新一线', '二线', '三四线'];
+  const tierData = tiers.map(t => {
+    const cities = data.filter(d => d.tier === t);
+    return {
+      tier: t,
+      avg: cities.length ? (cities.reduce((s, d) => s + d.ratio, 0) / cities.length).toFixed(1) : 0,
+      max: cities.length ? Math.max(...cities.map(d => d.ratio)) : 0,
+      min: cities.length ? Math.min(...cities.map(d => d.ratio)) : 0,
+    };
+  });
+  const ctx = document.getElementById('chartTier').getContext('2d');
+  if (chartTier) chartTier.destroy();
+  chartTier = new Chart(ctx, {
+    type: 'bar',
+    data: {
+      labels: tierData.map(d => d.tier),
+      datasets: [
+        {
+          label: '最高',
+          data: tierData.map(d => d.max),
+          backgroundColor: 'rgba(239,68,68,0.6)',
+          borderRadius: 6,
+        },
+        {
+          label: '平均',
+          data: tierData.map(d => d.avg),
+          backgroundColor: 'rgba(56,189,248,0.8)',
+          borderRadius: 6,
+        },
+        {
+          label: '最低',
+          data: tierData.map(d => d.min),
+          backgroundColor: 'rgba(34,197,94,0.6)',
+          borderRadius: 6,
+        }
+      ]
+    },
+    options: {
+      responsive: true,
+      maintainAspectRatio: false,
+      plugins: {
+        legend: { labels: { color: getChartColors().legend } },
+        tooltip: { callbacks: { label: ctx => `${ctx.dataset.label}: ${ctx.raw} 年` } }
+      },
+      scales: {
+        y: {
+          grid: { color: getChartColors().grid },
+          ticks: { color: getChartColors().tick, callback: v => v + '年' }
+        },
+        x: {
+          grid: { display: false },
+          ticks: { color: getChartColors().label }
+        }
+      }
+    }
+  });
+}
+
+function renderChartScatter(data) {
+  const ctx = document.getElementById('chartScatter').getContext('2d');
+  if (chartScatter) chartScatter.destroy();
+  const tierColors = { '一线': '#ef4444', '新一线': '#f59e0b', '二线': '#38bdf8', '三四线': '#94a3b8' };
+  const datasets = ['一线', '新一线', '二线', '三四线'].map(tier => ({
+    label: tier,
+    data: data.filter(d => d.tier === tier).map(d => ({ x: d.income, y: d.price, city: d.city, ratio: d.ratio })),
+    backgroundColor: tierColors[tier],
+    borderColor: tierColors[tier],
+    pointRadius: 5,
+    pointHoverRadius: 8,
+  }));
+  chartScatter = new Chart(ctx, {
+    type: 'scatter',
+    data: { datasets },
+    options: {
+      responsive: true,
+      maintainAspectRatio: false,
+      plugins: {
+        legend: { labels: { color: getChartColors().legend, usePointStyle: true } },
+        tooltip: {
+          callbacks: {
+            label: ctx => {
+              const d = ctx.raw;
+              return `${d.city}: 均价${fmtNumber(d.price)}元/㎡, 收入${fmtNumber(d.income)}元, 比值${d.ratio}`;
+            }
+          }
+        }
+      },
+      scales: {
+        x: {
+          title: { display: true, text: '城镇居民人均可支配收入（元/年）', color: getChartColors().axisTitle },
+          grid: { color: getChartColors().grid },
+          ticks: { color: getChartColors().tick, callback: v => (v / 10000).toFixed(1) + '万' }
+        },
+        y: {
+          title: { display: true, text: '新房均价（元/㎡）', color: getChartColors().axisTitle },
+          grid: { color: getChartColors().grid },
+          ticks: { color: getChartColors().tick, callback: v => (v / 10000).toFixed(1) + '万' }
+        }
+      }
+    }
+  });
+}
+
+function renderAll() {
+  renderSummary(RAW_DATA);
+  renderTable(RAW_DATA);
+  renderChartRatio(RAW_DATA);
+  renderChartRegion(RAW_DATA);
+  renderChartTier(RAW_DATA);
+  renderChartScatter(RAW_DATA);
+}
+
+// Event handlers
+document.getElementById('tierFilters').addEventListener('click', e => {
+  if (!e.target.classList.contains('filter-btn')) return;
+  document.querySelectorAll('#tierFilters .filter-btn').forEach(b => b.classList.remove('active'));
+  e.target.classList.add('active');
+  currentTier = e.target.dataset.tier;
+  renderAll();
+});
+
+document.getElementById('regionFilters').addEventListener('click', e => {
+  if (!e.target.classList.contains('filter-btn')) return;
+  document.querySelectorAll('#regionFilters .filter-btn').forEach(b => b.classList.remove('active'));
+  e.target.classList.add('active');
+  currentRegion = e.target.dataset.region;
+  renderAll();
+});
+
+document.getElementById('searchBox').addEventListener('input', e => {
+  searchQuery = e.target.value.trim();
+  renderAll();
+});
+
+document.querySelector('thead').addEventListener('click', e => {
+  const th = e.target.closest('th');
+  if (!th || !th.dataset.sort) return;
+  const field = th.dataset.sort;
+  if (currentSort.field === field) {
+    currentSort.asc = !currentSort.asc;
+  } else {
+    currentSort.field = field;
+    currentSort.asc = field === 'rank' || field === 'city' ? true : false;
+  }
+  document.querySelectorAll('thead th .arrow').forEach(a => a.textContent = '');
+  th.querySelector('.arrow').textContent = currentSort.asc ? '▲' : '▼';
+  renderTable(RAW_DATA);
+});
+
+// Theme toggle
+function setTheme(theme) {
+  document.documentElement.dataset.theme = theme;
+  localStorage.setItem('theme', theme);
+  const btn = document.getElementById('themeToggle');
+  if (btn) {
+    const sun = btn.querySelector('.sun');
+    const moon = btn.querySelector('.moon');
+    if (theme === 'light') { sun.style.display = 'none'; moon.style.display = ''; }
+    else { sun.style.display = ''; moon.style.display = 'none'; }
+  }
+}
+document.getElementById('themeToggle').addEventListener('click', () => {
+  const current = document.documentElement.dataset.theme;
+  setTheme(current === 'light' ? 'dark' : 'light');
+  renderAll();
+});
+
+// Init
+const saved = localStorage.getItem('theme') || 'dark';
+setTheme(saved);
+renderAll();
+</script>
+</body>
+</html>

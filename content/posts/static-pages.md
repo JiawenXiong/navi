@@ -10,3 +10,4 @@ title = '静态页面索引'
 4. [自媒体常用工具与网站导航](/navi/we-media-navi.html)或者[自媒体常用工具与网站导航2](/we-media-navi.html)
 5. [铝合金门窗从业者导航](/navi/al-alloy-door-window-navi.html)或者[铝合金门窗从业者导航2](/al-alloy-door-window-navi.html)
 6. [中国城市租售比排行](/navi/zgcszsbph.html)或者[中国城市租售比排行2](/zgcszsbph.html)
+7. [中国70城房价收入比](/navi/70chengfangjiashourubi.html)或者[中国城市租售比排行2](/70chengfangjiashourubi.html)
