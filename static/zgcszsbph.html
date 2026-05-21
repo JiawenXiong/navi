@@ -1,0 +1,669 @@
+<!DOCTYPE html>
+<html lang="zh-CN" data-theme="dark">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>中国城市租售比排行 2026.04</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Noto+Serif+SC:wght@400;600;700;900&family=DM+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+:root {
+  --bg: #f5f0eb;
+  --bg-card: #ffffff;
+  --bg-header: #faf8f5;
+  --text: #1a1a2e;
+  --text-secondary: #6b6570;
+  --border: #e5ddd4;
+  --accent: #c9a84c;
+  --accent-soft: #f3edd6;
+  --accent-bg: #faf6ec;
+  --rank-high: #1a6b3c;
+  --rank-high-bg: #e6f0ea;
+  --rank-mid: #8a6d1b;
+  --rank-mid-bg: #f5efdc;
+  --rank-low: #8b2c1e;
+  --rank-low-bg: #f5e6e3;
+  --shadow: 0 1px 3px rgba(0,0,0,0.06);
+  --shadow-hover: 0 8px 30px rgba(0,0,0,0.08);
+  --radius: 12px;
+  --font-serif: 'Noto Serif SC', 'Source Han Serif SC', serif;
+  --font-mono: 'DM Mono', 'JetBrains Mono', monospace;
+}
+
+[data-theme="dark"] {
+  --bg: #0f0e17;
+  --bg-card: #1a1926;
+  --bg-header: #161524;
+  --text: #e8e4ef;
+  --text-secondary: #9c94a8;
+  --border: #2a2838;
+  --accent: #e8c44a;
+  --accent-soft: #2a2520;
+  --accent-bg: #1f1c18;
+  --rank-high: #4ade80;
+  --rank-high-bg: #0a2a1a;
+  --rank-mid: #facc15;
+  --rank-mid-bg: #2a2410;
+  --rank-low: #f87171;
+  --rank-low-bg: #2a1015;
+  --shadow: 0 1px 3px rgba(0,0,0,0.2);
+  --shadow-hover: 0 8px 30px rgba(0,0,0,0.4);
+}
+
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  font-family: var(--font-serif);
+  background: var(--bg);
+  color: var(--text);
+  line-height: 1.6;
+  transition: background 0.4s ease, color 0.4s ease;
+  min-height: 100vh;
+}
+
+/* Theme Toggle */
+.theme-toggle {
+  position: fixed;
+  top: 24px;
+  right: 24px;
+  z-index: 100;
+  width: 48px;
+  height: 48px;
+  border-radius: 50%;
+  border: 1px solid var(--border);
+  background: var(--bg-card);
+  color: var(--text);
+  cursor: pointer;
+  font-size: 20px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: var(--shadow);
+  transition: all 0.3s ease;
+  backdrop-filter: blur(12px);
+}
+.theme-toggle:hover {
+  transform: scale(1.08);
+  box-shadow: var(--shadow-hover);
+  border-color: var(--accent);
+}
+
+/* Hero */
+.hero {
+  padding: 80px 24px 40px;
+  max-width: 1200px;
+  margin: 0 auto;
+  text-align: center;
+}
+
+.hero-badge {
+  display: inline-block;
+  font-size: 12px;
+  letter-spacing: 3px;
+  text-transform: uppercase;
+  font-family: var(--font-mono);
+  color: var(--text-secondary);
+  background: var(--accent-bg);
+  padding: 6px 16px;
+  border-radius: 20px;
+  border: 1px solid var(--border);
+  margin-bottom: 20px;
+}
+
+.hero h1 {
+  font-size: clamp(2.2rem, 6vw, 4rem);
+  font-weight: 900;
+  letter-spacing: -0.02em;
+  line-height: 1.15;
+  margin-bottom: 12px;
+}
+
+.hero h1 .accent {
+  color: var(--accent);
+}
+
+.hero p {
+  font-size: 1.05rem;
+  color: var(--text-secondary);
+  max-width: 560px;
+  margin: 0 auto 24px;
+}
+
+.hero-stats {
+  display: flex;
+  justify-content: center;
+  gap: 40px;
+  flex-wrap: wrap;
+  margin-top: 28px;
+}
+
+.hero-stats .stat {
+  text-align: center;
+}
+
+.hero-stats .stat-value {
+  font-family: var(--font-mono);
+  font-size: 1.8rem;
+  font-weight: 500;
+  color: var(--accent);
+}
+
+.hero-stats .stat-label {
+  font-size: 0.8rem;
+  color: var(--text-secondary);
+  letter-spacing: 1px;
+}
+
+/* Search & Filter Bar */
+.toolbar {
+  max-width: 1200px;
+  margin: 0 auto 24px;
+  padding: 0 24px;
+  display: flex;
+  gap: 12px;
+  flex-wrap: wrap;
+  align-items: center;
+}
+
+.search-box {
+  flex: 1;
+  min-width: 200px;
+  position: relative;
+}
+
+.search-box input {
+  width: 100%;
+  padding: 12px 16px 12px 44px;
+  border-radius: var(--radius);
+  border: 1px solid var(--border);
+  background: var(--bg-card);
+  color: var(--text);
+  font-family: var(--font-serif);
+  font-size: 0.95rem;
+  transition: all 0.3s ease;
+  outline: none;
+}
+
+.search-box input:focus {
+  border-color: var(--accent);
+  box-shadow: 0 0 0 3px var(--accent-soft);
+}
+
+.search-box .icon {
+  position: absolute;
+  left: 14px;
+  top: 50%;
+  transform: translateY(-50%);
+  color: var(--text-secondary);
+  font-size: 18px;
+  pointer-events: none;
+}
+
+.sort-select {
+  padding: 12px 16px;
+  border-radius: var(--radius);
+  border: 1px solid var(--border);
+  background: var(--bg-card);
+  color: var(--text);
+  font-family: var(--font-serif);
+  font-size: 0.9rem;
+  cursor: pointer;
+  outline: none;
+  transition: border-color 0.3s;
+}
+
+.sort-select:focus {
+  border-color: var(--accent);
+}
+
+/* Table Wrapper */
+.table-wrapper {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 24px 80px;
+}
+
+.table-container {
+  border-radius: var(--radius);
+  border: 1px solid var(--border);
+  overflow: hidden;
+  background: var(--bg-card);
+  box-shadow: var(--shadow);
+  transition: background 0.4s ease;
+}
+
+table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 0.95rem;
+}
+
+thead {
+  position: sticky;
+  top: 0;
+  z-index: 10;
+}
+
+thead th {
+  background: var(--bg-header);
+  padding: 14px 16px;
+  text-align: right;
+  font-weight: 600;
+  font-size: 0.8rem;
+  letter-spacing: 0.5px;
+  text-transform: uppercase;
+  color: var(--text-secondary);
+  border-bottom: 2px solid var(--border);
+  white-space: nowrap;
+  cursor: pointer;
+  user-select: none;
+  transition: color 0.2s;
+}
+
+thead th:first-child { text-align: center; }
+thead th:nth-child(2) { text-align: left; }
+
+thead th:hover { color: var(--accent); }
+
+thead th .sort-arrow {
+  display: inline-block;
+  margin-left: 4px;
+  opacity: 0.4;
+  font-size: 10px;
+}
+
+thead th.active .sort-arrow { opacity: 1; }
+
+tbody tr {
+  border-bottom: 1px solid var(--border);
+  transition: background 0.2s ease;
+}
+
+tbody tr:last-child { border-bottom: none; }
+
+tbody tr:hover {
+  background: var(--accent-bg);
+}
+
+tbody td {
+  padding: 12px 16px;
+  text-align: right;
+  vertical-align: middle;
+}
+
+tbody td:first-child { text-align: center; }
+tbody td:nth-child(2) { text-align: left; font-weight: 600; }
+
+.rank-cell {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 32px;
+  height: 32px;
+  border-radius: 8px;
+  font-family: var(--font-mono);
+  font-size: 0.85rem;
+  font-weight: 500;
+}
+
+.rank-top { background: var(--rank-high-bg); color: var(--rank-high); }
+.rank-mid { background: var(--rank-mid-bg); color: var(--rank-mid); }
+.rank-low { background: var(--rank-low-bg); color: var(--rank-low); }
+
+.num {
+  font-family: var(--font-mono);
+  font-size: 0.9rem;
+  font-weight: 500;
+  font-variant-numeric: tabular-nums;
+}
+
+.ratio-bar-wrapper {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  justify-content: flex-end;
+}
+
+.ratio-bar {
+  width: 80px;
+  height: 6px;
+  background: var(--border);
+  border-radius: 3px;
+  overflow: hidden;
+}
+
+.ratio-bar-fill {
+  height: 100%;
+  border-radius: 3px;
+  transition: width 0.6s ease;
+}
+
+.ratio-bar-fill.good { background: var(--rank-high); }
+.ratio-bar-fill.mid { background: var(--rank-mid); }
+.ratio-bar-fill.poor { background: var(--rank-low); }
+
+/* City highlight for top 3 */
+.top-three td:nth-child(2)::after {
+  content: ' 🏆';
+  font-size: 0.8rem;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  .hero { padding: 60px 16px 28px; }
+  .hero-stats { gap: 20px; }
+  .table-wrapper { padding: 0 12px 60px; }
+  thead th, tbody td { padding: 10px 10px; font-size: 0.8rem; }
+  .ratio-bar { width: 50px; }
+  .toolbar { padding: 0 12px; }
+}
+
+@media (max-width: 480px) {
+  thead th:nth-child(5),
+  tbody td:nth-child(5) { display: none; }
+  .ratio-bar { width: 36px; }
+}
+
+/* entry animation */
+tbody tr {
+  opacity: 0;
+  animation: fadeUp 0.4s ease forwards;
+}
+@keyframes fadeUp {
+  from { opacity: 0; transform: translateY(8px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+/* scrollbar */
+::-webkit-scrollbar { width: 6px; }
+::-webkit-scrollbar-track { background: transparent; }
+::-webkit-scrollbar-thumb { background: var(--border); border-radius: 3px; }
+::-webkit-scrollbar-thumb:hover { background: var(--text-secondary); }
+
+</style>
+</head>
+<body>
+
+<button class="theme-toggle" id="themeToggle" aria-label="切换主题">🌙</button>
+
+<section class="hero">
+  <div class="hero-badge">2026年4月 · 数据报告</div>
+  <h1>中国城市 <span class="accent">租售比</span> 排行</h1>
+  <p>基于全国 51 个主要城市的房价与租金数据，计算租售比及租金回报率，为购房与投资决策提供参考</p>
+  <div class="hero-stats">
+    <div class="stat">
+      <div class="stat-value" id="cityCount">51</div>
+      <div class="stat-label">覆盖城市</div>
+    </div>
+    <div class="stat">
+      <div class="stat-value" id="avgRatio">—</div>
+      <div class="stat-label">平均租售比</div>
+    </div>
+    <div class="stat">
+      <div class="stat-value" id="bestCity">—</div>
+      <div class="stat-label">最佳租售比</div>
+    </div>
+    <div class="stat">
+      <div class="stat-value" id="worstCity">—</div>
+      <div class="stat-label">最低回报率</div>
+    </div>
+  </div>
+</section>
+
+<div class="toolbar">
+  <div class="search-box">
+    <span class="icon">🔍</span>
+    <input type="text" id="searchInput" placeholder="搜索城市..." />
+  </div>
+  <select class="sort-select" id="sortSelect">
+    <option value="rank">按排名</option>
+    <option value="ratio-desc">租售比 ↓</option>
+    <option value="ratio-asc">租售比 ↑</option>
+    <option value="price-desc">房价 ↓</option>
+    <option value="price-asc">房价 ↑</option>
+    <option value="yield-desc">回报率 ↓</option>
+    <option value="yield-asc">回报率 ↑</option>
+  </select>
+</div>
+
+<div class="table-wrapper">
+  <div class="table-container">
+    <table>
+      <thead>
+        <tr>
+          <th data-sort="rank" class="active">排名 <span class="sort-arrow">▲</span></th>
+          <th data-sort="city">城市 <span class="sort-arrow">⇅</span></th>
+          <th data-sort="price">房价 <span class="sort-arrow">⇅</span></th>
+          <th data-sort="rent">月租/㎡ <span class="sort-arrow">⇅</span></th>
+          <th data-sort="annual">年租/㎡ <span class="sort-arrow">⇅</span></th>
+          <th data-sort="ratio">租售比 <span class="sort-arrow">⇅</span></th>
+          <th data-sort="yield">回报率 <span class="sort-arrow">⇅</span></th>
+        </tr>
+      </thead>
+      <tbody id="tableBody"></tbody>
+    </table>
+  </div>
+</div>
+
+<script>
+const rawData = [
+  [1,"厦门",7000,41.19,494.28,14.2,7.06],
+  [2,"西宁",7800,25.1,301.2,25.9,3.86],
+  [3,"乌鲁木齐",8400,25.71,308.52,27.2,3.67],
+  [4,"南昌",7400,21.97,263.64,28.1,3.56],
+  [5,"兰州",9000,24.98,299.76,30,3.33],
+  [6,"贵阳",8800,22.89,274.68,32,3.12],
+  [7,"南宁",8600,22.28,267.36,32.2,3.11],
+  [8,"哈尔滨",9800,24.73,296.76,33,3.03],
+  [9,"呼和浩特",8200,20.36,244.32,33.6,2.98],
+  [10,"沈阳",10200,25,300,34,2.94],
+  [11,"福州",7200,17.5,210,34.3,2.92],
+  [12,"长春",9600,23.24,278.88,34.4,2.9],
+  [13,"石家庄",9400,22.23,266.76,35.2,2.84],
+  [14,"重庆",10500,24.78,297.36,35.3,2.83],
+  [15,"汕头",10959,24.67,296.04,37,2.7],
+  [16,"昆明",10650,23.87,286.44,37.2,2.69],
+  [17,"大理",12305,25.66,307.92,40,2.5],
+  [18,"宁德",11340,22.8,273.6,41.4,2.41],
+  [19,"莆田",11800,23.63,283.56,41.6,2.4],
+  [20,"郑州",10400,20.75,249,41.8,2.39],
+  [21,"天津",19053,37.28,447.36,42.6,2.35],
+  [22,"泉州",11703,22.48,269.76,43.4,2.31],
+  [23,"常州",11890,22.71,272.52,43.6,2.29],
+  [24,"佛山",12832,24.27,291.24,44.1,2.27],
+  [25,"济南",12832,23.75,285,45,2.22],
+  [26,"榆林",13270,24.43,293.16,45.3,2.21],
+  [27,"北京",54410,96.93,1163.16,46.8,2.14],
+  [28,"南京",23675,42.12,505.44,46.8,2.13],
+  [29,"大连",10000,17.8,213.6,46.8,2.14],
+  [30,"合肥",14792,26.17,314.04,47.1,2.12],
+  [31,"长沙",10850,18.9,226.8,47.8,2.09],
+  [32,"绍兴",13940,24.04,288.48,48.3,2.07],
+  [33,"嘉兴",13068,22.28,267.36,48.9,2.05],
+  [34,"温州",15095,25.38,304.56,49.6,2.02],
+  [35,"金华",15421,25.78,309.36,49.8,2.01],
+  [36,"丽水",14517,23.94,287.28,50.5,1.98],
+  [37,"台州",15896,26.05,312.6,50.9,1.97],
+  [38,"杭州",33459,52.75,633,52.9,1.89],
+  [39,"西安",12318,19.2,230.4,53.5,1.87],
+  [40,"武汉",12565,19.5,234,53.7,1.86],
+  [41,"三亚",28243,43.08,516.96,54.6,1.83],
+  [42,"上海",61386,91.32,1095.84,56,1.79],
+  [43,"成都",14062,19.85,238.2,59,1.69],
+  [44,"广州",38612,53.56,642.72,60.1,1.66],
+  [45,"海口",13020,17.2,206.4,63.1,1.59],
+  [46,"青岛",15461,18.5,222,69.6,1.44],
+  [47,"深圳",70736,77.4,928.8,76.2,1.31],
+  [48,"苏州",16993,18.2,218.4,77.8,1.29],
+  [49,"宁波",17831,18,216,82.6,1.21],
+  [50,"东莞",19421,16.8,201.6,96.3,1.04],
+  [51,"珠海",20138,16.5,198,101.7,0.98]
+];
+
+let data = [...rawData];
+let sortKey = 'rank';
+let sortAsc = true;
+
+const body = document.getElementById('tableBody');
+const searchInput = document.getElementById('searchInput');
+const sortSelect = document.getElementById('sortSelect');
+const themeToggle = document.getElementById('themeToggle');
+
+function formatPrice(n) { return n.toLocaleString('zh-CN'); }
+function formatRatio(n) { return n.toFixed(1); }
+function formatYield(n) { return n.toFixed(2) + '%'; }
+function formatRent(n) { return n.toFixed(2); }
+
+function getRankClass(rank) {
+  if (rank <= 10) return 'rank-top';
+  if (rank <= 30) return 'rank-mid';
+  return 'rank-low';
+}
+
+function getRatioClass(ratio) {
+  if (ratio <= 35) return 'good';
+  if (ratio <= 55) return 'mid';
+  return 'poor';
+}
+
+function getRatioPercent(ratio) {
+  const min = 14;
+  const max = 102;
+  return Math.min(100, Math.max(4, ((ratio - min) / (max - min)) * 100));
+}
+
+function render() {
+  const search = searchInput.value.trim().toLowerCase();
+  let filtered = data.filter(d => d[1].includes(search));
+  
+  let sorted = [...filtered];
+  switch (sortKey) {
+    case 'rank': sorted.sort((a,b) => sortAsc ? a[0]-b[0] : b[0]-a[0]); break;
+    case 'city': sorted.sort((a,b) => sortAsc ? a[1].localeCompare(b[1]) : b[1].localeCompare(a[1])); break;
+    case 'price': sorted.sort((a,b) => sortAsc ? a[2]-b[2] : b[2]-a[2]); break;
+    case 'rent': sorted.sort((a,b) => sortAsc ? a[3]-b[3] : b[3]-a[3]); break;
+    case 'annual': sorted.sort((a,b) => sortAsc ? a[4]-b[4] : b[4]-a[4]); break;
+    case 'ratio': sorted.sort((a,b) => sortAsc ? a[5]-b[5] : b[5]-a[5]); break;
+    case 'yield': sorted.sort((a,b) => sortAsc ? a[6]-b[6] : b[6]-a[6]); break;
+  }
+
+  body.innerHTML = sorted.map((d, i) => {
+    const rank = d[0];
+    const city = d[1];
+    const price = d[2];
+    const rent = d[3];
+    const annual = d[4];
+    const ratio = d[5];
+    const yieldVal = d[6];
+    const rClass = getRankClass(rank);
+    const ratioCls = getRatioClass(ratio);
+    const pct = getRatioPercent(ratio);
+    const top3 = rank <= 3 ? 'top-three' : '';
+
+    return `<tr style="animation-delay:${i*30}ms" class="${top3}">
+      <td><span class="rank-cell ${rClass}">${rank}</span></td>
+      <td>${city}</td>
+      <td><span class="num">¥${formatPrice(price)}</span></td>
+      <td><span class="num">¥${formatRent(rent)}</span></td>
+      <td><span class="num">¥${formatPrice(annual)}</span></td>
+      <td>
+        <div class="ratio-bar-wrapper">
+          <span class="num">${formatRatio(ratio)}</span>
+          <div class="ratio-bar">
+            <div class="ratio-bar-fill ${ratioCls}" style="width:${pct}%"></div>
+          </div>
+        </div>
+      </td>
+      <td><span class="num">${formatYield(yieldVal)}</span></td>
+    </tr>`;
+  }).join('');
+}
+
+function updateHeader() {
+  document.querySelectorAll('thead th').forEach(th => {
+    th.classList.remove('active');
+    const key = th.dataset.sort;
+    if (key === sortKey) {
+      th.classList.add('active');
+      th.querySelector('.sort-arrow').textContent = sortAsc ? '▲' : '▼';
+    } else {
+      th.querySelector('.sort-arrow').textContent = '⇅';
+    }
+  });
+  sortSelect.value = sortKey + (sortKey !== 'rank' ? (sortAsc ? '-asc' : '-desc') : '');
+}
+
+function handleSort(key) {
+  if (key === sortKey) {
+    sortAsc = !sortAsc;
+  } else {
+    sortKey = key;
+    sortAsc = ['rank','ratio'].includes(key) ? true : false;
+  }
+  updateHeader();
+  render();
+}
+
+document.querySelectorAll('thead th').forEach(th => {
+  th.addEventListener('click', () => handleSort(th.dataset.sort));
+});
+
+sortSelect.addEventListener('change', () => {
+  const val = sortSelect.value;
+  if (val === 'rank') { sortKey = 'rank'; sortAsc = true; }
+  else if (val === 'ratio-desc') { sortKey = 'ratio'; sortAsc = false; }
+  else if (val === 'ratio-asc') { sortKey = 'ratio'; sortAsc = true; }
+  else if (val === 'price-desc') { sortKey = 'price'; sortAsc = false; }
+  else if (val === 'price-asc') { sortKey = 'price'; sortAsc = true; }
+  else if (val === 'yield-desc') { sortKey = 'yield'; sortAsc = false; }
+  else if (val === 'yield-asc') { sortKey = 'yield'; sortAsc = true; }
+  updateHeader();
+  render();
+});
+
+searchInput.addEventListener('input', render);
+
+function computeStats() {
+  const ratios = rawData.map(d => d[5]);
+  const avg = ratios.reduce((a,b) => a+b, 0) / ratios.length;
+  document.getElementById('avgRatio').textContent = avg.toFixed(1);
+  
+  const best = rawData.reduce((a,b) => a[5] < b[5] ? a : b);
+  document.getElementById('bestCity').textContent = best[1];
+  
+  const worst = rawData.reduce((a,b) => a[5] > b[5] ? a : b);
+  document.getElementById('worstCity').textContent = worst[1];
+}
+
+// Theme
+function getPreferredTheme() {
+  const stored = localStorage.getItem('theme');
+  if (stored) return stored;
+  return window.matchMedia('(prefers-color-scheme: light)').matches ? 'light' : 'dark';
+}
+
+function setTheme(theme) {
+  document.documentElement.setAttribute('data-theme', theme);
+  localStorage.setItem('theme', theme);
+  themeToggle.textContent = theme === 'dark' ? '☀️' : '🌙';
+}
+
+themeToggle.addEventListener('click', () => {
+  const current = document.documentElement.getAttribute('data-theme');
+  setTheme(current === 'dark' ? 'light' : 'dark');
+});
+
+setTheme(getPreferredTheme());
+
+// Init
+render();
+computeStats();
+
+// Handle empty search
+</script>
+</body>
+</html>
