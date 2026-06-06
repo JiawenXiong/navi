@@ -1,0 +1,966 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>呼吸训练器 - Breathing Trainer</title>
+<style>
+  :root {
+    --bg-start: #0a1628;
+    --bg-end: #151d30;
+    --primary: #4facfe;
+    --primary-light: #7fc4ff;
+    --accent: #00f2fe;
+    --glow: rgba(79, 172, 254, 0.5);
+    --glow-strong: rgba(79, 172, 254, 0.8);
+    --text: #c8d6e5;
+    --text-dim: #7b8ca3;
+    --card-bg: rgba(15, 30, 60, 0.6);
+    --btn-bg: rgba(79, 172, 254, 0.2);
+    --btn-border: rgba(79, 172, 254, 0.4);
+  }
+
+  [data-theme="ocean"] {
+    --bg-start: #0a1628; --bg-end: #151d30;
+    --primary: #4facfe; --primary-light: #7fc4ff;
+    --accent: #00f2fe;
+    --glow: rgba(79, 172, 254, 0.5); --glow-strong: rgba(79, 172, 254, 0.8);
+    --text: #c8d6e5; --text-dim: #7b8ca3;
+    --card-bg: rgba(15, 30, 60, 0.6);
+    --btn-bg: rgba(79, 172, 254, 0.2); --btn-border: rgba(79, 172, 254, 0.4);
+  }
+
+  [data-theme="forest"] {
+    --bg-start: #0a1a0a; --bg-end: #152015;
+    --primary: #38ef7d; --primary-light: #6fff9e;
+    --accent: #11998e;
+    --glow: rgba(56, 239, 125, 0.5); --glow-strong: rgba(56, 239, 125, 0.8);
+    --text: #c8e5d6; --text-dim: #7ba38c;
+    --card-bg: rgba(15, 40, 25, 0.6);
+    --btn-bg: rgba(56, 239, 125, 0.2); --btn-border: rgba(56, 239, 125, 0.4);
+  }
+
+  [data-theme="sunset"] {
+    --bg-start: #1a0f0a; --bg-end: #251a15;
+    --primary: #f5af19; --primary-light: #ffc94d;
+    --accent: #f12711;
+    --glow: rgba(245, 175, 25, 0.5); --glow-strong: rgba(245, 175, 25, 0.8);
+    --text: #e5d6c8; --text-dim: #a38b7b;
+    --card-bg: rgba(50, 25, 15, 0.6);
+    --btn-bg: rgba(245, 175, 25, 0.2); --btn-border: rgba(245, 175, 25, 0.4);
+  }
+
+  [data-theme="night"] {
+    --bg-start: #0a0a1a; --bg-end: #151525;
+    --primary: #8e2de2; --primary-light: #b06fff;
+    --accent: #4a00e0;
+    --glow: rgba(142, 45, 226, 0.5); --glow-strong: rgba(142, 45, 226, 0.8);
+    --text: #d6c8e5; --text-dim: #8b7ba3;
+    --card-bg: rgba(25, 15, 45, 0.6);
+    --btn-bg: rgba(142, 45, 226, 0.2); --btn-border: rgba(142, 45, 226, 0.4);
+  }
+
+  [data-theme="sakura"] {
+    --bg-start: #1a0a15; --bg-end: #251520;
+    --primary: #f093fb; --primary-light: #f5b8ff;
+    --accent: #f5576c;
+    --glow: rgba(240, 147, 251, 0.5); --glow-strong: rgba(240, 147, 251, 0.8);
+    --text: #e5c8d6; --text-dim: #a37b8b;
+    --card-bg: rgba(45, 15, 35, 0.6);
+    --btn-bg: rgba(240, 147, 251, 0.2); --btn-border: rgba(240, 147, 251, 0.4);
+  }
+
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+
+  body {
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "PingFang SC", "Microsoft YaHei", sans-serif;
+    min-height: 100vh;
+    background: linear-gradient(135deg, var(--bg-start), var(--bg-end));
+    color: var(--text);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    overflow: hidden;
+    transition: background 0.8s ease, color 0.8s ease;
+    user-select: none;
+  }
+
+  .bg-particles {
+    position: fixed; top: 0; left: 0; width: 100%; height: 100%;
+    pointer-events: none; z-index: 0;
+  }
+
+  .container {
+    position: relative; z-index: 1;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 20px;
+    padding: 30px 30px 40px;
+  }
+
+  .theme-bar {
+    position: fixed; top: 20px; right: 20px;
+    display: flex; gap: 10px; z-index: 10;
+    background: var(--card-bg);
+    padding: 8px 12px;
+    border-radius: 24px;
+    backdrop-filter: blur(10px);
+    border: 1px solid rgba(255,255,255,0.08);
+  }
+
+  .theme-dot {
+    width: 28px; height: 28px; border-radius: 50%;
+    border: 2px solid transparent;
+    cursor: pointer;
+    transition: transform 0.2s, border-color 0.2s, box-shadow 0.2s;
+    position: relative;
+  }
+  .theme-dot:hover { transform: scale(1.15); }
+  .theme-dot.active {
+    border-color: var(--text);
+    box-shadow: 0 0 12px var(--glow-strong);
+  }
+  .theme-dot.ocean  { background: linear-gradient(135deg, #4facfe, #00f2fe); }
+  .theme-dot.forest { background: linear-gradient(135deg, #38ef7d, #11998e); }
+  .theme-dot.sunset { background: linear-gradient(135deg, #f5af19, #f12711); }
+  .theme-dot.night  { background: linear-gradient(135deg, #8e2de2, #4a00e0); }
+  .theme-dot.sakura { background: linear-gradient(135deg, #f093fb, #f5576c); }
+
+  /* ── Method Selector ── */
+  .method-bar {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    background: var(--card-bg);
+    padding: 12px 16px;
+    border-radius: 16px;
+    backdrop-filter: blur(10px);
+    border: 1px solid rgba(255,255,255,0.06);
+  }
+
+  .method-arrow {
+    width: 36px; height: 36px;
+    border-radius: 50%;
+    border: 1px solid var(--btn-border);
+    background: var(--btn-bg);
+    color: var(--primary-light);
+    cursor: pointer;
+    font-size: 0.85rem;
+    display: flex; align-items: center; justify-content: center;
+    transition: all 0.3s;
+    outline: none;
+    line-height: 1;
+    flex-shrink: 0;
+  }
+  .method-arrow:hover {
+    background: rgba(255,255,255,0.1);
+    box-shadow: 0 0 12px var(--glow);
+  }
+  .method-arrow:active { transform: scale(0.93); }
+
+  .method-display {
+    text-align: center;
+    min-width: 180px;
+  }
+
+  .method-name {
+    font-size: 1.05rem;
+    font-weight: 600;
+    letter-spacing: 3px;
+    color: var(--primary-light);
+    transition: color 0.5s;
+  }
+
+  .method-phases {
+    font-size: 0.78rem;
+    color: var(--text-dim);
+    margin-top: 4px;
+    letter-spacing: 1px;
+    transition: color 0.5s;
+  }
+
+  .method-rate {
+    font-size: 0.72rem;
+    color: var(--text-dim);
+    margin-top: 3px;
+    opacity: 0.7;
+    transition: color 0.5s;
+  }
+
+  .method-desc {
+    font-size: 0.72rem;
+    color: var(--text-dim);
+    margin-top: 3px;
+    opacity: 0.55;
+    font-style: italic;
+    letter-spacing: 0.5px;
+    transition: color 0.5s;
+  }
+
+  .method-source {
+    font-size: 0.68rem;
+    color: var(--text-dim);
+    opacity: 0.45;
+    letter-spacing: 1px;
+    text-align: center;
+    max-width: 340px;
+    line-height: 1.5;
+  }
+
+  /* ── Phase ── */
+  .phase-label {
+    font-size: 1rem;
+    letter-spacing: 4px;
+    text-transform: uppercase;
+    color: var(--text-dim);
+    transition: color 0.5s;
+    min-height: 24px;
+  }
+
+  .breathing-area {
+    position: relative;
+    width: 280px; height: 280px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .breathing-circle {
+    width: 160px; height: 160px;
+    border-radius: 50%;
+    background: radial-gradient(circle at 40% 35%, var(--primary-light), var(--primary) 60%, var(--accent) 100%);
+    box-shadow: 0 0 40px var(--glow), 0 0 80px var(--glow);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    transition: transform 0.4s ease, box-shadow 0.4s ease;
+    position: relative; z-index: 2;
+  }
+
+  .breathing-circle.counting {
+    animation: pulse-glow 2s ease-in-out infinite;
+  }
+
+  @keyframes pulse-glow {
+    0%, 100% { box-shadow: 0 0 40px var(--glow), 0 0 80px var(--glow); }
+    50% { box-shadow: 0 0 60px var(--glow-strong), 0 0 120px var(--glow-strong); }
+  }
+
+  .phase-text {
+    font-size: 1.6rem; font-weight: 700;
+    letter-spacing: 3px;
+  }
+
+  .phase-timer {
+    font-size: 2.2rem; font-weight: 300;
+    margin-top: 4px;
+    font-variant-numeric: tabular-nums;
+  }
+
+  .countdown-overlay {
+    position: absolute; z-index: 3;
+    font-size: 6rem; font-weight: 900;
+    color: var(--primary-light);
+    text-shadow: 0 0 40px var(--glow-strong), 0 0 80px var(--glow);
+    pointer-events: none;
+    opacity: 0;
+    transform: scale(0.3);
+    transition: opacity 0.3s, transform 0.3s;
+  }
+  .countdown-overlay.show {
+    opacity: 1;
+    transform: scale(1);
+  }
+  .countdown-overlay.pop {
+    opacity: 1;
+    transform: scale(1.3);
+    transition: opacity 0.3s, transform 0.15s;
+  }
+  .countdown-overlay.go {
+    opacity: 0;
+    transform: scale(0.8);
+    transition: opacity 0.4s, transform 0.4s;
+  }
+
+  .cycle-info {
+    font-size: 1rem;
+    color: var(--text-dim);
+    letter-spacing: 2px;
+    transition: color 0.5s;
+  }
+
+  .cycle-info span {
+    color: var(--primary-light);
+    font-size: 1.6rem; font-weight: 700;
+    vertical-align: baseline;
+  }
+
+  .controls {
+    display: flex; gap: 16px; align-items: center;
+  }
+
+  .btn {
+    padding: 12px 36px;
+    border-radius: 28px;
+    font-size: 1rem;
+    font-weight: 600;
+    letter-spacing: 2px;
+    cursor: pointer;
+    border: 1px solid var(--btn-border);
+    background: var(--btn-bg);
+    color: var(--primary-light);
+    backdrop-filter: blur(6px);
+    transition: all 0.3s;
+    outline: none;
+  }
+  .btn:hover {
+    background: rgba(255,255,255,0.1);
+    box-shadow: 0 0 20px var(--glow);
+    transform: translateY(-1px);
+  }
+  .btn:active { transform: scale(0.97); }
+
+  .sound-btn {
+    width: 44px; height: 44px; border-radius: 50%;
+    padding: 0;
+    font-size: 1.2rem;
+    display: flex; align-items: center; justify-content: center;
+    border: 1px solid var(--btn-border);
+    background: var(--btn-bg);
+    color: var(--primary-light);
+    cursor: pointer;
+    transition: all 0.3s;
+    outline: none;
+  }
+  .sound-btn:hover { box-shadow: 0 0 16px var(--glow); }
+
+  @media (max-width: 480px) {
+    .container { gap: 16px; padding: 20px 16px 30px; }
+    .method-bar { padding: 10px 10px; gap: 6px; }
+    .method-arrow { width: 30px; height: 30px; font-size: 0.75rem; }
+    .method-display { min-width: 140px; }
+    .method-name { font-size: 0.9rem; letter-spacing: 2px; }
+    .method-phases { font-size: 0.7rem; }
+    .method-rate { font-size: 0.65rem; }
+    .breathing-area { width: 220px; height: 220px; }
+    .breathing-circle { width: 130px; height: 130px; }
+    .phase-text { font-size: 1.3rem; }
+    .phase-timer { font-size: 1.8rem; }
+    .countdown-overlay { font-size: 4.5rem; }
+    .btn { padding: 10px 28px; font-size: 0.9rem; }
+    .method-source { font-size: 0.6rem; max-width: 260px; }
+  }
+</style>
+</head>
+<body data-theme="ocean">
+
+<canvas class="bg-particles" id="particles"></canvas>
+
+<div class="theme-bar" id="themeBar">
+  <div class="theme-dot ocean active" data-theme="ocean" title="海洋蓝"></div>
+  <div class="theme-dot forest" data-theme="forest" title="森林绿"></div>
+  <div class="theme-dot sunset" data-theme="sunset" title="日落橙"></div>
+  <div class="theme-dot night" data-theme="night" title="夜空紫"></div>
+  <div class="theme-dot sakura" data-theme="sakura" title="樱花粉"></div>
+</div>
+
+<div class="container">
+
+  <div class="method-bar">
+    <button class="method-arrow" id="methodPrev" title="上一个方法">&#9664;</button>
+    <div class="method-display">
+      <div class="method-name" id="methodName">4-7-8 呼吸法</div>
+      <div class="method-phases" id="methodPhases">吸气4秒 &#8594; 屏息7秒 &#8594; 呼气8秒</div>
+      <div class="method-rate" id="methodRate">呼吸频率: ~3.2 次/分</div>
+      <div class="method-desc" id="methodDesc">延长呼气激活副交感神经，帮助快速入睡</div>
+    </div>
+    <button class="method-arrow" id="methodNext" title="下一个方法">&#9654;</button>
+  </div>
+
+  <div class="phase-label" id="phaseLabel">准备开始</div>
+
+  <div class="breathing-area">
+    <div class="breathing-circle" id="breathingCircle">
+      <div class="phase-text" id="phaseText"></div>
+      <div class="phase-timer" id="phaseTimer"></div>
+    </div>
+    <div class="countdown-overlay" id="countdownOverlay">3</div>
+  </div>
+
+  <div class="cycle-info">已完成 <span id="cycleCount">0</span> 次循环</div>
+
+  <div class="controls">
+    <button class="btn" id="startBtn">开始练习</button>
+    <button class="sound-btn" id="soundBtn" title="音效开关">&#128266;</button>
+  </div>
+
+  <div class="method-source" id="methodSource">Andrew Weil, "Breathing: The Master Key to Self-Healing"</div>
+
+</div>
+
+<script>
+(function() {
+  var body = document.body;
+  var breathingCircle = document.getElementById('breathingCircle');
+  var phaseLabel = document.getElementById('phaseLabel');
+  var phaseText = document.getElementById('phaseText');
+  var phaseTimer = document.getElementById('phaseTimer');
+  var countdownOverlay = document.getElementById('countdownOverlay');
+  var cycleCountEl = document.getElementById('cycleCount');
+  var startBtn = document.getElementById('startBtn');
+  var soundBtn = document.getElementById('soundBtn');
+  var themeBar = document.getElementById('themeBar');
+  var particlesCanvas = document.getElementById('particles');
+  var methodNameEl = document.getElementById('methodName');
+  var methodPhasesEl = document.getElementById('methodPhases');
+  var methodRateEl = document.getElementById('methodRate');
+  var methodDescEl = document.getElementById('methodDesc');
+  var methodSourceEl = document.getElementById('methodSource');
+
+  var AppState = { IDLE: 'idle', COUNTDOWN: 'countdown', RUNNING: 'running' };
+
+  var METHODS = [
+    {
+      id: '478',
+      name: '4-7-8 呼吸法',
+      description: '吸气4秒 \u2192 屏息7秒 \u2192 呼气8秒',
+      source: 'Andrew Weil, "Breathing: The Master Key to Self-Healing"',
+      funcDesc: '\u5ef6\u957f\u547c\u6c14\u6fc0\u6d3b\u526f\u4ea4\u611f\u795e\u7ecf\uff0c\u5e2e\u52a9\u5feb\u901f\u5165\u7761',
+      phases: [
+        { key: 'inhale', label: '\u5438 \u6c14', duration: 4, scaleFrom: 1, scaleTo: 1.75, soundType: 'inhale' },
+        { key: 'hold', label: '\u5c4f \u606f', duration: 7, scaleFrom: 1.75, scaleTo: 1.75, soundType: 'hold' },
+        { key: 'exhale', label: '\u547c \u6c14', duration: 8, scaleFrom: 1.75, scaleTo: 1, soundType: 'exhale' },
+      ]
+    },
+    {
+      id: 'box',
+      name: '\u65b9\u5f62\u547c\u5438',
+      description: '\u5438\u6c144\u79d2 \u2192 \u5c4f\u606f4\u79d2 \u2192 \u547c\u6c144\u79d2 \u2192 \u5c4f\u606f4\u79d2',
+      source: 'Mark Divine, "The Way of the SEAL" \u2014 Navy SEALs \u538b\u529b\u7ba1\u7406\u6280\u672f',
+      funcDesc: '\u7b49\u957f\u547c\u5438\u7a33\u5b9a\u5fc3\u795e\uff0c\u9002\u5408\u9ad8\u538b\u73af\u5883\u5feb\u901f\u51b7\u9759',
+      phases: [
+        { key: 'inhale', label: '\u5438 \u6c14', duration: 4, scaleFrom: 1, scaleTo: 1.75, soundType: 'inhale' },
+        { key: 'hold', label: '\u5c4f \u606f', duration: 4, scaleFrom: 1.75, scaleTo: 1.75, soundType: 'hold' },
+        { key: 'exhale', label: '\u547c \u6c14', duration: 4, scaleFrom: 1.75, scaleTo: 1, soundType: 'exhale' },
+        { key: 'hold_empty', label: '\u5c4f \u606f', duration: 4, scaleFrom: 1, scaleTo: 1, soundType: 'hold_empty' },
+      ]
+    },
+    {
+      id: '448',
+      name: '4-4-8 \u547c\u5438\u6cd5',
+      description: '\u5438\u6c144\u79d2 \u2192 \u5c4f\u606f4\u79d2 \u2192 \u547c\u6c148\u79d2',
+      source: 'Negoro H. (Harvard Medical School) \u2014 \u6539\u5584\u8840\u7ba1\u5f39\u6027\u4e0e\u964d\u4f4e\u8840\u538b',
+      funcDesc: '\u957f\u547c\u6c14\u6539\u5584\u8840\u7ba1\u5f39\u6027\uff0c\u8f85\u52a9\u964d\u4f4e\u8840\u538b',
+      phases: [
+        { key: 'inhale', label: '\u5438 \u6c14', duration: 4, scaleFrom: 1, scaleTo: 1.75, soundType: 'inhale' },
+        { key: 'hold', label: '\u5c4f \u606f', duration: 4, scaleFrom: 1.75, scaleTo: 1.75, soundType: 'hold' },
+        { key: 'exhale', label: '\u547c \u6c14', duration: 8, scaleFrom: 1.75, scaleTo: 1, soundType: 'exhale' },
+      ]
+    },
+    {
+      id: 'coherent',
+      name: '\u5171\u632f\u547c\u5438',
+      description: '\u5438\u6c145.5\u79d2 \u2192 \u547c\u6c145.5\u79d2',
+      source: 'Nature Scientific Reports 2023 \u2014 ~5.5\u6b21/\u5206 \u5fc3\u7387\u53d8\u5f02\u6027\u6700\u5927\u5316',
+      funcDesc: '~5.5\u6b21/\u5206\u6162\u547c\u5438\uff0c\u6700\u5927\u5316\u5fc3\u7387\u53d8\u5f02\u6027',
+      phases: [
+        { key: 'inhale', label: '\u5438 \u6c14', duration: 5.5, scaleFrom: 1, scaleTo: 1.75, soundType: 'inhale' },
+        { key: 'exhale', label: '\u547c \u6c14', duration: 5.5, scaleFrom: 1.75, scaleTo: 1, soundType: 'exhale' },
+      ]
+    },
+    {
+      id: 'sigh',
+      name: '\u751f\u7406\u53f9\u606f',
+      description: '\u5438\u6c141.5\u79d2 \u2192 \u6df1\u54381.5\u79d2 \u2192 \u547c\u6c145\u79d2',
+      source: 'Stanford Medicine 2023, Cell Reports Medicine \u2014 \u6700\u5feb\u51cf\u538b\u65b9\u6cd5',
+      funcDesc: '\u53cc\u6b21\u5438\u6c14+\u957f\u547c\u6c14\uff0c\u6700\u5feb\u964d\u4f4e\u751f\u7406\u5524\u9192',
+      phases: [
+        { key: 'inhale_first', label: '\u5438 \u6c14', duration: 1.5, scaleFrom: 1, scaleTo: 1.4, soundType: 'inhale' },
+        { key: 'inhale_deep', label: '\u6df1 \u5438', duration: 1.5, scaleFrom: 1.4, scaleTo: 1.75, soundType: 'inhale_deep' },
+        { key: 'exhale', label: '\u547c \u6c14', duration: 5, scaleFrom: 1.75, scaleTo: 1, soundType: 'exhale' },
+      ]
+    },
+    {
+      id: '21breath',
+      name: '\u653e\u677e\u547c\u5438 2:1',
+      description: '\u5438\u6c144\u79d2 \u2192 \u547c\u6c148\u79d2',
+      source: '\u4f20\u7edf\u8c03\u606f\u6cd5 \u2014 \u547c\u6c14\u53cc\u500d\u4e8e\u5438\u6c14\uff0c\u5f3a\u529b\u6fc0\u6d3b\u526f\u4ea4\u611f\u795e\u7ecf',
+      funcDesc: '\u547c\u6c14\u53cc\u500d\u4e8e\u5438\u6c14\uff0c\u5f3a\u529b\u6fc0\u6d3b\u526f\u4ea4\u611f\u795e\u7ecf',
+      phases: [
+        { key: 'inhale', label: '\u5438 \u6c14', duration: 4, scaleFrom: 1, scaleTo: 1.75, soundType: 'inhale' },
+        { key: 'exhale', label: '\u547c \u6c14', duration: 8, scaleFrom: 1.75, scaleTo: 1, soundType: 'exhale' },
+      ]
+    },
+  ];
+
+  var appState = AppState.IDLE;
+  var currentMethodIndex = 0;
+  var currentPhaseIndex = 0;
+  var cycleCount = 0;
+  var phaseTimeRemaining = 0;
+  var timerInterval = null;
+  var isMuted = false;
+  var currentTheme = 'ocean';
+
+  /* ========== Audio Engine ========== */
+  var audioCtx = null;
+  var activeNodes = [];
+
+  function ensureAudio() {
+    if (!audioCtx) {
+      audioCtx = new (window.AudioContext || window.webkitAudioContext)();
+    }
+    if (audioCtx.state === 'suspended') {
+      audioCtx.resume();
+    }
+  }
+
+  function stopAllSounds() {
+    activeNodes.forEach(function(n) {
+      try {
+        if (n.stop) n.stop(0);
+        if (n.disconnect) n.disconnect();
+      } catch(e) {}
+    });
+    activeNodes = [];
+  }
+
+  function createNoiseBuffer() {
+    var size = audioCtx.sampleRate * 2;
+    var buffer = audioCtx.createBuffer(1, size, audioCtx.sampleRate);
+    var data = buffer.getChannelData(0);
+    for (var i = 0; i < size; i++) {
+      data[i] = Math.random() * 2 - 1;
+    }
+    return buffer;
+  }
+
+  function playInhaleSound(duration) {
+    if (isMuted || !audioCtx) return;
+    var d = duration;
+    var now = audioCtx.currentTime;
+    var noiseBuf = createNoiseBuffer();
+    var src = audioCtx.createBufferSource();
+    src.buffer = noiseBuf;
+    src.loop = true;
+
+    var bpFilter = audioCtx.createBiquadFilter();
+    bpFilter.type = 'bandpass';
+    bpFilter.frequency.setValueAtTime(180, now);
+    bpFilter.frequency.linearRampToValueAtTime(550, now + d * 0.875);
+    bpFilter.Q.value = 1.5;
+
+    var gain = audioCtx.createGain();
+    gain.gain.setValueAtTime(0, now);
+    gain.gain.linearRampToValueAtTime(0.25, now + d * 0.375);
+    gain.gain.linearRampToValueAtTime(0.3, now + d * 0.95);
+    gain.gain.setValueAtTime(0.28, now + d);
+
+    src.connect(bpFilter);
+    bpFilter.connect(gain);
+    gain.connect(audioCtx.destination);
+    src.start(now);
+    src.stop(now + d + 0.1);
+    activeNodes.push(src, bpFilter, gain);
+  }
+
+  function playInhaleDeepSound(duration) {
+    if (isMuted || !audioCtx) return;
+    var d = duration;
+    var now = audioCtx.currentTime;
+    var noiseBuf = createNoiseBuffer();
+    var src = audioCtx.createBufferSource();
+    src.buffer = noiseBuf;
+    src.loop = true;
+
+    var bpFilter = audioCtx.createBiquadFilter();
+    bpFilter.type = 'bandpass';
+    bpFilter.frequency.setValueAtTime(300, now);
+    bpFilter.frequency.linearRampToValueAtTime(750, now + d * 0.95);
+    bpFilter.Q.value = 1.8;
+
+    var gain = audioCtx.createGain();
+    gain.gain.setValueAtTime(0, now);
+    gain.gain.linearRampToValueAtTime(0.22, now + d * 0.6);
+    gain.gain.setValueAtTime(0.22, now + d);
+
+    src.connect(bpFilter);
+    bpFilter.connect(gain);
+    gain.connect(audioCtx.destination);
+    src.start(now);
+    src.stop(now + d + 0.1);
+    activeNodes.push(src, bpFilter, gain);
+  }
+
+  function playHoldSound(duration) {
+    if (isMuted || !audioCtx) return;
+    var d = duration;
+    var now = audioCtx.currentTime;
+    var osc = audioCtx.createOscillator();
+    osc.type = 'sine';
+    osc.frequency.setValueAtTime(160, now);
+
+    var gain = audioCtx.createGain();
+    gain.gain.setValueAtTime(0, now);
+    gain.gain.linearRampToValueAtTime(0.12, now + 0.4);
+    gain.gain.setValueAtTime(0.12, now + Math.max(d - 0.5, 0.5));
+    gain.gain.linearRampToValueAtTime(0.06, now + d);
+
+    osc.connect(gain);
+    gain.connect(audioCtx.destination);
+    osc.start(now);
+    osc.stop(now + d + 0.1);
+    activeNodes.push(osc, gain);
+  }
+
+  function playHoldEmptySound(duration) {
+    if (isMuted || !audioCtx) return;
+    var d = duration;
+    var now = audioCtx.currentTime;
+    var osc = audioCtx.createOscillator();
+    osc.type = 'sine';
+    osc.frequency.setValueAtTime(80, now);
+
+    var gain = audioCtx.createGain();
+    gain.gain.setValueAtTime(0, now);
+    gain.gain.linearRampToValueAtTime(0.05, now + 0.3);
+    gain.gain.setValueAtTime(0.05, now + d * 0.8);
+    gain.gain.linearRampToValueAtTime(0.01, now + d);
+
+    osc.connect(gain);
+    gain.connect(audioCtx.destination);
+    osc.start(now);
+    osc.stop(now + d + 0.1);
+    activeNodes.push(osc, gain);
+  }
+
+  function playExhaleSound(duration) {
+    if (isMuted || !audioCtx) return;
+    var d = duration;
+    var now = audioCtx.currentTime;
+    var noiseBuf = createNoiseBuffer();
+    var src = audioCtx.createBufferSource();
+    src.buffer = noiseBuf;
+    src.loop = true;
+
+    var bpFilter = audioCtx.createBiquadFilter();
+    bpFilter.type = 'bandpass';
+    bpFilter.frequency.setValueAtTime(550, now);
+    bpFilter.frequency.linearRampToValueAtTime(110, now + d * 0.94);
+    bpFilter.frequency.setValueAtTime(80, now + d);
+    bpFilter.Q.value = 1.2;
+
+    var gain = audioCtx.createGain();
+    gain.gain.setValueAtTime(0.28, now);
+    gain.gain.linearRampToValueAtTime(0.12, now + d * 0.5);
+    gain.gain.linearRampToValueAtTime(0, now + d * 0.975);
+
+    src.connect(bpFilter);
+    bpFilter.connect(gain);
+    gain.connect(audioCtx.destination);
+    src.start(now);
+    src.stop(now + d + 0.1);
+    activeNodes.push(src, bpFilter, gain);
+  }
+
+  function dispatchSound(soundType, duration) {
+    switch (soundType) {
+      case 'inhale': playInhaleSound(duration); break;
+      case 'inhale_deep': playInhaleDeepSound(duration); break;
+      case 'hold': playHoldSound(duration); break;
+      case 'hold_empty': playHoldEmptySound(duration); break;
+      case 'exhale': playExhaleSound(duration); break;
+    }
+  }
+
+  function playCountdownBeep(value) {
+    if (isMuted || !audioCtx) return;
+    var now = audioCtx.currentTime;
+    var osc = audioCtx.createOscillator();
+    osc.type = 'sine';
+    osc.frequency.setValueAtTime(440, now);
+
+    var gain = audioCtx.createGain();
+    gain.gain.setValueAtTime(0, now);
+    gain.gain.linearRampToValueAtTime(0.15, now + 0.05);
+    gain.gain.linearRampToValueAtTime(0, now + 0.3);
+
+    osc.connect(gain);
+    gain.connect(audioCtx.destination);
+    osc.start(now);
+    osc.stop(now + 0.35);
+    activeNodes.push(osc, gain);
+  }
+
+  function playGoSound() {
+    if (isMuted || !audioCtx) return;
+    var now = audioCtx.currentTime;
+    var osc = audioCtx.createOscillator();
+    osc.type = 'sine';
+    osc.frequency.setValueAtTime(660, now);
+    osc.frequency.setValueAtTime(880, now + 0.15);
+
+    var gain = audioCtx.createGain();
+    gain.gain.setValueAtTime(0, now);
+    gain.gain.linearRampToValueAtTime(0.18, now + 0.08);
+    gain.gain.linearRampToValueAtTime(0, now + 0.5);
+
+    osc.connect(gain);
+    gain.connect(audioCtx.destination);
+    osc.start(now);
+    osc.stop(now + 0.55);
+    activeNodes.push(osc, gain);
+  }
+
+  function toggleMute() {
+    isMuted = !isMuted;
+    soundBtn.innerHTML = isMuted ? '&#128263;' : '&#128266;';
+    if (isMuted) stopAllSounds();
+  }
+
+  /* ========== Circle Animation ========== */
+  function setIdleStyle() {
+    breathingCircle.classList.remove('counting');
+    breathingCircle.style.transition = 'transform 0.5s ease, box-shadow 0.5s ease';
+    breathingCircle.style.transform = 'scale(1)';
+    breathingCircle.style.boxShadow = '0 0 40px var(--glow), 0 0 80px var(--glow)';
+  }
+
+  function updateCircleStyle(idx) {
+    var method = METHODS[currentMethodIndex];
+    var phase = method.phases[idx];
+    breathingCircle.classList.remove('counting');
+
+    if (phase.scaleTo > phase.scaleFrom) {
+      breathingCircle.style.transition = 'transform ' + phase.duration + 's ease-in-out, box-shadow ' + phase.duration + 's ease-in-out';
+      breathingCircle.style.transform = 'scale(' + phase.scaleTo + ')';
+      breathingCircle.style.boxShadow = '0 0 60px var(--glow-strong), 0 0 120px var(--glow-strong)';
+    } else if (phase.scaleTo < phase.scaleFrom) {
+      breathingCircle.style.transition = 'transform ' + phase.duration + 's ease-in-out, box-shadow ' + phase.duration + 's ease-in-out';
+      breathingCircle.style.transform = 'scale(' + phase.scaleTo + ')';
+      breathingCircle.style.boxShadow = '0 0 30px var(--glow), 0 0 60px var(--glow)';
+    } else {
+      breathingCircle.style.transition = 'transform 0s, box-shadow ' + phase.duration + 's ease';
+      breathingCircle.style.transform = 'scale(' + phase.scaleTo + ')';
+      breathingCircle.classList.add('counting');
+    }
+  }
+
+  function updateTimerDisplay() {
+    phaseTimer.textContent = Math.max(0, Math.ceil(phaseTimeRemaining)) + 's';
+  }
+
+  /* ========== State Machine ========== */
+  function enterPhase(idx) {
+    stopAllSounds();
+    var method = METHODS[currentMethodIndex];
+    var phase = method.phases[idx];
+    currentPhaseIndex = idx;
+    phaseTimeRemaining = phase.duration;
+
+    phaseLabel.textContent = phase.label;
+    phaseText.textContent = phase.label;
+    updateTimerDisplay();
+    updateCircleStyle(idx);
+
+    dispatchSound(phase.soundType, phase.duration);
+
+    clearInterval(timerInterval);
+    timerInterval = setInterval(function() {
+      phaseTimeRemaining -= 0.1;
+      if (phaseTimeRemaining <= 0) {
+        phaseTimeRemaining = 0;
+        updateTimerDisplay();
+        clearInterval(timerInterval);
+        transitionToNext();
+      } else {
+        updateTimerDisplay();
+      }
+    }, 100);
+  }
+
+  function transitionToNext() {
+    var method = METHODS[currentMethodIndex];
+    var nextIdx = currentPhaseIndex + 1;
+    if (nextIdx >= method.phases.length) {
+      cycleCount++;
+      cycleCountEl.textContent = cycleCount;
+      enterPhase(0);
+    } else {
+      enterPhase(nextIdx);
+    }
+  }
+
+  function startCountdown() {
+    ensureAudio();
+    stopAllSounds();
+    clearInterval(timerInterval);
+
+    appState = AppState.COUNTDOWN;
+    cycleCount = 0;
+    cycleCountEl.textContent = '0';
+    currentPhaseIndex = 0;
+
+    phaseLabel.textContent = '\u51c6\u5907\u5f00\u59cb';
+    phaseText.textContent = '';
+    phaseTimer.textContent = '';
+    setIdleStyle();
+
+    startBtn.textContent = '\u91cd\u65b0\u5f00\u59cb';
+    countdownOverlay.textContent = '3';
+    countdownOverlay.className = 'countdown-overlay show';
+    playCountdownBeep(3);
+
+    var count = 3;
+    var cdInterval = setInterval(function() {
+      count--;
+      if (count > 0) {
+        countdownOverlay.textContent = count;
+        countdownOverlay.className = 'countdown-overlay pop';
+        playCountdownBeep(count);
+        setTimeout(function() {
+          countdownOverlay.className = 'countdown-overlay show';
+        }, 150);
+      } else if (count === 0) {
+        countdownOverlay.textContent = '\u5f00 \u59cb';
+        countdownOverlay.className = 'countdown-overlay go';
+        playGoSound();
+      } else {
+        clearInterval(cdInterval);
+        countdownOverlay.className = 'countdown-overlay';
+        appState = AppState.RUNNING;
+        enterPhase(0);
+      }
+    }, 1000);
+  }
+
+  function resetToIdle() {
+    stopAllSounds();
+    clearInterval(timerInterval);
+    appState = AppState.IDLE;
+    currentPhaseIndex = 0;
+    cycleCount = 0;
+    cycleCountEl.textContent = '0';
+    phaseLabel.textContent = '\u51c6\u5907\u5f00\u59cb';
+    phaseText.textContent = '';
+    phaseTimer.textContent = '';
+    startBtn.textContent = '\u5f00\u59cb\u7ec3\u4e60';
+    countdownOverlay.className = 'countdown-overlay';
+    setIdleStyle();
+  }
+
+  /* ========== Method Switching ========== */
+  function updateMethodDisplay() {
+    var method = METHODS[currentMethodIndex];
+    methodNameEl.textContent = method.name;
+    methodPhasesEl.textContent = method.description;
+
+    var totalSeconds = method.phases.reduce(function(s, p) { return s + p.duration; }, 0);
+    var rate = (60 / totalSeconds).toFixed(1);
+    methodRateEl.textContent = '\u547c\u5438\u9891\u7387: ~' + rate + ' \u6b21/\u5206';
+    methodDescEl.textContent = method.funcDesc;
+    methodSourceEl.textContent = method.source;
+  }
+
+  function switchMethod(delta) {
+    if (appState !== AppState.IDLE) {
+      resetToIdle();
+    }
+    currentMethodIndex = (currentMethodIndex + delta + METHODS.length) % METHODS.length;
+    updateMethodDisplay();
+  }
+
+  /* ========== Event Handlers ========== */
+  startBtn.addEventListener('click', function() {
+    if (appState === AppState.IDLE) {
+      startCountdown();
+    } else {
+      resetToIdle();
+      setTimeout(function() { startCountdown(); }, 200);
+    }
+  });
+
+  soundBtn.addEventListener('click', toggleMute);
+
+  document.getElementById('methodPrev').addEventListener('click', function() {
+    switchMethod(-1);
+  });
+
+  document.getElementById('methodNext').addEventListener('click', function() {
+    switchMethod(1);
+  });
+
+  themeBar.addEventListener('click', function(e) {
+    var dot = e.target.closest('.theme-dot');
+    if (!dot) return;
+    var theme = dot.dataset.theme;
+    if (theme === currentTheme) return;
+    currentTheme = theme;
+    body.setAttribute('data-theme', theme);
+    document.querySelectorAll('.theme-dot').forEach(function(d) { d.classList.remove('active'); });
+    dot.classList.add('active');
+  });
+
+  /* ========== Background Particles ========== */
+  var ctx = particlesCanvas.getContext('2d');
+  var particles = [];
+  var animId;
+
+  function resizeCanvas() {
+    particlesCanvas.width = window.innerWidth;
+    particlesCanvas.height = window.innerHeight;
+  }
+
+  function Particle() {
+    this.reset = function(init) {
+      this.x = init ? Math.random() * particlesCanvas.width : particlesCanvas.width + 20;
+      this.y = Math.random() * particlesCanvas.height;
+      this.size = Math.random() * 2 + 0.5;
+      this.speed = Math.random() * 0.3 + 0.1;
+      this.opacity = Math.random() * 0.4 + 0.1;
+      this.angle = Math.random() * Math.PI * 2;
+      this.drift = (Math.random() - 0.5) * 0.3;
+    };
+    this.reset(true);
+    this.update = function() {
+      this.x -= this.speed;
+      this.y += Math.sin(this.angle) * this.drift;
+      this.angle += 0.005;
+      if (this.x < -20) this.reset(false);
+    };
+    this.draw = function() {
+      ctx.beginPath();
+      ctx.arc(this.x, this.y, this.size, 0, Math.PI * 2);
+      ctx.fillStyle = 'rgba(255,255,255,' + this.opacity + ')';
+      ctx.fill();
+    };
+  }
+
+  function initParticles() {
+    resizeCanvas();
+    particles = [];
+    var count = Math.floor((particlesCanvas.width * particlesCanvas.height) / 15000);
+    for (var i = 0; i < count; i++) {
+      particles.push(new Particle());
+    }
+  }
+
+  function animateParticles() {
+    ctx.clearRect(0, 0, particlesCanvas.width, particlesCanvas.height);
+    particles.forEach(function(p) { p.update(); p.draw(); });
+    animId = requestAnimationFrame(animateParticles);
+  }
+
+  window.addEventListener('resize', initParticles);
+  initParticles();
+  animateParticles();
+
+  /* ========== Init ========== */
+  updateMethodDisplay();
+  resetToIdle();
+})();
+</script>
+</body>
+</html>
