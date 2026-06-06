@@ -299,7 +299,7 @@ body {
       <input type="text" id="search" placeholder="搜索网站名称或关键词…" oninput="filterCards()">
     </div>
     <button class="theme-btn" id="themeBtn" aria-label="切换主题">🌙</button>
-    <div class="count-badge" id="countBadge">82 个站点</div>
+    <div class="count-badge" id="countBadge">111 个站点</div>
   </div>
 </header>
 
@@ -352,6 +352,13 @@ const sites = [
   { cat: '财经门户', title: '凤凰财经', desc: '财经资讯+独家观点', url: 'https://finance.ifeng.com' },
   { cat: '财经门户', title: '第一财经', desc: '专业财经媒体，宏观分析', url: 'https://www.yicai.com' },
 
+  // 快讯电报
+  { cat: '快讯电报', title: '财联社', desc: '7×24实时财经快讯，短线必备', url: 'https://www.cls.cn', tag: '必备' },
+  { cat: '快讯电报', title: '36氪', desc: '创投/科技/商业快讯', url: 'https://36kr.com' },
+  { cat: '快讯电报', title: '虎嗅', desc: '商业科技深度文章', url: 'https://www.huxiu.com' },
+  { cat: '快讯电报', title: '蓝鲸财经', desc: '一线财经记者报道', url: 'https://www.lanjinger.com' },
+  { cat: '快讯电报', title: '钛媒体', desc: '科技财经深度报道', url: 'https://www.tmtpost.com' },
+
   // 行情数据
   { cat: '行情数据', title: '东方财富行情', desc: '沪深港美实时行情，资金流向', url: 'https://quote.eastmoney.com', tag: '核心' },
   { cat: '行情数据', title: '同花顺', desc: 'Level-2行情，技术指标齐全', url: 'https://www.10jqka.com.cn' },
@@ -359,6 +366,31 @@ const sites = [
   { cat: '行情数据', title: '雪球行情', desc: '行情+讨论一体化', url: 'https://xueqiu.com/hq' },
   { cat: '行情数据', title: '东方财富数据中心', desc: '龙虎榜/资金流向/融资融券', url: 'https://data.eastmoney.com' },
   { cat: '行情数据', title: '中财网数据引擎', desc: '财报数据，行业数据查询', url: 'https://data.cfi.cn' },
+
+  // 宏观经济
+  { cat: '宏观经济', title: '国家统计局', desc: 'CPI/PPI/GDP等宏观数据发布', url: 'https://www.stats.gov.cn' },
+  { cat: '宏观经济', title: '国家数据', desc: '统计局官方数据查询平台，可自定义图表', url: 'https://data.stats.gov.cn' },
+  { cat: '宏观经济', title: '中国人民银行', desc: '货币政策/利率/金融统计数据', url: 'https://www.pbc.gov.cn' },
+  { cat: '宏观经济', title: '东方财富经济数据', desc: 'GDP/CPI/PMI/货币供应等宏观指标', url: 'https://data.eastmoney.com/cjsj/' },
+  { cat: '宏观经济', title: 'Trading Economics', desc: '全球各国经济指标对比与趋势', url: 'https://zh.tradingeconomics.com' },
+  { cat: '宏观经济', title: 'SHIBOR', desc: '上海银行间同业拆放利率', url: 'https://www.shibor.sh.cn/shibor/index.html' },
+  { cat: '宏观经济', title: '中国债券信息网', desc: '国债收益率/债市数据', url: 'https://www.chinabond.com.cn' },
+
+  // 外汇商品
+  { cat: '外汇商品', title: '中国外汇交易中心', desc: '人民币汇率中间价/外汇市场官方数据', url: 'https://www.chinamoney.com.cn', tag: '官方' },
+  { cat: '外汇商品', title: '金投网', desc: '黄金/白银/铂金等贵金属价格行情', url: 'https://www.cngold.org' },
+  { cat: '外汇商品', title: 'Kitco国际贵金属', desc: '国际黄金白银实时报价与走势图', url: 'https://www.kitco.com' },
+  { cat: '外汇商品', title: '新浪外汇', desc: '人民币对美元/欧元/英镑/日元等汇率走势', url: 'https://finance.sina.com.cn/forex' },
+  { cat: '外汇商品', title: 'XE汇率', desc: '实时汇率换算', url: 'https://www.xe.com/zh-CN' },
+  { cat: '外汇商品', title: '金十数据', desc: '外汇/商品/全球市场快讯', url: 'https://www.jin10.com' },
+  { cat: '外汇商品', title: '汇通财经', desc: '外汇/黄金行情与资讯', url: 'https://www.fx678.com' },
+
+  // 研报公告
+  { cat: '研报公告', title: '巨潮资讯网', desc: '证监会指定信息披露平台', url: 'https://www.cninfo.com.cn', tag: '必备' },
+  { cat: '研报公告', title: '上交所公告', desc: '上交所上市公司公告', url: 'https://www.sse.com.cn/disclosure/listedinfo/announcement/' },
+  { cat: '研报公告', title: '深交所公告', desc: '深交所上市公司公告', url: 'https://www.szse.cn/disclosure' },
+  { cat: '研报公告', title: '股票报告网', desc: '免费研报下载', url: 'https://www.nxny.com' },
+  { cat: '研报公告', title: '迈博汇金', desc: '券商研报查询', url: 'https://www.hibor.com.cn' },
 
   // 投资社区
   { cat: '投资社区', title: '雪球', desc: '高质量投资者社区，组合管理', url: 'https://xueqiu.com', tag: '热门' },
@@ -368,29 +400,6 @@ const sites = [
   { cat: '投资社区', title: '宁稳网', desc: '可转债/债券数据与讨论', url: 'https://www.ninwin.cn' },
   { cat: '投资社区', title: '互动易', desc: '深交所投资者互动平台', url: 'https://irm.cninfo.com.cn' },
   { cat: '投资社区', title: '上证e互动', desc: '上交所投资者互动', url: 'https://sns.sseinfo.com' },
-
-  // 基金理财
-  { cat: '基金理财', title: '天天基金网', desc: '基金净值/排行/申购费率低', url: 'https://fund.eastmoney.com', tag: '首选' },
-  { cat: '基金理财', title: '好买基金网', desc: '基金评测+私募数据', url: 'https://www.howbuy.com' },
-  { cat: '基金理财', title: '晨星中国', desc: '权威基金评级', url: 'https://www.morningstar.cn' },
-  { cat: '基金理财', title: '私募排排网', desc: '私募数据/排名/业绩', url: 'https://www.simuwang.com' },
-  { cat: '基金理财', title: '且慢', desc: '基金组合投顾平台', url: 'https://qieman.com' },
-  { cat: '基金理财', title: '中国理财网', desc: '银行理财产品查询', url: 'https://www.chinawealth.com.cn' },
-
-  // 投资学习
-  { cat: '投资学习', title: '有知有行', desc: '系统化投资教育，投资第一课经典', url: 'https://youzhiyouxing.cn', tag: '推荐' },
-  { cat: '投资学习', title: '中国投资者网学习中心', desc: '证监会主管，官方投教课程/视频/刊物', url: 'https://www.investor.org.cn/xxzx/' },
-  { cat: '投资学习', title: '新华财经投教基地', desc: '国家级投教平台，进阶学习+热点专题', url: 'https://edu.cnfin.com/tj/' },
-  { cat: '投资学习', title: '东方财富投教基地', desc: '财富书院+视频专区+模拟交易', url: 'http://toujiao.eastmoney.com/' },
-  { cat: '投资学习', title: '新浪投教基地', desc: '小白手册+视频中心，覆盖A/港/美股/期货/基金', url: 'http://toujiao.sina.com.cn/' },
-  { cat: '投资学习', title: '招商证券投教基地', desc: '牛牛学院初/中/高级课程+模拟体验', url: 'https://edu.cmschina.com' },
-  { cat: '投资学习', title: '华夏基金投教基地', desc: '基金理财教育，全生命周期投教体系', url: 'https://edu.chinaamc.com/lcjy/' },
-  { cat: '投资学习', title: '兴业证券兴E课堂', desc: '理财学院视频+模拟炒股/融资融券体验', url: 'https://edu.xyzq.cn' },
-  { cat: '投资学习', title: '长投学堂', desc: '理财干货+大咖视频+每日听书', url: 'https://edu.ichangtou.com' },
-  { cat: '投资学习', title: '证券之星投资学堂', desc: '基础到进阶，技术分析/基本面/操盘攻略', url: 'https://school.stockstar.com/school/' },
-  { cat: '投资学习', title: '钱百科', desc: '让小白秒懂金融，期权/基金/ETF通俗讲解', url: 'https://qianbaike.com' },
-  { cat: '投资学习', title: '小钱书', desc: '一站式财商教育训练营', url: 'https://www.qianshu.com' },
-  { cat: '投资学习', title: 'Hi-Finance', desc: '专业系统金融学习平台，实务课程', url: 'https://web.hi-finance.com.cn' },
 
   // 独立博客
   { cat: '独立博客', title: '兜兜爸投资笔记', desc: '每日更新，A/港/美股+加密货币，活跃度极高', url: 'https://ddbzhou.com', tag: '活跃' },
@@ -403,16 +412,13 @@ const sites = [
   { cat: '独立博客', title: '老罗投资', desc: '实盘周记+价值投资读书笔记', url: 'https://invest.zdyi.com' },
   { cat: '独立博客', title: '码农五十年', desc: '程序员视角的投资感悟', url: 'https://james-qin.me/investments/' },
 
-  // 快讯电报
-  { cat: '快讯电报', title: '财联社', desc: '7×24实时财经快讯，短线必备', url: 'https://www.cls.cn', tag: '必备' },
-  { cat: '快讯电报', title: '36氪', desc: '创投/科技/商业快讯', url: 'https://36kr.com' },
-  { cat: '快讯电报', title: '虎嗅', desc: '商业科技深度文章', url: 'https://www.huxiu.com' },
-  { cat: '快讯电报', title: '蓝鲸财经', desc: '一线财经记者报道', url: 'https://www.lanjinger.com' },
-  { cat: '快讯电报', title: '钛媒体', desc: '科技财经深度报道', url: 'https://www.tmtpost.com' },
-
-  // 微博热门
-  { cat: '微博热门', title: '股市 · 热门推荐', desc: '微博股市热门话题讨论', url: 'https://weibo.com/hot/weibo/1028031288' },
-  { cat: '微博热门', title: '财经 · 热门推荐', desc: '微博财经热门话题讨论', url: 'https://weibo.com/hot/weibo/1028036388' },
+  // 基金理财
+  { cat: '基金理财', title: '天天基金网', desc: '基金净值/排行/申购费率低', url: 'https://fund.eastmoney.com', tag: '首选' },
+  { cat: '基金理财', title: '好买基金网', desc: '基金评测+私募数据', url: 'https://www.howbuy.com' },
+  { cat: '基金理财', title: '晨星中国', desc: '权威基金评级', url: 'https://www.morningstar.cn' },
+  { cat: '基金理财', title: '私募排排网', desc: '私募数据/排名/业绩', url: 'https://www.simuwang.com' },
+  { cat: '基金理财', title: '且慢', desc: '基金组合投顾平台', url: 'https://qieman.com' },
+  { cat: '基金理财', title: '中国理财网', desc: '银行理财产品查询', url: 'https://www.chinawealth.com.cn' },
 
   // 港美股
   { cat: '港美股', title: '老虎国际', desc: '美港股交易/资讯/社区', url: 'https://www.itiger.com/sg/hans/' },
@@ -430,51 +436,56 @@ const sites = [
   { cat: '企业信息', title: '天眼查', desc: '企业工商信息/股权穿透/司法风险', url: 'https://www.tianyancha.com', tag: '实用' },
   { cat: '企业信息', title: '企查查', desc: '企业信用/风险/招投标查询', url: 'https://www.qichacha.com' },
   { cat: '企业信息', title: '启信宝', desc: '企业信息/商业查询', url: 'https://www.qixin.com' },
+  { cat: '企业信息', title: '88查首页', desc: '查企业/查风险/AI查，企业信息查询系统', url: 'https://88cha.com/search' },
 
-  // 期货衍生品
-  { cat: '期货衍生品', title: '上期所', desc: '有色/贵金属/能化期货行情规则', url: 'https://www.shfe.com.cn' },
-  { cat: '期货衍生品', title: '大商所', desc: '农产品/黑色系期货', url: 'http://www.dce.com.cn/' },
-  { cat: '期货衍生品', title: '郑商所', desc: '农产品/化工期货', url: 'https://www.czce.com.cn' },
-  { cat: '期货衍生品', title: '中金所', desc: '股指期货/国债期货', url: 'http://www.cffex.com.cn/cn/index.html' },
-  { cat: '期货衍生品', title: '上期能源', desc: '原油期货/国际能源期货', url: 'https://www.ine.cn' },
-
-  // 研报与公告
-  { cat: '研报公告', title: '巨潮资讯网', desc: '证监会指定信息披露平台', url: 'https://www.cninfo.com.cn', tag: '必备' },
-  { cat: '研报公告', title: '上交所公告', desc: '上交所上市公司公告', url: 'https://www.sse.com.cn/disclosure/listedinfo/announcement/' },
-  { cat: '研报公告', title: '深交所公告', desc: '深交所上市公司公告', url: 'https://www.szse.cn/disclosure' },
-  { cat: '研报公告', title: '股票报告网', desc: '免费研报下载', url: 'https://www.nxny.com' },
-  { cat: '研报公告', title: '迈博汇金', desc: '券商研报查询', url: 'https://www.hibor.com.cn' },
-
-  // 打新
+  // IPO打新
   { cat: 'IPO打新', title: '东方财富新股数据', desc: '新股申购与中签查询', url: 'https://data.eastmoney.com/xg/' },
-  // 官方机构
-  { cat: '官方机构', title: '中国证监会', desc: '政策法规/监管动态', url: 'https://www.csrc.gov.cn' },
-  { cat: '官方机构', title: '上交所', desc: '规则/数据/上市公司', url: 'https://www.sse.com.cn' },
-  { cat: '官方机构', title: '深交所', desc: '规则/数据/上市公司', url: 'https://www.szse.cn' },
-  { cat: '官方机构', title: '港交所', desc: '港股规则/数据', url: 'https://www.hkex.com.hk/?sc_lang=zh-hk' },
-  { cat: '官方机构', title: '中国结算', desc: '证券登记/结算/查询', url: 'https://www.chinaclear.cn' },
-  { cat: '官方机构', title: '中证指数', desc: '指数编制/查询', url: 'https://www.csindex.com.cn' },
-  { cat: '官方机构', title: '国家统计局', desc: 'CPI/PPI/GDP等宏观数据', url: 'https://www.stats.gov.cn' },
-  { cat: '官方机构', title: '中国人民银行', desc: '货币政策/利率/汇率', url: 'https://www.pbc.gov.cn' },
 
-  // 国际财经
-  { cat: '国际财经', title: '华尔街日报中文', desc: '全球财经深度报道', url: 'https://cn.wsj.com' },
-  { cat: '国际财经', title: 'FT中文网', desc: '金融时报中文版', url: 'https://www.ftchinese.com' },
-  { cat: '国际财经', title: '华尔街见闻', desc: '全球市场快讯', url: 'https://wallstreetcn.com' },
-  { cat: '国际财经', title: '路透中文网', desc: '全球财经新闻', url: 'https://cn.reuters.com' },
-  { cat: '国际财经', title: '金十数据', desc: '外汇/商品/全球市场快讯', url: 'https://www.jin10.com' },
-  { cat: '国际财经', title: '汇通财经', desc: '外汇/黄金行情与资讯', url: 'https://www.fx678.com' },
+  // 微博热门
+  { cat: '微博热门', title: '股市 · 热门推荐', desc: '微博股市热门话题讨论', url: 'https://weibo.com/hot/weibo/1028031288' },
+  { cat: '微博热门', title: '财经 · 热门推荐', desc: '微博财经热门话题讨论', url: 'https://weibo.com/hot/weibo/1028036388' },
+
+  // 投资学习
+  { cat: '投资学习', title: '有知有行', desc: '系统化投资教育，投资第一课经典', url: 'https://youzhiyouxing.cn', tag: '推荐' },
+  { cat: '投资学习', title: '中国投资者网学习中心', desc: '证监会主管，官方投教课程/视频/刊物', url: 'https://www.investor.org.cn/xxzx/' },
+  { cat: '投资学习', title: '新华财经投教基地', desc: '国家级投教平台，进阶学习+热点专题', url: 'https://edu.cnfin.com/tj/' },
+  { cat: '投资学习', title: '东方财富投教基地', desc: '财富书院+视频专区+模拟交易', url: 'http://toujiao.eastmoney.com/' },
+  { cat: '投资学习', title: '新浪投教基地', desc: '小白手册+视频中心，覆盖A/港/美股/期货/基金', url: 'http://toujiao.sina.com.cn/' },
+  { cat: '投资学习', title: '招商证券投教基地', desc: '牛牛学院初/中/高级课程+模拟体验', url: 'https://edu.cmschina.com' },
+  { cat: '投资学习', title: '华夏基金投教基地', desc: '基金理财教育，全生命周期投教体系', url: 'https://edu.chinaamc.com/lcjy/' },
+  { cat: '投资学习', title: '兴业证券兴E课堂', desc: '理财学院视频+模拟炒股/融资融券体验', url: 'https://edu.xyzq.cn' },
+  { cat: '投资学习', title: '长投学堂', desc: '理财干货+大咖视频+每日听书', url: 'https://edu.ichangtou.com' },
+  { cat: '投资学习', title: '证券之星投资学堂', desc: '基础到进阶，技术分析/基本面/操盘攻略', url: 'https://school.stockstar.com/school/' },
+  { cat: '投资学习', title: '钱百科', desc: '让小白秒懂金融，期权/基金/ETF通俗讲解', url: 'https://qianbaike.com' },
+  { cat: '投资学习', title: '小钱书', desc: '一站式财商教育训练营', url: 'https://www.qianshu.com' },
+  { cat: '投资学习', title: 'Hi-Finance', desc: '专业系统金融学习平台，实务课程', url: 'https://web.hi-finance.com.cn' },
+
+  // 监管与交易所
+  { cat: '监管与交易所', title: '中国证监会', desc: '政策法规/监管动态', url: 'https://www.csrc.gov.cn' },
+  { cat: '监管与交易所', title: '上交所', desc: '规则/数据/上市公司', url: 'https://www.sse.com.cn' },
+  { cat: '监管与交易所', title: '深交所', desc: '规则/数据/上市公司', url: 'https://www.szse.cn' },
+  { cat: '监管与交易所', title: '港交所', desc: '港股规则/数据', url: 'https://www.hkex.com.hk/?sc_lang=zh-hk' },
+  { cat: '监管与交易所', title: '中国结算', desc: '证券登记/结算/查询', url: 'https://www.chinaclear.cn' },
+  { cat: '监管与交易所', title: '中证指数', desc: '指数编制/查询', url: 'https://www.csindex.com.cn' },
+  { cat: '监管与交易所', title: '上期所', desc: '有色/贵金属/能化期货行情规则', url: 'https://www.shfe.com.cn' },
+  { cat: '监管与交易所', title: '大商所', desc: '农产品/黑色系期货', url: 'http://www.dce.com.cn/' },
+  { cat: '监管与交易所', title: '郑商所', desc: '农产品/化工期货', url: 'https://www.czce.com.cn' },
+  { cat: '监管与交易所', title: '中金所', desc: '股指期货/国债期货', url: 'http://www.cffex.com.cn/cn/index.html' },
+  { cat: '监管与交易所', title: '上期能源', desc: '原油期货/国际能源期货', url: 'https://www.ine.cn' },
 
   // 专业工具
   { cat: '专业工具', title: '问财', desc: '同花顺智能选股/数据查询', url: 'https://www.iwencai.com', tag: '好用' },
   { cat: '专业工具', title: '雪球选股器', desc: '条件选股', url: 'https://xueqiu.com/1894299685/83986683' },
   { cat: '专业工具', title: '东方财富选股器', desc: '多维条件选股', url: 'https://data.eastmoney.com/xuangu/' },
   { cat: '专业工具', title: '百度指数', desc: '搜索热度/趋势分析', url: 'https://index.baidu.com' },
-  { cat: '专业工具', title: 'SHIBOR', desc: '上海银行间同业拆放利率', url: 'https://www.shibor.sh.cn/shibor/index.html' },
-  { cat: '专业工具', title: '中国债券信息网', desc: '国债收益率/债市数据', url: 'https://www.chinabond.com.cn' },
-  { cat: '专业工具', title: 'XE汇率', desc: '实时汇率换算', url: 'https://www.xe.com/zh-CN' },
   { cat: '专业工具', title: 'FIRE计算器', desc: '尽早退休计算器', url: 'https://firecalculate.github.io/index.html' },
   { cat: '专业工具', title: '房产租售比计算器', desc: '计算房产投资回报率', url: 'https://firecalculate.github.io/rental.html' },
+
+  // 国际财经
+  { cat: '国际财经', title: '华尔街日报中文', desc: '全球财经深度报道', url: 'https://cn.wsj.com' },
+  { cat: '国际财经', title: 'FT中文网', desc: '金融时报中文版', url: 'https://www.ftchinese.com' },
+  { cat: '国际财经', title: '华尔街见闻', desc: '全球市场快讯', url: 'https://wallstreetcn.com' },
+  { cat: '国际财经', title: '路透中文网', desc: '全球财经新闻', url: 'https://cn.reuters.com' },
 ];
 
 const cats = [...new Set(sites.map(s => s.cat))];
