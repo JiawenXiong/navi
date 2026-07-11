@@ -122,6 +122,7 @@ title = '英语学习资源导航'
 4. [英语听力逐句精听](https://www.youzack.com/)
 5. [英文 听写练习](https://speechling.com/zh/dictation/english)
 6. [《每日英语听力》专业好用的离线英语听力软件](https://www.eudic.net/v4/en/app/ting)
+7. [巴别英语 - 看视频学英语](https://www.babelabc.cn/)
 
 ### 背单词
 
@@ -136,18 +137,14 @@ title = '英语学习资源导航'
 ### 阅读
 
 1. [Quora](https://www.quora.com/)
-
 2. [英文小说网](https://novel.tingroom.com/)
-
 3. [原版英语小说_英文小说网](https://novel.tingroom.com/tags.php?/%E5%8E%9F%E7%89%88%E8%8B%B1%E8%AF%AD%E5%B0%8F%E8%AF%B4)
-
 4. [英文小说网 - 英语小说网 - 趣词英语阅读](https://www.quword.com/novel/)
-
 5. [Wuxiaworld | Read Fantasy Novels](https://www.wuxiaworld.com/)
-
 6. [The Pudding](https://pudding.cool/)
-
 7. [11 个高质量的英语文章阅读网站APP推荐，学英语不能错过！ | Readle](https://readle-app.com/zh-hans/blog/learn-english-reading-resource)
+8. [Daily English - 5 Minutes to Better English](https://en.zhixing.co/)
+9. [经典英文名著小说 - 与经典邂逅，与英语共舞](https://bookyell.com/)
 
 
 ## 在线词典
