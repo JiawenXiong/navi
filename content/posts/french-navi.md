@@ -152,6 +152,7 @@ title = '法语学习资源导航'
 
 11. [【200集|法语情景对话】涵盖生活99%场景的法语影子跟读，每天10分钟，语境高效记单词，飞速提升你的法语口语听力！_哔哩哔哩_bilibili](https://www.bilibili.com/video/BV1ZK4JzPE3B/?spm_id_from=333.788.recommend_more_video.9&trackid=web_related_0.router-related-2206419-7v86w.1764359445130.794&vd_source=4572c73dbbfb598c49de5434f0520dae)
 
+12. [法语零基础学习900句：从入门到流利](https://www.tukkk.com/3french/)
 ## 听力
 
 ### 播客
