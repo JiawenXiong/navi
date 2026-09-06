@@ -195,317 +195,4423 @@
 <script>
 const data = [
   {
-    name: "AI 平台与模型", emoji: "🤖",
-    items: [
-      { name: "ChatGPT", url: "https://chat.openai.com", desc: "OpenAI 旗舰对话 AI", tags: ["AI", "对话"] },
-      { name: "Claude", url: "https://claude.ai", desc: "Anthropic 智能助手", tags: ["AI", "对话"] },
-      { name: "Gemini", url: "https://gemini.google.com", desc: "Google 多模态 AI", tags: ["AI", "对话"] },
-      { name: "DeepSeek", url: "https://chat.deepseek.com", desc: "国产开源大模型", tags: ["AI", "对话"] },
-      { name: "Perplexity", url: "https://perplexity.ai", desc: "AI 搜索引擎", tags: ["AI", "搜索"] },
-      { name: "Grok", url: "https://grok.com", desc: "xAI 对话 AI", tags: ["AI", "对话"] },
-      { name: "Kimi", url: "https://kimi.moonshot.cn", desc: "月之暗面长文本 AI", tags: ["AI", "对话"] },
-      { name: "豆包", url: "https://doubao.com", desc: "字节跳动 AI 助手", tags: ["AI", "对话"] },
-      { name: "通义千问", url: "https://tongyi.aliyun.com", desc: "阿里云 AI 大模型", tags: ["AI", "对话"] },
-      { name: "文心一言", url: "https://yiyan.baidu.com", desc: "百度 AI 对话", tags: ["AI", "对话"] },
-      { name: "混元", url: "https://hunyuan.tencent.com", desc: "腾讯 AI 大模型", tags: ["AI", "对话"] },
-      { name: "Hugging Face", url: "https://huggingface.co", desc: "模型/数据集/空间中心", tags: ["模型", "社区"] },
-      { name: "Poe", url: "https://poe.com", desc: "Quora 多模型聚合平台", tags: ["AI", "聚合"] },
-      { name: "OpenAI API", url: "https://platform.openai.com", desc: "OpenAI 开发者平台", tags: ["API", "开发"] },
-      { name: "Google AI Studio", url: "https://aistudio.google.com", desc: "Gemini API 调试平台", tags: ["API", "开发"] },
-      { name: "Anthropic Console", url: "https://console.anthropic.com", desc: "Anthropic API 控制台", tags: ["API", "开发"] },
-      { name: "Mistral AI", url: "https://mistral.ai", desc: "法国开源 AI 平台", tags: ["AI", "开源"] },
-      { name: "Cohere", url: "https://cohere.com", desc: "企业级 AI API", tags: ["API", "企业"] },
-      { name: "Replicate", url: "https://replicate.com", desc: "云端模型运行平台", tags: ["API", "推理"] },
-      { name: "Together AI", url: "https://together.ai", desc: "开源模型推理 API", tags: ["API", "推理"] },
-      { name: "Groq", url: "https://groq.com", desc: "超快推理芯片 + 开源模型", tags: ["AI", "推理"] },
-      { name: "OpenRouter", url: "https://openrouter.ai", desc: "多模型统一 API", tags: ["API", "多模型"] },
-      { name: "Fireworks AI", url: "https://fireworks.ai", desc: "快速推理平台", tags: ["API", "推理"] },
-      { name: "SiliconFlow", url: "https://siliconflow.cn", desc: "国产 AI 推理平台", tags: ["API", "推理"] },
+    "name": "AI 对话助手",
+    "emoji": "💬",
+    "items": [
+      {
+        "name": "ChatGPT",
+        "url": "https://chatgpt.com/",
+        "desc": "OpenAI · 多模态 / 联网搜索 / 深度思考 / 深度研究 / 图像生成",
+        "tags": [
+          "AI",
+          "对话",
+          "多模态"
+        ]
+      },
+      {
+        "name": "Claude",
+        "url": "https://claude.ai/",
+        "desc": "Anthropic · 多模态 / 联网搜索 / 深度思考",
+        "tags": [
+          "AI",
+          "对话"
+        ]
+      },
+      {
+        "name": "Gemini",
+        "url": "https://gemini.google.com/",
+        "desc": "Google · 多模态 / 联网搜索 / 深度思考 / 深度研究 / 图片编辑",
+        "tags": [
+          "AI",
+          "对话",
+          "多模态"
+        ]
+      },
+      {
+        "name": "DeepSeek",
+        "url": "https://chat.deepseek.com/",
+        "desc": "深度求索 · 多模态 / 联网搜索 / 深度思考 / 深度研究 / 图像生成",
+        "tags": [
+          "AI",
+          "对话",
+          "多模态"
+        ]
+      },
+      {
+        "name": "Microsoft Copilot",
+        "url": "https://copilot.microsoft.com/",
+        "desc": "Microsoft · 多模态 / 联网搜索 / 深度思考",
+        "tags": [
+          "AI",
+          "对话",
+          "助手"
+        ]
+      },
+      {
+        "name": "Grok",
+        "url": "https://grok.com/",
+        "desc": "x · 多模态 / 联网搜索 / 深度思考 / 深度研究 / 图像生成",
+        "tags": [
+          "AI",
+          "对话",
+          "多模态"
+        ]
+      },
+      {
+        "name": "Kimi",
+        "url": "https://kimi.moonshot.cn/",
+        "desc": "月之暗面 · 超大内存 / 多模态 / 联网搜索 / 深度思考 / 深度研究",
+        "tags": [
+          "AI",
+          "对话",
+          "长文本"
+        ]
+      },
+      {
+        "name": "豆包",
+        "url": "https://www.doubao.com/",
+        "desc": "字节跳动 · 多模态 / 联网搜索 / 深度思考 / 深度研究 / 图像生成 / 音乐生成 / 视频生成",
+        "tags": [
+          "AI",
+          "对话",
+          "多模态"
+        ]
+      },
+      {
+        "name": "通义千问",
+        "url": "https://www.qianwen.com/",
+        "desc": "阿里巴巴 · 多模态 / 联网搜索 / 深度思考 / 深度研究 / 图像生成 / 视频生成",
+        "tags": [
+          "AI",
+          "对话",
+          "多模态"
+        ]
+      },
+      {
+        "name": "腾讯元宝",
+        "url": "https://yuanbao.tencent.com/",
+        "desc": "腾讯 · 多模态 / 联网搜索 / 图像生成 / 深度思考",
+        "tags": [
+          "AI",
+          "对话",
+          "国内"
+        ]
+      },
+      {
+        "name": "文心一言",
+        "url": "https://yiyan.baidu.com/",
+        "desc": "百度 · 多模态 / 联网搜索 / 图像生成 / 深度思考",
+        "tags": [
+          "AI",
+          "对话",
+          "国内"
+        ]
+      },
+      {
+        "name": "POE",
+        "url": "https://poe.com/",
+        "desc": "Quora · 多模型聚合对话平台",
+        "tags": [
+          "AI",
+          "对话",
+          "聚合"
+        ]
+      },
+      {
+        "name": "智谱清言",
+        "url": "https://chatglm.cn/",
+        "desc": "智谱华章 · 多模态 / 联网搜索 / 深度思考 / 图像生成 / 视频生成",
+        "tags": [
+          "AI",
+          "对话",
+          "多模态"
+        ]
+      },
+      {
+        "name": "讯飞星火",
+        "url": "https://xinghuo.xfyun.cn/",
+        "desc": "科大讯飞 · 新一代认知智能大模型",
+        "tags": [
+          "AI",
+          "对话",
+          "国内"
+        ]
+      },
+      {
+        "name": "海螺 AI",
+        "url": "https://hailuoai.com/",
+        "desc": "稀宇科技 · 多模态 / 联网搜索 / 深度思考 / 视频生成",
+        "tags": [
+          "AI",
+          "对话",
+          "视频"
+        ]
+      },
+      {
+        "name": "Le Chat",
+        "url": "https://chat.mistral.ai/",
+        "desc": "Mistral AI · 联网搜索 / 深度思考 / 图像生成",
+        "tags": [
+          "AI",
+          "对话"
+        ]
+      },
+      {
+        "name": "Luca",
+        "url": "https://luca.cn/",
+        "desc": "面壁智能 · 千亿多模态大模型免费对话助手",
+        "tags": [
+          "AI",
+          "对话",
+          "多模态"
+        ]
+      },
+      {
+        "name": "百小应",
+        "url": "https://ying.baichuan-ai.com/chat",
+        "desc": "百川智能 · 融合意图理解、信息检索与强化学习",
+        "tags": [
+          "AI",
+          "对话",
+          "国内"
+        ]
+      }
     ]
   },
   {
-    name: "AI 编程工具", emoji: "🛠",
-    items: [
-      { name: "GitHub Copilot", url: "https://github.com/features/copilot", desc: "微软 AI 编程助手", tags: ["编程", "IDE"] },
-      { name: "Cursor", url: "https://cursor.com", desc: "AI 原生代码编辑器", tags: ["编程", "IDE"] },
-      { name: "Claude Code", url: "https://claude.ai/code", desc: "Anthropic 终端编程代理", tags: ["编程", "代理"] },
-      { name: "Windsurf", url: "https://codeium.com/windsurf", desc: "智能 IDE（原 Codeium）", tags: ["编程", "IDE"] },
-      { name: "Cline", url: "https://cline.bot", desc: "VS Code AI 代理扩展", tags: ["编程", "扩展"] },
-      { name: "Continue", url: "https://continue.dev", desc: "开源 AI 编程助手", tags: ["编程", "开源"] },
-      { name: "v0", url: "https://v0.dev", desc: "Vercel AI 前端生成", tags: ["前端", "生成"] },
-      { name: "Replit", url: "https://replit.com", desc: "在线 IDE + AI 代理", tags: ["IDE", "在线"] },
-      { name: "Bolt.new", url: "https://bolt.new", desc: "全栈 AI 应用生成", tags: ["全栈", "生成"] },
-      { name: "Zed AI", url: "https://zed.dev", desc: "高性能 AI 代码编辑器", tags: ["编程", "IDE"] },
-      { name: "JetBrains AI", url: "https://www.jetbrains.com/ai", desc: "JetBrains IDE AI 集成", tags: ["编程", "IDE"] },
-      { name: "Tabnine", url: "https://tabnine.com", desc: "AI 代码补全", tags: ["编程", "补全"] },
-      { name: "Amazon Q Developer", url: "https://aws.amazon.com/q/developer", desc: "AWS 开发助手", tags: ["编程", "AWS"] },
-      { name: "Gemini Code Assist", url: "https://cloud.google.com/gemini-code-assist", desc: "Google 代码助手", tags: ["编程", "IDE"] },
-      { name: "Supermaven", url: "https://supermaven.com", desc: "超快 AI 代码补全", tags: ["编程", "补全"] },
-      { name: "Sourcegraph Cody", url: "https://sourcegraph.com/cody", desc: "代码库感知 AI 助手", tags: ["编程", "搜索"] },
-      { name: "Augment Code", url: "https://augmentcode.com", desc: "深度代码理解助手", tags: ["编程", "代理"] },
-      { name: "Qodo", url: "https://www.qodo.ai", desc: "AI 代码审查与测试", tags: ["审查", "测试"] },
-      { name: "CodeRabbit", url: "https://coderabbit.ai", desc: "AI 代码审查", tags: ["审查", "PR"] },
-      { name: "Lovable", url: "https://lovable.dev", desc: "AI 全栈构建器", tags: ["全栈", "生成"] },
-      { name: "Sweep AI", url: "https://sweep.dev", desc: "AI 自动修 Bug", tags: ["编程", "自动化"] },
-      { name: "Tabby", url: "https://tabby.tabbyml.com", desc: "自托管 AI 代码补全", tags: ["编程", "自托管"] },
-      { name: "OpenClaw", url: "https://openclaw.ai", desc: "全渠道 AI 个人助手", tags: ["AI", "助手"] },
+    "name": "AI 搜索",
+    "emoji": "🔍",
+    "items": [
+      {
+        "name": "Perplexity",
+        "url": "https://www.perplexity.ai/",
+        "desc": "Perplexity AI · 人工智能驱动的问答引擎",
+        "tags": [
+          "搜索",
+          "AI"
+        ]
+      },
+      {
+        "name": "秘塔AI搜索",
+        "url": "https://metaso.cn/",
+        "desc": "秘塔科技 · 没有广告，直达结果",
+        "tags": [
+          "搜索",
+          "国内"
+        ]
+      },
+      {
+        "name": "知乎直答",
+        "url": "https://zhida.zhihu.com/",
+        "desc": "知乎 · AI 搜索引擎",
+        "tags": [
+          "搜索",
+          "国内"
+        ]
+      },
+      {
+        "name": "纳米AI搜索",
+        "url": "https://www.n.cn/",
+        "desc": "360 · 联网搜索 / 深度思考",
+        "tags": [
+          "搜索",
+          "国内"
+        ]
+      },
+      {
+        "name": "Phind",
+        "url": "https://www.phind.com/",
+        "desc": "开发者的 AI 搜索引擎",
+        "tags": [
+          "搜索",
+          "程序员"
+        ]
+      },
+      {
+        "name": "Devv",
+        "url": "https://devv.ai/",
+        "desc": "Devv · 面向程序员的新一代 AI 搜索",
+        "tags": [
+          "搜索",
+          "程序员"
+        ]
+      },
+      {
+        "name": "DuckDuckGo AI",
+        "url": "https://duck.ai",
+        "desc": "Duck.ai · 联网搜索 / 深度思考",
+        "tags": [
+          "搜索"
+        ]
+      },
+      {
+        "name": "Felo",
+        "url": "https://felo.ai/search",
+        "desc": "可搜索封闭平台（小红书 / reddit / X）内容",
+        "tags": [
+          "搜索",
+          "社交"
+        ]
+      },
+      {
+        "name": "Iask",
+        "url": "https://iask.ai/",
+        "desc": "快速准确的 AI 搜索引擎",
+        "tags": [
+          "搜索"
+        ]
+      },
+      {
+        "name": "Komo",
+        "url": "https://komo.ai/",
+        "desc": "简洁直观的 AI 搜索引擎",
+        "tags": [
+          "搜索"
+        ]
+      },
+      {
+        "name": "Thinkany",
+        "url": "https://thinkany.ai/",
+        "desc": "新时代的 AI 搜索引擎",
+        "tags": [
+          "搜索"
+        ]
+      },
+      {
+        "name": "Andi",
+        "url": "https://andisearch.com/",
+        "desc": "对话式人工智能搜索引擎",
+        "tags": [
+          "搜索",
+          "对话"
+        ]
+      },
+      {
+        "name": "Globe explorer",
+        "url": "https://explorer.globe.engineer/",
+        "desc": "AI 结构化知识搜索引擎",
+        "tags": [
+          "搜索",
+          "知识"
+        ]
+      }
     ]
   },
   {
-    name: "代码托管与协作", emoji: "💻",
-    items: [
-      { name: "GitHub", url: "https://github.com", desc: "全球最大代码托管平台", tags: ["托管", "协作"] },
-      { name: "GitLab", url: "https://gitlab.com", desc: "DevOps 一体化平台", tags: ["托管", "DevOps"] },
-      { name: "Bitbucket", url: "https://bitbucket.org", desc: "Atlassian 代码托管", tags: ["托管", "协作"] },
-      { name: "Gitee", url: "https://gitee.com", desc: "国产代码托管平台", tags: ["托管", "国内"] },
-      { name: "Codeberg", url: "https://codeberg.org", desc: "开源社区代码托管", tags: ["托管", "开源"] },
-      { name: "SourceForge", url: "https://sourceforge.net", desc: "开源项目托管", tags: ["托管", "开源"] },
+    "name": "AI 智能体",
+    "emoji": "🤖",
+    "items": [
+      {
+        "name": "Dify",
+        "url": "https://dify.ai/",
+        "desc": "LangGenius · AI 应用可视化构建平台",
+        "tags": [
+          "智能体",
+          "低代码"
+        ]
+      },
+      {
+        "name": "扣子",
+        "url": "https://www.coze.cn/",
+        "desc": "字节跳动 · 智能体搭建平台",
+        "tags": [
+          "智能体",
+          "国内"
+        ]
+      },
+      {
+        "name": "Coze",
+        "url": "https://www.coze.com/",
+        "desc": "字节跳动 · 智能体搭建平台",
+        "tags": [
+          "智能体"
+        ]
+      },
+      {
+        "name": "天工AI",
+        "url": "https://www.tiangong.cn/",
+        "desc": "天工 · 超级智能体（搜索 / 对话 / 写作 / PPT 全能助手）",
+        "tags": [
+          "搜索",
+          "智能体",
+          "国内"
+        ]
+      },
+      {
+        "name": "Genspark",
+        "url": "https://www.genspark.ai/",
+        "desc": "智能体驱动的 AI 搜索与工作空间",
+        "tags": [
+          "智能体",
+          "搜索"
+        ]
+      },
+      {
+        "name": "文心智能体",
+        "url": "https://agents.baidu.com/",
+        "desc": "百度 · 智能体搭建平台",
+        "tags": [
+          "智能体",
+          "国内"
+        ]
+      },
+      {
+        "name": "Flowith",
+        "url": "https://flo.ing/",
+        "desc": "Flowith · 无限画布式 Agent 工作空间",
+        "tags": [
+          "智能体",
+          "工作流"
+        ]
+      },
+      {
+        "name": "Kuse",
+        "url": "https://app.kuse.ai/",
+        "desc": "Kuse · AI 智能体 / 虚拟员工",
+        "tags": [
+          "智能体",
+          "AI"
+        ]
+      },
+      {
+        "name": "OpenClaw",
+        "url": "https://openclaw.ai",
+        "desc": "OpenClaw · 全渠道个人 AI 智能体助理",
+        "tags": [
+          "AI",
+          "智能体",
+          "个人助手"
+        ]
+      }
     ]
   },
   {
-    name: "学习与教程", emoji: "📚",
-    items: [
-      { name: "freeCodeCamp", url: "https://freecodecamp.org", desc: "免费编程教程", tags: ["编程", "免费"] },
-      { name: "Codecademy", url: "https://codecademy.com", desc: "交互式编程学习", tags: ["编程", "交互"] },
-      { name: "MDN Web Docs", url: "https://developer.mozilla.org", desc: "Web 开发权威文档", tags: ["文档", "Web"] },
-      { name: "W3Schools", url: "https://w3schools.com", desc: "Web 技术入门教程", tags: ["教程", "Web"] },
-      { name: "The Odin Project", url: "https://theodinproject.com", desc: "全栈 Web 开发课程", tags: ["全栈", "课程"] },
-      { name: "Full Stack Open", url: "https://fullstackopen.com", desc: "现代 Web 开发深度课程", tags: ["全栈", "课程"] },
-      { name: "DeepLearning.AI", url: "https://deeplearning.ai", desc: "Andrew Ng 课程平台", tags: ["ML", "课程"] },
-      { name: "fast.ai", url: "https://fast.ai", desc: "实战深度学习课程", tags: ["ML", "课程"] },
-      { name: "Scrimba", url: "https://scrimba.com", desc: "互动式编程课程", tags: ["编程", "交互"] },
-      { name: "Exercism", url: "https://exercism.org", desc: "多语言编程练习", tags: ["编程", "练习"] },
-      { name: "Frontend Masters", url: "https://frontendmasters.com", desc: "前端进阶课程", tags: ["前端", "课程"] },
-      { name: "Pluralsight", url: "https://pluralsight.com", desc: "技术技能提升平台", tags: ["课程", "技术"] },
-      { name: "O'Reilly Learning", url: "https://learning.oreilly.com", desc: "技术书籍/视频/实验室", tags: ["书籍", "课程"] },
-      { name: "MIT OpenCourseWare", url: "https://ocw.mit.edu", desc: "MIT 免费课程", tags: ["课程", "免费"] },
-      { name: "Stanford Online", url: "https://online.stanford.edu", desc: "斯坦福在线课程", tags: ["课程", "免费"] },
-      { name: "Roadmap.sh", url: "https://roadmap.sh", desc: "开发者成长路线图", tags: ["路线", "规划"] },
-      { name: "Programiz", url: "https://programiz.com", desc: "免费编程学习", tags: ["编程", "免费"] },
-      { name: "Kaggle Learn", url: "https://kaggle.com/learn", desc: "ML 微课程", tags: ["ML", "教程"] },
-      { name: "Learn Prompting", url: "https://learnprompting.org", desc: "AI 提示工程指南", tags: ["AI", "提示"] },
-      { name: "Hugging Face Learn", url: "https://huggingface.co/learn", desc: "HF 机器学习课程", tags: ["ML", "课程"] },
+    "name": "AI 创意工坊",
+    "emoji": "🎨",
+    "items": [
+      {
+        "name": "Midjourney",
+        "url": "https://www.midjourney.com/",
+        "desc": "Midjourney · 图像生成",
+        "tags": [
+          "创意",
+          "图像"
+        ]
+      },
+      {
+        "name": "Sora",
+        "url": "https://sora.chatgpt.com/explore",
+        "desc": "OpenAI · 视频生成",
+        "tags": [
+          "创意",
+          "视频"
+        ]
+      },
+      {
+        "name": "即梦AI",
+        "url": "https://jimeng.jianying.com/",
+        "desc": "字节跳动 · 图像生成 / 视频生成",
+        "tags": [
+          "创意",
+          "图像",
+          "视频"
+        ]
+      },
+      {
+        "name": "可灵AI",
+        "url": "https://klingai.kuaishou.com/",
+        "desc": "快手 · 图像生成 / 视频生成",
+        "tags": [
+          "创意",
+          "图像",
+          "视频"
+        ]
+      },
+      {
+        "name": "Suno",
+        "url": "https://suno.com/",
+        "desc": "Suno, Inc. · 音乐生成",
+        "tags": [
+          "创意",
+          "音乐"
+        ]
+      },
+      {
+        "name": "Runway",
+        "url": "https://app.runwayml.com/",
+        "desc": "Runway AI, Inc. · 图像生成 / 视频生成",
+        "tags": [
+          "创意",
+          "视频"
+        ]
+      },
+      {
+        "name": "Adobe Firefly",
+        "url": "https://firefly.adobe.com/",
+        "desc": "Adobe · 图像生成",
+        "tags": [
+          "创意",
+          "图像"
+        ]
+      },
+      {
+        "name": "Pika",
+        "url": "https://pika.art/",
+        "desc": "Mellis, Inc. · 图像生成 / 视频生成",
+        "tags": [
+          "创意",
+          "视频"
+        ]
+      },
+      {
+        "name": "SeaArt",
+        "url": "https://www.seaart.ai/",
+        "desc": "SeaArt, Inc. · 图像生成",
+        "tags": [
+          "创意",
+          "图像"
+        ]
+      },
+      {
+        "name": "Dream Machine",
+        "url": "https://lumalabs.ai/",
+        "desc": "Luma AI, Inc. · 图像生成 / 视频生成",
+        "tags": [
+          "创意",
+          "视频"
+        ]
+      },
+      {
+        "name": "KREA",
+        "url": "https://www.krea.ai/",
+        "desc": "KREA.AI · 图像生成 / 视频生成",
+        "tags": [
+          "创意",
+          "图像",
+          "视频"
+        ]
+      },
+      {
+        "name": "Vidu",
+        "url": "https://www.vidu.studio/zh",
+        "desc": "Vidu · 图像生成 / 视频生成",
+        "tags": [
+          "创意",
+          "视频"
+        ]
+      },
+      {
+        "name": "PixVerse",
+        "url": "https://app.pixverse.ai/",
+        "desc": "PixVerse · 图像生成 / 视频生成",
+        "tags": [
+          "创意",
+          "视频"
+        ]
+      },
+      {
+        "name": "FLUX.1",
+        "url": "https://flux-ai.io/",
+        "desc": "Black Forest Labs · 图像生成 / 视频生成",
+        "tags": [
+          "创意",
+          "图像",
+          "视频"
+        ]
+      },
+      {
+        "name": "Riffusion",
+        "url": "https://www.riffusion.com/",
+        "desc": "Corpusant, Inc. · 音乐生成",
+        "tags": [
+          "创意",
+          "音乐"
+        ]
+      },
+      {
+        "name": "海螺音乐",
+        "url": "https://hailuoai.com/music",
+        "desc": "稀宇科技 · 音乐生成",
+        "tags": [
+          "创意",
+          "音乐"
+        ]
+      },
+      {
+        "name": "WHEE",
+        "url": "https://www.whee.com/",
+        "desc": "Meitu.inc · 图像生成",
+        "tags": [
+          "创意",
+          "图像"
+        ]
+      },
+      {
+        "name": "Stable Audio",
+        "url": "https://stableaudio.com/",
+        "desc": "STABILITY AI LTD · 音乐生成",
+        "tags": [
+          "创意",
+          "音乐"
+        ]
+      },
+      {
+        "name": "udio",
+        "url": "https://www.udio.com/",
+        "desc": "Uncharted Labs, Inc. · 音乐生成",
+        "tags": [
+          "创意",
+          "音乐"
+        ]
+      },
+      {
+        "name": "网易天音",
+        "url": "https://tianyin.music.163.com/",
+        "desc": "网易 · 音乐生成",
+        "tags": [
+          "创意",
+          "音乐",
+          "国内"
+        ]
+      },
+      {
+        "name": "哩布哩布AI",
+        "url": "https://www.liblib.art/",
+        "desc": "LiblibAI · 图像生成",
+        "tags": [
+          "创意",
+          "图像",
+          "国内"
+        ]
+      },
+      {
+        "name": "无界AI",
+        "url": "https://www.wujieai.com/",
+        "desc": "无界AI · 图像生成",
+        "tags": [
+          "创意",
+          "图像",
+          "国内"
+        ]
+      }
     ]
   },
   {
-    name: "竞赛与评测", emoji: "🏆",
-    items: [
-      { name: "LeetCode", url: "https://leetcode.com", desc: "算法面试刷题", tags: ["算法", "面试"] },
-      { name: "Kaggle", url: "https://kaggle.com", desc: "ML 竞赛/数据集/Notebook", tags: ["竞赛", "ML"] },
-      { name: "HackerRank", url: "https://hackerrank.com", desc: "编程挑战/技术面试", tags: ["竞赛", "面试"] },
-      { name: "Codeforces", url: "https://codeforces.com", desc: "竞赛编程平台", tags: ["竞赛", "算法"] },
-      { name: "Codewars", url: "https://codewars.com", desc: "格斗式编程训练", tags: ["训练", "算法"] },
-      { name: "AtCoder", url: "https://atcoder.jp", desc: "日本竞赛编程", tags: ["竞赛", "算法"] },
-      { name: "CodeChef", url: "https://codechef.com", desc: "印度竞赛编程", tags: ["竞赛", "算法"] },
-      { name: "TopCoder", url: "https://topcoder.com", desc: "老牌竞赛编程平台", tags: ["竞赛", "算法"] },
-      { name: "Chatbot Arena", url: "https://lmarena.ai", desc: "LLM 竞技场排行榜", tags: ["排行榜", "LLM"] },
-      { name: "Open LLM Leaderboard", url: "https://huggingface.co/spaces/open-llm-leaderboard", desc: "开源 LLM 排行", tags: ["排行榜", "LLM"] },
-      { name: "Artificial Analysis", url: "https://artificialanalysis.ai", desc: "AI 模型性能对比", tags: ["对比", "模型"] },
-      { name: "SWE-bench", url: "https://swebench.com", desc: "AI 编码能力评测", tags: ["评测", "AI"] },
-      { name: "LiveCodeBench", url: "https://livecodebench.github.io", desc: "LLM 编码能力排行", tags: ["评测", "LLM"] },
+    "name": "AI 代码助手",
+    "emoji": "🛠",
+    "items": [
+      {
+        "name": "Github Copilot",
+        "url": "https://github.com/features/copilot",
+        "desc": "GitHub, Inc. · AI 编程助手",
+        "tags": [
+          "编程",
+          "IDE"
+        ]
+      },
+      {
+        "name": "Cursor",
+        "url": "https://www.cursor.com/",
+        "desc": "Anysphere · AI 原生代码编辑器",
+        "tags": [
+          "编程",
+          "IDE"
+        ]
+      },
+      {
+        "name": "Claude Code",
+        "url": "https://claude.com/product/claude-code",
+        "desc": "Anthropic · 编程工具 / CLI",
+        "tags": [
+          "编程",
+          "CLI"
+        ]
+      },
+      {
+        "name": "Windsurf",
+        "url": "https://codeium.com/windsurf",
+        "desc": "Exafunction · AI 编辑器（原 Codeium）",
+        "tags": [
+          "编程",
+          "IDE"
+        ]
+      },
+      {
+        "name": "Cline",
+        "url": "https://cline.bot/",
+        "desc": "Cline Bot · VS Code AI 代理扩展",
+        "tags": [
+          "编程",
+          "扩展"
+        ]
+      },
+      {
+        "name": "Aider",
+        "url": "https://github.com/paul-gauthier/aider",
+        "desc": "AI 终端编程助手",
+        "tags": [
+          "编程",
+          "CLI"
+        ]
+      },
+      {
+        "name": "Codeium",
+        "url": "https://codeium.com/",
+        "desc": "免费 AI 编程工具，智能生成与补全",
+        "tags": [
+          "编程",
+          "补全"
+        ]
+      },
+      {
+        "name": "Continue",
+        "url": "https://continue.dev",
+        "desc": "开源 AI 编程助手（VS Code / JetBrains）",
+        "tags": [
+          "编程",
+          "开源",
+          "扩展"
+        ]
+      },
+      {
+        "name": "Tabnine",
+        "url": "https://www.tabnine.com/",
+        "desc": "AI 代码补全，保持代码私密与合规",
+        "tags": [
+          "编程",
+          "补全"
+        ]
+      },
+      {
+        "name": "JetBrains AI",
+        "url": "https://www.jetbrains.com/ai",
+        "desc": "JetBrains 全家桶 AI 集成",
+        "tags": [
+          "编程",
+          "IDE"
+        ]
+      },
+      {
+        "name": "Zed",
+        "url": "https://zed.dev/",
+        "desc": "Zed Industries · 高性能代码编辑器",
+        "tags": [
+          "编程",
+          "IDE"
+        ]
+      },
+      {
+        "name": "Roo Code",
+        "url": "http://roocode.com",
+        "desc": "Roo · 编程工具 / IDE",
+        "tags": [
+          "编程",
+          "IDE"
+        ]
+      },
+      {
+        "name": "Amazon Q",
+        "url": "https://aws.amazon.com/cn/q/developer/",
+        "desc": "亚马逊 · AI 编程助手",
+        "tags": [
+          "编程",
+          "AWS"
+        ]
+      },
+      {
+        "name": "通义灵码",
+        "url": "https://tongyi.aliyun.com/lingma",
+        "desc": "阿里云 · 编程工具 / IDE",
+        "tags": [
+          "编程",
+          "IDE",
+          "国内"
+        ]
+      },
+      {
+        "name": "Codex CLI",
+        "url": "https://developers.openai.com/codex/cli/",
+        "desc": "OpenAI · 编程工具 / CLI",
+        "tags": [
+          "编程",
+          "CLI"
+        ]
+      },
+      {
+        "name": "Gemini CLI",
+        "url": "https://google-gemini.github.io/gemini-cli/",
+        "desc": "Google · 编程工具 / CLI",
+        "tags": [
+          "编程",
+          "CLI"
+        ]
+      },
+      {
+        "name": "Qwen Code",
+        "url": "https://github.com/QwenLM/qwen-code",
+        "desc": "阿里巴巴 · 编程工具 / CLI",
+        "tags": [
+          "编程",
+          "CLI"
+        ]
+      },
+      {
+        "name": "Supermaven",
+        "url": "https://supermaven.com",
+        "desc": "极速 AI 代码补全",
+        "tags": [
+          "编程",
+          "补全"
+        ]
+      },
+      {
+        "name": "Tabby",
+        "url": "https://tabby.tabbyml.com/",
+        "desc": "免费开源自托管 AI 编程助手",
+        "tags": [
+          "编程",
+          "自托管"
+        ]
+      },
+      {
+        "name": "Codium",
+        "url": "https://www.codium.ai/",
+        "desc": "AI 编程工具，智能生成和补全代码",
+        "tags": [
+          "编程",
+          "补全"
+        ]
+      },
+      {
+        "name": "Cody",
+        "url": "https://sourcegraph.com/cody",
+        "desc": "Sourcegraph · 代码库感知 AI 助手",
+        "tags": [
+          "编程",
+          "搜索"
+        ]
+      },
+      {
+        "name": "Open Code",
+        "url": "https://opencode.ai/",
+        "desc": "Open Code · 编程工具 / CLI",
+        "tags": [
+          "编程",
+          "CLI"
+        ]
+      },
+      {
+        "name": "Qoder",
+        "url": "https://qoder.com/",
+        "desc": "Bright Zenith · 编程工具 / IDE",
+        "tags": [
+          "编程",
+          "IDE"
+        ]
+      },
+      {
+        "name": "文心快码",
+        "url": "https://comate.baidu.com/",
+        "desc": "百度 · 编程工具 / IDE",
+        "tags": [
+          "编程",
+          "IDE",
+          "国内"
+        ]
+      },
+      {
+        "name": "Trae",
+        "url": "https://www.trae.ai/",
+        "desc": "Trae · 编程工具 / IDE",
+        "tags": [
+          "编程",
+          "IDE"
+        ]
+      },
+      {
+        "name": "CodeGeex",
+        "url": "https://codegeex.cn/",
+        "desc": "智谱 AI · 免费 AI 编程助手",
+        "tags": [
+          "编程",
+          "国内"
+        ]
+      },
+      {
+        "name": "iFlyCode",
+        "url": "https://iflycode.xfyun.cn/",
+        "desc": "科大讯飞 · 智能编程助手",
+        "tags": [
+          "编程",
+          "国内"
+        ]
+      },
+      {
+        "name": "Mentat",
+        "url": "https://mentat.ai/",
+        "desc": "命令行编码助手，可编辑并回答代码库问题",
+        "tags": [
+          "编程",
+          "CLI"
+        ]
+      },
+      {
+        "name": "DevChat",
+        "url": "https://devchat.ai/",
+        "desc": "开源 · 支持多模型的可视化 AI 编程助手",
+        "tags": [
+          "编程",
+          "开源"
+        ]
+      },
+      {
+        "name": "Fitten Code",
+        "url": "https://code.fittentech.com/",
+        "desc": "非十大模型驱动的 AI 编程助手",
+        "tags": [
+          "编程",
+          "助手"
+        ]
+      },
+      {
+        "name": "CodeRabbit",
+        "url": "https://coderabbit.ai/",
+        "desc": "AI 驱动的代码审查平台",
+        "tags": [
+          "编程",
+          "审查"
+        ]
+      },
+      {
+        "name": "Qodo",
+        "url": "https://www.qodo.ai",
+        "desc": "AI 代码审查与测试",
+        "tags": [
+          "编程",
+          "审查"
+        ]
+      },
+      {
+        "name": "Augment Code",
+        "url": "https://augmentcode.com",
+        "desc": "深度代码理解助手",
+        "tags": [
+          "编程",
+          "代理"
+        ]
+      },
+      {
+        "name": "CodeFuse",
+        "url": "https://codefuse.alipay.com/welcome/product",
+        "desc": "蚂蚁集团 · AI 代码助手",
+        "tags": [
+          "编程",
+          "国内"
+        ]
+      },
+      {
+        "name": "豆包 MarsCode",
+        "url": "https://www.marscode.cn/",
+        "desc": "字节旗下 · 免费 AI 编程助手",
+        "tags": [
+          "编程",
+          "国内"
+        ]
+      },
+      {
+        "name": "AirOps",
+        "url": "https://www.airops.com/",
+        "desc": "AI SQL 语句生成与修改",
+        "tags": [
+          "编程",
+          "SQL"
+        ]
+      },
+      {
+        "name": "claude-engineer",
+        "url": "https://github.com/Doriandarko/claude-engineer",
+        "desc": "基于 Claude 的 AI 编程助手",
+        "tags": [
+          "编程",
+          "开源"
+        ]
+      },
+      {
+        "name": "Haystackeditor",
+        "url": "https://haystackeditor.com/",
+        "desc": "基于画布的 IDE，处理繁琐编码",
+        "tags": [
+          "编程",
+          "IDE"
+        ]
+      },
+      {
+        "name": "IDX",
+        "url": "https://idx.google.com/",
+        "desc": "Google · AI 云端开发环境",
+        "tags": [
+          "编程",
+          "云端"
+        ]
+      },
+      {
+        "name": "Mercury Coder",
+        "url": "https://chat.inceptionlabs.ai/",
+        "desc": "Inception · 扩散式大模型（聊天 / 编码）",
+        "tags": [
+          "编程",
+          "模型"
+        ]
+      }
     ]
   },
   {
-    name: "问答与社区", emoji: "❓",
-    items: [
-      { name: "Stack Overflow", url: "https://stackoverflow.com", desc: "技术问答第一站", tags: ["问答", "社区"] },
-      { name: "Hacker News", url: "https://news.ycombinator.com", desc: "YC 旗下科技社区", tags: ["社区", "新闻"] },
-      { name: "Twitter/X", url: "https://x.com", desc: "技术圈即时动态", tags: ["社交", "动态"] },
-      { name: "r/programming", url: "https://reddit.com/r/programming", desc: "编程综合讨论", tags: ["社区", "编程"] },
-      { name: "r/MachineLearning", url: "https://reddit.com/r/MachineLearning", desc: "ML 社区", tags: ["社区", "ML"] },
-      { name: "r/LocalLLaMA", url: "https://reddit.com/r/LocalLLaMA", desc: "本地 LLM 社区", tags: ["社区", "LLM"] },
-      { name: "知乎", url: "https://zhihu.com", desc: "中文知识问答", tags: ["问答", "国内"] },
-      { name: "V2EX", url: "https://v2ex.com", desc: "国内技术社区", tags: ["社区", "国内"] },
-      { name: "掘金", url: "https://juejin.cn", desc: "中文技术文章平台", tags: ["文章", "国内"] },
-      { name: "Dev.to", url: "https://dev.to", desc: "开发者博客社区", tags: ["社区", "博客"] },
-      { name: "SegmentFault", url: "https://segmentfault.com", desc: "中文技术问答", tags: ["问答", "国内"] },
-      { name: "Bluesky", url: "https://bsky.app", desc: "去中心化社交/技术圈", tags: ["社交", "动态"] },
-      { name: "Mastodon", url: "https://mastodon.social", desc: "联邦式社交/技术圈", tags: ["社交", "动态"] },
+    "name": "AI 编程智能体",
+    "emoji": "🤖",
+    "items": [
+      {
+        "name": "Devin",
+        "url": "https://devin.ai/",
+        "desc": "Cognition · 全自主 AI 软件工程师",
+        "tags": [
+          "编程",
+          "智能体"
+        ]
+      },
+      {
+        "name": "Replit Agent",
+        "url": "https://replit.com/",
+        "desc": "Replit, Inc. · 在线 IDE + Agent",
+        "tags": [
+          "编程",
+          "在线"
+        ]
+      },
+      {
+        "name": "Bolt",
+        "url": "https://bolt.new/",
+        "desc": "StackBlitz · 全栈 AI 应用生成",
+        "tags": [
+          "编程",
+          "全栈"
+        ]
+      },
+      {
+        "name": "V0",
+        "url": "https://v0.dev/",
+        "desc": "Vercel · AI 前端生成",
+        "tags": [
+          "编程",
+          "前端"
+        ]
+      },
+      {
+        "name": "Lovable",
+        "url": "https://lovable.dev/",
+        "desc": "Lovable Labs · AI 全栈构建器",
+        "tags": [
+          "编程",
+          "全栈"
+        ]
+      },
+      {
+        "name": "OpenDevin",
+        "url": "https://github.com/OpenDevin/OpenDevin",
+        "desc": "AI 驱动的自主软件工程师平台",
+        "tags": [
+          "编程",
+          "开源"
+        ]
+      },
+      {
+        "name": "SWE-agent",
+        "url": "https://github.com/princeton-nlp/SWE-agent",
+        "desc": "解决 GitHub 存储库问题的软件工程代理",
+        "tags": [
+          "编程",
+          "代理"
+        ]
+      },
+      {
+        "name": "GPT-pilot",
+        "url": "https://github.com/Pythagora-io/gpt-pilot",
+        "desc": "AI 驱动开发者",
+        "tags": [
+          "编程",
+          "开源"
+        ]
+      },
+      {
+        "name": "Magic Patterns",
+        "url": "https://www.magicpatterns.com/",
+        "desc": "North Park Labs · AI 生成 UI",
+        "tags": [
+          "编程",
+          "前端"
+        ]
+      },
+      {
+        "name": "Sitebrew",
+        "url": "https://www.sitebrew.ai/",
+        "desc": "AI 网页生成器",
+        "tags": [
+          "编程",
+          "全栈"
+        ]
+      },
+      {
+        "name": "Genie",
+        "url": "https://cosine.sh/",
+        "desc": "Cosine · 全自主软件工程模型（SWE-bench 领先）",
+        "tags": [
+          "编程",
+          "智能体"
+        ]
+      },
+      {
+        "name": "Devika",
+        "url": "https://github.com/stitionai/devika",
+        "desc": "Devin 的开源替代品",
+        "tags": [
+          "编程",
+          "开源"
+        ]
+      },
+      {
+        "name": "BLACKBOX",
+        "url": "https://www.blackbox.ai/",
+        "desc": "BLACKBOX · 编程工具",
+        "tags": [
+          "编程",
+          "助手"
+        ]
+      },
+      {
+        "name": "LlamaCoder",
+        "url": "https://llamacoder.together.ai/",
+        "desc": "用 Llama 3.1 405B 生成应用",
+        "tags": [
+          "编程",
+          "生成"
+        ]
+      },
+      {
+        "name": "ImgCook",
+        "url": "https://www.imgcook.com/",
+        "desc": "阿里 · 设计稿智能生成前端代码",
+        "tags": [
+          "编程",
+          "前端",
+          "国内"
+        ]
+      }
     ]
   },
   {
-    name: "技术文档与参考", emoji: "📖",
-    items: [
-      { name: "MDN Web Docs", url: "https://developer.mozilla.org", desc: "Web 标准权威参考", tags: ["文档", "Web"] },
-      { name: "DevDocs", url: "https://devdocs.io", desc: "多语言文档聚合", tags: ["文档", "聚合"] },
-      { name: "Read the Docs", url: "https://readthedocs.org", desc: "开源项目文档托管", tags: ["文档", "托管"] },
-      { name: "GitBook", url: "https://gitbook.com", desc: "现代化文档平台", tags: ["文档", "平台"] },
-      { name: "Python Docs", url: "https://docs.python.org", desc: "Python 官方文档", tags: ["文档", "Python"] },
-      { name: "PyPI", url: "https://pypi.org", desc: "Python 包索引", tags: ["包管理", "Python"] },
-      { name: "npm", url: "https://npmjs.com", desc: "Node.js 包注册表", tags: ["包管理", "Node"] },
-      { name: "crates.io", url: "https://crates.io", desc: "Rust 包注册表", tags: ["包管理", "Rust"] },
-      { name: "Go Docs", url: "https://go.dev/doc", desc: "Go 官方文档", tags: ["文档", "Go"] },
-      { name: "Rust Docs", url: "https://doc.rust-lang.org", desc: "Rust 官方文档", tags: ["文档", "Rust"] },
-      { name: "Microsoft Learn", url: "https://learn.microsoft.com", desc: "微软技术文档", tags: ["文档", "微软"] },
-      { name: "Regex101", url: "https://regex101.com", desc: "正则表达式测试", tags: ["工具", "正则"] },
-      { name: "QuickRef", url: "https://quickref.me", desc: "速查表集合", tags: ["速查", "参考"] },
-      { name: "DevHints", url: "https://devhints.io", desc: "开发者速查卡", tags: ["速查", "参考"] },
-      { name: "ExplainShell", url: "https://explainshell.com", desc: "Shell 命令解释", tags: ["工具", "Shell"] },
-      { name: "cheat.sh", url: "https://cheat.sh", desc: "命令行速查工具", tags: ["工具", "命令行"] },
-      { name: "The Neural Base", url: "https://theneuralbase.com", desc: "AI/ML 开发者参考", tags: ["文档", "AI"] },
+    "name": "AI 学术与评测",
+    "emoji": "🎓",
+    "items": [
+      {
+        "name": "Artificial Analysis",
+        "url": "https://artificialanalysis.ai/",
+        "desc": "Artificial Analysis · 模型性能对比",
+        "tags": [
+          "评测",
+          "排行"
+        ]
+      },
+      {
+        "name": "LMSYS Chatbot Arena",
+        "url": "https://lmarena.ai/",
+        "desc": "LMSYS · LLM 竞技场排行榜",
+        "tags": [
+          "评测",
+          "排行"
+        ]
+      },
+      {
+        "name": "Open LLM Leaderboard",
+        "url": "https://huggingface.co/spaces/open-llm-leaderboard",
+        "desc": "开源 LLM 排行",
+        "tags": [
+          "排行",
+          "LLM"
+        ]
+      },
+      {
+        "name": "SWE-bench",
+        "url": "https://swebench.com",
+        "desc": "AI 编码能力评测",
+        "tags": [
+          "评测",
+          "AI"
+        ]
+      },
+      {
+        "name": "Connected Papers",
+        "url": "https://www.connectedpapers.com/",
+        "desc": "connectedpapers · 论文关系图谱",
+        "tags": [
+          "学术",
+          "图谱"
+        ]
+      },
+      {
+        "name": "LiveBench",
+        "url": "https://livebench.ai/",
+        "desc": "Abacus AI · 评测",
+        "tags": [
+          "评测",
+          "排行"
+        ]
+      },
+      {
+        "name": "Aminer",
+        "url": "https://www.aminer.cn/chat/share/671cf2fe5fc5be93b19f4e04",
+        "desc": "智谱华章 · 学术",
+        "tags": [
+          "学术",
+          "国内"
+        ]
+      },
+      {
+        "name": "LiveCodeBench",
+        "url": "https://livecodebench.github.io",
+        "desc": "LLM 编码能力排行",
+        "tags": [
+          "评测",
+          "LLM"
+        ]
+      },
+      {
+        "name": "SuperCLUE",
+        "url": "https://www.superclueai.com/",
+        "desc": "SuperCLUE AI · 评测",
+        "tags": [
+          "评测",
+          "国内"
+        ]
+      },
+      {
+        "name": "Alphaxiv",
+        "url": "https://www.alphaxiv.org/",
+        "desc": "Alphaxiv · 学术论文",
+        "tags": [
+          "学术",
+          "论文"
+        ]
+      },
+      {
+        "name": "Research Rabbit",
+        "url": "https://researchrabbitapp.com/",
+        "desc": "Research Rabbit · 学术研究",
+        "tags": [
+          "学术",
+          "论文"
+        ]
+      },
+      {
+        "name": "Design Arena",
+        "url": "https://www.designarena.ai/",
+        "desc": "Design Arena · 评测",
+        "tags": [
+          "评测",
+          "排行"
+        ]
+      },
+      {
+        "name": "Papers Cool",
+        "url": "https://papers.cool/",
+        "desc": "科学空间 · 学术",
+        "tags": [
+          "学术",
+          "论文"
+        ]
+      },
+      {
+        "name": "ScholarQA",
+        "url": "https://scholarqa.allen.ai/",
+        "desc": "Ai2 · 学术问答",
+        "tags": [
+          "学术",
+          "问答"
+        ]
+      },
+      {
+        "name": "司南",
+        "url": "https://rank.opencompass.org.cn",
+        "desc": "OpenCompass · 评测",
+        "tags": [
+          "评测",
+          "国内"
+        ]
+      },
+      {
+        "name": "FlagEval",
+        "url": "https://flageval.baai.ac.cn/#/leaderboard",
+        "desc": "北京智源 · 评测",
+        "tags": [
+          "评测",
+          "国内"
+        ]
+      },
+      {
+        "name": "Research Flow",
+        "url": "https://rflow.ai/dashboard",
+        "desc": "rflow ai · 学术研究",
+        "tags": [
+          "学术",
+          "论文"
+        ]
+      },
+      {
+        "name": "Elicit",
+        "url": "https://elicit.com",
+        "desc": "AI 论文检索与文献综述助手",
+        "tags": [
+          "学术",
+          "论文"
+        ]
+      }
     ]
   },
   {
-    name: "新闻与趋势", emoji: "📰",
-    items: [
-      { name: "Hacker News", url: "https://news.ycombinator.com", desc: "极客新闻聚合", tags: ["新闻", "社区"] },
-      { name: "TechCrunch", url: "https://techcrunch.com", desc: "科技创业新闻", tags: ["新闻", "科技"] },
-      { name: "The Verge", url: "https://theverge.com", desc: "科技消费新闻", tags: ["新闻", "科技"] },
-      { name: "ArXiv", url: "https://arxiv.org", desc: "学术预印本论文", tags: ["论文", "学术"] },
-      { name: "Papers with Code", url: "https://paperswithcode.com", desc: "论文+代码+排行榜", tags: ["论文", "代码"] },
-      { name: "Ars Technica", url: "https://arstechnica.com", desc: "深度科技报道", tags: ["新闻", "深度"] },
-      { name: "MIT Tech Review", url: "https://technologyreview.com", desc: "MIT 科技评论", tags: ["新闻", "科技"] },
-      { name: "Wired", url: "https://wired.com", desc: "科技文化杂志", tags: ["新闻", "科技"] },
-      { name: "Semantic Scholar", url: "https://semanticscholar.org", desc: "学术论文搜索引擎", tags: ["论文", "搜索"] },
-      { name: "36氪", url: "https://36kr.com", desc: "科技商业媒体", tags: ["新闻", "商业"] },
-      { name: "机器之心", url: "https://jiqizhixin.com", desc: "中文 AI 媒体", tags: ["新闻", "国内"] },
-      { name: "量子位", url: "https://qbitai.com", desc: "中文 AI 科技媒体", tags: ["新闻", "国内"] },
-      { name: "The Information", url: "https://theinformation.com", desc: "深度科技商业报道", tags: ["新闻", "商业"] },
-      { name: "Techmeme", url: "https://techmeme.com", desc: "科技新闻聚合", tags: ["新闻", "聚合"] },
-      { name: "InfoQ", url: "https://infoq.com", desc: "软件开发趋势", tags: ["新闻", "开发"] },
-      { name: "daily.dev", url: "https://daily.dev", desc: "开发者个性化资讯", tags: ["新闻", "订阅"] },
-      { name: "爱范儿", url: "https://ifanr.com", desc: "数字生活/科技媒体", tags: ["新闻", "国内"] },
-      { name: "少数派", url: "https://sspai.com", desc: "效率/科技生活方式", tags: ["新闻", "效率"] },
-      { name: "LWN.net", url: "https://lwn.net", desc: "Linux/开源深度报道", tags: ["新闻", "开源"] },
-      { name: "OpenReview", url: "https://openreview.net", desc: "开放学术评审平台", tags: ["论文", "学术"] },
-      { name: "Google Research", url: "https://research.google", desc: "Google 研究成果", tags: ["研究", "论文"] },
-      { name: "OpenAI Research", url: "https://openai.com/research", desc: "OpenAI 研究成果", tags: ["研究", "论文"] },
-      { name: "AI Stack Digest", url: "https://aistackdigest.com", desc: "AI 工具对比与新闻", tags: ["新闻", "AI"] },
-      { name: "The Decoder", url: "https://the-decoder.com", desc: "AI 行业新闻", tags: ["新闻", "AI"] },
+    "name": "AI 开放平台",
+    "emoji": "🔌",
+    "items": [
+      {
+        "name": "OpenAI Platform",
+        "url": "https://platform.openai.com/",
+        "desc": "OpenAI · API",
+        "tags": [
+          "API"
+        ]
+      },
+      {
+        "name": "Gemini API",
+        "url": "https://ai.google.dev/gemini-api",
+        "desc": "Google · API",
+        "tags": [
+          "API"
+        ]
+      },
+      {
+        "name": "Anthropic API",
+        "url": "https://www.anthropic.com/",
+        "desc": "Anthropic · API",
+        "tags": [
+          "API"
+        ]
+      },
+      {
+        "name": "AWS Bedrock",
+        "url": "https://aws.amazon.com/cn/bedrock/",
+        "desc": "Amazon · API",
+        "tags": [
+          "API",
+          "AWS"
+        ]
+      },
+      {
+        "name": "Azure AI Studio",
+        "url": "https://ai.azure.com/",
+        "desc": "Microsoft · API",
+        "tags": [
+          "API",
+          "微软"
+        ]
+      },
+      {
+        "name": "OpenRouter",
+        "url": "https://openrouter.ai/",
+        "desc": "OpenRouter · 多模型统一 API",
+        "tags": [
+          "API",
+          "多模型"
+        ]
+      },
+      {
+        "name": "groq",
+        "url": "https://groq.com",
+        "desc": "Groq, Inc. · API",
+        "tags": [
+          "API",
+          "推理"
+        ]
+      },
+      {
+        "name": "NVIDIA NIM",
+        "url": "https://build.nvidia.com/deepseek-ai/deepseek-r1",
+        "desc": "NVIDIA · API",
+        "tags": [
+          "API",
+          "推理"
+        ]
+      },
+      {
+        "name": "GitHub Models",
+        "url": "https://github.com/marketplace/models/azureml-deepseek/DeepSeek-R1/playground",
+        "desc": "GitHub, Inc. · API",
+        "tags": [
+          "API"
+        ]
+      },
+      {
+        "name": "TogetherAI",
+        "url": "https://www.together.ai",
+        "desc": "TogetherAI · API",
+        "tags": [
+          "API",
+          "推理"
+        ]
+      },
+      {
+        "name": "DeepSeek API",
+        "url": "https://platform.deepseek.com/",
+        "desc": "深度求索 · API",
+        "tags": [
+          "API",
+          "国内"
+        ]
+      },
+      {
+        "name": "阿里云百炼",
+        "url": "https://bailian.console.aliyun.com/",
+        "desc": "阿里云 · API",
+        "tags": [
+          "API",
+          "国内"
+        ]
+      },
+      {
+        "name": "火山引擎",
+        "url": "https://console.volcengine.com/",
+        "desc": "字节跳动 · API",
+        "tags": [
+          "API",
+          "国内"
+        ]
+      },
+      {
+        "name": "腾讯云 · 混元",
+        "url": "https://cloud.tencent.com/product/hunyuan",
+        "desc": "腾讯 · API",
+        "tags": [
+          "API",
+          "国内"
+        ]
+      },
+      {
+        "name": "百度智能云千帆",
+        "url": "https://qianfan.cloud.baidu.com/",
+        "desc": "百度智能云 · API",
+        "tags": [
+          "API",
+          "国内"
+        ]
+      },
+      {
+        "name": "智谱 BigModel",
+        "url": "https://bigmodel.cn/",
+        "desc": "智谱 AI · API",
+        "tags": [
+          "API",
+          "国内"
+        ]
+      },
+      {
+        "name": "Moonshot AI",
+        "url": "https://platform.moonshot.cn/",
+        "desc": "Moonshot AI · API",
+        "tags": [
+          "API",
+          "国内"
+        ]
+      },
+      {
+        "name": "Cohere",
+        "url": "https://dashboard.cohere.com/",
+        "desc": "Cohere, Inc. · API",
+        "tags": [
+          "API"
+        ]
+      },
+      {
+        "name": "Mistral API",
+        "url": "https://console.mistral.ai/",
+        "desc": "Mistral AI · API",
+        "tags": [
+          "API"
+        ]
+      },
+      {
+        "name": "xAI API",
+        "url": "https://console.x.ai/",
+        "desc": "xAI · API",
+        "tags": [
+          "API"
+        ]
+      },
+      {
+        "name": "MINMAX",
+        "url": "https://platform.minimaxi.com/",
+        "desc": "稀宇科技 · API",
+        "tags": [
+          "API",
+          "国内"
+        ]
+      },
+      {
+        "name": "阶跃星辰",
+        "url": "https://platform.stepfun.com/",
+        "desc": "阶跃星辰 · API",
+        "tags": [
+          "API",
+          "国内"
+        ]
+      },
+      {
+        "name": "硅基流动",
+        "url": "https://siliconflow.cn/zh-cn/",
+        "desc": "硅基流动 · API",
+        "tags": [
+          "API",
+          "国内"
+        ]
+      },
+      {
+        "name": "Fireworks AI",
+        "url": "https://fireworks.ai",
+        "desc": "Fireworks AI · API",
+        "tags": [
+          "API",
+          "推理"
+        ]
+      },
+      {
+        "name": "Hyperbolic",
+        "url": "https://app.hyperbolic.xyz/",
+        "desc": "Hyperbolic Labs · API",
+        "tags": [
+          "API"
+        ]
+      }
     ]
   },
   {
-    name: "设计与素材", emoji: "🎨",
-    items: [
-      { name: "Figma", url: "https://figma.com", desc: "协作 UI 设计", tags: ["设计", "协作"] },
-      { name: "Dribbble", url: "https://dribbble.com", desc: "UI/UX 设计作品集", tags: ["设计", "灵感"] },
-      { name: "Behance", url: "https://behance.net", desc: "Adobe 设计社区", tags: ["设计", "社区"] },
-      { name: "Unsplash", url: "https://unsplash.com", desc: "免费商用图片", tags: ["图片", "免费"] },
-      { name: "Google Fonts", url: "https://fonts.google.com", desc: "免费 Web 字体", tags: ["字体", "免费"] },
-      { name: "Icons8", url: "https://icons8.com", desc: "图标/插画/照片", tags: ["图标", "素材"] },
-      { name: "Iconify", url: "https://iconify.design", desc: "开源图标聚合框架", tags: ["图标", "开源"] },
-      { name: "Lucide", url: "https://lucide.dev", desc: "开源图标库", tags: ["图标", "开源"] },
-      { name: "Coolors", url: "https://coolors.co", desc: "配色方案生成", tags: ["配色", "工具"] },
-      { name: "Colorhunt", url: "https://colorhunt.co", desc: "配色灵感集合", tags: ["配色", "灵感"] },
-      { name: "Excalidraw", url: "https://excalidraw.com", desc: "手绘风格白板", tags: ["工具", "白板"] },
-      { name: "Mermaid", url: "https://mermaid.live", desc: "图表即代码", tags: ["工具", "图表"] },
+    "name": "AI 开发框架",
+    "emoji": "🧱",
+    "items": [
+      {
+        "name": "PyTorch",
+        "url": "https://pytorch.org/",
+        "desc": "PyTorch · 开源深度学习框架",
+        "tags": [
+          "框架",
+          "DL"
+        ]
+      },
+      {
+        "name": "TensorFlow",
+        "url": "https://www.tensorflow.org/",
+        "desc": "TensorFlow · 开源机器学习框架",
+        "tags": [
+          "框架",
+          "ML"
+        ]
+      },
+      {
+        "name": "Hugging Face Transformers",
+        "url": "https://huggingface.co/docs/transformers",
+        "desc": "最主流的开源模型库",
+        "tags": [
+          "框架",
+          "模型"
+        ]
+      },
+      {
+        "name": "Pandas",
+        "url": "https://pandas.pydata.org/",
+        "desc": "Pandas · 开源数据分析工具",
+        "tags": [
+          "数据分析",
+          "Python"
+        ]
+      },
+      {
+        "name": "NumPy",
+        "url": "https://numpy.org/",
+        "desc": "NumPy · 开源数值计算扩展",
+        "tags": [
+          "计算",
+          "Python"
+        ]
+      },
+      {
+        "name": "Scikit-learn",
+        "url": "https://scikit-learn.org/",
+        "desc": "基于 Python 的机器学习库",
+        "tags": [
+          "框架",
+          "ML"
+        ]
+      },
+      {
+        "name": "Keras",
+        "url": "https://keras.io/",
+        "desc": "高级神经网络 API，可运行于 TensorFlow 等",
+        "tags": [
+          "框架",
+          "DL"
+        ]
+      },
+      {
+        "name": "LangChain",
+        "url": "https://www.langchain.com/",
+        "desc": "开发由语言模型驱动的应用程序",
+        "tags": [
+          "框架",
+          "Agent"
+        ]
+      },
+      {
+        "name": "JAX",
+        "url": "https://jax.readthedocs.io",
+        "desc": "Google 数值 / 自动微分框架",
+        "tags": [
+          "框架",
+          "ML"
+        ]
+      },
+      {
+        "name": "LangGraph",
+        "url": "https://www.langchain.com/langgraph",
+        "desc": "LangChain 官方的 Agent 编排框架",
+        "tags": [
+          "框架",
+          "Agent"
+        ]
+      },
+      {
+        "name": "AutoGPT",
+        "url": "https://github.com/Significant-Gravitas/AutoGPT",
+        "desc": "个人助理，帮助完成指定任务",
+        "tags": [
+          "框架",
+          "Agent"
+        ]
+      },
+      {
+        "name": "AutoGen",
+        "url": "https://github.com/microsoft/autogen",
+        "desc": "Microsoft · 代理 AI 编程框架",
+        "tags": [
+          "框架",
+          "Agent"
+        ]
+      },
+      {
+        "name": "CrewAI",
+        "url": "https://www.crewai.com/",
+        "desc": "协调角色扮演、自主 AI 代理的框架",
+        "tags": [
+          "框架",
+          "Agent"
+        ]
+      },
+      {
+        "name": "PaddlePaddle",
+        "url": "https://www.paddlepaddle.org.cn/",
+        "desc": "百度 · 开源深度学习框架",
+        "tags": [
+          "框架",
+          "DL",
+          "国内"
+        ]
+      },
+      {
+        "name": "MetaGPT",
+        "url": "https://github.com/geekan/MetaGPT",
+        "desc": "多智能体框架 · 自然语言编程",
+        "tags": [
+          "框架",
+          "Agent"
+        ]
+      },
+      {
+        "name": "MindSpore",
+        "url": "https://www.mindspore.cn/",
+        "desc": "华为 · 开源深度学习框架",
+        "tags": [
+          "框架",
+          "DL",
+          "国内"
+        ]
+      },
+      {
+        "name": "ChatDev",
+        "url": "https://github.com/OpenBMB/ChatDev",
+        "desc": "虚拟软件公司 · 多智能体运营",
+        "tags": [
+          "框架",
+          "Agent"
+        ]
+      },
+      {
+        "name": "AgentScope",
+        "url": "https://github.com/modelscope/agentscope",
+        "desc": "构建 LLM 多代理应用",
+        "tags": [
+          "框架",
+          "Agent"
+        ]
+      },
+      {
+        "name": "gpt-researcher",
+        "url": "https://github.com/assafelovic/gpt-researcher",
+        "desc": "基于 LLM 的自主在线研究代理",
+        "tags": [
+          "框架",
+          "Agent"
+        ]
+      },
+      {
+        "name": "Caffe",
+        "url": "http://caffe.berkeleyvision.org/",
+        "desc": "Caffe · 开源深度学习框架",
+        "tags": [
+          "框架",
+          "DL"
+        ]
+      },
+      {
+        "name": "Apache MXNet",
+        "url": "https://mxnet.apache.org/",
+        "desc": "Apache MXNet · 开源深度学习框架",
+        "tags": [
+          "框架",
+          "DL"
+        ]
+      }
     ]
   },
   {
-    name: "效率与工具", emoji: "🔧",
-    items: [
-      { name: "Notion", url: "https://notion.so", desc: "全能笔记/文档/维基", tags: ["笔记", "协作"] },
-      { name: "Obsidian", url: "https://obsidian.md", desc: "本地知识库", tags: ["笔记", "知识库"] },
-      { name: "Linear", url: "https://linear.app", desc: "极简项目管理", tags: ["项目", "管理"] },
-      { name: "Postman", url: "https://postman.com", desc: "API 调试工具", tags: ["API", "调试"] },
-      { name: "Raycast", url: "https://raycast.com", desc: "Mac 效率启动器", tags: ["效率", "Mac"] },
-      { name: "CodeSandbox", url: "https://codesandbox.io", desc: "在线沙盒 IDE", tags: ["IDE", "在线"] },
-      { name: "StackBlitz", url: "https://stackblitz.com", desc: "浏览器内 IDE", tags: ["IDE", "在线"] },
-      { name: "CodePen", url: "https://codepen.io", desc: "前端代码实验场", tags: ["前端", "实验"] },
-      { name: "JSFiddle", url: "https://jsfiddle.net", desc: "在线 JavaScript 调试", tags: ["JS", "调试"] },
-      { name: "Hoppscotch", url: "https://hoppscotch.io", desc: "开源 API 调试", tags: ["API", "开源"] },
-      { name: "Bruno", url: "https://usebruno.com", desc: "离线 API 客户端", tags: ["API", "客户端"] },
-      { name: "Insomnia", url: "https://insomnia.rest", desc: "API 设计与调试", tags: ["API", "设计"] },
-      { name: "Swagger", url: "https://swagger.io", desc: "API 规范与文档", tags: ["API", "文档"] },
-      { name: "Carbon", url: "https://carbon.now.sh", desc: "代码截图美化", tags: ["工具", "截图"] },
-      { name: "Ray.so", url: "https://ray.so", desc: "代码/界面截图美化", tags: ["工具", "截图"] },
-      { name: "JSON Crack", url: "https://jsoncrack.com", desc: "JSON 可视化工具", tags: ["工具", "JSON"] },
-      { name: "DevToys", url: "https://devtoys.app", desc: "开发者瑞士军刀", tags: ["工具", "实用"] },
-      { name: "Ngrok", url: "https://ngrok.com", desc: "内网穿透/本地暴露", tags: ["工具", "网络"] },
-      { name: "Pastebin", url: "https://pastebin.com", desc: "代码片段分享", tags: ["工具", "分享"] },
+    "name": "AI 提示词",
+    "emoji": "✍️",
+    "items": [
+      {
+        "name": "ChatGPT Prompt",
+        "url": "https://platform.openai.com/docs/guides/prompt-engineering",
+        "desc": "OpenAI prompt engineering",
+        "tags": [
+          "提示词",
+          "官方"
+        ]
+      },
+      {
+        "name": "Claude Prompt",
+        "url": "https://docs.anthropic.com/en/docs/build-with-claude/prompt-engineering/overview",
+        "desc": "Anthropic prompt engineering",
+        "tags": [
+          "提示词",
+          "官方"
+        ]
+      },
+      {
+        "name": "promptingguide",
+        "url": "https://www.promptingguide.ai/",
+        "desc": "免费开源的提示工程指南",
+        "tags": [
+          "提示词",
+          "指南"
+        ]
+      },
+      {
+        "name": "FlowGPT",
+        "url": "https://flowgpt.com/",
+        "desc": "ChatGPT 指令大全社区",
+        "tags": [
+          "提示词",
+          "社区"
+        ]
+      },
+      {
+        "name": "PromptBase",
+        "url": "https://promptbase.com/",
+        "desc": "AI Prompt 交易市场",
+        "tags": [
+          "提示词",
+          "市场"
+        ]
+      },
+      {
+        "name": "dspy",
+        "url": "https://github.com/stanfordnlp/dspy",
+        "desc": "编程式提示词基础模型，自动优化 Prompt",
+        "tags": [
+          "提示词",
+          "开源"
+        ]
+      },
+      {
+        "name": "fabric",
+        "url": "https://fabric.readthedocs.io/en/latest/",
+        "desc": "模块化的 AI 提示集合",
+        "tags": [
+          "提示词",
+          "开源"
+        ]
+      },
+      {
+        "name": "clickprompt",
+        "url": "https://www.clickprompt.org/",
+        "desc": "专为 Prompt 编写者设计的工具",
+        "tags": [
+          "提示词",
+          "工具"
+        ]
+      }
     ]
   },
   {
-    name: "云平台与主机", emoji: "☁️",
-    items: [
-      { name: "AWS", url: "https://aws.amazon.com", desc: "亚马逊云服务", tags: ["云", "AWS"] },
-      { name: "Google Cloud", url: "https://cloud.google.com", desc: "Google 云平台", tags: ["云", "GCP"] },
-      { name: "Azure", url: "https://azure.microsoft.com", desc: "微软云平台", tags: ["云", "Azure"] },
-      { name: "Cloudflare", url: "https://cloudflare.com", desc: "CDN/安全/Workers", tags: ["CDN", "安全"] },
-      { name: "Vercel", url: "https://vercel.com", desc: "前端部署平台", tags: ["部署", "前端"] },
-      { name: "DigitalOcean", url: "https://digitalocean.com", desc: "开发者友好云主机", tags: ["云", "主机"] },
-      { name: "Netlify", url: "https://netlify.com", desc: "静态网站托管", tags: ["部署", "托管"] },
-      { name: "Linode", url: "https://linode.com", desc: "高性能云主机", tags: ["云", "主机"] },
-      { name: "Vultr", url: "https://vultr.com", desc: "全球云服务器", tags: ["云", "主机"] },
-      { name: "Hetzner", url: "https://hetzner.com", desc: "欧洲高性价比云主机", tags: ["云", "主机"] },
-      { name: "Railway", url: "https://railway.app", desc: "全栈部署平台", tags: ["部署", "全栈"] },
-      { name: "Render", url: "https://render.com", desc: "云应用托管", tags: ["部署", "云"] },
-      { name: "Fly.io", url: "https://fly.io", desc: "边缘应用部署", tags: ["部署", "边缘"] },
+    "name": "AI 与 ML 学习",
+    "emoji": "📚",
+    "items": [
+      {
+        "name": "Coursera",
+        "url": "https://www.coursera.org/",
+        "desc": "大型在线学习课程",
+        "tags": [
+          "学习",
+          "课程"
+        ]
+      },
+      {
+        "name": "Kaggle",
+        "url": "https://www.kaggle.com/",
+        "desc": "数据科学竞赛 / 数据集 / Notebook",
+        "tags": [
+          "学习",
+          "竞赛"
+        ]
+      },
+      {
+        "name": "DeepLearning.AI",
+        "url": "https://www.deeplearning.ai/",
+        "desc": "Andrew Ng 深度学习课程平台",
+        "tags": [
+          "学习",
+          "ML"
+        ]
+      },
+      {
+        "name": "fast.ai",
+        "url": "https://fast.ai",
+        "desc": "实战深度学习课程",
+        "tags": [
+          "学习",
+          "ML"
+        ]
+      },
+      {
+        "name": "3Blue1Brown",
+        "url": "https://www.3blue1brown.com/",
+        "desc": "动画可视化数学 / ML 课程",
+        "tags": [
+          "学习",
+          "数学"
+        ]
+      },
+      {
+        "name": "Learn Prompting",
+        "url": "https://learnprompting.org",
+        "desc": "AI 提示工程指南",
+        "tags": [
+          "学习",
+          "提示"
+        ]
+      },
+      {
+        "name": "Hugging Face Learn",
+        "url": "https://huggingface.co/learn",
+        "desc": "HF 机器学习课程",
+        "tags": [
+          "学习",
+          "ML"
+        ]
+      },
+      {
+        "name": "Google ML Crash Course",
+        "url": "https://developers.google.com/machine-learning/crash-course",
+        "desc": "免费机器学习入门",
+        "tags": [
+          "学习",
+          "ML"
+        ]
+      },
+      {
+        "name": "MIT OpenCourseWare",
+        "url": "https://ocw.mit.edu",
+        "desc": "MIT 免费课程",
+        "tags": [
+          "学习",
+          "免费"
+        ]
+      },
+      {
+        "name": "Stanford Online",
+        "url": "https://online.stanford.edu",
+        "desc": "斯坦福在线课程",
+        "tags": [
+          "学习",
+          "课程"
+        ]
+      },
+      {
+        "name": "Machine Learning Mastery",
+        "url": "https://machinelearningmastery.com/",
+        "desc": "免费学习机器学习，从基础到高级",
+        "tags": [
+          "学习",
+          "ML"
+        ]
+      },
+      {
+        "name": "Elements of AI",
+        "url": "https://www.elementsofai.com/",
+        "desc": "面向 AI 的免费学习资源",
+        "tags": [
+          "学习",
+          "免费"
+        ]
+      },
+      {
+        "name": "Hung-yi Lee",
+        "url": "https://www.youtube.com/user/HungyiLeeNTU",
+        "desc": "YouTube · 李宏毅机器学习视频教程",
+        "tags": [
+          "学习",
+          "ML",
+          "视频"
+        ]
+      },
+      {
+        "name": "Brendan Bycroft",
+        "url": "https://bbycroft.net/llm",
+        "desc": "大模型工作原理 3D 可视化",
+        "tags": [
+          "学习",
+          "可视化"
+        ]
+      },
+      {
+        "name": "Transformer Explainer",
+        "url": "https://github.com/poloclub/transformer-explainer",
+        "desc": "Transformer 交互式可视化",
+        "tags": [
+          "学习",
+          "可视化"
+        ]
+      },
+      {
+        "name": "llm-course-cn",
+        "url": "https://github.com/yuanzhongqiao/llm-course-cn",
+        "desc": "LLM 学习 roadmaps 与 Colab 笔记",
+        "tags": [
+          "学习",
+          "LLM"
+        ]
+      },
+      {
+        "name": "leedl-tutorial",
+        "url": "https://github.com/datawhalechina/leedl-tutorial",
+        "desc": "李宏毅《机器学习》经典中文视频笔记",
+        "tags": [
+          "学习",
+          "DL",
+          "国内"
+        ]
+      }
     ]
   },
   {
-    name: "数据库与后端", emoji: "🗄️",
-    items: [
-      { name: "Supabase", url: "https://supabase.com", desc: "Firebase 开源替代", tags: ["后端", "BaaS"] },
-      { name: "MongoDB Atlas", url: "https://mongodb.com/atlas", desc: "MongoDB 云服务", tags: ["数据库", "NoSQL"] },
-      { name: "Redis", url: "https://redis.io", desc: "内存数据库/缓存", tags: ["数据库", "缓存"] },
-      { name: "PlanetScale", url: "https://planetscale.com", desc: "MySQL 无服务器数据库", tags: ["数据库", "Serverless"] },
-      { name: "Neon", url: "https://neon.tech", desc: "Serverless PostgreSQL", tags: ["数据库", "Serverless"] },
-      { name: "Docker Hub", url: "https://hub.docker.com", desc: "容器镜像仓库", tags: ["容器", "Docker"] },
+    "name": "编程与算法",
+    "emoji": "🧩",
+    "items": [
+      {
+        "name": "LeetCode",
+        "url": "https://leetcode.com/",
+        "desc": "算法面试刷题",
+        "tags": [
+          "学习",
+          "算法"
+        ]
+      },
+      {
+        "name": "freeCodeCamp",
+        "url": "https://freecodecamp.org",
+        "desc": "免费编程教程",
+        "tags": [
+          "编程",
+          "免费"
+        ]
+      },
+      {
+        "name": "Codecademy",
+        "url": "https://codecademy.com",
+        "desc": "交互式编程学习",
+        "tags": [
+          "编程",
+          "交互"
+        ]
+      },
+      {
+        "name": "W3Schools",
+        "url": "https://w3schools.com",
+        "desc": "Web 技术入门教程",
+        "tags": [
+          "教程",
+          "Web"
+        ]
+      },
+      {
+        "name": "HackerRank",
+        "url": "https://hackerrank.com",
+        "desc": "编程挑战 / 技术面试",
+        "tags": [
+          "竞赛",
+          "面试"
+        ]
+      },
+      {
+        "name": "Codeforces",
+        "url": "https://codeforces.com",
+        "desc": "竞赛编程平台",
+        "tags": [
+          "竞赛",
+          "算法"
+        ]
+      },
+      {
+        "name": "Roadmap.sh",
+        "url": "https://roadmap.sh",
+        "desc": "开发者成长路线图",
+        "tags": [
+          "路线",
+          "规划"
+        ]
+      },
+      {
+        "name": "hello-algo",
+        "url": "https://www.hello-algo.com/",
+        "desc": "动画图解、一键运行的数据结构与算法教程",
+        "tags": [
+          "学习",
+          "算法"
+        ]
+      },
+      {
+        "name": "Codewars",
+        "url": "https://codewars.com",
+        "desc": "格斗式编程训练",
+        "tags": [
+          "训练",
+          "算法"
+        ]
+      },
+      {
+        "name": "AtCoder",
+        "url": "https://atcoder.jp",
+        "desc": "日本竞赛编程",
+        "tags": [
+          "竞赛",
+          "算法"
+        ]
+      },
+      {
+        "name": "The Odin Project",
+        "url": "https://theodinproject.com",
+        "desc": "全栈 Web 开发课程",
+        "tags": [
+          "全栈",
+          "课程"
+        ]
+      },
+      {
+        "name": "Exercism",
+        "url": "https://exercism.org",
+        "desc": "多语言编程练习",
+        "tags": [
+          "编程",
+          "练习"
+        ]
+      },
+      {
+        "name": "Programiz",
+        "url": "https://programiz.com",
+        "desc": "免费编程学习",
+        "tags": [
+          "编程",
+          "免费"
+        ]
+      },
+      {
+        "name": "Full Stack Open",
+        "url": "https://fullstackopen.com",
+        "desc": "现代 Web 开发深度课程",
+        "tags": [
+          "全栈",
+          "课程"
+        ]
+      },
+      {
+        "name": "Scrimba",
+        "url": "https://scrimba.com",
+        "desc": "互动式编程课程",
+        "tags": [
+          "编程",
+          "交互"
+        ]
+      },
+      {
+        "name": "Pluralsight",
+        "url": "https://pluralsight.com",
+        "desc": "技术技能提升平台",
+        "tags": [
+          "课程",
+          "技术"
+        ]
+      },
+      {
+        "name": "Frontend Masters",
+        "url": "https://frontendmasters.com",
+        "desc": "前端进阶课程",
+        "tags": [
+          "前端",
+          "课程"
+        ]
+      },
+      {
+        "name": "O'Reilly Learning",
+        "url": "https://learning.oreilly.com",
+        "desc": "技术书籍 / 视频 / 实验室",
+        "tags": [
+          "书籍",
+          "课程"
+        ]
+      },
+      {
+        "name": "CodeChef",
+        "url": "https://codechef.com",
+        "desc": "印度竞赛编程",
+        "tags": [
+          "竞赛",
+          "算法"
+        ]
+      },
+      {
+        "name": "TopCoder",
+        "url": "https://topcoder.com",
+        "desc": "老牌竞赛编程平台",
+        "tags": [
+          "竞赛",
+          "算法"
+        ]
+      },
+      {
+        "name": "CodinGame",
+        "url": "https://www.codingame.com/",
+        "desc": "基于游戏的编程挑战",
+        "tags": [
+          "学习",
+          "编程"
+        ]
+      },
+      {
+        "name": "Project Euler",
+        "url": "https://projecteuler.net",
+        "desc": "经典数学 / 编程题",
+        "tags": [
+          "算法",
+          "练习"
+        ]
+      }
     ]
   },
   {
-    name: "推理与基础设施", emoji: "📡",
-    items: [
-      { name: "Ollama", url: "https://ollama.ai", desc: "本地 LLM 运行", tags: ["本地", "LLM"] },
-      { name: "LangChain", url: "https://langchain.com", desc: "LLM 应用开发框架", tags: ["框架", "LLM"] },
-      { name: "LlamaIndex", url: "https://llamaindex.ai", desc: "数据索引框架", tags: ["框架", "RAG"] },
-      { name: "vLLM", url: "https://vllm.ai", desc: "高性能推理引擎", tags: ["推理", "引擎"] },
-      { name: "Dify", url: "https://dify.ai", desc: "AI 应用可视化构建", tags: ["平台", "低代码"] },
-      { name: "Weights & Biases", url: "https://wandb.ai", desc: "ML 实验追踪", tags: ["实验", "ML"] },
-      { name: "MLflow", url: "https://mlflow.org", desc: "开源 ML 生命周期管理", tags: ["ML", "生命周期"] },
-      { name: "Ray", url: "https://ray.io", desc: "分布式 AI 计算框架", tags: ["计算", "分布式"] },
-      { name: "Milvus", url: "https://milvus.io", desc: "开源向量数据库", tags: ["数据库", "向量"] },
-      { name: "Kubeflow", url: "https://kubeflow.org", desc: "Kubernetes ML 平台", tags: ["ML", "K8s"] },
-      { name: "BentoML", url: "https://bentoml.com", desc: "AI 模型部署框架", tags: ["部署", "模型"] },
-      { name: "Prefect", url: "https://prefect.io", desc: "数据工作流编排", tags: ["编排", "数据"] },
-      { name: "Dagster", url: "https://dagster.io", desc: "数据感知编排器", tags: ["编排", "数据"] },
-      { name: "Comet ML", url: "https://comet.com", desc: "ML 实验管理平台", tags: ["实验", "ML"] },
-      { name: "DVC", url: "https://dvc.org", desc: "数据与 ML 管道版本控制", tags: ["版本", "数据"] },
-      { name: "Qdrant", url: "https://qdrant.tech", desc: "Rust 向量数据库", tags: ["数据库", "向量"] },
-      { name: "Chroma", url: "https://trychroma.com", desc: "轻量向量数据库", tags: ["数据库", "向量"] },
-      { name: "Evidently AI", url: "https://evidentlyai.com", desc: "ML 模型监控", tags: ["监控", "ML"] },
-      { name: "Arize AI", url: "https://arize.com", desc: "AI 可观测性平台", tags: ["监控", "可观测"] },
-      { name: "Langfuse", url: "https://langfuse.com", desc: "LLM 可观测性", tags: ["监控", "LLM"] },
-      { name: "Feast", url: "https://feast.dev", desc: "开源特征仓库", tags: ["特征", "ML"] },
-      { name: "LiteLLM", url: "https://litellm.ai", desc: "统一 LLM 网关", tags: ["网关", "LLM"] },
-      { name: "OpenTelemetry", url: "https://opentelemetry.io", desc: "可观测性标准框架", tags: ["监控", "标准"] },
+    "name": "模型与微调",
+    "emoji": "🧠",
+    "items": [
+      {
+        "name": "Ollama",
+        "url": "https://ollama.com/",
+        "desc": "开源 LLM 本地服务工具",
+        "tags": [
+          "LLM",
+          "本地"
+        ]
+      },
+      {
+        "name": "Llama3",
+        "url": "https://huggingface.co/meta-llama",
+        "desc": "Meta 开源大型语言模型",
+        "tags": [
+          "LLM",
+          "开源"
+        ]
+      },
+      {
+        "name": "Mistral",
+        "url": "https://huggingface.co/mistralai",
+        "desc": "Mistral AI 开源 7B 大模型",
+        "tags": [
+          "LLM",
+          "开源"
+        ]
+      },
+      {
+        "name": "DeepSeek-Coder-V2",
+        "url": "https://huggingface.co/deepseek-ai",
+        "desc": "开源 MoE 代码模型，对标 GPT4-Turbo",
+        "tags": [
+          "LLM",
+          "代码"
+        ]
+      },
+      {
+        "name": "Gemma 2",
+        "url": "https://huggingface.co/google",
+        "desc": "Google 开放全新架构模型",
+        "tags": [
+          "LLM",
+          "开源"
+        ]
+      },
+      {
+        "name": "Phi-3",
+        "url": "https://huggingface.co/microsoft",
+        "desc": "Microsoft 轻量级开放式模型",
+        "tags": [
+          "LLM",
+          "开源"
+        ]
+      },
+      {
+        "name": "Qwen2",
+        "url": "https://github.com/QwenLM/Qwen2",
+        "desc": "阿里云 Qwen 团队大型语言模型",
+        "tags": [
+          "LLM",
+          "开源"
+        ]
+      },
+      {
+        "name": "GLM-4",
+        "url": "https://github.com/THUDM/GLM-4",
+        "desc": "智谱 AI · GLM-4 系列开源版本",
+        "tags": [
+          "LLM",
+          "开源",
+          "国内"
+        ]
+      },
+      {
+        "name": "Yi",
+        "url": "https://huggingface.co/01-ai",
+        "desc": "高性能双语语言模型",
+        "tags": [
+          "LLM",
+          "开源"
+        ]
+      },
+      {
+        "name": "InternLM",
+        "url": "https://github.com/InternLM/InternLM",
+        "desc": "InternLM2.5 · 7B 基础与聊天模型，1M 上下文",
+        "tags": [
+          "LLM",
+          "开源",
+          "国内"
+        ]
+      },
+      {
+        "name": "unsloth",
+        "url": "https://github.com/unslothai/unsloth",
+        "desc": "微调提速 2-5 倍，内存占用减少 80%",
+        "tags": [
+          "微调",
+          "加速"
+        ]
+      },
+      {
+        "name": "LLaMA-Factory",
+        "url": "https://github.com/hiyouga/LLaMA-Factory",
+        "desc": "高效微调 100+ LLM 的 WebUI",
+        "tags": [
+          "微调",
+          "LLM"
+        ]
+      },
+      {
+        "name": "RouteLLM",
+        "url": "https://github.com/lm-sys/RouteLLM",
+        "desc": "LLM 路由器框架，在不损质量下省成本",
+        "tags": [
+          "LLM",
+          "路由"
+        ]
+      },
+      {
+        "name": "torchtune",
+        "url": "https://github.com/pytorch/torchtune",
+        "desc": "PyTorch 原生库，轻松编写与微调 LLM",
+        "tags": [
+          "微调",
+          "PyTorch"
+        ]
+      },
+      {
+        "name": "litgpt",
+        "url": "https://github.com/Lightning-AI/litgpt",
+        "desc": "20+ 高性能 LLM 的预训练 / 微调 / 部署",
+        "tags": [
+          "微调",
+          "LLM"
+        ]
+      },
+      {
+        "name": "axolotl",
+        "url": "https://github.com/axolotl-ai-cloud/axolotl",
+        "desc": "开源模型微调工具",
+        "tags": [
+          "微调",
+          "开源"
+        ]
+      },
+      {
+        "name": "Moa",
+        "url": "https://github.com/togethercomputer/moa",
+        "desc": "利用多个 LLM 集体优势提升准确率",
+        "tags": [
+          "LLM",
+          "开源"
+        ]
+      }
     ]
   },
   {
-    name: "DevOps 与监控", emoji: "🚀",
-    items: [
-      { name: "Kubernetes", url: "https://kubernetes.io", desc: "容器编排平台", tags: ["容器", "K8s"] },
-      { name: "Terraform", url: "https://terraform.io", desc: "基础设施即代码", tags: ["IaC", "自动化"] },
-      { name: "Grafana", url: "https://grafana.com", desc: "监控可视化面板", tags: ["监控", "可视化"] },
-      { name: "Prometheus", url: "https://prometheus.io", desc: "开源监控系统", tags: ["监控", "指标"] },
-      { name: "Ansible", url: "https://ansible.com", desc: "自动化运维工具", tags: ["运维", "自动化"] },
-      { name: "Datadog", url: "https://datadoghq.com", desc: "全栈监控平台", tags: ["监控", "APM"] },
-      { name: "Sentry", url: "https://sentry.io", desc: "错误追踪平台", tags: ["监控", "错误"] },
-      { name: "Helm", url: "https://helm.sh", desc: "Kubernetes 包管理", tags: ["K8s", "包管理"] },
-      { name: "ArgoCD", url: "https://argoproj.github.io/cd", desc: "Kubernetes GitOps", tags: ["GitOps", "K8s"] },
-      { name: "Pulumi", url: "https://pulumi.com", desc: "编程语言 IaC", tags: ["IaC", "编程"] },
-      { name: "OpenTofu", url: "https://opentofu.org", desc: "Terraform 开源 Fork", tags: ["IaC", "开源"] },
-      { name: "Better Stack", url: "https://betterstack.com", desc: "现代化日志/监控", tags: ["监控", "日志"] },
-      { name: "Snyk", url: "https://snyk.io", desc: "开发者安全平台", tags: ["安全", "依赖"] },
-      { name: "Dependabot", url: "https://dependabot.com", desc: "依赖自动更新", tags: ["依赖", "自动化"] },
+    "name": "AI 语音与音频",
+    "emoji": "🎙️",
+    "items": [
+      {
+        "name": "ElevenLabs",
+        "url": "https://elevenlabs.io",
+        "desc": "顶尖 TTS / 语音克隆",
+        "tags": [
+          "语音",
+          "TTS"
+        ]
+      },
+      {
+        "name": "GPT-SoVITS",
+        "url": "https://github.com/RVC-Boss/GPT-SoVITS",
+        "desc": "1 分钟语音数据训练好 TTS 模型",
+        "tags": [
+          "语音",
+          "TTS"
+        ]
+      },
+      {
+        "name": "edge-tts",
+        "url": "https://github.com/rany2/edge-tts",
+        "desc": "MS Edge 在线 TTS，无需密钥",
+        "tags": [
+          "语音",
+          "TTS"
+        ]
+      },
+      {
+        "name": "ChatTTS",
+        "url": "https://github.com/2noise/ChatTTS",
+        "desc": "用于对话场景的文本转语音",
+        "tags": [
+          "语音",
+          "TTS"
+        ]
+      },
+      {
+        "name": "F5-TTS",
+        "url": "https://github.com/SWivid/F5-TTS",
+        "desc": "上海交大 · 超逼真声音克隆，15 秒克隆",
+        "tags": [
+          "语音",
+          "TTS"
+        ]
+      },
+      {
+        "name": "CosyVoice",
+        "url": "https://github.com/FunAudioLLM/CosyVoice",
+        "desc": "多语言语音模型，推理 / 训练 / 部署全栈",
+        "tags": [
+          "语音",
+          "TTS"
+        ]
+      },
+      {
+        "name": "Qwen-Audio",
+        "url": "https://github.com/QwenAudio/Qwen-Audio",
+        "desc": "通义千问音频语言模型",
+        "tags": [
+          "语音",
+          "音频"
+        ]
+      },
+      {
+        "name": "fish-speech",
+        "url": "https://github.com/fishaudio/fish-speech",
+        "desc": "全新 TTS 解决方案",
+        "tags": [
+          "语音",
+          "TTS"
+        ]
+      },
+      {
+        "name": "OpenVoice",
+        "url": "https://github.com/myshell-ai/OpenVoice",
+        "desc": "即时克隆语音",
+        "tags": [
+          "语音",
+          "克隆"
+        ]
+      },
+      {
+        "name": "parler-tts",
+        "url": "https://github.com/huggingface/parler-tts",
+        "desc": "高质量 TTS 的推理与训练库",
+        "tags": [
+          "语音",
+          "TTS"
+        ]
+      },
+      {
+        "name": "EmotiVoice",
+        "url": "https://github.com/netease-youdao/EmotiVoice",
+        "desc": "多语音与提示控制的 TTS 引擎",
+        "tags": [
+          "语音",
+          "TTS"
+        ]
+      },
+      {
+        "name": "MARS5-TTS",
+        "url": "https://github.com/Camb-ai/MARS5-TTS",
+        "desc": "专注体育解说、动漫等韵律复杂场景",
+        "tags": [
+          "语音",
+          "TTS"
+        ]
+      },
+      {
+        "name": "Coqui TTS",
+        "url": "https://github.com/coqui-ai/TTS",
+        "desc": "开源的 TTS 模型",
+        "tags": [
+          "语音",
+          "TTS"
+        ]
+      },
+      {
+        "name": "MetaVoice-1B",
+        "url": "https://github.com/metavoiceio/metavoice-src",
+        "desc": "英语情感语音节奏精准控制",
+        "tags": [
+          "语音",
+          "TTS"
+        ]
+      }
     ]
   },
   {
-    name: "求职与职业", emoji: "💼",
-    items: [
-      { name: "LinkedIn", url: "https://linkedin.com", desc: "职业社交网络", tags: ["求职", "社交"] },
-      { name: "Indeed", url: "https://indeed.com", desc: "综合性招聘", tags: ["求职", "招聘"] },
-      { name: "Glassdoor", url: "https://glassdoor.com", desc: "公司评价+招聘", tags: ["求职", "评价"] },
-      { name: "BOSS 直聘", url: "https://zhipin.com", desc: "国内招聘平台", tags: ["求职", "国内"] },
-      { name: "Levels.fyi", url: "https://levels.fyi", desc: "薪资/职级对比", tags: ["薪资", "对比"] },
-      { name: "Wellfound", url: "https://wellfound.com", desc: "startups 招聘", tags: ["求职", "创业"] },
-      { name: "Remote OK", url: "https://remoteok.com", desc: "远程工作", tags: ["求职", "远程"] },
-      { name: "拉勾", url: "https://lagou.com", desc: "互联网行业招聘", tags: ["求职", "国内"] },
-      { name: "电鸭社区", url: "https://eleduck.com", desc: "远程/自由职业社区", tags: ["求职", "远程"] },
+    "name": "数据爬取与工具箱",
+    "emoji": "🕷️",
+    "items": [
+      {
+        "name": "Firecrawl",
+        "url": "https://www.firecrawl.dev/",
+        "desc": "爬取网站转 LLM 就绪 markdown / 结构化数据",
+        "tags": [
+          "爬虫",
+          "API"
+        ]
+      },
+      {
+        "name": "Jina Reader",
+        "url": "https://jina.ai/reader/",
+        "desc": "通过 URL 爬取数据转 markdown",
+        "tags": [
+          "爬虫",
+          "读取"
+        ]
+      },
+      {
+        "name": "Crawlee",
+        "url": "https://crawlee.dev/",
+        "desc": "Web 抓取与浏览器自动化库",
+        "tags": [
+          "爬虫",
+          "自动化"
+        ]
+      },
+      {
+        "name": "MindSearch",
+        "url": "https://github.com/InternLM/MindSearch",
+        "desc": "基于 LLM 的 Web 搜索多智能体框架",
+        "tags": [
+          "搜索",
+          "智能体"
+        ]
+      },
+      {
+        "name": "Crawl4ai",
+        "url": "https://github.com/unclecode/crawl4ai",
+        "desc": "开源 LLM 友好 Web 爬虫与抓取工具",
+        "tags": [
+          "爬虫",
+          "开源"
+        ]
+      },
+      {
+        "name": "ScrapeGraphAI",
+        "url": "https://github.com/ScrapeGraphAI/Scrapegraph-ai",
+        "desc": "基于 AI 的 Python 爬虫",
+        "tags": [
+          "爬虫",
+          "AI"
+        ]
+      },
+      {
+        "name": "MinerU",
+        "url": "https://github.com/opendatalab/MinerU",
+        "desc": "一站式高质量数据提取（PDF / 网页 / 电子书）",
+        "tags": [
+          "爬虫",
+          "数据提取"
+        ]
+      },
+      {
+        "name": "EasySpider",
+        "url": "https://github.com/NaiboWang/EasySpider",
+        "desc": "无代码可视化爬虫",
+        "tags": [
+          "爬虫",
+          "无代码"
+        ]
+      },
+      {
+        "name": "MediaCrawler",
+        "url": "https://github.com/NanmiCoder/MediaCrawler",
+        "desc": "抓取小红书 / 抖音 / B站等的视频、评论等",
+        "tags": [
+          "爬虫",
+          "自媒体"
+        ]
+      },
+      {
+        "name": "Wiseflow",
+        "url": "https://github.com/TeamWiseFlow/wiseflow",
+        "desc": "敏捷信息挖掘，自动分类并入库",
+        "tags": [
+          "爬虫",
+          "挖掘"
+        ]
+      }
+    ]
+  },
+  {
+    "name": "云与算力",
+    "emoji": "☁️",
+    "items": [
+      {
+        "name": "AWS",
+        "url": "https://aws.amazon.com",
+        "desc": "亚马逊云服务",
+        "tags": [
+          "云",
+          "AWS"
+        ]
+      },
+      {
+        "name": "Google Cloud",
+        "url": "https://cloud.google.com",
+        "desc": "Google 云平台",
+        "tags": [
+          "云",
+          "GCP"
+        ]
+      },
+      {
+        "name": "Azure",
+        "url": "https://azure.microsoft.com",
+        "desc": "微软云平台",
+        "tags": [
+          "云",
+          "Azure"
+        ]
+      },
+      {
+        "name": "阿里云",
+        "url": "https://www.aliyun.com/",
+        "desc": "上云就上阿里云",
+        "tags": [
+          "云",
+          "算力",
+          "国内"
+        ]
+      },
+      {
+        "name": "Cloudflare",
+        "url": "https://cloudflare.com",
+        "desc": "CDN / 安全 / Workers",
+        "tags": [
+          "CDN",
+          "安全"
+        ]
+      },
+      {
+        "name": "Vercel",
+        "url": "https://vercel.com",
+        "desc": "前端部署平台",
+        "tags": [
+          "部署",
+          "前端"
+        ]
+      },
+      {
+        "name": "腾讯云",
+        "url": "https://cloud.tencent.com/",
+        "desc": "产业智变，云启未来",
+        "tags": [
+          "云",
+          "算力",
+          "国内"
+        ]
+      },
+      {
+        "name": "DigitalOcean",
+        "url": "https://digitalocean.com",
+        "desc": "开发者友好云主机",
+        "tags": [
+          "云",
+          "主机"
+        ]
+      },
+      {
+        "name": "华为云",
+        "url": "https://www.huaweicloud.com/",
+        "desc": "提供云计算服务 + 智能",
+        "tags": [
+          "云",
+          "算力",
+          "国内"
+        ]
+      },
+      {
+        "name": "RunPod",
+        "url": "https://runpod.io",
+        "desc": "按需 GPU 云",
+        "tags": [
+          "算力",
+          "GPU"
+        ]
+      },
+      {
+        "name": "Modal",
+        "url": "https://modal.com",
+        "desc": "Serverless AI 计算",
+        "tags": [
+          "云",
+          "Serverless"
+        ]
+      },
+      {
+        "name": "Netlify",
+        "url": "https://netlify.com",
+        "desc": "静态网站托管",
+        "tags": [
+          "部署",
+          "托管"
+        ]
+      },
+      {
+        "name": "Railway",
+        "url": "https://railway.app",
+        "desc": "全栈部署平台",
+        "tags": [
+          "部署",
+          "全栈"
+        ]
+      },
+      {
+        "name": "Render",
+        "url": "https://render.com",
+        "desc": "云应用托管",
+        "tags": [
+          "部署",
+          "云"
+        ]
+      },
+      {
+        "name": "Lambda Labs",
+        "url": "https://lambda.ai",
+        "desc": "高性能 GPU 云",
+        "tags": [
+          "算力",
+          "GPU"
+        ]
+      },
+      {
+        "name": "Fly.io",
+        "url": "https://fly.io",
+        "desc": "边缘应用部署",
+        "tags": [
+          "部署",
+          "边缘"
+        ]
+      },
+      {
+        "name": "Linode",
+        "url": "https://linode.com",
+        "desc": "高性能云主机",
+        "tags": [
+          "云",
+          "主机"
+        ]
+      },
+      {
+        "name": "Vultr",
+        "url": "https://vultr.com",
+        "desc": "全球云服务器",
+        "tags": [
+          "云",
+          "主机"
+        ]
+      },
+      {
+        "name": "Hetzner",
+        "url": "https://hetzner.com",
+        "desc": "欧洲高性价比云主机",
+        "tags": [
+          "云",
+          "主机"
+        ]
+      },
+      {
+        "name": "DeepInfra",
+        "url": "https://deepinfra.com",
+        "desc": "低成本模型推理",
+        "tags": [
+          "推理",
+          "API"
+        ]
+      },
+      {
+        "name": "AutoDL",
+        "url": "https://www.autodl.com/",
+        "desc": "专业 GPU 租用，秒级计费，算法复现社区",
+        "tags": [
+          "算力",
+          "GPU"
+        ]
+      },
+      {
+        "name": "青椒云",
+        "url": "https://www.qingjiaocloud.com/",
+        "desc": "云桌面一站式云电脑平台",
+        "tags": [
+          "算力",
+          "云电脑"
+        ]
+      },
+      {
+        "name": "极云普惠云电脑",
+        "url": "https://www.ji-cloud.cn/",
+        "desc": "云电脑 / 云游戏 / 手机变电脑",
+        "tags": [
+          "算力",
+          "云电脑"
+        ]
+      }
+    ]
+  },
+  {
+    "name": "代码托管与协作",
+    "emoji": "👨‍💻",
+    "items": [
+      {
+        "name": "GitHub",
+        "url": "https://github.com",
+        "desc": "全球最大代码托管平台",
+        "tags": [
+          "托管",
+          "协作"
+        ]
+      },
+      {
+        "name": "GitLab",
+        "url": "https://gitlab.com",
+        "desc": "DevOps 一体化平台",
+        "tags": [
+          "托管",
+          "DevOps"
+        ]
+      },
+      {
+        "name": "Gitee",
+        "url": "https://gitee.com",
+        "desc": "国产代码托管平台",
+        "tags": [
+          "托管",
+          "国内"
+        ]
+      },
+      {
+        "name": "Bitbucket",
+        "url": "https://bitbucket.org",
+        "desc": "Atlassian 代码托管",
+        "tags": [
+          "托管",
+          "协作"
+        ]
+      },
+      {
+        "name": "SourceForge",
+        "url": "https://sourceforge.net",
+        "desc": "开源项目托管",
+        "tags": [
+          "托管",
+          "开源"
+        ]
+      },
+      {
+        "name": "Codeberg",
+        "url": "https://codeberg.org",
+        "desc": "开源社区代码托管",
+        "tags": [
+          "托管",
+          "开源"
+        ]
+      }
+    ]
+  },
+  {
+    "name": "技术文档与参考",
+    "emoji": "📖",
+    "items": [
+      {
+        "name": "MDN Web Docs",
+        "url": "https://developer.mozilla.org",
+        "desc": "Web 标准权威参考",
+        "tags": [
+          "文档",
+          "Web"
+        ]
+      },
+      {
+        "name": "Microsoft Learn",
+        "url": "https://learn.microsoft.com",
+        "desc": "微软技术文档",
+        "tags": [
+          "文档",
+          "微软"
+        ]
+      },
+      {
+        "name": "npm",
+        "url": "https://npmjs.com",
+        "desc": "Node.js 包注册表",
+        "tags": [
+          "包管理",
+          "Node"
+        ]
+      },
+      {
+        "name": "Python Docs",
+        "url": "https://docs.python.org",
+        "desc": "Python 官方文档",
+        "tags": [
+          "文档",
+          "Python"
+        ]
+      },
+      {
+        "name": "PyPI",
+        "url": "https://pypi.org",
+        "desc": "Python 包索引",
+        "tags": [
+          "包管理",
+          "Python"
+        ]
+      },
+      {
+        "name": "GitBook",
+        "url": "https://gitbook.com",
+        "desc": "现代化文档平台",
+        "tags": [
+          "文档",
+          "平台"
+        ]
+      },
+      {
+        "name": "Read the Docs",
+        "url": "https://readthedocs.org",
+        "desc": "开源项目文档托管",
+        "tags": [
+          "文档",
+          "托管"
+        ]
+      },
+      {
+        "name": "Go Docs",
+        "url": "https://go.dev/doc",
+        "desc": "Go 官方文档",
+        "tags": [
+          "文档",
+          "Go"
+        ]
+      },
+      {
+        "name": "Rust Docs",
+        "url": "https://doc.rust-lang.org",
+        "desc": "Rust 官方文档",
+        "tags": [
+          "文档",
+          "Rust"
+        ]
+      },
+      {
+        "name": "DevDocs",
+        "url": "https://devdocs.io",
+        "desc": "多语言文档聚合",
+        "tags": [
+          "文档",
+          "聚合"
+        ]
+      },
+      {
+        "name": "Regex101",
+        "url": "https://regex101.com",
+        "desc": "正则表达式测试",
+        "tags": [
+          "工具",
+          "正则"
+        ]
+      },
+      {
+        "name": "cheat.sh",
+        "url": "https://cheat.sh",
+        "desc": "命令行速查工具",
+        "tags": [
+          "工具",
+          "命令行"
+        ]
+      },
+      {
+        "name": "crates.io",
+        "url": "https://crates.io",
+        "desc": "Rust 包注册表",
+        "tags": [
+          "包管理",
+          "Rust"
+        ]
+      },
+      {
+        "name": "The Neural Base",
+        "url": "https://theneuralbase.com",
+        "desc": "自我纠错的开源 AI / ML 参考",
+        "tags": [
+          "文档",
+          "AI"
+        ]
+      },
+      {
+        "name": "QuickRef",
+        "url": "https://quickref.me",
+        "desc": "速查表集合",
+        "tags": [
+          "速查",
+          "参考"
+        ]
+      },
+      {
+        "name": "DevHints",
+        "url": "https://devhints.io",
+        "desc": "开发者速查卡",
+        "tags": [
+          "速查",
+          "参考"
+        ]
+      },
+      {
+        "name": "ExplainShell",
+        "url": "https://explainshell.com",
+        "desc": "Shell 命令解释",
+        "tags": [
+          "工具",
+          "Shell"
+        ]
+      }
+    ]
+  },
+  {
+    "name": "问答与社区",
+    "emoji": "❓",
+    "items": [
+      {
+        "name": "Stack Overflow",
+        "url": "https://stackoverflow.com",
+        "desc": "技术问答第一站",
+        "tags": [
+          "问答",
+          "社区"
+        ]
+      },
+      {
+        "name": "知乎",
+        "url": "https://zhihu.com",
+        "desc": "中文知识问答",
+        "tags": [
+          "问答",
+          "国内"
+        ]
+      },
+      {
+        "name": "Twitter / X",
+        "url": "https://x.com",
+        "desc": "技术圈即时动态",
+        "tags": [
+          "社交",
+          "动态"
+        ]
+      },
+      {
+        "name": "Hugging Face",
+        "url": "https://huggingface.co",
+        "desc": "模型 / 数据集 / 社区中心",
+        "tags": [
+          "社区",
+          "模型"
+        ]
+      },
+      {
+        "name": "V2EX",
+        "url": "https://v2ex.com",
+        "desc": "国内技术社区",
+        "tags": [
+          "社区",
+          "国内"
+        ]
+      },
+      {
+        "name": "掘金",
+        "url": "https://juejin.cn",
+        "desc": "中文技术文章平台",
+        "tags": [
+          "文章",
+          "国内"
+        ]
+      },
+      {
+        "name": "r/programming",
+        "url": "https://reddit.com/r/programming",
+        "desc": "编程综合讨论",
+        "tags": [
+          "社区",
+          "编程"
+        ]
+      },
+      {
+        "name": "r/MachineLearning",
+        "url": "https://reddit.com/r/MachineLearning",
+        "desc": "ML 社区",
+        "tags": [
+          "社区",
+          "ML"
+        ]
+      },
+      {
+        "name": "Dev.to",
+        "url": "https://dev.to",
+        "desc": "开发者博客社区",
+        "tags": [
+          "社区",
+          "博客"
+        ]
+      },
+      {
+        "name": "SegmentFault",
+        "url": "https://segmentfault.com",
+        "desc": "中文技术问答",
+        "tags": [
+          "问答",
+          "国内"
+        ]
+      },
+      {
+        "name": "r/LocalLLaMA",
+        "url": "https://reddit.com/r/LocalLLaMA",
+        "desc": "本地 LLM 社区",
+        "tags": [
+          "社区",
+          "LLM"
+        ]
+      },
+      {
+        "name": "魔搭 ModelScope",
+        "url": "https://modelscope.cn",
+        "desc": "AI 模型社区（国内）",
+        "tags": [
+          "社区",
+          "模型",
+          "国内"
+        ]
+      },
+      {
+        "name": "Mastodon",
+        "url": "https://mastodon.social",
+        "desc": "联邦式社交 / 技术圈",
+        "tags": [
+          "社交",
+          "动态"
+        ]
+      },
+      {
+        "name": "Lobste.rs",
+        "url": "https://lobste.rs",
+        "desc": "技术聚合社区（HN 替代）",
+        "tags": [
+          "社区",
+          "新闻"
+        ]
+      },
+      {
+        "name": "Bluesky",
+        "url": "https://bsky.app",
+        "desc": "去中心化社交 / 技术圈",
+        "tags": [
+          "社交",
+          "动态"
+        ]
+      }
+    ]
+  },
+  {
+    "name": "新闻与趋势",
+    "emoji": "📰",
+    "items": [
+      {
+        "name": "Hacker News",
+        "url": "https://news.ycombinator.com",
+        "desc": "YC 旗下极客新闻聚合",
+        "tags": [
+          "新闻",
+          "社区"
+        ]
+      },
+      {
+        "name": "TechCrunch",
+        "url": "https://techcrunch.com",
+        "desc": "科技创业新闻",
+        "tags": [
+          "新闻",
+          "科技"
+        ]
+      },
+      {
+        "name": "The Verge",
+        "url": "https://theverge.com",
+        "desc": "科技消费新闻",
+        "tags": [
+          "新闻",
+          "科技"
+        ]
+      },
+      {
+        "name": "36氪",
+        "url": "https://36kr.com",
+        "desc": "科技商业媒体",
+        "tags": [
+          "新闻",
+          "商业"
+        ]
+      },
+      {
+        "name": "机器之心",
+        "url": "https://jiqizhixin.com",
+        "desc": "中文 AI 媒体",
+        "tags": [
+          "新闻",
+          "国内"
+        ]
+      },
+      {
+        "name": "量子位",
+        "url": "https://qbitai.com",
+        "desc": "中文 AI 科技媒体",
+        "tags": [
+          "新闻",
+          "国内"
+        ]
+      },
+      {
+        "name": "Wired",
+        "url": "https://wired.com",
+        "desc": "科技文化杂志",
+        "tags": [
+          "新闻",
+          "科技"
+        ]
+      },
+      {
+        "name": "MIT Tech Review",
+        "url": "https://technologyreview.com",
+        "desc": "MIT 科技评论",
+        "tags": [
+          "新闻",
+          "科技"
+        ]
+      },
+      {
+        "name": "ArXiv",
+        "url": "https://arxiv.org",
+        "desc": "学术预印本论文",
+        "tags": [
+          "论文",
+          "学术"
+        ]
+      },
+      {
+        "name": "Ars Technica",
+        "url": "https://arstechnica.com",
+        "desc": "深度科技报道",
+        "tags": [
+          "新闻",
+          "深度"
+        ]
+      },
+      {
+        "name": "InfoQ",
+        "url": "https://infoq.com",
+        "desc": "软件开发趋势",
+        "tags": [
+          "新闻",
+          "开发"
+        ]
+      },
+      {
+        "name": "daily.dev",
+        "url": "https://daily.dev",
+        "desc": "开发者个性化资讯",
+        "tags": [
+          "新闻",
+          "订阅"
+        ]
+      },
+      {
+        "name": "少数派",
+        "url": "https://sspai.com",
+        "desc": "效率 / 科技生活方式",
+        "tags": [
+          "新闻",
+          "效率"
+        ]
+      },
+      {
+        "name": "爱范儿",
+        "url": "https://ifanr.com",
+        "desc": "数字生活 / 科技媒体",
+        "tags": [
+          "新闻",
+          "国内"
+        ]
+      },
+      {
+        "name": "Papers with Code",
+        "url": "https://paperswithcode.com",
+        "desc": "论文 + 代码 + 排行榜",
+        "tags": [
+          "论文",
+          "代码"
+        ]
+      },
+      {
+        "name": "The Information",
+        "url": "https://theinformation.com",
+        "desc": "深度科技商业报道",
+        "tags": [
+          "新闻",
+          "商业"
+        ]
+      },
+      {
+        "name": "The Decoder",
+        "url": "https://the-decoder.com",
+        "desc": "AI 行业新闻",
+        "tags": [
+          "新闻",
+          "AI"
+        ]
+      },
+      {
+        "name": "Techmeme",
+        "url": "https://techmeme.com",
+        "desc": "科技新闻聚合",
+        "tags": [
+          "新闻",
+          "聚合"
+        ]
+      },
+      {
+        "name": "Semantic Scholar",
+        "url": "https://semanticscholar.org",
+        "desc": "学术论文搜索引擎",
+        "tags": [
+          "论文",
+          "搜索"
+        ]
+      },
+      {
+        "name": "Ben's Bites",
+        "url": "https://www.bensbites.com",
+        "desc": "每日 AI 简报",
+        "tags": [
+          "新闻",
+          "AI"
+        ]
+      },
+      {
+        "name": "OpenAI Research",
+        "url": "https://openai.com/research",
+        "desc": "OpenAI 研究成果",
+        "tags": [
+          "研究",
+          "论文"
+        ]
+      },
+      {
+        "name": "Google Research",
+        "url": "https://research.google",
+        "desc": "Google 研究成果",
+        "tags": [
+          "研究",
+          "论文"
+        ]
+      },
+      {
+        "name": "LWN.net",
+        "url": "https://lwn.net",
+        "desc": "Linux / 开源深度报道",
+        "tags": [
+          "新闻",
+          "开源"
+        ]
+      },
+      {
+        "name": "OpenReview",
+        "url": "https://openreview.net",
+        "desc": "开放学术评审平台",
+        "tags": [
+          "论文",
+          "学术"
+        ]
+      },
+      {
+        "name": "AI Stack Digest",
+        "url": "https://aistackdigest.com",
+        "desc": "AI 工具对比与新闻",
+        "tags": [
+          "新闻",
+          "AI"
+        ]
+      }
+    ]
+  },
+  {
+    "name": "设计与素材",
+    "emoji": "🎨",
+    "items": [
+      {
+        "name": "Figma",
+        "url": "https://figma.com",
+        "desc": "协作 UI 设计",
+        "tags": [
+          "设计",
+          "协作"
+        ]
+      },
+      {
+        "name": "Canva",
+        "url": "https://www.canva.com",
+        "desc": "在线平面设计",
+        "tags": [
+          "设计",
+          "工具"
+        ]
+      },
+      {
+        "name": "Unsplash",
+        "url": "https://unsplash.com",
+        "desc": "免费商用图片",
+        "tags": [
+          "图片",
+          "免费"
+        ]
+      },
+      {
+        "name": "Pexels",
+        "url": "https://www.pexels.com",
+        "desc": "免费商用图片",
+        "tags": [
+          "图片",
+          "免费"
+        ]
+      },
+      {
+        "name": "Dribbble",
+        "url": "https://dribbble.com",
+        "desc": "UI / UX 设计作品集",
+        "tags": [
+          "设计",
+          "灵感"
+        ]
+      },
+      {
+        "name": "Behance",
+        "url": "https://behance.net",
+        "desc": "Adobe 设计社区",
+        "tags": [
+          "设计",
+          "社区"
+        ]
+      },
+      {
+        "name": "Excalidraw",
+        "url": "https://excalidraw.com",
+        "desc": "手绘风格白板 / 流程图",
+        "tags": [
+          "图表",
+          "白板"
+        ]
+      },
+      {
+        "name": "Mermaid",
+        "url": "https://mermaid.live",
+        "desc": "图表即代码",
+        "tags": [
+          "图表",
+          "工具"
+        ]
+      },
+      {
+        "name": "Google Fonts",
+        "url": "https://fonts.google.com",
+        "desc": "免费 Web 字体",
+        "tags": [
+          "字体",
+          "免费"
+        ]
+      },
+      {
+        "name": "Lucide",
+        "url": "https://lucide.dev",
+        "desc": "开源图标库",
+        "tags": [
+          "图标",
+          "开源"
+        ]
+      },
+      {
+        "name": "Iconify",
+        "url": "https://iconify.design",
+        "desc": "开源图标聚合框架",
+        "tags": [
+          "图标",
+          "开源"
+        ]
+      },
+      {
+        "name": "Coolors",
+        "url": "https://coolors.co",
+        "desc": "配色方案生成",
+        "tags": [
+          "配色",
+          "工具"
+        ]
+      },
+      {
+        "name": "Drawio",
+        "url": "https://app.diagrams.net/",
+        "desc": "JGraph · 流程图",
+        "tags": [
+          "图表",
+          "流程图"
+        ]
+      },
+      {
+        "name": "Colorhunt",
+        "url": "https://colorhunt.co",
+        "desc": "配色灵感集合",
+        "tags": [
+          "配色",
+          "灵感"
+        ]
+      },
+      {
+        "name": "Icons8",
+        "url": "https://icons8.com",
+        "desc": "图标 / 插画 / 照片",
+        "tags": [
+          "图标",
+          "素材"
+        ]
+      },
+      {
+        "name": "ProcessOn",
+        "url": "https://www.processon.com/",
+        "desc": "大麦地科技 · 流程图",
+        "tags": [
+          "图表",
+          "流程图",
+          "国内"
+        ]
+      },
+      {
+        "name": "tldraw",
+        "url": "https://www.tldraw.com/",
+        "desc": "tldraw · 流程图 / 白板",
+        "tags": [
+          "图表",
+          "白板"
+        ]
+      },
+      {
+        "name": "AutoDraw",
+        "url": "https://autodraw.com/",
+        "desc": "Google · 绘图",
+        "tags": [
+          "图表",
+          "绘图"
+        ]
+      },
+      {
+        "name": "ASCIIFlow",
+        "url": "https://asciiflow.com/",
+        "desc": "ASCIIFlow · 流程图",
+        "tags": [
+          "图表",
+          "流程图"
+        ]
+      },
+      {
+        "name": "tldraw computer",
+        "url": "https://computer.tldraw.com/",
+        "desc": "tldraw · 流程图",
+        "tags": [
+          "图表",
+          "白板"
+        ]
+      }
+    ]
+  },
+  {
+    "name": "效率与工具",
+    "emoji": "🔧",
+    "items": [
+      {
+        "name": "Notion",
+        "url": "https://notion.so",
+        "desc": "全能笔记 / 文档 / 维基",
+        "tags": [
+          "笔记",
+          "协作"
+        ]
+      },
+      {
+        "name": "Obsidian",
+        "url": "https://obsidian.md",
+        "desc": "本地知识库",
+        "tags": [
+          "笔记",
+          "知识库"
+        ]
+      },
+      {
+        "name": "Postman",
+        "url": "https://postman.com",
+        "desc": "API 调试工具",
+        "tags": [
+          "API",
+          "调试"
+        ]
+      },
+      {
+        "name": "Zapier",
+        "url": "https://zapier.com",
+        "desc": "自动化工作流",
+        "tags": [
+          "自动化",
+          "效率"
+        ]
+      },
+      {
+        "name": "Airtable",
+        "url": "https://www.airtable.com",
+        "desc": "在线表格 / 数据库",
+        "tags": [
+          "笔记",
+          "协作"
+        ]
+      },
+      {
+        "name": "Linear",
+        "url": "https://linear.app",
+        "desc": "极简项目管理",
+        "tags": [
+          "项目",
+          "管理"
+        ]
+      },
+      {
+        "name": "Raycast",
+        "url": "https://raycast.com",
+        "desc": "Mac 效率启动器",
+        "tags": [
+          "效率",
+          "Mac"
+        ]
+      },
+      {
+        "name": "uTools",
+        "url": "https://u.tools",
+        "desc": "国产效率启动器（含 AI 助手 / 插件）",
+        "tags": [
+          "效率",
+          "国内"
+        ]
+      },
+      {
+        "name": "CodePen",
+        "url": "https://codepen.io",
+        "desc": "前端代码实验场",
+        "tags": [
+          "前端",
+          "实验"
+        ]
+      },
+      {
+        "name": "DevToys",
+        "url": "https://devtoys.app",
+        "desc": "开发者瑞士军刀",
+        "tags": [
+          "工具",
+          "实用"
+        ]
+      },
+      {
+        "name": "JSON Crack",
+        "url": "https://jsoncrack.com",
+        "desc": "JSON 可视化工具",
+        "tags": [
+          "工具",
+          "JSON"
+        ]
+      },
+      {
+        "name": "CodeSandbox",
+        "url": "https://codesandbox.io",
+        "desc": "在线沙盒 IDE",
+        "tags": [
+          "IDE",
+          "在线"
+        ]
+      },
+      {
+        "name": "StackBlitz",
+        "url": "https://stackblitz.com",
+        "desc": "浏览器内 IDE",
+        "tags": [
+          "IDE",
+          "在线"
+        ]
+      },
+      {
+        "name": "Carbon",
+        "url": "https://carbon.now.sh",
+        "desc": "代码截图美化",
+        "tags": [
+          "工具",
+          "截图"
+        ]
+      },
+      {
+        "name": "Ray.so",
+        "url": "https://ray.so",
+        "desc": "代码 / 界面截图美化",
+        "tags": [
+          "工具",
+          "截图"
+        ]
+      },
+      {
+        "name": "Ngrok",
+        "url": "https://ngrok.com",
+        "desc": "内网穿透 / 本地暴露",
+        "tags": [
+          "工具",
+          "网络"
+        ]
+      },
+      {
+        "name": "Swagger",
+        "url": "https://swagger.io",
+        "desc": "API 规范与文档",
+        "tags": [
+          "API",
+          "文档"
+        ]
+      },
+      {
+        "name": "Hoppscotch",
+        "url": "https://hoppscotch.io",
+        "desc": "开源 API 调试",
+        "tags": [
+          "API",
+          "开源"
+        ]
+      },
+      {
+        "name": "Insomnia",
+        "url": "https://insomnia.rest",
+        "desc": "API 设计与调试",
+        "tags": [
+          "API",
+          "设计"
+        ]
+      },
+      {
+        "name": "Bruno",
+        "url": "https://usebruno.com",
+        "desc": "离线 API 客户端",
+        "tags": [
+          "API",
+          "客户端"
+        ]
+      },
+      {
+        "name": "JSFiddle",
+        "url": "https://jsfiddle.net",
+        "desc": "在线 JavaScript 调试",
+        "tags": [
+          "JS",
+          "调试"
+        ]
+      },
+      {
+        "name": "Pastebin",
+        "url": "https://pastebin.com",
+        "desc": "代码片段分享",
+        "tags": [
+          "工具",
+          "分享"
+        ]
+      }
+    ]
+  },
+  {
+    "name": "数据库与后端",
+    "emoji": "🗄️",
+    "items": [
+      {
+        "name": "PostgreSQL",
+        "url": "https://www.postgresql.org",
+        "desc": "权威关系型数据库",
+        "tags": [
+          "数据库",
+          "关系型"
+        ]
+      },
+      {
+        "name": "Redis",
+        "url": "https://redis.io",
+        "desc": "内存数据库 / 缓存",
+        "tags": [
+          "数据库",
+          "缓存"
+        ]
+      },
+      {
+        "name": "Firebase",
+        "url": "https://firebase.google.com",
+        "desc": "Google 后端平台",
+        "tags": [
+          "后端",
+          "BaaS"
+        ]
+      },
+      {
+        "name": "MongoDB Atlas",
+        "url": "https://mongodb.com/atlas",
+        "desc": "MongoDB 云服务",
+        "tags": [
+          "数据库",
+          "NoSQL"
+        ]
+      },
+      {
+        "name": "Prisma",
+        "url": "https://www.prisma.io",
+        "desc": "主流 TypeScript ORM",
+        "tags": [
+          "后端",
+          "ORM"
+        ]
+      },
+      {
+        "name": "Supabase",
+        "url": "https://supabase.com",
+        "desc": "Firebase 开源替代",
+        "tags": [
+          "后端",
+          "BaaS"
+        ]
+      },
+      {
+        "name": "Docker Hub",
+        "url": "https://hub.docker.com",
+        "desc": "容器镜像仓库",
+        "tags": [
+          "容器",
+          "Docker"
+        ]
+      },
+      {
+        "name": "Neon",
+        "url": "https://neon.tech",
+        "desc": "Serverless PostgreSQL",
+        "tags": [
+          "数据库",
+          "Serverless"
+        ]
+      },
+      {
+        "name": "PlanetScale",
+        "url": "https://planetscale.com",
+        "desc": "MySQL 无服务器数据库",
+        "tags": [
+          "数据库",
+          "Serverless"
+        ]
+      },
+      {
+        "name": "Chroma",
+        "url": "https://trychroma.com",
+        "desc": "轻量向量数据库",
+        "tags": [
+          "数据库",
+          "向量"
+        ]
+      },
+      {
+        "name": "Milvus",
+        "url": "https://milvus.io",
+        "desc": "开源向量数据库",
+        "tags": [
+          "数据库",
+          "向量"
+        ]
+      },
+      {
+        "name": "Qdrant",
+        "url": "https://qdrant.tech",
+        "desc": "Rust 向量数据库",
+        "tags": [
+          "数据库",
+          "向量"
+        ]
+      }
+    ]
+  },
+  {
+    "name": "MLOps 与推理",
+    "emoji": "📡",
+    "items": [
+      {
+        "name": "vLLM",
+        "url": "https://vllm.ai",
+        "desc": "高性能推理引擎",
+        "tags": [
+          "推理",
+          "引擎"
+        ]
+      },
+      {
+        "name": "Weights & Biases",
+        "url": "https://wandb.ai",
+        "desc": "ML 实验追踪",
+        "tags": [
+          "实验",
+          "ML"
+        ]
+      },
+      {
+        "name": "MLflow",
+        "url": "https://mlflow.org",
+        "desc": "开源 ML 生命周期管理",
+        "tags": [
+          "ML",
+          "生命周期"
+        ]
+      },
+      {
+        "name": "Langfuse",
+        "url": "https://langfuse.com",
+        "desc": "LLM 可观测性",
+        "tags": [
+          "监控",
+          "LLM"
+        ]
+      },
+      {
+        "name": "LiteLLM",
+        "url": "https://litellm.ai",
+        "desc": "统一 LLM 网关",
+        "tags": [
+          "网关",
+          "LLM"
+        ]
+      },
+      {
+        "name": "Ray",
+        "url": "https://ray.io",
+        "desc": "分布式 AI 计算框架",
+        "tags": [
+          "计算",
+          "分布式"
+        ]
+      },
+      {
+        "name": "LlamaIndex",
+        "url": "https://llamaindex.ai",
+        "desc": "数据索引 / RAG 框架",
+        "tags": [
+          "框架",
+          "RAG"
+        ]
+      },
+      {
+        "name": "BentoML",
+        "url": "https://bentoml.com",
+        "desc": "AI 模型部署框架",
+        "tags": [
+          "部署",
+          "模型"
+        ]
+      },
+      {
+        "name": "OpenTelemetry",
+        "url": "https://opentelemetry.io",
+        "desc": "可观测性标准框架",
+        "tags": [
+          "监控",
+          "标准"
+        ]
+      },
+      {
+        "name": "Prefect",
+        "url": "https://prefect.io",
+        "desc": "数据工作流编排",
+        "tags": [
+          "编排",
+          "数据"
+        ]
+      },
+      {
+        "name": "ONNX Runtime",
+        "url": "https://onnxruntime.ai",
+        "desc": "跨平台推理引擎",
+        "tags": [
+          "推理",
+          "引擎"
+        ]
+      },
+      {
+        "name": "SGLang",
+        "url": "https://github.com/sgl-project/sglang",
+        "desc": "高性能 LLM 推理框架",
+        "tags": [
+          "推理",
+          "引擎"
+        ]
+      },
+      {
+        "name": "DVC",
+        "url": "https://dvc.org",
+        "desc": "数据与 ML 管道版本控制",
+        "tags": [
+          "版本",
+          "数据"
+        ]
+      },
+      {
+        "name": "Dagster",
+        "url": "https://dagster.io",
+        "desc": "数据感知编排器",
+        "tags": [
+          "编排",
+          "数据"
+        ]
+      },
+      {
+        "name": "Kubeflow",
+        "url": "https://kubeflow.org",
+        "desc": "Kubernetes ML 平台",
+        "tags": [
+          "ML",
+          "K8s"
+        ]
+      },
+      {
+        "name": "Comet ML",
+        "url": "https://comet.com",
+        "desc": "ML 实验管理平台",
+        "tags": [
+          "实验",
+          "ML"
+        ]
+      },
+      {
+        "name": "Evidently AI",
+        "url": "https://evidentlyai.com",
+        "desc": "ML 模型监控",
+        "tags": [
+          "监控",
+          "ML"
+        ]
+      },
+      {
+        "name": "Feast",
+        "url": "https://feast.dev",
+        "desc": "开源特征仓库",
+        "tags": [
+          "特征",
+          "ML"
+        ]
+      },
+      {
+        "name": "Arize AI",
+        "url": "https://arize.com",
+        "desc": "AI 可观测性平台",
+        "tags": [
+          "监控",
+          "可观测"
+        ]
+      }
+    ]
+  },
+  {
+    "name": "DevOps 与监控",
+    "emoji": "🚀",
+    "items": [
+      {
+        "name": "Kubernetes",
+        "url": "https://kubernetes.io",
+        "desc": "容器编排平台",
+        "tags": [
+          "容器",
+          "K8s"
+        ]
+      },
+      {
+        "name": "Docker",
+        "url": "https://www.docker.com",
+        "desc": "容器化核心平台",
+        "tags": [
+          "容器",
+          "Docker"
+        ]
+      },
+      {
+        "name": "Terraform",
+        "url": "https://terraform.io",
+        "desc": "基础设施即代码",
+        "tags": [
+          "IaC",
+          "自动化"
+        ]
+      },
+      {
+        "name": "Grafana",
+        "url": "https://grafana.com",
+        "desc": "监控可视化面板",
+        "tags": [
+          "监控",
+          "可视化"
+        ]
+      },
+      {
+        "name": "Prometheus",
+        "url": "https://prometheus.io",
+        "desc": "开源监控系统",
+        "tags": [
+          "监控",
+          "指标"
+        ]
+      },
+      {
+        "name": "Ansible",
+        "url": "https://ansible.com",
+        "desc": "自动化运维工具",
+        "tags": [
+          "运维",
+          "自动化"
+        ]
+      },
+      {
+        "name": "Datadog",
+        "url": "https://datadoghq.com",
+        "desc": "全栈监控平台",
+        "tags": [
+          "监控",
+          "APM"
+        ]
+      },
+      {
+        "name": "Sentry",
+        "url": "https://sentry.io",
+        "desc": "错误追踪平台",
+        "tags": [
+          "监控",
+          "错误"
+        ]
+      },
+      {
+        "name": "Helm",
+        "url": "https://helm.sh",
+        "desc": "Kubernetes 包管理",
+        "tags": [
+          "K8s",
+          "包管理"
+        ]
+      },
+      {
+        "name": "ArgoCD",
+        "url": "https://argoproj.github.io/cd",
+        "desc": "Kubernetes GitOps",
+        "tags": [
+          "GitOps",
+          "K8s"
+        ]
+      },
+      {
+        "name": "Snyk",
+        "url": "https://snyk.io",
+        "desc": "开发者安全平台",
+        "tags": [
+          "安全",
+          "依赖"
+        ]
+      },
+      {
+        "name": "Portainer",
+        "url": "https://www.portainer.io",
+        "desc": "Docker 可视化管控",
+        "tags": [
+          "容器",
+          "管理"
+        ]
+      },
+      {
+        "name": "Pulumi",
+        "url": "https://pulumi.com",
+        "desc": "编程语言 IaC",
+        "tags": [
+          "IaC",
+          "编程"
+        ]
+      },
+      {
+        "name": "OpenTofu",
+        "url": "https://opentofu.org",
+        "desc": "Terraform 开源 Fork",
+        "tags": [
+          "IaC",
+          "开源"
+        ]
+      },
+      {
+        "name": "Better Stack",
+        "url": "https://betterstack.com",
+        "desc": "现代化日志 / 监控",
+        "tags": [
+          "监控",
+          "日志"
+        ]
+      },
+      {
+        "name": "Dependabot",
+        "url": "https://dependabot.com",
+        "desc": "依赖自动更新",
+        "tags": [
+          "依赖",
+          "自动化"
+        ]
+      }
+    ]
+  },
+  {
+    "name": "求职与职业",
+    "emoji": "💼",
+    "items": [
+      {
+        "name": "LinkedIn",
+        "url": "https://linkedin.com",
+        "desc": "职业社交网络",
+        "tags": [
+          "求职",
+          "社交"
+        ]
+      },
+      {
+        "name": "Indeed",
+        "url": "https://indeed.com",
+        "desc": "综合性招聘",
+        "tags": [
+          "求职",
+          "招聘"
+        ]
+      },
+      {
+        "name": "BOSS 直聘",
+        "url": "https://zhipin.com",
+        "desc": "国内招聘平台",
+        "tags": [
+          "求职",
+          "国内"
+        ]
+      },
+      {
+        "name": "Glassdoor",
+        "url": "https://glassdoor.com",
+        "desc": "公司评价 + 招聘",
+        "tags": [
+          "求职",
+          "评价"
+        ]
+      },
+      {
+        "name": "前程无忧",
+        "url": "https://www.51job.com",
+        "desc": "综合性招聘网站",
+        "tags": [
+          "求职",
+          "国内"
+        ]
+      },
+      {
+        "name": "智联招聘",
+        "url": "https://www.zhaopin.com",
+        "desc": "综合性招聘网站",
+        "tags": [
+          "求职",
+          "国内"
+        ]
+      },
+      {
+        "name": "拉勾",
+        "url": "https://lagou.com",
+        "desc": "互联网行业招聘",
+        "tags": [
+          "求职",
+          "国内"
+        ]
+      },
+      {
+        "name": "猎聘网",
+        "url": "https://www.liepin.com",
+        "desc": "中高端人才招聘",
+        "tags": [
+          "求职",
+          "国内"
+        ]
+      },
+      {
+        "name": "Remote OK",
+        "url": "https://remoteok.com",
+        "desc": "远程工作",
+        "tags": [
+          "求职",
+          "远程"
+        ]
+      },
+      {
+        "name": "We Work Remotely",
+        "url": "https://weworkremotely.com",
+        "desc": "老牌远程招聘站",
+        "tags": [
+          "求职",
+          "远程"
+        ]
+      },
+      {
+        "name": "电鸭社区",
+        "url": "https://eleduck.com",
+        "desc": "远程 / 自由职业社区",
+        "tags": [
+          "求职",
+          "远程"
+        ]
+      },
+      {
+        "name": "Wellfound",
+        "url": "https://wellfound.com",
+        "desc": "startups 招聘",
+        "tags": [
+          "求职",
+          "创业"
+        ]
+      },
+      {
+        "name": "Levels.fyi",
+        "url": "https://levels.fyi",
+        "desc": "薪资 / 职级对比",
+        "tags": [
+          "薪资",
+          "对比"
+        ]
+      }
+    ]
+  },
+  {
+    "name": "常用快捷链接",
+    "emoji": "🔗",
+    "items": [
+      {
+        "name": "百度",
+        "url": "https://www.baidu.com",
+        "desc": "通用搜索",
+        "tags": [
+          "搜索",
+          "常用",
+          "国内"
+        ]
+      },
+      {
+        "name": "Google",
+        "url": "https://www.google.com",
+        "desc": "通用搜索",
+        "tags": [
+          "搜索",
+          "常用"
+        ]
+      },
+      {
+        "name": "必应",
+        "url": "https://www.bing.com",
+        "desc": "通用搜索",
+        "tags": [
+          "搜索",
+          "常用"
+        ]
+      },
+      {
+        "name": "淘宝",
+        "url": "https://www.taobao.com",
+        "desc": "生活购物",
+        "tags": [
+          "生活",
+          "国内"
+        ]
+      },
+      {
+        "name": "京东",
+        "url": "https://www.jd.com",
+        "desc": "生活购物",
+        "tags": [
+          "生活",
+          "国内"
+        ]
+      },
+      {
+        "name": "360 搜索",
+        "url": "https://www.so.com",
+        "desc": "通用搜索",
+        "tags": [
+          "搜索",
+          "国内"
+        ]
+      },
+      {
+        "name": "搜狗",
+        "url": "https://www.sogou.com",
+        "desc": "通用搜索",
+        "tags": [
+          "搜索",
+          "国内"
+        ]
+      },
+      {
+        "name": "神马搜索",
+        "url": "https://www.sm.cn",
+        "desc": "通用搜索",
+        "tags": [
+          "搜索",
+          "国内"
+        ]
+      },
+      {
+        "name": "12306",
+        "url": "https://www.12306.cn",
+        "desc": "铁路购票",
+        "tags": [
+          "生活",
+          "国内"
+        ]
+      },
+      {
+        "name": "去哪儿",
+        "url": "https://www.qunar.com",
+        "desc": "出行旅游",
+        "tags": [
+          "生活",
+          "国内"
+        ]
+      },
+      {
+        "name": "下厨房",
+        "url": "https://www.xiachufang.com",
+        "desc": "生活菜谱",
+        "tags": [
+          "生活",
+          "国内"
+        ]
+      },
+      {
+        "name": "香哈菜谱",
+        "url": "https://www.xiangha.com",
+        "desc": "生活菜谱",
+        "tags": [
+          "生活",
+          "国内"
+        ]
+      }
     ]
   }
 ];
+
+
+
+
+
+
 
 // Render
 const mainEl = document.getElementById('main');
