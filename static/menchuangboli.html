@@ -1,0 +1,2586 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="theme-color" content="#0b6b63" media="(prefers-color-scheme: light)">
+<meta name="theme-color" content="#0b1114" media="(prefers-color-scheme: dark)">
+<meta name="color-scheme" content="light dark">
+<title>门窗玻璃计算器 · 断桥铝 / 789</title>
+<meta name="description" content="断桥玻璃计算器与 789 铝合金门窗计算器的网页版，支持计算历史本地保存（最近 100 条）。">
+<style>
+/* ============================================================ 设计令牌 */
+/*
+ * 一套令牌，两处主题。规则：
+ *   表面（卡片/面板）  -> --r-md (14px)
+ *   控件（按钮/输入）  -> --r-sm (10px)
+ *   标签/徽标（胶囊）  -> --r-full
+ * 只用一个强调色（青绿），全页统一。
+ */
+:root{
+  --shell:1320px;
+  --r-xs:6px; --r-sm:10px; --r-md:14px; --r-full:999px;
+
+  --bg:#eef1f3;
+  --surface:#ffffff;
+  --surface-2:#f6f8f9;
+  --surface-3:#eceff2;
+  --line:#dde4e8;
+  --line-strong:#c6d1d8;
+
+  --ink:#101c24;
+  --ink-2:#4b5c68;
+  /* 次级文字在 #f6f8f9 上也要 >= 4.5:1，所以比常见灰更深一档 */
+  --ink-3:#64727d;
+
+  --accent:#0b6b63;
+  --accent-hover:#095851;
+  --accent-soft:#e4f1ef;
+  --accent-line:#a9d4cf;
+  --on-accent:#ffffff;
+
+  --warn:#9a5800;
+  --warn-soft:#fdf3e3;
+  --danger:#b3261e;
+  --danger-soft:#fdecea;
+
+  --ring:0 0 0 3px rgba(11,107,99,.28);
+  --shadow-1:0 1px 2px rgba(16,28,36,.06);
+  --shadow-2:0 2px 4px rgba(16,28,36,.05), 0 8px 24px -8px rgba(16,28,36,.14);
+  --shadow-pop:0 10px 34px -10px rgba(16,28,36,.32);
+
+  --sans:-apple-system,BlinkMacSystemFont,"Segoe UI","PingFang SC","Hiragino Sans GB",
+         "Microsoft YaHei","Source Han Sans SC",sans-serif;
+  --mono:ui-monospace,SFMono-Regular,"SF Mono","Cascadia Mono",Menlo,Consolas,
+         "Liberation Mono",monospace;
+
+  --topbar-h:64px;
+  --tabbar-h:0px;
+  --pad:20px;
+}
+@media (prefers-color-scheme: dark){
+  :root{
+    --bg:#0b1114;
+    --surface:#131b20;
+    --surface-2:#182127;
+    --surface-3:#202b32;
+    --line:#25313a;
+    --line-strong:#33434e;
+
+    --ink:#e7eef2;
+    --ink-2:#a2b3bd;
+    --ink-3:#82949c;
+
+    --accent:#5ed3c6;
+    --accent-hover:#7ee0d5;
+    --accent-soft:#0e2f2c;
+    --accent-line:#1d4f4a;
+    --on-accent:#04120f;
+
+    --warn:#f0b357;
+    --warn-soft:#2a2010;
+    --danger:#f28077;
+    --danger-soft:#2b1412;
+
+    --ring:0 0 0 3px rgba(94,211,198,.34);
+    --shadow-1:0 1px 2px rgba(0,0,0,.5);
+    --shadow-2:0 2px 4px rgba(0,0,0,.4), 0 10px 28px -10px rgba(0,0,0,.6);
+    --shadow-pop:0 12px 36px -10px rgba(0,0,0,.75);
+  }
+}
+
+/* ============================================================ 基础 */
+*,*::before,*::after{box-sizing:border-box}
+[hidden]{display:none!important}
+html{-webkit-text-size-adjust:100%;text-size-adjust:100%}
+html,body{margin:0;padding:0}
+body{
+  background:var(--bg);
+  color:var(--ink);
+  font-family:var(--sans);
+  font-size:15px;
+  line-height:1.55;
+  -webkit-font-smoothing:antialiased;
+  overscroll-behavior-y:none;
+  padding-bottom:calc(var(--tabbar-h) + env(safe-area-inset-bottom));
+}
+h1,h2,h3,p,ul{margin:0}
+button{font-family:inherit}
+:focus-visible{outline:2px solid var(--accent);outline-offset:2px;border-radius:var(--r-xs)}
+::selection{background:var(--accent-line);color:var(--ink)}
+.sr-only{
+  position:absolute;width:1px;height:1px;padding:0;margin:-1px;overflow:hidden;
+  clip:rect(0 0 0 0);white-space:nowrap;border:0;
+}
+.num{font-variant-numeric:tabular-nums}
+
+/* ============================================================ 顶栏 */
+.topbar{
+  position:sticky;top:0;z-index:60;
+  background:color-mix(in srgb, var(--surface) 88%, transparent);
+  backdrop-filter:saturate(180%) blur(12px);
+  -webkit-backdrop-filter:saturate(180%) blur(12px);
+  border-bottom:1px solid var(--line);
+  padding-top:env(safe-area-inset-top);
+}
+@supports not (backdrop-filter: blur(4px)){
+  .topbar{background:var(--surface)}
+}
+.topbar-in{
+  max-width:var(--shell);margin:0 auto;height:var(--topbar-h);
+  padding:0 var(--pad);display:flex;align-items:center;gap:20px;
+}
+.brand{display:flex;align-items:center;gap:10px;min-width:0;text-decoration:none;color:inherit}
+.brand-mark{
+  width:32px;height:32px;flex:none;border-radius:9px;
+  background:var(--accent);color:var(--on-accent);
+  display:grid;place-items:center;
+  font-size:15px;font-weight:700;letter-spacing:-.5px;
+  box-shadow:inset 0 -1px 0 rgba(0,0,0,.18);
+}
+.brand-text{display:flex;flex-direction:column;justify-content:center;min-width:0}
+.brand-text b{font-size:15.5px;font-weight:650;letter-spacing:.2px;line-height:1.2;
+  white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.brand-text span{font-size:11.5px;color:var(--ink-3);letter-spacing:.3px;line-height:1.3;
+  white-space:nowrap}
+
+/* 标签：桌面在顶栏右侧，手机变底部导航（同一个元素，避免状态同步问题） */
+.tabbar{display:flex;align-items:center;gap:2px;margin-left:auto}
+.tabbar button{
+  appearance:none;border:0;background:transparent;cursor:pointer;
+  font:inherit;font-size:13.5px;font-weight:550;color:var(--ink-2);
+  padding:8px 14px;border-radius:var(--r-sm);
+  display:inline-flex;align-items:center;gap:7px;
+  transition:background .14s,color .14s;
+  white-space:nowrap;
+}
+.tabbar button:hover{background:var(--surface-3);color:var(--ink)}
+.tabbar button[aria-selected="true"]{
+  background:var(--accent-soft);color:var(--accent);font-weight:650;
+}
+.tabbar .pill{
+  min-width:18px;padding:1px 6px;border-radius:var(--r-full);
+  background:var(--surface-3);color:var(--ink-2);
+  font:600 11px/1.6 var(--mono);letter-spacing:0;
+}
+.tabbar button[aria-selected="true"] .pill{background:var(--accent);color:var(--on-accent)}
+
+/* ============================================================ 骨架 */
+.shell{
+  max-width:var(--shell);margin:0 auto;
+  padding:var(--pad) var(--pad) 72px;
+  display:grid;gap:var(--pad);
+  grid-template-columns:1fr;
+  align-items:start;
+}
+.work{min-width:0;display:flex;flex-direction:column;gap:var(--pad)}
+.calc-grid{
+  display:grid;gap:var(--pad);
+  grid-template-columns:minmax(0,1fr);
+  align-items:start;
+}
+/* 类型选择只属于「计算」视图；切到历史/公式时让内容占满整行 */
+body[data-tab="hist"] .picker,
+body[data-tab="fx"] .picker{display:none}
+body[data-tab="hist"] .shell,
+body[data-tab="fx"] .shell{grid-template-columns:minmax(0,1fr)}
+
+/* ============================================================ 面板 */
+.panel{
+  background:var(--surface);
+  border:1px solid var(--line);
+  border-radius:var(--r-md);
+  box-shadow:var(--shadow-1);
+  scroll-margin-block-start:calc(var(--topbar-h) + 14px);
+}
+.panel-head{
+  display:flex;align-items:center;gap:10px;
+  padding:14px 16px;
+  border-bottom:1px solid var(--line);
+}
+.panel-head h2{
+  font-size:13px;font-weight:650;color:var(--ink-2);
+  letter-spacing:.4px;margin:0;line-height:1.3;
+}
+.panel-body{padding:16px}
+
+/* ============================================================ 类型选择 */
+.picker{position:static}
+.picker .panel-body{padding:10px 8px 14px}
+.picker-caption{display:none}
+#modeList{display:none}
+.group-title{
+  font-size:11.5px;font-weight:700;color:var(--ink-3);
+  letter-spacing:.5px;
+  padding:12px 10px 6px;
+  display:flex;align-items:baseline;gap:8px;
+}
+.group-title::after{
+  content:"";flex:1;height:1px;background:var(--line);
+}
+.group-title:first-child{padding-top:2px}
+.modes{
+  display:grid;grid-template-columns:1fr;
+  gap:2px;
+}
+.mode{
+  appearance:none;text-align:left;cursor:pointer;
+  background:transparent;border:0;color:var(--ink);
+  border-radius:var(--r-sm);
+  padding:8px 10px;
+  display:flex;flex-direction:column;gap:2px;
+  min-height:0;
+  transition:background .12s;
+  position:relative;
+}
+.mode:hover{background:var(--surface-3)}
+.mode:active{background:var(--surface-2)}
+.mode[aria-pressed="true"]{
+  background:var(--accent-soft);
+  box-shadow:inset 0 0 0 1px var(--accent-line);
+}
+.mode[aria-pressed="true"]::before{
+  content:"";position:absolute;left:0;top:8px;bottom:8px;width:3px;
+  border-radius:0 3px 3px 0;background:var(--accent);
+}
+.mode .name{font-size:13.5px;font-weight:600;line-height:1.35;letter-spacing:.1px}
+.mode[aria-pressed="true"] .name{color:var(--accent)}
+.mode .desc{
+  font-size:11.5px;color:var(--ink-2);line-height:1.35;
+  font-variant-numeric:tabular-nums;
+  white-space:nowrap;overflow:hidden;text-overflow:ellipsis;
+}
+.mode .desc:empty{display:none}
+
+/* 手机/平板用原生下拉：系统选择器对触屏最友好 */
+.mode-select{
+  display:block;width:100%;
+  appearance:none;-webkit-appearance:none;
+  font:inherit;font-size:15px;font-weight:600;
+  color:var(--ink);
+  background:var(--surface-2);
+  border:1px solid var(--line-strong);
+  border-radius:var(--r-sm);
+  padding:12px 40px 12px 12px;
+  min-height:48px;
+  background-image:linear-gradient(45deg,transparent 50%,var(--ink-3) 50%),
+                   linear-gradient(135deg,var(--ink-3) 50%,transparent 50%);
+  background-position:calc(100% - 19px) calc(50% + 1px), calc(100% - 14px) calc(50% + 1px);
+  background-size:5px 5px, 5px 5px;
+  background-repeat:no-repeat;
+}
+.mode-select:focus-visible{outline:2px solid var(--accent);outline-offset:1px}
+
+/* ============================================================ 表单 */
+.notice{
+  display:flex;gap:9px;
+  background:var(--warn-soft);
+  border:1px solid color-mix(in srgb, var(--warn) 26%, transparent);
+  border-radius:var(--r-sm);
+  padding:10px 12px;margin-bottom:16px;
+  font-size:12.5px;line-height:1.5;color:var(--ink-2);
+}
+.notice::before{
+  content:"";flex:none;width:3px;border-radius:2px;background:var(--warn);
+  margin:1px 0;
+}
+.fields{
+  display:grid;gap:12px;
+  /* 轨道数按最小宽度算，单列上限交给 1fr；字段少时自然靠左，不会被拉长 */
+  grid-template-columns:repeat(auto-fill,minmax(148px,1fr));
+}
+.field{min-width:0}
+.field label{
+  display:block;font-size:12px;font-weight:600;color:var(--ink-2);
+  margin-bottom:6px;line-height:1.3;letter-spacing:.1px;
+}
+.field .inp{position:relative;display:flex;align-items:center}
+.field input{
+  width:100%;min-width:0;font:inherit;font-size:16px;font-weight:550;
+  font-variant-numeric:tabular-nums;
+  color:var(--ink);
+  background:var(--surface-2);
+  border:1px solid var(--line-strong);
+  border-radius:var(--r-sm);
+  padding:11px 40px 11px 12px;
+  min-height:46px;
+  transition:border-color .14s,background .14s,box-shadow .14s;
+  -moz-appearance:textfield;
+}
+.field input::-webkit-outer-spin-button,
+.field input::-webkit-inner-spin-button{-webkit-appearance:none;margin:0}
+.field input:hover{border-color:var(--ink-3)}
+.field input:focus{
+  outline:none;border-color:var(--accent);
+  background:var(--surface);
+  box-shadow:var(--ring);
+}
+.field input.bad{
+  border-color:var(--danger);background:var(--danger-soft);
+  box-shadow:0 0 0 3px color-mix(in srgb, var(--danger) 22%, transparent);
+}
+.field .unit{
+  position:absolute;right:12px;pointer-events:none;
+  font:600 11px/1 var(--mono);color:var(--ink-3);
+  letter-spacing:.4px;
+}
+
+/* ============================================================ 按钮 */
+.actions{display:flex;gap:10px;margin-top:18px;flex-wrap:wrap}
+.btn{
+  appearance:none;cursor:pointer;
+  font:inherit;font-size:14px;font-weight:600;letter-spacing:.2px;
+  border-radius:var(--r-sm);
+  border:1px solid var(--line-strong);
+  background:var(--surface);
+  color:var(--ink);
+  padding:11px 18px;min-height:44px;
+  display:inline-flex;align-items:center;justify-content:center;gap:6px;
+  transition:background .14s,border-color .14s,transform .1s;
+  white-space:nowrap;
+}
+.btn:hover{background:var(--surface-2);border-color:var(--ink-3)}
+.btn:active{transform:translateY(1px)}
+.btn.primary{
+  background:var(--accent);border-color:var(--accent);color:var(--on-accent);
+  font-weight:650;
+  box-shadow:0 1px 2px rgba(0,0,0,.12), inset 0 1px 0 rgba(255,255,255,.14);
+}
+.btn.primary:hover{background:var(--accent-hover);border-color:var(--accent-hover)}
+.btn.small{padding:8px 13px;font-size:13px;min-height:38px}
+.btn.ghost{background:transparent;border-color:transparent;color:var(--ink-2)}
+.btn.ghost:hover{background:var(--surface-3);border-color:transparent;color:var(--ink)}
+
+/* ============================================================ 结果 */
+.result-head{
+  display:flex;align-items:center;gap:10px;flex-wrap:wrap;
+  padding:12px 16px;border-bottom:1px solid var(--line);
+}
+.result-head h2{
+  font-size:14.5px;font-weight:650;color:var(--ink);margin:0;line-height:1.3;
+  min-width:0;overflow:hidden;text-overflow:ellipsis;white-space:nowrap;
+}
+.result-head .spacer{flex:1;min-width:0}
+.seg{
+  display:inline-flex;padding:2px;gap:2px;
+  background:var(--surface-3);
+  border-radius:var(--r-full);
+}
+.seg button{
+  appearance:none;border:0;cursor:pointer;
+  font:inherit;font-size:12.5px;font-weight:600;
+  color:var(--ink-2);background:transparent;
+  padding:6px 13px;border-radius:var(--r-full);
+  min-height:32px;
+  transition:background .14s,color .14s;
+  white-space:nowrap;
+}
+.seg button[aria-pressed="true"]{
+  background:var(--surface);color:var(--ink);
+  box-shadow:var(--shadow-1);
+}
+.result-body{padding:16px}
+
+.tiles{
+  display:grid;gap:10px;margin-bottom:16px;
+  grid-template-columns:repeat(2,minmax(0,1fr));
+}
+.tiles:last-child{margin-bottom:0}
+.tile{
+  background:var(--surface-2);
+  border:1px solid var(--line);
+  border-radius:var(--r-sm);
+  padding:10px 12px;
+  min-width:0;
+  display:flex;flex-direction:column;gap:3px;
+}
+.tile .k{
+  font-size:11.5px;font-weight:600;color:var(--ink-3);
+  letter-spacing:.2px;
+  white-space:nowrap;overflow:hidden;text-overflow:ellipsis;
+}
+.tile .v{
+  font:600 16px/1.25 var(--mono);
+  font-variant-numeric:tabular-nums;
+  color:var(--ink);
+  letter-spacing:-.3px;
+  word-break:break-word;
+}
+.tile.glass{
+  background:var(--accent-soft);
+  border-color:var(--accent-line);
+}
+.tile.glass .k{color:var(--accent)}
+.tile.glass .k::after{content:" · 宽×高";color:var(--ink-2);font-weight:500}
+.tile.glass .v{color:var(--accent)}
+
+pre.out{
+  font:13px/1.75 var(--mono);
+  font-variant-numeric:tabular-nums;
+  white-space:pre-wrap;word-break:break-word;
+  background:var(--surface-2);
+  border:1px solid var(--line);
+  border-radius:var(--r-sm);
+  padding:14px;margin:0;
+  max-height:62vh;overflow:auto;
+  -webkit-overflow-scrolling:touch;
+  tab-size:2;
+}
+.meta{
+  margin-top:12px;font-size:12px;color:var(--ink-3);
+  display:flex;align-items:center;gap:6px;flex-wrap:wrap;
+}
+
+/* ============================================================ 历史 */
+.hist-tools{display:grid;gap:10px;grid-template-columns:1fr;margin-bottom:12px}
+input.search{
+  width:100%;font:inherit;font-size:15px;color:var(--ink);
+  background:var(--surface-2);
+  border:1px solid var(--line-strong);
+  border-radius:var(--r-sm);
+  padding:11px 12px;min-height:46px;
+}
+input.search::placeholder{color:var(--ink-3)}
+input.search:focus{outline:none;border-color:var(--accent);background:var(--surface);box-shadow:var(--ring)}
+select.sel{
+  width:100%;font:inherit;font-size:14px;font-weight:550;color:var(--ink);
+  background:var(--surface-2);
+  border:1px solid var(--line-strong);
+  border-radius:var(--r-sm);
+  padding:11px 34px 11px 12px;min-height:46px;
+  appearance:none;-webkit-appearance:none;
+  background-image:linear-gradient(45deg,transparent 50%,var(--ink-3) 50%),
+                   linear-gradient(135deg,var(--ink-3) 50%,transparent 50%);
+  background-position:calc(100% - 18px) calc(50% + 1px), calc(100% - 13px) calc(50% + 1px);
+  background-size:5px 5px,5px 5px;background-repeat:no-repeat;
+}
+select.sel:focus{outline:none;border-color:var(--accent);background-color:var(--surface);box-shadow:var(--ring)}
+.hist-actions{display:flex;gap:8px;flex-wrap:wrap}
+
+.hist-list{display:flex;flex-direction:column;gap:8px}
+.hist-item{
+  border:1px solid var(--line);
+  border-radius:var(--r-sm);
+  background:var(--surface);
+  overflow:hidden;
+}
+.hist-item summary{
+  cursor:pointer;list-style:none;
+  padding:11px 12px;
+  display:grid;gap:3px 8px;
+  grid-template-columns:12px minmax(0,1fr) auto;
+  align-items:baseline;
+  min-height:48px;
+  transition:background .12s;
+}
+.hist-item summary::-webkit-details-marker{display:none}
+.hist-item summary:hover{background:var(--surface-2)}
+/* 与公式区同一套展开箭头，一眼看出这行可点开 */
+.hist-item summary::before{
+  content:"";width:6px;height:6px;
+  border-right:1.7px solid var(--ink-3);
+  border-bottom:1.7px solid var(--ink-3);
+  transform:rotate(-45deg);
+  transition:transform .16s;
+  align-self:start;margin-top:7px;
+}
+.hist-item[open] summary::before{transform:rotate(45deg)}
+.hist-item[open] summary{background:var(--surface-2);border-bottom:1px solid var(--line)}
+.hist-item .mode-tag{
+  font-size:13.5px;font-weight:650;color:var(--accent);
+  min-width:0;overflow:hidden;text-overflow:ellipsis;white-space:nowrap;
+}
+.hist-item .when{
+  font:11.5px/1.4 var(--mono);color:var(--ink-3);white-space:nowrap;
+  text-align:right;
+}
+.hist-item .inputs{
+  grid-column:2 / -1;
+  font:11.5px/1.55 var(--mono);font-variant-numeric:tabular-nums;
+  color:var(--ink-2);
+  /* 参数是回顾时最有用的信息，允许折到两行而不是一律截断 */
+  display:-webkit-box;
+  -webkit-line-clamp:2;
+  -webkit-box-orient:vertical;
+  overflow:hidden;
+}
+.hist-item .body{padding:12px}
+.hist-item .body pre.out{max-height:none}
+.hist-item .row-actions{display:flex;gap:8px;margin-top:12px;flex-wrap:wrap}
+
+.empty{
+  text-align:center;color:var(--ink-3);
+  padding:40px 20px;
+  display:flex;flex-direction:column;align-items:center;gap:8px;
+}
+.empty .big{
+  width:38px;height:38px;border-radius:50%;
+  border:1.5px dashed var(--line-strong);
+  display:grid;place-items:center;
+  font:600 15px/1 var(--mono);color:var(--ink-3);
+  margin-bottom:2px;
+}
+.empty p{font-size:13.5px;color:var(--ink-2);max-width:34ch}
+.empty small{font-size:12px;color:var(--ink-3)}
+.count-note{font-size:12px;color:var(--ink-3);margin-top:12px;font-variant-numeric:tabular-nums}
+.lede{font-size:13px;line-height:1.6;color:var(--ink-2);margin:0 0 16px;max-width:62ch}
+
+/* ============================================================ 公式 */
+details.fx{
+  border:1px solid var(--line);
+  border-radius:var(--r-sm);
+  background:var(--surface);
+  margin-bottom:8px;overflow:hidden;
+}
+details.fx>summary{
+  cursor:pointer;list-style:none;
+  padding:12px 13px;min-height:46px;
+  display:flex;align-items:center;gap:9px;
+  font-size:13.5px;font-weight:600;color:var(--ink);
+  transition:background .12s;
+}
+details.fx>summary::-webkit-details-marker{display:none}
+details.fx>summary::before{
+  content:"";flex:none;width:6px;height:6px;
+  border-right:1.7px solid var(--ink-3);
+  border-bottom:1.7px solid var(--ink-3);
+  transform:rotate(-45deg);
+  transition:transform .16s;
+  margin-left:2px;
+}
+details.fx[open]>summary::before{transform:rotate(45deg)}
+details.fx>summary:hover{background:var(--surface-2)}
+details.fx .fx-body{padding:0 13px 13px;border-top:1px solid var(--line)}
+details.fx table{width:100%;border-collapse:collapse;font-size:12.5px;margin-top:4px}
+details.fx tr{border-bottom:1px solid var(--line)}
+details.fx tr:last-child{border-bottom:0}
+details.fx td{padding:8px 0;vertical-align:top;line-height:1.5}
+details.fx td:first-child{
+  color:var(--ink-2);font-weight:550;
+  padding-right:14px;width:37%;
+}
+details.fx td:last-child{
+  font-family:var(--mono);font-size:12px;
+  font-variant-numeric:tabular-nums;
+  color:var(--ink);
+}
+details.fx tr.is-note td:last-child{font-family:var(--sans);font-size:12.5px;color:var(--ink-2)}
+
+/* ============================================================ 提示 */
+#toast{
+  position:fixed;left:50%;
+  bottom:calc(var(--tabbar-h) + env(safe-area-inset-bottom) + 20px);
+  transform:translate(-50%,14px);
+  background:var(--ink);color:var(--bg);
+  padding:11px 18px;border-radius:var(--r-full);
+  font-size:13.5px;font-weight:500;line-height:1.4;
+  max-width:min(88vw,420px);text-align:center;
+  opacity:0;pointer-events:none;
+  transition:opacity .2s,transform .2s;
+  z-index:90;box-shadow:var(--shadow-pop);
+}
+#toast.show{opacity:1;transform:translate(-50%,0)}
+@media (prefers-color-scheme: dark){
+  #toast{background:var(--surface-3);color:var(--ink)}
+}
+
+/* ============================================================ 断点 */
+/* 平板竖屏：更宽的结果宫格 */
+@media (min-width:600px){
+  :root{--pad:24px}
+  .fields{gap:14px}
+  .tiles{grid-template-columns:repeat(3,minmax(0,1fr))}
+  .hist-tools{grid-template-columns:1fr 200px}
+  .hist-actions{grid-column:1 / -1}
+}
+
+/* 手机（含大屏手机）：底部导航；顶栏只留品牌 */
+@media (max-width:767px){
+  :root{--tabbar-h:58px;--topbar-h:52px}
+  /*
+   * 顶栏在手机上不做毛玻璃：backdrop-filter 会成为 fixed 后代的包含块，
+   * 那样固定在底部的导航条就会相对顶栏定位（Safari 上尤其明显）。
+   * 这里改用不透明背景，导航条就能稳定贴住视口底部。
+   */
+  .topbar{
+    background:var(--surface);
+    backdrop-filter:none;-webkit-backdrop-filter:none;
+  }
+  .topbar-in{padding:0 16px}
+  .brand-text span{display:none}
+  .brand-mark{width:28px;height:28px;border-radius:8px;font-size:13px}
+  .brand-text b{font-size:15px}
+
+  .tabbar{
+    position:fixed;left:0;right:0;bottom:0;z-index:70;
+    margin:0;gap:0;
+    height:calc(var(--tabbar-h) + env(safe-area-inset-bottom));
+    padding-bottom:env(safe-area-inset-bottom);
+    background:color-mix(in srgb, var(--surface) 94%, transparent);
+    backdrop-filter:saturate(180%) blur(14px);
+    -webkit-backdrop-filter:saturate(180%) blur(14px);
+    border-top:1px solid var(--line);
+    border-bottom:0;
+    display:grid;grid-template-columns:repeat(3,1fr);
+  }
+  @supports not (backdrop-filter: blur(4px)){
+    .tabbar{background:var(--surface)}
+  }
+  .tabbar button{
+    flex-direction:row;justify-content:center;align-items:center;gap:6px;
+    padding:0 4px;border-radius:0;
+    font-size:12px;font-weight:600;
+    height:100%;
+    position:relative;
+  }
+  /* 指示条用绝对定位的 ::after，不参与布局，三个标签基线因此完全对齐 */
+  .tabbar button::before{display:none}
+  .tabbar button::after{
+    content:"";position:absolute;top:0;left:50%;transform:translateX(-50%);
+    width:24px;height:3px;border-radius:0 0 3px 3px;
+    background:transparent;
+    transition:background .16s;
+  }
+  .tabbar button[aria-selected="true"]{
+    background:transparent;color:var(--accent);
+    box-shadow:none;
+  }
+  .tabbar button[aria-selected="true"]::after{background:var(--accent)}
+  .tabbar button:hover{background:transparent}
+  .tabbar .pill{
+    position:static;margin:0;
+    font-size:10.5px;min-width:16px;padding:0 5px;line-height:1.6;
+  }
+
+  /* 手机上选择器就在表单正上方，标题重复，故隐藏面板标题 */
+  .picker .panel-head{display:none}
+  #inputCard .panel-head{display:none}
+  .picker .panel-body{padding:12px}
+  .picker-caption{
+    display:block;
+    font-size:12px;font-weight:600;color:var(--ink-2);letter-spacing:.3px;
+    margin:0 2px 7px;
+  }
+  .mode-select{min-height:50px;font-size:15.5px}
+
+  .shell{padding-top:14px;gap:14px}
+  .calc-grid{gap:14px}
+  .result-head{gap:8px;padding:11px 13px;justify-content:flex-end}
+  .result-head h2{flex:1 1 100%;font-size:14.5px;white-space:normal}
+  .result-head .spacer{display:none}
+  .result-head .seg{margin-left:0}
+  .panel-body{padding:14px}
+  .result-body{padding:13px}
+  .actions{gap:8px}
+  .actions .btn.primary{flex-basis:100%;min-height:50px;font-size:15px}
+  .actions .btn:not(.primary){flex:1 1 0;padding-left:8px;padding-right:8px}
+  pre.out{font-size:12.5px;padding:12px}
+  .tiles{grid-template-columns:repeat(2,minmax(0,1fr))}
+  .tile .v{font-size:15px}
+}
+
+/* 超小屏：auto-fill 在 320px 上会退化成单列，这里显式给两列 */
+@media (max-width:359px){
+  :root{--pad:12px}
+  .fields{grid-template-columns:repeat(2,minmax(0,1fr));gap:10px}
+  .brand-text b{font-size:14px}
+  .actions .btn:not(.primary){font-size:13.5px;padding-left:6px;padding-right:6px}
+}
+
+/* 平板横屏起：恢复分组列表（原生下拉只留给手机） */
+@media (min-width:768px){
+  .mode-select{display:none}
+  #modeList{display:block}
+  .modes{grid-template-columns:repeat(auto-fill,minmax(200px,1fr));gap:2px 6px}
+}
+
+/* 桌面/横屏平板：顶栏一行，侧栏 + 主区 */
+@media (min-width:900px){
+  .hist-tools{grid-template-columns:minmax(0,1fr) 190px auto;align-items:center}
+  .hist-actions{grid-column:auto;justify-content:flex-end}
+}
+
+@media (min-width:1024px){
+  :root{--pad:24px}
+  .shell{
+    grid-template-columns:284px minmax(0,1fr);
+    gap:24px;
+    padding-top:24px;
+  }
+  .modes{grid-template-columns:1fr;gap:2px}
+  .picker{
+    position:sticky;
+    top:calc(var(--topbar-h) + 24px);
+    max-height:calc(100dvh - var(--topbar-h) - 48px);
+    display:flex;flex-direction:column;
+  }
+  .picker .panel-body{
+    overflow-y:auto;
+    overscroll-behavior:contain;
+    padding:8px 8px 12px;
+    scrollbar-width:thin;
+    scrollbar-color:var(--line-strong) transparent;
+    scrollbar-gutter:stable;
+  }
+  /* 底部渐隐，提示列表还能继续滚动，而不是被硬生生切掉 */
+  .picker::after{
+    content:"";position:absolute;left:1px;right:1px;bottom:1px;height:28px;
+    border-radius:0 0 var(--r-md) var(--r-md);
+    background:linear-gradient(to top, var(--surface) 20%, transparent);
+    pointer-events:none;
+  }
+  .picker .panel-head{flex:none}
+  .tiles{grid-template-columns:repeat(auto-fill,minmax(172px,1fr))}
+  .result-head h2{font-size:15px}
+}
+
+/* 宽屏：输入与结果并排，算完即见，不必滚动 */
+@media (min-width:1280px){
+  .calc-grid.has-result{
+    grid-template-columns:minmax(0,1fr) minmax(0,1fr);
+  }
+  .tiles{grid-template-columns:repeat(2,minmax(0,1fr))}
+}
+
+/* 横屏矮屏：收紧间距 */
+@media (min-width:900px) and (max-height:640px){
+  .picker{position:static;max-height:none}
+}
+
+/* 横屏手机（宽够高不够）：列表太占地方，回到原生下拉 */
+@media (max-width:1023px) and (max-height:520px){
+  .mode-select{display:block;max-width:420px}
+  #modeList{display:none}
+  .picker-caption{display:block}
+  .picker .panel-head{display:none}
+  #inputCard .panel-head{display:none}
+}
+
+/* ============================================================ 动效/打印 */
+@media (prefers-reduced-motion:reduce){
+  *,*::before,*::after{
+    animation-duration:.001ms!important;
+    transition-duration:.001ms!important;
+    scroll-behavior:auto!important;
+  }
+}
+@media (prefers-reduced-transparency:reduce){
+  .topbar,.tabbar{background:var(--surface)}
+  .topbar,.tabbar{backdrop-filter:none;-webkit-backdrop-filter:none}
+}
+
+@media print{
+  :root{--bg:#fff;--surface:#fff;--surface-2:#fff;--line:#bbb;--ink:#000;--ink-2:#333;--ink-3:#555}
+  body{background:#fff;padding-bottom:0}
+  .topbar,.tabbar,.actions,.seg,.hist-tools,.picker,.meta,#toast{display:none!important}
+  .shell{display:block;max-width:none;padding:0}
+  .panel{border:0;box-shadow:none;break-inside:avoid}
+  .tiles{grid-template-columns:repeat(3,1fr)}
+  .tile,.hist-item,details.fx{border-color:#ccc}
+  pre.out{max-height:none;overflow:visible;border:0;background:#fff;padding:0}
+}
+</style>
+</head>
+<body>
+
+<div class="topbar">
+  <div class="topbar-in">
+    <a class="brand" href="#" aria-label="门窗玻璃计算器，返回计算">
+      <span class="brand-mark" aria-hidden="true">窗</span>
+      <span class="brand-text">
+        <b>门窗玻璃计算器</b>
+        <span>断桥铝 · 789 系列</span>
+      </span>
+    </a>
+    <nav class="tabbar" role="tablist" aria-label="主视图">
+      <button role="tab" id="tab-calc" aria-controls="view-calc" aria-selected="true">
+        <span class="tab-label">计算</span>
+      </button>
+      <button role="tab" id="tab-hist" aria-controls="view-hist" aria-selected="false">
+        <span class="tab-label">历史</span><span class="pill" id="histCount">0</span>
+      </button>
+      <button role="tab" id="tab-fx" aria-controls="view-fx" aria-selected="false">
+        <span class="tab-label">公式</span>
+      </button>
+    </nav>
+  </div>
+</div>
+
+<div class="shell">
+
+  <!-- 类型选择：桌面为侧栏列表，手机为原生下拉 -->
+  <aside class="panel picker" id="pickerCard" aria-labelledby="pickerTitle">
+    <div class="panel-head">
+      <h2 id="pickerTitle">计算类型</h2>
+    </div>
+    <div class="panel-body">
+      <span class="picker-caption" aria-hidden="true">计算类型</span>
+      <label class="sr-only" for="modeSelect">选择计算类型</label>
+      <select class="mode-select" id="modeSelect"></select>
+      <div id="modeList"></div>
+    </div>
+  </aside>
+
+  <div class="work">
+
+    <!-- ========================================================== 计算 -->
+    <section id="view-calc" role="tabpanel" aria-labelledby="tab-calc" tabindex="-1">
+      <div class="calc-grid" id="calcGrid">
+        <div class="panel" id="inputCard">
+          <div class="panel-head">
+            <h2 id="inputTitle">输入尺寸</h2>
+          </div>
+          <div class="panel-body">
+            <div class="notice" id="modeNotice" hidden></div>
+            <form id="calcForm" autocomplete="off" novalidate>
+              <div class="fields" id="fields"></div>
+              <div class="actions">
+                <button type="submit" class="btn primary">开始计算</button>
+                <button type="button" class="btn" id="btnClear">清空结果</button>
+                <button type="button" class="btn" id="btnReset">重置默认值</button>
+              </div>
+            </form>
+          </div>
+        </div>
+
+        <div class="panel" id="resultCard" hidden>
+          <div class="result-head">
+            <h2 id="resultTitle">计算结果</h2>
+            <span class="spacer"></span>
+            <button type="button" class="btn small" id="btnCopy">复制</button>
+            <div class="seg" role="group" aria-label="结果视图">
+              <button type="button" id="viewTiles" aria-pressed="true">明细</button>
+              <button type="button" id="viewText" aria-pressed="false">原文</button>
+            </div>
+          </div>
+          <div class="result-body">
+            <div id="resultTiles" class="tiles"></div>
+            <pre class="out" id="resultText" hidden></pre>
+            <p class="meta" id="resultHint"></p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ========================================================== 历史 -->
+    <section id="view-hist" role="tabpanel" aria-labelledby="tab-hist" tabindex="-1" hidden>
+      <div class="panel">
+        <div class="panel-head">
+          <h2>计算历史</h2>
+        </div>
+        <div class="panel-body">
+          <div class="hist-tools">
+            <label class="sr-only" for="histSearch">搜索历史</label>
+            <input class="search" id="histSearch" type="search" placeholder="搜索类型、尺寸或结果">
+            <label class="sr-only" for="histMode">按类型筛选</label>
+            <select class="sel" id="histMode"><option value="">全部类型</option></select>
+            <div class="hist-actions">
+              <button type="button" class="btn small" id="btnExport">导出 JSON</button>
+              <button type="button" class="btn small" id="btnClearHist">清空全部</button>
+            </div>
+          </div>
+          <p class="count-note" id="histNote"></p>
+          <div class="hist-list" id="histList"></div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ========================================================== 公式 -->
+    <section id="view-fx" role="tabpanel" aria-labelledby="tab-fx" tabindex="-1" hidden>
+      <div class="panel">
+        <div class="panel-head">
+          <h2>公式速查</h2>
+        </div>
+        <div class="panel-body">
+          <p class="lede">
+            以下公式与两款手机 App 的计算逻辑完全一致，网页版逐条对照验证过。
+          </p>
+          <div id="fxList"></div>
+        </div>
+      </div>
+    </section>
+
+  </div><!-- /work -->
+</div><!-- /shell -->
+
+<div id="toast" role="status" aria-live="polite"></div>
+
+<noscript>
+  <p style="padding:24px;text-align:center">本应用需要启用 JavaScript 才能计算。</p>
+</noscript>
+
+<script>
+/*!
+ * calculators.js -- 门窗玻璃计算 engine
+ *
+ * Every formula in this file was recovered from the original Android APKs
+ * (断桥玻璃计算器 com.jingwei.duanqiaolv, and 789计算器 com.example.LhjCalculator)
+ * and is verified case-by-case against output produced by executing the
+ * original smali bytecode -- see tools/golden.json, tools/golden_app1.json and
+ * tools/verify_js.js. Do not "tidy up" a constant here: several oddities
+ * (a zero piece count for 3-扇 高光企, 中柱数 printed as a total, the M=0
+ * width having no division) are faithful reproductions of the shipped apps.
+ */
+
+/* ------------------------------------------------------------------ format */
+
+/** Java's String.format("%.2f", x), matching HALF_UP on the decimal value. */
+function f2(x) {
+  if (!isFinite(x)) return String(x);
+  const neg = x < 0;
+  const s = Math.abs(x).toFixed(2);
+  return (neg && Number(s) !== 0 ? '-' : '') + s;
+}
+
+/** Java's String.format("%d", x) for the int counts used by the apps. */
+function fd(x) {
+  return String(Math.trunc(x));
+}
+
+/** A measurement line exactly as the original apps print it. */
+function part(label, length, count) {
+  return `${label}: ${f2(length)} cm [ x ${fd(count)} ]\n`;
+}
+
+/** A measurement line using the full-width colon the original uses for 下固. */
+function partFw(label, length, count) {
+  return `${label}：${f2(length)} cm [ x ${fd(count)} ]\n`;
+}
+
+/**
+ * A glass line: `label：宽 W cm x 高 H cm [ x N ]`.
+ *
+ * `sep` is the text between the label and 宽. It defaults to the full-width
+ * colon the original uses, and exists so a caller can reproduce that app's
+ * inconsistent punctuation: the 下固玻璃 line uses an ASCII colon followed by a
+ * space where every other glass line uses a bare full-width colon.
+ */
+function glassLine(label, width, height, count, suffix, sep) {
+  const s = sep === undefined ? '：' : sep;
+  return `${label}${s}宽 ${f2(width)} cm x 高 ${f2(height)} cm [ x ${fd(count)} ]${suffix || ''}\n`;
+}
+
+const RULE = '-'.repeat(58) + '\n';
+const RULE_SMALL = '-'.repeat(13) + '\n';
+
+/* ------------------------------------------------------------- 789 helpers */
+
+/**
+ * 上方/下方 opening width and the number of those pieces.
+ * Identical in every 789 mode: 2 扇 -> (W-13.6)/2, 3 扇 -> (W-15.8)/3,
+ * 4 扇 -> (W-24.6)/4, and 0.0 for anything else.
+ */
+function fang(W, P) {
+  if (P === 2) return (W - 13.6) / 2.0;
+  if (P === 3) return (W - 15.8) / 3.0;
+  if (P === 4) return (W - 24.6) / 4.0;
+  return 0.0;
+}
+
+/**
+ * 固窗玻璃 width from the 中柱 count.
+ * Note M === 0 has NO division -- that asymmetry is in the original.
+ */
+function guGlassW(W, M) {
+  if (M === 0) return W - 6.0;
+  if (M === 1) return (W - 9.0) / 2.0;
+  if (M === 2) return (W - 12.0) / 3.0;
+  if (M === 3) return (W - 15.0) / 4.0;
+  return 0.0;
+}
+
+/**
+ * 高/低光企 and 高/低勾企 counts for the 高低轨 family.
+ *
+ * Recovered from the original bytecode and confirmed against its own output:
+ *   2 扇 -> all four are N
+ *   3 扇 -> 高光企 is 0 (!) while the other three are N*2
+ *   4 扇 -> all four are N*2
+ * The 3-扇 高光企 count of zero is a quirk of the shipped app, not a mistake
+ * here -- the row is still printed, with a count of 0.
+ */
+function qiCountsGdg(P, N) {
+  if (P === 2) return { gaoGuang: N, gaoGou: N, diGuang: N, diGou: N };
+  if (P === 3) return { gaoGuang: 0, gaoGou: N * 2, diGuang: N * 2, diGou: N * 2 };
+  if (P === 4) return { gaoGuang: N * 2, gaoGou: N * 2, diGuang: N * 2, diGou: N * 2 };
+  return { gaoGuang: 0, gaoGou: 0, diGuang: 0, diGou: 0 };
+}
+
+/**
+ * 光企/勾企 counts for the 平轨 and 内装轨 families.
+ *   2 扇 -> N*2 / N*2
+ *   3 扇 -> N*2 / N*4
+ *   4 扇 -> N*4 / N*4
+ */
+function qiCountsPg(P, N) {
+  if (P === 2) return { guang: N * 2, gou: N * 2 };
+  if (P === 3) return { guang: N * 2, gou: N * 4 };
+  if (P === 4) return { guang: N * 4, gou: N * 4 };
+  return { guang: 0, gou: 0 };
+}
+
+function header789(title, W, H) {
+  return `【${title}】\n` + `总宽: ${f2(W)} cm    总高: ${f2(H)} cm\n`;
+}
+
+/* --------------------------------------------------------------- 789 modes */
+
+/**
+ * 789 正常 高低轨.  W 总宽, H 总高, P 扇数, N 窗数.
+ * Reference: LvhejinGongshi.compute789ZcGdg
+ */
+function compute789ZcGdg(W, H, P, N) {
+  const shangXia = W - 2.5;
+  const bianFengN = N * 2;
+  const gaoQi = H - 5.0;
+  const diQi = H - 6.5;
+  const nFang = P * N;
+  const f = fang(W, P);
+  const c = qiCountsGdg(P, N);
+  const gw = f - 0.6;
+  const gh = H - 14.7;
+
+  let s = header789('789 正常 高低轨', W, H);
+  s += `扇数: ${fd(P)}    窗数: ${fd(N)}\n`;
+  s += RULE;
+  s += part('上滑', shangXia, N);
+  s += part('下滑', shangXia, N);
+  s += part('边封', H, bianFengN);
+  s += part('高光企', gaoQi, c.gaoGuang);
+  s += part('低光企', diQi, c.diGuang);
+  s += part('高勾企', gaoQi, c.gaoGou);
+  s += part('低勾企', diQi, c.diGou);
+  s += part('上方', f, nFang);
+  s += part('下方', f, nFang);
+  s += glassLine('玻璃', gw, gh, nFang);
+  return s;
+}
+
+/**
+ * 789 正常 平轨.  Reference: LvhejinGongshi.compute789ZcPg
+ */
+function compute789ZcPg(W, H, P, N) {
+  const shangXia = W - 2.5;
+  const bianFengN = N * 2;
+  const guangQi = H - 4.5;
+  const nFang = P * N;
+  const f = fang(W, P);
+  const c = qiCountsPg(P, N);
+  const gw = f - 0.6;
+  const gh = H - 14.1;
+
+  let s = header789('789 正常 平轨', W, H);
+  s += `扇数: ${fd(P)}    窗数: ${fd(N)}\n`;
+  s += RULE;
+  s += part('上滑', shangXia, N);
+  s += part('下滑', shangXia, N);
+  s += part('边封', H, bianFengN);
+  s += part('光企', guangQi, c.guang);
+  s += part('勾企', guangQi, c.gou);
+  s += part('上方', f, nFang);
+  s += part('下方', f, nFang);
+  s += glassLine('玻璃', gw, gh, nFang);
+  return s;
+}
+
+/**
+ * 789 正常 内装轨.  Reference: LvhejinGongshi.compute789ZcNzg
+ * Emits two glass lines (小方 and 大方) differing only in height.
+ */
+function compute789ZcNzg(W, H, P, N) {
+  const shangXia = W - 2.5;
+  const bianFengN = N * 2;
+  const guangQi = H - 6.3;
+  const nFang = P * N;
+  const f = fang(W, P);
+  const c = qiCountsPg(P, N);
+  const gw = f - 0.6;
+  const ghXiao = H - 14.2;
+  const ghDa = ghXiao - 1.5;
+
+  let s = header789('789 正常 内装轨', W, H);
+  s += `扇数: ${fd(P)}    窗数: ${fd(N)}\n`;
+  s += RULE;
+  s += part('上滑', shangXia, N);
+  s += part('下滑', shangXia, N);
+  s += part('边封', H, bianFengN);
+  s += part('光企', guangQi, c.guang);
+  s += part('勾企', guangQi, c.gou);
+  s += part('上方', f, nFang);
+  s += part('下方', f, nFang);
+  s += glassLine('玻璃', gw, ghXiao, nFang, ' -- 用小方');
+  s += glassLine('玻璃', gw, ghDa, nFang, ' -- 用大方');
+  return s;
+}
+
+/**
+ * 789 带下固 高低轨.
+ * W 总宽, H 总高, Y 移窗高, P 扇数, M 中柱数, N 窗数.
+ * Reference: LvhejinGongshi.compute789XgGdg
+ */
+function compute789XgGdg(W, H, Y, P, M, N) {
+  const shangXia = W - 2.5;
+  const bianFengN = N * 2;
+  const gaoQi = Y - 5.0;
+  const diQi = Y - 6.5;
+  const zhongZhu = (H - Y) - 2.5;
+  const nFang = P * N;
+  const f = fang(W, P);
+  const c = qiCountsGdg(P, N);
+  const yiW = f - 0.6;
+  const yiH = Y - 14.6;
+  const guW = guGlassW(W, M);
+  const guH = (H - Y) - 3.0;
+  const nZhongZhu = M * N;
+  const nGuGlass = (M + 1) * N;
+
+  let s = header789('789 带下固 高低轨', W, H);
+  s += `移窗高: ${f2(Y)} cm    扇数: ${fd(P)}\n`;
+  s += `中柱数: ${fd(nZhongZhu)}    窗数: ${fd(N)}\n`;
+  s += RULE;
+  s += part('上滑', shangXia, N);
+  s += part('固下滑', shangXia, N);
+  s += partFw('下固', shangXia, N);
+  s += part('边封', H, bianFengN);
+  s += part('高光企', gaoQi, c.gaoGuang);
+  s += part('低光企', diQi, c.diGuang);
+  s += part('高勾企', gaoQi, c.gaoGou);
+  s += part('低勾企', diQi, c.diGou);
+  s += part('上方', f, nFang);
+  s += part('下方', f, nFang);
+  s += glassLine('移窗玻璃', yiW, yiH, nFang);
+  s += part('中柱', zhongZhu, nZhongZhu);
+  s += glassLine('固窗玻璃', guW, guH, nGuGlass);
+  return s;
+}
+
+/**
+ * 789 带下固 内装轨.  Reference: LvhejinGongshi.compute789XgNzg
+ * Two 固窗玻璃 lines (小方/大方). Note the header says 内装轨道 (with 道) --
+ * that mismatch with the menu title is in the original.
+ */
+function compute789XgNzg(W, H, Y, P, M, N) {
+  const shangXia = W - 2.5;
+  const bianFengN = N * 2;
+  const guangQi = Y - 6.3;
+  const zhongZhu = (H - Y) - 2.5;
+  const nFang = P * N;
+  const f = fang(W, P);
+  const c = qiCountsPg(P, N);
+  const yiW = f - 0.6;
+  const yiH = Y - 14.2;
+  const guW = guGlassW(W, M);
+  const guHXiao = (H - Y) - 3.0;
+  const guHDa = guHXiao - 1.5;
+  const nZhongZhu = M * N;
+  const nGuGlass = (M + 1) * N;
+
+  let s = header789('789 带下固 内装轨道', W, H);
+  s += `移窗高: ${f2(Y)} cm    扇数: ${fd(P)}\n`;
+  s += `中柱数: ${fd(nZhongZhu)}    窗数: ${fd(N)}\n`;
+  s += RULE;
+  s += part('上滑', shangXia, N);
+  s += part('固下滑', shangXia, N);
+  s += partFw('下固', shangXia, N);
+  s += part('边封', H, bianFengN);
+  s += part('光企', guangQi, c.guang);
+  s += part('勾企', guangQi, c.gou);
+  s += part('上方', f, nFang);
+  s += part('下方', f, nFang);
+  s += glassLine('移窗玻璃', yiW, yiH, nFang);
+  s += part('中柱', zhongZhu, nZhongZhu);
+  s += glassLine('固窗玻璃', guW, guHXiao, nGuGlass, ' -- 用小方');
+  s += glassLine('固窗玻璃', guW, guHDa, nGuGlass, ' -- 用大方');
+  return s;
+}
+
+/**
+ * 789 带上固 高低轨.
+ * The 上固 height is derived by the caller as 总高 - 移窗高, so this takes
+ * 移窗高 (Y) rather than an explicit 上固窗高.
+ * Reference: LvhejinGongshi.compute789SgGdg
+ */
+function compute789SgGdg(W, H, Y, P, M, N) {
+  const shangXia = W - 2.5;
+  const bianFengN = N * 2;
+  const gaoQi = Y - 6.0;
+  const diQi = Y - 7.5;
+  const shangGu = H - Y;
+  const zhongZhu = shangGu - 2.5;
+  const nFang = P * N;
+  const f = fang(W, P);
+  const c = qiCountsGdg(P, N);
+  const yiW = f - 0.6;
+  const yiH = Y - 15.7;
+  const guW = guGlassW(W, M);
+  const guH = shangGu - 3.0;
+  const nZhongZhu = M * N;
+  const nGuGlass = (M + 1) * N;
+
+  let s = header789('789 带上固 高低轨', W, H);
+  s += `移窗高: ${f2(Y)} cm    扇数: ${fd(P)}\n`;
+  s += `中柱数: ${fd(nZhongZhu)}    窗数: ${fd(N)}\n`;
+  s += RULE;
+  s += partFw('上固', shangXia, N);
+  s += part('固上滑', shangXia, N);
+  s += part('下滑', shangXia, N);
+  s += part('边封', H, bianFengN);
+  s += part('高光企', gaoQi, c.gaoGuang);
+  s += part('低光企', diQi, c.diGuang);
+  s += part('高勾企', gaoQi, c.gaoGou);
+  s += part('低勾企', diQi, c.diGou);
+  s += part('上方', f, nFang);
+  s += part('下方', f, nFang);
+  s += glassLine('移窗玻璃', yiW, yiH, nFang);
+  s += part('中柱', zhongZhu, nZhongZhu);
+  s += glassLine('固窗玻璃', guW, guH, nGuGlass);
+  return s;
+}
+
+/**
+ * 789 带上固 平轨.  Reference: LvhejinGongshi.compute789SgPg
+ */
+function compute789SgPg(W, H, Y, P, M, N) {
+  const shangXia = W - 2.5;
+  const bianFengN = N * 2;
+  const guangQi = Y - 5.5;
+  const shangGu = H - Y;
+  const zhongZhu = shangGu - 2.5;
+  const nFang = P * N;
+  const f = fang(W, P);
+  const c = qiCountsPg(P, N);
+  const yiW = f - 0.6;
+  const yiH = Y - 15.1;
+  const guW = guGlassW(W, M);
+  const guH = shangGu - 3.0;
+  const nZhongZhu = M * N;
+  const nGuGlass = (M + 1) * N;
+
+  let s = header789('789 带上固 平轨', W, H);
+  s += `移窗高: ${f2(Y)} cm    扇数: ${fd(P)}\n`;
+  s += `中柱数: ${fd(nZhongZhu)}    窗数: ${fd(N)}\n`;
+  s += RULE;
+  s += partFw('上固', shangXia, N);
+  s += part('固上滑', shangXia, N);
+  s += part('下滑', shangXia, N);
+  s += part('边封', H, bianFengN);
+  s += part('光企', guangQi, c.guang);
+  s += part('勾企', guangQi, c.gou);
+  s += part('上方', f, nFang);
+  s += part('下方', f, nFang);
+  s += glassLine('移窗玻璃', yiW, yiH, nFang);
+  s += part('中柱', zhongZhu, nZhongZhu);
+  s += glassLine('固窗玻璃', guW, guH, nGuGlass);
+  return s;
+}
+
+/**
+ * 789 带上固 内装轨.  Reference: LvhejinGongshi.compute789SgNzg
+ * Two 固窗玻璃 lines (小方/大方); header says 平轨, exactly like the original.
+ */
+function compute789SgNzg(W, H, Y, P, M, N) {
+  const shangXia = W - 2.5;
+  const bianFengN = N * 2;
+  const guangQi = Y - 7.3;
+  const shangGu = H - Y;
+  const zhongZhu = shangGu - 2.5;
+  const nFang = P * N;
+  const f = fang(W, P);
+  const c = qiCountsPg(P, N);
+  const yiW = f - 0.6;
+  const yiH = Y - 15.2;
+  const guW = guGlassW(W, M);
+  const guHXiao = shangGu - 3.0;
+  const guHDa = guHXiao - 1.5;
+  const nZhongZhu = M * N;
+  const nGuGlass = (M + 1) * N;
+
+  let s = header789('789 带上固 平轨', W, H);
+  s += `移窗高: ${f2(Y)} cm    扇数: ${fd(P)}\n`;
+  s += `中柱数: ${fd(nZhongZhu)}    窗数: ${fd(N)}\n`;
+  s += RULE;
+  s += partFw('上固', shangXia, N);
+  s += part('固上滑', shangXia, N);
+  s += part('下滑', shangXia, N);
+  s += part('边封', H, bianFengN);
+  s += part('光企', guangQi, c.guang);
+  s += part('勾企', guangQi, c.gou);
+  s += part('上方', f, nFang);
+  s += part('下方', f, nFang);
+  s += glassLine('移窗玻璃', yiW, yiH, nFang);
+  s += part('中柱', zhongZhu, nZhongZhu);
+  s += glassLine('固窗玻璃', guW, guHXiao, nGuGlass, ' -- 用小方');
+  s += glassLine('固窗玻璃', guW, guHDa, nGuGlass, ' -- 用大方');
+  return s;
+}
+
+/**
+ * 789 带上下固 高低轨.
+ * W 总宽, H 总高, Y 移窗高, P 扇数, GU 上固窗高, ZU 上固中柱数,
+ * GD 下固窗高, ZD 下固中柱数, N 窗数.
+ * Reference: LvhejinGongshi.compute789SXgGdg
+ */
+function compute789SXgGdg(W, H, Y, P, GU, ZU, GD, ZD, N) {
+  const shangXia = W - 2.5;
+  const nShang = N * 1;
+  const bianFengN = N * 2;
+  const gaoQi = Y - 6.0;
+  const diQi = Y - 7.5;
+  const zhongZhuU = GU - 2.5;
+  const zhongZhuD = GD - 2.5;
+  const nFang = P * N;
+  const f = fang(W, P);
+  const c = qiCountsGdg(P, N);
+  const yiW = f - 0.6;
+  const yiH = Y - 15.7;
+  const guWU = guGlassW(W, ZU);
+  const guH = GU - 3.0;
+  const nGuU = (ZU + 1) * N;
+  const nZU = ZU * N;
+  const guWD = guGlassW(W, ZD);
+  const guHD = GD - 3.0;
+  const nGuD = (ZD + 1) * N;
+  const nZD = ZD * N;
+
+  let s = header789('789 带上固 高低轨', W, H);
+  s += `移窗高: ${f2(Y)} cm    扇数: ${fd(P)}\n`;
+  s += `上固窗高: ${f2(GU)} cm    上固中柱数: ${fd(nZU)}\n`;
+  s += `下固窗高: ${f2(GD)} cm    下固中柱数: ${fd(nZD)}\n`;
+  s += `窗数: ${fd(N)}\n`;
+  s += RULE;
+  s += partFw('上固', shangXia, nShang);
+  s += part('下固', shangXia, nShang);
+  s += part('边封', H, bianFengN);
+  s += part('固上滑', shangXia, nShang);
+  s += part('固下滑', shangXia, nShang);
+  s += RULE_SMALL;
+  s += part('高光企', gaoQi, c.gaoGuang);
+  s += part('低光企', diQi, c.diGuang);
+  s += part('高勾企', gaoQi, c.gaoGou);
+  s += part('低勾企', diQi, c.diGou);
+  s += part('上方', f, nFang);
+  s += part('下方', f, nFang);
+  s += glassLine('移窗玻璃', yiW, yiH, nFang);
+  s += RULE_SMALL;
+  s += part('上固中柱', zhongZhuU, nZU);
+  s += glassLine('上固玻璃', guWU, guH, nGuU);
+  s += part('下固中柱', zhongZhuD, nZD);
+  s += glassLine('下固玻璃', guWD, guHD, nGuD, '', ': ');
+  return s;
+}
+
+/* --------------------------------------------------- app 1 (断桥玻璃计算器) */
+
+/**
+ * The simple single-pane modes of 断桥玻璃计算器: height and width are the
+ * opening size minus a fixed deduction, and the 窗数 input is the piece count
+ * (or a multiple of it for the sliding-window modes).
+ */
+function simpleGlass(tag, H, W, N, dh, dw, perWindow, divisor) {
+  const gh = H - dh;
+  const gw = divisor ? (W - dw) / divisor : W - dw;
+  const count = N * perWindow;
+  let s = `[%TIME%] 计算结果:\n`;
+  s += `【${tag}】\n`;
+  s += `总高：${f2(H)} cm 总宽：${f2(W)} cm\n`;
+  s += `窗数：${fd(N)}\n`;
+  s += '-'.repeat(23) + '\n';
+  s += `玻璃：高 ${f2(gh)} cm x 宽 ${f2(gw)} cm [${fd(count)} 片]\n`;
+  return s;
+}
+
+const APP1_SIMPLE = {
+  guding: { tag: '固定窗', dh: 7.0, dw: 7.0, perWindow: 1 },
+  liangyi: { tag: '2 移推拉窗', dh: 20.5, dw: 25.0, perWindow: 2, divisor: 2.0 },
+  siyi: { tag: '4 移推拉窗', dh: 20.5, dw: 42.0, perWindow: 4, divisor: 4.0 },
+  pingkai: { tag: '平开窗', dh: 16.5, dw: 16.5, perWindow: 1 },
+  jingke: { tag: '晶科 平开门', dh: 18.0, dw: 18.0, perWindow: 1 },
+  zhongchi: { tag: '忠驰 平开门', dh: 21.0, dw: 21.0, perWindow: 1 },
+  wkai: { tag: '50 平开窗', dh: 12.5, dw: 12.5, perWindow: 1 },
+  wmen: { tag: '50 平开门', dh: 17.0, dw: 17.0, perWindow: 1 },
+};
+
+function computeApp1Simple(key, H, W, N) {
+  const m = APP1_SIMPLE[key];
+  return simpleGlass(m.tag, H, W, N, m.dh, m.dw, m.perWindow, m.divisor);
+}
+
+/**
+ * 3 轨推拉窗: a 推拉窗 part plus an optional 固定窗 part.
+ *
+ * The fixed part is emitted only when the opening is large enough for the
+ * chosen 中柱 count:
+ *   GH > 8.0  (otherwise the whole fixed block is dropped)
+ *   GW > [8, 11, 15, 19][Z]   (a stricter width threshold as 中柱 grows)
+ * and the fixed pane count is N * [1, 2, 3, 4][Z].
+ *
+ * The first threshold (8.0) is checked against GH, and the second against GW;
+ * with 中柱数 = 0 there is no division at all. Z outside 0..3 is rejected
+ * before this point by the app's validation.
+ */
+function computeApp1SanGui(YH, YW, GH, GW, N, Z) {
+  const slideH = YH - 21.0;
+  const slideW = (YW - 30.0) / 3.0;
+  const slideCount = N * 3;
+
+  const LIMIT = [8.0, 11.0, 15.0, 19.0];
+  const DIV = [1, 2, 3, 4];
+  const limit = LIMIT[Z];
+  const div = DIV[Z];
+
+  let hasFixed = false;
+  let fixedH = 0;
+  let fixedW = 0;
+  let fixedCount = 0;
+  if (limit !== undefined && GH > 8.0 && GW > limit) {
+    hasFixed = true;
+    fixedH = GH - 8.0;
+    fixedW = Z === 0 ? GW - 8.0 : (GW - limit) / div;
+    fixedCount = N * div;
+  }
+
+  let s = '[%TIME%] 计算结果:\n';
+  s += '【三轨 推拉窗】\n';
+  s += `窗数：${fd(N)}\n`;
+  s += `中柱数：${fd(Z)}\n`;
+  s += '【推拉窗部分】\n';
+  s += `高：${f2(YH)} cm 宽：${f2(YW)} cm\n`;
+  if (hasFixed) {
+    s += '【固定窗部分】\n';
+    s += `高：${f2(GH)} cm 宽：${f2(GW)} cm\n`;
+  }
+  s += '-'.repeat(23) + '\n';
+  s += `移窗玻璃：高 ${f2(slideH)} cm x 宽 ${f2(slideW)} cm [${fd(slideCount)} 片]\n`;
+  if (hasFixed) {
+    s += `固玻璃：高 ${f2(fixedH)} cm x 宽 ${f2(fixedW)} cm [${fd(fixedCount)} 片]\n`;
+  }
+  return s;
+}
+
+/* ------------------------------------------------------------------ export */
+
+(function (root) {
+  var Calculi = {
+    f2: f2, fd: fd,
+    compute789ZcGdg: compute789ZcGdg,
+    compute789ZcPg: compute789ZcPg,
+    compute789ZcNzg: compute789ZcNzg,
+    compute789XgGdg: compute789XgGdg,
+    compute789XgNzg: compute789XgNzg,
+    compute789SgGdg: compute789SgGdg,
+    compute789SgPg: compute789SgPg,
+    compute789SgNzg: compute789SgNzg,
+    compute789SXgGdg: compute789SXgGdg,
+    computeApp1Simple: computeApp1Simple,
+    computeApp1SanGui: computeApp1SanGui,
+    APP1_SIMPLE: APP1_SIMPLE,
+  };
+  // Assign onto the global object, so the module works whether it is loaded as
+  // a plain <script> or evaluated in a test harness. (A top-level `const` would
+  // work in a <script> tag but stays lexical -- and therefore invisible -- when
+  // the file is eval'd.)
+  root.Calculi = Calculi;
+  if (typeof module !== 'undefined' && module.exports) {
+    module.exports = Calculi;
+  }
+}(typeof globalThis !== 'undefined' ? globalThis : this));
+
+</script>
+<script>
+/*!
+ * app.js -- UI layer for 门窗玻璃计算器.
+ *
+ * Depends on calculators.js (Calculi), which holds the verified arithmetic.
+ * This file owns: the mode registry, input rendering and validation, result
+ * presentation, and the localStorage-backed history (most recent 100).
+ */
+(function () {
+  'use strict';
+
+  var C = window.Calculi;
+  var $ = function (id) { return document.getElementById(id); };
+
+  /* ================================================================ 时间 */
+
+  /** Same pattern the apps use: yyyy-MM-dd hh:mm:ss with a 12-hour clock. */
+  function stamp(d) {
+    d = d || new Date();
+    var p = function (n) { return String(n).padStart(2, '0'); };
+    var h12 = d.getHours() % 12;
+    if (h12 === 0) h12 = 12;
+    return d.getFullYear() + '-' + p(d.getMonth() + 1) + '-' + p(d.getDate()) +
+      ' ' + p(h12) + ':' + p(d.getMinutes()) + ':' + p(d.getSeconds());
+  }
+
+  function relTime(ts) {
+    var s = Math.floor((Date.now() - ts) / 1000);
+    if (s < 60) return '刚刚';
+    if (s < 3600) return Math.floor(s / 60) + ' 分钟前';
+    if (s < 86400) return Math.floor(s / 3600) + ' 小时前';
+    if (s < 86400 * 30) return Math.floor(s / 86400) + ' 天前';
+    return stamp(new Date(ts)).slice(0, 10);
+  }
+
+  /* ========================================================== 模式定义 */
+
+  /*
+   * Each mode lists its inputs in the order the original app shows them.
+   * `def` is the default the app pre-fills; the 789 app also rejects blank
+   * fields, which `required: true` reproduces.
+   */
+  var S = function (key, label, unit, def, opts) {
+    var f = { key: key, label: label, unit: unit, def: def, integer: false, min: null, max: null };
+    if (opts) for (var k in opts) f[k] = opts[k];
+    return f;
+  };
+  var MM = function (key, label, def, opts) { return S(key, label, 'cm', def, opts); };
+  var CT = function (key, label, def, opts) {
+    var o = opts || {}; o.integer = true;
+    return S(key, label, '片', def, o);
+  };
+  var OPT = { min: 0, integer: true };
+
+  var MODES = [
+    /* ---------------------------------------------------- App 1 断桥铝 */
+    {
+      id: 'a1-guding', group: '断桥玻璃计算器',
+      name: '固定窗', desc: '高−7 / 宽−7',
+      fields: [MM('H', '总高', '200'), MM('W', '总宽', '150'), CT('N', '窗数', '1')],
+      calc: function (v) { return C.computeApp1Simple('guding', v.H, v.W, v.N); }
+    },
+    {
+      id: 'a1-liangyi', group: '断桥玻璃计算器',
+      name: '2 移推拉窗', desc: '高−20.5 / (宽−25)÷2',
+      fields: [MM('H', '总高', '200'), MM('W', '总宽', '150'), CT('N', '窗数', '1')],
+      calc: function (v) { return C.computeApp1Simple('liangyi', v.H, v.W, v.N); }
+    },
+    {
+      id: 'a1-siyi', group: '断桥玻璃计算器',
+      name: '4 移推拉窗', desc: '高−20.5 / (宽−42)÷4',
+      fields: [MM('H', '总高', '200'), MM('W', '总宽', '150'), CT('N', '窗数', '1')],
+      calc: function (v) { return C.computeApp1Simple('siyi', v.H, v.W, v.N); }
+    },
+    {
+      id: 'a1-pingkai', group: '断桥玻璃计算器',
+      name: '平开窗', desc: '高−16.5 / 宽−16.5',
+      fields: [MM('H', '总高', '200'), MM('W', '总宽', '150'), CT('N', '窗数', '1')],
+      calc: function (v) { return C.computeApp1Simple('pingkai', v.H, v.W, v.N); }
+    },
+    {
+      id: 'a1-jingke', group: '断桥玻璃计算器',
+      name: '平开门（晶科）', desc: '高−18 / 宽−18',
+      fields: [MM('H', '总高', '200'), MM('W', '总宽', '150'), CT('N', '窗数', '1')],
+      calc: function (v) { return C.computeApp1Simple('jingke', v.H, v.W, v.N); }
+    },
+    {
+      id: 'a1-zhongchi', group: '断桥玻璃计算器',
+      name: '平开门（忠驰）', desc: '高−21 / 宽−21',
+      fields: [MM('H', '总高', '200'), MM('W', '总宽', '150'), CT('N', '窗数', '1')],
+      calc: function (v) { return C.computeApp1Simple('zhongchi', v.H, v.W, v.N); }
+    },
+    {
+      id: 'a1-wkai', group: '断桥玻璃计算器',
+      name: '50 平开窗', desc: '高−12.5 / 宽−12.5',
+      fields: [MM('H', '总高', '200'), MM('W', '总宽', '150'), CT('N', '窗数', '1')],
+      calc: function (v) { return C.computeApp1Simple('wkai', v.H, v.W, v.N); }
+    },
+    {
+      id: 'a1-wmen', group: '断桥玻璃计算器',
+      name: '50 平开门', desc: '高−17 / 宽−17',
+      fields: [MM('H', '总高', '200'), MM('W', '总宽', '150'), CT('N', '窗数', '1')],
+      calc: function (v) { return C.computeApp1Simple('wmen', v.H, v.W, v.N); }
+    },
+    {
+      id: 'a1-sangui', group: '断桥玻璃计算器',
+      name: '3 轨推拉窗', desc: '推拉窗 + 可选固定窗',
+      fields: [
+        MM('YH', '推拉窗高', '150'), MM('YW', '推拉窗宽', '240'),
+        MM('GH', '固定窗高', '100'), MM('GW', '固定窗宽', '240'),
+        CT('N', '窗数', '1'), CT('Z', '中柱数', '1', { min: 0, max: 3 })
+      ],
+      calc: function (v) { return C.computeApp1SanGui(v.YH, v.YW, v.GH, v.GW, v.N, v.Z); }
+    },
+
+    /* ------------------------------------------------- 789 正常系列 */
+    {
+      id: '789-zc-gdg', group: '789 计算器 · 正常',
+      name: '789 正常 高低轨', desc: '高低轨，无上下固',
+      fields: [MM('W', '总宽', '200'), MM('H', '总高', '200'),
+        CT('P', '扇数', '2', { min: 2, max: 4 }), CT('N', '窗数', '1')],
+      calc: function (v) { return C.compute789ZcGdg(v.W, v.H, v.P, v.N); }
+    },
+    {
+      id: '789-zc-pg', group: '789 计算器 · 正常',
+      name: '789 正常 平轨', desc: '平轨，无上下固',
+      fields: [MM('W', '总宽', '200'), MM('H', '总高', '200'),
+        CT('P', '扇数', '2', { min: 2, max: 4 }), CT('N', '窗数', '1')],
+      calc: function (v) { return C.compute789ZcPg(v.W, v.H, v.P, v.N); }
+    },
+    {
+      id: '789-zc-nzg', group: '789 计算器 · 正常',
+      name: '789 正常 内装轨', desc: '内装轨，小方/大方两种玻璃',
+      fields: [MM('W', '总宽', '200'), MM('H', '总高', '200'),
+        CT('P', '扇数', '2', { min: 2, max: 4 }), CT('N', '窗数', '1')],
+      calc: function (v) { return C.compute789ZcNzg(v.W, v.H, v.P, v.N); }
+    },
+
+    /* ------------------------------------------------- 789 带下固系列 */
+    {
+      id: '789-xg-gdg', group: '789 计算器 · 带下固',
+      name: '789 带下固 高低轨', desc: '下固定窗，高低轨',
+      fields: [MM('W', '总宽', '200'), MM('H', '总高', '250'), MM('Y', '移窗高', '150'),
+        CT('P', '扇数', '2', { min: 2, max: 4 }),
+        CT('M', '中柱数', '1', { min: 0, max: 3 }), CT('N', '窗数', '1')],
+      calc: function (v) { return C.compute789XgGdg(v.W, v.H, v.Y, v.P, v.M, v.N); }
+    },
+    {
+      id: '789-xg-nzg', group: '789 计算器 · 带下固',
+      name: '789 带下固 内装轨', desc: '下固定窗，内装轨，小方/大方',
+      fields: [MM('W', '总宽', '200'), MM('H', '总高', '250'), MM('Y', '移窗高', '150'),
+        CT('P', '扇数', '2', { min: 2, max: 4 }),
+        CT('M', '中柱数', '1', { min: 0, max: 3 }), CT('N', '窗数', '1')],
+      calc: function (v) { return C.compute789XgNzg(v.W, v.H, v.Y, v.P, v.M, v.N); }
+    },
+
+    /* ------------------------------------------------- 789 带上固系列 */
+    {
+      id: '789-sg-gdg', group: '789 计算器 · 带上固',
+      name: '789 带上固 高低轨', desc: '上固定窗 = 总高−移窗高',
+      fields: [MM('W', '总宽', '200'), MM('H', '总高', '250'), MM('Y', '移窗高', '100'),
+        CT('P', '扇数', '2', { min: 2, max: 4 }),
+        CT('M', '中柱数', '1', { min: 0, max: 3 }), CT('N', '窗数', '1')],
+      calc: function (v) { return C.compute789SgGdg(v.W, v.H, v.Y, v.P, v.M, v.N); }
+    },
+    {
+      id: '789-sg-pg', group: '789 计算器 · 带上固',
+      name: '789 带上固 平轨', desc: '上固定窗，平轨',
+      fields: [MM('W', '总宽', '200'), MM('H', '总高', '250'), MM('Y', '移窗高', '100'),
+        CT('P', '扇数', '2', { min: 2, max: 4 }),
+        CT('M', '中柱数', '1', { min: 0, max: 3 }), CT('N', '窗数', '1')],
+      calc: function (v) { return C.compute789SgPg(v.W, v.H, v.Y, v.P, v.M, v.N); }
+    },
+    {
+      id: '789-sg-nzg', group: '789 计算器 · 带上固',
+      name: '789 带上固 内装轨', desc: '上固定窗，内装轨，小方/大方',
+      fields: [MM('W', '总宽', '200'), MM('H', '总高', '250'), MM('Y', '移窗高', '100'),
+        CT('P', '扇数', '2', { min: 2, max: 4 }),
+        CT('M', '中柱数', '1', { min: 0, max: 3 }), CT('N', '窗数', '1')],
+      calc: function (v) { return C.compute789SgNzg(v.W, v.H, v.Y, v.P, v.M, v.N); }
+    },
+
+    /* ----------------------------------------------- 789 带上下固系列 */
+    {
+      id: '789-sxg-gdg', group: '789 计算器 · 带上下固',
+      name: '789 带上下固 高低轨', desc: '上下固定窗，高低轨',
+      notice: '「上固窗高」为必填，未填写的「下固窗高」会自动按 总高 − 上固窗高 − 移窗高 推算。' +
+        '（与原 App 一致）',
+      fields: [MM('W', '总宽', '200'), MM('H', '总高', '300'), MM('Y', '移窗高', '150'),
+        CT('P', '扇数', '2', { min: 2, max: 4 }),
+        MM('GU', '上固窗高', '60'), CT('ZU', '上固中柱数', '0', { min: 0, max: 3 }),
+        MM('GD', '下固窗高', '90', { optional: true }),
+        CT('ZD', '下固中柱数', '0', { min: 0, max: 3 }),
+        CT('N', '窗数', '1')],
+      calc: function (v) {
+        var GU = v.GU, GD = v.GD;
+        if (GU === null || GU === '') {
+          GU = (v.H - GD) - v.Y;
+        } else {
+          GD = (v.H - GU) - v.Y;
+        }
+        return C.compute789SXgGdg(v.W, v.H, v.Y, v.P, GU, v.ZU, GD, v.ZD, v.N);
+      }
+    }
+  ];
+
+  /* ============================================================== 状态 */
+
+  var state = {
+    modeId: MODES[0].id,
+    values: {},
+    lastResult: null,   // { modeId, modeName, inputs, text, ts }
+    resultView: 'tiles'
+  };
+
+  var HIST_KEY = 'mwglass.history.v1';
+  var HIST_MAX = 100;
+
+  /* ============================================================== 历史 */
+
+  function loadHistory() {
+    try {
+      var raw = localStorage.getItem(HIST_KEY);
+      if (!raw) return [];
+      var arr = JSON.parse(raw);
+      return Array.isArray(arr) ? arr : [];
+    } catch (e) {
+      return [];
+    }
+  }
+
+  /** Persist, trimming to the most recent HIST_MAX entries. */
+  function saveHistory(list) {
+    var trimmed = list.slice(0, HIST_MAX);
+    try {
+      localStorage.setItem(HIST_KEY, JSON.stringify(trimmed));
+    } catch (e) {
+      // Quota exceeded: drop the oldest half and retry once, so a long-lived
+      // history never breaks the calculator itself.
+      try {
+        localStorage.setItem(HIST_KEY, JSON.stringify(trimmed.slice(0, Math.ceil(trimmed.length / 2))));
+        toast('存储空间不足，已清理较早的历史');
+      } catch (e2) {
+        toast('无法保存历史（浏览器存储不可用）');
+      }
+    }
+    return trimmed;
+  }
+
+  function addHistory(rec) {
+    var list = loadHistory();
+    list.unshift(rec);
+    return saveHistory(list);
+  }
+
+  /* ============================================================ 深链接 */
+
+  /*
+   * The hash can carry a whole calculation, so a result is bookmarkable and
+   * shareable:
+   *   #m=789-xg-gdg&W=200&H=250&Y=150&P=2&M=1&N=1
+   * With `go=1` the app calculates as soon as it loads, which also makes the
+   * result view reachable directly (useful for printing and for tests).
+   * Values in the hash are never written to history unless the user presses
+   * 开始计算, so simply opening a shared link does not pollute their history.
+   */
+  function parseHash() {
+    var raw = (location.hash || '').replace(/^#/, '');
+    if (!raw) return null;
+    var out = {};
+    raw.split('&').forEach(function (kv) {
+      if (!kv) return;
+      var i = kv.indexOf('=');
+      if (i < 0) { out[decodeURIComponent(kv)] = ''; return; }
+      out[decodeURIComponent(kv.slice(0, i))] = decodeURIComponent(kv.slice(i + 1));
+    });
+    return out;
+  }
+
+  function buildHash(modeId, values, includeGo) {
+    var m = modeById(modeId);
+    if (!m) return '';
+    var parts = ['m=' + encodeURIComponent(modeId)];
+    m.fields.forEach(function (f) {
+      var v = values[f.key];
+      if (v === null || v === undefined || v === '') return;
+      parts.push(encodeURIComponent(f.key) + '=' + encodeURIComponent(v));
+    });
+    if (includeGo) parts.push('go=1');
+    return parts.join('&');
+  }
+
+  function syncHash(includeGo) {
+    try {
+      var h = buildHash(state.modeId, state.values, includeGo);
+      if (h) history.replaceState(null, '', '#' + h);
+    } catch (e) { /* file:// may restrict history; harmless */ }
+  }
+
+  /* ================================================================ DOM */
+
+  function toast(msg) {
+    var t = $('toast');
+    t.textContent = msg;
+    t.classList.add('show');
+    clearTimeout(toast._t);
+    toast._t = setTimeout(function () { t.classList.remove('show'); }, 2200);
+  }
+
+  function copyText(text, okMsg) {
+    var done = function () { toast(okMsg || '已复制到剪贴板'); };
+    if (navigator.clipboard && navigator.clipboard.writeText) {
+      navigator.clipboard.writeText(text).then(done, function () { fallback(); });
+    } else { fallback(); }
+    function fallback() {
+      var ta = document.createElement('textarea');
+      ta.value = text;
+      ta.setAttribute('readonly', '');
+      ta.style.position = 'fixed';
+      ta.style.opacity = '0';
+      document.body.appendChild(ta);
+      ta.select();
+      try { document.execCommand('copy'); done(); }
+      catch (e) { toast('复制失败，请手动选择文本'); }
+      document.body.removeChild(ta);
+    }
+  }
+
+  function modeById(id) {
+    for (var i = 0; i < MODES.length; i++) if (MODES[i].id === id) return MODES[i];
+    return null;
+  }
+
+  /* =========================================================== 模式列表 */
+
+  /** Group the registry by its `group` label, preserving declaration order. */
+  function modeGroups() {
+    var order = [];
+    var byName = {};
+    MODES.forEach(function (m) {
+      if (!byName[m.group]) { byName[m.group] = []; order.push(m.group); }
+      byName[m.group].push(m);
+    });
+    return order.map(function (g) { return { name: g, modes: byName[g] }; });
+  }
+
+  /**
+   * Render the mode picker for both interaction models at once.
+   *
+   * Wide screens show the grouped list (a sticky sidebar, scan and click);
+   * phones and tablets show a native <select>, because the OS picker is far
+   * easier to use with a thumb than a long grid of cards, and it collapses 18
+   * options into one 48px row. CSS decides which one is visible.
+   */
+  function renderModes() {
+    var groups = modeGroups();
+
+    var host = $('modeList');
+    host.innerHTML = '';
+    groups.forEach(function (g) {
+      var h = document.createElement('div');
+      h.className = 'group-title';
+      h.textContent = g.name;
+      host.appendChild(h);
+      var grid = document.createElement('div');
+      grid.className = 'modes';
+      g.modes.forEach(function (m) {
+        var b = document.createElement('button');
+        b.type = 'button';
+        b.className = 'mode';
+        b.setAttribute('aria-pressed', String(m.id === state.modeId));
+        b.dataset.modeId = m.id;
+        b.innerHTML = '<span class="name"></span><span class="desc"></span>';
+        b.querySelector('.name').textContent = m.name;
+        b.querySelector('.desc').textContent = m.desc;
+        b.addEventListener('click', function () { selectMode(m.id, m.id === state.modeId); });
+        grid.appendChild(b);
+      });
+      host.appendChild(grid);
+    });
+
+    var sel = $('modeSelect');
+    if (sel) {
+      sel.innerHTML = '';
+      groups.forEach(function (g) {
+        var og = document.createElement('optgroup');
+        og.label = g.name;
+        g.modes.forEach(function (m) {
+          var o = document.createElement('option');
+          o.value = m.id;
+          o.textContent = m.name;
+          og.appendChild(o);
+        });
+        sel.appendChild(og);
+      });
+      sel.value = state.modeId;
+    }
+  }
+
+  /**
+   * Switch the active calculator.
+   *
+   * Re-selecting the mode that is already active restores its defaults and
+   * clears the previous result, so a mode button always puts the form back into
+   * a known state rather than keeping whatever was typed last time. Switching to
+   * a *different* mode keeps the current values where the new mode has a field
+   * with the same key (总高/总宽 and friends are shared across modes), which
+   * makes comparing two modes on the same opening quick.
+   */
+  function selectMode(id, isSameMode) {
+    state.modeId = id;
+    var m = modeById(id);
+    Array.prototype.forEach.call(document.querySelectorAll('.mode'), function (b) {
+      b.setAttribute('aria-pressed', String(b.dataset.modeId === id));
+    });
+    var sel = $('modeSelect');
+    if (sel && sel.value !== id) sel.value = id;
+    if (isSameMode) state.values = {};
+    m.fields.forEach(function (f) {
+      if (state.values[f.key] === undefined) state.values[f.key] = f.def;
+    });
+    renderFields(m);
+    setResultVisible(false);
+    state.lastResult = null;
+  }
+
+  /* ============================================================== 表单 */
+
+  function renderFields(m) {
+    $('inputTitle').textContent = m.name;
+    var n = $('modeNotice');
+    if (m.notice) { n.innerHTML = m.notice; n.hidden = false; }
+    else { n.hidden = true; n.innerHTML = ''; }
+
+    var host = $('fields');
+    host.innerHTML = '';
+    m.fields.forEach(function (f) {
+      var wrap = document.createElement('div');
+      wrap.className = 'field';
+      var id = 'f-' + f.key;
+      var lab = document.createElement('label');
+      lab.setAttribute('for', id);
+      lab.textContent = f.label + (f.optional ? '（可选）' : '');
+      var box = document.createElement('div');
+      box.className = 'inp';
+      var inp = document.createElement('input');
+      inp.id = id;
+      inp.type = 'number';
+      inp.step = f.integer ? '1' : '0.01';
+      inp.inputMode = f.integer ? 'numeric' : 'decimal';
+      // Phones show this as the return key label; combined with form submit it
+      // reads as "done, calculate".
+      inp.enterKeyHint = 'done';
+      inp.autocapitalize = 'off';
+      inp.spellcheck = false;
+      if (f.min !== null && f.min !== undefined) inp.min = String(f.min);
+      if (f.max !== null && f.max !== undefined) inp.max = String(f.max);
+      inp.value = state.values[f.key] === undefined ? f.def : state.values[f.key];
+      inp.dataset.key = f.key;
+      inp.addEventListener('input', function () {
+        state.values[f.key] = inp.value;
+        inp.classList.remove('bad');
+      });
+      var unit = document.createElement('span');
+      unit.className = 'unit';
+      unit.textContent = f.unit;
+      box.appendChild(inp);
+      box.appendChild(unit);
+      wrap.appendChild(lab);
+      wrap.appendChild(box);
+      host.appendChild(wrap);
+    });
+  }
+
+  function readValues(m) {
+    var v = {};
+    var bad = null;
+    m.fields.forEach(function (f) {
+      var el = document.getElementById('f-' + f.key);
+      var raw = (el.value || '').trim();
+      el.classList.remove('bad');
+      if (raw === '') {
+        if (f.optional) { v[f.key] = null; return; }
+        bad = bad || { el: el, msg: '请填写「' + f.label + '」' };
+        return;
+      }
+      var num = Number(raw);
+      if (!isFinite(num)) {
+        bad = bad || { el: el, msg: '「' + f.label + '」不是有效数字' };
+        return;
+      }
+      // The original apps use parseInt for counts; a fractional count would
+      // silently truncate there, so do the same rather than reject it.
+      v[f.key] = f.integer ? Math.trunc(num) : num;
+    });
+    return { values: v, bad: bad };
+  }
+
+  function validate(m, v) {
+    for (var i = 0; i < m.fields.length; i++) {
+      var f = m.fields[i];
+      var val = v[f.key];
+      if (val === null || val === undefined) continue;
+      if (f.min !== null && f.min !== undefined && val < f.min)
+        return '「' + f.label + '」不能小于 ' + f.min;
+      if (f.max !== null && f.max !== undefined && val > f.max)
+        return '「' + f.label + '」不能大于 ' + f.max;
+    }
+    if (m.id.indexOf('789-xg') === 0 && v.Y >= v.H)
+      return '移窗高度异常：移窗高需小于总高';
+    if (m.id.indexOf('789-sg') === 0 && v.Y >= v.H)
+      return '移窗高度异常：移窗高需小于总高';
+    return null;
+  }
+
+  /* ============================================================== 计算 */
+
+  function doCalc(ev) {
+    if (ev) ev.preventDefault();
+    return runCalc(false);
+  }
+
+  /**
+   * Compute the current form and show the result.
+   * `fromHash` marks a calculation triggered by a shared link: it renders the
+   * result but leaves the history untouched until the user asks for it.
+   */
+  function runCalc(fromHash) {
+    var m = modeById(state.modeId);
+    var rd = readValues(m);
+    if (rd.bad) {
+      if (fromHash) return;
+      rd.bad.el.classList.add('bad');
+      rd.bad.el.focus();
+      toast(rd.bad.msg);
+      return;
+    }
+    var err = validate(m, rd.values);
+    if (err) {
+      if (!fromHash) toast(err);
+      return;
+    }
+
+    var ts = Date.now();
+    var text = m.calc(rd.values).replace('%TIME%', stamp(new Date(ts)));
+    var rec = {
+      id: 'h' + ts + '-' + Math.random().toString(36).slice(2, 7),
+      ts: ts,
+      modeId: m.id,
+      modeName: m.name,
+      inputs: rd.values,
+      text: text
+    };
+    state.lastResult = rec;
+    if (!fromHash) {
+      addHistory(rec);
+      renderHistory();
+    }
+    showResult(rec, m);
+    if (!fromHash) syncHash(false);
+    if (!fromHash) {
+      // On phones the on-screen keyboard would otherwise cover the result; drop
+      // focus first so the keyboard closes before we scroll to it.
+      var active = document.activeElement;
+      if (active && active.blur && /^(INPUT|SELECT|TEXTAREA)$/.test(active.tagName)) {
+        active.blur();
+      }
+      $('resultCard').scrollIntoView({ behavior: 'smooth', block: 'nearest' });
+    }
+  }
+
+  /* ========================================================== 结果渲染 */
+
+  var FIELD_LABEL = {};
+  MODES.forEach(function (m) {
+    m.fields.forEach(function (f) { FIELD_LABEL[m.id + '.' + f.key] = f.label; });
+  });
+
+  function inputSummary(rec) {
+    var m = modeById(rec.modeId);
+    if (!m) return '';
+    return m.fields.filter(function (f) {
+      return rec.inputs[f.key] !== null && rec.inputs[f.key] !== undefined;
+    }).map(function (f) {
+      return f.label + ' ' + rec.inputs[f.key] + f.unit;
+    }).join(' · ');
+  }
+
+  /**
+   * Turn a result block into detail tiles. Three row shapes occur:
+   *   `label: L cm [ x N ]`            -- a part length and its piece count
+   *   `label：宽 W cm x 高 H cm [ x N ]` -- the 789 apps' glass rows
+   *   `label：高 H cm x 宽 W cm [N 片]`  -- the 断桥 app's glass rows
+   * The two glass shapes are normalised to `宽 × 高`, which keeps the tile to a
+   * single line of tabular numerals instead of wrapping.
+   */
+  function extractTiles(text) {
+    var tiles = [];
+    text.split('\n').forEach(function (line) {
+      var m = line.match(/^(.+?)[:：]\s*(-?[\d.]+)\s*cm\s*\[\s*x\s*(\d+)\s*\]\s*$/);
+      if (m) { tiles.push({ k: m[1], v: m[2] + ' cm', n: m[3], glass: false }); return; }
+
+      var g = line.match(/^(.+?)[:：]\s*宽\s*(-?[\d.]+)\s*cm\s*x\s*高\s*(-?[\d.]+)\s*cm\s*\[\s*x\s*(\d+)\s*\]/);
+      if (g) {
+        tiles.push({
+          k: g[1], v: g[2] + ' × ' + g[3] + ' cm', n: g[4],
+          glass: /玻璃/.test(g[1])
+        });
+        return;
+      }
+
+      // 高 … x 宽 … with a `[N 片]` count (断桥玻璃计算器)
+      var h = line.match(/^(.+?)[:：]\s*高\s*(-?[\d.]+)\s*cm\s*x\s*宽\s*(-?[\d.]+)\s*cm\s*\[\s*(\d+)\s*片\s*\]/);
+      if (h) {
+        tiles.push({
+          k: h[1], v: h[3] + ' × ' + h[2] + ' cm', n: h[4],
+          glass: /玻璃/.test(h[1])
+        });
+      }
+    });
+    return tiles;
+  }
+
+  function showResult(rec, m) {
+    $('resultTitle').textContent = m.name;
+    $('resultText').textContent = rec.text;
+    $('resultHint').textContent = '计算时间 ' + stamp(new Date(rec.ts)) + ' · 已保存到历史记录';
+
+    var tiles = extractTiles(rec.text);
+    var host = $('resultTiles');
+    host.innerHTML = '';
+    tiles.forEach(function (t) {
+      var d = document.createElement('div');
+      d.className = 'tile' + (t.glass ? ' glass' : '');
+      var k = document.createElement('span');
+      k.className = 'k';
+      k.textContent = t.k + ' × ' + t.n;
+      var v = document.createElement('span');
+      v.className = 'v';
+      v.textContent = t.v;
+      d.appendChild(k); d.appendChild(v);
+      host.appendChild(d);
+    });
+    applyResultView();
+    setResultVisible(true);
+  }
+
+  /**
+   * Show or hide the result panel.
+   *
+   * The `has-result` class lets the wide-screen grid put inputs and results
+   * side by side only once there is something to show; before the first
+   * calculation the form keeps the full width.
+   */
+  function setResultVisible(visible) {
+    $('resultCard').hidden = !visible;
+    var grid = $('calcGrid');
+    if (grid) grid.classList.toggle('has-result', !!visible);
+  }
+
+  function applyResultView() {
+    var tiles = state.resultView === 'tiles';
+    $('resultTiles').hidden = !tiles;
+    $('resultText').hidden = tiles;
+    $('viewTiles').setAttribute('aria-pressed', String(tiles));
+    $('viewText').setAttribute('aria-pressed', String(!tiles));
+  }
+
+  /* ========================================================== 历史渲染 */
+
+  function renderHistory() {
+    var list = loadHistory();
+    $('histCount').textContent = String(list.length);
+
+    var sel = $('histMode');
+    var cur = sel.value;
+    var names = {};
+    list.forEach(function (r) { names[r.modeName] = 1; });
+    sel.innerHTML = '<option value="">全部类型</option>';
+    Object.keys(names).sort().forEach(function (n) {
+      var o = document.createElement('option');
+      o.value = n; o.textContent = n;
+      sel.appendChild(o);
+    });
+    sel.value = names[cur] ? cur : '';
+
+    var q = ($('histSearch').value || '').trim().toLowerCase();
+    var filterMode = sel.value;
+    var shown = list.filter(function (r) {
+      if (filterMode && r.modeName !== filterMode) return false;
+      if (!q) return true;
+      return (r.modeName + ' ' + inputSummary(r) + ' ' + r.text).toLowerCase().indexOf(q) >= 0;
+    });
+
+    var host = $('histList');
+    host.innerHTML = '';
+
+    if (!list.length) {
+      host.innerHTML = '<div class="empty">' +
+        '<span class="big" aria-hidden="true">0</span>' +
+        '<p>还没有计算记录</p>' +
+        '<small>完成一次计算后会自动保存在这里，最多保留最近 ' + HIST_MAX + ' 条。</small>' +
+        '</div>';
+      $('histNote').textContent = '';
+      return;
+    }
+    if (!shown.length) {
+      host.innerHTML = '<div class="empty">' +
+        '<span class="big" aria-hidden="true">0</span>' +
+        '<p>没有匹配的记录</p>' +
+        '<small>换个关键字，或把类型筛选改回「全部类型」。</small>' +
+        '</div>';
+      $('histNote').textContent = '共 ' + list.length + ' 条，筛选后 0 条';
+      return;
+    }
+
+    shown.forEach(function (r) {
+      var d = document.createElement('details');
+      d.className = 'hist-item';
+      var s = document.createElement('summary');
+
+      var tag = document.createElement('span');
+      tag.className = 'mode-tag';
+      tag.textContent = r.modeName;
+
+      var when = document.createElement('span');
+      when.className = 'when';
+      when.textContent = relTime(r.ts);
+      when.title = stamp(new Date(r.ts));
+
+      var inp = document.createElement('span');
+      inp.className = 'inputs';
+      inp.textContent = inputSummary(r);
+      inp.title = inp.textContent;
+
+      // DOM order matches the two-column summary grid: name left, time right,
+      // inputs on their own full-width line underneath.
+      s.appendChild(tag); s.appendChild(when); s.appendChild(inp);
+      d.appendChild(s);
+
+      var body = document.createElement('div');
+      body.className = 'body';
+
+      var tiles = extractTiles(r.text);
+      if (tiles.length) {
+        var tg = document.createElement('div');
+        tg.className = 'tiles';
+        tg.style.marginTop = '12px';
+        tg.style.marginBottom = '0';
+        tiles.forEach(function (t) {
+          var t1 = document.createElement('div');
+          t1.className = 'tile' + (t.glass ? ' glass' : '');
+          t1.innerHTML = '<span class="k"></span><span class="v"></span>';
+          t1.querySelector('.k').textContent = t.k + ' × ' + t.n;
+          t1.querySelector('.v').textContent = t.v;
+          tg.appendChild(t1);
+        });
+        body.appendChild(tg);
+      }
+
+      var pre = document.createElement('pre');
+      pre.className = 'out';
+      pre.textContent = r.text;
+      body.appendChild(pre);
+
+      var acts = document.createElement('div');
+      acts.className = 'row-actions';
+
+      var bCopy = document.createElement('button');
+      bCopy.type = 'button'; bCopy.className = 'btn small'; bCopy.textContent = '复制';
+      bCopy.addEventListener('click', function () { copyText(r.text); });
+
+      var bReuse = document.createElement('button');
+      bReuse.type = 'button'; bReuse.className = 'btn small'; bReuse.textContent = '重新填入';
+      bReuse.addEventListener('click', function () { reuse(r); });
+
+      var bDel = document.createElement('button');
+      bDel.type = 'button'; bDel.className = 'btn small'; bDel.textContent = '删除';
+      bDel.addEventListener('click', function (e) {
+        e.preventDefault();
+        var list2 = loadHistory().filter(function (x) { return x.id !== r.id; });
+        saveHistory(list2);
+        renderHistory();
+        toast('已删除 1 条记录');
+      });
+
+      acts.appendChild(bCopy); acts.appendChild(bReuse); acts.appendChild(bDel);
+      body.appendChild(acts);
+      d.appendChild(body);
+      host.appendChild(d);
+    });
+
+    $('histNote').textContent = '共 ' + list.length + ' 条记录' +
+      (shown.length !== list.length ? '，筛选后 ' + shown.length + ' 条' : '') +
+      '（上限 ' + HIST_MAX + ' 条，超出后自动删除最早的记录）';
+  }
+
+  function reuse(r) {
+    var m = modeById(r.modeId);
+    if (!m) { toast('该类型已不可用'); return; }
+    state.modeId = r.modeId;
+    state.values = {};
+    m.fields.forEach(function (f) {
+      var v = r.inputs[f.key];
+      state.values[f.key] = (v === null || v === undefined) ? f.def : String(v);
+    });
+    renderModes();
+    renderFields(m);
+    switchTab('calc');
+    showResult(r, m);
+  }
+
+  /* =========================================================== 公式速查 */
+
+  var FORMULAS = [
+    { t: '断桥玻璃计算器 · 固定窗', r: [
+      ['玻璃高', '总高 − 7'],
+      ['玻璃宽', '总宽 − 7'],
+      ['片数', '窗数']] },
+    { t: '断桥玻璃计算器 · 2 移推拉窗', r: [
+      ['玻璃高', '总高 − 20.5'],
+      ['玻璃宽', '(总宽 − 25) ÷ 2'],
+      ['片数', '窗数 × 2']] },
+    { t: '断桥玻璃计算器 · 4 移推拉窗', r: [
+      ['玻璃高', '总高 − 20.5'],
+      ['玻璃宽', '(总宽 − 42) ÷ 4'],
+      ['片数', '窗数 × 4']] },
+    { t: '断桥玻璃计算器 · 平开窗', r: [
+      ['玻璃高', '总高 − 16.5'], ['玻璃宽', '总宽 − 16.5'], ['片数', '窗数']] },
+    { t: '断桥玻璃计算器 · 平开门（晶科）', r: [
+      ['玻璃高', '总高 − 18'], ['玻璃宽', '总宽 − 18'], ['片数', '窗数']] },
+    { t: '断桥玻璃计算器 · 平开门（忠驰）', r: [
+      ['玻璃高', '总高 − 21'], ['玻璃宽', '总宽 − 21'], ['片数', '窗数']] },
+    { t: '断桥玻璃计算器 · 50 平开窗', r: [
+      ['玻璃高', '总高 − 12.5'], ['玻璃宽', '总宽 − 12.5'], ['片数', '窗数']] },
+    { t: '断桥玻璃计算器 · 50 平开门', r: [
+      ['玻璃高', '总高 − 17'], ['玻璃宽', '总宽 − 17'], ['片数', '窗数']] },
+    { t: '断桥玻璃计算器 · 3 轨推拉窗', r: [
+      ['移窗玻璃高', '推拉窗高 − 21'],
+      ['移窗玻璃宽', '(推拉窗宽 − 30) ÷ 3'],
+      ['移窗片数', '窗数 × 3'],
+      ['固定窗显示条件', '固定窗高 > 8 且 固定窗宽 > [8 / 11 / 15 / 19][中柱数]'],
+      ['固玻璃高', '固定窗高 − 8'],
+      ['固玻璃宽', '中柱 0：(宽 − 8)；中柱 1：(宽 − 11) ÷ 2；中柱 2：(宽 − 15) ÷ 3；中柱 3：(宽 − 19) ÷ 4'],
+      ['固玻璃片数', '窗数 × [1 / 2 / 3 / 4][中柱数]']] },
+
+    { t: '789 · 上方 / 下方 / 玻璃（所有型号通用）', r: [
+      ['上方、下方', '2 扇：(总宽 − 13.6) ÷ 2；3 扇：(总宽 − 15.8) ÷ 3；4 扇：(总宽 − 24.6) ÷ 4'],
+      ['上下方片数', '扇数 × 窗数'],
+      ['玻璃宽', '上方 − 0.6'],
+      ['玻璃片数', '扇数 × 窗数']] },
+
+    { t: '789 正常 高低轨', r: [
+      ['上滑、下滑', '总宽 − 2.5（片数 = 窗数）'],
+      ['边封', '总高（片数 = 窗数 × 2）'],
+      ['高光企、高勾企', '总高 − 5'],
+      ['低光企、低勾企', '总高 − 6.5'],
+      ['光/勾企片数', '2 扇：全部 × 窗数；3 扇：高光企 × 0，其余 × 窗数×2；4 扇：全部 × 窗数×2'],
+      ['玻璃高', '总高 − 14.7']] },
+
+    { t: '789 正常 平轨', r: [
+      ['上滑、下滑', '总宽 − 2.5（片数 = 窗数）'],
+      ['边封', '总高（片数 = 窗数 × 2）'],
+      ['光企、勾企', '总高 − 4.5'],
+      ['光/勾企片数', '2 扇：× 窗数×2；3 扇：光企 × 窗数×2、勾企 × 窗数×4；4 扇：× 窗数×4'],
+      ['玻璃高', '总高 − 14.1']] },
+
+    { t: '789 正常 内装轨', r: [
+      ['上滑、下滑', '总宽 − 2.5（片数 = 窗数）'],
+      ['边封', '总高（片数 = 窗数 × 2）'],
+      ['光企、勾企', '总高 − 6.3'],
+      ['玻璃高（小方）', '总高 − 14.2'],
+      ['玻璃高（大方）', '总高 − 15.7']] },
+
+    { t: '789 带上固（高低轨 / 平轨 / 内装轨）', r: [
+      ['上固、固上滑、下滑', '总宽 − 2.5（片数 = 窗数）'],
+      ['边封', '总高（片数 = 窗数 × 2）'],
+      ['高光企、高勾企', '移窗高 − 6（平轨 − 5.5；内装轨 − 7.3）'],
+      ['低光企、低勾企', '移窗高 − 7.5'],
+      ['中柱', '总高 − 移窗高 − 2.5（片数 = 中柱数 × 窗数）'],
+      ['移窗玻璃高', '移窗高 − 15.7（平轨 − 15.1；内装轨 − 15.2）'],
+      ['固窗玻璃高', '总高 − 移窗高 − 3（内装轨另有 − 1.5 的大方规格）'],
+      ['固窗玻璃宽', '中柱 0：总宽 − 6；中柱 1：(总宽 − 9) ÷ 2；中柱 2：(总宽 − 12) ÷ 3；中柱 3：(总宽 − 15) ÷ 4'],
+      ['固窗玻璃片数', '(中柱数 + 1) × 窗数']] },
+
+    { t: '789 带下固（高低轨 / 内装轨）', r: [
+      ['上滑、固下滑、下固', '总宽 − 2.5（片数 = 窗数）'],
+      ['边封', '总高（片数 = 窗数 × 2）'],
+      ['高光企、高勾企', '移窗高 − 5（内装轨 − 6.3）'],
+      ['低光企、低勾企', '移窗高 − 6.5'],
+      ['中柱', '总高 − 移窗高 − 2.5（片数 = 中柱数 × 窗数）'],
+      ['移窗玻璃高', '移窗高 − 14.6（内装轨 − 14.2）'],
+      ['固窗玻璃高', '总高 − 移窗高 − 3（内装轨另有 − 1.5 的大方规格）'],
+      ['固窗玻璃宽', '中柱 0：总宽 − 6；中柱 1：(总宽 − 9) ÷ 2；中柱 2：(总宽 − 12) ÷ 3；中柱 3：(总宽 − 15) ÷ 4'],
+      ['固窗玻璃片数', '(中柱数 + 1) × 窗数']] },
+
+    { t: '789 带上下固 高低轨', r: [
+      ['上固窗高 / 下固窗高', '任填其一，另一个 = 总高 − 已填的固窗高 − 移窗高'],
+      ['上固、下固、固上滑、固下滑', '总宽 − 2.5（片数 = 窗数）'],
+      ['边封', '总高（片数 = 窗数 × 2）'],
+      ['高光企、高勾企', '移窗高 − 6'],
+      ['低光企、低勾企', '移窗高 − 7.5'],
+      ['上固中柱 / 下固中柱', '固窗高 − 2.5（片数 = 对应中柱数 × 窗数）'],
+      ['移窗玻璃高', '移窗高 − 15.7'],
+      ['固窗玻璃高', '固窗高 − 3'],
+      ['固窗玻璃宽', '按对应中柱数：0 → 宽 − 6；1 → (宽 − 9) ÷ 2；2 → (宽 − 12) ÷ 3；3 → (宽 − 15) ÷ 4'],
+      ['固窗玻璃片数', '(对应中柱数 + 1) × 窗数']] },
+
+    { t: '说明 · 与原 App 一致的特殊行为', r: [
+      ['3 扇 · 高光企', '片数为 0，但该行仍会输出（原 App 行为）'],
+      ['3 轨推拉窗', '固定窗高 ≤ 8 时不输出固定窗部分'],
+      ['中柱数为 0', '固窗玻璃宽不做除法，直接用 总宽 − 6'],
+      ['中柱数 / 上固中柱数', '标题行显示的是「中柱数 × 窗数」的总数，与原 App 相同'],
+      ['带上下固 平轨', '原 App 该型号为空壳（无输入界面、无计算），故网页版未提供'],
+      ['数值格式', '长度保留 2 位小数，片数为整数']] }
+  ];
+
+  function renderFormulas() {
+    var host = $('fxList');
+    host.innerHTML = '';
+    FORMULAS.forEach(function (f, i) {
+      var d = document.createElement('details');
+      d.className = 'fx';
+      if (i === 0) d.open = true;
+      var s = document.createElement('summary');
+      s.textContent = f.t;
+      d.appendChild(s);
+      var body = document.createElement('div');
+      body.className = 'fx-body';
+      var tbl = document.createElement('table');
+      f.r.forEach(function (row) {
+        var tr = document.createElement('tr');
+        var td1 = document.createElement('td'); td1.textContent = row[0];
+        var td2 = document.createElement('td'); td2.textContent = row[1];
+        tr.appendChild(td1); tr.appendChild(td2);
+        tbl.appendChild(tr);
+      });
+      body.appendChild(tbl);
+      d.appendChild(body);
+      host.appendChild(d);
+    });
+  }
+
+  /* ============================================================== 标签页 */
+
+  function switchTab(which) {
+    var map = { calc: 'view-calc', hist: 'view-hist', fx: 'view-fx' };
+    Object.keys(map).forEach(function (k) {
+      $(map[k]).hidden = (k !== which);
+      $('tab-' + k).setAttribute('aria-selected', String(k === which));
+    });
+    // The mode picker only belongs to the calculator view; CSS hides it on the
+    // other tabs and lets their content take the full width.
+    document.body.dataset.tab = which;
+    if (which === 'hist') renderHistory();
+    try {
+      if (which === 'hist' || which === 'fx') {
+        history.replaceState(null, '', '#tab=' + which);
+      } else if (!/^#m=/.test(location.hash || '')) {
+        history.replaceState(null, '', location.pathname + location.search);
+      }
+    } catch (e) { /* ignore */ }
+  }
+
+  /* ================================================================ 启动 */
+
+  function init() {
+    renderModes();
+    var first = MODES[0];
+    state.modeId = first.id;
+    state.values = {};
+    first.fields.forEach(function (f) { state.values[f.key] = f.def; });
+    renderFields(first);
+    renderHistory();
+    renderFormulas();
+
+    $('calcForm').addEventListener('submit', doCalc);
+    $('btnClear').addEventListener('click', function () {
+      setResultVisible(false);
+      state.lastResult = null;
+      toast('已清空结果（历史记录仍保留）');
+    });
+    $('btnReset').addEventListener('click', function () {
+      var m = modeById(state.modeId);
+      state.values = {};
+      m.fields.forEach(function (f) { state.values[f.key] = f.def; });
+      renderFields(m);
+      toast('已恢复默认值');
+    });
+    $('btnCopy').addEventListener('click', function () {
+      if (!state.lastResult) { toast('请先计算'); return; }
+      copyText(state.lastResult.text);
+    });
+    $('viewTiles').addEventListener('click', function () {
+      state.resultView = 'tiles'; applyResultView();
+    });
+    $('viewText').addEventListener('click', function () {
+      state.resultView = 'text'; applyResultView();
+    });
+
+    $('tab-calc').addEventListener('click', function () { switchTab('calc'); });
+    $('tab-hist').addEventListener('click', function () { switchTab('hist'); });
+    $('tab-fx').addEventListener('click', function () { switchTab('fx'); });
+
+    // Phone/tablet picker: the native <select> drives the same state as the
+    // desktop mode list.
+    var sel = $('modeSelect');
+    if (sel) {
+      sel.addEventListener('change', function () {
+        if (modeById(sel.value)) selectMode(sel.value, sel.value === state.modeId);
+      });
+    }
+
+    // Tabs behave like a real tablist: arrow keys move between them (desktop),
+    // Home/End jump to the ends. Pointer users still just click.
+    var tabIds = ['tab-calc', 'tab-hist', 'tab-fx'];
+    document.querySelector('.tabbar').addEventListener('keydown', function (e) {
+      var i = tabIds.indexOf(document.activeElement && document.activeElement.id);
+      if (i < 0) return;
+      var next = null;
+      if (e.key === 'ArrowRight') next = (i + 1) % tabIds.length;
+      else if (e.key === 'ArrowLeft') next = (i - 1 + tabIds.length) % tabIds.length;
+      else if (e.key === 'Home') next = 0;
+      else if (e.key === 'End') next = tabIds.length - 1;
+      if (next === null) return;
+      e.preventDefault();
+      var el = $(tabIds[next]);
+      el.focus();
+      el.click();
+    });
+
+    $('histSearch').addEventListener('input', renderHistory);
+    $('histMode').addEventListener('change', renderHistory);
+    $('btnExport').addEventListener('click', function () {
+      var list = loadHistory();
+      if (!list.length) { toast('没有可导出的记录'); return; }
+      var blob = new Blob([JSON.stringify(list, null, 2)], { type: 'application/json' });
+      var a = document.createElement('a');
+      a.href = URL.createObjectURL(blob);
+      a.download = '门窗计算历史-' + stamp().replace(/[: ]/g, '-') + '.json';
+      document.body.appendChild(a); a.click(); document.body.removeChild(a);
+      setTimeout(function () { URL.revokeObjectURL(a.href); }, 4000);
+      toast('已导出 ' + list.length + ' 条记录');
+    });
+    $('btnClearHist').addEventListener('click', function () {
+      var n = loadHistory().length;
+      if (!n) { toast('历史已经是空的'); return; }
+      if (!confirm('确定清空全部 ' + n + ' 条历史记录？此操作无法撤销。')) return;
+      saveHistory([]);
+      renderHistory();
+      toast('已清空 ' + n + ' 条记录');
+    });
+
+    // Keyboard: Enter calculates, and the app's own shortcut for clearing.
+    document.addEventListener('keydown', function (e) {
+      if ((e.ctrlKey || e.metaKey) && e.key === 'Enter') { doCalc(); }
+    });
+
+    // Restore state from the URL, then keep it in step so results stay
+    // bookmarkable and shareable.
+    applyHash(true);
+    window.addEventListener('hashchange', function () { applyHash(false); });
+  }
+
+  /** Apply the URL hash to the UI. `initial` also picks the visible tab. */
+  function applyHash(initial) {
+    var h = parseHash();
+    if (h && h.m && modeById(h.m)) {
+      var m = modeById(h.m);
+      state.modeId = m.id;
+      state.values = {};
+      m.fields.forEach(function (f) {
+        state.values[f.key] = (h[f.key] !== undefined) ? h[f.key] : f.def;
+      });
+      renderModes();
+      renderFields(m);
+      switchTab('calc');
+      if (h.go === '1') runCalc(true);
+      return;
+    }
+    if (!initial) return;
+    var tab = (h && h.tab) ? h.tab : ((location.hash || '').replace('#', ''));
+    switchTab(tab === 'hist' || tab === 'fx' ? tab : 'calc');
+  }
+
+  if (document.readyState === 'loading') {
+    document.addEventListener('DOMContentLoaded', init);
+  } else {
+    // Scripts placed at the end of <body> normally still see readyState
+    // 'loading'; anything that loads them later (a bundler, a dynamic import,
+    // a test harness) arrives here instead, so initialise immediately.
+    init();
+  }
+})();
+
+</script>
+</body>
+</html>
