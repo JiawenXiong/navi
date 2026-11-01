@@ -498,13 +498,14 @@ select.sel:focus{outline:none;border-color:var(--accent);background-color:var(--
   grid-column:2 / -1;
   font:11.5px/1.55 var(--mono);font-variant-numeric:tabular-nums;
   color:var(--ink-2);
-  /* 参数是回顾时最有用的信息，允许折到两行而不是一律截断 */
+  /* 参数是回顾时最有用的信息；6 个字段的模式在两行里会被截断，所以给三行 */
   display:-webkit-box;
-  -webkit-line-clamp:2;
+  -webkit-line-clamp:3;
   -webkit-box-orient:vertical;
   overflow:hidden;
 }
 .hist-item .body{padding:12px}
+.hist-tiles{margin:0 0 12px}
 .hist-item .body pre.out{max-height:none}
 .hist-item .row-actions{display:flex;gap:8px;margin-top:12px;flex-wrap:wrap}
 
@@ -772,7 +773,9 @@ details.fx tr.is-note td:last-child{font-family:var(--sans);font-size:12.5px;col
 @media print{
   :root{--bg:#fff;--surface:#fff;--surface-2:#fff;--line:#bbb;--ink:#000;--ink-2:#333;--ink-3:#555}
   body{background:#fff;padding-bottom:0}
-  .topbar,.tabbar,.actions,.seg,.hist-tools,.picker,.meta,#toast{display:none!important}
+  /* Buttons and chrome are screen affordances; a printed 下料单 should only
+     contain the dimensions and the result. */
+  .topbar,.tabbar,.actions,.seg,.hist-tools,.picker,.meta,#toast,.result-head .btn{display:none!important}
   .shell{display:block;max-width:none;padding:0}
   .panel{border:0;box-shadow:none;break-inside:avoid}
   .tiles{grid-template-columns:repeat(3,1fr)}
@@ -848,6 +851,7 @@ details.fx tr.is-note td:last-child{font-family:var(--sans);font-size:12.5px;col
             <h2 id="resultTitle">计算结果</h2>
             <span class="spacer"></span>
             <button type="button" class="btn small" id="btnCopy">复制</button>
+            <button type="button" class="btn small" id="btnShare">分享</button>
             <div class="seg" role="group" aria-label="结果视图">
               <button type="button" id="viewTiles" aria-pressed="true">明细</button>
               <button type="button" id="viewText" aria-pressed="false">原文</button>
@@ -924,16 +928,87 @@ details.fx tr.is-note td:last-child{font-family:var(--sans);font-size:12.5px;col
 
 /* ------------------------------------------------------------------ format */
 
-/** Java's String.format("%.2f", x), matching HALF_UP on the decimal value. */
+/**
+ * Optional trace hook, used by tools/formula_equiv.py.
+ *
+ * When set, every value that is about to be printed is reported as
+ * `TRACE('f', rawDouble)` or `TRACE('d', int)`. The original app reports the
+ * same values in the same order (one per `%.2f` / `%d` argument), so the two
+ * streams can be compared *unrounded*. That catches a formula that is off by
+ * less than half a hundredth, which a rendered-text diff cannot see.
+ */
+let TRACE = null;
+
+function setTrace(fn) {
+  TRACE = fn;
+}
+
+/**
+ * Java's `String.format("%.2f", x)`.
+ *
+ * This is NOT the same as `x.toFixed(2)`. Java's Formatter rounds the *shortest
+ * decimal representation* of the double (what `Double.toString` prints) using
+ * HALF_UP, whereas `toFixed` rounds the exact binary value. The two disagree on
+ * values that are exactly representable-looking ties:
+ *
+ *     0.015  -> Java "0.02"   toFixed(2) "0.01"
+ *     1.005  -> Java "1.01"   toFixed(2) "1.00"
+ *     62.625 -> Java "62.63"  toFixed(2) "62.63"   (agree here)
+ *
+ * Verified against a real JVM by tools/fmt_probe.py, which compiles and runs a
+ * Java program and diffs every case. Also note Java keeps the sign of a
+ * negative value that rounds to zero: -0.004 -> "-0.00", and -0.0 -> "-0.00".
+ *
+ * So: stringify, round the decimal digits by hand, never touch binary rounding.
+ */
 function f2(x) {
-  if (!isFinite(x)) return String(x);
-  const neg = x < 0;
-  const s = Math.abs(x).toFixed(2);
-  return (neg && Number(s) !== 0 ? '-' : '') + s;
+  if (TRACE) TRACE('f', x);
+  if (typeof x !== 'number' || !isFinite(x)) return String(x);
+  const neg = x < 0 || (x === 0 && 1 / x === -Infinity);
+  const digits = expandExp(String(Math.abs(x)));       // shortest repr, no exponent
+  return (neg ? '-' : '') + round2(digits);
+}
+
+/** Turn "1.5e-7" / "1e+21" into plain decimal digits ("0.00000015", ...). */
+function expandExp(s) {
+  if (s.indexOf('e') < 0 && s.indexOf('E') < 0) return s;
+  const m = /^(\d+)(?:\.(\d+))?[eE]([+-]?\d+)$/.exec(s);
+  if (!m) return s;
+  const ip = m[1];
+  const fp = m[2] || '';
+  const exp = parseInt(m[3], 10);
+  const all = ip + fp;
+  const point = ip.length + exp;
+  if (point <= 0) return '0.' + '0'.repeat(-point) + all;
+  if (point >= all.length) return all + '0'.repeat(point - all.length);
+  return all.slice(0, point) + '.' + all.slice(point);
+}
+
+/** Round a plain decimal digit string to 2 places, HALF_UP, as text. */
+function round2(s) {
+  const dot = s.indexOf('.');
+  const ip = dot < 0 ? s : s.slice(0, dot);
+  const fp = dot < 0 ? '' : s.slice(dot + 1);
+  if (fp.length <= 2) return ip + '.' + (fp + '00').slice(0, 2);
+
+  const keep = fp.slice(0, 2);
+  if (fp.charCodeAt(2) - 48 < 5) return ip + '.' + keep;
+
+  // Increment the kept digits as a decimal integer, propagating carries.
+  const digits = (ip + keep).split('');
+  let i = digits.length - 1;
+  while (i >= 0) {
+    if (digits[i] === '9') { digits[i] = '0'; i -= 1; }
+    else { digits[i] = String.fromCharCode(digits[i].charCodeAt(0) + 1); break; }
+  }
+  if (i < 0) digits.unshift('1');
+  const res = digits.join('');
+  return res.slice(0, res.length - 2) + '.' + res.slice(res.length - 2);
 }
 
 /** Java's String.format("%d", x) for the int counts used by the apps. */
 function fd(x) {
+  if (TRACE) TRACE('d', x);
   return String(Math.trunc(x));
 }
 
@@ -1408,17 +1483,22 @@ function computeApp1Simple(key, H, W, N) {
 /**
  * 3 轨推拉窗: a 推拉窗 part plus an optional 固定窗 part.
  *
- * The fixed part is emitted only when the opening is large enough for the
- * chosen 中柱 count:
- *   GH > 8.0  (otherwise the whole fixed block is dropped)
- *   GW > [8, 11, 15, 19][Z]   (a stricter width threshold as 中柱 grows)
- * and the fixed pane count is N * [1, 2, 3, 4][Z].
+ * The original computes the fixed block only when all three hold:
+ *   GH > 8.0                  (below that the block is dropped entirely)
+ *   GW > [8, 11, 15, 19][Z]   (a stricter width threshold as 中柱 count grows)
+ *   N * [1, 2, 3, 4][Z] != 0  (i.e. 窗数 > 0 -- with 0 窗 there are no panes)
+ * and then emits it only if that pane count is non-zero. With 中柱数 = 0 the
+ * width is `GW - 8` rather than a division. Z outside 0..3 is rejected earlier
+ * by the app's own validation.
  *
- * The first threshold (8.0) is checked against GH, and the second against GW;
- * with 中柱数 = 0 there is no division at all. Z outside 0..3 is rejected
- * before this point by the app's validation.
+ * The 窗数 = 0 case is easy to miss: the block is skipped even when the opening
+ * dimensions are fine, and 移窗玻璃 still prints with a count of 0.
  */
 function computeApp1SanGui(YH, YW, GH, GW, N, Z) {
+  // The Activity treats a blank 固定窗高/宽 as 0; do the same here so the engine
+  // is safe for callers that pass '' or null straight through.
+  GH = (GH === null || GH === undefined || GH === '') ? 0 : Number(GH);
+  GW = (GW === null || GW === undefined || GW === '') ? 0 : Number(GW);
   const slideH = YH - 21.0;
   const slideW = (YW - 30.0) / 3.0;
   const slideCount = N * 3;
@@ -1428,16 +1508,15 @@ function computeApp1SanGui(YH, YW, GH, GW, N, Z) {
   const limit = LIMIT[Z];
   const div = DIV[Z];
 
-  let hasFixed = false;
   let fixedH = 0;
   let fixedW = 0;
   let fixedCount = 0;
   if (limit !== undefined && GH > 8.0 && GW > limit) {
-    hasFixed = true;
     fixedH = GH - 8.0;
     fixedW = Z === 0 ? GW - 8.0 : (GW - limit) / div;
     fixedCount = N * div;
   }
+  const hasFixed = fixedCount !== 0;
 
   let s = '[%TIME%] 计算结果:\n';
   s += '【三轨 推拉窗】\n';
@@ -1461,7 +1540,7 @@ function computeApp1SanGui(YH, YW, GH, GW, N, Z) {
 
 (function (root) {
   var Calculi = {
-    f2: f2, fd: fd,
+    f2: f2, fd: fd, setTrace: setTrace,
     compute789ZcGdg: compute789ZcGdg,
     compute789ZcPg: compute789ZcPg,
     compute789ZcNzg: compute789ZcNzg,
@@ -1593,12 +1672,19 @@ function computeApp1SanGui(YH, YW, GH, GW, N, Z) {
     {
       id: 'a1-sangui', group: '断桥玻璃计算器',
       name: '3 轨推拉窗', desc: '推拉窗 + 可选固定窗',
+      notice: '固定窗高、固定窗宽<strong>可以留空</strong>（按 0 处理，此时不输出固定窗部分），' +
+        '与原 App 一致。',
       fields: [
         MM('YH', '推拉窗高', '150'), MM('YW', '推拉窗宽', '240'),
-        MM('GH', '固定窗高', '100'), MM('GW', '固定窗宽', '240'),
+        MM('GH', '固定窗高', '100', { optional: true }),
+        MM('GW', '固定窗宽', '240', { optional: true }),
         CT('N', '窗数', '1'), CT('Z', '中柱数', '1', { min: 0, max: 3 })
       ],
-      calc: function (v) { return C.computeApp1SanGui(v.YH, v.YW, v.GH, v.GW, v.N, v.Z); }
+      calc: function (v) {
+        // Blank 固定窗高/宽 is turned into 0 by the calculator itself, which just
+        // suppresses the fixed-window block; that is what the app does too.
+        return C.computeApp1SanGui(v.YH, v.YW, v.GH, v.GW, v.N, v.Z);
+      }
     },
 
     /* ------------------------------------------------- 789 正常系列 */
@@ -1672,15 +1758,18 @@ function computeApp1SanGui(YH, YW, GH, GW, N, Z) {
     {
       id: '789-sxg-gdg', group: '789 计算器 · 带上下固',
       name: '789 带上下固 高低轨', desc: '上下固定窗，高低轨',
-      notice: '「上固窗高」为必填，未填写的「下固窗高」会自动按 总高 − 上固窗高 − 移窗高 推算。' +
-        '（与原 App 一致）',
+      notice: '「上固窗高」和「下固窗高」<strong>填一个即可</strong>，另一个按 ' +
+        '总高 − 已填的固窗高 − 移窗高 推算。两个都填时以<strong>上固窗高</strong>为准。',
       fields: [MM('W', '总宽', '200'), MM('H', '总高', '300'), MM('Y', '移窗高', '150'),
         CT('P', '扇数', '2', { min: 2, max: 4 }),
-        MM('GU', '上固窗高', '60'), CT('ZU', '上固中柱数', '0', { min: 0, max: 3 }),
+        MM('GU', '上固窗高', '60', { optional: true }),
+        CT('ZU', '上固中柱数', '0', { min: 0, max: 3 }),
         MM('GD', '下固窗高', '90', { optional: true }),
         CT('ZD', '下固中柱数', '0', { min: 0, max: 3 }),
         CT('N', '窗数', '1')],
       calc: function (v) {
+        // Mirrors the Activity: 上固窗高 wins when both are present, otherwise
+        // the missing one is derived as 总高 − 已填固窗高 − 移窗高.
         var GU = v.GU, GD = v.GD;
         if (GU === null || GU === '') {
           GU = (v.H - GD) - v.Y;
@@ -1702,18 +1791,67 @@ function computeApp1SanGui(YH, YW, GH, GW, N, Z) {
   };
 
   var HIST_KEY = 'mwglass.history.v1';
+  var PREF_KEY = 'mwglass.prefs.v1';
   var HIST_MAX = 100;
+
+  /* ============================================================== 偏好 */
+
+  /**
+   * Small UI preferences that are not part of the calculation record: which
+   * mode was last used and whether the result is shown as tiles or as text.
+   * Restoring the mode matters because most users settle on one or two models.
+   */
+  function loadPrefs() {
+    try {
+      var raw = localStorage.getItem(PREF_KEY);
+      if (!raw) return {};
+      var p = JSON.parse(raw);
+      return p && typeof p === 'object' ? p : {};
+    } catch (e) {
+      // A parse error is harmless, but a storage access failure means history
+      // will not persist either -- surface that once.
+      if (e && e.name !== 'SyntaxError') markStorageBroken();
+      return {};
+    }
+  }
+
+  function savePrefs() {
+    try {
+      localStorage.setItem(PREF_KEY, JSON.stringify({
+        modeId: state.modeId,
+        resultView: state.resultView
+      }));
+    } catch (e) {
+      // Storage may be unavailable; preferences are optional, but the history
+      // panel should stop claiming records are being kept.
+      if (e && e.name !== 'QuotaExceededError') markStorageBroken();
+    }
+  }
 
   /* ============================================================== 历史 */
 
+  /**
+   * True once a localStorage access has failed for a reason other than a full
+   * quota (private mode, site data blocked, file:// restrictions). The app keeps
+   * working, but the history screen has to say so instead of pretending the user
+   * simply has not calculated anything yet.
+   */
+  var storageBroken = false;
+
   function loadHistory() {
+    var raw;
     try {
-      var raw = localStorage.getItem(HIST_KEY);
-      if (!raw) return [];
+      raw = localStorage.getItem(HIST_KEY);
+    } catch (e) {
+      markStorageBroken();
+      return [];
+    }
+    if (!raw) return [];
+    try {
       var arr = JSON.parse(raw);
       return Array.isArray(arr) ? arr : [];
     } catch (e) {
-      return [];
+      return [];          // corrupt payload: behave as if empty, do not lose it
     }
   }
 
@@ -1723,16 +1861,23 @@ function computeApp1SanGui(YH, YW, GH, GW, N, Z) {
     try {
       localStorage.setItem(HIST_KEY, JSON.stringify(trimmed));
     } catch (e) {
-      // Quota exceeded: drop the oldest half and retry once, so a long-lived
-      // history never breaks the calculator itself.
+      // Could be a full quota (recoverable) or no storage at all.
       try {
         localStorage.setItem(HIST_KEY, JSON.stringify(trimmed.slice(0, Math.ceil(trimmed.length / 2))));
         toast('存储空间不足，已清理较早的历史');
       } catch (e2) {
-        toast('无法保存历史（浏览器存储不可用）');
+        markStorageBroken();
       }
     }
     return trimmed;
+  }
+
+  /** Warn once per session; the history panel carries the persistent notice. */
+  function markStorageBroken() {
+    if (storageBroken) return;
+    storageBroken = true;
+    toast('浏览器存储不可用：结果可以查看和复制，但不会保存到历史');
+    renderHistory();
   }
 
   function addHistory(rec) {
@@ -1778,11 +1923,20 @@ function computeApp1SanGui(YH, YW, GH, GW, N, Z) {
     return parts.join('&');
   }
 
-  function syncHash(includeGo) {
+  function syncHash() {
     try {
-      var h = buildHash(state.modeId, state.values, includeGo);
+      var h = buildHash(state.modeId, state.values, true);
       if (h) history.replaceState(null, '', '#' + h);
     } catch (e) { /* file:// may restrict history; harmless */ }
+  }
+
+  /** Drop the hash when the screen no longer matches it. */
+  function clearHash() {
+    try {
+      if (/^#m=/.test(location.hash || '')) {
+        history.replaceState(null, '', location.pathname + location.search);
+      }
+    } catch (e) { /* ignore */ }
   }
 
   /* ================================================================ DOM */
@@ -1910,6 +2064,10 @@ function computeApp1SanGui(YH, YW, GH, GW, N, Z) {
     renderFields(m);
     setResultVisible(false);
     state.lastResult = null;
+    // The URL described the previous calculation; once the form changes it no
+    // longer matches what is on screen.
+    clearHash();
+    savePrefs();
   }
 
   /* ============================================================== 表单 */
@@ -1949,6 +2107,11 @@ function computeApp1SanGui(YH, YW, GH, GW, N, Z) {
         state.values[f.key] = inp.value;
         inp.classList.remove('bad');
       });
+      // Calculators expect you to overwrite, not append; selecting on focus
+      // saves a select-all on every field, on both mouse and touch.
+      inp.addEventListener('focus', function () {
+        try { inp.select(); } catch (e) { /* older engines may refuse */ }
+      });
       var unit = document.createElement('span');
       unit.className = 'unit';
       unit.textContent = f.unit;
@@ -1977,9 +2140,14 @@ function computeApp1SanGui(YH, YW, GH, GW, N, Z) {
         bad = bad || { el: el, msg: '「' + f.label + '」不是有效数字' };
         return;
       }
-      // The original apps use parseInt for counts; a fractional count would
-      // silently truncate there, so do the same rather than reject it.
-      v[f.key] = f.integer ? Math.trunc(num) : num;
+      if (f.integer && !Number.isInteger(num)) {
+        // Java's Integer.parseInt("2.5") throws, so the app would crash here.
+        // Rather than silently truncate (which would quietly compute a
+        // different window), ask for a whole number.
+        bad = bad || { el: el, msg: '「' + f.label + '」需填整数' };
+        return;
+      }
+      v[f.key] = num;
     });
     return { values: v, bad: bad };
   }
@@ -1994,10 +2162,16 @@ function computeApp1SanGui(YH, YW, GH, GW, N, Z) {
       if (f.max !== null && f.max !== undefined && val > f.max)
         return '「' + f.label + '」不能大于 ' + f.max;
     }
-    if (m.id.indexOf('789-xg') === 0 && v.Y >= v.H)
+    // Every 789 mode that takes 移窗高 rejects 移窗高 >= 总高.
+    if (v.Y !== undefined && v.Y !== null && v.H !== undefined && v.Y >= v.H)
       return '移窗高度异常：移窗高需小于总高';
-    if (m.id.indexOf('789-sg') === 0 && v.Y >= v.H)
-      return '移窗高度异常：移窗高需小于总高';
+    // 带上下固 accepts either fixed height, but not neither (the shipped app
+    // shows "请输入 上固窗高 或者 下固窗高 ！！！" in that case).
+    if (m.id === '789-sxg-gdg') {
+      var noGu = (v.GU === null || v.GU === undefined || v.GU === '');
+      var noGd = (v.GD === null || v.GD === undefined || v.GD === '');
+      if (noGu && noGd) return '请输入 上固窗高 或者 下固窗高';
+    }
     return null;
   }
 
@@ -2017,15 +2191,20 @@ function computeApp1SanGui(YH, YW, GH, GW, N, Z) {
     var m = modeById(state.modeId);
     var rd = readValues(m);
     if (rd.bad) {
-      if (fromHash) return;
+      // A shared link with bad values should say why nothing happened, but it
+      // must not steal focus or scroll the page.
+      if (fromHash) { toast(rd.bad.msg); return; }
       rd.bad.el.classList.add('bad');
       rd.bad.el.focus();
+      clearStaleResult();
       toast(rd.bad.msg);
       return;
     }
     var err = validate(m, rd.values);
     if (err) {
-      if (!fromHash) toast(err);
+      if (fromHash) { toast(err); return; }
+      clearStaleResult();
+      toast(err);
       return;
     }
 
@@ -2044,8 +2223,10 @@ function computeApp1SanGui(YH, YW, GH, GW, N, Z) {
       addHistory(rec);
       renderHistory();
     }
-    showResult(rec, m);
-    if (!fromHash) syncHash(false);
+    showResult(rec, m, fromHash);
+    // Keep the URL pointing at exactly what is on screen (with go=1, so a
+    // refresh reproduces the result instead of dropping back to an empty form).
+    syncHash();
     if (!fromHash) {
       // On phones the on-screen keyboard would otherwise cover the result; drop
       // focus first so the keyboard closes before we scroll to it.
@@ -2053,7 +2234,16 @@ function computeApp1SanGui(YH, YW, GH, GW, N, Z) {
       if (active && active.blur && /^(INPUT|SELECT|TEXTAREA)$/.test(active.tagName)) {
         active.blur();
       }
-      $('resultCard').scrollIntoView({ behavior: 'smooth', block: 'nearest' });
+      $('resultCard').scrollIntoView({ behavior: prefersReducedMotion() ? 'auto' : 'smooth', block: 'nearest' });
+    }
+  }
+
+  /** Honour the OS "reduce motion" setting for programmatic scrolling too. */
+  function prefersReducedMotion() {
+    try {
+      return window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+    } catch (e) {
+      return false;
     }
   }
 
@@ -2109,10 +2299,16 @@ function computeApp1SanGui(YH, YW, GH, GW, N, Z) {
     return tiles;
   }
 
-  function showResult(rec, m) {
+  /**
+   * Render a result block.
+   * `fromLink` marks a result produced by opening a shared link: nothing was
+   * written to the history for it, so the caption must not claim otherwise.
+   */
+  function showResult(rec, m, fromLink) {
     $('resultTitle').textContent = m.name;
     $('resultText').textContent = rec.text;
-    $('resultHint').textContent = '计算时间 ' + stamp(new Date(rec.ts)) + ' · 已保存到历史记录';
+    $('resultHint').textContent = '计算时间 ' + stamp(new Date(rec.ts)) +
+      (fromLink ? ' · 来自分享链接（未写入历史）' : ' · 已保存到历史记录');
 
     var tiles = extractTiles(rec.text);
     var host = $('resultTiles');
@@ -2134,7 +2330,19 @@ function computeApp1SanGui(YH, YW, GH, GW, N, Z) {
   }
 
   /**
-   * Show or hide the result panel.
+   * Drop a result that no longer corresponds to the current inputs.
+   *
+   * Called when a calculation is rejected: leaving the previous answer on screen
+   * next to an error toast reads as if it were the new answer. The record is
+   * still in the history, so nothing is lost.
+   */
+  function clearStaleResult() {
+    if (!state.lastResult) return;
+    setResultVisible(false);
+    state.lastResult = null;
+  }
+
+  /** Show or hide the result panel.
    *
    * The `has-result` class lets the wide-screen grid put inputs and results
    * side by side only once there is something to show; before the first
@@ -2184,6 +2392,18 @@ function computeApp1SanGui(YH, YW, GH, GW, N, Z) {
     host.innerHTML = '';
 
     if (!list.length) {
+      if (storageBroken) {
+        // Saying "还没有计算记录" here would be a lie: the records were never
+        // written. Explain what is actually happening and what still works.
+        host.innerHTML = '<div class="empty">' +
+          '<span class="big" aria-hidden="true">!</span>' +
+          '<p>浏览器存储不可用，历史无法保存</p>' +
+          '<small>计算、查看、复制和分享都正常，只是结果不会留存。' +
+          '如果用的是无痕窗口或禁用了站点数据，换普通窗口后即可恢复。</small>' +
+          '</div>';
+        $('histNote').textContent = '';
+        return;
+      }
       host.innerHTML = '<div class="empty">' +
         '<span class="big" aria-hidden="true">0</span>' +
         '<p>还没有计算记录</p>' +
@@ -2229,22 +2449,30 @@ function computeApp1SanGui(YH, YW, GH, GW, N, Z) {
       var body = document.createElement('div');
       body.className = 'body';
 
-      var tiles = extractTiles(r.text);
-      if (tiles.length) {
-        var tg = document.createElement('div');
-        tg.className = 'tiles';
-        tg.style.marginTop = '12px';
-        tg.style.marginBottom = '0';
-        tiles.forEach(function (t) {
+      // Tiles are built on first expand. With 100 records the eager version
+      // meant ~1300 extra nodes on every keystroke in the search box.
+      var tilesHost = document.createElement('div');
+      tilesHost.className = 'tiles hist-tiles';
+      tilesHost.hidden = true;
+      body.appendChild(tilesHost);
+      d.addEventListener('toggle', function () {
+        if (!d.open || tilesHost.dataset.done) return;
+        tilesHost.dataset.done = '1';
+        tilesHost.hidden = false;
+        extractTiles(r.text).forEach(function (t) {
           var t1 = document.createElement('div');
           t1.className = 'tile' + (t.glass ? ' glass' : '');
-          t1.innerHTML = '<span class="k"></span><span class="v"></span>';
-          t1.querySelector('.k').textContent = t.k + ' × ' + t.n;
-          t1.querySelector('.v').textContent = t.v;
-          tg.appendChild(t1);
+          var k = document.createElement('span');
+          k.className = 'k';
+          k.textContent = t.k + ' × ' + t.n;
+          var v = document.createElement('span');
+          v.className = 'v';
+          v.textContent = t.v;
+          t1.appendChild(k); t1.appendChild(v);
+          tilesHost.appendChild(t1);
         });
-        body.appendChild(tg);
-      }
+        if (!tilesHost.children.length) tilesHost.hidden = true;
+      });
 
       var pre = document.createElement('pre');
       pre.className = 'out';
@@ -2290,12 +2518,21 @@ function computeApp1SanGui(YH, YW, GH, GW, N, Z) {
     state.values = {};
     m.fields.forEach(function (f) {
       var v = r.inputs[f.key];
-      state.values[f.key] = (v === null || v === undefined) ? f.def : String(v);
+      if (v === null || v === undefined) {
+        // A blank optional field must stay blank: filling in the default here
+        // would silently change the calculation (e.g. 带上下固 would stop
+        // deriving 上固窗高 from 下固窗高 and use 60 instead).
+        state.values[f.key] = f.optional ? '' : f.def;
+      } else {
+        state.values[f.key] = String(v);
+      }
     });
     renderModes();
     renderFields(m);
     switchTab('calc');
     showResult(r, m);
+    syncHash();
+    savePrefs();
   }
 
   /* =========================================================== 公式速查 */
@@ -2327,7 +2564,8 @@ function computeApp1SanGui(YH, YW, GH, GW, N, Z) {
       ['移窗玻璃高', '推拉窗高 − 21'],
       ['移窗玻璃宽', '(推拉窗宽 − 30) ÷ 3'],
       ['移窗片数', '窗数 × 3'],
-      ['固定窗显示条件', '固定窗高 > 8 且 固定窗宽 > [8 / 11 / 15 / 19][中柱数]'],
+      ['固定窗显示条件', '固定窗高 > 8 且 固定窗宽 > [8 / 11 / 15 / 19][中柱数] 且 窗数 > 0'],
+      ['注', '固定窗高/宽可留空（按 0 处理）；三个条件任一不满足，只输出推拉窗部分，移窗玻璃照常给出'],
       ['固玻璃高', '固定窗高 − 8'],
       ['固玻璃宽', '中柱 0：(宽 − 8)；中柱 1：(宽 − 11) ÷ 2；中柱 2：(宽 − 15) ÷ 3；中柱 3：(宽 − 19) ÷ 4'],
       ['固玻璃片数', '窗数 × [1 / 2 / 3 / 4][中柱数]']] },
@@ -2363,44 +2601,47 @@ function computeApp1SanGui(YH, YW, GH, GW, N, Z) {
     { t: '789 带上固（高低轨 / 平轨 / 内装轨）', r: [
       ['上固、固上滑、下滑', '总宽 − 2.5（片数 = 窗数）'],
       ['边封', '总高（片数 = 窗数 × 2）'],
-      ['高光企、高勾企', '移窗高 − 6（平轨 − 5.5；内装轨 − 7.3）'],
-      ['低光企、低勾企', '移窗高 − 7.5'],
+      ['高低轨 · 高光企/高勾企', '移窗高 − 6'],
+      ['高低轨 · 低光企/低勾企', '移窗高 − 7.5'],
+      ['平轨 · 光企/勾企', '移窗高 − 5.5'],
+      ['内装轨 · 光企/勾企', '移窗高 − 7.3'],
       ['中柱', '总高 − 移窗高 − 2.5（片数 = 中柱数 × 窗数）'],
-      ['移窗玻璃高', '移窗高 − 15.7（平轨 − 15.1；内装轨 − 15.2）'],
-      ['固窗玻璃高', '总高 − 移窗高 − 3（内装轨另有 − 1.5 的大方规格）'],
+      ['移窗玻璃高', '高低轨：移窗高 − 15.7；平轨：− 15.1；内装轨：− 15.2'],
+      ['固窗玻璃高', '总高 − 移窗高 − 3（内装轨另有「用大方」= 再 − 1.5）'],
       ['固窗玻璃宽', '中柱 0：总宽 − 6；中柱 1：(总宽 − 9) ÷ 2；中柱 2：(总宽 − 12) ÷ 3；中柱 3：(总宽 − 15) ÷ 4'],
       ['固窗玻璃片数', '(中柱数 + 1) × 窗数']] },
 
     { t: '789 带下固（高低轨 / 内装轨）', r: [
       ['上滑、固下滑、下固', '总宽 − 2.5（片数 = 窗数）'],
       ['边封', '总高（片数 = 窗数 × 2）'],
-      ['高光企、高勾企', '移窗高 − 5（内装轨 − 6.3）'],
-      ['低光企、低勾企', '移窗高 − 6.5'],
+      ['高低轨 · 高光企/高勾企', '移窗高 − 5'],
+      ['高低轨 · 低光企/低勾企', '移窗高 − 6.5'],
+      ['内装轨 · 光企/勾企', '移窗高 − 6.3'],
       ['中柱', '总高 − 移窗高 − 2.5（片数 = 中柱数 × 窗数）'],
-      ['移窗玻璃高', '移窗高 − 14.6（内装轨 − 14.2）'],
-      ['固窗玻璃高', '总高 − 移窗高 − 3（内装轨另有 − 1.5 的大方规格）'],
+      ['移窗玻璃高', '高低轨：移窗高 − 14.6；内装轨：− 14.2'],
+      ['固窗玻璃高', '总高 − 移窗高 − 3（内装轨另有「用大方」= 再 − 1.5）'],
       ['固窗玻璃宽', '中柱 0：总宽 − 6；中柱 1：(总宽 − 9) ÷ 2；中柱 2：(总宽 − 12) ÷ 3；中柱 3：(总宽 − 15) ÷ 4'],
       ['固窗玻璃片数', '(中柱数 + 1) × 窗数']] },
 
     { t: '789 带上下固 高低轨', r: [
-      ['上固窗高 / 下固窗高', '任填其一，另一个 = 总高 − 已填的固窗高 − 移窗高'],
+      ['上固窗高 / 下固窗高', '填一个即可：另一个 = 总高 − 已填的固窗高 − 移窗高；两个都填时以 上固窗高 为准'],
       ['上固、下固、固上滑、固下滑', '总宽 − 2.5（片数 = 窗数）'],
       ['边封', '总高（片数 = 窗数 × 2）'],
       ['高光企、高勾企', '移窗高 − 6'],
       ['低光企、低勾企', '移窗高 − 7.5'],
-      ['上固中柱 / 下固中柱', '固窗高 − 2.5（片数 = 对应中柱数 × 窗数）'],
+      ['上固中柱 / 下固中柱', '对应固窗高 − 2.5（片数 = 对应中柱数 × 窗数）'],
       ['移窗玻璃高', '移窗高 − 15.7'],
-      ['固窗玻璃高', '固窗高 − 3'],
+      ['固窗玻璃高', '对应固窗高 − 3'],
       ['固窗玻璃宽', '按对应中柱数：0 → 宽 − 6；1 → (宽 − 9) ÷ 2；2 → (宽 − 12) ÷ 3；3 → (宽 − 15) ÷ 4'],
       ['固窗玻璃片数', '(对应中柱数 + 1) × 窗数']] },
 
     { t: '说明 · 与原 App 一致的特殊行为', r: [
-      ['3 扇 · 高光企', '片数为 0，但该行仍会输出（原 App 行为）'],
-      ['3 轨推拉窗', '固定窗高 ≤ 8 时不输出固定窗部分'],
+      ['3 扇 · 高光企', '片数为 0，但该行仍会输出；同型号的高勾企是 窗数 × 2'],
+      ['3 轨推拉窗', '固定窗高 ≤ 8、或固定窗宽未超过阈值、或窗数 = 0 时，不输出固定窗部分（推拉窗结果照常给出）'],
       ['中柱数为 0', '固窗玻璃宽不做除法，直接用 总宽 − 6'],
       ['中柱数 / 上固中柱数', '标题行显示的是「中柱数 × 窗数」的总数，与原 App 相同'],
       ['带上下固 平轨', '原 App 该型号为空壳（无输入界面、无计算），故网页版未提供'],
-      ['数值格式', '长度保留 2 位小数，片数为整数']] }
+      ['数值格式', '长度保留 2 位小数（与 Java 的 %.2f 完全一致），片数为整数']] }
   ];
 
   function renderFormulas() {
@@ -2441,6 +2682,10 @@ function computeApp1SanGui(YH, YW, GH, GW, N, Z) {
     // other tabs and lets their content take the full width.
     document.body.dataset.tab = which;
     if (which === 'hist') renderHistory();
+    // Each view starts at its own top; otherwise switching tabs while scrolled
+    // down lands you in the middle of the next list.
+    try { window.scrollTo({ top: 0, left: 0, behavior: 'instant' }); }
+    catch (e) { window.scrollTo(0, 0); }
     try {
       if (which === 'hist' || which === 'fx') {
         history.replaceState(null, '', '#tab=' + which);
@@ -2454,11 +2699,16 @@ function computeApp1SanGui(YH, YW, GH, GW, N, Z) {
 
   function init() {
     renderModes();
-    var first = MODES[0];
-    state.modeId = first.id;
+
+    var prefs = loadPrefs();
+    var start = (prefs.modeId && modeById(prefs.modeId)) ? modeById(prefs.modeId) : MODES[0];
+    state.modeId = start.id;
     state.values = {};
-    first.fields.forEach(function (f) { state.values[f.key] = f.def; });
-    renderFields(first);
+    start.fields.forEach(function (f) { state.values[f.key] = f.def; });
+    if (prefs.resultView === 'text' || prefs.resultView === 'tiles') {
+      state.resultView = prefs.resultView;
+    }
+    renderFields(start);
     renderHistory();
     renderFormulas();
 
@@ -2473,17 +2723,28 @@ function computeApp1SanGui(YH, YW, GH, GW, N, Z) {
       state.values = {};
       m.fields.forEach(function (f) { state.values[f.key] = f.def; });
       renderFields(m);
+      // The shown result no longer matches the inputs after a reset, so drop it
+      // rather than leave a stale answer on screen.
+      setResultVisible(false);
+      state.lastResult = null;
       toast('已恢复默认值');
     });
     $('btnCopy').addEventListener('click', function () {
       if (!state.lastResult) { toast('请先计算'); return; }
       copyText(state.lastResult.text);
     });
+    var btnShare = $('btnShare');
+    if (btnShare) {
+      btnShare.addEventListener('click', function () {
+        var base = location.href.split('#')[0];
+        copyText(base + '#' + buildHash(state.modeId, state.values, true), '分享链接已复制');
+      });
+    }
     $('viewTiles').addEventListener('click', function () {
-      state.resultView = 'tiles'; applyResultView();
+      state.resultView = 'tiles'; applyResultView(); savePrefs();
     });
     $('viewText').addEventListener('click', function () {
-      state.resultView = 'text'; applyResultView();
+      state.resultView = 'text'; applyResultView(); savePrefs();
     });
 
     $('tab-calc').addEventListener('click', function () { switchTab('calc'); });
@@ -2558,11 +2819,21 @@ function computeApp1SanGui(YH, YW, GH, GW, N, Z) {
       state.modeId = m.id;
       state.values = {};
       m.fields.forEach(function (f) {
-        state.values[f.key] = (h[f.key] !== undefined) ? h[f.key] : f.def;
+        if (h[f.key] !== undefined) {
+          state.values[f.key] = h[f.key];
+        } else {
+          // Absent means it was blank in the shared calculation; only fall back
+          // to a default for required fields. Blanking an optional field keeps
+          // the derived values identical to what the sender saw.
+          state.values[f.key] = f.optional ? '' : f.def;
+        }
       });
       renderModes();
       renderFields(m);
       switchTab('calc');
+      // Opening a shared link counts as choosing that mode; remember it so the
+      // next plain visit lands on the same calculator.
+      savePrefs();
       if (h.go === '1') runCalc(true);
       return;
     }
