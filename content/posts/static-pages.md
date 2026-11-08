@@ -13,3 +13,4 @@ title = '静态页面索引'
 7. [中国70城房价收入比](/navi/70chengfangjiashourubi.html)或者[中国70城房价收入比2](/70chengfangjiashourubi.html)
 8. [呼吸法训练](/navi/BreathingTrainer.html)或者[呼吸法训练2](/BreathingTrainer.html)
 9. [门窗玻璃计算器](/navi/menchuangboli.html)或者[门窗玻璃计算器2](/menchuangboli.html)
+10. [账单查询1](/navi/zhangdan-chaxun.html)或者[账单查询2](/zhangdan-chaxun.html)
