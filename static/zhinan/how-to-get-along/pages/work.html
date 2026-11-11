@@ -3,11 +3,11 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>职场篇 · 实习、求职与离开 · 人情世故指南</title>
+<title>职场篇 · 人情世故指南</title>
 <script>
 (function(){var t=null;try{t=localStorage.getItem('theme')}catch(e){}
 if(t!=='light'&&t!=='dark'){var h=new Date().getHours();t=(h>=7&&h<17)?'light':'dark'}
-document.documentElement.setAttribute('data-theme',t);})();
+document.documentElement.setAttribute('data-theme',t);document.documentElement.classList.add('js')})();
 </script>
 <style>
 *{margin:0;padding:0;box-sizing:border-box}
@@ -15,12 +15,14 @@ document.documentElement.setAttribute('data-theme',t);})();
 --bg:#f6f2ec;--bg-trans:rgba(246,242,236,.96);--text:#332e28;--accent:#b4552d;--accent-soft:#cf9a7c;
 --card:#fffdf8;--border:#e7dfd3;--subtle:#faf4ec;--subtle-border:#ead9cb;--muted:#8a8177;--menu:#6b6259;
 --menu-hover:#efe6da;--out-border:#e0d5c6;--li:#44403a;--say:#4d463e;--secondary:#7c7267;--lede:#5c554c;
---on-accent:#fdf9f4;--hover-border:#dcc7b8}
+--on-accent:#fdf9f4;--hover-border:#dcc7b8;--shadow:rgba(120,90,60,.10);
+--portal:rgba(20,20,20,.72);--portal-hover:rgba(20,20,20,.9);--on-portal:#ffffff}
 [data-theme="dark"]{
 --bg:#241f1b;--bg-trans:rgba(36,31,27,.96);--text:#f0e9dd;--accent:#e38b5f;--accent-soft:#c97a50;
 --card:#2c2721;--border:#3d362d;--subtle:#332c25;--subtle-border:#4a4136;--muted:#b5aa9a;--menu:#c6bbaa;
 --menu-hover:#3b332b;--out-border:#4a4136;--li:#ded4c5;--say:#ece2d2;--secondary:#b5aa9a;--lede:#cbc1b1;
---on-accent:#241f1b;--hover-border:#5c4f40}
+--on-accent:#241f1b;--hover-border:#5c4f40;--shadow:rgba(0,0,0,.35);
+--portal:rgba(240,233,221,.16);--portal-hover:rgba(240,233,221,.26);--on-portal:#f0e9dd}
 @media (prefers-reduced-motion:no-preference){html{scroll-behavior:smooth}}
 body{background:var(--bg);color:var(--text);font:16px/1.75 -apple-system,BlinkMacSystemFont,"Segoe UI","PingFang SC","Hiragino Sans GB","Microsoft YaHei",sans-serif}
 .wrap{max-width:880px;margin:0 auto;padding:0 20px}
@@ -29,26 +31,49 @@ a{color:var(--accent)}
 .top-in{max-width:1080px;margin:0 auto;padding:0 20px;display:flex;align-items:center;gap:14px;height:56px}
 .brand{font-family:Georgia,"Songti SC",STSong,SimSun,serif;font-weight:700;color:var(--text);text-decoration:none;font-size:17px;white-space:nowrap}
 .brand span{color:var(--accent)}
-.menu{display:flex;gap:4px;flex:1;min-width:0;overflow-x:auto;white-space:nowrap;-webkit-overflow-scrolling:touch;scrollbar-width:none}
+.menu{display:flex;flex-wrap:wrap;gap:4px;row-gap:6px;flex:1;min-width:0}
 .menu::-webkit-scrollbar{display:none}
 .menu a{color:var(--menu);text-decoration:none;font-size:14.5px;padding:4px 12px;border-radius:999px;transition:color .2s,background .2s}
 .menu a:hover{color:var(--accent);background:var(--menu-hover)}
 .menu a[aria-current]{color:var(--on-accent);background:var(--accent)}
 .menu a.out{border:1px solid var(--out-border);padding:3px 12px}
+.nav-toggle{display:none;flex-shrink:0;width:36px;height:36px;border-radius:10px;border:1px solid var(--out-border);background:var(--card);color:var(--menu);font-size:17px;line-height:1;cursor:pointer}
+.nav-toggle:hover{color:var(--accent);border-color:var(--hover-border)}
+@media (max-width:720px){
+.top-in{height:52px;gap:10px}
+html.js .nav-toggle{display:block}
+html.js .theme-btn{margin-left:auto}
+html.js .menu{position:absolute;top:100%;left:0;right:0;flex-direction:column;flex-wrap:nowrap;gap:2px;max-height:0;overflow:hidden;padding:0 14px;background:var(--bg-trans);backdrop-filter:blur(6px);border-bottom:1px solid var(--border);box-shadow:0 14px 24px var(--shadow,rgba(120,90,60,.10))}
+html.js .menu.open{max-height:420px;padding:10px 14px 14px}
+html.js .menu a{display:block;font-size:15px;padding:9px 12px;border-radius:10px}
+html.js .menu a.out{border:1px solid var(--out-border);text-align:center}
+}
+@media (max-width:720px) and (prefers-reduced-motion:no-preference){
+html.js .menu{transition:max-height .25s ease,padding .25s ease}
+}
 .theme-btn{flex-shrink:0;width:34px;height:34px;border-radius:50%;border:1px solid var(--out-border);background:var(--card);color:var(--menu);font-size:15px;line-height:1;cursor:pointer}
 .theme-btn:hover{color:var(--accent);border-color:var(--hover-border)}
-.page-head{padding:48px 0 6px}
-.kicker{color:var(--accent);font-size:13px;letter-spacing:.35em;margin-bottom:12px}
-h1{font-family:Georgia,"Songti SC",STSong,SimSun,serif;font-size:clamp(26px,4.5vw,36px);line-height:1.3;font-weight:700}
-.lede{margin-top:14px;font-size:16px;color:var(--lede);max-width:42em}
-h2.sec{font-family:Georgia,"Songti SC",STSong,SimSun,serif;font-size:23px;margin:52px 0 6px;font-weight:700;display:flex;align-items:baseline;gap:12px}
-h2.sec .no{color:var(--accent);font-size:14px;letter-spacing:.2em;font-family:Georgia,serif}
+.hero{padding:64px 0 20px}
+.kicker{color:var(--accent);font-size:13px;letter-spacing:.35em;margin-bottom:14px}
+h1{font-family:Georgia,"Songti SC",STSong,SimSun,serif;font-size:clamp(30px,5vw,44px);line-height:1.25;letter-spacing:.02em;font-weight:700}
+.lede{margin-top:18px;font-size:17px;color:var(--lede);max-width:42em}
+.meta{margin-top:22px;display:flex;flex-wrap:wrap;gap:10px}
+.pill{display:inline-block;padding:4px 14px;border:1px solid var(--out-border);border-radius:999px;font-size:13.5px;color:var(--secondary);background:var(--card);text-decoration:none}
+.note{margin-top:20px;background:var(--subtle);border:1px solid var(--subtle-border);border-radius:14px;padding:14px 18px;font-size:14px;color:var(--secondary)}
+h2.sec{font-family:Georgia,"Songti SC",STSong,SimSun,serif;font-size:25px;margin:56px 0 6px;font-weight:700}
 .sec-note{color:var(--muted);font-size:14.5px;margin-bottom:22px;max-width:40em}
+.chap-nav{display:grid;grid-template-columns:repeat(auto-fill,minmax(min(232px,100%),1fr));gap:14px}
+.chap{display:block;background:var(--card);border:1px solid var(--border);border-radius:16px;padding:18px 18px 16px;text-decoration:none;color:inherit;transition:transform .25s,box-shadow .25s,border-color .25s}
+.chap:hover{transform:translateY(-3px);box-shadow:0 10px 24px var(--shadow);border-color:var(--hover-border)}
+.chap .no{font-family:Georgia,serif;color:var(--accent);font-size:13px;letter-spacing:.2em}
+.chap h3{font-size:16.5px;margin:6px 0 4px;font-weight:650}
+.chap p{font-size:13.5px;color:var(--muted);line-height:1.6}
+.chap .go{margin-top:10px;font-size:13px;color:var(--accent)}
 .entry{background:var(--card);border:1px solid var(--border);border-radius:16px;padding:26px 26px 22px;margin-bottom:18px}
 .entry header{display:flex;align-items:baseline;gap:12px;flex-wrap:wrap;margin-bottom:4px}
 .entry .num{font-family:Georgia,serif;color:var(--accent);font-size:14px;letter-spacing:.08em}
 .entry h3{font-size:18.5px;font-weight:650}
-.entry .scene{color:var(--muted);font-size:14.5px;margin:6px 0 16px;padding-left:12px;border-left:3px solid var(--subtle-border)}
+.entry .scene{color:var(--muted);font-size:15px;margin:6px 0 16px;padding-left:12px;border-left:3px solid var(--subtle-border)}
 .part{margin-top:14px}
 .part h4{font-size:13px;color:var(--accent);letter-spacing:.25em;margin-bottom:6px;font-weight:600}
 .part ul{list-style:none}
@@ -57,27 +82,29 @@ h2.sec .no{color:var(--accent);font-size:14px;letter-spacing:.2em;font-family:Ge
 .say{margin-top:8px;background:var(--subtle);border-left:3px solid var(--accent);border-radius:0 12px 12px 0;padding:12px 16px;font-size:15px;color:var(--say)}
 .say p+p{margin-top:8px}
 .say .tag{color:var(--accent);font-size:12.5px}
-.cost{margin-top:8px;font-size:14.5px;color:var(--secondary)}
+.cost{margin-top:8px;font-size:15px;color:var(--secondary)}
 .cost b{color:var(--lede)}
-.pager{display:flex;gap:12px;margin-top:40px;flex-wrap:wrap}
-.pager a{flex:1;min-width:min(220px,100%);background:var(--card);border:1px solid var(--border);border-radius:16px;padding:16px 18px;text-decoration:none;color:inherit;transition:border-color .25s,transform .25s}
-.pager a:hover{border-color:var(--hover-border);transform:translateY(-2px)}
-.pager .lab{font-size:12.5px;color:var(--muted);letter-spacing:.2em}
-.pager .ttl{font-weight:650;font-size:15.5px;margin-top:2px}
 footer{margin-top:72px;border-top:1px solid var(--border);padding:30px 0 44px;color:var(--muted);font-size:13.5px;line-height:1.8}
 footer a{color:var(--accent)}
-@media (max-width:640px){.entry{padding:20px 18px 16px}.top-in{gap:10px}.page-head{padding:36px 0 4px}}
+@media (max-width:640px){.entry{padding:20px 18px 16px}.hero{padding:44px 0 12px}}
+.portal{position:fixed;left:14px;bottom:14px;z-index:99}
+a.portal,.portal a{display:inline-block;padding:7px 16px;border-radius:999px;background:var(--portal);color:var(--on-portal);font-size:13px;text-decoration:none;backdrop-filter:blur(4px);font-family:system-ui,sans-serif;transition:background .2s}
+a.portal:hover,.portal a:hover{background:var(--portal-hover)}
+.hero+.chap-nav{margin-top:36px}
+.howto-read>p{font-size:15px;color:var(--lede)}
 .reveal{opacity:0;transform:translateY(16px)}
 .reveal.in{opacity:1;transform:none;transition:opacity .6s ease,transform .6s ease}
-@media (prefers-reduced-motion:reduce){.reveal{opacity:1;transform:none;transition:none}}
+@media (prefers-reduced-motion:reduce){.reveal{opacity:1;transform:none;transition:none}.chap:hover{transform:none}}
 @media (prefers-reduced-motion:no-preference){body,.top,.entry,.say{transition:background-color .25s ease,border-color .25s ease,color .25s ease}}
+.toTop{position:fixed;right:14px;bottom:14px;z-index:98;display:none;border:none;cursor:pointer;padding:7px 14px;border-radius:999px;background:rgba(20,20,20,.72);color:#fff;font-size:14px;line-height:1;backdrop-filter:blur(4px);font-family:system-ui,sans-serif}.toTop:hover{background:rgba(20,20,20,.9)}.toTop.show{display:inline-block}
 </style>
-<noscript><style>.reveal,.rv{opacity:1 !important;transform:none !important}</style></noscript></head>
-<body>
+<noscript><style>.reveal,.rv{opacity:1 !important;transform:none !important}.toTop{position:fixed;right:14px;bottom:14px;z-index:98;display:none;border:none;cursor:pointer;padding:7px 14px;border-radius:999px;background:rgba(20,20,20,.72);color:#fff;font-size:14px;line-height:1;backdrop-filter:blur(4px);font-family:system-ui,sans-serif}.toTop:hover{background:rgba(20,20,20,.9)}.toTop.show{display:inline-block}
+</style></noscript></head>
+<body><div class="portal"><a href="../index.html">&#8592; 总门户</a></div>
 <header class="top">
   <div class="top-in">
     <a class="brand" href="../index.html">人情世故<span>指南</span></a>
-    <nav class="menu" aria-label="站内导航">
+    <nav class="menu" id="siteNav" aria-label="站内导航">
       <a href="../index.html">首页</a>
       <a href="campus.html">校园篇</a>
       <a href="work.html" aria-current="page">职场篇</a>
@@ -85,211 +112,212 @@ footer a{color:var(--accent)}
       <a href="manner.html">礼节篇</a>
       <a class="out" href="https://github.com/kkk-bot/HowToGetAlong" target="_blank" rel="noopener">GitHub</a>
     </nav>
+    <button class="nav-toggle" id="navToggle" type="button" aria-expanded="false" aria-controls="siteNav" aria-label="展开导航菜单">&#9776;</button>
     <button class="theme-btn" id="themeBtn" type="button" aria-label="切换明暗主题">◐</button>
   </div>
 </header>
 
 <main class="wrap">
-  <section class="page-head">
-    <p class="kicker">职场篇 · 第 3、10 章</p>
-    <h1>实习职场与求职离开：<br>确认任务，保留事实，先确认再承诺</h1>
-    <p class="lede">同事临时加活、任务撞期、被当众批评、犯错补救；托人内推、面试提问、评估 offer、新人上手、离职交接。这十六章覆盖从进入职场到体面离开的关键场景。</p>
+  <section class="hero">
+    <p class="kicker">大学生与职场新人实用手册 · 分篇之二</p>
+    <h1>职场篇</h1>
+    <p class="lede">本篇收录第 3 章“实习与职场：确认任务，保留事实”与第 10 章“求职、入职与离开：先确认，再承诺”的全部 16 条。临时加活、任务撞期、被当众批评、犯错补救、成果归属与八卦站队，以及内推、面试、offer 协商、新人上手与离职交接，都按“怎么做 · 话怎么说 · 代价是什么”三要素整理。</p>
+    <div class="meta">
+      <span class="pill">第 3 章 · 8 条</span>
+      <span class="pill">第 10 章 · 8 条</span>
+      <span class="pill"><a href="#ch3">实习与职场</a></span>
+      <span class="pill"><a href="#ch10">求职入职与离开</a></span>
+      <span class="pill">整理自开源项目 HowToGetAlong</span>
+    </div>
+    <p class="note">内容依据 GitHub 项目 kkk-bot/HowToGetAlong 整理，全部为经验建议，仅供学习与交流参考。请结合自身处境、关系与适用规则独立判断，不宜直接照搬示例。</p>
   </section>
 
-  <h2 class="sec reveal"><span class="no">第 3 章</span>实习与职场：确认任务，保留事实</h2>
-  <p class="sec-note reveal">职责模糊时先确认范围与负责人，出现分歧时用事实和记录说话。</p>
+  <div class="chap-nav reveal">
+    <a class="chap" href="#ch3"><span class="no">第 3 章</span><h3>实习与职场</h3><p>任务范围、优先取舍、当众批评、犯错补救、汇报风险、归属核对与八卦站队。</p><span class="go">本章 8 条 ↓</span></a>
+    <a class="chap" href="#ch10"><span class="no">第 10 章</span><h3>求职、入职与离开</h3><p>内推、面试确认、offer 协商、新人上手、岗位请教、离职交接与后续联系。</p><span class="go">本章 8 条 ↓</span></a>
+  </div>
 
-  <article class="entry reveal">
+  <h2 class="sec reveal" id="ch3">第 3 章 · 实习与职场：确认任务，保留事实</h2>
+  <p class="sec-note reveal">把范围、期限和负责人确认清楚，把事实与情绪分开，职场里的大多数冲突才有解法。</p>
+
+  <article class="entry reveal" id="e3-1">
     <header><span class="num">3.1</span><h3>同事说“顺手做一下”时，确认任务和负责人</h3></header>
-    <p class="scene">同事找你做额外工作，你不清楚是正式协作、请教，还是把整项任务交给你；下班后收到“现在帮忙处理一下”。</p>
+    <p class="scene">同事找你做额外工作，你不清楚是正式协作、请教，还是把整项任务交给你；下班后收到“现在帮忙处理一下”，也不知道是应急还是可以次日处理。</p>
     <div class="part"><h4>怎么做</h4><ul>
-      <li>问清交付标准、期限、预计工作量和结果由谁确认。</li>
-      <li>与已有任务冲突或涉及跨部门安排时，按团队流程请有权协调的人确认优先顺序。</li>
-      <li>“着急”与真实截止时间分别确认；收到消息不等于已经承诺立即完成。</li>
-      <li>临时任务持续挤占休息或影响原任务时，整理频率与影响，请负责人调整安排。</li>
+      <li>问清交付标准、期限、预计工作量和结果由谁确认；“着急”与真实截止时间分别确认，不为了结束催促随口承诺。</li>
+      <li>与已有任务冲突或涉及跨部门安排时，按团队流程请负责人协调；已约定的值班或应急职责按适用流程响应。</li>
+      <li>临时任务持续挤占休息或影响原任务时，整理频率与工作影响，请负责人调整安排，不只靠每次临场拒绝处理长期问题。</li>
     </ul></div>
     <div class="part"><h4>话怎么说</h4>
-      <blockquote class="say"><p>“想先确认一下，你是需要我帮你看一眼，还是把整份表做完？我今天还有两个任务，如果是接整份，我们得先和负责人确认一下优先顺序，免得两边都耽误。”</p><p><span class="tag">对方说“就顺手一下，很快的”</span>“我得先看清范围，才能判断时间。如果今天必须完成，需要负责人一起确认现有任务怎么调整。”</p><p><span class="tag">仍被催促</span>“现在我不能同时保证两项都按原时间完成。我们先请负责人确认取舍，我按确认后的安排做。”</p></blockquote>
+      <blockquote class="say"><p>“想先确认一下，你是需要我帮你看一眼，还是把整份表做完？我今天还有两个任务，如果是接整份，我们得先和负责人确认一下优先顺序，免得两边都耽误。”</p><p><span class="tag">对方说“就顺手一下，很快的”</span>“我得先看清范围，才能判断时间。如果今天必须完成，需要负责人一起确认现有任务怎么调整。”</p><p><span class="tag">下班后临时任务</span>“我看到了，想先确认最晚需要交付的时间，以及今晚必须完成的部分。如果可以明早处理，我到岗后先核对，具体完成时间再同步。”</p></blockquote>
     </div>
-    <div class="part"><h4>代价是什么</h4><p class="cost">澄清和协调的时间。团队内合理互助可能就是职责的一部分，不把所有小问题都推给审批，也不把所有让步视为吃亏、把持续超负荷当成必须付出的代价。</p></div>
+    <div class="part"><h4>代价是什么</h4><p class="cost">澄清和协调的时间。团队内合理互助可能就是职责的一部分，<b>不把所有让步视为吃亏，也不把持续超负荷当成必须付出的代价</b>；具体加班或响应义务另查岗位约定。</p></div>
   </article>
 
-  <article class="entry reveal">
+  <article class="entry reveal" id="e3-2">
     <header><span class="num">3.2</span><h3>多个任务撞期时，请负责人确认取舍</h3></header>
     <p class="scene">不同人同时要求“今天必须完成”，你想全部答应，又知道时间不够。</p>
     <div class="part"><h4>怎么做</h4><ul>
-      <li>列出任务、期限、估计工作量与冲突，说明估算中不确定的部分。</li>
-      <li>提供可选安排，向有权决定资源的人确认优先级。</li>
-      <li>没人决定时，明确你将按什么顺序处理、什么结果可能延期，同时继续协调。</li>
-      <li>新增任务或估算明显变化时重新确认，不沿用失效的排序。</li>
+      <li>列出任务、期限、估计工作量与冲突，提供可选安排，并向有权决定资源的人确认优先级。</li>
+      <li>同一负责人安排就直接请其排序；多个负责人就把冲突同时说明，请有权协调的人决定。</li>
+      <li>没人决定时，明确说明你将按什么顺序处理、什么结果可能延期，同时继续通过合适负责人协调；出现新增任务或估算明显变化时重新确认。</li>
     </ul></div>
     <div class="part"><h4>话怎么说</h4>
       <blockquote class="say"><p>“想请您帮我确认一下优先顺序：A 和 B 都要求今天交，目前的时间只够先完成一项。我建议先交 A，B 明天交；如果 B 更急，就需要相应调整 A 的期限。您看先安排哪项？”</p></blockquote>
     </div>
-    <div class="part"><h4>代价是什么</h4><p class="cost">整理任务和协调的时间。说明冲突不是拒绝所有临时任务，也不代表负责人一定能减少工作量；工作量估计可能不准，要及时更新。</p></div>
+    <div class="part"><h4>代价是什么</h4><p class="cost">整理任务和协调的时间。工作量估计可能不准，要及时更新；说明冲突不是拒绝所有临时任务，也不代表负责人一定能减少工作量。</p></div>
   </article>
 
-  <article class="entry reveal">
+  <article class="entry reveal" id="e3-3">
     <header><span class="num">3.3</span><h3>被当众批评时，区分事实澄清与后续讨论</h3></header>
     <p class="scene">开会时有人批评你的工作，其中有事实错误，你既不想沉默承认，也担心争论失控。</p>
     <div class="part"><h4>怎么做</h4><ul>
-      <li>指出与决策有关的关键事实，承认已经确认的问题；需要详细核对的部分约定会后查看材料。</li>
-      <li>把含糊评价和可核对事实分开；反馈不含糊时，问具体任务、已约定标准和希望改变的一个动作。</li>
-      <li>出现持续羞辱时，把行为和工作问题分开处理，记录时间、原话与影响，通过必要渠道提交。</li>
-      <li>保持平和不等于赞同错误评价或接受羞辱；严重或不安全时优先求助。</li>
+      <li>把含糊评价和可核对事实分开；指出与决策有关的关键事实，承认已经确认的问题，详细核对的部分约定会后查看材料，不先揣测对方动机。</li>
+      <li>反馈含糊时，询问具体任务、已约定标准和希望改变的一个动作；情绪强烈时可以简短说明需要整理，约定后续沟通。</li>
+      <li>区分针对任务的纠错与针对个人的贬损：出现反复贬损、威胁或阻碍正常工作时，记录具体时间、原话与工作影响，通过必要渠道提交并寻求支持。</li>
     </ul></div>
     <div class="part"><h4>话怎么说</h4>
-      <blockquote class="say"><p>“延期这部分我会负责补救。另外想补充一个时间信息：记录里的提交时间是周二，和刚才提到的时间有些出入。会后我们再核对一下，我会把完整情况和处理方案整理出来。”</p><p><span class="tag">反馈含糊时</span>“我想把这点落实，您指的是哪次任务、哪个环节？下次最希望我先调整什么，我们确认后我再改。”</p></blockquote>
+      <blockquote class="say"><p>“延期这部分我会负责补救。另外想补充一个时间信息：记录里的提交时间是周二，和刚才提到的时间有些出入。会后我们再核对一下，我会把完整情况和处理方案整理出来。”</p><p><span class="tag">反馈含糊</span>“我想把这点落实，您指的是哪次任务、哪个环节？下次最希望我先调整什么，我们确认后我再改。”</p></blockquote>
     </div>
-    <div class="part"><h4>代价是什么</h4><p class="cost">控制情绪、整理记录和后续沟通的精力。权力不对等时可根据事实影响选择当场简短澄清、会后沟通或在共同渠道更正，不要求独自硬扛；会后核对不能让重大错误一直留在公开记录里。</p></div>
+    <div class="part"><h4>代价是什么</h4><p class="cost">控制情绪、整理记录和后续沟通的精力。保持平和不意味着赞同错误评价或接受羞辱；现场涉及安全或严重错误时，应及时明确纠正。</p></div>
   </article>
 
-  <article class="entry reveal">
+  <article class="entry reveal" id="e3-4">
     <header><span class="num">3.4</span><h3>自己犯错时，说明影响、补救和需要的支持</h3></header>
     <p class="scene">发错文件、漏掉任务或做错数据，你想先悄悄补好，怕被发现。</p>
     <div class="part"><h4>怎么做</h4><ul>
-      <li>确认已知影响，向应知情的人及时说明，区分自己确认的事实和仍需排查的部分。</li>
-      <li>提出可执行的补救方案，追踪到实际完成；需要他人协助或授权的部分明确提出。</li>
-      <li>责任待核实时配合排查，但不未经核对认下全部责任。</li>
-      <li>影响扩大或补救无效时立即更新负责人，不为了面子独自隐瞒处理。</li>
+      <li>保存必要事实，确认已知影响，向应知情的人及时说明；区分自己确认的事实和仍需排查的部分，提出可执行的补救方案。</li>
+      <li>责任已经核实时，道歉之后明确由谁修复、先处理什么、何时更新；暂时不能保证完成日期，就给下一次核实进度的时间。</li>
+      <li>影响还在扩大就先通知并控制可确认的影响；影响还不清楚时，报告已知部分与下一次更新时间，不为了显得负责而认下未经确认的全部责任。</li>
     </ul></div>
     <div class="part"><h4>话怎么说</h4>
       <blockquote class="say"><p>“跟你同步一个我这边的疏漏：发出的版本漏了附件，目前确认影响到这几位接收人。我准备补发并说明版本，同时继续检查有没有其他影响。收件范围还想请你帮我核对一下，避免遗漏。”</p><p><span class="tag">补救安排</span>“这次漏核数据是我的疏漏，耽误了你整理。我先更正这一项，下午四点前把已核实的范围和处理进度发给你；最终完成时间核对后再确认。”</p></blockquote>
     </div>
-    <div class="part"><h4>代价是什么</h4><p class="cost">修复时间、面对责任的压力和可能的信任损失。道歉不能替代补救；完成补救也不自动恢复信任；涉及安全、财务、隐私或合规事件按正式流程处理，不擅自删除记录。</p></div>
+    <div class="part"><h4>代价是什么</h4><p class="cost">修复时间、面对责任的压力，以及可能的信任损失。道歉不能替代补救；涉及安全、财务、隐私或合规事件时按正式流程处理，不擅自删除记录。</p></div>
   </article>
 
-  <article class="entry reveal">
+  <article class="entry reveal" id="e3-5">
     <header><span class="num">3.5</span><h3>汇报时，把进展、风险和需要的决定一起说清</h3></header>
     <p class="scene">你做了很多工作，但负责人只听到“还在做”，不知道何时能交。</p>
     <div class="part"><h4>怎么做</h4><ul>
-      <li>先说明这次是同步进展还是需要决定，再给对应信息：做到哪一步、卡在哪里、需要谁确认什么。</li>
-      <li>未知信息明确标出；完成、收到、验收通过是不同状态，不把“已发送”写成“已验收”。</li>
-      <li>卡在他人提供的信息上时，说清自己已完成的部分、何时提出过请求和能独立推进什么，不只说“对方还没给”。</li>
-      <li>交付时核对文件名、版本和访问权限；已知会影响约定交付就尽早同步，不等到截止才解释。</li>
+      <li>先说明这次是同步进展还是需要决定，再给对应信息：目前做到哪一步、卡在哪里、需要谁确认什么；未知信息明确标出。</li>
+      <li>交付时说明成果位置、可用范围和待确认项，核对文件名、版本、用途和访问权限，不把“已发送”写成“已验收”。</li>
+      <li>卡在他人提供的信息上时，说清自己已完成的部分、何时提出过请求、接下来能独立做什么，以及需要负责人决定的取舍；一旦已知会影响约定交付，就同步已知影响，不等到截止才解释。</li>
     </ul></div>
     <div class="part"><h4>话怎么说</h4>
       <blockquote class="say"><p>“资料已齐，分析还缺一项数据。今天收到的话，明天可以交初稿；收不到就需要调整范围。想请您确认哪些内容必须保留，我按这个优先级推进。”</p><p><span class="tag">提交初稿</span>“初稿已放进共享文件夹，第二页的统计口径还待确认。请您看看格式是否适合明天的会议；口径确认后，我再补齐相应部分。”</p></blockquote>
     </div>
-    <div class="part"><h4>代价是什么</h4><p class="cost">整理和沟通时间。不把所有细节抄送所有人，也不反复催收件人即时回应；提到依赖是为了协调，不公开指责对接人，不把未获批准的缩减交付当作已决定。</p></div>
+    <div class="part"><h4>代价是什么</h4><p class="cost">整理和沟通时间。不把所有细节抄送所有人；完成、收到、验收通过是不同状态；提到依赖是为了协调，不公开指责对接人。</p></div>
   </article>
 
-  <article class="entry reveal">
+  <article class="entry reveal" id="e3-6">
     <header><span class="num">3.6</span><h3>成果归属不清时，先核对贡献与使用记录</h3></header>
     <p class="scene">你参与完成的项目被汇报成其他人独自做的。</p>
     <div class="part"><h4>怎么做</h4><ul>
-      <li>整理共同认可的工作记录、版本和既有分工，提出具体修正请求。</li>
-      <li>先确认是否无意遗漏；反复遗漏向负责人说明事实。</li>
-      <li>共同成果也要承认别人的贡献，不把所有参与都说成自己主导。</li>
-      <li>无法协商且影响正式评价时，按团队流程交由负责人核实。</li>
+      <li>整理共同认可的工作记录、版本和既有分工，先确认是否遗漏，再请求按事实补充。</li>
+      <li>无意遗漏私下提醒；反复遗漏向负责人说明；共同成果也要承认别人的贡献，不把所有参与都说成自己主导。</li>
+      <li>无法协商且影响正式评价时，按团队流程交由相关负责人核实，不为了避免摩擦长期默认失实的贡献记录。</li>
     </ul></div>
     <div class="part"><h4>话怎么说</h4>
       <blockquote class="say"><p>“想跟你核对一下这次汇报的分工记录：这部分数据整理和分析是我完成的，但目前的版本里还没体现。下一版能帮我把这部分贡献补上吗？相关记录我发你，我们一起核对。”</p></blockquote>
     </div>
-    <div class="part"><h4>代价是什么</h4><p class="cost">整理记录与沟通的时间，以及可能的关系摩擦。贡献被遗漏不能统一视为可忍让的小事；不要为了避免摩擦，长期默认失实的贡献记录；正式知识产权或署名争议需另查规则。</p></div>
+    <div class="part"><h4>代价是什么</h4><p class="cost">整理记录与沟通的时间，以及可能的关系摩擦。正式知识产权或署名争议需另查规则；让评价更接近实际贡献，而不是依赖谁先讲故事。</p></div>
   </article>
 
-  <article class="entry reveal">
+  <article class="entry reveal" id="e3-7">
     <header><span class="num">3.7</span><h3>完成任务后，主动问下一次怎样改进</h3></header>
     <p class="scene">任务已交付，对方只说“还可以”，你想知道下一次具体该改哪里。</p>
     <div class="part"><h4>怎么做</h4><ul>
-      <li>确认对方方便，围绕下一次任务询问最值得调整的一处，不发整堆材料要求从头评价。</li>
+      <li>确认对方方便，围绕下一次任务询问最值得调整的一处；准备可查看的成品、实际用途和一个疑问，不发整堆材料要求对方从头评价。</li>
       <li>听到建议后用具体动作核对理解，再试做并查看是否解决问题，不只把建议记下来。</li>
-      <li>建议含糊时问一个可观察的例子或期望改变的环节；对方不方便就停止追问。</li>
-      <li>建议扩大任务范围时先确认负责人和期限，不默默接下新增工作。</li>
+      <li>建议仍含糊时，问一个可观察的例子或期望改变的环节；对方不方便时停止追问，先按明确标准检查。</li>
     </ul></div>
     <div class="part"><h4>话怎么说</h4>
-      <blockquote class="say"><p>“这次汇报已经交付了，我想把下一次做得更清楚。您方便时，能否建议一个最值得调整的地方？我在考虑信息顺序和数据解释，也可能漏了更重要的点。”</p><p><span class="tag">核对建议</span>“我理解您希望先看到结论和依据。我下次先把这两项放到第一页，再按会议用途检查，您看我有没有理解偏？”</p></blockquote>
+      <blockquote class="say"><p>“这次汇报已经交付了，我想把下一次做得更清楚。您方便时，能否建议一个最值得调整的地方？我在考虑信息顺序和数据解释，也可能漏了更重要的点。”</p><p><span class="tag">核对建议</span>“我理解您希望先看到结论和依据。我下次先把这两项放到第一页，您看我有没有理解偏？”</p></blockquote>
     </div>
-    <div class="part"><h4>代价是什么</h4><p class="cost">准备、占用对方时间和试做的成本；建议可能互相冲突或超出当前资源。提问不保证获得帮助或提高绩效；向未来求建议不能替代解释已发生的错误。</p></div>
+    <div class="part"><h4>代价是什么</h4><p class="cost">准备、占用对方时间和试做的成本；建议可能互相冲突或超出当前资源。向未来求建议不能替代解释已发生的错误，提问也不保证获得帮助或提高绩效。</p></div>
   </article>
 
-  <article class="entry reveal">
+  <article class="entry reveal" id="e3-8">
     <header><span class="num">3.8</span><h3>被拉进八卦或要求站队时，把回应限定在事实与职责</h3></header>
-    <p class="scene">同事评价另一位同事，问你“你是不是也觉得他不行”，或要求你表态支持某个人。</p>
+    <p class="scene">同事评价另一位同事，问你“你是不是也觉得他不行”；或要求你表态支持某个人，而你不了解事情经过。</p>
     <div class="part"><h4>怎么做</h4><ul>
       <li>区分亲历事实、别人转述和自己的猜测；未了解的事直接说明不知道。</li>
-      <li>工作问题回到任务、具体行为和处理渠道；可以听对方的感受，不附和对第三人的判断。</li>
-      <li>有人求助受到冒犯时先听清需要与安全，不用“不站队”拒绝必要支持。</li>
-      <li>反复逼你评价某人时结束话题；出现具体威胁或职责内投诉时，按渠道寻求支持。</li>
+      <li>工作问题回到任务、具体行为和处理渠道；可以听对方的感受，但不因此附和对第三人的判断或扩散私事。</li>
+      <li>有人求助受到冒犯时，先听清需要与安全，不用“不站队”拒绝必要支持；反复逼你评价某人时结束话题，涉及职责内投诉时按适用渠道处理。</li>
     </ul></div>
     <div class="part"><h4>话怎么说</h4>
       <blockquote class="say"><p>“这件事我没有亲历，没法评价这个人。如果影响到交付，我们可以把具体缺项和下一步说清楚。”</p><p><span class="tag">被问“你到底站哪边”</span>“我会按确认的事实和分工处理，不按支持哪个人来决定。如果要调整工作，我们把问题和方案说清楚。”</p></blockquote>
     </div>
-    <div class="part"><h4>代价是什么</h4><p class="cost">没有附和时可能显得疏远，也要面对继续追问的压力。不参与八卦不等于对所有冲突保持沉默，也不妨碍表达经过核实的不同意见；不承诺隐瞒你依法依规需要处理的信息。</p></div>
+    <div class="part"><h4>代价是什么</h4><p class="cost">没有附和时可能显得疏远，也要面对继续追问的压力。不参与八卦不等于对所有冲突保持沉默，不妨碍表达经过核实的不同意见。</p></div>
   </article>
 
-  <h2 class="sec reveal"><span class="no">第 10 章</span>求职、入职与离开：先确认，再承诺</h2>
-  <p class="sec-note reveal">从内推、面试到 offer 协商、离职交接，关键条件先核实，承诺只给能做到的。</p>
+  <h2 class="sec reveal" id="ch10">第 10 章 · 求职、入职与离开：先确认，再承诺</h2>
+  <p class="sec-note reveal">从托人内推到离职交接，每一步都先确认条件与承诺，再决定怎么答复。</p>
 
-  <article class="entry reveal">
+  <article class="entry reveal" id="e10-1">
     <header><span class="num">10.1</span><h3>托人推荐时，给完整材料并允许不推荐</h3></header>
     <p class="scene">你想请学长内推，却只发“帮我找个工作”。</p>
     <div class="part"><h4>怎么做</h4><ul>
-      <li>说明目标岗位、匹配经历、简历和截止时间，问对方是否了解并愿意推荐。</li>
-      <li>先看公开招聘说明，再问自己仍不了解的流程；久未联系先问候并交代缘由，先请对方指向公开信息。</li>
-      <li>不熟悉的人不强求其背书；弱联系能提供信息，不等于足以为能力背书。</li>
-      <li>被拒绝就使用正式招聘渠道；有人推荐后反馈结果，但不把录用当作其承诺。</li>
+      <li>准备岗位信息、简历与匹配理由，说明目标岗位、匹配经历和截止时间，问对方是否了解并愿意推荐。</li>
+      <li>先看公开招聘说明再问自己仍不了解的流程；久未联系的人先交代近况与询问缘由，请其指向公开信息。</li>
+      <li>被拒绝就使用正式招聘渠道；有人推荐后反馈结果，但不把录用当作其承诺；不群发伪装成私人问候的求职请求。</li>
     </ul></div>
     <div class="part"><h4>话怎么说</h4>
       <blockquote class="say"><p>“我想申请这个岗位，简历和相关经历整理在这里。想问问你是否了解内推渠道、也方便推荐？如果需要补充材料，我再准备；不方便推荐也没关系，我可以走公开申请渠道。”</p><p><span class="tag">久未联系先问流程</span>“好久没联系，我最近在了解这个岗位，已经看过招聘说明。想问问你是否知道公开申请流程？你不清楚或不方便的话，我再向招聘渠道确认。”</p></blockquote>
     </div>
-    <div class="part"><h4>代价是什么</h4><p class="cost">整理材料与对方查阅的时间。不编造经历或让人保证录用；不群发伪装成私人问候的求职请求，不把认识人数当作机会保证。</p></div>
+    <div class="part"><h4>代价是什么</h4><p class="cost">整理材料与对方查阅的时间。不编造经历或让人保证录用，推荐人的帮助有边界；联系更多人需要时间，也可能打扰别人。</p></div>
   </article>
 
-  <article class="entry reveal">
+  <article class="entry reveal" id="e10-2">
     <header><span class="num">10.2</span><h3>面试时，不清楚的要求先问用途和范围</h3></header>
     <p class="scene">面试中被问到任务细节或私人计划，你不知道如何答。</p>
     <div class="part"><h4>怎么做</h4><ul>
-      <li>工作问题如实说明能力与限制，用真实例子回应技能问题。</li>
-      <li>不清楚必要性的信息，先询问与岗位的关系，选择愿意分享的范围。</li>
-      <li>问清任务目的、评估标准与所需时间，避免提供无关私人信息。</li>
-      <li>被要求夸大经历或交出未获许可的前单位资料时，说明无法提供并评估是否继续。</li>
+      <li>问清任务目的、评估标准与所需时间；工作问题如实说明能力与限制，不清楚必要性的信息先询问与岗位的关系。</li>
+      <li>技能问题给真实例子；模糊职责问具体要求；私人问题选择分享范围并考虑岗位情境。</li>
+      <li>被要求夸大经历或交出未获许可的前单位资料时，说明无法提供并评估是否继续；要求持续扩大且用途不清时暂停投入或退出。</li>
     </ul></div>
     <div class="part"><h4>话怎么说</h4>
       <blockquote class="say"><p>“这项工作里，我做过类似的部分，但还没有独立负责过完整项目。想进一步了解一下，您希望这个岗位承担到哪一步？我也好把相关经历和目前的能力说明清楚。”</p></blockquote>
     </div>
-    <div class="part"><h4>代价是什么</h4><p class="cost">可能显得谨慎或暴露能力不足的代价。要求持续扩大且用途不清时暂停投入或退出；本条不判断问题是否合法，也不保证询问会得到积极评价。</p></div>
+    <div class="part"><h4>代价是什么</h4><p class="cost">可能显得谨慎或暴露能力不足的代价，换来双方更准确判断匹配程度。本条不判断问题是否合法，也不保证询问会得到积极评价。</p></div>
   </article>
 
-  <article class="entry reveal">
+  <article class="entry reveal" id="e10-3">
     <header><span class="num">10.3</span><h3>接受机会前，确认待遇、职责和入职条件</h3></header>
     <p class="scene">对方口头说工资不错、以后会涨，你想马上答应。</p>
     <div class="part"><h4>怎么做</h4><ul>
-      <li>核对工作地点、职责、报酬组成、时间安排和需要的正式文件，对未确认条件继续问。</li>
-      <li>用同一口径比较可行的其他选择；“以后会涨”与已写明待遇分开，待定岗位不按确定收入计算。</li>
-      <li>列出不能承担的投入，以及暂不接受或退出时需要处理的安排。</li>
-      <li>条件不合适时可协商范围、暂缓或选择其他机会，不必只在立即接受与彻底放弃之间选择。</li>
+      <li>核对工作地点、职责、报酬组成、时间安排和需要的正式文件；对未确认条件继续问，“以后会涨”与已写明待遇分开。</li>
+      <li>用同一口径比较可行的其他选择：已确认的报酬、职责、地点、时间和截止日；准备继续求职时的过渡预算，不把待定岗位按确定收入计算。</li>
+      <li>关键条件始终模糊时，不把口头愿景当确定待遇，评估自己能否接受这种不确定性；实际条件与承诺不同时重新评估，不因已投入面试时间而急于接受。</li>
     </ul></div>
     <div class="part"><h4>话怎么说</h4>
       <blockquote class="say"><p>“谢谢您提供这个机会。为了认真评估，也方便之后双方按一致的安排推进，我想先确认薪酬组成、工作地点、岗位职责和入职条件。方便提供完整的书面信息吗？”</p></blockquote>
     </div>
-    <div class="part"><h4>代价是什么</h4><p class="cost">询问与比较时间，可能错过催促立即决定的机会。关键条件始终模糊时，评估自己是否接受这份不确定性；不因已投入面试时间而急于接受。</p></div>
+    <div class="part"><h4>代价是什么</h4><p class="cost">询问与比较时间，可能错过催促立即决定的机会。书面信息也需读懂；本条不是合同审查或劳动法律意见，没有理想备选时也可选择暂时可承担的安排。</p></div>
   </article>
 
-  <article class="entry reveal">
+  <article class="entry reveal" id="e10-4">
     <header><span class="num">10.4</span><h3>刚进入团队时，先了解流程再表达改进</h3></header>
-    <p class="scene">你看到做法低效，想第一天就说大家方法不对；又怕问多了显得能力不足。</p>
+    <p class="scene">你看到做法低效，想第一天就说大家方法不对；消息渠道、审批权限和谁确认结果还不熟，又怕问多了显得能力不足。</p>
     <div class="part"><h4>怎么做</h4><ul>
-      <li>先找已有指引和示例，把不清楚的汇总成具体问题：资料在哪、谁提供、谁确认、何时升级。</li>
-      <li>了解背景、历史限制与责任人；需要改变时给小范围可验证的方案。</li>
-      <li>首次完成任务后，可在对方方便时问一个最影响交付的改进点，说明已查看的指引和仍不明白的环节。</li>
-      <li>口头指点确认是否适用于当前任务；多人给不同做法时请任务负责人确认；卡住他人交付的问题及时提出。</li>
+      <li>先找已有指引和示例，把不清楚的内容汇总成具体问题：资料在哪、谁提供、谁确认、何时升级；需要改变时给小范围可验证方案。</li>
+      <li>首次完成一项任务后，可在对方方便时问一个最影响交付的改进点；把已核实的常见流程记成简短清单，遇到新任务先核对适用条件。</li>
+      <li>明显安全问题及时提出；同事口头指点确认是否适用当前任务；长期拿不到执行所需信息时，向负责人说明缺什么、影响哪个任务。</li>
     </ul></div>
     <div class="part"><h4>话怎么说</h4>
-      <blockquote class="say"><p>“我想先了解一下这一步目前这样安排的原因。如果主要是为了核对数据，我有个小模板想试试，能否先在小范围看一下效果，再决定是否采用？”</p><p><span class="tag">首次完成任务后</span>“这次我按指引把材料整理好了。如果下次优先改一个地方，您觉得是统计口径还是呈现方式？我想先把最影响使用的地方做好。”</p></blockquote>
+      <blockquote class="say"><p>“我想先了解一下这一步目前这样安排的原因。如果主要是为了核对数据，我有个小模板想试试，能否先在小范围看一下效果，再决定是否采用？”</p><p><span class="tag">确认协作渠道</span>“我在按指引熟悉任务，想确认一下：这类结果由谁验收，资料更新在哪个渠道同步？我先按现有流程做，卡住时再把具体问题整理出来请教。”</p></blockquote>
     </div>
-    <div class="part"><h4>代价是什么</h4><p class="cost">观察和试行时间，以及方案不被接受的可能。了解流程不等于必须接受所有不合理做法；请教时说明已尝试的内容，也接受同事不能随时教学。</p></div>
+    <div class="part"><h4>代价是什么</h4><p class="cost">观察和试行时间，以及方案不被接受的可能。了解流程不意味着必须接受所有不合理行为；请教时说明已尝试的内容，也接受同事不能随时教学。</p></div>
   </article>
 
-  <article class="entry reveal">
+  <article class="entry reveal" id="e10-5">
     <header><span class="num">10.5</span><h3>离开岗位或合作时，把交接范围确认清楚</h3></header>
     <p class="scene">你准备结束实习或退出项目，担心别人不断找你补工作。</p>
     <div class="part"><h4>怎么做</h4><ul>
       <li>列出进行中任务、文件位置、风险与接手人，通过允许的渠道交接。</li>
-      <li>按正式流程确认交接内容、接收人、资料位置和未完成事项。</li>
-      <li>不私自带走不该保留的资料；出现新请求时，先判断是原交接遗漏还是新工作。</li>
-      <li>接手人或截止时间改变时更新安排，未获确认的事项明确列出。</li>
+      <li>按正式流程确认交接内容、接收人、资料位置和未完成事项，不私自带走不该保留的资料。</li>
+      <li>出现新请求时，判断是原交接遗漏还是新工作，再确认是否能帮及范围；接手人或截止时间改变时更新安排。</li>
     </ul></div>
     <div class="part"><h4>话怎么说</h4>
       <blockquote class="say"><p>“文件位置、未完成事项和对应负责人，我都整理在交接清单里了，麻烦你核对一下。交接后新增的任务请联系接收人；已确认的交接范围内还有哪些信息需要补充，我们一起列清楚。”</p></blockquote>
@@ -297,61 +325,52 @@ footer a{color:var(--accent)}
     <div class="part"><h4>代价是什么</h4><p class="cost">交接时间和对未完事项的处理成本。通知与手续不能凭指南代替合同或制度要求，具体权利责任另行核实。</p></div>
   </article>
 
-  <article class="entry reveal">
+  <article class="entry reveal" id="e10-6">
     <header><span class="num">10.6</span><h3>离开之后保持联系时，区分问候和继续工作</h3></header>
     <p class="scene">前同事持续让你处理系统问题，你不想回又怕以后见面尴尬。</p>
     <div class="part"><h4>怎么做</h4><ul>
       <li>区分私人交流与新增任务，核对原交接约定和可提供的帮助范围。</li>
-      <li>保留正常问候，把工作问题导向现任负责人。</li>
-      <li>愿意额外帮助时明确范围和期限，不默认永久免费负责。</li>
-      <li>对方继续催时，重复已交接的渠道，不再新增无法承担的承诺。</li>
+      <li>保留正常问候，把工作问题导向现任负责人；愿意额外帮助时明确范围。</li>
+      <li>请求变成持续工作时重新说明范围，必要时转给现任负责人；对方继续催时重复已交接的渠道，不再新增无法承担的承诺。</li>
     </ul></div>
     <div class="part"><h4>话怎么说</h4>
       <blockquote class="say"><p>“听到你的近况很开心！系统这边现在由新负责人接手，日常问题请直接联系他，我这里就不继续处理了。平时有空，我们还是可以聊聊近况。”</p></blockquote>
     </div>
-    <div class="part"><h4>代价是什么</h4><p class="cost">拒绝的压力和可能减少的联系。正式保密和其他持续义务不因离开自然消失，需核对具体约定。</p></div>
+    <div class="part"><h4>代价是什么</h4><p class="cost">拒绝的压力与可能减少的联系。正式保密和其他持续义务不因离开自然消失，需核对具体约定。</p></div>
   </article>
 
-  <article class="entry reveal">
+  <article class="entry reveal" id="e10-7">
     <header><span class="num">10.7</span><h3>协商 offer 时，先明确重点和回复期限</h3></header>
-    <p class="scene">你对岗位有兴趣，但薪酬、入职时间或职责还有疑问；招聘方要求尽快答复。</p>
+    <p class="scene">你对岗位有兴趣，但薪酬、入职时间或职责还有疑问；招聘方要求尽快答复，你担心开口协商就失去机会。</p>
     <div class="part"><h4>怎么做</h4><ul>
-      <li>看完整书面条件，把最重要的一至两项请求及理由列清楚。</li>
-      <li>先确认自己认真考虑这份工作，再向合适联系人提出具体调整及依据。</li>
-      <li>需要时间就尽早提出一个可执行的答复日期；不同时追加一长串要求，不伪造其他机会。</li>
-      <li>还在面试的机会不能当成已取得的 offer；明确没有调整空间时停止重复议价。</li>
+      <li>看完整书面条件，把最重要的一至两项请求及理由列清楚；查来源可靠的比较资料，准备可接受范围和过渡安排。</li>
+      <li>确认谁负责协商、何时必须答复；还在面试的机会不能当成已取得的 offer；需要时间就尽早提出一个可执行的答复日期。</li>
+      <li>先确认自己认真考虑这份工作，再提出具体调整及依据；不同时追加一长串要求，不伪造其他机会；对方同意调整时请更新书面信息。</li>
     </ul></div>
     <div class="part"><h4>话怎么说</h4>
-      <blockquote class="say"><p>“谢谢这次机会，我对岗位很感兴趣。还有职责范围和入职时间需要确认，能否让我在周五前给出明确答复？”</p><p><span class="tag">谈条件</span>“结合这次确认的职责和我做过的相关项目，我想进一步讨论薪酬安排。请问目前是否还有调整空间？如果有，我把期望范围和比较依据整理给您。”</p><p><span class="tag">暂不接受</span>“综合工作安排和我目前的计划，这次我决定不接受，也想及时告诉您，方便继续推进招聘。感谢这段时间的沟通。”</p></blockquote>
+      <blockquote class="say"><p>“谢谢这次机会，我对岗位很感兴趣。还有职责范围和入职时间需要确认，能否让我在周五前给出明确答复？”</p><p><span class="tag">谈条件</span>“结合这次确认的职责和我做过的相关项目，我想进一步讨论薪酬安排。请问目前是否还有调整空间？如果有，我把期望范围和比较依据整理给您，方便一起评估。”</p><p><span class="tag">暂不接受</span>“谢谢您耐心确认条件。综合工作安排和我目前的计划，这次我决定不接受，也想及时告诉您，方便继续推进招聘。感谢这段时间的沟通。”</p></blockquote>
     </div>
-    <div class="part"><h4>代价是什么</h4><p class="cost">查资料和沟通的时间，可能被拒绝或失去这次机会；继续等待其他结果也有收入和时间成本。对方同意调整时请更新书面信息，尚未确认的项目不当作已达成。</p></div>
+    <div class="part"><h4>代价是什么</h4><p class="cost">查资料和沟通的时间，可能被拒绝或失去这次机会；继续等待其他结果也有收入和时间成本。礼貌提出也可能有不利结果，不采用“最坏只是被拒绝”的保证。</p></div>
   </article>
 
-  <article class="entry reveal">
+  <article class="entry reveal" id="e10-8">
     <header><span class="num">10.8</span><h3>请教岗位情况时，先做功课，再问具体问题</h3></header>
-    <p class="scene">你想申请一个岗位，但招聘描述看起来都差不多；想问前辈，又不知道怎么介绍自己。</p>
+    <p class="scene">你想申请一个岗位，但招聘描述看起来都差不多；想问前辈，又不知道该怎么介绍自己、哪些问题值得问。</p>
     <div class="part"><h4>怎么做</h4><ul>
-      <li>先看招聘要求和公开资料，列出仍不清楚的两三项问题。</li>
-      <li>准备由相关背景、真实经历和请教目的组成的简短自我介绍，提前询问是否方便以及可聊多久。</li>
-      <li>把了解岗位与请求推荐分开，不聊到一半突然要求对方帮忙找工作。</li>
-      <li>听到回答后核对适用团队与时间；不同人说法冲突时对照岗位、公司与环境，不按资历高低判谁正确。</li>
+      <li>先看招聘要求和公开资料，列出仍不清楚的两三项问题；准备由背景、真实经历和请教目的组成的简短自我介绍。</li>
+      <li>提前询问是否方便以及可聊多久；询问新人任务、常见困难或准备建议，听到回答后核对适用团队与时间。</li>
+      <li>把了解岗位与请求推荐分开，不聊到一半突然要求对方帮忙找工作；不同人的说法冲突时，对照岗位、公司与任职时间，关键条件仍向招聘方核实。</li>
     </ul></div>
     <div class="part"><h4>话怎么说</h4>
       <blockquote class="say"><p>“您好，我是××专业的大三学生，做过一次用户访谈项目，正在了解产品运营岗位。招聘要求我已经看过，但还不清楚新人日常主要做哪些事。您方便时，我想请教几个具体问题，时间按您方便的安排。”</p><p><span class="tag">追问时</span>“您提到新人经常参与活动执行，这主要是当前团队的安排，还是您也在其他公司遇到过？”</p></blockquote>
     </div>
-    <div class="part"><h4>代价是什么</h4><p class="cost">查资料、整理问题的时间和对方的注意力。一位前辈的体验不代表整个行业；不追问内部机密、客户资料或他人的薪酬与隐私；请教不意味着对方欠你内推。</p></div>
+    <div class="part"><h4>代价是什么</h4><p class="cost">查资料、整理问题与比较信息的时间，对方也要投入注意力。一位前辈的体验不代表整个行业；请教不意味着对方欠你内推，申请决定仍由自己承担。</p></div>
   </article>
-
-  <nav class="pager reveal">
-    <a href="campus.html"><span class="lab">上一篇</span><div class="ttl">校园篇 · 合作与求助</div></a>
-    <a href="../index.html"><span class="lab">返回</span><div class="ttl">首页 · 十章全景</div></a>
-    <a href="money.html"><span class="lab">下一篇</span><div class="ttl">金钱篇 · 钱与冲突</div></a>
-  </nav>
 </main>
 
 <footer>
   <div class="wrap">
-    <p>本站内容整理自开源项目 <a href="https://github.com/kkk-bot/HowToGetAlong" target="_blank" rel="noopener">kkk-bot/HowToGetAlong</a>（10 章 77 条，© 2026 kkk-bot，个人非商业学习使用许可）。全部为经验建议，仅供参考，请结合自身处境独立判断，不宜直接照搬示例。</p>
+    <p>本站内容整理自开源项目 <a href="https://github.com/kkk-bot/HowToGetAlong" target="_blank" rel="noopener">kkk-bot/HowToGetAlong</a>（10 章 77 条，© 2026 kkk-bot，个人非商业学习使用许可）。全部为经验建议，仅供参考，不保证适用于所有人或取得特定效果。</p>
     <p>站点页面 · <a href="../index.html">首页</a> · <a href="campus.html">校园篇</a> · <a href="work.html">职场篇</a> · <a href="money.html">金钱篇</a> · <a href="manner.html">礼节篇</a></p>
   </div>
 </footer>
@@ -385,6 +404,26 @@ footer a{color:var(--accent)}
     try{localStorage.setItem('theme',next)}catch(e){}
     sync();
   });
+})();
+</script>
+<script>
+(function(){
+  var n=document.getElementById('siteNav'),b=document.getElementById('navToggle');
+  if(!n||!b)return;
+  var set=function(o){n.classList.toggle('open',o);b.setAttribute('aria-expanded',o?'true':'false');b.innerHTML=o?'&#10005':'&#9776';b.setAttribute('aria-label',o?'收起导航菜单':'展开导航菜单')};
+  b.addEventListener('click',function(){set(!n.classList.contains('open'))});
+  n.addEventListener('click',function(e){if(e.target&&e.target.closest&&e.target.closest('a'))set(false)});
+  document.addEventListener('keydown',function(e){if(e.key==='Escape')set(false)});
+})();
+</script>
+<button class="toTop" type="button" id="toTop" aria-label="回到顶部">&#8593;</button>
+<script>
+(function(){
+  var b=document.getElementById('toTop');if(!b)return;
+  var rm=window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  function upd(){if(window.scrollY>600){b.classList.add('show')}else{b.classList.remove('show')}}
+  window.addEventListener('scroll',upd,{passive:true});upd();
+  b.addEventListener('click',function(){window.scrollTo({top:0,behavior:rm?'auto':'smooth'});});
 })();
 </script>
 </body>

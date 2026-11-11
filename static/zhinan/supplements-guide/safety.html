@@ -1,0 +1,213 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>安全边界：摄入上限、相互作用、禁忌与肝损伤风险</title>
+<script>(function(){var d=document.documentElement;d.classList.add('js');var t=null;try{t=localStorage.getItem('theme')}catch(e){}if(t!=='light'&&t!=='dark'){var h=new Date().getHours();t=(h>=7&&h<17)?'light':'dark'}d.setAttribute('data-theme',t)})();</script>
+<style>
+*{margin:0;padding:0;box-sizing:border-box}
+:root{--bg:#f5f9fa;--surface:#ffffff;--surface2:#e9f1f2;--ink:#1c2d35;--muted:#557079;--accent:#0d7c8a;--accent-2:#095f6a;--on-accent:#ffffff;--line:#d6e3e5;--warn-bg:#fbf3e4;--warn-ink:#77571c;--warn-line:#e8d5ad;--danger:#a2403a;--shadow:0 1px 3px rgba(23,42,50,.08)}
+html[data-theme=dark]{--bg:#0e171c;--surface:#16242b;--surface2:#1b2e36;--ink:#e2edf0;--muted:#95abb3;--accent:#41c0ca;--accent-2:#7cd6dd;--on-accent:#04282c;--line:#273b44;--warn-bg:#2a2517;--warn-ink:#dcc38c;--warn-line:#4a3f22;--danger:#e28f87;--shadow:0 2px 8px rgba(0,0,0,.45)}
+body{font-family:"PingFang SC","Hiragino Sans GB","Microsoft YaHei","Noto Sans SC",sans-serif;background:var(--bg);color:var(--ink);line-height:1.78;font-size:16px}
+a{color:var(--accent);text-decoration:none}
+a:hover{text-decoration:underline}
+.wrap{max-width:960px;margin:0 auto;padding:0 20px}
+.site-head{background:var(--surface);border-bottom:1px solid var(--line);position:sticky;top:0;z-index:50}
+.head-in{display:flex;align-items:center;gap:12px;min-height:56px;position:relative}
+.brand{font-weight:700;color:var(--ink);font-size:1.05rem;white-space:nowrap}
+.site-nav{display:flex;gap:4px;flex-wrap:wrap;margin-left:auto}
+.site-nav a{padding:6px 10px;border-radius:6px;color:var(--muted);font-size:.92rem;white-space:nowrap}
+.site-nav a:hover{color:var(--accent);text-decoration:none;background:var(--surface2)}
+.site-nav a[aria-current=page]{color:var(--on-accent);background:var(--accent)}
+.head-actions{margin-left:auto;display:flex;gap:8px;align-items:center}
+.site-nav + .head-actions{margin-left:0}
+.icon-btn{border:1px solid var(--line);background:var(--surface);color:var(--ink);border-radius:8px;width:40px;height:40px;font-size:1.1rem;cursor:pointer;flex:none;display:inline-flex;align-items:center;justify-content:center}
+html.js .site-nav{display:none}
+html.js .icon-btn.js-menu{display:inline-flex}
+@media(min-width:721px){
+ html.js .site-nav{display:flex}
+ html.js .icon-btn.js-menu{display:none}
+}
+@media(max-width:720px){
+ .head-in{min-height:50px}
+ html.js .site-nav{position:absolute;top:100%;left:0;right:0;background:var(--surface);border-bottom:1px solid var(--line);flex-direction:column;padding:8px 14px 14px;box-shadow:var(--shadow)}
+ html.js .site-nav.open{display:flex}
+ html.js .site-nav a{display:block;padding:10px 8px;border-bottom:1px solid var(--line);font-size:1rem}
+ html.js .site-nav a:last-child{border-bottom:none}
+}
+main{padding:36px 0 50px}
+h1{font-size:1.85rem;line-height:1.4;margin-bottom:14px}
+h2{font-size:1.32rem;margin:2.2em 0 .7em;color:var(--accent-2)}
+html[data-theme=dark] h2{color:var(--accent)}
+h3{font-size:1.06rem;margin:1.6em 0 .5em}
+p{margin:.8em 0}
+.lede{font-size:1.05rem;color:var(--muted)}
+.callout{border-left:4px solid var(--accent);background:var(--surface2);padding:12px 16px;border-radius:0 8px 8px 0;margin:1.2em 0}
+.callout.warn{border-left-color:var(--danger);background:var(--warn-bg);color:var(--warn-ink)}
+.table-scroll{overflow-x:auto;margin:1.2em 0;border:1px solid var(--line);border-radius:10px;background:var(--surface)}
+table{width:100%;border-collapse:collapse;font-size:.94rem;min-width:620px}
+th,td{padding:10px 12px;border-bottom:1px solid var(--line);text-align:left;vertical-align:top}
+th{background:var(--surface2);color:var(--ink);font-weight:600;white-space:nowrap}
+tr:last-child td{border-bottom:none}
+.badge{display:inline-block;font-size:.76rem;line-height:1.7;padding:1px 10px;border-radius:999px;white-space:nowrap;font-weight:600}
+.bA{background:var(--accent);color:var(--on-accent)}
+.bB{border:1.5px solid var(--accent);color:var(--accent)}
+.bC{border:1px solid var(--muted);color:var(--muted)}
+.bD{color:var(--muted)}
+.src{font-size:.85rem;color:var(--muted)}
+ul,ol{padding-left:1.4em;margin:.7em 0}
+li{margin:.4em 0}
+footer{background:var(--surface);border-top:1px solid var(--line);padding:30px 0 36px;margin-top:20px}
+.foot-nav{display:flex;flex-wrap:wrap;gap:6px 16px;margin-bottom:14px;font-size:.92rem}
+.disclaimer{background:var(--warn-bg);border:1px solid var(--warn-line);color:var(--warn-ink);padding:14px 16px;border-radius:10px;font-size:.92rem}
+@media(prefers-reduced-motion:no-preference){
+ .js .reveal{opacity:0;transform:translateY(14px);transition:opacity .6s ease,transform .6s ease}
+ .js .reveal.in{opacity:1;transform:none}
+}
+@media(prefers-reduced-motion:reduce){.reveal{opacity:1!important;transform:none!important}}
+.portal{position:fixed;left:14px;bottom:14px;z-index:99}.portal a{display:inline-block;padding:7px 16px;border-radius:999px;background:rgba(20,20,20,.72);color:#fff;font-size:13px;text-decoration:none;backdrop-filter:blur(4px);font-family:system-ui,sans-serif}.portal a:hover{background:rgba(20,20,20,.9)}
+.toTop{position:fixed;right:14px;bottom:14px;z-index:98;display:none;border:none;cursor:pointer;padding:7px 14px;border-radius:999px;background:rgba(20,20,20,.72);color:#fff;font-size:14px;line-height:1;backdrop-filter:blur(4px);font-family:system-ui,sans-serif}.toTop:hover{background:rgba(20,20,20,.9)}.toTop.show{display:inline-block}
+</style>
+<noscript><style>.reveal{opacity:1!important;transform:none!important}.portal{position:fixed;left:14px;bottom:14px;z-index:99}.portal a{display:inline-block;padding:7px 16px;border-radius:999px;background:rgba(20,20,20,.72);color:#fff;font-size:13px;text-decoration:none;backdrop-filter:blur(4px);font-family:system-ui,sans-serif}.portal a:hover{background:rgba(20,20,20,.9)}
+.toTop{position:fixed;right:14px;bottom:14px;z-index:98;display:none;border:none;cursor:pointer;padding:7px 14px;border-radius:999px;background:rgba(20,20,20,.72);color:#fff;font-size:14px;line-height:1;backdrop-filter:blur(4px);font-family:system-ui,sans-serif}.toTop:hover{background:rgba(20,20,20,.9)}.toTop.show{display:inline-block}
+</style></noscript>
+</head>
+<body>
+<header class="site-head">
+ <div class="wrap head-in">
+  <a class="brand" href="index.html">保健品使用指南</a>
+  <nav id="nav" class="site-nav" aria-label="站内导航">
+   <a href="index.html">首页</a>
+   <a href="basics.html">基础知识</a>
+   <a href="evidence.html">证据分级</a>
+   <a href="by-need.html">按需选择</a>
+   <a href="decide.html">理性决策</a>
+   <a href="traditions.html">流派与传统</a>
+   <a href="brands.html">品牌辨识</a>
+   <a href="safety.html" aria-current="page">安全边界</a>
+   <a href="myths.html">误区破解</a>
+   <a href="buy.html">选购鉴别</a>
+   <a href="../index.html">总门户</a>
+  </nav>
+  <div class="head-actions">
+   <button id="themeBtn" class="icon-btn" type="button" aria-label="切换明暗主题">☾</button>
+   <button id="menuBtn" class="icon-btn js-menu" type="button" aria-expanded="false" aria-controls="nav" aria-label="打开导航菜单">☰</button>
+  </div>
+ </div>
+</header>
+<main>
+ <div class="wrap">
+  <h1 class="reveal">安全边界：补充剂并非零风险</h1>
+  <p class="lede reveal">"是药三分毒"这句话同样适用于补充剂。本页数据主要来自中国营养学会《中国居民膳食营养素参考摄入量（DRIs，2023 版）》的成人可耐受最高摄入量（UL）、NIH ODS 事实清单中的安全性与相互作用章节，以及美国药物性肝损伤网络（DILIN）与相关肝病学会对草本补充剂肝损伤的公开资料。</p>
+
+  <h2 class="reveal">一、可耐受最高摄入量（UL）速查表</h2>
+  <p class="reveal">UL 指某一营养素每日摄入总量的安全上限（含食物加补充剂），长期超过 UL 不良反应风险显著上升。下表为成人参考值，儿童、孕妇另有更低标准。</p>
+  <div class="table-scroll reveal">
+   <table>
+    <thead><tr><th>营养素</th><th>成人 UL（每日）</th><th>长期过量的主要危害</th></tr></thead>
+    <tbody>
+     <tr><td>维生素 A（视黄醇，孕早期尤慎）</td><td>约 3000 微克视黄醇当量</td><td>肝损伤、骨质疏松风险；孕早期致畸</td></tr>
+     <tr><td>维生素 D</td><td>50 微克（2000 IU）</td><td>高钙血症、肾结石、软组织钙化</td></tr>
+     <tr><td>维生素 E（补充剂）</td><td>约 600 至 1000 毫克（各国不一）</td><td>出血倾向、与华法林叠加</td></tr>
+     <tr><td>维生素 C</td><td>2000 毫克</td><td>腹泻、草酸盐肾结石风险升高</td></tr>
+     <tr><td>维生素 B6</td><td>中国 DRIs 约 60 毫克（美国 100 毫克）</td><td>长期大剂量致周围神经病变</td></tr>
+     <tr><td>叶酸（合成型）</td><td>1000 微克</td><td>掩盖维生素 B12 缺乏，延误神经损害诊断</td></tr>
+     <tr><td>钙</td><td>2000 毫克</td><td>肾结石、便秘、血管等软组织钙化争议、干扰铁锌吸收</td></tr>
+     <tr><td>铁</td><td>42 毫克（美国 45 毫克）</td><td>胃肠道出血损伤、血色病；儿童误服致命</td></tr>
+     <tr><td>锌</td><td>40 毫克</td><td>铜缺乏致贫血与神经损害、免疫下降</td></tr>
+     <tr><td>硒</td><td>400 微克</td><td>脱发、指（趾）甲变脆、周围神经病变</td></tr>
+     <tr><td>镁（仅计补充剂与药物）</td><td>约 350 毫克</td><td>腹泻、肾功能差者高镁血症</td></tr>
+     <tr><td>烟酸（治疗剂量须遵医嘱）</td><td>35 毫克（补充剂型另有药物剂量）</td><td>潮红、肝损伤（缓释型）</td></tr>
+    </tbody>
+   </table>
+  </div>
+  <div class="callout warn reveal"><strong>累加是隐形陷阱：</strong>"复合维生素加钙片加蛋白粉（常强化铁锌）加营养强化食品"很容易叠出超限量。计算总摄入时请把所有来源合并统计；脂溶性维生素 A、D、E、K 可在体内蓄积，危害常在数月甚至数年后才显现。</div>
+
+  <h2 class="reveal">二、典型的过量危害</h2>
+  <ul class="reveal">
+   <li><strong>铁过量：</strong>遗传性血色病患者、反复输血者风险最高；儿童误服成人铁剂是急诊中毒的经典原因，补铁产品务必上锁保存。男性与非孕期女性一般不应常规补铁。</li>
+   <li><strong>维生素 A 过量：</strong>孕妇孕早期大剂量视黄醇与胎儿畸形相关，孕妇应避免含高剂量维生素 A 的产品（β 胡萝卜素来源无此问题），动物肝脏也不宜天天大量吃。</li>
+   <li><strong>钙过量：</strong>有肾结石病史者应在医生指导下补钙；"高钙片"嚼得越多越好是错误观念。</li>
+   <li><strong>大剂量维生素 D：</strong>网上流行的"每日 5000 至 10000 IU 免疫方案"没有证据支持，且有高钙血症风险，NIH ODS 明确把长期超 UL 摄入列为不安全。</li>
+  </ul>
+
+  <h2 class="reveal">三、药物相互作用</h2>
+  <div class="table-scroll reveal">
+   <table>
+    <thead><tr><th>补充剂</th><th>受影响药物</th><th>后果与处理</th></tr></thead>
+    <tbody>
+     <tr><td>鱼油（高剂量）、银杏、维生素 E（高剂量）</td><td>华法林、阿司匹林等抗凝抗板药</td><td>出血风险叠加；使用抗凝药者用鱼油前必须告知医生</td></tr>
+     <tr><td>圣约翰草（贯叶连翘）</td><td>口服避孕药、环孢素、部分抗抑郁药、抗肿瘤药、抗 HIV 药</td><td>强效肝药酶诱导剂，降低上述药物血药浓度，可致避孕失败、移植排斥</td></tr>
+     <tr><td>钙、铁、锌、镁（多价阳离子）</td><td>左甲状腺素、喹诺酮与四环素类抗生素、双膦酸盐</td><td>形成络合物，两药吸收都下降；与左甲状腺素至少间隔 4 小时</td></tr>
+     <tr><td>维生素 K（大量绿叶菜或补充剂）</td><td>华法林</td><td>拮抗抗凝效果，使 INR 波动；保持摄入稳定并告知医生</td></tr>
+     <tr><td>色氨酸、5-HTP</td><td>SSRI 类抗抑郁药、曲普坦类</td><td>理论上有血清素综合征风险，避免合用</td></tr>
+     <tr><td>益生菌（高活菌数）</td><td>免疫抑制剂、中央静脉导管人群</td><td>极少数机会性感染风险，免疫低下者遵医嘱</td></tr>
+      <tr><td>红曲</td><td>他汀类（阿托伐他汀、辛伐他汀、洛伐他汀等）</td><td>红曲的降胆固醇成分即莫纳可林 K（洛伐他汀样物质），与他汀叠加增加肌肉与肝损伤风险，不可自行合用；服他汀者不要自行加红曲</td></tr>
+      <tr><td>葡萄柚（西柚）及葡萄柚汁</td><td>他汀类（辛伐他汀、洛伐他汀尤明显）、免疫抑制剂（环孢素、他克莫司）、部分钙拮抗剂</td><td>抑制肠道 CYP3A4，显著升高上述药物血药浓度，增加横纹肌溶解、肾毒性等风险；服药期间避免葡萄柚，换橙子等普通柑橘不受影响</td></tr>
+      <tr><td>辅酶 Q10、维生素 K（补充剂）</td><td>华法林</td><td>辅酶 Q10 可能降低华法林抗凝效果，维生素 K 直接拮抗；服华法林者加用任何补充剂前告知医生并监测 INR</td></tr>
+      <tr><td>圣约翰草、5-HTP</td><td>SSRI 类抗抑郁药（舍曲林、帕罗西汀、氟西汀等）</td><td>圣约翰草本身有拟 5 羟色胺活性且诱导代谢，与 SSRI 合用有血清素综合征风险，并可能降低药效；5-HTP 同理，均应避免合用</td></tr>
+      <tr><td>钙、铁（多价阳离子）</td><td>左甲状腺素（优甲乐等）</td><td>形成络合物使两药吸收都下降；与左甲状腺素至少间隔 4 小时，晨起空腹服甲状腺药、钙铁放晚间是常用安排</td></tr>
+      <tr><td>铬（吡啶甲酸铬）、α-硫辛酸</td><td>胰岛素、磺脲类等降糖药</td><td>可能增强降糖作用引起低血糖；糖尿病者使用前咨询医生并加强血糖监测，不要据此自行减药</td></tr>
+    </tbody>
+   </table>
+  </div>
+  <p class="reveal">就诊与取药时请主动、完整地告知正在使用的全部补充剂，包括"纯天然"产品。临床药师可以做正规的相互作用核查，多数问题靠错开服药时间或调整剂量即可解决，但前提是他们知道你在吃什么。</p>
+
+  <h2 class="reveal">四、手术前请停用并告知</h2>
+  <p class="reveal">梅奥诊所等机构的围手术期建议普遍要求：择期手术前至少一到两周停用大部分非必需补充剂（具体时程遵麻醉科医嘱），尤其涉及出血风险的鱼油、银杏、高剂量维生素 E，影响血糖与心血管活性的产品，以及成分不明的复方草本。原因是麻醉与手术用药复杂，草本成分可能影响血压、心率、血糖和凝血，而许多产品缺乏在手术场景下的安全数据。住院登记表上请如实填写补充剂使用情况，这一点经常能避免严重并发症。</p>
+
+  <h2 class="reveal">五、肝损伤：高发品类与识别信号</h2>
+  <p class="reveal">在欧美药物性肝损伤登记系统中，草本与膳食补充剂已占相当比例且呈上升趋势。风险较高的品类包括：高剂量绿茶提取物（减肥类产品常见成分）、某些"增肌促睾"产品（部分非法添加蛋白同化激素）、来路不明的减肥"排毒"产品，以及传统药材中的个别品种（如何首乌，中国药监与肝病指南均有肝损伤提示）。这些损伤有的与剂量相关，有的属于个体特异质，无法通过"控制用量"完全避免。出现乏力、食欲下降、尿色加深、皮肤巩膜发黄时应立即停用并就医，并主动告知医生使用过的全部补充剂。</p>
+
+  <h2 class="reveal">六、明确的谨慎与禁忌人群</h2>
+  <ul class="reveal">
+   <li>孕妇与哺乳期：避免含高剂量维生素 A、圣约翰草、不明复方草本的产品。</li>
+   <li>慢性肝肾病者：蛋白粉剂量、各种草本与"排毒"产品须医生评估。</li>
+   <li>抗凝治疗患者：见上表，任何含鱼油、银杏、维生素 E 的产品前先咨询。</li>
+   <li>肿瘤患者：抗氧化类补充剂在放化疗期间的使用存在争议，须由肿瘤医生决定，不要自行服用。</li>
+   <li>婴幼儿与儿童：除维生素 D 滴剂和医嘱治疗外，不给儿童使用成人补充剂。</li>
+  </ul>
+
+  <div class="callout reveal"><strong>安全的三个习惯：</strong>同一时间服用的补充剂不超过实际需要的一至两种；每次就诊带着补充剂清单或实物拍照给医生看；出现可疑症状先停用、再就医。选购环节的避坑要点见<a href="buy.html">选购鉴别</a>。</div>
+ </div>
+</main>
+<footer>
+ <div class="wrap">
+  <nav class="foot-nav" aria-label="页脚导航">
+   <a href="index.html">首页</a><a href="basics.html">基础知识</a><a href="evidence.html">证据分级</a><a href="by-need.html">按需选择</a><a href="decide.html">理性决策</a><a href="traditions.html">流派与传统</a><a href="brands.html">品牌辨识</a><a href="safety.html">安全边界</a><a href="myths.html">误区破解</a><a href="buy.html">选购鉴别</a><a href="../index.html">返回总门户</a>
+  </nav>
+  <p class="disclaimer">本站内容仅供科普参考，不构成医疗建议；服用任何保健品前请咨询医生或临床药师，孕妇、儿童、慢性病及服药人群尤其如此。</p>
+ </div>
+</footer>
+<script>
+(function(){
+var doc=document;
+var mb=doc.getElementById('menuBtn'),nv=doc.getElementById('nav');
+if(mb&&nv){
+ mb.addEventListener('click',function(){var open=nv.classList.toggle('open');mb.setAttribute('aria-expanded',open?'true':'false')});
+ nv.addEventListener('click',function(e){if(e.target.closest('a')){nv.classList.remove('open');mb.setAttribute('aria-expanded','false')}});
+}
+var tb=doc.getElementById('themeBtn');
+function label(){var t=doc.documentElement.getAttribute('data-theme');tb.textContent=t==='dark'?'☀':'☾';tb.setAttribute('title',t==='dark'?'切换到浅色主题':'切换到深色主题')}
+if(tb){label();tb.addEventListener('click',function(){var cur=doc.documentElement.getAttribute('data-theme')==='dark'?'light':'dark';doc.documentElement.setAttribute('data-theme',cur);try{localStorage.setItem('theme',cur)}catch(e){}label()})}
+var els=doc.querySelectorAll('.reveal');
+if('IntersectionObserver' in window){
+ var io=new IntersectionObserver(function(es){es.forEach(function(en){if(en.isIntersecting){en.target.classList.add('in');io.unobserve(en.target)}})},{threshold:.06});
+ els.forEach(function(el){io.observe(el)});
+}else{els.forEach(function(el){el.classList.add('in')})}
+})();
+</script>
+<div class="portal"><a href="../index.html">&#8592; 总门户</a></div>
+<button class="toTop" type="button" id="toTop" aria-label="回到顶部">&#8593;</button>
+<script>
+(function(){
+  var b=document.getElementById('toTop');if(!b)return;
+  var rm=window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  function upd(){if(window.scrollY>600){b.classList.add('show')}else{b.classList.remove('show')}}
+  window.addEventListener('scroll',upd,{passive:true});upd();
+  b.addEventListener('click',function(){window.scrollTo({top:0,behavior:rm?'auto':'smooth'});});
+})();
+</script>
+</body>
+</html>

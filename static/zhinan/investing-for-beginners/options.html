@@ -26,7 +26,7 @@ document.documentElement.setAttribute('data-theme',t);})();
   color-scheme:dark;
   --bg:#060b16; --bg2:#0a1322; --panel:#0d1728; --panel2:#101d33;
   --line:#1d2c47; --line2:#2a4166;
-  --txt:#d9e2f0; --muted:#8b9cb5; --faint:#5f7290;
+  --txt:#d9e2f0; --muted:#8b9cb5; --faint:#7d90b0;
   --amber:#f2b233; --amber2:#ffd070; --amber-dim:rgba(242,178,51,.10); --amber-line:rgba(242,178,51,.38);
   --amber-ink:#0a1322; --navbg:rgba(6,11,22,.93);
 }
@@ -39,7 +39,7 @@ a:hover{text-decoration:underline}
 .topline .wrap{display:flex;justify-content:space-between;gap:12px;padding-top:7px;padding-bottom:7px;flex-wrap:wrap}
 .topline b{color:var(--amber);font-weight:600}
 nav.mainnav{position:sticky;top:0;z-index:50;background:var(--navbg);backdrop-filter:blur(8px);border-bottom:1px solid var(--line)}
-.mainnav .wrap{display:flex;align-items:center;gap:4px;height:56px;overflow-x:auto;white-space:nowrap}
+.mainnav .wrap{display:flex;flex-wrap:wrap;align-items:center;gap:4px;row-gap:6px;min-height:56px;padding:8px 0}
 .brand{font-family:var(--mono);font-weight:700;color:var(--txt);margin-right:14px;letter-spacing:.5px;font-size:15px}
 .brand b{color:var(--amber)}
 .mainnav a.nl{padding:7px 13px;border-radius:9px;color:var(--muted);font-size:14.5px;border:1px solid transparent;flex:none}
@@ -49,6 +49,10 @@ nav.mainnav{position:sticky;top:0;z-index:50;background:var(--navbg);backdrop-fi
 .mainnav .tbtn{margin-left:auto;border:1px solid var(--line2);font-family:var(--mono);font-size:13px;color:var(--muted);background:transparent;cursor:pointer;flex:none;padding:7px 13px;border-radius:9px}
 .mainnav .tbtn:hover{color:var(--amber2);border-color:var(--amber-line);background:var(--amber-dim)}
 .mainnav .tbtn:focus-visible{outline:2px solid var(--amber);outline-offset:2px}
+.mainnav .nlinks{display:flex;flex-wrap:wrap;align-items:center;gap:4px;row-gap:6px;min-width:0}
+.mainnav .nbtn{display:none;flex:none;margin-left:8px;border:1px solid var(--line2);font-family:var(--mono);font-size:16px;line-height:1.3;color:var(--muted);background:transparent;cursor:pointer;padding:6px 12px;border-radius:9px}
+.mainnav .nbtn:hover{color:var(--amber2);border-color:var(--amber-line);background:var(--amber-dim)}
+.mainnav .nbtn:focus-visible{outline:2px solid var(--amber);outline-offset:2px}
 header.hero{padding:52px 0 20px}
 .kicker{font-family:var(--mono);font-size:13px;color:var(--amber);letter-spacing:2px}
 h1{font-size:clamp(27px,4.4vw,38px);line-height:1.25;margin:12px 0 14px;font-weight:800}
@@ -56,18 +60,26 @@ h1 .accent{color:var(--amber)}
 .lead{color:var(--muted);font-size:16px;max-width:66ch}
 .notice{margin:26px 0;border:1px dashed var(--amber-line);background:var(--amber-dim);border-radius:12px;padding:14px 18px;font-size:14px;color:var(--amber2);max-width:820px}
 .notice .nlabel{font-family:var(--mono);font-size:11px;letter-spacing:1.5px;display:block;margin-bottom:5px;color:var(--amber)}
-h2.sec{display:flex;align-items:center;gap:12px;margin:52px 0 8px;font-size:20px;font-weight:800}
+h2.sec{display:flex;align-items:center;gap:12px;margin:76px 0 12px;font-size:21px;font-weight:800;padding-left:14px;border-left:3px solid var(--amber);scroll-margin-top:76px}
 .secno{font-family:var(--mono);color:var(--amber);font-size:12.5px;border:1px solid var(--amber-line);border-radius:7px;padding:3px 9px;background:var(--amber-dim);letter-spacing:1px;flex:none}
-.secsub{color:var(--faint);font-size:13.5px;margin-bottom:20px;font-family:var(--mono)}
-.grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(310px,1fr));gap:16px}
-.card{background:linear-gradient(180deg,var(--panel2),var(--panel));border:1px solid var(--line);border-radius:var(--r);padding:19px 19px 17px;transition:border-color .25s}
+.secsub{color:var(--faint);font-size:13.5px;margin-bottom:30px;font-family:var(--mono)}
+.toc{display:flex;flex-wrap:wrap;align-items:center;gap:8px;margin:6px 0 10px;padding:13px 16px;background:var(--panel);border:1px solid var(--line);border-radius:12px}
+.toc .tlabel{font-family:var(--mono);font-size:11px;letter-spacing:1.5px;color:var(--amber);margin-right:2px}
+.toc a{font-size:13px;font-family:var(--mono);color:var(--muted);border:1px solid var(--line2);background:var(--panel2);border-radius:999px;padding:4px 12px}
+.toc a:hover{color:var(--amber2);border-color:var(--amber-line);background:var(--amber-dim);text-decoration:none}
+.grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(min(100%,320px),1fr));gap:24px}
+.card{background:var(--panel2);border:1px solid var(--line);border-radius:var(--r);padding:20px 22px 22px;box-shadow:0 1px 4px rgba(15,26,48,.06);transition:border-color .25s}
+[data-theme="dark"] .card{border-color:var(--line2);box-shadow:0 2px 10px rgba(0,0,0,.38)}
 .card:hover{border-color:var(--amber-line)}
 .thead{display:flex;align-items:center;gap:10px;flex-wrap:wrap}
-.tcode{font-family:var(--mono);font-size:10.5px;color:var(--amber);border:1px solid var(--amber-line);background:var(--amber-dim);padding:2px 7px;border-radius:6px;letter-spacing:.5px;flex:none}
-.tname{font-size:16px;font-weight:700}
-.ten{font-family:var(--mono);font-size:11.5px;color:var(--faint);margin-top:2px}
-.card p{margin-top:9px;font-size:14px;color:var(--muted);line-height:1.8}
+.tcode{font-family:var(--mono);font-size:11.5px;color:var(--amber);border:1px solid var(--amber-line);background:var(--amber-dim);padding:2px 8px;border-radius:6px;letter-spacing:.5px;flex:none}
+.tname{font-size:17px;font-weight:800;line-height:1.4}
+.ten{font-family:var(--mono);font-size:12px;color:var(--faint);margin-top:3px;padding-bottom:12px;border-bottom:1px solid var(--line);overflow-wrap:anywhere}
+[data-theme="dark"] .ten{border-bottom-color:var(--line2)}
+.card p{margin-top:14px;font-size:15px;color:var(--muted);line-height:1.8;max-width:38em;overflow-wrap:break-word}
+.card p+p{margin-top:10px}
 .card p b{color:var(--txt);font-weight:600}
+.backlinks{display:flex;flex-wrap:wrap;gap:6px 22px;margin-top:30px}
 footer{margin-top:70px;border-top:1px solid var(--line);background:var(--bg2)}
 footer .wrap{padding:30px 22px;display:flex;flex-wrap:wrap;gap:16px;justify-content:space-between;align-items:flex-start;font-size:13.5px;color:var(--faint)}
 footer .fmono{font-family:var(--mono);font-size:12px}
@@ -78,9 +90,17 @@ footer .fdisc strong{color:var(--amber);font-weight:600}
 .backlink:hover{color:var(--amber)}
 @media (max-width:480px){
   .wrap{padding:0 16px}
-  .mainnav .wrap{gap:2px}
-  .mainnav{scrollbar-width:thin}
   .grid{grid-template-columns:1fr}
+}
+@media (max-width:720px){
+  .mainnav .wrap{flex-wrap:wrap;min-height:48px;padding:6px 0}
+  html.js .mainnav .nbtn{display:inline-flex;align-items:center;justify-content:center}
+  html.js .nlinks{order:9;display:flex;flex-direction:column;align-items:stretch;flex:0 0 100%;gap:4px;margin:0;max-height:0;overflow:hidden;visibility:hidden;border-top:0 solid var(--line)}
+  html.js .nlinks.open{max-height:420px;visibility:visible;border-top-width:1px;padding:6px 0 8px}
+  html.js .nlinks a.nl{padding:10px 13px}
+}
+@media (max-width:720px) and (prefers-reduced-motion: no-preference){
+  html.js .nlinks{transition:max-height .28s ease,visibility .28s ease}
 }
 @media (prefers-reduced-motion: no-preference){
   html{scroll-behavior:smooth}
@@ -88,19 +108,26 @@ footer .fdisc strong{color:var(--amber);font-weight:600}
   html.js .reveal.in{opacity:1;transform:none}
   .card{transition:border-color .25s}
 }
+.portal{position:fixed;left:14px;bottom:14px;z-index:99}.portal a{display:inline-block;padding:7px 16px;border-radius:999px;background:rgba(20,20,20,.72);color:#fff;font-size:13px;text-decoration:none;backdrop-filter:blur(4px);font-family:system-ui,sans-serif}.portal a:hover{background:rgba(20,20,20,.9)}
+.toTop{position:fixed;right:14px;bottom:14px;z-index:98;display:none;border:none;cursor:pointer;padding:7px 14px;border-radius:999px;background:rgba(20,20,20,.72);color:#fff;font-size:14px;line-height:1;backdrop-filter:blur(4px);font-family:system-ui,sans-serif}.toTop:hover{background:rgba(20,20,20,.9)}.toTop.show{display:inline-block}
 </style>
-<noscript><style>.reveal{opacity:1 !important;transform:none !important}</style></noscript></head>
-<body><div style="position:fixed;left:14px;bottom:14px;z-index:99;"><a href="../index.html" style="display:inline-block;padding:7px 16px;border-radius:999px;background:rgba(20,20,20,.72);color:#fff;font-size:13px;text-decoration:none;backdrop-filter:blur(4px);font-family:system-ui,sans-serif;" onmouseover="this.style.background='rgba(20,20,20,.9)'" onmouseout="this.style.background='rgba(20,20,20,.72)'">&#8592; 总门户</a></div>
+<noscript><style>.reveal{opacity:1 !important;transform:none !important}.portal{position:fixed;left:14px;bottom:14px;z-index:99}.portal a{display:inline-block;padding:7px 16px;border-radius:999px;background:rgba(20,20,20,.72);color:#fff;font-size:13px;text-decoration:none;backdrop-filter:blur(4px);font-family:system-ui,sans-serif}.portal a:hover{background:rgba(20,20,20,.9)}
+.toTop{position:fixed;right:14px;bottom:14px;z-index:98;display:none;border:none;cursor:pointer;padding:7px 14px;border-radius:999px;background:rgba(20,20,20,.72);color:#fff;font-size:14px;line-height:1;backdrop-filter:blur(4px);font-family:system-ui,sans-serif}.toTop:hover{background:rgba(20,20,20,.9)}.toTop.show{display:inline-block}
+</style></noscript></head>
+<body><div class="portal"><a href="../index.html">&#8592; 总门户</a></div>
 <div class="topline"><div class="wrap"><span>IFB://MODULE/OPTIONS &nbsp;<b>DERIVATIVES</b></span><span>TERM CARDS: <b>23</b></span><span>MULT: <b>100</b></span></div></div>
 <nav class="mainnav"><div class="wrap">
   <span class="brand">IFB<b>::导读站</b></span>
+  <div class="nlinks" id="navLinks">
   <a class="nl" href="index.html">首页</a>
   <a class="nl" href="stocks.html">美股入门</a>
   <a class="nl on" href="options.html" aria-current="page">期权进阶</a>
   <a class="nl" href="crypto.html">加密货币</a>
   <a class="nl" href="path.html">学习路径</a>
   <a class="nl git" href="https://github.com/xuchonglang/investing-for-beginners" target="_blank" rel="noopener">GitHub ↗</a>
+  </div>
   <button class="tbtn" id="themeToggle" type="button">主题</button>
+  <button class="nbtn" id="navToggle" type="button" aria-expanded="false" aria-controls="navLinks" aria-label="打开导航菜单">☰</button>
 </div></nav>
 
 <header class="hero"><div class="wrap">
@@ -112,7 +139,9 @@ footer .fdisc strong{color:var(--amber);font-weight:600}
 
 <main><div class="wrap">
 
-  <h2 class="sec reveal"><span class="secno">A</span>基础构件</h2>
+  <nav class="toc reveal" aria-label="本页速览"><span class="tlabel">本页速览</span><a href="#sec-a">A · 基础构件</a><a href="#sec-b">B · 希腊字母与波动率</a><a href="#sec-c">C · 常用策略</a><a href="#sec-d">D · 交易机制与风险</a></nav>
+
+  <h2 class="sec reveal" id="sec-a"><span class="secno">A</span>基础构件</h2>
   <p class="secsub reveal">BUILDING BLOCKS · 一张期权合约由什么组成</p>
   <div class="grid">
     <div class="card reveal"><div class="thead"><span class="tcode">OPT-01</span><span class="tname">Call 与 Put</span></div><div class="ten">Calls and Puts</div>
@@ -131,7 +160,7 @@ footer .fdisc strong{color:var(--amber);font-weight:600}
       <p>按到期日和行权价排列的全部合约报价表，是观察价格、买卖价差、成交量、未平仓量和隐含波动率结构的主要界面。下单前的核对清单（方向、腿数、行权价、到期日）都在期权链上完成。</p></div>
   </div>
 
-  <h2 class="sec reveal"><span class="secno">B</span>希腊字母与波动率</h2>
+  <h2 class="sec reveal" id="sec-b"><span class="secno">B</span>希腊字母与波动率</h2>
   <p class="secsub reveal">GREEKS · VOLATILITY · 期权风险的度量衡</p>
   <div class="grid">
     <div class="card reveal"><div class="thead"><span class="tcode">OPT-08</span><span class="tname">Delta</span></div><div class="ten">Delta</div>
@@ -150,7 +179,7 @@ footer .fdisc strong{color:var(--amber);font-weight:600}
       <p>不同行权价的隐含波动率并不在同一水平，通常虚值 Put 的 IV 更高，反映市场对下行保护的需求更强。偏斜会影响同行权价策略的定价，仓库建议选行权价时把偏斜纳入考量。</p></div>
   </div>
 
-  <h2 class="sec reveal"><span class="secno">C</span>常用策略</h2>
+  <h2 class="sec reveal" id="sec-c"><span class="secno">C</span>常用策略</h2>
   <p class="secsub reveal">STRATEGIES · 先理解结构，再谈收益</p>
   <div class="grid">
     <div class="card reveal"><div class="thead"><span class="tcode">OPT-15</span><span class="tname">备兑开仓</span></div><div class="ten">Covered Call</div>
@@ -167,7 +196,7 @@ footer .fdisc strong{color:var(--amber);font-weight:600}
       <p>同一行权价同时买入 Call 和 Put，赌标的大幅波动但方向未知。成本高，怕的是波动不来：时间衰减和 IV 回落会同时侵蚀两腿价值。</p></div>
   </div>
 
-  <h2 class="sec reveal"><span class="secno">D</span>交易机制与风险</h2>
+  <h2 class="sec reveal" id="sec-d"><span class="secno">D</span>交易机制与风险</h2>
   <p class="secsub reveal">MECHANICS · RISK · 行权、指派与末日合约</p>
   <div class="grid">
     <div class="card reveal"><div class="thead"><span class="tcode">OPT-21</span><span class="tname">行权与指派</span></div><div class="ten">Exercise / Assignment</div>
@@ -178,7 +207,7 @@ footer .fdisc strong{color:var(--amber);font-weight:600}
       <p>成交量是当日成交的合约数，未平仓量是尚未平仓的存量合约。退出大仓位时，未平仓量比当日成交量更能代表合约的持续流动性；窄价差加高未平仓量才是好退出的组合。</p></div>
   </div>
 
-  <a class="backlink" href="stocks.html">← 上一模块：美股入门</a>&nbsp;&nbsp;<a class="backlink" href="crypto.html">下一模块：加密货币 →</a>&nbsp;&nbsp;<a class="backlink" href="index.html">返回首页</a>
+  <div class="backlinks"><a class="backlink" href="stocks.html">← 上一模块：美股入门</a><a class="backlink" href="crypto.html">下一模块：加密货币 →</a><a class="backlink" href="index.html">返回首页</a></div>
   <p style="color:var(--faint);font-size:13px;margin-top:22px;font-family:var(--mono)">TIP: 完整期权词条（350+，含 Black-Scholes、Put-Call Parity、税务、保证金与数十种策略组合）见仓库 content/options 目录。</p>
 </div></main>
 
@@ -217,6 +246,35 @@ footer .fdisc strong{color:var(--amber);font-weight:600}
     try{localStorage.setItem('theme',t);}catch(e){}
     label();
   });
+})();
+(function(){
+  var b=document.getElementById('navToggle'),p=document.getElementById('navLinks');
+  if(!b||!p)return;
+  function close(){
+    p.classList.remove('open');
+    b.setAttribute('aria-expanded','false');
+    b.textContent='☰';
+    b.setAttribute('aria-label','打开导航菜单');
+  }
+  b.addEventListener('click',function(){
+    var open=p.classList.toggle('open');
+    b.setAttribute('aria-expanded',open?'true':'false');
+    b.textContent=open?'✕':'☰';
+    b.setAttribute('aria-label',open?'关闭导航菜单':'打开导航菜单');
+  });
+  p.addEventListener('click',function(e){
+    if(e.target&&e.target.closest&&e.target.closest('a')){close();}
+  });
+})();
+</script>
+<button class="toTop" type="button" id="toTop" aria-label="回到顶部">&#8593;</button>
+<script>
+(function(){
+  var b=document.getElementById('toTop');if(!b)return;
+  var rm=window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  function upd(){if(window.scrollY>600){b.classList.add('show')}else{b.classList.remove('show')}}
+  window.addEventListener('scroll',upd,{passive:true});upd();
+  b.addEventListener('click',function(){window.scrollTo({top:0,behavior:rm?'auto':'smooth'});});
 })();
 </script>
 </body>

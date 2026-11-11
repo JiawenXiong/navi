@@ -1,0 +1,393 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>理性决策：逐营养素判断补不补、怎么补、花多少钱</title>
+<script>(function(){var d=document.documentElement;d.classList.add('js');var t=null;try{t=localStorage.getItem('theme')}catch(e){}if(t!=='light'&&t!=='dark'){var h=new Date().getHours();t=(h>=7&&h<17)?'light':'dark'}d.setAttribute('data-theme',t)})();</script>
+<style>
+*{margin:0;padding:0;box-sizing:border-box}
+:root{--bg:#f5f9fa;--surface:#ffffff;--surface2:#e9f1f2;--ink:#1c2d35;--muted:#557079;--accent:#0d7c8a;--accent-2:#095f6a;--on-accent:#ffffff;--line:#d6e3e5;--warn-bg:#fbf3e4;--warn-ink:#77571c;--warn-line:#e8d5ad;--danger:#a2403a;--shadow:0 1px 3px rgba(23,42,50,.08)}
+html[data-theme=dark]{--bg:#0e171c;--surface:#16242b;--surface2:#1b2e36;--ink:#e2edf0;--muted:#95abb3;--accent:#41c0ca;--accent-2:#7cd6dd;--on-accent:#04282c;--line:#273b44;--warn-bg:#2a2517;--warn-ink:#dcc38c;--warn-line:#4a3f22;--danger:#e28f87;--shadow:0 2px 8px rgba(0,0,0,.45)}
+body{font-family:"PingFang SC","Hiragino Sans GB","Microsoft YaHei","Noto Sans SC",sans-serif;background:var(--bg);color:var(--ink);line-height:1.78;font-size:16px}
+a{color:var(--accent);text-decoration:none}
+a:hover{text-decoration:underline}
+.wrap{max-width:960px;margin:0 auto;padding:0 20px}
+.site-head{background:var(--surface);border-bottom:1px solid var(--line);position:sticky;top:0;z-index:50}
+.head-in{display:flex;align-items:center;gap:12px;min-height:56px;position:relative}
+.brand{font-weight:700;color:var(--ink);font-size:1.05rem;white-space:nowrap}
+.site-nav{display:flex;gap:4px;flex-wrap:wrap;margin-left:auto}
+.site-nav a{padding:6px 10px;border-radius:6px;color:var(--muted);font-size:.92rem;white-space:nowrap}
+.site-nav a:hover{color:var(--accent);text-decoration:none;background:var(--surface2)}
+.site-nav a[aria-current=page]{color:var(--on-accent);background:var(--accent)}
+.head-actions{margin-left:auto;display:flex;gap:8px;align-items:center}
+.site-nav + .head-actions{margin-left:0}
+.icon-btn{border:1px solid var(--line);background:var(--surface);color:var(--ink);border-radius:8px;width:40px;height:40px;font-size:1.1rem;cursor:pointer;flex:none;display:inline-flex;align-items:center;justify-content:center}
+html.js .site-nav{display:none}
+html.js .icon-btn.js-menu{display:inline-flex}
+@media(min-width:721px){
+ html.js .site-nav{display:flex}
+ html.js .icon-btn.js-menu{display:none}
+}
+@media(max-width:720px){
+ .head-in{min-height:50px}
+ html.js .site-nav{position:absolute;top:100%;left:0;right:0;background:var(--surface);border-bottom:1px solid var(--line);flex-direction:column;padding:8px 14px 14px;box-shadow:var(--shadow)}
+ html.js .site-nav.open{display:flex}
+ html.js .site-nav a{display:block;padding:10px 8px;border-bottom:1px solid var(--line);font-size:1rem}
+ html.js .site-nav a:last-child{border-bottom:none}
+}
+main{padding:36px 0 50px}
+h1{font-size:1.85rem;line-height:1.4;margin-bottom:14px}
+h2{font-size:1.32rem;margin:2.2em 0 .7em;color:var(--accent-2)}
+html[data-theme=dark] h2{color:var(--accent)}
+h3{font-size:1.06rem;margin:1.6em 0 .5em}
+p{margin:.8em 0}
+.lede{font-size:1.05rem;color:var(--muted)}
+.callout{border-left:4px solid var(--accent);background:var(--surface2);padding:12px 16px;border-radius:0 8px 8px 0;margin:1.2em 0}
+.callout.warn{border-left-color:var(--danger);background:var(--warn-bg);color:var(--warn-ink)}
+.badge{display:inline-block;font-size:.76rem;line-height:1.7;padding:1px 10px;border-radius:999px;white-space:nowrap;font-weight:600}
+.bA{background:var(--accent);color:var(--on-accent)}
+.bB{border:1.5px solid var(--accent);color:var(--accent)}
+.bC{border:1px solid var(--muted);color:var(--muted)}
+.bD{color:var(--muted)}
+.src{font-size:.85rem;color:var(--muted)}
+ul,ol{padding-left:1.4em;margin:.7em 0}
+li{margin:.4em 0}
+footer{background:var(--surface);border-top:1px solid var(--line);padding:30px 0 36px;margin-top:20px}
+.foot-nav{display:flex;flex-wrap:wrap;gap:6px 16px;margin-bottom:14px;font-size:.92rem}
+.disclaimer{background:var(--warn-bg);border:1px solid var(--warn-line);color:var(--warn-ink);padding:14px 16px;border-radius:10px;font-size:.92rem}
+.jump{display:flex;flex-wrap:wrap;gap:8px;margin:1.2em 0}
+.jump a{font-size:.86rem;border:1px solid var(--line);background:var(--surface);padding:3px 12px;border-radius:999px;color:var(--muted)}
+.jump a:hover{color:var(--accent);text-decoration:none;border-color:var(--accent)}
+.dc{background:var(--surface);border:1px solid var(--line);border-radius:10px;padding:18px;box-shadow:var(--shadow);margin:1.2em 0}
+.dc h3{margin:0 0 .6em;padding-bottom:.5em;border-bottom:1px solid var(--line);display:flex;align-items:center;gap:8px;flex-wrap:wrap;font-size:1.12rem}
+.fr{margin:.7em 0;font-size:.95rem}
+.fr strong{font-weight:700}
+.tier{font-weight:700;color:var(--accent-2)}
+html[data-theme=dark] .tier{color:var(--accent)}
+.fld{display:inline-block;font-size:.72rem;font-weight:700;line-height:1.8;padding:0 9px;border-radius:999px;background:var(--surface2);color:var(--accent-2);border:1px solid var(--line);margin-right:7px;vertical-align:1px;white-space:nowrap}
+html[data-theme=dark] .fld{color:var(--accent)}
+.flag{color:var(--danger);font-weight:600}
+ .table-scroll{overflow-x:auto;margin:1.2em 0;border:1px solid var(--line);border-radius:10px;background:var(--surface)}
+ table{width:100%;border-collapse:collapse;font-size:.94rem;min-width:620px}
+ th,td{padding:10px 12px;border-bottom:1px solid var(--line);text-align:left;vertical-align:top}
+ th{background:var(--surface2);color:var(--ink);font-weight:600;white-space:nowrap}
+ tr:last-child td{border-bottom:none}
+@media(max-width:375px){
+ body{font-size:15px}
+ .dc{padding:14px}
+ .jump a{font-size:.8rem;padding:2px 9px}
+}
+@media(prefers-reduced-motion:no-preference){
+ .js .reveal{opacity:0;transform:translateY(14px);transition:opacity .6s ease,transform .6s ease}
+ .js .reveal.in{opacity:1;transform:none}
+}
+@media(prefers-reduced-motion:reduce){.reveal{opacity:1!important;transform:none!important}}
+.portal{position:fixed;left:14px;bottom:14px;z-index:99}.portal a{display:inline-block;padding:7px 16px;border-radius:999px;background:rgba(20,20,20,.72);color:#fff;font-size:13px;text-decoration:none;backdrop-filter:blur(4px);font-family:system-ui,sans-serif}.portal a:hover{background:rgba(20,20,20,.9)}
+.toTop{position:fixed;right:14px;bottom:14px;z-index:98;display:none;border:none;cursor:pointer;padding:7px 14px;border-radius:999px;background:rgba(20,20,20,.72);color:#fff;font-size:14px;line-height:1;backdrop-filter:blur(4px);font-family:system-ui,sans-serif}.toTop:hover{background:rgba(20,20,20,.9)}.toTop.show{display:inline-block}
+</style>
+<noscript><style>.reveal{opacity:1!important;transform:none!important}.portal{position:fixed;left:14px;bottom:14px;z-index:99}.portal a{display:inline-block;padding:7px 16px;border-radius:999px;background:rgba(20,20,20,.72);color:#fff;font-size:13px;text-decoration:none;backdrop-filter:blur(4px);font-family:system-ui,sans-serif}.portal a:hover{background:rgba(20,20,20,.9)}
+.toTop{position:fixed;right:14px;bottom:14px;z-index:98;display:none;border:none;cursor:pointer;padding:7px 14px;border-radius:999px;background:rgba(20,20,20,.72);color:#fff;font-size:14px;line-height:1;backdrop-filter:blur(4px);font-family:system-ui,sans-serif}.toTop:hover{background:rgba(20,20,20,.9)}.toTop.show{display:inline-block}
+</style></noscript>
+</head>
+<body>
+<header class="site-head">
+ <div class="wrap head-in">
+  <a class="brand" href="index.html">保健品使用指南</a>
+  <nav id="nav" class="site-nav" aria-label="站内导航">
+   <a href="index.html">首页</a>
+   <a href="basics.html">基础知识</a>
+   <a href="evidence.html">证据分级</a>
+   <a href="by-need.html">按需选择</a>
+   <a href="decide.html" aria-current="page">理性决策</a>    <a href="traditions.html">流派与传统</a>    <a href="brands.html">品牌辨识</a>
+   <a href="safety.html">安全边界</a>
+   <a href="myths.html">误区破解</a>
+   <a href="buy.html">选购鉴别</a>
+   <a href="../index.html">总门户</a>
+  </nav>
+  <div class="head-actions">
+   <button id="themeBtn" class="icon-btn" type="button" aria-label="切换明暗主题">☾</button>
+   <button id="menuBtn" class="icon-btn js-menu" type="button" aria-expanded="false" aria-controls="nav" aria-label="打开导航菜单">☰</button>
+  </div>
+ </div>
+</header>
+<main>
+ <div class="wrap">
+  <h1 class="reveal">理性决策：逐营养素判断补不补、怎么补、花多少钱</h1>
+  <p class="lede reveal">本页把常见营养素与热门成分的决策过程拆成五个固定问题：<strong>需要补吗、能不能食补、若吃补剂怎么吃、有什么风险、每月合理花多少钱</strong>。结论分三档给出：一般饮食均衡者、缺乏风险人群、明确缺乏者。立场依据 NIH ODS 各膳食补充剂事实清单、美国 USPSTF 推荐声明、Cochrane 系统评价，以及中国营养学会《中国居民膳食营养素参考摄入量（DRIs，2023 版）》与《中国居民膳食指南》。价格为主流电商常见品牌成交价的量级参考，随渠道与促销波动。</p>
+
+  <div class="callout reveal"><strong>三档怎么对应到自己：</strong>能做到膳食指南建议的谷物、蔬果、蛋白质与奶制品结构，属"一般饮食均衡者"；日晒不足、纯素饮食、孕期备孕期、老年人吸收下降、长期服药或节食减重者属"缺乏风险人群"；是否"明确缺乏"应以血清检验与医生诊断为依据，不要凭感觉对号入座。</div>
+   <h2 class="reveal" id="test-first">第一步：先检测，再决定补</h2>
+   <p class="reveal">除了备孕期叶酸、婴儿维生素 D 这类不需要检测的明确推荐，多数"缺不缺"的问题应先用检验回答。常见营养指标这样看（口径引 NIH ODS 各事实清单与中国相关专家共识，判读与治疗请交给医生）：</p>
+   <div class="table-scroll reveal">
+    <table>
+     <thead><tr><th>指标</th><th>怎么理解</th><th>口径与来源</th></tr></thead>
+     <tbody>
+      <tr><td>25(OH)维生素 D（血清）</td><td>判断维生素 D 状态的标准指标。存在两套切点：美国医学研究院（NAM）与 NIH ODS 以 ≥20 ng/mL（50 nmol/L）为对几乎所有人群充足、低于 12 ng/mL 为缺乏风险；美国内分泌学会与中国维生素 D 临床应用共识则采用缺乏 &lt;20、不足 20 至 30、充足 ≥30 ng/mL 的三分法。两套口径下 20 至 30 ng/mL 都属"可讨论区间"，是否补、补多少应结合日照、季节与骨骼情况由医生判断。</td><td>NIH ODS 维生素 D 事实清单；NAM 参考值；中国维生素 D 及其类似物临床应用共识</td></tr>
+      <tr><td>铁蛋白</td><td>反映储存铁，是筛查铁缺乏的首选。一般以低于 15 至 30 微克/升提示缺铁；合并炎症、慢性病时铁蛋白会假性升高，WHO 2020 指南建议这类人群按低于 70 微克/升判读。须与血常规、转铁蛋白饱和度一起看。</td><td>WHO 2020 铁缺乏筛查指南；NIH ODS 铁事实清单</td></tr>
+      <tr><td>血清铁</td><td>单次血清铁波动很大（受近期饮食与昼夜节律影响），不能单独用来诊断缺铁，只作铁代谢组合的一部分。</td><td>NIH ODS；临床检验常规</td></tr>
+      <tr><td>维生素 B12</td><td>血清 B12 低于约 200 pg/mL 提示缺乏，200 至 300 pg/mL 属灰区，建议加查甲基丙二酸或同型半胱氨酸确认；素食者、老年人、长期服二甲双胍者建议主动查。</td><td>NIH ODS 维生素 B12 事实清单</td></tr>
+      <tr><td>同型半胱氨酸</td><td>升高提示 B12、叶酸或 B6 代谢可能不足，但也受肾功能、甲状腺等因素影响，属非特异指标，不作为自行大量补充 B 族的依据。</td><td>NIH ODS；临床共识</td></tr>
+      <tr><td>血脂与血糖</td><td>严格说不算营养指标，但常与营养检查同做：异常是就诊信号，指向饮食结构调整与必要的药物治疗，而不是自购降脂降糖类保健品的理由。</td><td>中国血脂管理指南等临床文件</td></tr>
+     </tbody>
+    </table>
+   </div>
+   <div class="callout warn reveal"><strong>底线：</strong>没有检测、没有医生评估，就凭"感觉虚""朋友推荐"大规模吃补充剂，不是理性决策。检验花费通常低于一瓶高价保健品，先测后补是本页一切建议的前提。</div>
+
+   <h2 class="reveal" id="timing">服用组合与时机速查</h2>
+   <p class="reveal">已经确定要补的品类，注意组合与时间安排，避免互相"打架"。以下口径与各营养素卡片及安全边界页一致：</p>
+   <div class="table-scroll reveal">
+    <table>
+     <thead><tr><th>组合或场景</th><th>怎么做</th></tr></thead>
+     <tbody>
+      <tr><td>钙与铁</td><td>互相竞争吸收，错开服用：铁空腹或睡前、钙随餐，两者至少间隔 2 小时。</td></tr>
+      <tr><td>脂溶性维生素（A、D、E、K）与鱼油、辅酶 Q10、叶黄素</td><td>随含脂肪的正餐服用，吸收更好；每日一次即可。</td></tr>
+      <tr><td>长期补锌</td><td>长期超过每日 40 毫克（UL）会干扰铜吸收，导致贫血与神经损害；确需长期补锌者遵医嘱并关注铜营养状况。</td></tr>
+      <tr><td>茶与咖啡</td><td>鞣酸等成分抑制铁、钙等矿物质吸收，饮茶咖啡与服铁剂、矿物质补充剂间隔约 1 小时。</td></tr>
+      <tr><td>益生菌与抗生素</td><td>错开至少 2 小时（布拉氏酵母菌等不受抗生素杀灭的菌株也建议错开），疗程中及疗程后数天继续补充更有意义。</td></tr>
+      <tr><td>鱼油高剂量与抗凝抗血小板药</td><td>出血风险叠加，华法林、阿司匹林等使用者用鱼油前必须咨询医生，具体见安全边界页。</td></tr>
+      <tr><td>左甲状腺素与钙、铁</td><td>多价阳离子与其形成络合物，与左甲状腺素至少间隔 4 小时。</td></tr>
+      <tr><td>膳食纤维补充剂与其他口服药</td><td>纤维可能吸附药物，间隔 1 至 2 小时服用。</td></tr>
+     </tbody>
+    </table>
+   </div>
+
+
+  <h2 class="reveal">快速跳转</h2>
+  <nav class="jump reveal" aria-label="营养素快速跳转">
+   <a href="#vd">维生素D</a><a href="#b12">维生素B12</a><a href="#folate">叶酸</a><a href="#vc">维生素C</a><a href="#mvi">复合维生素</a><a href="#ca">钙</a><a href="#mg">镁</a><a href="#zn">锌</a><a href="#omega3">鱼油Omega-3</a><a href="#protein">蛋白粉</a><a href="#creatine">肌酸</a><a href="#probiotics">益生菌</a><a href="#coq10">辅酶Q10</a><a href="#nmn">NMN/NR</a><a href="#melatonin">褪黑素</a><a href="#glucosamine">氨基葡萄糖</a><a href="#collagen">胶原蛋白</a><a href="#lutein">叶黄素</a><a href="#fiber">膳食纤维</a><a href="#iron">铁</a>
+  </nav>
+
+  <h2 class="reveal">维生素类</h2>
+
+  <article class="dc reveal" id="vd">
+   <h3>维生素D <span class="badge bA">A（针对缺乏与骨骼）</span></h3>
+   <p class="fr"><span class="fld">需要补吗</span><span class="tier">均衡者：</span>日晒与饮食充足时不需常规补；<span class="tier">风险人群：</span>日照不足、室内办公、老年人、深肤色与高纬度居民建议适量补；<span class="tier">明确缺乏者：</span>按检验结果在医生指导下补。依据：NIH ODS 指出维生素D 对骨骼健康必不可少，但 VITAL 等试验不支持用它预防癌症与心血管病。</p>
+   <p class="fr"><span class="fld">食补优先</span>三文鱼等富脂海鱼每 100 克约含 360 至 700 IU，蛋黄每枚约 40 IU，强化奶与菌菇（经紫外线照射的香菇）也是来源；最经济的"来源"其实是每周数次、每次十至二十分钟的手臂与面部日晒。</p>
+   <p class="fr"><span class="fld">若选补剂</span>中国成人 RNI 为每日 10 微克（400 IU），UL 为 50 微克（2000 IU），美国 NIH 的 UL 为 100 微克（4000 IU）。常见维持剂量每日 400 至 1000 IU，缺乏纠正剂量遵医嘱。脂溶性，随含脂肪的正餐服用吸收更好，每日一次即可。</p>
+   <p class="fr"><span class="fld">注意事项</span>长期超过 UL 可致高钙血症与软组织钙化，与噻嗪类利尿剂合用需监测血钙。</p>
+   <p class="fr"><span class="fld">成本与价格</span>D3 原料（胆钙化醇）是维生素里最便宜的品类之一，按 400 至 1000 IU/日折算每月约 <strong>3 至 15 元</strong>（大致参考，随渠道波动）。<span class="flag">价格红旗：</span>每月上百元的"高端 D3"几乎全是品牌与剂型溢价；反之几元一大瓶的产品也要核对是否标注了实际 IU 含量。</p>
+  </article>
+
+  <article class="dc reveal" id="b12">
+   <h3>维生素B12 <span class="badge bA">A（针对缺乏人群）</span></h3>
+   <p class="fr"><span class="fld">需要补吗</span><span class="tier">均衡者：</span>常规吃肉蛋奶者不需要；<span class="tier">风险人群：</span>纯素饮食者如不补充几乎必然缺乏，老年人、萎缩性胃炎与长期服二甲双胍、质子泵抑制剂者也建议补充；<span class="tier">明确缺乏者：</span>须就医，贫血合并神经症状时可能需注射。依据：NIH ODS 与中国营养学会均把上述人群列为推荐补充对象。</p>
+   <p class="fr"><span class="fld">食补优先</span>蛤蜊与动物肝脏含量最高，牛猪瘦肉、鱼、蛋、奶制品都是可靠来源；问题在于纯素饮食几乎无法从植物获得，加碘盐与发酵豆制品并不可靠。</p>
+   <p class="fr"><span class="fld">若选补剂</span>成人 RNI 仅 2.4 微克，无 UL。常见补充剂量每日 25 至 100 微克口服片，靠被动扩散吸收，剂量大不代表更有效。空腹或两餐之间服用吸收更稳，早晨服用即可。</p>
+   <p class="fr"><span class="fld">注意事项</span>B12 本身安全性高，风险在于自行补充会掩盖并延误恶性贫血等病因的诊断。</p>
+   <p class="fr"><span class="fld">成本与价格</span>氰钴胺与甲钴胺原料都极便宜，按常规剂量每月约 <strong>5 至 20 元</strong>，药字号甲钴胺片往往比保健品更便宜（大致参考，随渠道波动）。<span class="flag">价格红旗：</span>"活性B12"高价产品对多数人口服常规片已足够。</p>
+  </article>
+
+  <article class="dc reveal" id="folate">
+   <h3>叶酸 <span class="badge bA">A（备孕预防神经管缺陷）</span></h3>
+   <p class="fr"><span class="fld">需要补吗</span><span class="tier">均衡者：</span>绿叶菜与豆类摄入充足者不需要；<span class="tier">风险人群：</span>备孕及孕早期女性是强推荐对象，这是营养补充里证据最充分的一条；<span class="tier">明确缺乏者：</span>巨幼细胞贫血者需就医并查清是否合并B12缺乏。依据：WHO 与中国营养学会推荐备孕期每日补充 400 微克。</p>
+   <p class="fr"><span class="fld">食补优先</span>菠菜等深绿叶菜每 100 克约含 150 至 200 微克叶酸，豆类、动物肝脏、芦笋亦丰富；但天然叶酸遇热易损失，而备孕目标剂量靠食物稳定达到并不容易，这正是官方推荐补剂的原因。</p>
+   <p class="fr"><span class="fld">若选补剂</span>成人 RNI 为 400 微克膳食叶酸当量，合成叶酸的 UL 为每日 1000 微克。备孕常规剂量每日 400 微克，从孕前三个月吃到孕早期以后；每日一次，时间不敏感。</p>
+   <p class="fr"><span class="fld">注意事项</span>大剂量叶酸会掩盖维生素B12缺乏的血液学表现，延误神经损害诊断，不要自行加量。</p>
+   <p class="fr"><span class="fld">成本与价格</span>0.4 毫克叶酸片属于基本药物，原料极便宜，每月约 <strong>3 至 10 元</strong>（大致参考，随渠道波动）。<span class="flag">价格红旗：</span>孕期复合产品若把叶酸折算价抬高数倍，性价比明显低于单纯叶酸片加饮食均衡。</p>
+  </article>
+
+  <article class="dc reveal" id="vc">
+   <h3>维生素C <span class="badge bC">C</span></h3>
+   <p class="fr"><span class="fld">需要补吗</span><span class="tier">均衡者：</span>每天有蔬果者不需要；<span class="tier">风险人群：</span>长期不吃新鲜蔬果者、吸烟者（需求增加约35毫克）、术后恢复期可在饮食不足时补；<span class="tier">明确缺乏者：</span>坏血病属医疗问题须就医。依据：Cochrane 评价显示规律补充不能预防普通人群感冒。</p>
+   <p class="fr"><span class="fld">食补优先</span>一个中等橙子约 70 毫克，鲜枣与猕猴桃每 100 克可达 100 至 240 毫克，青椒、西兰花也很高；成人 RNI 100 毫克，两份蔬果即可轻松达标，食补完全够用。</p>
+   <p class="fr"><span class="fld">若选补剂</span>RNI 每日 100 毫克，UL 为 2000 毫克。常见剂量每日 100 至 500 毫克；水溶性，吸收有饱和上限，大剂量不如分次小剂量，餐后服用减少胃部刺激。</p>
+   <p class="fr"><span class="fld">注意事项</span>过量可致腹泻、胃肠不适，长期接近 UL 增加男性肾结石风险。</p>
+   <p class="fr"><span class="fld">成本与价格</span>抗坏血酸是食品工业大宗原料，极便宜，按 100 至 500 毫克/日每月约 <strong>3 至 10 元</strong>（大致参考，随渠道波动）。<span class="flag">价格红旗：</span>泡腾片、脂质体维C价格可翻十倍以上，吸收收益并无相应证据。</p>
+  </article>
+
+  <article class="dc reveal" id="mvi">
+   <h3>复合维生素 <span class="badge bC">C</span></h3>
+   <p class="fr"><span class="fld">需要补吗</span><span class="tier">均衡者：</span>不需要，USPSTF 认为对一般人群预防心血管病与癌症的证据不足；<span class="tier">风险人群：</span>饮食质量差、进食量小的老年人、减重期与备孕孕早期女性（选孕妇配方）可当"廉价保险"；<span class="tier">明确缺乏者：</span>应缺什么补什么，而不是靠复合配方。依据：USPSTF 声明与哈佛公共卫生学院的立场。</p>
+   <p class="fr"><span class="fld">食补优先</span>没有食物等于复合片，但均衡的"全谷物加优质蛋白加多样蔬果加奶制品"结构能覆盖绝大多数营养素，且带来纤维与植物化合物，这是药片给不了的。</p>
+   <p class="fr"><span class="fld">若选补剂</span>选剂量接近 RNI 的基础配方即可，各成分不超过 UL；每日一次随餐服用（含脂溶性维生素）。特别提醒孕妇选含叶酸 400 微克的孕妇专用配方。</p>
+   <p class="fr"><span class="fld">注意事项</span>复合片再叠加单项补充剂（如再加钙片、鱼油）容易把某些成分推向 UL，注意核算总量。</p>
+   <p class="fr"><span class="fld">成本与价格</span>基础配方片剂每月约 <strong>30 至 100 元</strong>，跨境高端线 100 至 300 元多为品牌溢价（大致参考，随渠道波动）。<span class="flag">价格红旗：</span>宣传"专利配比""细胞级营养"的高价套餐，溢价部分买的不是营养素本身。</p>
+  </article>
+
+  <h2 class="reveal">矿物质类</h2>
+
+  <article class="dc reveal" id="ca">
+   <h3>钙 <span class="badge bC">C</span></h3>
+   <p class="fr"><span class="fld">需要补吗</span><span class="tier">均衡者：</span>奶制品与豆制品达标（约每日 800 毫克）者不需要；<span class="tier">风险人群：</span>乳糖不耐、不喝奶、绝经后女性与老年人可在饮食不足时补差额；<span class="tier">明确缺乏者：</span>骨质疏松治疗应由医生制定钙加维生素D的完整方案。依据：USPSTF 评估低剂量钙与维生素D 未显示骨折预防获益，过量还有风险。</p>
+   <p class="fr"><span class="fld">食补优先</span>300 毫升牛奶约含 300 毫克钙，北豆腐、芝麻酱、小鱼虾、深绿色蔬菜（小油菜、芥蓝）都丰富；每日奶加豆制品加绿叶菜通常可达标，食补优于补充剂。</p>
+   <p class="fr"><span class="fld">若选补剂</span>成人 RNI 为 800 毫克（50 岁前），中国 UL 为 2000 毫克，美国 NIH 定 2500 毫克。补差额通常每日 300 至 600 毫克元素钙；单次不超过 500 毫克吸收更好，碳酸钙随餐服，柠檬酸钙空腹亦可。</p>
+   <p class="fr"><span class="fld">注意事项</span>补充剂来源的钙与肾结石及心血管钙化的相关性有观察性证据；与左甲状腺素须间隔至少 4 小时（与安全边界页一致），与喹诺酮与四环素类抗生素须间隔两小时以上。</p>
+   <p class="fr"><span class="fld">成本与价格</span>碳酸钙是所有钙盐里最便宜的（原料即石灰石级别），按每日 600 毫克元素钙每月约 <strong>10 至 30 元</strong>（大致参考，随渠道波动）。<span class="flag">价格红旗：</span>"液体钙""海藻钙"价格可高数倍，吸收率差异撑不起差价。</p>
+  </article>
+
+  <article class="dc reveal" id="mg">
+   <h3>镁 <span class="badge bC">C</span></h3>
+   <p class="fr"><span class="fld">需要补吗</span><span class="tier">均衡者：</span>坚果、全谷物与绿叶菜摄入充足者不需要；<span class="tier">风险人群：</span>长期腹泻、糖尿病控制差、酗酒、长期服质子泵抑制剂者易缺乏，偏头痛预防有一定证据（证据等级 C）；<span class="tier">明确缺乏者：</span>低镁血症须就医纠正。依据：NIH ODS 镁事实清单与中国 DRIs。</p>
+   <p class="fr"><span class="fld">食补优先</span>杏仁等坚果每 100 克约含 270 毫克，糙米燕麦等全谷物、豆类、深绿叶菜（叶绿素含镁）都丰富；成人推荐量约每日 330 毫克（男）/300 毫克（女），一把坚果加全谷物主食即接近达标。</p>
+   <p class="fr"><span class="fld">若选补剂</span>常见剂量每日 100 至 350 毫克元素镁；美国 NIH 对补充剂来源镁的 UL 定为 350 毫克（食物来源不计入）。甘氨酸镁、柠檬酸镁吸收较好且对胃肠温和，晚间服用有助于放松，氧化镁便宜但泻下明显。</p>
+   <p class="fr"><span class="fld">注意事项</span>肾功能不全者排镁能力下降，不应自行补充；常见不良反应是腹泻。</p>
+   <p class="fr"><span class="fld">成本与价格</span>镁盐原料便宜至中等，按 300 毫克/日每月约 <strong>15 至 40 元</strong>（大致参考，随渠道波动）。<span class="flag">价格红旗：</span>甘氨酸螯合镁的"助眠高端线"溢价明显，同剂量普通柠檬酸镁性价比更高。</p>
+  </article>
+
+  <article class="dc reveal" id="zn">
+   <h3>锌 <span class="badge bB">B（感冒含片，证据谨慎）</span></h3>
+   <p class="fr"><span class="fld">需要补吗</span><span class="tier">均衡者：</span>吃肉贝类者不需要；<span class="tier">风险人群：</span>素食者、孕妇、慢性腹泻与镰状细胞贫血患者需求增加；感冒初期含服含锌含片可能略缩短病程（结论谨慎）；<span class="tier">明确缺乏者：</span>须医生评估并查铜水平。依据：NIH ODS 锌事实清单、Cochrane 相关评价。</p>
+   <p class="fr"><span class="fld">食补优先</span>牡蛎含量遥遥领先（每 100 克可达 40 至 70 毫克），红肉、动物肝脏、贝类都是好来源；成人 RNI 男性 12 毫克、女性 8.5 毫克左右，日常荤食者容易达标。</p>
+   <p class="fr"><span class="fld">若选补剂</span>常规补充每日 10 至 25 毫克元素锌，UL 为 40 毫克；感冒含片按产品说明短期使用（常见为每两小时含服葡萄糖酸锌或醋酸锌，不超过一两周）。餐后服用减少恶心，避免与钙、铁补充剂同服。</p>
+   <p class="fr"><span class="fld">注意事项</span>长期超过 UL 会干扰铜吸收，导致贫血与神经损害；锌与某些抗生素（喹诺酮、四环素类）互相影响吸收，须间隔两小时以上。</p>
+   <p class="fr"><span class="fld">成本与价格</span>葡萄糖酸锌与硫酸锌原料极便宜，按常规剂量每月约 <strong>5 至 20 元</strong>（大致参考，随渠道波动）。<span class="flag">价格红旗：</span>感冒含片的价差主要在口感配方而非锌本身，选低价基础款即可。</p>
+  </article>
+
+  <article class="dc reveal" id="iron">
+   <h3>铁 <span class="badge bA">A（针对确诊缺铁）</span></h3>
+   <p class="fr"><span class="fld">需要补吗</span><span class="tier">均衡者：</span>男性与绝经后女性不应补铁，铁能被蓄积；<span class="tier">风险人群：</span>育龄女性因月经丢失、孕妇因血容量扩张需求上升，但补铁前建议先查血常规与铁蛋白；<span class="tier">明确缺乏者：</span>缺铁性贫血须在医生指导下足疗程补铁并追查病因。依据：NIH ODS 铁事实清单。</p>
+   <p class="fr"><span class="fld">食补优先</span>红肉、动物肝脏与动物血的血红素铁吸收率高（肝脏每 100 克约 20 毫克以上），搭配维生素 C 丰富的蔬果可促进非血红素铁吸收；茶与咖啡随餐则抑制吸收。</p>
+   <p class="fr"><span class="fld">若选补剂</span>成人女性 RNI 约 18 至 20 毫克，UL 为 42 毫克。治疗剂量常为每日 40 至 65 毫克元素铁，近年指南多支持隔日给药吸收更好；空腹或睡前服用，配维生素 C，避免与钙、茶、奶同服。</p>
+   <p class="fr"><span class="fld">注意事项</span>铁补充剂是儿童误服中毒的常见原因，务必存放在儿童拿不到的地方；服用期间黑便属正常，便秘常见；遗传性血色病患者禁用。</p>
+   <p class="fr"><span class="fld">成本与价格</span>硫酸亚铁、富马酸亚铁原料极便宜，药字号补铁片每月约 <strong>5 至 20 元</strong>（大致参考，随渠道波动）。<span class="flag">价格红旗：</span>"温和不黑牙"的液体铁与缓释铁溢价高，缺铁治疗请优先按医嘱用药准字产品。</p>
+  </article>
+
+  <h2 class="reveal">脂肪酸、蛋白与运动营养</h2>
+
+  <article class="dc reveal" id="omega3">
+   <h3>鱼油 Omega-3 <span class="badge bC">C</span></h3>
+   <p class="fr"><span class="fld">需要补吗</span><span class="tier">均衡者：</span>每周吃两次富脂鱼者不需要，VITAL 与 ASCEND 试验显示普通剂量鱼油未能降低一般人群心血管事件；<span class="tier">风险人群：</span>不吃鱼、孕晚期与哺乳期女性（DHA 对胎儿神经发育有推荐）、高甘油三酯者需就医；<span class="tier">明确缺乏者：</span>高纯度大剂量 EPA 乙酯是处方药，不属于保健品范畴。依据：NIH ODS、USPSTF、梅奥诊所。</p>
+   <p class="fr"><span class="fld">食补优先</span>每周两次、每次 100 至 150 克三文鱼、鲭鱼、沙丁鱼等富脂鱼即可获得约每日 250 至 500 毫克 EPA 加 DHA（中国 AI 水平）；亚麻籽、核桃的 ALA 转化率低，不能等量替代。</p>
+   <p class="fr"><span class="fld">若选补剂</span>一般保健剂量每日 EPA 加 DHA 合计 250 至 1000 毫克；无正式 UL，美国 FDA 建议总摄入不超过每日 3 克、其中补充剂来源不超过 2 克。随含脂肪的正餐服用；TG 与 rTG 型吸收优于 EE 型，浓度越高单粒效率越高。</p>
+   <p class="fr"><span class="fld">注意事项</span>与华法林等抗凝药合用及手术前须告知医生；存放不当易氧化，闻到明显腥臭味即已变质。</p>
+   <p class="fr"><span class="fld">成本与价格</span>按浓度与形态分档：普通 30% 浓度 EE 型最便宜，每月约 20 至 50 元；60% 以上 rTG 型每月约 60 至 150 元（大致参考，随渠道波动）。<span class="flag">价格红旗：</span>不标 EPA 与 DHA 具体含量的"深海鱼油"无论贵贱都不值得买；低价品常见浓度虚标与氧化超标。</p>
+  </article>
+
+  <article class="dc reveal" id="protein">
+   <h3>蛋白粉 <span class="badge bB">B（作为蛋白质的便捷形式）</span></h3>
+   <p class="fr"><span class="fld">需要补吗</span><span class="tier">均衡者：</span>每日蛋白摄入达每公斤体重 0.8 至 1 克即够，不需要；<span class="tier">风险人群：</span>增肌训练者（力量项目建议每公斤 1.4 至 2.0 克）、减脂期、老年肌少症风险与术后恢复期，饮食不足时用粉补差额；<span class="tier">明确缺乏者：</span>低白蛋白血症属疾病状态须就医。依据：中国 DRIs、国际运动营养学会（ISSN）立场。</p>
+   <p class="fr"><span class="fld">食补优先</span>鸡蛋、鸡胸肉、鱼虾、奶与大豆制品都富含完全蛋白且自带其他营养素；一个鸡蛋约 7 克蛋白，100 克鸡胸约 22 克，日常达标并不难，蛋白粉只是方便而非更优。</p>
+   <p class="fr"><span class="fld">若选补剂</span>补差额常见每次 20 至 30 克蛋白，训练后或任意一餐分次摄入皆可；乳糖不耐选分离乳清，植物蛋白注意多种来源互补。每日总量才是关键，时机效应被大大夸大。</p>
+   <p class="fr"><span class="fld">注意事项</span>慢性肾病患者蛋白摄入须医生评估；肾功能正常者高蛋白饮食安全，但蛋白粉不是"多喝多长肌肉"。</p>
+   <p class="fr"><span class="fld">成本与价格</span>乳清浓缩蛋白原料每公斤约 80 至 200 元，按每日 30 克折算每月约 <strong>80 至 200 元</strong>（大致参考，随渠道波动）。<span class="flag">价格红旗：</span>按蛋白单价折算比一盒鸡蛋贵出数倍还宣称"特殊水解技术"的产品要警惕；三无散装粉则要警惕蛋白含量虚标与掺杂。</p>
+  </article>
+
+  <article class="dc reveal" id="creatine">
+   <h3>肌酸 <span class="badge bB">B（力量与爆发力）</span></h3>
+   <p class="fr"><span class="fld">需要补吗</span><span class="tier">均衡者：</span>无力量训练需求者不需要；<span class="tier">风险人群：</span>系统进行力量与爆发力训练者补充一水肌酸可增加肌肉磷酸原储备，证据在运动补剂里最扎实（ISSN 立场支持）；<span class="tier">明确缺乏者：</span>不存在"肌酸缺乏症"这一档。依据：ISSN 立场声明、NIH ODS。</p>
+   <p class="fr"><span class="fld">食补优先</span>红肉与鱼类每公斤约含 2 至 5 克肌酸，但要通过吃肉达到每日 3 至 5 克的有效量需一斤以上红肉，热量代价大，食补不现实，这是少数食补难以替代的场景。</p>
+   <p class="fr"><span class="fld">若选补剂</span>一水肌酸每日 3 至 5 克即可，无需冲击期；每日固定时间服用，配合足量水；长期使用安全数据充分，无正式 UL。</p>
+   <p class="fr"><span class="fld">注意事项</span>早期体重上升为水分潴留属正常；肾功能不全者谨慎；运动补剂选有第三方检测（如 NSF、Informed Choice）的产品以规避兴奋剂污染。</p>
+   <p class="fr"><span class="fld">成本与价格</span>一水肌酸是大宗化工与食品原料，每公斤约 60 至 150 元，按每日 5 克每月仅约 <strong>10 至 40 元</strong>（大致参考，随渠道波动）。<span class="flag">价格红旗：</span>盐酸肌酸、"缓冲肌酸"等新剂型价格翻数倍，效果证据反而更少；一水肌酸就是标准答案。</p>
+  </article>
+
+  <h2 class="reveal">功能成分类</h2>
+
+  <article class="dc reveal" id="probiotics">
+   <h3>益生菌 <span class="badge bB">B（因菌株而异）</span></h3>
+   <p class="fr"><span class="fld">需要补吗</span><span class="tier">均衡者：</span>不需要常规补；<span class="tier">风险人群：</span>服用抗生素者（特定菌株可缩短抗生素相关腹泻约一天）、部分肠易激综合征与功能性便秘人群可尝试特定菌株；<span class="tier">明确缺乏者：</span>不存在统一"缺菌"诊断，效果完全取决于菌株与症状匹配。依据：Cochrane 相关系统评价。</p>
+   <p class="fr"><span class="fld">食补优先</span>无糖酸奶、开菲尔、纳豆、泡菜等发酵食品提供活菌与底物，虽然菌株不可控，作为日常维护优于天天吃胶囊。</p>
+   <p class="fr"><span class="fld">若选补剂</span>按证据选具体菌株（如鼠李糖乳杆菌 GG、布拉氏酵母菌），常见有效量每日 50 亿至 300 亿 CFU；与抗生素间隔 2 至 4 小时服用；冲服水温不超过 40 度。</p>
+   <p class="fr"><span class="fld">注意事项</span>免疫抑制、危重症与中心静脉置管人群应避免（有罕见菌血症报告）；"调节免疫""改善情绪"等宣称远超现有证据。</p>
+   <p class="fr"><span class="fld">成本与价格</span>成本主要在菌株授权、冻干工艺与活菌保证，足量产品每月约 <strong>50 至 150 元</strong>（大致参考，随渠道波动）。<span class="flag">价格红旗：</span>只写"百亿活菌"不写具体菌株编号的产品，高价买不到可预期的效果；常温散装超低价品活菌存疑。</p>
+  </article>
+
+  <article class="dc reveal" id="coq10">
+   <h3>辅酶Q10 <span class="badge bC">C</span></h3>
+   <p class="fr"><span class="fld">需要补吗</span><span class="tier">均衡者：</span>不需要；<span class="tier">风险人群：</span>他汀相关肌肉不适者可以尝试（研究结论不一致），心衰辅助治疗的证据也偏谨慎；<span class="tier">明确缺乏者：</span>罕见，多为遗传性线粒体疾病，须专科医生处理。依据：NIH ODS 辅酶Q10 事实清单与 Cochrane 评价。</p>
+   <p class="fr"><span class="fld">食补优先</span>人体可自身合成，20 岁后合成能力下降但仍足够；动物心脏、牛肉、沙丁鱼、花生含少量（每份仅数毫克），食补对提升血浓度的作用有限。</p>
+   <p class="fr"><span class="fld">若选补剂</span>常见剂量每日 100 至 300 毫克，无正式 UL，临床试验最高用到每日 3000 毫克；脂溶性，随含脂肪的正餐服用，剂量大时分两次。</p>
+   <p class="fr"><span class="fld">注意事项</span>可能降低华法林抗凝效果，服抗凝药者必须告知医生；高剂量可见胃肠不适与失眠（建议白天服）。</p>
+   <p class="fr"><span class="fld">成本与价格</span>发酵法原料成本中等，泛醌（普通型）按 100 至 200 毫克/日每月约 <strong>30 至 80 元</strong>，还原型泛醇约 60 至 150 元（大致参考，随渠道波动）。<span class="flag">价格红旗：</span>每盒两三百元的小剂量"高端心血管配方"溢价严重；过低价格则要核对是否为泛醌冒充泛醇。</p>
+  </article>
+
+  <article class="dc reveal" id="nmn">
+   <h3>NMN / NR <span class="badge bD">D</span></h3>
+   <p class="fr"><span class="fld">需要补吗</span><span class="tier">均衡者：</span>不推荐；<span class="tier">风险人群：</span>同样不推荐，人体"抗衰老"证据仍处早期，主要终点是 NAD 水平这类替代指标；<span class="tier">明确缺乏者：</span>不存在对应的缺乏症。依据：NIH ODS 对烟酰胺核糖的评估；另注意中国市场监管总局未将 NMN 列入保健食品原料目录，其"抗衰"宣称属违规。</p>
+   <p class="fr"><span class="fld">食补优先</span>身体可由维生素 B3（烟酰胺、烟酸）合成 NAD，肉、鱼、谷物正常摄入即可满足 B3 需求（RNI 约 14 毫克烟酸当量）；想要"抗衰老"证据的只有运动、睡眠与不吸烟。</p>
+   <p class="fr"><span class="fld">若选补剂</span>研究中常见每日 250 至 300 毫克，无权威剂量与 UL 共识；所谓"晨起空腹吸收更好"属营销话术，无人体证据。</p>
+   <p class="fr"><span class="fld">注意事项</span>长期安全性数据不足；跨境购渠道的产品不受国内保健食品监管保护，标签真实性靠自己把关。</p>
+   <p class="fr"><span class="fld">成本与价格</span>NMN 原料价格近几年从每公斤数万元降至数千元级，按每日 300 毫克跨境成交价每月约 <strong>100 至 300 元</strong>（大致参考，随渠道波动）。<span class="flag">价格红旗：</span>仍卖千元每月的产品吃的是早期定价惯性；而超低价NMN的纯度与含量造假风险高，两项红旗同时成立。</p>
+  </article>
+
+  <article class="dc reveal" id="melatonin">
+   <h3>褪黑素 <span class="badge bB">B（时差与睡眠时相问题）</span></h3>
+   <p class="fr"><span class="fld">需要补吗</span><span class="tier">均衡者：</span>偶发失眠首选睡眠卫生调整，不必常规吃；<span class="tier">风险人群：</span>跨时区飞行（时差综合征）、倒班工作者、睡眠时相延迟（晚睡晚醒型）者短期低剂量使用有一定证据；<span class="tier">明确缺乏者：</span>慢性失眠应先做失眠认知行为治疗（CBT-I）而非长期服褪黑素，各国指南立场一致。</p>
+   <p class="fr"><span class="fld">食补优先</span>没有食物能"补褪黑素"；更有效的免费替代是固定起床时间、早晨晒光、睡前一小时调暗灯光并远离屏幕。</p>
+   <p class="fr"><span class="fld">若选补剂</span>中国保健食品原料目录规定的每日用量为 1 至 3 毫克，小剂量（0.5 至 1 毫克）起始常已足够，剂量越大并不越助眠；睡前 0.5 至 2 小时服用，短期按需使用。</p>
+   <p class="fr"><span class="fld">注意事项</span>常见晨起困倦，服药后避免驾驶；儿童与青少年不建议自行使用；与抗凝药、免疫抑制剂及降糖药可能相互作用。</p>
+   <p class="fr"><span class="fld">成本与价格</span>褪黑素原料极便宜，按 1 至 3 毫克/日每月约 <strong>3 至 10 元</strong>（大致参考，随渠道波动）。<span class="flag">价格红旗：</span>每片 5 至 10 毫克的超量产品不符合国内保健食品剂量规定，高价缓释"深睡配方"多为组合溢价。</p>
+  </article>
+
+  <article class="dc reveal" id="glucosamine">
+   <h3>氨基葡萄糖 <span class="badge bC">C</span></h3>
+   <p class="fr"><span class="fld">需要补吗</span><span class="tier">均衡者：</span>不需要；<span class="tier">风险人群：</span>膝骨关节炎者若想尝试可以（安全性好），但大型试验（GAIT 等）主要终点阴性，各指南态度不一，预期效果即使存在也很小；<span class="tier">明确缺乏者：</span>无缺乏症概念。依据：NIH ODS、GAIT 试验报告。</p>
+   <p class="fr"><span class="fld">食补优先</span>没有日常食物含氨基葡萄糖（虾蟹壳与动物软骨中存在但摄入量可忽略）；真正有证据的"替代"是减重、股四头肌力量训练与规范运动，对膝关节炎的获益超过任何补剂。</p>
+   <p class="fr"><span class="fld">若选补剂</span>经典剂量为硫酸氨糖或盐酸氨糖每日 1500 毫克，一次或分次随餐服用；需连续使用 1 至 3 个月再评估是否有效，无效即停。</p>
+   <p class="fr"><span class="fld">注意事项</span>多数产品源自甲壳类，海鲜过敏者留意；有与华法林相互作用升高 INR 的个案报告；糖尿病者大剂量使用时监测血糖。</p>
+   <p class="fr"><span class="fld">成本与价格</span>氨糖盐原料便宜，按每日 1500 毫克每月约 <strong>30 至 80 元</strong>（大致参考，随渠道波动）。<span class="flag">价格红旗：</span>加入"软骨素加胶原加姜黄"的高价关节配方动辄每月两三百元，各成分证据同样有限，组合不会变成有效。</p>
+  </article>
+
+  <article class="dc reveal" id="collagen">
+   <h3>胶原蛋白 <span class="badge bD">D（美容宣称）</span></h3>
+   <p class="fr"><span class="fld">需要补吗</span><span class="tier">均衡者：</span>不推荐；<span class="tier">风险人群：</span>同样不推荐，口服后与其他蛋白质一样被消化为氨基酸与小肽，不存在"吃啥补啥"；<span class="tier">明确缺乏者：</span>蛋白质缺乏属营养不良，应解决饮食问题而非买胶原。依据：NIH ODS 与梅奥诊所对现有小型低质量研究的评价。</p>
+   <p class="fr"><span class="fld">食补优先</span>皮肤自身合成胶原蛋白需要氨基酸（优质蛋白提供）加维生素 C（蔬果提供）；蛋、奶、鱼、肉、大豆加足量蔬果就是"原料套餐"，成本远低于胶原肽。</p>
+   <p class="fr"><span class="fld">若选补剂</span>研究中水解胶原肽常用每日 2.5 至 10 克，无 UL；服用时间不敏感，部分研究配维生素 C，随餐或空腹皆可。</p>
+   <p class="fr"><span class="fld">注意事项</span>安全性总体良好；注意口服液与软糖的含糖量，以及"熬夜水""美白饮"里可能违规添加的药物成分。</p>
+   <p class="fr"><span class="fld">成本与价格</span>食品级鱼皮与牛皮胶原肽原料每公斤仅几十元，按每日 5 至 10 克每月约 <strong>80 至 250 元</strong>，其中相当比例是"美容"定位溢价（大致参考，随渠道波动）。<span class="flag">价格红旗：</span>每条折价十元以上的胶原饮，其宣称效果撑不起定价；超低价产品则可能用明胶冒充水解胶原。</p>
+  </article>
+
+  <article class="dc reveal" id="lutein">
+   <h3>叶黄素 <span class="badge bB">B（针对黄斑变性高危者）</span></h3>
+   <p class="fr"><span class="fld">需要补吗</span><span class="tier">均衡者：</span>不需要，吃深绿叶菜即可；<span class="tier">风险人群：</span>已有中期老年黄斑变性或医生评估为高危者，AREDS2 配方（叶黄素 10 毫克加玉米黄素 2 毫克等）可减缓进展；<span class="tier">明确缺乏者：</span>无缺乏症定义。依据：AREDS2 试验、NIH ODS。</p>
+   <p class="fr"><span class="fld">食补优先</span>菠菜与羽衣甘蓝每 100 克含叶黄素约 6 至 12 毫克，玉米与蛋黄也是来源；每日一份深绿叶菜已接近研究剂量，是最便宜的护眼底方案。</p>
+   <p class="fr"><span class="fld">若选补剂</span>研究剂量为每日叶黄素 10 毫克加玉米黄素 2 毫克；无正式 UL，一般不建议长期超过每日 20 毫克。随含脂肪的正餐服用（叶黄素为脂溶性），每日一次。</p>
+   <p class="fr"><span class="fld">注意事项</span>长期大剂量的安全性数据有限；叶黄素不能逆转已有病变，也不能替代眼底检查与戒烟等更重要措施。</p>
+   <p class="fr"><span class="fld">成本与价格</span>叶黄素自万寿菊提取消耗原料中等，按每日 10 毫克每月约 <strong>15 至 50 元</strong>（大致参考，随渠道波动）。<span class="flag">价格红旗：</span>"护眼蓝莓叶黄素酯"高价组合溢价明显，叶黄素酯折算含量常被夸大；低价品则注意是否标明游离叶黄素含量。</p>
+  </article>
+
+  <article class="dc reveal" id="fiber">
+   <h3>膳食纤维补充剂 <span class="badge bB">B</span></h3>
+   <p class="fr"><span class="fld">需要补吗</span><span class="tier">均衡者：</span>优先从食物获取，中国成人 AI 为每日 25 至 30 克，多数人达不到，应先加蔬果与全谷物；<span class="tier">风险人群：</span>便秘、血脂偏高且饮食改善有限者可用洋车前子壳等可溶性纤维辅助；<span class="tier">明确缺乏者：</span>严重便秘属医疗问题，先就医排查。依据：中国营养学会、Cochrane 对洋车前子的评价。</p>
+   <p class="fr"><span class="fld">食补优先</span>全谷物、杂豆、蔬果同时带来纤维、钾、镁与植物营养素；燕麦（每 100 克约 10 克纤维）与杂豆饭是最容易落地的两步。</p>
+   <p class="fr"><span class="fld">若选补剂</span>洋车前子壳每次 5 至 10 克、每日 1 至 2 次，足量水冲服并逐渐加量，否则反而加重便秘；与其他药物间隔 1 至 2 小时服用以免影响吸收。</p>
+   <p class="fr"><span class="fld">注意事项</span>食管或肠道狭窄、梗阻风险者禁用；服用后胀气常见，会随适应减轻。</p>
+   <p class="fr"><span class="fld">成本与价格</span>洋车前子壳粉是大宗食品原料，极便宜，按每日 10 克每月约 <strong>10 至 30 元</strong>（大致参考，随渠道波动）。<span class="flag">价格红旗：</span>每条折价数元的"益生菌膳食纤维固体饮料"，纤维本身价值很低，溢价都给了概念包装。</p>
+  </article>
+
+  <h2 class="reveal">如何用这组卡片做预算</h2>
+  <p class="reveal">把每月保健品预算从高往低排，会发现一个规律：<strong>证据最充分的品类（维生素D、叶酸、B12、肌酸、褪黑素）恰好也是原料最便宜、每月十元上下的品类</strong>；而每月花费上百元的品类（NMN、胶原蛋白、高端鱼油、复合配方）多数证据不足或可用食物替代。如果你的账单和这个规律正好相反，说明钱大概率花在了营销而非营养上。合理策略是：先用检验与饮食记录确定自己真的缺什么，再按本页各卡的剂量与价位区间买入基础款，把省下的钱投给鱼、奶、蔬果和力量训练，这是所有权威机构共同的建议方向。</p>
+  <p class="src reveal">剂量与 UL 主要参考中国营养学会《中国居民膳食营养素参考摄入量（DRIs，2023 版）》与 NIH ODS 各营养素事实清单；疾病相关结论参考 USPSTF 推荐声明与 Cochrane 系统评价；价格为编写时主流电商常见品牌成交价量级，仅作参考。本页不推荐任何具体品牌。</p>
+  <div class="callout warn reveal"><strong>最后提醒：</strong>本页的"明确缺乏者"一档永远指向就医而不是加量自补；正在服药、怀孕、哺乳或有慢性病者，使用任何补充剂前请先咨询医生或临床药师，并阅读<a href="safety.html">安全边界</a>与<a href="buy.html">选购鉴别</a>。</div>
+ </div>
+</main>
+<footer>
+ <div class="wrap">
+  <nav class="foot-nav" aria-label="页脚导航">
+   <a href="index.html">首页</a><a href="basics.html">基础知识</a><a href="evidence.html">证据分级</a><a href="by-need.html">按需选择</a><a href="decide.html">理性决策</a><a href="traditions.html">流派与传统</a><a href="brands.html">品牌辨识</a><a href="safety.html">安全边界</a><a href="myths.html">误区破解</a><a href="buy.html">选购鉴别</a><a href="../index.html">返回总门户</a>
+  </nav>
+  <p class="disclaimer">本站内容仅供科普参考，不构成医疗建议；服用任何保健品前请咨询医生或临床药师，孕妇、儿童、慢性病及服药人群尤其如此。</p>
+ </div>
+</footer>
+<script>
+(function(){
+var doc=document;
+var mb=doc.getElementById('menuBtn'),nv=doc.getElementById('nav');
+if(mb&&nv){
+ mb.addEventListener('click',function(){var open=nv.classList.toggle('open');mb.setAttribute('aria-expanded',open?'true':'false')});
+ nv.addEventListener('click',function(e){if(e.target.closest('a')){nv.classList.remove('open');mb.setAttribute('aria-expanded','false')}});
+}
+var tb=doc.getElementById('themeBtn');
+function label(){var t=doc.documentElement.getAttribute('data-theme');tb.textContent=t==='dark'?'☀':'☾';tb.setAttribute('title',t==='dark'?'切换到浅色主题':'切换到深色主题')}
+if(tb){label();tb.addEventListener('click',function(){var cur=doc.documentElement.getAttribute('data-theme')==='dark'?'light':'dark';doc.documentElement.setAttribute('data-theme',cur);try{localStorage.setItem('theme',cur)}catch(e){}label()})}
+var els=doc.querySelectorAll('.reveal');
+if('IntersectionObserver' in window){
+ var io=new IntersectionObserver(function(es){es.forEach(function(en){if(en.isIntersecting){en.target.classList.add('in');io.unobserve(en.target)}})},{threshold:.06});
+ els.forEach(function(el){io.observe(el)});
+}else{els.forEach(function(el){el.classList.add('in')})}
+})();
+</script>
+<div class="portal"><a href="../index.html">&#8592; 总门户</a></div>
+<button class="toTop" type="button" id="toTop" aria-label="回到顶部">&#8593;</button>
+<script>
+(function(){
+  var b=document.getElementById('toTop');if(!b)return;
+  var rm=window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  function upd(){if(window.scrollY>600){b.classList.add('show')}else{b.classList.remove('show')}}
+  window.addEventListener('scroll',upd,{passive:true});upd();
+  b.addEventListener('click',function(){window.scrollTo({top:0,behavior:rm?'auto':'smooth'});});
+})();
+</script>
+</body>
+</html>

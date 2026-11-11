@@ -1,0 +1,309 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>第 18 章 养孩子划不划算 · 高性价比人生指南</title>
+<script>
+(function(){var t=null;try{t=localStorage.getItem('theme')}catch(e){}
+if(t!=='light'&&t!=='dark'){var h=new Date().getHours();t=(h>=7&&h<17)?'light':'dark'}
+document.documentElement.setAttribute('data-theme',t);document.documentElement.classList.add('js')})();
+</script>
+<style>
+*{box-sizing:border-box;margin:0;padding:0}
+:root{--bg:#f7f3ea;--ink:#2a2a24;--soft:#4a4a3f;--muted:#5a5a4d;--muted2:#7a7a6c;--body-ink:#3d3d33;--link:#2d5a4a;--accent:#2d5a4a;--deep:#1f4437;--head-bg:#f2ecdd;--nav-hover:#e3ead9;--nav-hover-ink:#1f4437;--on-bg:#2d5a4a;--on-ink:#f7f3ea;--card:#fffdf7;--line:#e4ddc9;--th-bg:#e7efe9;--chip-bg:#e7efe9;--chip-ink:#24503f;--chip-hover:#d5e3d8;--bA-bg:#2d5a4a;--bA-ink:#f7f3ea;--bB-bg:#dce8df;--bB-ink:#24503f;--bB-line:#9dbcaa;--bC-ink:#6a6a5f;--bC-line:#b9b5a6;--note-bg:#f0ead9;--note-line:#e0d8c2;--kick-bg:#eef3ec;--src:#767460;--tag-bg:#f6e8d8;--tag-ink:#8a5a1e;--tag-line:#e0c9a6;--foot-bg:#243b32;--foot-ink:#cfd8cf;--foot-link:#a8d0b8}
+[data-theme="dark"]{--bg:#0f1e18;--ink:#ece7d9;--soft:#c9c6b6;--muted:#bfc4b4;--muted2:#a3ab9d;--body-ink:#d6d9cc;--link:#7cc9a4;--accent:#6fbf98;--deep:#a9e0c3;--head-bg:#14251d;--nav-hover:#24382e;--nav-hover-ink:#e2efe6;--on-bg:#2f6b52;--on-ink:#f2f7f0;--card:#16291f;--line:#2e463a;--th-bg:#1d3a2d;--chip-bg:#1d3a2d;--chip-ink:#a8e3c4;--chip-hover:#274a39;--bA-bg:#5fbf95;--bA-ink:#0c1b14;--bB-bg:#1d3a2d;--bB-ink:#a8e3c4;--bB-line:#3d6a55;--bC-ink:#b9c2b4;--bC-line:#55645c;--note-bg:#1c2f24;--note-line:#35503f;--kick-bg:#16291f;--src:#97a496;--tag-bg:#3a2c17;--tag-ink:#e8c088;--tag-line:#6a5232;--foot-bg:#0b1712;--foot-ink:#b7c4b7;--foot-link:#8fd4b4}
+html{scroll-behavior:smooth}
+body{font-family:"Microsoft YaHei","PingFang SC","Noto Sans SC",system-ui,sans-serif;background:var(--bg);color:var(--ink);line-height:1.75;font-size:16px}
+.wrap{max-width:1060px;margin:0 auto;padding:0 20px}
+a{color:var(--link)}
+header.site{position:sticky;top:0;z-index:20;background:var(--head-bg);border-bottom:2px solid var(--accent)}
+nav.top{display:flex;flex-wrap:wrap;align-items:center;gap:2px;row-gap:8px;padding:9px 0;font-size:14.5px;position:relative}
+nav.top::-webkit-scrollbar{display:none}
+nav.top a{text-decoration:none;color:var(--ink);padding:5px 12px;border-radius:8px;flex:0 0 auto}
+nav.top a:hover{background:var(--nav-hover)}
+nav.top a.on{background:var(--on-bg);color:var(--on-ink)}
+nav.top a.gh{margin-left:auto;color:var(--link);font-weight:700}
+nav.top a.gh:hover{background:var(--nav-hover);color:var(--nav-hover-ink)}
+nav.top .brand{font-weight:700;color:var(--deep);white-space:nowrap}
+nav.top .brand:hover{color:var(--nav-hover-ink)}
+.nav-links{display:flex;flex-wrap:wrap;align-items:center;gap:2px;row-gap:8px}
+.nav-links-in{display:contents}
+.theme-btn{flex:0 0 auto;font-size:14px;line-height:1;padding:6px 11px;border-radius:8px;border:1px solid var(--line);background:var(--card);color:var(--ink);cursor:pointer}
+.theme-btn:hover{background:var(--nav-hover);color:var(--nav-hover-ink)}
+.nav-toggle{display:none;flex:0 0 auto;margin-left:auto;font-size:15px;line-height:1;padding:8px 12px;border-radius:8px;border:1px solid var(--line);background:var(--card);color:var(--ink);cursor:pointer}
+.nav-toggle:hover{background:var(--nav-hover);color:var(--nav-hover-ink)}
+@media (max-width:720px){
+html.js nav.top{flex-wrap:nowrap;row-gap:0;min-height:52px;padding:7px 0}
+html.js .nav-toggle{display:inline-block}
+html.js .nav-links{display:grid;grid-template-rows:0fr;flex-wrap:nowrap;position:absolute;top:100%;left:0;right:0;margin:0;padding:0;background:var(--head-bg);border-bottom:0 solid var(--accent)}
+html.js .nav-links.open{grid-template-rows:1fr;border-bottom-width:2px;box-shadow:0 12px 20px rgba(20,30,25,.14)}
+html.js .nav-links-in{display:flex;min-height:0;overflow:hidden;flex-direction:column;padding:0 14px}
+html.js .nav-links.open .nav-links-in{padding:8px 14px 12px}
+html.js .nav-links a{display:block;padding:9px 12px}
+html.js .nav-links a.gh{margin-left:0}
+}
+@media (max-width:720px) and (prefers-reduced-motion: no-preference){
+html.js .nav-links{transition:grid-template-rows .25s ease,border-bottom-width .25s ease}
+html.js .nav-links-in{transition:padding .25s ease}
+}
+.pagehead{padding:40px 0 24px;border-bottom:1px solid var(--line)}
+.pagehead h1{font-size:clamp(24px,4vw,34px);color:var(--deep);margin-bottom:10px}
+.pagehead p{color:var(--soft);max-width:46em;font-size:15.5px;margin-bottom:10px}
+.subnav{display:flex;flex-wrap:wrap;gap:8px;margin-top:18px}
+.subnav a{font-size:13.5px;text-decoration:none;background:var(--chip-bg);color:var(--chip-ink);border-radius:999px;padding:4px 14px}
+.subnav a:hover{background:var(--chip-hover)}
+section.block{padding:38px 0 8px;scroll-margin-top:70px}
+h2.sec{font-size:23px;color:var(--deep);border-left:6px solid var(--accent);padding-left:14px;margin-bottom:6px}
+p.secdesc{color:var(--muted);margin-bottom:18px;max-width:46em;font-size:15px}
+.list{display:flex;flex-direction:column;gap:14px;margin-bottom:28px}
+.card{background:var(--card);border:1px solid var(--line);border-radius:12px;padding:18px 22px}
+.card-head{display:flex;justify-content:space-between;align-items:flex-start;gap:12px;margin-bottom:8px}
+.card-head h3{font-size:16.5px;color:var(--deep);line-height:1.5}
+.badge{display:inline-block;font-size:12px;font-weight:700;padding:2px 10px;border-radius:999px;white-space:nowrap;flex:0 0 auto;margin-top:2px}
+.badge.a{background:var(--bA-bg);color:var(--bA-ink)}
+.badge.b{background:var(--bB-bg);color:var(--bB-ink);border:1px solid var(--bB-line)}
+.badge.c{background:transparent;color:var(--bC-ink);border:1px solid var(--bC-line)}
+.card dl div{margin-bottom:6px;font-size:15px;color:var(--body-ink)}
+.card dt{display:inline;font-weight:700;color:var(--accent)}
+.card dd{display:inline;margin:0}
+.card p.extra{font-size:15px;color:var(--body-ink);margin-bottom:6px}
+.card .src{font-size:12.5px;color:var(--src);margin-top:8px;border-top:1px dashed var(--line);padding-top:8px;word-break:break-word}
+.note{background:var(--note-bg);border:1px solid var(--note-line);border-radius:12px;padding:16px 20px;font-size:14.5px;color:var(--muted);margin-bottom:30px}
+.chnav{display:flex;justify-content:space-between;gap:10px;flex-wrap:wrap;margin-bottom:30px}
+.chnav a{display:inline-block;text-decoration:none;font-size:14.5px;background:var(--chip-bg);color:var(--chip-ink);border-radius:999px;padding:6px 16px}
+.chnav a:hover{background:var(--chip-hover)}
+.grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,300px,1fr));gap:16px;margin-bottom:26px}
+.navcard{display:block;text-decoration:none;background:var(--card);border:1px solid var(--line);border-radius:12px;padding:22px;color:var(--ink);transition:border-color .2s,box-shadow .2s}
+.navcard:hover{border-color:var(--accent);box-shadow:0 3px 10px rgba(45,90,74,.15)}
+.navcard h3{font-size:19px;color:var(--deep);margin-bottom:6px}
+.navcard p{font-size:14.5px;color:var(--muted);margin-bottom:10px}
+.navcard .go{display:inline-block;margin-top:4px;font-size:14px;font-weight:700;color:var(--accent)}
+footer.site{margin-top:44px;background:var(--foot-bg);color:var(--foot-ink);padding:28px 0 24px;font-size:13.5px}
+footer.site a{color:var(--foot-link)}
+footer.site .wrap p{margin-bottom:6px}
+@media (max-width:560px){.card{padding:15px 16px}.card-head{flex-direction:column;gap:4px}}
+@media (prefers-reduced-motion: no-preference){
+.reveal{opacity:0;transform:translateY(14px);transition:opacity .5s ease,transform .5s ease}
+.reveal.in{opacity:1;transform:none}
+.navcard{transition:border-color .25s,box-shadow .25s,opacity .5s ease,transform .5s ease}
+}
+@media (prefers-reduced-motion: reduce){.reveal{opacity:1 !important;transform:none !important}}.portal{position:fixed;left:14px;bottom:14px;z-index:99}.portal a{display:inline-block;padding:7px 16px;border-radius:999px;background:rgba(20,20,20,.72);color:#fff;font-size:13px;text-decoration:none;backdrop-filter:blur(4px);font-family:system-ui,sans-serif}.portal a:hover{background:rgba(20,20,20,.9)}
+.toTop{position:fixed;right:14px;bottom:14px;z-index:98;display:none;border:none;cursor:pointer;padding:7px 14px;border-radius:999px;background:rgba(20,20,20,.72);color:#fff;font-size:14px;line-height:1;backdrop-filter:blur(4px);font-family:system-ui,sans-serif}.toTop:hover{background:rgba(20,20,20,.9)}.toTop.show{display:inline-block}
+
+/* ---- 导航重构（全站共用）：主题分组目录 / 主题色 / 章页页头 / 卡片分页 ---- */
+:root{--t-health:#2d5a4a;--t-health-bg:#dce8df;--t-health-ink:#24503f;--t-health-inv:#f7f3ea;--t-money:#8a5a1e;--t-money-bg:#f6e8d8;--t-money-ink:#7a4d16;--t-money-inv:#fbf3e6;--t-security:#3f6076;--t-security-bg:#e2e9ee;--t-security-ink:#35526a;--t-security-inv:#f2f6f8;--t-family:#9a4a38;--t-family-bg:#f3e3dd;--t-family-ink:#7e3a2b;--t-family-inv:#faf1ec;--t-career:#5f6b24;--t-career-bg:#eef0da;--t-career-ink:#4f5a1c;--t-career-inv:#f8f9ec}
+[data-theme="dark"]{--t-health:#6fbf98;--t-health-bg:#1d3a2d;--t-health-ink:#a8e3c4;--t-health-inv:#0c1b14;--t-money:#e0b678;--t-money-bg:#3a2c17;--t-money-ink:#e8c088;--t-money-inv:#211608;--t-security:#8fc3dc;--t-security-bg:#173038;--t-security-ink:#a3cede;--t-security-inv:#0b1a20;--t-family:#dfa08d;--t-family-bg:#3a211a;--t-family-ink:#eab8a8;--t-family-inv:#1f100a;--t-career:#c2d178;--t-career-bg:#2c3213;--t-career-ink:#d6dfa4;--t-career-inv:#151a07}
+.tg-health,.ph-health{--tc:var(--t-health);--tc-bg:var(--t-health-bg);--tc-ink:var(--t-health-ink);--tc-inv:var(--t-health-inv)}
+.tg-money,.ph-money{--tc:var(--t-money);--tc-bg:var(--t-money-bg);--tc-ink:var(--t-money-ink);--tc-inv:var(--t-money-inv)}
+.tg-security,.ph-security{--tc:var(--t-security);--tc-bg:var(--t-security-bg);--tc-ink:var(--t-security-ink);--tc-inv:var(--t-security-inv)}
+.tg-family,.ph-family{--tc:var(--t-family);--tc-bg:var(--t-family-bg);--tc-ink:var(--t-family-ink);--tc-inv:var(--t-family-inv)}
+.tg-career,.ph-career{--tc:var(--t-career);--tc-bg:var(--t-career-bg);--tc-ink:var(--t-career-ink);--tc-inv:var(--t-career-inv)}
+.tint{border-left:4px solid var(--tc,var(--accent))}
+.crumbs{display:flex;flex-wrap:wrap;align-items:center;gap:7px;font-size:13px;color:var(--muted2);margin-bottom:12px}
+.crumbs a{color:var(--muted);text-decoration:none}
+.crumbs a:hover{color:var(--link);text-decoration:underline}
+.crumbs .sep{font-size:11px}
+.crumbs .cur{color:var(--tc,var(--ink));font-weight:700}
+.tg-head{display:flex;flex-wrap:wrap;align-items:center;gap:6px 12px;margin-bottom:14px}
+.tg-badge{display:inline-flex;align-items:center;gap:8px;text-decoration:none;font-size:15px;font-weight:700;color:var(--tc-ink);background:var(--tc-bg);border-radius:999px;padding:5px 16px}
+.tg-badge::before{content:"";display:block;width:9px;height:9px;border-radius:50%;background:var(--tc)}
+.tg-badge:hover{background:var(--tc);color:var(--tc-inv)}
+.tg-stats{font-size:13.5px;color:var(--muted)}
+.tg-more{margin-left:auto;font-size:13.5px;font-weight:700;color:var(--tc);text-decoration:none;white-space:nowrap}
+.tg-more:hover{text-decoration:underline}
+.topic-group{margin:34px 0 6px;scroll-margin-top:76px}
+.chgrid{display:grid;grid-template-columns:repeat(auto-fill,minmax(min(100%,252px),1fr));gap:12px;margin-bottom:8px}
+.chcard{display:flex;flex-direction:column;gap:7px;background:var(--card);border:1px solid var(--line);border-radius:12px;padding:14px 16px 13px;text-decoration:none;color:var(--ink)}
+.chcard:hover{border-color:var(--tc,var(--accent));box-shadow:0 3px 10px rgba(45,90,74,.13)}
+.chcard .chtop{display:flex;align-items:center;justify-content:space-between;gap:8px}
+.chcard .chnum{font-size:12px;font-weight:700;letter-spacing:.06em;color:var(--tc-ink,var(--chip-ink));background:var(--tc-bg,var(--chip-bg));border-radius:6px;padding:2px 9px}
+.chcard .chcount{font-size:12px;color:var(--muted);background:var(--chip-bg);border-radius:999px;padding:2px 10px;white-space:nowrap}
+.chcard h3{font-size:15.5px;line-height:1.45;color:var(--deep)}
+.chcard p{font-size:13px;line-height:1.65;color:var(--muted)}
+.chcard .go{display:block;margin-top:2px;font-size:13px;font-weight:700;color:var(--link)}
+.dist{display:flex;height:6px;border-radius:999px;overflow:hidden;background:var(--line);flex:0 1 170px;min-width:96px}
+.chcard .dist{flex:none;min-width:0;margin-top:auto}
+.dist i{display:block;height:100%;flex-shrink:0}
+.dist i.da{background:var(--bA-bg)}
+.dist i.db{background:var(--bB-line)}
+.dist i.dc{background:var(--bC-line)}
+.dist-txt{font-size:11.5px;color:var(--muted2)}
+.chstats{display:flex;flex-wrap:wrap;align-items:center;gap:8px;margin-top:14px}
+.chstats .nchip{font-size:13.5px;font-weight:700;color:var(--deep);background:var(--chip-bg);border-radius:999px;padding:3px 13px}
+.atoc{display:flex;flex-wrap:wrap;gap:7px;margin-top:16px;padding-top:16px;border-top:1px dashed var(--line)}
+.atoc .hint{flex:1 0 100%;font-size:12.5px;color:var(--muted2)}
+.atoc a{font-size:12.5px;line-height:1.6;text-decoration:none;color:var(--chip-ink);background:var(--chip-bg);border-radius:999px;padding:3px 12px;max-width:100%}
+.atoc a:hover{background:var(--chip-hover);color:var(--deep)}
+.atoc a .no{font-weight:700;font-size:11px;color:var(--muted2);margin-right:5px}
+.atoc a.all{background:transparent;border:1px dashed var(--line);color:var(--muted)}
+.atoc a.all:hover{border-style:solid;color:var(--deep);background:var(--chip-bg)}
+.pager{display:grid;grid-template-columns:1fr 1fr;gap:12px;margin:34px 0 4px}
+.pager a{display:flex;flex-direction:column;gap:3px;text-decoration:none;background:var(--card);border:1px solid var(--line);border-radius:12px;padding:14px 18px;color:var(--ink)}
+.pager a:hover{border-color:var(--accent);box-shadow:0 3px 10px rgba(45,90,74,.13)}
+.pager a .dir{font-size:12px;font-weight:700;letter-spacing:.05em;color:var(--muted2)}
+.pager a b{font-size:15px;line-height:1.5;color:var(--deep)}
+.pager a.next{align-items:flex-end;text-align:right}
+.pager-mid{text-align:center;font-size:13.5px;margin-top:12px}
+.pager-mid a{color:var(--link)}
+.quickloc{margin-top:4px;margin-bottom:8px}
+.quickloc .qlabel{align-self:center;font-size:13px;color:var(--muted2);margin-right:4px}
+.list .card{scroll-margin-top:84px}
+@media (prefers-reduced-motion: no-preference){.chcard,.pager a,.tg-badge{transition:border-color .25s,box-shadow .25s,opacity .5s ease,transform .5s ease,background .2s,color .2s}}
+@media (max-width:560px){.pager{grid-template-columns:1fr}.pager a.next{align-items:flex-start;text-align:left}.chcard{padding:13px 14px 12px}}
+</style>
+<noscript><style>.reveal{opacity:1 !important;transform:none !important}.portal{position:fixed;left:14px;bottom:14px;z-index:99}.portal a{display:inline-block;padding:7px 16px;border-radius:999px;background:rgba(20,20,20,.72);color:#fff;font-size:13px;text-decoration:none;backdrop-filter:blur(4px);font-family:system-ui,sans-serif}.portal a:hover{background:rgba(20,20,20,.9)}
+.toTop{position:fixed;right:14px;bottom:14px;z-index:98;display:none;border:none;cursor:pointer;padding:7px 14px;border-radius:999px;background:rgba(20,20,20,.72);color:#fff;font-size:14px;line-height:1;backdrop-filter:blur(4px);font-family:system-ui,sans-serif}.toTop:hover{background:rgba(20,20,20,.9)}.toTop.show{display:inline-block}
+</style></noscript></head>
+<header class="site">
+  <div class="wrap">
+    <nav class="top">
+      <a class="brand" href="../index.html">人生指南</a>
+      <button class="nav-toggle" type="button" aria-expanded="false" aria-controls="navlinks" aria-label="展开或收起导航菜单">☰</button>
+      <div class="nav-links" id="navlinks">
+        <div class="nav-links-in">
+          <a href="../index.html">首页</a>
+          <a href="health.html">健康与急救</a>
+          <a href="money.html">金钱与红线</a>
+          <a href="security.html">失业与保障</a>
+          <a class="on" href="family.html">恋爱与育儿</a>
+          <a href="career.html">创业与技能</a>
+          <a class="gh" href="https://github.com/eternity4719/HowToLiveBetter" target="_blank" rel="noopener">GitHub 仓库</a>
+        </div>
+      </div>
+      <button class="theme-btn" type="button" aria-label="切换明暗主题">🌓</button>
+    </nav>
+  </div>
+</header>
+<main>
+  <div class="pagehead wrap ph-family">
+    <div class="crumbs"><a href="../index.html">首页</a><span class="sep">›</span><a href="family.html">恋爱与育儿</a><span class="sep">›</span><span class="cur">第 18 章</span></div>
+    <h1>养孩子划不划算</h1>
+    <p>这一节算的是钱和时间两笔账。和第 10 节算结婚账一样，这里只把账拆开给你看，不替你下结论。已经怀孕、要照流程一步步办事的，看第 27 节。</p>
+    <div class="chstats"><span class="nchip">7 条</span><span class="badge a">A 4</span><span class="badge c">C 3</span><span class="dist" role="img" aria-label="证据等级 A 4 条、B 0 条、C 3 条"><i class="da" style="width:57.1%"></i><i class="dc" style="width:42.9%"></i></span></div>
+    <div class="atoc"><span class="hint">章内速览 · 条目按证据等级 A→C 稳定排序，点击直达</span><a href="#e1"><span class="no">1</span>先把能领的算进来：国家育儿补贴每孩每年 3600 元，发到 3 岁；个税专项附加扣除每孩每月 2000 元</a><a href="#e2"><span class="no">2</span>产假 98 天，生育津贴由生育保险基金按单位上年度职工月平均工资发；男方的陪产假和夫妻俩的育儿假按本省条例休</a><a href="#e3"><span class="no">3</span>知道这条：不得因怀孕、生育、哺乳降工资或者辞退</a><a href="#e4"><span class="no">4</span>打算晚几年再生孩子的，先把女方的年龄这笔账算上：40 岁前后自然怀上的几率、试管婴儿的成功率都明显往下走</a><a href="#e5"><span class="no">5</span>养孩子的时间账按「谁的时间被占掉」算，不按「辛不辛苦」算</a><a href="#e6"><span class="no">6</span>钱账分三段算：0 到 3 岁、义务教育、义务教育之后</a><a href="#e7"><span class="no">7</span>为长辈生、为婚姻生、为养老生，各记一笔账</a></div>
+  </div>
+
+  <section class="block wrap" id="entries">
+    <h2 class="sec">本章条目（7 条）</h2>
+    <p class="secdesc">组内按证据等级 A→C 稳定排序，同等级保持原书先后顺序；每条注明原书节号与条号，来源行保留原文的文献链接。</p>
+    <div class="list">
+      <article class="card reveal" id="e1">
+        <div class="card-head"><h3>先把能领的算进来：国家育儿补贴每孩每年 3600 元，发到 3 岁；个税专项附加扣除每孩每月 2000 元</h3><span class="badge a">证据 A</span></div>
+        <dl>
+          <div><dt>成本：</dt><dd>不花钱。补贴去孩子户口所在地申请，跑一趟就办完。个税扣除在手机「个人所得税」App 上填，也可以交给单位填</dd></div>
+          <div><dt>说人话：</dt><dd>不满 3 岁的孩子每年能领 3600 元育儿补贴，不用交税。2025 年以前出生的按剩下的月数折算。另外从孩子出生到全日制上学结束，每个孩子每月能从父母的应税收入里减掉 2000 元。由一方全扣，税率 3% 的一年少交 720 元，10% 的少交 2400 元。</dd></div>
+          <div><dt>收益：</dt><dd>中共中央办公厅、国务院办公厅印发的方案规定：从 2025 年 1 月 1 日起，给 3 周岁以下的婴幼儿发补贴，发到满 3 周岁，标准是「每孩每年 3600 元」。2025 年 1 月 1 日之前出生、还不满 3 周岁的，按应补贴的月数折算。由孩子的父母一方或者其他监护人去申领。这笔补贴「免征个人所得税」。认定低保这类救助的时候，它「不计入家庭或个人收入」。3600 元是「国家基础标准」，「地方提标部分所需资金由地方财政自行承担」。方案还规定「县级以下政府不得自行出台育儿补贴政策或标准」，省级或市级政府要出台其他育儿补贴政策或者提标的，报上一级主管部门备案。个税那边，国务院 2022 年设了 3 岁以下婴幼儿照护扣除。2023 年又把它和子女教育扣除一起提高，从 2023 年 1 月 1 日起都是每个孩子每月 2000 元。子女教育扣除管孩子满 3 岁到上小学前这段，也管全日制学历教育，从小学一直到博士。父母「可以选择由其中一方按扣除标准的100%扣除，也可以选择由双方分别按扣除标准的50%扣除」，选定后一年内不能改。自算例子：一个孩子一年扣 2000 元乘 12 个月，共 24000 元。由一方全扣，这个人税率在 3% 档的少交 720 元，在 10% 档的少交 2400 元。两人各扣一半，每人扣 12000 元，3% 档少交 360 元，10% 档少交 1200 元。税率档按全年应纳税所得额算：不超过 36000 元的是 3%，超过 36000 元到 144000 元的部分是 10%</dd></div>
+          <div><dt>备注：</dt><dd>这是全国统一的基础标准。方案允许省级、市级政府提高标准或者另出育儿补贴政策，县级以下政府不能自己出。本地有没有加、怎么领，看本省的实施方案。三年加起来 10800 元，在养孩子的开支里只是很小的一块，别把它当成生不生的依据。个税扣除没在平时填上的，年底汇算时还能补，见第 5 节第 2 条（个税汇算）。全年应纳税所得额本来就是零的人，扣了也不会少交。扣完跨了档的，少交的钱落在两档算出的数之间。父母都交税的，让税率档高的那一方全扣，家里少交得更多</dd></div>
+        </dl>
+        <p class="src">出自第 18 节第 1 条 · 来源：中共中央办公厅、国务院办公厅 (2025). 育儿补贴制度实施方案. <a href="https://www.gov.cn/gongbao/2025/issue_12206/202508/content_7035435.html" target="_blank" rel="noopener">https://www.gov.cn/gongbao/2025/issue_12206/202508/content_7035435.html</a>；国务院 (2022). 国务院关于设立3岁以下婴幼儿照护个人所得税专项附加扣除的通知（国发〔2022〕8号，第一条、第二条）. <a href="https://www.gov.cn/zhengce/zhengceku/2022-03/28/content_5682013.htm" target="_blank" rel="noopener">https://www.gov.cn/zhengce/zhengceku/2022-03/28/content_5682013.htm</a>；国务院 (2023). 国务院关于提高个人所得税有关专项附加扣除标准的通知（国发〔2023〕13号，第一条、第二条、第五条）. <a href="https://www.gov.cn/zhengce/zhengceku/202308/content_6901207.htm" target="_blank" rel="noopener">https://www.gov.cn/zhengce/zhengceku/202308/content_6901207.htm</a>；国务院 (2018). 个人所得税专项附加扣除暂行办法（国发〔2018〕41号，第五条、第六条）. <a href="https://www.gov.cn/zhengce/zhengceku/2018-12/22/content_5351181.htm" target="_blank" rel="noopener">https://www.gov.cn/zhengce/zhengceku/2018-12/22/content_5351181.htm</a>；国家税务总局 (2023). 关于贯彻执行提高个人所得税有关专项附加扣除标准政策的公告（国家税务总局公告2023年第14号，第三条）. <a href="https://www.gov.cn/zhengce/zhengceku/202309/content_6901454.htm" target="_blank" rel="noopener">https://www.gov.cn/zhengce/zhengceku/202309/content_6901454.htm</a>；全国人民代表大会常务委员会 (2018). 中华人民共和国个人所得税法（第六条，个人所得税税率表一）. <a href="https://flk.npc.gov.cn/detail?id=2c909fdd678bf17901678bf724bd0609" target="_blank" rel="noopener">https://flk.npc.gov.cn/detail?id=2c909fdd678bf17901678bf724bd0609</a></p>
+      </article>
+      <article class="card reveal" id="e2">
+        <div class="card-head"><h3>产假 98 天，生育津贴由生育保险基金按单位上年度职工月平均工资发；男方的陪产假和夫妻俩的育儿假按本省条例休</h3><span class="badge a">证据 A</span></div>
+        <dl>
+          <div><dt>成本：</dt><dd>不花钱。由单位去申报，你自己不用跑</dd></div>
+          <div><dt>说人话：</dt><dd>生孩子至少有 98 天产假，难产、多胞胎再加，期间由生育保险基金发生育津贴。单位没给你上生育保险的，由单位自己发。男方的陪产假和夫妻俩的育儿假看本省条例。北京是陪产假 15 天，孩子 3 岁前每人每年 5 个工作日育儿假。</dd></div>
+          <div><dt>收益：</dt><dd>产假天数由国务院规定。「女职工生育享受 98 天产假，其中产前可以休假 15 天；难产的，增加产假 15 天；生育多胞胎的，每多生育 1 个婴儿，增加产假 15 天。」产假期间拿的钱叫生育津贴。已经参加生育保险的，「按照用人单位上年度职工月平均工资的标准由生育保险基金支付」。没参保的，由用人单位按你产假前的工资标准发给你。男方的陪产假、夫妻俩的育儿假由各省的人口与计划生育条例定。北京：女方另加延长生育假 60 日，男方陪产假 15 日。子女满 3 周岁前，夫妻「每人每年享受五个工作日的育儿假」，休假期间工资不得降低。上海：女方另加生育假 60 天，男方配偶陪产假 10 天。子女年满 3 周岁前「双方每年可以享受育儿假各五天」，工资按正常出勤应得的发。广东：女方奖励假 80 日，男方陪产假 15 日。子女 3 周岁以内，父母每年各 10 日育儿假，假期内照发工资。四川 2025 年版：女方延长生育假 90 日，男方护理假 30 日。子女 3 周岁以下，夫妻每年各 10 个工作日育儿假，休假期间视为出勤。国务院办公厅 2024 年要求各地保障「产假、生育奖励假、陪产假、育儿假等生育假期落实到位」</dd></div>
+          <div><dt>备注：</dt><dd>98 天是国家定的最低标准。上面四个省的条例都另加了 60 到 90 天的生育奖励假，加起来是 158 到 188 天。别的省加多少，要查本省条例。奖励假这段时间的工资由哪一方出，各省规定不一样。查本省的规定，去国家法律法规数据库（flk.npc.gov.cn）搜「省名加人口与计划生育条例」，看标着「有效」的那一版。陪产假在有的省叫护理假，育儿假有的按工作日算、有的按自然天算。上面四个省的天数按截至 2026 年 10 月的条例写，以后可能修订。</dd></div>
+        </dl>
+        <p class="src">出自第 18 节第 2 条 · 来源：国务院 (2012). 女职工劳动保护特别规定（国令第 619 号，第七条、第八条）. <a href="https://www.gov.cn/zhengce/zhengceku/2012-05/07/content_6584.htm" target="_blank" rel="noopener">https://www.gov.cn/zhengce/zhengceku/2012-05/07/content_6584.htm</a>；北京市人民代表大会常务委员会 (2021). 北京市人口与计划生育条例（2021 年 11 月 26 日修正，第十九条）. <a href="https://flk.npc.gov.cn/detail?id=ff8081817d99878a017db82d98345523" target="_blank" rel="noopener">https://flk.npc.gov.cn/detail?id=ff8081817d99878a017db82d98345523</a>；上海市人民代表大会常务委员会 (2021). 上海市人口与计划生育条例（2021 年 11 月 25 日修正，第三十一条）. <a href="https://flk.npc.gov.cn/detail?id=ff8081817f3b9178017f4f90542e04f4" target="_blank" rel="noopener">https://flk.npc.gov.cn/detail?id=ff8081817f3b9178017f4f90542e04f4</a>；广东省人民代表大会常务委员会 (2021). 广东省人口与计划生育条例（2021 年 12 月 1 日修正，第三十条）. <a href="https://flk.npc.gov.cn/detail?id=ff8081817fb1209d017fb5c92e623844" target="_blank" rel="noopener">https://flk.npc.gov.cn/detail?id=ff8081817fb1209d017fb5c92e623844</a>；四川省人民代表大会常务委员会 (2025). 四川省人口与计划生育条例（2025 年 11 月 28 日公布，第二十四条）. <a href="https://flk.npc.gov.cn/detail?id=ff8081819aedd63e019b2b65f9852f95" target="_blank" rel="noopener">https://flk.npc.gov.cn/detail?id=ff8081819aedd63e019b2b65f9852f95</a>；国务院办公厅 (2024). 关于加快完善生育支持政策体系推动建设生育友好型社会的若干措施（国办发〔2024〕48号）. <a href="https://www.gov.cn/zhengce/zhengceku/202410/content_6983486.htm" target="_blank" rel="noopener">https://www.gov.cn/zhengce/zhengceku/202410/content_6983486.htm</a></p>
+      </article>
+      <article class="card reveal" id="e3">
+        <div class="card-head"><h3>知道这条：不得因怀孕、生育、哺乳降工资或者辞退</h3><span class="badge a">证据 A</span></div>
+        <dl>
+          <div><dt>成本：</dt><dd>不花钱</dd></div>
+          <div><dt>说人话：</dt><dd>单位因为你怀孕、生孩子、喂奶，给你降工资或者把你辞了，都是违法的。孩子不满一周岁的，你每天有 1 小时喂奶时间。单位也不能安排你加班和上夜班，违反这一项的按每人 1000 到 5000 元罚款。索赔怎么走见第 19 节。</dd></div>
+          <div><dt>收益：</dt><dd>国务院规定：「用人单位不得因女职工怀孕、生育、哺乳降低其工资、予以辞退、与其解除劳动或者聘用合同。」这三段时间里单位不能给你减钱，也不能把你辞退或者解约。哺乳未满 1 周岁婴儿的，每天有 1 小时哺乳时间。单位也不得安排你延长劳动时间，不得安排夜班。哺乳期加班、上夜班这类违规，按每人 1000 元以上 5000 元以下罚款。降工资、辞退这一项，这份规定没有配罚款，被违法辞退的走劳动仲裁要求恢复或者赔偿</dd></div>
+          <div><dt>备注：</dt><dd>真的被违法辞退了，索赔路径见第 19 节。取证的重点是调岗、降薪的书面通知和聊天记录，这两样要留好</dd></div>
+        </dl>
+        <p class="src">出自第 18 节第 3 条 · 来源：国务院 (2012). 女职工劳动保护特别规定（国令第 619 号，第五条、第九条、第十三条）. <a href="https://www.gov.cn/zhengce/zhengceku/2012-05/07/content_6584.htm" target="_blank" rel="noopener">https://www.gov.cn/zhengce/zhengceku/2012-05/07/content_6584.htm</a></p>
+      </article>
+      <article class="card reveal" id="e4">
+        <div class="card-head"><h3>打算晚几年再生孩子的，先把女方的年龄这笔账算上：40 岁前后自然怀上的几率、试管婴儿的成功率都明显往下走</h3><span class="badge a">证据 A</span></div>
+        <dl>
+          <div><dt>成本：</dt><dd>不花钱，花的是一次认真的谈话。难在要把生孩子和工作、买房这些安排放在一起排，不能只是往后推</dd></div>
+          <div><dt>说人话：</dt><dd>女方年龄越大越难自然怀上，40 岁出头每个月怀上的几率只有 30 岁出头的一半左右。怀上以后流产的比例也往上走，40 到 44 岁约三分之一。做试管婴儿也补不回来，43、44 岁每移植一个胚胎只有约 5% 能生下孩子。</dd></div>
+          <div><dt>收益：</dt><dd>自然怀孕看美国一项跟踪研究，找的是 30 到 44 岁、没有不孕病史、刚开始备孕的女性。和 30、31 岁相比，40、41 岁每个月怀上的几率低约 53%（比值 0.47，95% CI 0.28–0.78），42 到 44 岁低约 59%（0.39，0.16–0.93）。38、39 岁低约 30%（0.70，0.48–1.01），可信范围刚好碰到「没差别」。32、33 岁和 30、31 岁没有差别。从没怀过孕的女性，每个年龄怀上的几率都更低。丹麦一项同类研究里，35 到 40 岁女性的几率是 20 到 24 岁的 0.77。男方年龄的影响小得多，35 到 39 岁男性是 0.95。流产看挪威 2009 到 2013 年约 42 万次怀孕的登记数据：流产比例 25 到 29 岁最低，为 9.8%。30 到 34 岁 10.8%，35 到 39 岁 16.7%，40 到 44 岁 32.2%，45 岁以上 53.6%。胚胎的染色体看美国一家生殖中心对 15169 个试管胚胎做的检测。染色体异常从 26 岁以后随年龄稳定上升。26 到 37 岁做试管的人里，培养出的胚胎全都染色体异常的占 2% 到 6%，42 岁是 33%，44 岁是 53%。试管婴儿的成功率看英国生殖管理机构 2022 年的初步统计。用自己卵子、新鲜胚胎移植的，每移植一个胚胎生下孩子的比例：18 到 34 岁 35%，35 到 37 岁 26%，38、39 岁 18%，40 到 42 岁 10%，43、44 岁 5%。国内的规矩：卫生部 2003 年的《人类辅助生殖技术规范》写明「禁止给不符合国家人口和计划生育法规和条例规定的夫妇和单身妇女实施人类辅助生殖技术」。国务院办公厅 2024 年要求各地把适宜的辅助生殖技术项目纳入医保报销范围。国家医保局 2025 年 7 月说，全国 31 个省份和新疆兵团已经全面把辅助生殖技术纳入报销，2024 年有超过 100 万人次享受了待遇</dd></div>
+          <div><dt>备注：</dt><dd>不主张谁该早生或晚生，只把年龄这一项摆出来，和第 5 条的钱账、第 4 条的时间账放在一起看。这些都是一大群人的平均数，落到具体一个人身上差别很大，想知道自己的情况去医院生殖科问。单身女性在国内正规医院做不了辅助生殖技术。试管婴儿医保报哪些项目、报多少，各省不一样，去当地医保局问。决定要孩子之后该做什么，从第 27 节第 1 条（补叶酸）开始看</dd></div>
+        </dl>
+        <p class="src">出自第 18 节第 7 条 · 来源：Steiner AZ, Jukic AM (2016). Impact of female age and nulligravidity on fecundity in an older reproductive age cohort. Fertility and Sterility 105(6):1584-1588. <a href="https://doi.org/10.1016/j.fertnstert.2016.02.028" target="_blank" rel="noopener">https://doi.org/10.1016/j.fertnstert.2016.02.028</a>；Rothman KJ 等 (2013). Volitional determinants and age-related decline in fecundability: a general population prospective cohort study in Denmark. Fertility and Sterility 99(7):1958-1964. <a href="https://doi.org/10.1016/j.fertnstert.2013.02.040" target="_blank" rel="noopener">https://doi.org/10.1016/j.fertnstert.2013.02.040</a>；Magnus MC 等 (2019). Role of maternal age and pregnancy history in risk of miscarriage: prospective register based study. BMJ 364:l869（表 1）. <a href="https://doi.org/10.1136/bmj.l869" target="_blank" rel="noopener">https://doi.org/10.1136/bmj.l869</a>；Franasiak JM 等 (2014). The nature of aneuploidy with increasing age of the female partner: a review of 15,169 consecutive trophectoderm biopsies evaluated with comprehensive chromosomal screening. Fertility and Sterility 101(3):656-663. <a href="https://doi.org/10.1016/j.fertnstert.2013.11.004" target="_blank" rel="noopener">https://doi.org/10.1016/j.fertnstert.2013.11.004</a>；Human Fertilisation and Embryology Authority (2024). Fertility treatment 2022: preliminary trends and figures. <a href="https://www.hfea.gov.uk/about-us/publications/research-and-data/fertility-treatment-2022-preliminary-trends-and-figures/" target="_blank" rel="noopener">https://www.hfea.gov.uk/about-us/publications/research-and-data/fertility-treatment-2022-preliminary-trends-and-figures/</a>；卫生部 (2003). 人类辅助生殖技术规范（卫科教发〔2003〕176号附件，三、实施技术人员的行为准则第十三项）. <a href="https://www.nhc.gov.cn/wjw/gfxwj/200309/8da11b0f3edb49cbbe5dea1dc18794a9/files/1733388793099_97897.doc" target="_blank" rel="noopener">https://www.nhc.gov.cn/wjw/gfxwj/200309/8da11b0f3edb49cbbe5dea1dc18794a9/files/1733388793099_97897.doc</a>；国务院办公厅 (2024). 关于加快完善生育支持政策体系推动建设生育友好型社会的若干措施（国办发〔2024〕48号）. <a href="https://www.gov.cn/zhengce/zhengceku/202410/content_6983486.htm" target="_blank" rel="noopener">https://www.gov.cn/zhengce/zhengceku/202410/content_6983486.htm</a>；国务院新闻办公室 (2025). 国务院新闻办就育儿补贴制度及生育支持措施有关情况举行发布会（国家医保局待遇保障司负责人答问）. <a href="https://www.gov.cn/zhengce/202507/content_7034595.htm" target="_blank" rel="noopener">https://www.gov.cn/zhengce/202507/content_7034595.htm</a></p>
+      </article>
+      <article class="card reveal" id="e5">
+        <div class="card-head"><h3>养孩子的时间账按「谁的时间被占掉」算，不按「辛不辛苦」算</h3><span class="badge c">证据 C</span></div>
+        <dl>
+          <div><dt>成本：</dt><dd>不花钱，花的是时间。孩子 3 岁前基本是全天被占住。难在天天如此，没法咬牙几天就过去</dd></div>
+          <div><dt>说人话：</dt><dd>把每天看孩子的小时数、夜里被吵醒的次数，都折算成时间。再乘上干这些活的那个人的时薪。算出来的数，一般远远大于奶粉尿布钱。所以分工最好在生之前就谈好。</dd></div>
+          <div><dt>收益：</dt><dd>把每天照看孩子的时间、夜里被吵醒的次数，都折算成小时。再乘以干这些活的那个人的时薪。得到的数字通常远大于奶粉尿布钱。照看、做饭、夜里起夜这些活虽然没人付钱，也照这样记进成本。算法和第 10 节算家务的那套一样。先谈好分工，再决定生不生</dd></div>
+          <div><dt>备注：</dt><dd>数字不必算得很准。有用的是两个人在生之前对着同一张表谈分工，免得生完再吵。生完孩子回去上班，单位给你调岗、降薪的，怎么表态见第 19 节第 23 条（不同意调岗降薪）</dd></div>
+        </dl>
+        <p class="src">出自第 18 节第 4 条 · 来源：作者经验，无直接文献；口径见第 10 节</p>
+      </article>
+      <article class="card reveal" id="e6">
+        <div class="card-head"><h3>钱账分三段算：0 到 3 岁、义务教育、义务教育之后</h3><span class="badge c">证据 C</span></div>
+        <dl>
+          <div><dt>成本：</dt><dd>花多少钱没有固定数，城市不同、带法不同，差得很远。难在要静下心来把三段账分开算，不能凭感觉拍一个数</dd></div>
+          <div><dt>说人话：</dt><dd>0 到 3 岁的钱，主要花在怎么带上：自己带、老人带，还是请人带。小学到初中这段，主要花在住房和课外。再往后，主要花在升学这条路上。三段的花法完全不同，混在一起只会算出一个吓人的总数。</dd></div>
+          <div><dt>收益：</dt><dd>0 到 3 岁的大头是照料方式：自己带、老人带还是请人带。义务教育阶段（小学到初中）的大头是住房和课外支出。这之后的大头是升学路径。这三段钱花在哪完全不同，混在一起算，只会得到一个吓人的总数</dd></div>
+          <div><dt>备注：</dt><dd>先把育儿补贴、生育津贴、医保报销这些确定能拿到的钱算进来，再看还差多少。别拿网上流传的「养大一个孩子要多少万」做决定，那类数字口径不明，你不知道它算了哪些、又漏了哪些</dd></div>
+        </dl>
+        <p class="src">出自第 18 节第 5 条 · 来源：作者经验，无直接文献</p>
+      </article>
+      <article class="card reveal" id="e7">
+        <div class="card-head"><h3>为长辈生、为婚姻生、为养老生，各记一笔账</h3><span class="badge c">证据 C</span></div>
+        <dl>
+          <div><dt>成本：</dt><dd>不花钱，花的是一次认真的谈话。难在要把话说开，不绕过去</dd></div>
+          <div><dt>说人话：</dt><dd>别人希望你生，这可以算你的一个考虑因素。但时间和钱是记在你自己账上的。「养儿防老」要单独算一笔，因为它赌的是二十年后另一个人的经济能力和意愿。把不生的后果也写下来，两边对照。</dd></div>
+          <div><dt>收益：</dt><dd>思路和第 10 节一样。别人的期待可以算你的一个考虑因素。但成本要记在你自己的账上，不记在他们账上。「养儿防老」尤其要单独算一笔，因为它假定的是二十年后另一个人的经济能力和意愿</dd></div>
+          <div><dt>备注：</dt><dd>把「不生的后果」也写下来，和「生的后果」放在一起对照着看</dd></div>
+        </dl>
+        <p class="src">出自第 18 节第 6 条 · 来源：作者经验，无直接文献；同类分析见第 10 节</p>
+      </article>
+    </div>
+    <nav class="pager" aria-label="上一章与下一章">
+      <a href="c17.html"><span class="dir">← 上一章</span><b>第 17 章 · 家里有老人</b></a>
+      <a class="next" href="c19.html"><span class="dir">下一章 →</span><b>第 19 章 · 在职、离职和工伤</b></a>
+    </nav>
+    <div class="pager-mid"><a href="family.html">回主题：恋爱与育儿</a> · <a href="../index.html#chapters">全部 34 章</a></div>
+  </section>
+</main>
+<footer class="site">
+  <div class="wrap">
+    <p><a href="../index.html">返回首页</a> · 内容出自开源书《高性价比人生指南》（<a href="https://creativecommons.org/licenses/by/4.0/" target="_blank" rel="noopener">CC BY 4.0</a>）。</p>
+    <p>完整原文、来源核实记录与在线检索：<a href="https://github.com/eternity4719/HowToLiveBetter" target="_blank" rel="noopener">GitHub 仓库 eternity4719/HowToLiveBetter</a></p>
+    <p>本站不构成医疗、法律或投资建议；政策与补贴标准随时间变化，以官方最新规定为准。</p>
+  </div>
+</footer>
+<script>
+(function(){
+  if (!window.matchMedia('(prefers-reduced-motion: no-preference)').matches) return;
+  var els = document.querySelectorAll('.reveal');
+  if (!('IntersectionObserver' in window)) { els.forEach(function(e){e.classList.add('in')}); return; }
+  var io = new IntersectionObserver(function(entries){
+    entries.forEach(function(en){ if (en.isIntersecting) { en.target.classList.add('in'); io.unobserve(en.target); } });
+  }, {threshold:0.1});
+  els.forEach(function(e){ io.observe(e); });
+})();
+</script>
+<script>
+(function(){var t=document.querySelector('.nav-toggle'),l=document.getElementById('navlinks');if(!t||!l)return;
+t.addEventListener('click',function(){var o=l.classList.toggle('open');t.setAttribute('aria-expanded',o?'true':'false')});
+l.addEventListener('click',function(e){if(e.target.closest('a')){l.classList.remove('open');t.setAttribute('aria-expanded','false')}});})();
+</script>
+<script>
+(function(){var b=document.querySelector('.theme-btn');if(!b)return;
+function sync(){var d=document.documentElement.getAttribute('data-theme')==='dark';b.textContent=d?'\u2600\uFE0F':'\uD83C\uDF19';b.setAttribute('aria-label',d?'\u5207\u6362\u5230\u6D45\u8272\u4E3B\u9898':'\u5207\u6362\u5230\u6DF1\u8272\u4E3B\u9898')}
+b.addEventListener('click',function(){var t=document.documentElement.getAttribute('data-theme')==='dark'?'light':'dark';document.documentElement.setAttribute('data-theme',t);try{localStorage.setItem('theme',t)}catch(e){}sync()});
+sync()})();
+</script><div class="portal"><a href="../../index.html">&#8592; 总门户</a></div>
+<button class="toTop" type="button" id="toTop" aria-label="回到顶部">&#8593;</button>
+<script>
+(function(){
+  var b=document.getElementById('toTop');if(!b)return;
+  var rm=window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  function upd(){if(window.scrollY>600){b.classList.add('show')}else{b.classList.remove('show')}}
+  window.addEventListener('scroll',upd,{passive:true});upd();
+  b.addEventListener('click',function(){window.scrollTo({top:0,behavior:rm?'auto':'smooth'});});
+})();
+</script>
+</body>
+</html>

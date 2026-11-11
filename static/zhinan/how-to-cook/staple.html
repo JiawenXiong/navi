@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<script>(function(){var t=null;try{t=localStorage.getItem('theme')}catch(e){}if(t!=='light'&&t!=='dark'){var h=new Date().getHours();t=(h>=7&&h<17)?'light':'dark'}document.documentElement.setAttribute('data-theme',t);})();</script>
+<script>(function(){var t=null;try{t=localStorage.getItem('theme')}catch(e){}if(t!=='light'&&t!=='dark'){var h=new Date().getHours();t=(h>=7&&h<17)?'light':'dark'}document.documentElement.setAttribute('data-theme',t);document.documentElement.classList.add('js');})();</script>
 <title>主食 &#183; 59 道 · HowToCook</title>
 <style>
 :root{
@@ -17,6 +17,9 @@
   --muted:#7a736a;
   --soft:#f4ecdd;
   --nav-bg:rgba(255,253,248,.96);
+  --on-red:#fff;
+  --portal:rgba(20,20,20,.72);
+  --portal-hi:rgba(20,20,20,.9);
   color-scheme:light;
 }
 [data-theme="dark"]{
@@ -30,6 +33,8 @@
   --muted:#b3a695;
   --soft:#2c261d;
   --nav-bg:rgba(27,24,21,.96);
+  --portal:rgba(0,0,0,.78);
+  --portal-hi:rgba(0,0,0,.92);
   color-scheme:dark;
 }
 *{box-sizing:border-box;margin:0;padding:0}
@@ -49,18 +54,34 @@ a:hover{text-decoration:underline}
   backdrop-filter:blur(6px);
 }
 .nav-inner{
-  max-width:1040px;margin:0 auto;padding:10px 20px;
-  display:flex;align-items:center;gap:4px;
-  white-space:nowrap;overflow-x:auto;
-  -webkit-overflow-scrolling:touch;
+  max-width:1040px;margin:0 auto;padding:10px 16px;
+  display:flex;flex-wrap:nowrap;align-items:center;gap:2px 4px;
 }
-.brand{font-weight:700;color:var(--red);font-size:17px;margin-right:14px;flex:none}
+.brand{
+  font-weight:700;color:var(--red);font-size:17px;
+  margin-right:14px;flex:none;
+}
 .brand .dot{color:var(--ink)}
-.nav-inner a.link{color:var(--ink);font-size:15px;padding:6px 12px;border-radius:999px;flex:none}
-.nav-inner a.link:hover{background:var(--soft);text-decoration:none;color:var(--red-dark)}
-.nav-inner a.link.active{background:var(--red-fill);color:#fff}
-.nav-inner a.gh{margin-left:auto;color:var(--muted);font-size:14px;flex:none}
-.nav-inner a.gh:hover{color:var(--red)}
+.nav-toggle{
+  display:none;flex:none;margin-left:auto;
+  width:38px;height:34px;border:1px solid var(--line);border-radius:999px;
+  background:var(--card);color:var(--ink);font-size:17px;line-height:1;
+  cursor:pointer;padding:0;
+}
+.nav-toggle:hover{border-color:var(--red)}
+.nav-links{
+  display:flex;flex-wrap:nowrap;align-items:center;gap:2px 4px;
+  min-width:0;overflow-x:auto;scrollbar-width:none;
+}
+.nav-links::-webkit-scrollbar{display:none}
+.nav-links a.link{
+  color:var(--ink);font-size:15px;padding:6px 12px;
+  border-radius:999px;flex:none;
+}
+.nav-links a.link:hover{background:var(--soft);text-decoration:none;color:var(--red-dark)}
+.nav-links a.link.active{background:var(--red-fill);color:var(--on-red)}
+.nav-links a.gh{margin-left:auto;color:var(--muted);font-size:14px;flex:none}
+.nav-links a.gh:hover{color:var(--red)}
 .theme-btn{
   flex:none;margin-left:10px;width:36px;height:32px;
   border:1px solid var(--line);border-radius:999px;
@@ -68,6 +89,51 @@ a:hover{text-decoration:underline}
   cursor:pointer;line-height:1;padding:0;
 }
 .theme-btn:hover{border-color:var(--red)}
+/* 总门户浮钮 */
+.portal{position:fixed;left:14px;bottom:14px;z-index:99}
+.portal a{display:inline-block;padding:7px 16px;border-radius:999px;background:var(--portal);color:var(--on-red);font-size:13px;text-decoration:none;backdrop-filter:blur(4px)}
+.portal a:hover{background:var(--portal-hi)}
+@media (max-width:900px){
+  .nav-inner{gap:2px}
+  .brand{font-size:15px;margin-right:8px}
+  .nav-links a.link{font-size:14px;padding:6px 7px}
+  .nav-links a.gh{font-size:13px;padding:6px 8px}
+}
+/* 小屏(<=720px)有 JS:单行导航 + 下拉面板 */
+@media (max-width:720px){
+  html.js .nav-inner{padding:8px 12px;height:51px;overflow:hidden}
+  html.js .nav-toggle{display:inline-flex;align-items:center;justify-content:center}
+  html.js .theme-btn{margin-left:8px}
+  html.js .brand{font-size:16px;margin-right:auto}
+  html.js .nav-links{
+    display:none;position:absolute;top:100%;left:0;right:0;
+    flex-direction:column;align-items:stretch;gap:0;
+    background:var(--card);border-bottom:1px solid var(--line);
+    box-shadow:0 10px 24px rgba(0,0,0,.14);
+    padding:4px 0;max-height:70vh;overflow-y:auto;
+  }
+  html.js .nav-links.open{display:flex}
+  html.js .nav-links a.link,
+  html.js .nav-links a.gh{
+    display:block;width:100%;margin-left:0;padding:11px 18px;
+    border-radius:0;font-size:15px;border-bottom:1px solid var(--line);
+  }
+  html.js .nav-links a:last-child{border-bottom:none}
+  html.js .nav-links a.link.active{background:var(--soft);color:var(--red-dark)}
+}
+/* 面板过渡:仅在允许动效时 */
+@media (prefers-reduced-motion:no-preference){
+  html.js .nav-links.open{animation:navDrop .18s ease}
+  @keyframes navDrop{from{opacity:0;transform:translateY(-6px)}to{opacity:1;transform:none}}
+}
+/* 小屏无 JS 回退:链接平铺可见可点 */
+@media (max-width:720px){
+  html:not(.js) .nav-inner{flex-wrap:wrap;padding:8px 12px}
+  html:not(.js) .brand{font-size:15px;margin-right:8px}
+  html:not(.js) .nav-links{flex-wrap:wrap;overflow:visible}
+  html:not(.js) .nav-links a.link{padding:5px 10px;font-size:14px}
+  html:not(.js) .nav-links a.gh{font-size:13px}
+}
 
 .page-head{padding:52px 0 8px;text-align:center}
 .page-head .kicker{
@@ -85,6 +151,7 @@ a:hover{text-decoration:underline}
   background:var(--card);border:1px solid var(--line);border-radius:999px;
   padding:5px 16px;font-size:14px;color:var(--ink);
 }
+.toc a.hide{display:none}
 .toc a:hover{background:var(--soft);color:var(--red-dark);text-decoration:none;border-color:var(--red)}
 
 section.block{padding:30px 0}
@@ -96,7 +163,7 @@ section.block{padding:30px 0}
 .dish h2{font-size:22px;font-weight:800}
 .dish h2 .idx{
   display:inline-flex;align-items:center;justify-content:center;
-  width:30px;height:30px;border-radius:9px;background:var(--red-fill);color:#fff;
+  width:30px;height:30px;border-radius:9px;background:var(--red-fill);color:var(--on-red);
   font-size:15px;margin-right:10px;vertical-align:2px;
 }
 .chips{display:flex;gap:8px;flex-wrap:wrap;margin:8px 0 4px}
@@ -157,18 +224,23 @@ footer a:hover{color:var(--red)}
 .dfilter .df-label{font-size:14px;color:var(--muted)}
 .dfilter .dBtn{border:1px solid var(--line);background:var(--card);color:var(--ink);border-radius:999px;padding:4px 16px;font-size:14px;cursor:pointer;line-height:1.6}
 .dfilter .dBtn:hover{border-color:var(--red);color:var(--red-dark)}
-.dfilter .dBtn.on{background:var(--red-fill);border-color:var(--red-fill);color:#fff}
+.dfilter .dBtn.on{background:var(--red-fill);border-color:var(--red-fill);color:var(--on-red)}
 .dfilter .df-count{font-size:13px;color:var(--muted)}
-.dfilter .df-note{font-size:12px;color:var(--muted)}
+.dfilter .df-note{font-size:13px;color:var(--muted)}
 .dish.hide{display:none}
-@media (prefers-reduced-motion: reduce){.reveal{opacity:1 !important;transform:none !important}}</style>
-<noscript><style>.reveal{opacity:1 !important;transform:none !important}</style><style>.dfilter{display:none}</style></noscript></head>
+@media (prefers-reduced-motion: reduce){.reveal{opacity:1 !important;transform:none !important}}.toTop{position:fixed;right:14px;bottom:14px;z-index:98;display:none;border:none;cursor:pointer;padding:7px 14px;border-radius:999px;background:rgba(20,20,20,.72);color:#fff;font-size:14px;line-height:1;backdrop-filter:blur(4px);font-family:system-ui,sans-serif}.toTop:hover{background:rgba(20,20,20,.9)}.toTop.show{display:inline-block}
+</style>
+<noscript><style>.reveal{opacity:1 !important;transform:none !important}.toTop{position:fixed;right:14px;bottom:14px;z-index:98;display:none;border:none;cursor:pointer;padding:7px 14px;border-radius:999px;background:rgba(20,20,20,.72);color:#fff;font-size:14px;line-height:1;backdrop-filter:blur(4px);font-family:system-ui,sans-serif}.toTop:hover{background:rgba(20,20,20,.9)}.toTop.show{display:inline-block}
+</style><style>.dfilter{display:none}.toTop{position:fixed;right:14px;bottom:14px;z-index:98;display:none;border:none;cursor:pointer;padding:7px 14px;border-radius:999px;background:rgba(20,20,20,.72);color:#fff;font-size:14px;line-height:1;backdrop-filter:blur(4px);font-family:system-ui,sans-serif}.toTop:hover{background:rgba(20,20,20,.9)}.toTop.show{display:inline-block}
+</style></noscript></head>
 
-<body><div style="position:fixed;left:14px;bottom:14px;z-index:99;"><a href="../index.html" style="display:inline-block;padding:7px 16px;border-radius:999px;background:rgba(20,20,20,.72);color:#fff;font-size:13px;text-decoration:none;backdrop-filter:blur(4px);font-family:system-ui,sans-serif;" onmouseover="this.style.background='rgba(20,20,20,.9)'" onmouseout="this.style.background='rgba(20,20,20,.72)'">&#8592; 总门户</a></div>
+<body><div class="portal"><a href="../index.html">&#8592; 总门户</a></div>
 
 <nav class="site-nav">
   <div class="nav-inner">
     <a class="brand" href="index.html">做饭指南<span class="dot">·HowToCook</span></a>
+    <button class="nav-toggle" id="navToggle" type="button" aria-label="展开菜单" aria-expanded="false" aria-controls="navLinks">&#9741;</button>
+    <div class="nav-links" id="navLinks">
     <a class="link" href="index.html">首页</a>
     <a class="link" href="start.html">学前准备</a>
     <a class="link" href="vegetable.html">素菜</a>
@@ -181,9 +253,11 @@ footer a:hover{color:var(--red)}
     <a class="link" href="dessert.html">甜品饮品</a>
     <a class="link" href="sauce.html">酱料</a>
     <a class="gh" href="https://github.com/Anduin2017/HowToCook" target="_blank" rel="noopener">GitHub 仓库 ↗</a>
+    </div>
     <button class="theme-btn" id="themeBtn" type="button" aria-label="切换明暗主题">🌙</button>
   </div>
 </nav>
+<script>(function(){var b=document.getElementById('navToggle'),p=document.getElementById('navLinks');if(!b||!p)return;function close(){p.classList.remove('open');b.setAttribute('aria-expanded','false');b.textContent='\u2630';b.setAttribute('aria-label','展开菜单')}b.addEventListener('click',function(){var o=p.classList.toggle('open');b.setAttribute('aria-expanded',o?'true':'false');b.textContent=o?'\u2715':'\u2630';b.setAttribute('aria-label',o?'收起菜单':'展开菜单')});p.addEventListener('click',function(e){if(e.target.closest('a'))close()});window.addEventListener('resize',function(){if(window.innerWidth>720)close()});})();</script>
 
 <header class="page-head wrap">
   <span class="kicker">staple</span>
@@ -3505,6 +3579,12 @@ footer a:hover{color:var(--red)}
       d.classList.toggle('hide',!show);
       if(show)n++;
     });
+    chips.forEach(function(a){
+      var id=(a.getAttribute('href')||'').slice(1);
+      var t=id?document.getElementById(id):null;
+      var cs=(f==='all')||(t&&t.getAttribute('data-diff')===f);
+      a.classList.toggle('hide',!cs);
+    });
     btns.forEach(function(b){b.classList.toggle('on',b.getAttribute('data-f')===f);});
     count.textContent='当前 '+n+' 道';
   }
@@ -3516,11 +3596,22 @@ footer a:hover{color:var(--red)}
     if(t&&t.classList.contains('hide')){apply('all');t.scrollIntoView();}
   }
   window.addEventListener('hashchange',checkHash);
-  [].slice.call(document.querySelectorAll('.toc a')).forEach(function(a){
+  var chips=[].slice.call(document.querySelectorAll('.toc a'));
+  chips.forEach(function(a){
     a.addEventListener('click',function(){setTimeout(checkHash,0);});
   });
   apply('all');
   checkHash();
+})();
+</script>
+<button class="toTop" type="button" id="toTop" aria-label="回到顶部">&#8593;</button>
+<script>
+(function(){
+  var b=document.getElementById('toTop');if(!b)return;
+  var rm=window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  function upd(){if(window.scrollY>600){b.classList.add('show')}else{b.classList.remove('show')}}
+  window.addEventListener('scroll',upd,{passive:true});upd();
+  b.addEventListener('click',function(){window.scrollTo({top:0,behavior:rm?'auto':'smooth'});});
 })();
 </script>
 </body>

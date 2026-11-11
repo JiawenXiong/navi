@@ -3,45 +3,71 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>高性价比人生指南 · 精读版</title>
+<title>高性价比人生指南 · 全本</title>
 <script>
 (function(){var t=null;try{t=localStorage.getItem('theme')}catch(e){}
 if(t!=='light'&&t!=='dark'){var h=new Date().getHours();t=(h>=7&&h<17)?'light':'dark'}
-document.documentElement.setAttribute('data-theme',t)})();
+document.documentElement.setAttribute('data-theme',t);document.documentElement.classList.add('js')})();
 </script>
 <style>
 *{box-sizing:border-box;margin:0;padding:0}
-:root{--bg:#f7f3ea;--ink:#2a2a24;--soft:#4a4a3f;--muted:#5a5a4d;--muted2:#7a7a6c;--body-ink:#3d3d33;--link:#2d5a4a;--accent:#2d5a4a;--deep:#1f4437;--head-bg:#f2ecdd;--nav-hover:#e3ead9;--nav-hover-ink:#1f4437;--on-bg:#2d5a4a;--on-ink:#f7f3ea;--card:#fffdf7;--line:#e4ddc9;--th-bg:#e7efe9;--chip-bg:#e7efe9;--chip-ink:#24503f;--chip-hover:#d5e3d8;--bA-bg:#2d5a4a;--bA-ink:#f7f3ea;--bB-bg:#dce8df;--bB-ink:#24503f;--bB-line:#9dbcaa;--bC-ink:#6a6a5f;--bC-line:#b9b5a6;--note-bg:#f0ead9;--note-line:#e0d8c2;--kick-bg:#eef3ec;--src:#9a9684;--tag-bg:#f6e8d8;--tag-ink:#8a5a1e;--tag-line:#e0c9a6;--foot-bg:#243b32;--foot-ink:#cfd8cf;--foot-link:#a8d0b8}
+:root{--bg:#f7f3ea;--ink:#2a2a24;--soft:#4a4a3f;--muted:#5a5a4d;--muted2:#7a7a6c;--body-ink:#3d3d33;--link:#2d5a4a;--accent:#2d5a4a;--deep:#1f4437;--head-bg:#f2ecdd;--nav-hover:#e3ead9;--nav-hover-ink:#1f4437;--on-bg:#2d5a4a;--on-ink:#f7f3ea;--card:#fffdf7;--line:#e4ddc9;--th-bg:#e7efe9;--chip-bg:#e7efe9;--chip-ink:#24503f;--chip-hover:#d5e3d8;--bA-bg:#2d5a4a;--bA-ink:#f7f3ea;--bB-bg:#dce8df;--bB-ink:#24503f;--bB-line:#9dbcaa;--bC-ink:#6a6a5f;--bC-line:#b9b5a6;--note-bg:#f0ead9;--note-line:#e0d8c2;--kick-bg:#eef3ec;--src:#767460;--tag-bg:#f6e8d8;--tag-ink:#8a5a1e;--tag-line:#e0c9a6;--foot-bg:#243b32;--foot-ink:#cfd8cf;--foot-link:#a8d0b8}
 [data-theme="dark"]{--bg:#0f1e18;--ink:#ece7d9;--soft:#c9c6b6;--muted:#bfc4b4;--muted2:#a3ab9d;--body-ink:#d6d9cc;--link:#7cc9a4;--accent:#6fbf98;--deep:#a9e0c3;--head-bg:#14251d;--nav-hover:#24382e;--nav-hover-ink:#e2efe6;--on-bg:#2f6b52;--on-ink:#f2f7f0;--card:#16291f;--line:#2e463a;--th-bg:#1d3a2d;--chip-bg:#1d3a2d;--chip-ink:#a8e3c4;--chip-hover:#274a39;--bA-bg:#5fbf95;--bA-ink:#0c1b14;--bB-bg:#1d3a2d;--bB-ink:#a8e3c4;--bB-line:#3d6a55;--bC-ink:#b9c2b4;--bC-line:#55645c;--note-bg:#1c2f24;--note-line:#35503f;--kick-bg:#16291f;--src:#97a496;--tag-bg:#3a2c17;--tag-ink:#e8c088;--tag-line:#6a5232;--foot-bg:#0b1712;--foot-ink:#b7c4b7;--foot-link:#8fd4b4}
 html{scroll-behavior:smooth}
 body{font-family:"Microsoft YaHei","PingFang SC","Noto Sans SC",system-ui,sans-serif;background:var(--bg);color:var(--ink);line-height:1.75;font-size:16px}
 .wrap{max-width:1060px;margin:0 auto;padding:0 20px}
 a{color:var(--link)}
 header.site{position:sticky;top:0;z-index:20;background:var(--head-bg);border-bottom:2px solid var(--accent)}
-nav.top{display:flex;align-items:center;gap:2px;white-space:nowrap;overflow-x:auto;padding:9px 0;font-size:14.5px;-webkit-overflow-scrolling:touch}
+nav.top{display:flex;flex-wrap:wrap;align-items:center;gap:2px;row-gap:8px;padding:9px 0;font-size:14.5px;position:relative}
 nav.top::-webkit-scrollbar{display:none}
 nav.top a{text-decoration:none;color:var(--ink);padding:5px 12px;border-radius:8px;flex:0 0 auto}
 nav.top a:hover{background:var(--nav-hover)}
 nav.top a.on{background:var(--on-bg);color:var(--on-ink)}
 nav.top a.gh{margin-left:auto;color:var(--link);font-weight:700}
 nav.top a.gh:hover{background:var(--nav-hover);color:var(--nav-hover-ink)}
+nav.top .brand{font-weight:700;color:var(--deep);white-space:nowrap}
+nav.top .brand:hover{color:var(--nav-hover-ink)}
+.nav-links{display:flex;flex-wrap:wrap;align-items:center;gap:2px;row-gap:8px}
+.nav-links-in{display:contents}
 .theme-btn{flex:0 0 auto;font-size:14px;line-height:1;padding:6px 11px;border-radius:8px;border:1px solid var(--line);background:var(--card);color:var(--ink);cursor:pointer}
 .theme-btn:hover{background:var(--nav-hover);color:var(--nav-hover-ink)}
+.nav-toggle{display:none;flex:0 0 auto;margin-left:auto;font-size:15px;line-height:1;padding:8px 12px;border-radius:8px;border:1px solid var(--line);background:var(--card);color:var(--ink);cursor:pointer}
+.nav-toggle:hover{background:var(--nav-hover);color:var(--nav-hover-ink)}
+@media (max-width:720px){
+html.js nav.top{flex-wrap:nowrap;row-gap:0;min-height:52px;padding:7px 0}
+html.js .nav-toggle{display:inline-block}
+html.js .nav-links{display:grid;grid-template-rows:0fr;flex-wrap:nowrap;position:absolute;top:100%;left:0;right:0;margin:0;padding:0;background:var(--head-bg);border-bottom:0 solid var(--accent)}
+html.js .nav-links.open{grid-template-rows:1fr;border-bottom-width:2px;box-shadow:0 12px 20px rgba(20,30,25,.14)}
+html.js .nav-links-in{display:flex;min-height:0;overflow:hidden;flex-direction:column;padding:0 14px}
+html.js .nav-links.open .nav-links-in{padding:8px 14px 12px}
+html.js .nav-links a{display:block;padding:9px 12px}
+html.js .nav-links a.gh{margin-left:0}
+}
+@media (max-width:720px) and (prefers-reduced-motion: no-preference){
+html.js .nav-links{transition:grid-template-rows .25s ease,border-bottom-width .25s ease}
+html.js .nav-links-in{transition:padding .25s ease}
+}
 .hero{padding:52px 0 34px;border-bottom:1px solid var(--line)}
 .hero .kicker{display:inline-block;font-size:13px;letter-spacing:.12em;color:var(--accent);border:1px solid var(--bB-line);border-radius:999px;padding:2px 14px;margin-bottom:14px;background:var(--kick-bg)}
 .hero h1{font-size:clamp(26px,4.5vw,40px);line-height:1.3;color:var(--deep);margin-bottom:14px}
 .hero p.lead{max-width:46em;color:var(--soft);font-size:16.5px}
+.subnav{display:flex;flex-wrap:wrap;gap:8px;margin-top:18px}
+.subnav a{font-size:13.5px;text-decoration:none;background:var(--chip-bg);color:var(--chip-ink);border-radius:999px;padding:4px 14px}
+.subnav a:hover{background:var(--chip-hover)}
+.portal{position:fixed;left:14px;bottom:14px;z-index:99}
+.portal a{display:inline-block;padding:7px 16px;border-radius:999px;background:var(--foot-bg);color:var(--foot-link);border:1px solid var(--line);font-size:13px;text-decoration:none}
+.portal a:hover{color:var(--on-ink);background:var(--on-bg)}
 .stats{display:flex;flex-wrap:wrap;gap:10px;margin-top:22px}
 .stat{background:var(--card);border:1px solid var(--line);border-radius:12px;padding:10px 18px;text-align:center;min-width:118px}
 .stat b{display:block;font-size:22px;color:var(--accent)}
-.stat span{font-size:12.5px;color:var(--muted2)}
-section.block{padding:42px 0 6px}
-h2.sec{font-size:24px;color:var(--deep);border-left:6px solid var(--accent);padding-left:14px;margin-bottom:8px}
-p.secdesc{color:var(--muted);margin-bottom:20px;max-width:46em}
-.grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(300px,1fr));gap:16px;margin-bottom:26px}
+.stat span{font-size:13px;color:var(--muted)}
+section.block{padding:38px 0 8px;scroll-margin-top:70px}
+h2.sec{font-size:23px;color:var(--deep);border-left:6px solid var(--accent);padding-left:14px;margin-bottom:6px}
+p.secdesc{color:var(--muted);margin-bottom:18px;max-width:46em;font-size:15px}
+.grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,300px,1fr));gap:16px;margin-bottom:26px}
 .panel{background:var(--card);border:1px solid var(--line);border-radius:12px;padding:22px}
 .panel h3{font-size:17px;color:var(--accent);margin-bottom:10px}
-.panel p,.panel li{font-size:14.8px;color:var(--body-ink)}
+.panel p,.panel li{font-size:15px;color:var(--body-ink)}
 .panel ul{padding-left:20px}
 .panel li{margin-bottom:6px}
 table.grade{width:100%;border-collapse:collapse;margin:10px 0 16px;background:var(--card);border:1px solid var(--line);border-radius:12px;overflow:hidden}
@@ -54,7 +80,7 @@ table.grade tr:last-child td{border-bottom:none}
 .badge.c{background:transparent;color:var(--bC-ink);border:1px solid var(--bC-line)}
 .card{background:var(--card);border:1px solid var(--line);border-radius:12px;padding:20px 22px}
 .card h4{font-size:16px;color:var(--deep);margin-bottom:8px}
-.card dl div{margin-bottom:8px;font-size:14.8px}
+.card dl div{margin-bottom:8px;font-size:15px}
 .card dt{display:inline;font-weight:700;color:var(--accent)}
 .card dd{display:inline;margin:0}
 .sample{max-width:640px;margin-bottom:26px;box-shadow:0 2px 6px rgba(60,50,20,.08)}
@@ -66,8 +92,8 @@ table.grade tr:last-child td{border-bottom:none}
 .navcard .chips{display:flex;flex-wrap:wrap;gap:6px}
 .navcard .chip{font-size:12px;background:var(--chip-bg);color:var(--chip-ink);border-radius:999px;padding:2px 10px}
 .navcard .go{display:inline-block;margin-top:12px;font-size:14px;font-weight:700;color:var(--accent)}
-.note{background:var(--note-bg);border:1px solid var(--note-line);border-radius:12px;padding:16px 20px;font-size:14.3px;color:var(--muted);margin-bottom:30px}
-footer.site{margin-top:48px;background:var(--foot-bg);color:var(--foot-ink);padding:30px 0 26px;font-size:13.5px}
+.note{background:var(--note-bg);border:1px solid var(--note-line);border-radius:12px;padding:16px 20px;font-size:14.5px;color:var(--muted);margin-bottom:30px}
+footer.site{margin-top:44px;background:var(--foot-bg);color:var(--foot-ink);padding:28px 0 24px;font-size:13.5px}
 footer.site a{color:var(--foot-link)}
 footer.site .wrap p{margin-bottom:6px}
 @media (prefers-reduced-motion: no-preference){
@@ -76,19 +102,88 @@ footer.site .wrap p{margin-bottom:6px}
 .navcard{transition:border-color .25s,box-shadow .25s,opacity .5s ease,transform .5s ease}
 }
 
-@media (prefers-reduced-motion: reduce){.reveal{opacity:1 !important;transform:none !important}}</style>
-<noscript><style>.reveal{opacity:1 !important;transform:none !important}</style></noscript></head>
-<body><div style="position:fixed;left:14px;bottom:14px;z-index:99;"><a href="../index.html" style="display:inline-block;padding:7px 16px;border-radius:999px;background:rgba(20,20,20,.72);color:#fff;font-size:13px;text-decoration:none;backdrop-filter:blur(4px);font-family:system-ui,sans-serif;" onmouseover="this.style.background='rgba(20,20,20,.9)'" onmouseout="this.style.background='rgba(20,20,20,.72)'">&#8592; 总门户</a></div>
+@media (prefers-reduced-motion: reduce){.reveal{opacity:1 !important;transform:none !important}}.toTop{position:fixed;right:14px;bottom:14px;z-index:98;display:none;border:none;cursor:pointer;padding:7px 14px;border-radius:999px;background:rgba(20,20,20,.72);color:#fff;font-size:14px;line-height:1;backdrop-filter:blur(4px);font-family:system-ui,sans-serif}.toTop:hover{background:rgba(20,20,20,.9)}.toTop.show{display:inline-block}
+
+/* ---- 导航重构（全站共用）：主题分组目录 / 主题色 / 章页页头 / 卡片分页 ---- */
+:root{--t-health:#2d5a4a;--t-health-bg:#dce8df;--t-health-ink:#24503f;--t-health-inv:#f7f3ea;--t-money:#8a5a1e;--t-money-bg:#f6e8d8;--t-money-ink:#7a4d16;--t-money-inv:#fbf3e6;--t-security:#3f6076;--t-security-bg:#e2e9ee;--t-security-ink:#35526a;--t-security-inv:#f2f6f8;--t-family:#9a4a38;--t-family-bg:#f3e3dd;--t-family-ink:#7e3a2b;--t-family-inv:#faf1ec;--t-career:#5f6b24;--t-career-bg:#eef0da;--t-career-ink:#4f5a1c;--t-career-inv:#f8f9ec}
+[data-theme="dark"]{--t-health:#6fbf98;--t-health-bg:#1d3a2d;--t-health-ink:#a8e3c4;--t-health-inv:#0c1b14;--t-money:#e0b678;--t-money-bg:#3a2c17;--t-money-ink:#e8c088;--t-money-inv:#211608;--t-security:#8fc3dc;--t-security-bg:#173038;--t-security-ink:#a3cede;--t-security-inv:#0b1a20;--t-family:#dfa08d;--t-family-bg:#3a211a;--t-family-ink:#eab8a8;--t-family-inv:#1f100a;--t-career:#c2d178;--t-career-bg:#2c3213;--t-career-ink:#d6dfa4;--t-career-inv:#151a07}
+.tg-health,.ph-health{--tc:var(--t-health);--tc-bg:var(--t-health-bg);--tc-ink:var(--t-health-ink);--tc-inv:var(--t-health-inv)}
+.tg-money,.ph-money{--tc:var(--t-money);--tc-bg:var(--t-money-bg);--tc-ink:var(--t-money-ink);--tc-inv:var(--t-money-inv)}
+.tg-security,.ph-security{--tc:var(--t-security);--tc-bg:var(--t-security-bg);--tc-ink:var(--t-security-ink);--tc-inv:var(--t-security-inv)}
+.tg-family,.ph-family{--tc:var(--t-family);--tc-bg:var(--t-family-bg);--tc-ink:var(--t-family-ink);--tc-inv:var(--t-family-inv)}
+.tg-career,.ph-career{--tc:var(--t-career);--tc-bg:var(--t-career-bg);--tc-ink:var(--t-career-ink);--tc-inv:var(--t-career-inv)}
+.tint{border-left:4px solid var(--tc,var(--accent))}
+.crumbs{display:flex;flex-wrap:wrap;align-items:center;gap:7px;font-size:13px;color:var(--muted2);margin-bottom:12px}
+.crumbs a{color:var(--muted);text-decoration:none}
+.crumbs a:hover{color:var(--link);text-decoration:underline}
+.crumbs .sep{font-size:11px}
+.crumbs .cur{color:var(--tc,var(--ink));font-weight:700}
+.tg-head{display:flex;flex-wrap:wrap;align-items:center;gap:6px 12px;margin-bottom:14px}
+.tg-badge{display:inline-flex;align-items:center;gap:8px;text-decoration:none;font-size:15px;font-weight:700;color:var(--tc-ink);background:var(--tc-bg);border-radius:999px;padding:5px 16px}
+.tg-badge::before{content:"";display:block;width:9px;height:9px;border-radius:50%;background:var(--tc)}
+.tg-badge:hover{background:var(--tc);color:var(--tc-inv)}
+.tg-stats{font-size:13.5px;color:var(--muted)}
+.tg-more{margin-left:auto;font-size:13.5px;font-weight:700;color:var(--tc);text-decoration:none;white-space:nowrap}
+.tg-more:hover{text-decoration:underline}
+.topic-group{margin:34px 0 6px;scroll-margin-top:76px}
+.chgrid{display:grid;grid-template-columns:repeat(auto-fill,minmax(min(100%,252px),1fr));gap:12px;margin-bottom:8px}
+.chcard{display:flex;flex-direction:column;gap:7px;background:var(--card);border:1px solid var(--line);border-radius:12px;padding:14px 16px 13px;text-decoration:none;color:var(--ink)}
+.chcard:hover{border-color:var(--tc,var(--accent));box-shadow:0 3px 10px rgba(45,90,74,.13)}
+.chcard .chtop{display:flex;align-items:center;justify-content:space-between;gap:8px}
+.chcard .chnum{font-size:12px;font-weight:700;letter-spacing:.06em;color:var(--tc-ink,var(--chip-ink));background:var(--tc-bg,var(--chip-bg));border-radius:6px;padding:2px 9px}
+.chcard .chcount{font-size:12px;color:var(--muted);background:var(--chip-bg);border-radius:999px;padding:2px 10px;white-space:nowrap}
+.chcard h3{font-size:15.5px;line-height:1.45;color:var(--deep)}
+.chcard p{font-size:13px;line-height:1.65;color:var(--muted)}
+.chcard .go{display:block;margin-top:2px;font-size:13px;font-weight:700;color:var(--link)}
+.dist{display:flex;height:6px;border-radius:999px;overflow:hidden;background:var(--line);flex:0 1 170px;min-width:96px}
+.chcard .dist{flex:none;min-width:0;margin-top:auto}
+.dist i{display:block;height:100%;flex-shrink:0}
+.dist i.da{background:var(--bA-bg)}
+.dist i.db{background:var(--bB-line)}
+.dist i.dc{background:var(--bC-line)}
+.dist-txt{font-size:11.5px;color:var(--muted2)}
+.chstats{display:flex;flex-wrap:wrap;align-items:center;gap:8px;margin-top:14px}
+.chstats .nchip{font-size:13.5px;font-weight:700;color:var(--deep);background:var(--chip-bg);border-radius:999px;padding:3px 13px}
+.atoc{display:flex;flex-wrap:wrap;gap:7px;margin-top:16px;padding-top:16px;border-top:1px dashed var(--line)}
+.atoc .hint{flex:1 0 100%;font-size:12.5px;color:var(--muted2)}
+.atoc a{font-size:12.5px;line-height:1.6;text-decoration:none;color:var(--chip-ink);background:var(--chip-bg);border-radius:999px;padding:3px 12px;max-width:100%}
+.atoc a:hover{background:var(--chip-hover);color:var(--deep)}
+.atoc a .no{font-weight:700;font-size:11px;color:var(--muted2);margin-right:5px}
+.atoc a.all{background:transparent;border:1px dashed var(--line);color:var(--muted)}
+.atoc a.all:hover{border-style:solid;color:var(--deep);background:var(--chip-bg)}
+.pager{display:grid;grid-template-columns:1fr 1fr;gap:12px;margin:34px 0 4px}
+.pager a{display:flex;flex-direction:column;gap:3px;text-decoration:none;background:var(--card);border:1px solid var(--line);border-radius:12px;padding:14px 18px;color:var(--ink)}
+.pager a:hover{border-color:var(--accent);box-shadow:0 3px 10px rgba(45,90,74,.13)}
+.pager a .dir{font-size:12px;font-weight:700;letter-spacing:.05em;color:var(--muted2)}
+.pager a b{font-size:15px;line-height:1.5;color:var(--deep)}
+.pager a.next{align-items:flex-end;text-align:right}
+.pager-mid{text-align:center;font-size:13.5px;margin-top:12px}
+.pager-mid a{color:var(--link)}
+.quickloc{margin-top:4px;margin-bottom:8px}
+.quickloc .qlabel{align-self:center;font-size:13px;color:var(--muted2);margin-right:4px}
+.list .card{scroll-margin-top:84px}
+@media (prefers-reduced-motion: no-preference){.chcard,.pager a,.tg-badge{transition:border-color .25s,box-shadow .25s,opacity .5s ease,transform .5s ease,background .2s,color .2s}}
+@media (max-width:560px){.pager{grid-template-columns:1fr}.pager a.next{align-items:flex-start;text-align:left}.chcard{padding:13px 14px 12px}}
+</style>
+<noscript><style>.reveal{opacity:1 !important;transform:none !important}.toTop{position:fixed;right:14px;bottom:14px;z-index:98;display:none;border:none;cursor:pointer;padding:7px 14px;border-radius:999px;background:rgba(20,20,20,.72);color:#fff;font-size:14px;line-height:1;backdrop-filter:blur(4px);font-family:system-ui,sans-serif}.toTop:hover{background:rgba(20,20,20,.9)}.toTop.show{display:inline-block}
+</style></noscript></head>
+<body><div class="portal"><a href="../index.html">&#8592; 总门户</a></div>
 <header class="site">
   <div class="wrap">
     <nav class="top">
-      <a class="on" href="index.html">首页</a>
-      <a href="pages/health.html">健康与急救</a>
-      <a href="pages/money.html">金钱与红线</a>
-      <a href="pages/security.html">失业与保障</a>
-      <a href="pages/family.html">恋爱与育儿</a>
-      <a href="pages/career.html">创业与技能</a>
-      <a class="gh" href="https://github.com/eternity4719/HowToLiveBetter" target="_blank" rel="noopener">GitHub 仓库</a>
+      <a class="brand" href="index.html">人生指南</a>
+      <button class="nav-toggle" type="button" aria-expanded="false" aria-controls="navlinks" aria-label="展开或收起导航菜单">☰</button>
+      <div class="nav-links" id="navlinks">
+        <div class="nav-links-in">
+          <a class="on" href="index.html">首页</a>
+          <a href="pages/health.html">健康与急救</a>
+          <a href="pages/money.html">金钱与红线</a>
+          <a href="pages/security.html">失业与保障</a>
+          <a href="pages/family.html">恋爱与育儿</a>
+          <a href="pages/career.html">创业与技能</a>
+          <a class="gh" href="https://github.com/eternity4719/HowToLiveBetter" target="_blank" rel="noopener">GitHub 仓库</a>
+        </div>
+      </div>
       <button class="theme-btn" type="button" aria-label="切换明暗主题">🌓</button>
     </nav>
   </div>
@@ -96,9 +191,9 @@ footer.site .wrap p{margin-bottom:6px}
 
 <main>
   <div class="hero wrap">
-    <span class="kicker">精读版 · 摘编自开源书仓库</span>
+    <span class="kicker">全本 · 收录自开源书仓库</span>
     <h1>高性价比人生指南<br>用最少的钱、时间和精力，换回最多的寿命、金钱和人身自由</h1>
-    <p class="lead">讲怎么活得久、怎么少生病，出了意外怎么救；讲怎么少花冤枉钱，哪些事会让人被骗、摊上官司；讲没工作没钱时能去领什么，开店、开公司、做网站要办什么手续；也讲恋爱结婚生孩子、出国和学手艺。原书共 34 章 772 条建议，每条写明花掉什么、换回什么、证据有多硬，来源只引期刊论文和官方文件。本站按主题精选其中最有代表性的条目，读者在网页里就能读到完整有用的内容。</p>
+    <p class="lead">讲怎么活得久、怎么少生病，出了意外怎么救；讲怎么少花冤枉钱，哪些事会让人被骗、摊上官司；讲没工作没钱时能去领什么，开店、开公司、做网站要办什么手续；也讲恋爱结婚生孩子、出国和学手艺。原书共 34 章 772 条建议，每条写明花掉什么、换回什么、证据有多硬，来源只引期刊论文和官方文件。本站全书 34 章条目全收录：五个主题页分领域导读，34 个章页收录每章全部条目，读者在网页里就能读到完整内容。</p>
     <div class="stats">
       <div class="stat"><b>772</b><span>条建议</span></div>
       <div class="stat"><b>34</b><span>章</span></div>
@@ -106,6 +201,12 @@ footer.site .wrap p{margin-bottom:6px}
       <div class="stat"><b>B 223</b><span>证据等级 B</span></div>
       <div class="stat"><b>C 52</b><span>证据等级 C</span></div>
       <div class="stat"><b>2600+</b><span>条原始文献链接</span></div>
+    </div>
+    <div class="subnav">
+      <a href="#method">方法论</a>
+      <a href="#evidence">证据分级</a>
+      <a href="#topics">主题导读</a>
+      <a href="#chapters">全部章节</a>
     </div>
   </div>
 
@@ -175,42 +276,312 @@ footer.site .wrap p{margin-bottom:6px}
   </section>
 
   <section class="block wrap" id="topics">
-    <h2 class="sec">全部主题导航</h2>
-    <p class="secdesc">原书 34 章按主题重新分成五个专题页。每页 15 条以上，条条含建议、成本、收益和证据等级，并注明出自原书第几节第几条。</p>
+    <h2 class="sec">五个主题导读</h2>
+    <p class="secdesc">先按主题挑领域，再进章页读条目：每个主题一个导视页，一屏看完该主题全部章节；也可以直接翻下面的<a href="#chapters">全部章节目录</a>。</p>
     <div class="grid">
-      <a class="navcard reveal" href="pages/health.html">
+      <a class="navcard reveal tint tg-health" href="pages/health.html">
         <h3>健康与急救</h3>
         <p>长寿防病：血压、疫苗、筛查、戒烟、饮食运动；急救：心脏骤停、卒中、大出血、烫伤、孩子噎住。</p>
         <div class="chips"><span class="chip">第1节 不要早死</span><span class="chip">第2节 不要慢慢死</span><span class="chip">第13节 紧急情况</span></div>
-        <span class="go">30 条精选 · 打开</span>
+        <span class="go">8 章 · 211 条 · 打开</span>
       </a>
-      <a class="navcard reveal" href="pages/money.html">
+      <a class="navcard reveal tint tg-money" href="pages/money.html">
         <h3>金钱与红线</h3>
         <p>省钱理财：订阅、彩票、基金、保险、养老保险；法律红线：谣言、跑分、高空抛物、盗版、器官买卖。</p>
         <div class="chips"><span class="chip">第5节 不要浪费钱</span><span class="chip">第9节 普通人容易踩的法律红线</span></div>
-        <span class="go">18 条精选 · 打开</span>
+        <span class="go">6 章 · 172 条 · 打开</span>
       </a>
-      <a class="navcard reveal" href="pages/security.html">
+      <a class="navcard reveal tint tg-security" href="pages/security.html">
         <h3>失业与保障</h3>
         <p>失业与工伤：失业金、欠薪、裁员补偿、工伤认定；医保社保：居民医保、异地结算、双通道、分级诊疗。</p>
         <div class="chips"><span class="chip">第7节 没钱的时候怎么活</span><span class="chip">第19节 在职离职和工伤</span><span class="chip">第24节 看病</span><span class="chip">第16节 慢性病</span></div>
-        <span class="go">28 条精选 · 打开</span>
+        <span class="go">5 章 · 133 条 · 打开</span>
       </a>
-      <a class="navcard reveal" href="pages/family.html">
+      <a class="navcard reveal tint tg-family" href="pages/family.html">
         <h3>恋爱与育儿</h3>
         <p>恋爱婚育：择偶、彩礼房产、领证、离婚；怀孕育儿：叶酸、产检、安全睡眠、疫苗、出生办证。</p>
         <div class="chips"><span class="chip">第10节 恋爱和结婚</span><span class="chip">第18节 养孩子</span><span class="chip">第27节 怀孕和生产</span><span class="chip">第20节 刚出生的孩子</span></div>
-        <span class="go">25 条精选 · 打开</span>
+        <span class="go">5 章 · 88 条 · 打开</span>
       </a>
-      <a class="navcard reveal" href="pages/career.html">
+      <a class="navcard reveal tint tg-career" href="pages/career.html">
         <h3>创业与技能</h3>
         <p>创业与平台合规：主体、担保、许可证、年报、备案；出国与技能：留学认证、打工时数、教育回报、考证。</p>
         <div class="chips"><span class="chip">第12节 创业与做生意</span><span class="chip">第26节 做网站或平台</span><span class="chip">第21/32节 出国</span><span class="chip">第23节 学什么技能</span></div>
-        <span class="go">26 条精选 · 打开</span>
+        <span class="go">10 章 · 168 条 · 打开</span>
       </a>
     </div>
     <div class="note">
-      <b>怎么读：</b>这是一份备选单，不是任务清单。挑走一两条就算数，剩下的放着，需要时再回来查。书里的政策各地执行不一样、也可能过时，真去办事、看病、打官司时，以当地部门、医生和律师的说法为准。本站是摘编版，完整 772 条请看原仓库的在线检索页和电子书。
+      <b>怎么读：</b>这是一份备选单，不是任务清单。挑走一两条就算数，剩下的放着，需要时再回来查。书里的政策各地执行不一样、也可能过时，真去办事、看病、打官司时，以当地部门、医生和律师的说法为准。本站已收录全书 34 章全部条目正文；来源核实记录与在线检索见原仓库。
+    </div>
+  </section>
+  <section class="block wrap" id="chapters">
+    <h2 class="sec">全部章节</h2>
+    <p class="secdesc">34 章 772 条按五个主题分组。每张卡片是一个章页：色条是该章证据等级 A/B/C 的条数占比，点击进入章页读全部条目。</p>
+    <div class="subnav quickloc"><span class="qlabel">快速定位</span>
+      <a href="#toc-health">健康与急救</a><a href="#toc-money">金钱与红线</a><a href="#toc-security">失业与保障</a><a href="#toc-family">恋爱与育儿</a><a href="#toc-career">创业与技能</a>
+    </div>
+    <div class="topic-group tg-health" id="toc-health">
+      <div class="tg-head"><a class="tg-badge" href="pages/health.html">健康与急救</a><span class="tg-stats">8 章 · 211 条</span><a class="tg-more" href="pages/health.html">主题导视 →</a></div>
+      <div class="chgrid">
+        <a class="chcard reveal" href="pages/c01.html">
+        <span class="chtop"><span class="chnum">c01</span><span class="chcount">49 条</span></span>
+        <h3>不要早死</h3>
+        <p>意外伤害、证据最硬的疫苗和筛查、该去查的身体信号</p>
+        <span class="dist" role="img" aria-label="证据等级 A 32 条、B 13 条、C 4 条"><i class="da" style="width:65.3%"></i><i class="db" style="width:26.5%"></i><i class="dc" style="width:8.2%"></i></span>
+        <span class="dist-txt">A 32 · B 13 · C 4</span>
+        </a>
+        <a class="chcard reveal" href="pages/c02.html">
+        <span class="chtop"><span class="chnum">c02</span><span class="chcount">47 条</span></span>
+        <h3>不要慢慢死</h3>
+        <p>对总死亡率影响最大的慢性风险</p>
+        <span class="dist" role="img" aria-label="证据等级 A 33 条、B 14 条、C 0 条"><i class="da" style="width:70.2%"></i><i class="db" style="width:29.8%"></i></span>
+        <span class="dist-txt">A 33 · B 14</span>
+        </a>
+        <a class="chcard reveal" href="pages/c13.html">
+        <span class="chtop"><span class="chnum">c13</span><span class="chcount">49 条</span></span>
+        <h3>紧急情况：先做什么</h3>
+        <p>心脏骤停、中风、大出血的现场处置</p>
+        <span class="dist" role="img" aria-label="证据等级 A 8 条、B 38 条、C 3 条"><i class="da" style="width:16.3%"></i><i class="db" style="width:77.6%"></i><i class="dc" style="width:6.1%"></i></span>
+        <span class="dist-txt">A 8 · B 38 · C 3</span>
+        </a>
+        <a class="chcard reveal" href="pages/c16.html">
+        <span class="chtop"><span class="chnum">c16</span><span class="chcount">14 条</span></span>
+        <h3>得了慢性病之后怎么活</h3>
+        <p>确诊后的用药、复查与报销</p>
+        <span class="dist" role="img" aria-label="证据等级 A 10 条、B 4 条、C 0 条"><i class="da" style="width:71.4%"></i><i class="db" style="width:28.6%"></i></span>
+        <span class="dist-txt">A 10 · B 4</span>
+        </a>
+        <a class="chcard reveal" href="pages/c17.html">
+        <span class="chtop"><span class="chnum">c17</span><span class="chcount">13 条</span></span>
+        <h3>家里有老人</h3>
+        <p>家里有老人的照护与花费</p>
+        <span class="dist" role="img" aria-label="证据等级 A 5 条、B 8 条、C 0 条"><i class="da" style="width:38.5%"></i><i class="db" style="width:61.5%"></i></span>
+        <span class="dist-txt">A 5 · B 8</span>
+        </a>
+        <a class="chcard reveal" href="pages/c24.html">
+        <span class="chtop"><span class="chnum">c24</span><span class="chcount">15 条</span></span>
+        <h3>看病：怎么少花钱少走弯路</h3>
+        <p>挂号、检查、买药哪些钱不必花</p>
+        <span class="dist" role="img" aria-label="证据等级 A 15 条、B 0 条、C 0 条"><i class="da" style="width:100.0%"></i></span>
+        <span class="dist-txt">A 15</span>
+        </a>
+        <a class="chcard reveal" href="pages/c28.html">
+        <span class="chtop"><span class="chnum">c28</span><span class="chcount">10 条</span></span>
+        <h3>别为了外形把身体搞坏</h3>
+        <p>饿肚子、吃药、打针、开刀的外形风险</p>
+        <span class="dist" role="img" aria-label="证据等级 A 5 条、B 4 条、C 1 条"><i class="da" style="width:50.0%"></i><i class="db" style="width:40.0%"></i><i class="dc" style="width:10.0%"></i></span>
+        <span class="dist-txt">A 5 · B 4 · C 1</span>
+        </a>
+        <a class="chcard reveal" href="pages/c34.html">
+        <span class="chtop"><span class="chnum">c34</span><span class="chcount">14 条</span></span>
+        <h3>家里的常备药别吃出事</h3>
+        <p>退烧止痛感冒胃药的安全用法</p>
+        <span class="dist" role="img" aria-label="证据等级 A 3 条、B 11 条、C 0 条"><i class="da" style="width:21.4%"></i><i class="db" style="width:78.6%"></i></span>
+        <span class="dist-txt">A 3 · B 11</span>
+        </a>
+      </div>
+    </div>
+    <div class="topic-group tg-money" id="toc-money">
+      <div class="tg-head"><a class="tg-badge" href="pages/money.html">金钱与红线</a><span class="tg-stats">6 章 · 172 条</span><a class="tg-more" href="pages/money.html">主题导视 →</a></div>
+      <div class="chgrid">
+        <a class="chcard reveal" href="pages/c03.html">
+        <span class="chtop"><span class="chnum">c03</span><span class="chcount">27 条</span></span>
+        <h3>不要浪费精力</h3>
+        <p>只算精力和时间账</p>
+        <span class="dist" role="img" aria-label="证据等级 A 8 条、B 17 条、C 2 条"><i class="da" style="width:29.6%"></i><i class="db" style="width:63.0%"></i><i class="dc" style="width:7.4%"></i></span>
+        <span class="dist-txt">A 8 · B 17 · C 2</span>
+        </a>
+        <a class="chcard reveal" href="pages/c04.html">
+        <span class="chtop"><span class="chnum">c04</span><span class="chcount">18 条</span></span>
+        <h3>不要浪费时间</h3>
+        <p>只算时间账</p>
+        <span class="dist" role="img" aria-label="证据等级 A 4 条、B 12 条、C 2 条"><i class="da" style="width:22.2%"></i><i class="db" style="width:66.7%"></i><i class="dc" style="width:11.1%"></i></span>
+        <span class="dist-txt">A 4 · B 12 · C 2</span>
+        </a>
+        <a class="chcard reveal" href="pages/c05.html">
+        <span class="chtop"><span class="chnum">c05</span><span class="chcount">51 条</span></span>
+        <h3>不要浪费钱</h3>
+        <p>能省多少、收益差多少、一笔钱长期换回多少</p>
+        <span class="dist" role="img" aria-label="证据等级 A 28 条、B 12 条、C 11 条"><i class="da" style="width:54.9%"></i><i class="db" style="width:23.5%"></i><i class="dc" style="width:21.6%"></i></span>
+        <span class="dist-txt">A 28 · B 12 · C 11</span>
+        </a>
+        <a class="chcard reveal" href="pages/c06.html">
+        <span class="chtop"><span class="chnum">c06</span><span class="chcount">35 条</span></span>
+        <h3>反面清单</h3>
+        <p>「看起来便宜又有效」的反面清单</p>
+        <span class="dist" role="img" aria-label="证据等级 A 19 条、B 12 条、C 4 条"><i class="da" style="width:54.3%"></i><i class="db" style="width:34.3%"></i><i class="dc" style="width:11.4%"></i></span>
+        <span class="dist-txt">A 19 · B 12 · C 4</span>
+        </a>
+        <a class="chcard reveal" href="pages/c07.html">
+        <span class="chtop"><span class="chnum">c07</span><span class="chcount">23 条</span></span>
+        <h3>没钱的时候怎么活</h3>
+        <p>失业金、低保、临时救助去哪领</p>
+        <span class="dist" role="img" aria-label="证据等级 A 16 条、B 7 条、C 0 条"><i class="da" style="width:69.6%"></i><i class="db" style="width:30.4%"></i></span>
+        <span class="dist-txt">A 16 · B 7</span>
+        </a>
+        <a class="chcard reveal" href="pages/c15.html">
+        <span class="chtop"><span class="chnum">c15</span><span class="chcount">18 条</span></span>
+        <h3>租房与买房</h3>
+        <p>租房买房少踩坑</p>
+        <span class="dist" role="img" aria-label="证据等级 A 18 条、B 0 条、C 0 条"><i class="da" style="width:100.0%"></i></span>
+        <span class="dist-txt">A 18</span>
+        </a>
+      </div>
+    </div>
+    <div class="topic-group tg-security" id="toc-security">
+      <div class="tg-head"><a class="tg-badge" href="pages/security.html">失业与保障</a><span class="tg-stats">5 章 · 133 条</span><a class="tg-more" href="pages/security.html">主题导视 →</a></div>
+      <div class="chgrid">
+        <a class="chcard reveal" href="pages/c08.html">
+        <span class="chtop"><span class="chnum">c08</span><span class="chcount">46 条</span></span>
+        <h3>别把自己搭进去：法律与财产安全</h3>
+        <p>担保、借贷、证件保管的安全边界</p>
+        <span class="dist" role="img" aria-label="证据等级 A 34 条、B 11 条、C 1 条"><i class="da" style="width:73.9%"></i><i class="db" style="width:23.9%"></i><i class="dc" style="width:2.2%"></i></span>
+        <span class="dist-txt">A 34 · B 11 · C 1</span>
+        </a>
+        <a class="chcard reveal" href="pages/c09.html">
+        <span class="chtop"><span class="chnum">c09</span><span class="chcount">29 条</span></span>
+        <h3>普通人容易踩的法律红线</h3>
+        <p>谣言、跑分、高空抛物这些红线</p>
+        <span class="dist" role="img" aria-label="证据等级 A 27 条、B 2 条、C 0 条"><i class="da" style="width:93.1%"></i><i class="db" style="width:6.9%"></i></span>
+        <span class="dist-txt">A 27 · B 2</span>
+        </a>
+        <a class="chcard reveal" href="pages/c11.html">
+        <span class="chtop"><span class="chnum">c11</span><span class="chcount">21 条</span></span>
+        <h3>程序员和技术人容易踩的红线</h3>
+        <p>程序员和技术人的红线：别被关、别赔钱</p>
+        <span class="dist" role="img" aria-label="证据等级 A 15 条、B 4 条、C 2 条"><i class="da" style="width:71.4%"></i><i class="db" style="width:19.0%"></i><i class="dc" style="width:9.6%"></i></span>
+        <span class="dist-txt">A 15 · B 4 · C 2</span>
+        </a>
+        <a class="chcard reveal" href="pages/c14.html">
+        <span class="chtop"><span class="chnum">c14</span><span class="chcount">12 条</span></span>
+        <h3>账号与信息安全</h3>
+        <p>账号与信息安全的底线</p>
+        <span class="dist" role="img" aria-label="证据等级 A 5 条、B 1 条、C 6 条"><i class="da" style="width:41.7%"></i><i class="db" style="width:8.3%"></i><i class="dc" style="width:50.0%"></i></span>
+        <span class="dist-txt">A 5 · B 1 · C 6</span>
+        </a>
+        <a class="chcard reveal" href="pages/c19.html">
+        <span class="chtop"><span class="chnum">c19</span><span class="chcount">25 条</span></span>
+        <h3>在职、离职和工伤</h3>
+        <p>在职离职工伤：钱怎么算、字怎么签</p>
+        <span class="dist" role="img" aria-label="证据等级 A 20 条、B 5 条、C 0 条"><i class="da" style="width:80.0%"></i><i class="db" style="width:20.0%"></i></span>
+        <span class="dist-txt">A 20 · B 5</span>
+        </a>
+      </div>
+    </div>
+    <div class="topic-group tg-family" id="toc-family">
+      <div class="tg-head"><a class="tg-badge" href="pages/family.html">恋爱与育儿</a><span class="tg-stats">5 章 · 88 条</span><a class="tg-more" href="pages/family.html">主题导视 →</a></div>
+      <div class="chgrid">
+        <a class="chcard reveal" href="pages/c10.html">
+        <span class="chtop"><span class="chnum">c10</span><span class="chcount">23 条</span></span>
+        <h3>恋爱和结婚划不划算</h3>
+        <p>结婚这件事的钱、健康、法律与关系账</p>
+        <span class="dist" role="img" aria-label="证据等级 A 17 条、B 5 条、C 1 条"><i class="da" style="width:73.9%"></i><i class="db" style="width:21.7%"></i><i class="dc" style="width:4.4%"></i></span>
+        <span class="dist-txt">A 17 · B 5 · C 1</span>
+        </a>
+        <a class="chcard reveal" href="pages/c18.html">
+        <span class="chtop"><span class="chnum">c18</span><span class="chcount">7 条</span></span>
+        <h3>养孩子划不划算</h3>
+        <p>养孩子的钱和时间两笔账</p>
+        <span class="dist" role="img" aria-label="证据等级 A 4 条、B 0 条、C 3 条"><i class="da" style="width:57.1%"></i><i class="dc" style="width:42.9%"></i></span>
+        <span class="dist-txt">A 4 · C 3</span>
+        </a>
+        <a class="chcard reveal" href="pages/c20.html">
+        <span class="chtop"><span class="chnum">c20</span><span class="chcount">17 条</span></span>
+        <h3>刚出生的孩子怎么带</h3>
+        <p>孩子刚出生那一年的喂养、睡眠与疫苗</p>
+        <span class="dist" role="img" aria-label="证据等级 A 8 条、B 7 条、C 2 条"><i class="da" style="width:47.1%"></i><i class="db" style="width:41.2%"></i><i class="dc" style="width:11.7%"></i></span>
+        <span class="dist-txt">A 8 · B 7 · C 2</span>
+        </a>
+        <a class="chcard reveal" href="pages/c27.html">
+        <span class="chtop"><span class="chnum">c27</span><span class="chcount">20 条</span></span>
+        <h3>怀孕和生产：从发现怀孕到出院办证</h3>
+        <p>产检时间表、分娩安全与办出生证</p>
+        <span class="dist" role="img" aria-label="证据等级 A 16 条、B 4 条、C 0 条"><i class="da" style="width:80.0%"></i><i class="db" style="width:20.0%"></i></span>
+        <span class="dist-txt">A 16 · B 4</span>
+        </a>
+        <a class="chcard reveal" href="pages/c30.html">
+        <span class="chtop"><span class="chnum">c30</span><span class="chcount">21 条</span></span>
+        <h3>上学以后的孩子</h3>
+        <p>上学以后孩子的健康与规矩</p>
+        <span class="dist" role="img" aria-label="证据等级 A 8 条、B 12 条、C 1 条"><i class="da" style="width:38.1%"></i><i class="db" style="width:57.1%"></i><i class="dc" style="width:4.8%"></i></span>
+        <span class="dist-txt">A 8 · B 12 · C 1</span>
+        </a>
+      </div>
+    </div>
+    <div class="topic-group tg-career" id="toc-career">
+      <div class="tg-head"><a class="tg-badge" href="pages/career.html">创业与技能</a><span class="tg-stats">10 章 · 168 条</span><a class="tg-more" href="pages/career.html">主题导视 →</a></div>
+      <div class="chgrid">
+        <a class="chcard reveal" href="pages/c12.html">
+        <span class="chtop"><span class="chnum">c12</span><span class="chcount">28 条</span></span>
+        <h3>创业与做生意：别把家底赔进去</h3>
+        <p>创业做生意，别把家底赔进去</p>
+        <span class="dist" role="img" aria-label="证据等级 A 21 条、B 4 条、C 3 条"><i class="da" style="width:75.0%"></i><i class="db" style="width:14.3%"></i><i class="dc" style="width:10.7%"></i></span>
+        <span class="dist-txt">A 21 · B 4 · C 3</span>
+        </a>
+        <a class="chcard reveal" href="pages/c21.html">
+        <span class="chtop"><span class="chnum">c21</span><span class="chcount">13 条</span></span>
+        <h3>出国、旅行与境外安全</h3>
+        <p>出国旅行的人身安全与证件钱财</p>
+        <span class="dist" role="img" aria-label="证据等级 A 10 条、B 0 条、C 3 条"><i class="da" style="width:76.9%"></i><i class="dc" style="width:23.1%"></i></span>
+        <span class="dist-txt">A 10 · C 3</span>
+        </a>
+        <a class="chcard reveal" href="pages/c22.html">
+        <span class="chtop"><span class="chnum">c22</span><span class="chcount">13 条</span></span>
+        <h3>怎么放松：娱乐场所和减压</h3>
+        <p>哪些玩乐的钱花得冤、怎么解压</p>
+        <span class="dist" role="img" aria-label="证据等级 A 11 条、B 2 条、C 0 条"><i class="da" style="width:84.6%"></i><i class="db" style="width:15.4%"></i></span>
+        <span class="dist-txt">A 11 · B 2</span>
+        </a>
+        <a class="chcard reveal" href="pages/c23.html">
+        <span class="chtop"><span class="chnum">c23</span><span class="chcount">25 条</span></span>
+        <h3>学什么技能划算</h3>
+        <p>外语、编程、考证的回报比较</p>
+        <span class="dist" role="img" aria-label="证据等级 A 17 条、B 6 条、C 2 条"><i class="da" style="width:68.0%"></i><i class="db" style="width:24.0%"></i><i class="dc" style="width:8.0%"></i></span>
+        <span class="dist-txt">A 17 · B 6 · C 2</span>
+        </a>
+        <a class="chcard reveal" href="pages/c25.html">
+        <span class="chtop"><span class="chnum">c25</span><span class="chcount">12 条</span></span>
+        <h3>人走了以后要办什么</h3>
+        <p>销户、遗产、抚恤金怎么办</p>
+        <span class="dist" role="img" aria-label="证据等级 A 12 条、B 0 条、C 0 条"><i class="da" style="width:100.0%"></i></span>
+        <span class="dist-txt">A 12</span>
+        </a>
+        <a class="chcard reveal" href="pages/c26.html">
+        <span class="chtop"><span class="chnum">c26</span><span class="chcount">13 条</span></span>
+        <h3>做一个网站或平台：资质、备案和服务器</h3>
+        <p>ICP、公安备案与服务器合规</p>
+        <span class="dist" role="img" aria-label="证据等级 A 12 条、B 0 条、C 1 条"><i class="da" style="width:92.3%"></i><i class="dc" style="width:7.7%"></i></span>
+        <span class="dist-txt">A 12 · C 1</span>
+        </a>
+        <a class="chcard reveal" href="pages/c29.html">
+        <span class="chtop"><span class="chnum">c29</span><span class="chcount">14 条</span></span>
+        <h3>遭遇重大打击之后</h3>
+        <p>亲人去世、重病、失业、离婚之后</p>
+        <span class="dist" role="img" aria-label="证据等级 A 10 条、B 4 条、C 0 条"><i class="da" style="width:71.4%"></i><i class="db" style="width:28.6%"></i></span>
+        <span class="dist-txt">A 10 · B 4</span>
+        </a>
+        <a class="chcard reveal" href="pages/c31.html">
+        <span class="chtop"><span class="chnum">c31</span><span class="chcount">17 条</span></span>
+        <h3>十八岁之后有哪几条路</h3>
+        <p>上学、当兵、直接工作的账</p>
+        <span class="dist" role="img" aria-label="证据等级 A 17 条、B 0 条、C 0 条"><i class="da" style="width:100.0%"></i></span>
+        <span class="dist-txt">A 17</span>
+        </a>
+        <a class="chcard reveal" href="pages/c32.html">
+        <span class="chtop"><span class="chnum">c32</span><span class="chcount">12 条</span></span>
+        <h3>出国留学：身份、打工、保险和回国认证</h3>
+        <p>留学的身份、打工、保险与认证</p>
+        <span class="dist" role="img" aria-label="证据等级 A 12 条、B 0 条、C 0 条"><i class="da" style="width:100.0%"></i></span>
+        <span class="dist-txt">A 12</span>
+        </a>
+        <a class="chcard reveal" href="pages/c33.html">
+        <span class="chtop"><span class="chnum">c33</span><span class="chcount">21 条</span></span>
+        <h3>残疾之后怎么活</h3>
+        <p>评残、补助、辅具与就业</p>
+        <span class="dist" role="img" aria-label="证据等级 A 17 条、B 4 条、C 0 条"><i class="da" style="width:81.0%"></i><i class="db" style="width:19.0%"></i></span>
+        <span class="dist-txt">A 17 · B 4</span>
+        </a>
+      </div>
     </div>
   </section>
 </main>
@@ -235,9 +606,24 @@ footer.site .wrap p{margin-bottom:6px}
 })();
 </script>
 <script>
+(function(){var t=document.querySelector('.nav-toggle'),l=document.getElementById('navlinks');if(!t||!l)return;
+t.addEventListener('click',function(){var o=l.classList.toggle('open');t.setAttribute('aria-expanded',o?'true':'false')});
+l.addEventListener('click',function(e){if(e.target.closest('a')){l.classList.remove('open');t.setAttribute('aria-expanded','false')}});})();
+</script>
+<script>
 (function(){var b=document.querySelector('.theme-btn');if(!b)return;
 function sync(){var d=document.documentElement.getAttribute('data-theme')==='dark';b.textContent=d?'\u2600\uFE0F':'\uD83C\uDF19';b.setAttribute('aria-label',d?'\u5207\u6362\u5230\u6D45\u8272\u4E3B\u9898':'\u5207\u6362\u5230\u6DF1\u8272\u4E3B\u9898')}
 b.addEventListener('click',function(){var t=document.documentElement.getAttribute('data-theme')==='dark'?'light':'dark';document.documentElement.setAttribute('data-theme',t);try{localStorage.setItem('theme',t)}catch(e){}sync()});
 sync()})();
-</script></body>
+</script><button class="toTop" type="button" id="toTop" aria-label="回到顶部">&#8593;</button>
+<script>
+(function(){
+  var b=document.getElementById('toTop');if(!b)return;
+  var rm=window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  function upd(){if(window.scrollY>600){b.classList.add('show')}else{b.classList.remove('show')}}
+  window.addEventListener('scroll',upd,{passive:true});upd();
+  b.addEventListener('click',function(){window.scrollTo({top:0,behavior:rm?'auto':'smooth'});});
+})();
+</script>
+</body>
 </html>

@@ -1,0 +1,189 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>基础知识：保健食品的定义、蓝帽子与法律边界</title>
+<script>(function(){var d=document.documentElement;d.classList.add('js');var t=null;try{t=localStorage.getItem('theme')}catch(e){}if(t!=='light'&&t!=='dark'){var h=new Date().getHours();t=(h>=7&&h<17)?'light':'dark'}d.setAttribute('data-theme',t)})();</script>
+<style>
+*{margin:0;padding:0;box-sizing:border-box}
+:root{--bg:#f5f9fa;--surface:#ffffff;--surface2:#e9f1f2;--ink:#1c2d35;--muted:#557079;--accent:#0d7c8a;--accent-2:#095f6a;--on-accent:#ffffff;--line:#d6e3e5;--warn-bg:#fbf3e4;--warn-ink:#77571c;--warn-line:#e8d5ad;--danger:#a2403a;--shadow:0 1px 3px rgba(23,42,50,.08)}
+html[data-theme=dark]{--bg:#0e171c;--surface:#16242b;--surface2:#1b2e36;--ink:#e2edf0;--muted:#95abb3;--accent:#41c0ca;--accent-2:#7cd6dd;--on-accent:#04282c;--line:#273b44;--warn-bg:#2a2517;--warn-ink:#dcc38c;--warn-line:#4a3f22;--danger:#e28f87;--shadow:0 2px 8px rgba(0,0,0,.45)}
+body{font-family:"PingFang SC","Hiragino Sans GB","Microsoft YaHei","Noto Sans SC",sans-serif;background:var(--bg);color:var(--ink);line-height:1.78;font-size:16px}
+a{color:var(--accent);text-decoration:none}
+a:hover{text-decoration:underline}
+.wrap{max-width:960px;margin:0 auto;padding:0 20px}
+.site-head{background:var(--surface);border-bottom:1px solid var(--line);position:sticky;top:0;z-index:50}
+.head-in{display:flex;align-items:center;gap:12px;min-height:56px;position:relative}
+.brand{font-weight:700;color:var(--ink);font-size:1.05rem;white-space:nowrap}
+.site-nav{display:flex;gap:4px;flex-wrap:wrap;margin-left:auto}
+.site-nav a{padding:6px 10px;border-radius:6px;color:var(--muted);font-size:.92rem;white-space:nowrap}
+.site-nav a:hover{color:var(--accent);text-decoration:none;background:var(--surface2)}
+.site-nav a[aria-current=page]{color:var(--on-accent);background:var(--accent)}
+.head-actions{margin-left:auto;display:flex;gap:8px;align-items:center}
+.site-nav + .head-actions{margin-left:0}
+.icon-btn{border:1px solid var(--line);background:var(--surface);color:var(--ink);border-radius:8px;width:40px;height:40px;font-size:1.1rem;cursor:pointer;flex:none;display:inline-flex;align-items:center;justify-content:center}
+html.js .site-nav{display:none}
+html.js .icon-btn.js-menu{display:inline-flex}
+@media(min-width:721px){
+ html.js .site-nav{display:flex}
+ html.js .icon-btn.js-menu{display:none}
+}
+@media(max-width:720px){
+ .head-in{min-height:50px}
+ html.js .site-nav{position:absolute;top:100%;left:0;right:0;background:var(--surface);border-bottom:1px solid var(--line);flex-direction:column;padding:8px 14px 14px;box-shadow:var(--shadow)}
+ html.js .site-nav.open{display:flex}
+ html.js .site-nav a{display:block;padding:10px 8px;border-bottom:1px solid var(--line);font-size:1rem}
+ html.js .site-nav a:last-child{border-bottom:none}
+}
+main{padding:36px 0 50px}
+h1{font-size:1.85rem;line-height:1.4;margin-bottom:14px}
+h2{font-size:1.32rem;margin:2.2em 0 .7em;color:var(--accent-2)}
+html[data-theme=dark] h2{color:var(--accent)}
+h3{font-size:1.06rem;margin:1.6em 0 .5em}
+p{margin:.8em 0}
+.lede{font-size:1.05rem;color:var(--muted)}
+.cards{display:grid;grid-template-columns:repeat(auto-fit,minmax(255px,1fr));gap:14px;margin:1.2em 0}
+.card{background:var(--surface);border:1px solid var(--line);border-radius:10px;padding:18px;box-shadow:var(--shadow)}
+.card h3{margin-top:0}
+.card p{color:var(--muted);font-size:.94rem}
+.callout{border-left:4px solid var(--accent);background:var(--surface2);padding:12px 16px;border-radius:0 8px 8px 0;margin:1.2em 0}
+.callout.warn{border-left-color:var(--danger);background:var(--warn-bg);color:var(--warn-ink)}
+.table-scroll{overflow-x:auto;margin:1.2em 0;border:1px solid var(--line);border-radius:10px;background:var(--surface)}
+table{width:100%;border-collapse:collapse;font-size:.94rem;min-width:560px}
+th,td{padding:10px 12px;border-bottom:1px solid var(--line);text-align:left;vertical-align:top}
+th{background:var(--surface2);color:var(--ink);font-weight:600;white-space:nowrap}
+tr:last-child td{border-bottom:none}
+.badge{display:inline-block;font-size:.76rem;line-height:1.7;padding:1px 10px;border-radius:999px;white-space:nowrap;font-weight:600}
+.bA{background:var(--accent);color:var(--on-accent)}
+.bB{border:1.5px solid var(--accent);color:var(--accent)}
+.bC{border:1px solid var(--muted);color:var(--muted)}
+.bD{color:var(--muted)}
+.src{font-size:.85rem;color:var(--muted)}
+ul,ol{padding-left:1.4em;margin:.7em 0}
+li{margin:.4em 0}
+footer{background:var(--surface);border-top:1px solid var(--line);padding:30px 0 36px;margin-top:20px}
+.foot-nav{display:flex;flex-wrap:wrap;gap:6px 16px;margin-bottom:14px;font-size:.92rem}
+.disclaimer{background:var(--warn-bg);border:1px solid var(--warn-line);color:var(--warn-ink);padding:14px 16px;border-radius:10px;font-size:.92rem}
+@media(prefers-reduced-motion:no-preference){
+ .js .reveal{opacity:0;transform:translateY(14px);transition:opacity .6s ease,transform .6s ease}
+ .js .reveal.in{opacity:1;transform:none}
+}
+@media(prefers-reduced-motion:reduce){.reveal{opacity:1!important;transform:none!important}}
+.portal{position:fixed;left:14px;bottom:14px;z-index:99}.portal a{display:inline-block;padding:7px 16px;border-radius:999px;background:rgba(20,20,20,.72);color:#fff;font-size:13px;text-decoration:none;backdrop-filter:blur(4px);font-family:system-ui,sans-serif}.portal a:hover{background:rgba(20,20,20,.9)}
+.toTop{position:fixed;right:14px;bottom:14px;z-index:98;display:none;border:none;cursor:pointer;padding:7px 14px;border-radius:999px;background:rgba(20,20,20,.72);color:#fff;font-size:14px;line-height:1;backdrop-filter:blur(4px);font-family:system-ui,sans-serif}.toTop:hover{background:rgba(20,20,20,.9)}.toTop.show{display:inline-block}
+</style>
+<noscript><style>.reveal{opacity:1!important;transform:none!important}.portal{position:fixed;left:14px;bottom:14px;z-index:99}.portal a{display:inline-block;padding:7px 16px;border-radius:999px;background:rgba(20,20,20,.72);color:#fff;font-size:13px;text-decoration:none;backdrop-filter:blur(4px);font-family:system-ui,sans-serif}.portal a:hover{background:rgba(20,20,20,.9)}
+.toTop{position:fixed;right:14px;bottom:14px;z-index:98;display:none;border:none;cursor:pointer;padding:7px 14px;border-radius:999px;background:rgba(20,20,20,.72);color:#fff;font-size:14px;line-height:1;backdrop-filter:blur(4px);font-family:system-ui,sans-serif}.toTop:hover{background:rgba(20,20,20,.9)}.toTop.show{display:inline-block}
+</style></noscript>
+</head>
+<body>
+<header class="site-head">
+ <div class="wrap head-in">
+  <a class="brand" href="index.html">保健品使用指南</a>
+  <nav id="nav" class="site-nav" aria-label="站内导航">
+   <a href="index.html">首页</a>
+   <a href="basics.html" aria-current="page">基础知识</a>
+   <a href="evidence.html">证据分级</a>
+   <a href="by-need.html">按需选择</a>
+   <a href="decide.html">理性决策</a>
+   <a href="traditions.html">流派与传统</a>
+   <a href="brands.html">品牌辨识</a>
+   <a href="safety.html">安全边界</a>
+   <a href="myths.html">误区破解</a>
+   <a href="buy.html">选购鉴别</a>
+   <a href="../index.html">总门户</a>
+  </nav>
+  <div class="head-actions">
+   <button id="themeBtn" class="icon-btn" type="button" aria-label="切换明暗主题">☾</button>
+   <button id="menuBtn" class="icon-btn js-menu" type="button" aria-expanded="false" aria-controls="nav" aria-label="打开导航菜单">☰</button>
+  </div>
+ </div>
+</header>
+<main>
+ <div class="wrap">
+  <h1 class="reveal">基础知识：保健食品到底是什么</h1>
+  <p class="lede reveal">在讨论"该不该补"之前，先弄清楚法律框架。中国的保健食品监管体系在全世界属于较为严格的一类：产品上市前须经过注册审评或备案，声称功能被限定在公布目录之内，且不得涉及疾病治疗。本页依据《中华人民共和国食品安全法》《保健食品注册与备案管理办法》（国家市场监督管理总局发布）及国家药品监督管理局相关文件整理。</p>
+
+  <h2 class="reveal">定义：介于食品与药品之间的一类特殊食品</h2>
+  <p class="reveal">按照《食品安全法》，保健食品属于特殊食品，指声称具有特定保健功能或者以补充维生素、矿物质为目的的食品。它适用于特定人群食用，具有调节机体功能的作用，但不以治疗疾病为目的。这个定义里有两个关键点：第一，保健食品仍然是食品，不是药品；第二，它只能"调节"，不能"治疗"。换句话说，一个产品如果真的能治疗疾病，那它应当按药品管理，须经过严格的临床试验和审评；而保健食品的门槛和证据要求都低于药品，这也正是各国监管都禁止保健食品宣称疗效的原因。</p>
+  <p class="reveal">在美国，对应概念是"膳食补充剂"（dietary supplement），由《膳食补充剂健康与教育法案》（DSHEA）规制。美国制度与中国最大的不同在于：美国上市前不需要 FDA 批准，安全性责任在企业，FDA 只在出现问题后介入。因此"美国原装进口"并不意味着经过了美国政府的上市前审评，这一点消费者常被误导。NIH 膳食补充剂办公室（ODS）在官方资料中也反复强调：膳食补充剂并非天然更安全，其标签声称也不代表 FDA 认可。</p>
+
+  <h2 class="reveal">蓝帽子：中国合法保健食品的身份标志</h2>
+  <p class="reveal">在中国市场，通过一般贸易销售的合法保健食品，包装上必须有一个天蓝色草帽形标志，俗称"蓝帽子"，其下方标注注册号或备案号。注册号格式为"国食健注 G 加四位年份加四位顺序号"（国产）或"国食健注 J"开头（首次进口注册产品）；备案号格式为"省、自治区、直辖市简称加食健备字"加年份和编号，进口备案产品为"国食健备"开头。凭这个号码，任何人都可以在市场监管总局的特殊食品信息查询平台免费核验产品名称、申请人、保健功能、功效成分和有效期。没有蓝帽子的产品，若宣称保健功能即属违法。</p>
+  <p class="reveal">需要特别提醒：跨境电商零售进口商品（海淘个人自用）按个人自用物品监管，可以没有蓝帽子，其执行的是输出国的标准。这类商品同样不允许在页面宣称疾病治疗功能，但消费者应当明白其监管路径与一般贸易进口产品不同，详见<a href="buy.html">选购鉴别</a>一页。</p>
+
+  <h2 class="reveal">注册与备案：两条上市路径的区别</h2>
+  <div class="table-scroll reveal">
+   <table>
+    <thead><tr><th>项目</th><th>注册制（蓝帽子"注"字）</th><th>备案制（蓝帽子"备"字）</th></tr></thead>
+    <tbody>
+     <tr><td>适用产品</td><td>使用目录外原料的保健食品；首次进口的属于注册范围的产品（如含辅酶 Q10、鱼油等目录外或需审评原料的产品）</td><td>使用公布的《保健食品原料目录》内原料、符合备案要求的国产或进口产品，主要是维生素、矿物质类营养素补充剂</td></tr>
+     <tr><td>审评要求</td><td>须提交研发报告、安全性评价、保健功能评价等材料，经技术审评和行政审批，周期较长</td><td>材料齐全、符合要求的即可备案，审评大幅简化，监管重心转向事后监管</td></tr>
+     <tr><td>功能范围</td><td>可申请的功能限于公布的功能目录，须提供相应证据</td><td>营养素补充剂类备案产品只能标注补充相应营养素</td></tr>
+    </tbody>
+   </table>
+  </div>
+  <p class="reveal">对消费者的实际意义是：注册与备案代表两条合规路径，而不是"注册的更真、备案的更假"。备案产品（如普通维生素 D 片）同样合法且信息可查；判断产品是否合规的唯一可靠办法是查询注册备案号是否真实、是否与包装信息一致。</p>
+
+  <h2 class="reveal">保健食品、普通食品与药品的界限</h2>
+  <div class="cards reveal">
+   <div class="card"><h3>普通食品</h3><p>提供营养和口感，不得宣称任何保健功能。普通食品打"功效牌"（如"降血脂的米粉"）即属违法宣传。</p></div>
+   <div class="card"><h3>保健食品</h3><p>可宣称目录内的保健功能（如"有助于增强免疫力""有助于改善睡眠"），须有蓝帽子，必须在标签注明不适宜人群和食用量，不得宣称治病。</p></div>
+   <div class="card"><h3>药品</h3><p>用于预防、治疗、诊断疾病，须经 NMPA 药品审评，有明确的适应证、剂量、不良反应与禁忌信息，批准文号为"国药准字"。</p></div>
+  </div>
+  <p class="reveal">2019 年市场监管总局发布《保健食品标注警示用语指南》，要求保健食品标签设置警示区，标注"保健食品不是药物，不能代替药物治疗疾病"，且警示区面积不少于其所在面的百分之二十。这是识别合规产品的另一个直观线索。</p>
+
+  <h2 class="reveal">声称用语的法律边界</h2>
+  <p class="reveal">保健功能声称必须是目录内的规范表述。以"有助于"开头的谨慎措辞（有助于增强免疫力、有助于改善睡眠、有助于维持骨骼健康等）本身就是监管要求的体现，企业不得自行扩展。以下宣称在任何情况下都涉嫌违法或欺诈，见到即应警惕：</p>
+  <ul class="reveal">
+   <li>宣称治疗、治愈疾病："根治糖尿病""替代降压药""消除肿瘤"。</li>
+   <li>绝对化用语："包治百病""彻底根治""有效率百分九十九""全球第一"。</li>
+   <li>伪科学概念："排出酸性体质""疏通血管垃圾""全身排毒"。</li>
+   <li>利用专家、患者、广告代言人名义作推荐证明；2025 年起施行的规则进一步明确保健食品广告不得利用广告代言人作推荐、证明。</li>
+   <li>普通食品、固体饮料、压片糖果等冒充保健食品或药品销售。</li>
+  </ul>
+  <p class="reveal">《广告法》和《食品安全法》对上述行为规定了没收违法所得、罚款、吊销许可证等责任；近年监管部门也多次曝光在减肥、壮阳、降糖类产品中非法添加西布曲明、西地那非、二甲双胍等药品成分的案件。非法添加意味着产品实质上变成了"无标签的药"，剂量不可控，危害可能远大于药物本身。</p>
+
+  <div class="callout warn reveal"><strong>一句话记住：</strong>蓝帽子加可查的注册备案号是合法身份；"不能代替药物治疗疾病"的警示语必须印在标签上；任何治病的承诺都越过红线。下一步请看<a href="evidence.html">证据分级</a>，了解各类产品究竟有多少科学证据。</div>
+ </div>
+</main>
+<footer>
+ <div class="wrap">
+  <nav class="foot-nav" aria-label="页脚导航">
+   <a href="index.html">首页</a><a href="basics.html">基础知识</a><a href="evidence.html">证据分级</a><a href="by-need.html">按需选择</a><a href="decide.html">理性决策</a><a href="traditions.html">流派与传统</a><a href="brands.html">品牌辨识</a><a href="safety.html">安全边界</a><a href="myths.html">误区破解</a><a href="buy.html">选购鉴别</a><a href="../index.html">返回总门户</a>
+  </nav>
+  <p class="disclaimer">本站内容仅供科普参考，不构成医疗建议；服用任何保健品前请咨询医生或临床药师，孕妇、儿童、慢性病及服药人群尤其如此。</p>
+ </div>
+</footer>
+<script>
+(function(){
+var doc=document;
+var mb=doc.getElementById('menuBtn'),nv=doc.getElementById('nav');
+if(mb&&nv){
+ mb.addEventListener('click',function(){var open=nv.classList.toggle('open');mb.setAttribute('aria-expanded',open?'true':'false')});
+ nv.addEventListener('click',function(e){if(e.target.closest('a')){nv.classList.remove('open');mb.setAttribute('aria-expanded','false')}});
+}
+var tb=doc.getElementById('themeBtn');
+function label(){var t=doc.documentElement.getAttribute('data-theme');tb.textContent=t==='dark'?'☀':'☾';tb.setAttribute('title',t==='dark'?'切换到浅色主题':'切换到深色主题')}
+if(tb){label();tb.addEventListener('click',function(){var cur=doc.documentElement.getAttribute('data-theme')==='dark'?'light':'dark';doc.documentElement.setAttribute('data-theme',cur);try{localStorage.setItem('theme',cur)}catch(e){}label()})}
+var els=doc.querySelectorAll('.reveal');
+if('IntersectionObserver' in window){
+ var io=new IntersectionObserver(function(es){es.forEach(function(en){if(en.isIntersecting){en.target.classList.add('in');io.unobserve(en.target)}})},{threshold:.06});
+ els.forEach(function(el){io.observe(el)});
+}else{els.forEach(function(el){el.classList.add('in')})}
+})();
+</script>
+<div class="portal"><a href="../index.html">&#8592; 总门户</a></div>
+<button class="toTop" type="button" id="toTop" aria-label="回到顶部">&#8593;</button>
+<script>
+(function(){
+  var b=document.getElementById('toTop');if(!b)return;
+  var rm=window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  function upd(){if(window.scrollY>600){b.classList.add('show')}else{b.classList.remove('show')}}
+  window.addEventListener('scroll',upd,{passive:true});upd();
+  b.addEventListener('click',function(){window.scrollTo({top:0,behavior:rm?'auto':'smooth'});});
+})();
+</script>
+</body>
+</html>

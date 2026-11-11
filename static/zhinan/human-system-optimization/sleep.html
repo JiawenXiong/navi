@@ -4,7 +4,7 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>睡眠 · 人体系统优化</title>
-<script>(function(){var t;try{t=localStorage.getItem("theme")}catch(e){}if(t!=="light"&&t!=="dark"){var h=new Date().getHours();t=(h>=7&&h<17)?"light":"dark"}document.documentElement.setAttribute("data-theme",t)})()</script>
+<script>(function(){document.documentElement.classList.add("js");var t;try{t=localStorage.getItem("theme")}catch(e){}if(t!=="light"&&t!=="dark"){var h=new Date().getHours();t=(h>=7&&h<17)?"light":"dark"}document.documentElement.setAttribute("data-theme",t)})()</script>
 <style>
 :root{--bg:#0a0f0d;--panel:#0f1512;--panel-2:#121a16;--line:#1e2a24;--ink:#d7e2dc;--muted:#8fa69b;--accent:#34d399;--accent-2:#10b981;--nav-bg:rgba(10,15,13,.92);--nav-line:rgba(52,211,153,.16);--accent-bord:rgba(52,211,153,.4);--accent-bord-strong:rgba(52,211,153,.45);--accent-tint:rgba(52,211,153,.07);--accent-glow:rgba(52,211,153,.6);--bar-bg:#16211c;--warn:#d4b06a;--warn-tint:rgba(212,176,106,.07);color-scheme:dark;}
 [data-theme="light"]{--bg:#edf3ee;--panel:#f7faf7;--panel-2:#e6efe9;--line:#d3e0d7;--ink:#1c2b24;--muted:#4f6659;--accent:#047857;--accent-2:#059669;--nav-bg:rgba(246,250,247,.92);--nav-line:rgba(4,120,87,.2);--accent-bord:rgba(4,120,87,.35);--accent-bord-strong:rgba(4,120,87,.5);--accent-tint:rgba(4,120,87,.07);--accent-glow:rgba(4,120,87,.45);--bar-bg:#d9e5dc;--warn:#8a6a1f;--warn-tint:rgba(138,106,31,.08);color-scheme:light;}
@@ -21,31 +21,48 @@ a{color:var(--accent);text-decoration:none;}
 a:hover{text-decoration:underline;}
 .wrap{max-width:1080px;margin:0 auto;padding:0 22px;}
 nav.top{position:sticky;top:0;z-index:50;background:var(--nav-bg);backdrop-filter:blur(8px);border-bottom:1px solid var(--nav-line);}
-nav.top .row{display:flex;align-items:center;gap:4px;overflow-x:auto;white-space:nowrap;padding:12px 0;scrollbar-width:none;}
-nav.top .row::-webkit-scrollbar{display:none;}
+nav.top .row{display:flex;flex-wrap:wrap;align-items:center;gap:4px;row-gap:8px;padding:12px 0;}
 nav.top .brand{font-weight:700;color:var(--accent);margin-right:12px;display:flex;align-items:center;gap:8px;}
 nav.top .brand .dot{width:9px;height:9px;border-radius:50%;background:var(--accent);box-shadow:0 0 10px var(--accent);display:inline-block;}
+nav.top .links{display:flex;flex-wrap:wrap;align-items:center;gap:4px;row-gap:8px;min-width:0;}
 nav.top a.nl{color:var(--muted);padding:5px 12px;border-radius:999px;font-size:14px;border:1px solid transparent;}
 nav.top a.nl:hover{color:var(--accent);text-decoration:none;border-color:var(--accent-bord);}
 nav.top a.nl.on{color:var(--accent);border-color:var(--accent-bord-strong);background:var(--accent-tint);}
 nav.top a.nl.ext{border:1px dashed var(--accent-bord);}
-footer{border-top:1px solid var(--line);margin-top:64px;padding:32px 0 40px;color:var(--muted);font-size:13px;}
+nav.top .mbtn{display:none;flex:0 0 auto;margin-left:4px;width:36px;height:34px;background:var(--accent-tint);color:var(--accent);border:1px solid var(--accent-bord);border-radius:999px;font-size:16px;line-height:1;cursor:pointer;font-family:inherit;padding:0;}
+nav.top .mbtn:hover{border-color:var(--accent-bord-strong);}
+h1,h2,h3,section{scroll-margin-top:64px;}
+@media (max-width:720px){
+nav.top .links{width:100%;}
+html.js nav.top .row{flex-wrap:nowrap;min-height:52px;padding:8px 0;}
+html.js nav.top .brand{margin-right:auto;}
+html.js nav.top .mbtn{display:inline-flex;align-items:center;justify-content:center;}
+html.js nav.top .links{display:flex;flex-direction:column;align-items:stretch;position:absolute;left:0;right:0;top:100%;gap:2px;width:auto;background:var(--nav-bg);backdrop-filter:blur(8px);border-bottom:1px solid var(--nav-line);max-height:0;overflow:hidden;}
+html.js nav.top .links.open{max-height:520px;padding:8px 0 12px;}
+html.js nav.top .links a.nl{width:100%;border-radius:10px;padding:9px 14px;font-size:15px;}
+}
+@media (max-width:720px) and (prefers-reduced-motion: no-preference){
+html.js nav.top .links{transition:max-height .28s ease;}
+}
+footer{border-top:1px solid var(--line);margin-top:64px;padding:32px 0 40px;color:var(--muted);font-size:14px;}
 footer .cols{display:flex;flex-wrap:wrap;gap:24px;justify-content:space-between;}
 .page-head{padding:56px 0 8px;}
-.kicker{font-family:ui-monospace,Consolas,monospace;font-size:12px;letter-spacing:.3em;color:var(--accent);margin-bottom:12px;}
-h1{font-size:clamp(28px,4.5vw,40px);}
+.kicker{font-family:ui-monospace,Consolas,monospace;font-size:12px;letter-spacing:.3em;color:var(--accent);text-transform:uppercase;margin-bottom:12px;}
+h1{font-size:clamp(28px,4.5vw,40px);line-height:1.3;}
 h1 .em{color:var(--accent);}
 .lede{color:var(--muted);max-width:780px;margin-top:14px;font-size:16px;}
 section{padding:30px 0;}
 h2.sec{font-size:23px;margin-bottom:6px;padding-left:14px;border-left:3px solid var(--accent);}
-p.sub{color:var(--muted);margin-bottom:20px;font-size:14.5px;}
+p.sub{color:var(--muted);margin-bottom:20px;font-size:15px;}
 .grid{display:grid;gap:16px;}
 .grid.c2{grid-template-columns:repeat(auto-fit,minmax(min(100%,300px),1fr));}
-.grid.c3{grid-template-columns:repeat(auto-fit,minmax(min(100%,220px),1fr));}
+.grid.c3{grid-template-columns:repeat(auto-fit,minmax(min(100%,260px),1fr));}
 .card{background:var(--panel);border:1px solid var(--line);border-radius:16px;padding:22px 20px;}
+.card:hover{border-color:var(--accent-bord);}
 .card h3{font-size:17px;margin-bottom:10px;}
 .card h3 .idx{font-family:ui-monospace,Consolas,monospace;color:var(--accent);font-size:12px;margin-right:8px;}
-.card p{color:var(--muted);font-size:14.5px;}
+.card p{color:var(--muted);font-size:15px;}
+.card .go{display:inline-block;margin-top:12px;font-size:14px;color:var(--accent);}
 .badge{display:inline-block;font-family:ui-monospace,Consolas,monospace;font-size:12px;color:var(--accent);border:1px solid var(--accent-bord);border-radius:999px;padding:2px 12px;margin:3px 4px 3px 0;background:var(--accent-tint);}
 ul.list{list-style:none;}
 ul.list li{padding:9px 0 9px 26px;position:relative;border-bottom:1px dashed var(--line);font-size:15px;}
@@ -55,23 +72,28 @@ ul.list li b{color:var(--ink);}
 ul.list li span{color:var(--muted);}
 .stat{background:var(--panel-2);border:1px solid var(--line);border-radius:14px;padding:18px 20px;}
 .stat .n{font-family:ui-monospace,Consolas,monospace;font-size:25px;color:var(--accent);}
-.stat .l{font-size:13px;color:var(--muted);margin-top:4px;}
+.stat .l{font-size:14px;color:var(--muted);margin-top:4px;}
 .bar{height:8px;background:var(--bar-bg);border-radius:999px;overflow:hidden;margin-top:10px;}
 .bar i{display:block;height:100%;border-radius:999px;background:linear-gradient(90deg,var(--accent-2),var(--accent));}
-.note{border-left:3px solid var(--accent);background:var(--accent-tint);border-radius:0 12px 12px 0;padding:14px 18px;color:var(--muted);font-size:14px;margin-top:20px;}
+.note{border-left:3px solid var(--accent);background:var(--accent-tint);border-radius:0 12px 12px 0;padding:14px 18px;color:var(--muted);font-size:15px;margin-top:20px;}
 .timeline{border-left:2px solid var(--accent-bord);margin:8px 0 0 8px;padding-left:22px;}
 .timeline .t{position:relative;padding-bottom:18px;}
 .timeline .t::before{content:"";position:absolute;left:-28px;top:7px;width:10px;height:10px;border-radius:50%;background:var(--accent);box-shadow:0 0 8px var(--accent-glow);}
 .timeline .t .tt{font-family:ui-monospace,Consolas,monospace;color:var(--accent);font-size:13px;}
-.timeline .t p{color:var(--muted);font-size:14.5px;}
-.reveal{opacity:0;transform:translateY(16px);transition:opacity .6s ease,transform .6s ease;}
+.timeline .t p{color:var(--muted);font-size:15px;}
+.warn{border-left:3px solid var(--warn);background:var(--warn-tint);border-radius:0 12px 12px 0;padding:14px 18px;color:var(--muted);font-size:15px;margin-top:8px;}.reveal{opacity:0;transform:translateY(16px);transition:opacity .6s ease,transform .6s ease;}
 .reveal.in{opacity:1;transform:none;}
 @media (prefers-reduced-motion: reduce){.reveal{opacity:1;transform:none;transition:none;}}
+.portal{position:fixed;left:14px;bottom:14px;z-index:99}.portal a{display:inline-block;padding:7px 16px;border-radius:999px;background:rgba(20,20,20,.72);color:#fff;font-size:13px;text-decoration:none;backdrop-filter:blur(4px);font-family:system-ui,sans-serif}.portal a:hover{background:rgba(20,20,20,.9)}
+.toTop{position:fixed;right:14px;bottom:14px;z-index:98;display:none;border:none;cursor:pointer;padding:7px 14px;border-radius:999px;background:rgba(20,20,20,.72);color:#fff;font-size:14px;line-height:1;backdrop-filter:blur(4px);font-family:system-ui,sans-serif}.toTop:hover{background:rgba(20,20,20,.9)}.toTop.show{display:inline-block}
 </style>
-<noscript><style>.reveal{opacity:1 !important;transform:none !important}</style></noscript></head>
+<noscript><style>.reveal{opacity:1 !important;transform:none !important}.portal{position:fixed;left:14px;bottom:14px;z-index:99}.portal a{display:inline-block;padding:7px 16px;border-radius:999px;background:rgba(20,20,20,.72);color:#fff;font-size:13px;text-decoration:none;backdrop-filter:blur(4px);font-family:system-ui,sans-serif}.portal a:hover{background:rgba(20,20,20,.9)}
+.toTop{position:fixed;right:14px;bottom:14px;z-index:98;display:none;border:none;cursor:pointer;padding:7px 14px;border-radius:999px;background:rgba(20,20,20,.72);color:#fff;font-size:14px;line-height:1;backdrop-filter:blur(4px);font-family:system-ui,sans-serif}.toTop:hover{background:rgba(20,20,20,.9)}.toTop.show{display:inline-block}
+</style></noscript></head>
 <body>
 <nav class="top"><div class="wrap row">
 <a class="brand" href="index.html"><span class="dot"></span>HSO</a>
+<div class="links" id="navLinks">
 <a class="nl" href="../index.html">返回总门户</a>
 <a class="nl" href="index.html">首页</a>
 <a class="nl on" href="sleep.html">睡眠</a>
@@ -79,8 +101,10 @@ ul.list li span{color:var(--muted);}
 <a class="nl" href="mindset.html">心态与动力</a>
 <a class="nl" href="focus.html">学习与专注</a>
 <a class="nl" href="longevity.html">长寿</a>
-<button class="tbtn" id="themeBtn" type="button" aria-label="切换明暗主题" title="切换明暗主题"><span class="ico-sun">☀ 浅色</span><span class="ico-moon">☾ 深色</span></button>
 <a class="nl ext" href="https://github.com/zijie0/HumanSystemOptimization" target="_blank" rel="noopener">GitHub ↗</a>
+</div>
+<button class="tbtn" id="themeBtn" type="button" aria-label="切换明暗主题" title="切换明暗主题"><span class="ico-sun">☀ 浅色</span><span class="ico-moon">☾ 深色</span></button>
+<button class="mbtn" id="navToggle" type="button" aria-expanded="false" aria-controls="navLinks" aria-label="展开导航菜单">☰</button>
 </div></nav>
 
 <header class="page-head wrap">
@@ -161,7 +185,18 @@ var els=document.querySelectorAll('.reveal');
 if(!('IntersectionObserver' in window)){els.forEach(function(e){e.classList.add('in');});return;}
 var io=new IntersectionObserver(function(es){es.forEach(function(en){if(en.isIntersecting){en.target.classList.add('in');io.unobserve(en.target);}});},{threshold:.12});
 els.forEach(function(e){io.observe(e);});
-})();(function(){var b=document.getElementById("themeBtn");if(!b)return;b.addEventListener("click",function(){var r=document.documentElement;var n=r.getAttribute("data-theme")==="light"?"dark":"light";r.setAttribute("data-theme",n);try{localStorage.setItem("theme",n)}catch(e){}})();
+})();(function(){var b=document.getElementById("themeBtn");if(!b)return;b.addEventListener("click",function(){var r=document.documentElement;var n=r.getAttribute("data-theme")==="light"?"dark":"light";r.setAttribute("data-theme",n);try{localStorage.setItem("theme",n)}catch(e){}})();(function(){var n=document.getElementById("navToggle"),p=document.getElementById("navLinks");if(!n||!p)return;n.addEventListener("click",function(){var o=n.getAttribute("aria-expanded")==="true";n.setAttribute("aria-expanded",String(!o));n.setAttribute("aria-label",o?"展开导航菜单":"收起导航菜单");p.classList.toggle("open",!o);});p.addEventListener("click",function(e){var a=e.target&&e.target.closest?e.target.closest("a"):null;if(a){n.setAttribute("aria-expanded","false");p.classList.remove("open");}});})();
+</script>
+<div class="portal"><a href="../index.html">&#8592; 总门户</a></div>
+<button class="toTop" type="button" id="toTop" aria-label="回到顶部">&#8593;</button>
+<script>
+(function(){
+  var b=document.getElementById('toTop');if(!b)return;
+  var rm=window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  function upd(){if(window.scrollY>600){b.classList.add('show')}else{b.classList.remove('show')}}
+  window.addEventListener('scroll',upd,{passive:true});upd();
+  b.addEventListener('click',function(){window.scrollTo({top:0,behavior:rm?'auto':'smooth'});});
+})();
 </script>
 </body>
 </html>

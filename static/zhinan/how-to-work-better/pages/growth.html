@@ -2,11 +2,11 @@
 <html lang="zh-CN">
 <head>
 <meta charset="UTF-8">
-<script>(function(){try{var t=localStorage.getItem('theme');if(t!=='light'&&t!=='dark'){var h=new Date().getHours();t=(h>=7&&h<17)?'light':'dark'}document.documentElement.setAttribute('data-theme',t)}catch(e){document.documentElement.setAttribute('data-theme','light')}})();</script>
+<script>(function(){document.documentElement.classList.add('js');try{var t=localStorage.getItem('theme');if(t!=='light'&&t!=='dark'){var h=new Date().getHours();t=(h>=7&&h<17)?'light':'dark'}document.documentElement.setAttribute('data-theme',t)}catch(e){document.documentElement.setAttribute('data-theme','light')}})();</script>
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>成长与礼仪 · 高性价比工作指南</title>
 <style>
-:root,[data-theme=light]{--bg:#f4f6f9;--card:#ffffff;--ink:#1e2430;--ink2:#5b6472;--line:#e2e7ee;--accent:#0a5cff;--accent-soft:#e8f0ff;--on-accent:#fff;--src:#8a93a3;--accent-fade:#b9cffb;--radius:14px;color-scheme:light}
+:root,[data-theme=light]{--bg:#f4f6f9;--card:#ffffff;--ink:#1e2430;--ink2:#5b6472;--line:#e2e7ee;--accent:#0a5cff;--accent-soft:#e8f0ff;--on-accent:#fff;--src:#67707e;--accent-fade:#b9cffb;--radius:14px;--mono:Consolas,Menlo,monospace;color-scheme:light}
 [data-theme=dark]{--bg:#15181e;--card:#1e232b;--ink:#e6e9ef;--ink2:#a7b0bf;--line:#353c47;--accent:#4d9fff;--accent-soft:#12233d;--on-accent:#0b1220;--src:#8f99a9;--accent-fade:#1c3d6e;color-scheme:dark}
 *{box-sizing:border-box;margin:0;padding:0}
 body{background:var(--bg);color:var(--ink);font-family:"Microsoft YaHei","PingFang SC","Segoe UI",sans-serif;line-height:1.75;font-size:15.5px}
@@ -14,8 +14,8 @@ a{color:var(--accent);text-decoration:none}
 a:hover{text-decoration:underline}
 .wrap{max-width:1000px;margin:0 auto;padding:0 20px}
 .topbar{background:var(--card);border-bottom:1px solid var(--line);position:sticky;top:0;z-index:20}
-.nav{display:flex;align-items:center;gap:4px;white-space:nowrap;overflow-x:auto;scrollbar-width:none}
-.nav::-webkit-scrollbar{display:none}
+.nav{display:flex;align-items:center;gap:4px;flex-wrap:wrap;row-gap:4px;min-height:44px}
+.nav-menu{display:contents}
 .brand{font-weight:700;color:var(--ink);margin-right:14px;flex:none}
 .brand span{color:var(--accent)}
 .nav a{flex:none;padding:9px 12px;border-radius:10px;color:var(--ink2);font-size:14px}
@@ -24,6 +24,22 @@ a:hover{text-decoration:underline}
 .nav a.gh{border:1px solid var(--line);color:var(--accent)}
 .theme-btn{flex:none;margin-left:6px;padding:8px 12px;border-radius:10px;border:1px solid var(--line);background:var(--card);color:var(--ink);font-size:13px;cursor:pointer;font-family:inherit;line-height:1.2}
 .theme-btn:hover{background:var(--accent-soft);color:var(--accent)}
+.nav-toggle{display:none;flex:none;margin-left:6px;padding:8px 12px;border-radius:10px;border:1px solid var(--line);background:var(--card);color:var(--ink);font-size:15px;line-height:1.2;cursor:pointer;font-family:inherit}
+.nav-toggle:hover{background:var(--accent-soft);color:var(--accent)}
+@media (max-width:720px){
+html.js .nav{flex-wrap:nowrap;padding:2px 0}
+html.js .nav-menu{display:none}
+html.js .nav .theme-btn{margin-left:auto}
+html.js .nav-toggle{display:inline-flex;align-items:center}
+html.js .nav.open{flex-wrap:wrap;padding-bottom:6px}
+html.js .nav.open .nav-menu{display:flex;flex-direction:column;align-items:stretch;gap:2px;flex-basis:100%;width:100%;margin-top:4px;padding:6px 0 2px;border-top:1px solid var(--line)}
+html.js .nav.open .nav-menu a{padding:10px 12px}
+}
+@media (prefers-reduced-motion:no-preference){
+.nav-menu a{transition:background .15s ease,color .15s ease}
+html.js .nav.open .nav-menu{animation:navIn .18s ease}
+@keyframes navIn{from{opacity:0;transform:translateY(-6px)}to{opacity:1;transform:none}}
+}
 main{padding:34px 0 10px}
 .pagehead{margin-bottom:22px}
 .pagehead .crumb{font-size:13px;color:var(--ink2)}
@@ -33,13 +49,13 @@ h2.sec{font-size:19px;margin:34px 0 4px;padding-left:12px;border-left:4px solid 
 p.secsub{color:var(--ink2);font-size:14px;margin:0 0 14px 16px}
 .card{background:var(--card);border:1px solid var(--line);border-radius:var(--radius);padding:20px 22px;margin-bottom:14px}
 .card .head{display:flex;gap:12px;align-items:baseline}
-.card .num{font-family:Consolas,Menlo,monospace;font-size:13px;color:var(--accent);border:1px solid var(--accent);border-radius:8px;padding:0 8px;flex:none}
+.card .num{font-family:var(--mono);font-size:13px;color:var(--accent);border:1px solid var(--accent);border-radius:8px;padding:0 8px;flex:none}
 .card h3{font-size:16px;line-height:1.5}
 .meta{margin:8px 0 8px}
 .chip{display:inline-block;font-size:12px;border-radius:999px;padding:2px 10px;margin:0 6px 6px 0;border:1px solid var(--line);color:var(--ink2);background:var(--bg)}
 .chip.blue{background:var(--accent);border-color:var(--accent);color:var(--on-accent)}
 .chip.line{border-color:var(--accent);color:var(--accent);background:var(--accent-soft)}
-.card p{color:var(--ink2);font-size:14.5px}
+.card p{color:var(--ink2);font-size:15px}
 .card p b{color:var(--ink)}
 .src{margin-top:8px;font-size:12.5px;color:var(--src)}
 footer{margin-top:44px;border-top:1px solid var(--line);background:var(--card)}
@@ -49,11 +65,16 @@ footer p{margin:3px 0}
 .reveal.in{opacity:1;transform:none}
 @media (prefers-reduced-motion:reduce){.reveal{opacity:1;transform:none;transition:none}}
 @media (max-width:640px){.card{padding:16px}}
+.portal{position:fixed;left:14px;bottom:14px;z-index:99}.portal a{display:inline-block;padding:7px 16px;border-radius:999px;background:rgba(20,20,20,.72);color:#fff;font-size:13px;text-decoration:none;backdrop-filter:blur(4px);font-family:system-ui,sans-serif}.portal a:hover{background:rgba(20,20,20,.9)}
+.toTop{position:fixed;right:14px;bottom:14px;z-index:98;display:none;border:none;cursor:pointer;padding:7px 14px;border-radius:999px;background:rgba(20,20,20,.72);color:#fff;font-size:14px;line-height:1;backdrop-filter:blur(4px);font-family:system-ui,sans-serif}.toTop:hover{background:rgba(20,20,20,.9)}.toTop.show{display:inline-block}
 </style>
-<noscript><style>.reveal,.rv{opacity:1 !important;transform:none !important}</style></noscript></head>
+<noscript><style>.reveal,.rv{opacity:1 !important;transform:none !important}.portal{position:fixed;left:14px;bottom:14px;z-index:99}.portal a{display:inline-block;padding:7px 16px;border-radius:999px;background:rgba(20,20,20,.72);color:#fff;font-size:13px;text-decoration:none;backdrop-filter:blur(4px);font-family:system-ui,sans-serif}.portal a:hover{background:rgba(20,20,20,.9)}
+.toTop{position:fixed;right:14px;bottom:14px;z-index:98;display:none;border:none;cursor:pointer;padding:7px 14px;border-radius:999px;background:rgba(20,20,20,.72);color:#fff;font-size:14px;line-height:1;backdrop-filter:blur(4px);font-family:system-ui,sans-serif}.toTop:hover{background:rgba(20,20,20,.9)}.toTop.show{display:inline-block}
+</style></noscript></head>
 <body>
-<header class="topbar"><div class="wrap"><nav class="nav">
+<header class="topbar"><div class="wrap"><nav class="nav" id="siteNav" aria-label="站内导航">
 <a class="brand" href="../index.html">高性价比<span>工作指南</span></a>
+<div class="nav-menu">
 <a href="../index.html">返回首页</a>
 <a href="jobhunt.html">求职与谈薪</a>
 <a href="onboard.html">入职与社保</a>
@@ -61,7 +82,9 @@ footer p{margin:3px 0}
 <a class="on" href="growth.html">成长与礼仪</a>
 <a href="rights.html">健康与合同</a>
 <a class="gh" href="https://github.com/NiceCao/HowToWorkBetter" target="_blank" rel="noopener">GitHub 仓库</a>
+</div>
 <button type="button" class="theme-btn" id="themeToggle" aria-label="切换明暗主题">☾ 暗色</button>
+<button type="button" class="nav-toggle" id="navToggle" aria-expanded="false" aria-controls="siteNav" aria-label="展开或收起导航菜单">☰</button>
 </nav></div></header>
 
 <main class="wrap">
@@ -73,6 +96,7 @@ footer p{margin:3px 0}
 
 <h2 class="sec reveal">一、职业规划与转型</h2>
 <p class="secsub">来自第 35 章技能投资与第 37 章职业转型，均按性价比从高到低排。</p>
+<p class="src">组内按证据等级 A→C 排序</p>
 
 <article class="card reveal"><div class="head"><span class="num">01</span><h3>先把一项能独立交付的硬技能练到能用，再补沟通汇报这类软技能</h3></div>
 <div class="meta"><span class="chip blue">证据 A</span><span class="chip line">性价比 极高</span><span class="chip">成本 钱=0到中等 · 时间=高 · 精力=高</span><span class="chip">口径：职业寿命 / 收入</span></div>
@@ -84,28 +108,31 @@ footer p{margin:3px 0}
 <p><b>怎么做：</b>行业认知是复利：每年固定投入，用「为了做事而学」的方式补技能更新；重复劳动里也能攒出能带走的能力，比如流程优化、异常处理、对上下游的理解。想跟老师傅学到东西，先让他觉得带你省事。</p>
 <p class="src">来源：见仓库第 35 章第 3、4、5、6 条。</p></article>
 
-<article class="card reveal"><div class="head"><span class="num">03</span><h3>考证优先选《国家职业资格目录》里的准入类证书，报班前算清回报</h3></div>
-<div class="meta"><span class="chip">证据 B</span><span class="chip line">性价比 高</span><span class="chip">成本 钱=中 · 时间=中到高 · 精力=中</span><span class="chip">口径：收入 / 职业寿命</span></div>
-<p><b>说人话：</b>花钱多的投入先算账：考证查它在目标岗位的认可度和真实回报，报名前查清发证机构和退费规则；读研或读 MBA 前先算机会成本，要转行或进学历门槛高的行业再读；英语按用途学，工作要读英文资料先练阅读，要进外企再练口语。</p>
-<p class="src">来源：见仓库第 35 章第 7、8、9 条。</p></article>
-
 <article class="card reveal"><div class="head"><span class="num">04</span><h3>想转行，先分清让你想走的是公司、岗位还是行业，只有行业本身出问题时才值得跨行</h3></div>
 <div class="meta"><span class="chip blue">证据 A</span><span class="chip line">性价比 极高</span><span class="chip">成本 钱=0 · 时间=少 · 精力=低</span><span class="chip">口径：职业寿命 / 职业自由</span></div>
 <p><b>说人话：</b>公司不行换公司、岗位不行换岗位，代价都比跨行业小得多。转行时优先做技能平移，用能复用的经验而不是从零开始；想换方向优先走公司内部转岗，成本通常低于跨行业跳槽；选方向先判断行业在扩张还是收缩，再逐条核对目标岗位的真实要求。</p>
 <p class="src">来源：见仓库第 37 章第 1、2、4、5 条。</p></article>
-
-<article class="card reveal"><div class="head"><span class="num">05</span><h3>转行前算清要降多少薪、多久能涨回来，先定一条可接受的底线</h3></div>
-<div class="meta"><span class="chip">证据 B</span><span class="chip line">性价比 高</span><span class="chip">成本 钱=中 · 时间=少 · 精力=中</span><span class="chip">口径：收入 / 职业寿命</span></div>
-<p><b>怎么做：</b>挑行业上行、家庭负担轻的窗口转，把落差期当成正常阶段；提前留好退回或止损的路，别把全部身家押在一次转型上。</p>
-<p class="src">来源：见仓库第 37 章第 6、7、8 条。</p></article>
 
 <article class="card reveal"><div class="head"><span class="num">06</span><h3>专家线还是管理线：先按收入口径和每天的活判断，别只看头衔好听</h3></div>
 <div class="meta"><span class="chip blue">证据 A</span><span class="chip line">性价比 极高</span><span class="chip">成本 钱=0 · 时间=少 · 精力=低</span><span class="chip">口径：职业寿命 / 收入</span></div>
 <p><b>说人话：</b>转管理不是升职加薪，它是换一套工作方式：向上对齐、向下定规则给反馈、向平级找共同利益。走专家线要靠选对领域和把能力做成可迁移的，把成果做成能展示的作品。想换路线先算清代价：专家转管理，转过去再想回头不容易。</p>
 <p class="src">来源：见仓库第 38 章第 1、3、4、8 条。</p></article>
 
+<article class="card reveal"><div class="head"><span class="num">03</span><h3>考证优先选《国家职业资格目录》里的准入类证书，报班前算清回报</h3></div>
+<div class="meta"><span class="chip">证据 B</span><span class="chip line">性价比 高</span><span class="chip">成本 钱=中 · 时间=中到高 · 精力=中</span><span class="chip">口径：收入 / 职业寿命</span></div>
+<p><b>说人话：</b>花钱多的投入先算账：考证查它在目标岗位的认可度和真实回报，报名前查清发证机构和退费规则；读研或读 MBA 前先算机会成本，要转行或进学历门槛高的行业再读；英语按用途学，工作要读英文资料先练阅读，要进外企再练口语。</p>
+<p class="src">来源：见仓库第 35 章第 7、8、9 条。</p></article>
+
+<article class="card reveal"><div class="head"><span class="num">05</span><h3>转行前算清要降多少薪、多久能涨回来，先定一条可接受的底线</h3></div>
+<div class="meta"><span class="chip">证据 B</span><span class="chip line">性价比 高</span><span class="chip">成本 钱=中 · 时间=少 · 精力=中</span><span class="chip">口径：收入 / 职业寿命</span></div>
+<p><b>怎么做：</b>挑行业上行、家庭负担轻的窗口转，把落差期当成正常阶段；提前留好退回或止损的路，别把全部身家押在一次转型上。</p>
+<p class="src">来源：见仓库第 37 章第 6、7、8 条。</p></article>
+
+
+
 <h2 class="sec reveal">二、副业与兼职</h2>
 <p class="secsub">来自第 15 章：下班了怎么赚外快。</p>
+<p class="src">组内按证据等级 A→C 排序</p>
 
 <article class="card reveal"><div class="head"><span class="num">07</span><h3>副业从主业技能延伸，别从外卖、问卷这类纯体力活起步</h3></div>
 <div class="meta"><span class="chip blue">证据 A</span><span class="chip line">性价比 极高</span><span class="chip">成本 钱=0 · 时间=少 · 精力=低</span><span class="chip">口径：收入</span></div>
@@ -134,6 +161,7 @@ footer p{margin:3px 0}
 
 <h2 class="sec reveal">三、公务与商务礼仪</h2>
 <p class="secsub">来自第 51 章商务宴请与职场礼仪：先看高性价比的点菜、敬酒、酒局之后三条，再看座次、买单、名片、着装、电梯五条。涉及公款、报销、饮酒的地方都有合规红线和拒绝权。</p>
+<p class="src">组内按证据等级 A→C 排序</p>
 
 <article class="card reveal"><div class="head"><span class="num">12</span><h3>点菜的分寸：谁点、先问忌口、控住菜量和预算</h3></div>
 <div class="meta"><span class="chip blue">证据 A</span><span class="chip line">性价比 高</span><span class="chip">成本 钱=中（做东承担） · 时间=少 · 精力=中</span><span class="chip">口径：收入</span></div>
@@ -150,15 +178,15 @@ footer p{margin:3px 0}
 <p><b>怎么做：</b>散场三件事：喝了酒不开车，提前叫好代驾或打车，把车钥匙交给没喝酒的同伴；重要饭局回去跟上级报备一句，谈成什么、对方什么态度、下一步谁做什么；答应客户的事第二天上午落实，发条微信把承诺接住。代驾的钱比罚款和刑责便宜得多。</p>
 <p class="src">来源：道路交通安全法第二十二、九十一条；最高法指导性案例271号。限制：报备是否必要取决于公司要求和饭局重要性。</p></article>
 
-<article class="card reveal"><div class="head"><span class="num">15</span><h3>座次的规矩：主位正对门口，主宾坐主人右手边，拿不准就问</h3></div>
-<div class="meta"><span class="chip">证据 B</span><span class="chip">性价比 一般</span><span class="chip">成本 钱=0 · 时间=少 · 精力=少</span><span class="chip">口径：时间精力</span></div>
-<p><b>怎么做：</b>中餐圆桌主位一般正对门口，最主要的客人安排在主位右手边，其余按身份从主位两侧排开；被让到主位推让一两句对方仍坚持就大方坐下，别在桌边推来推去耽误开席；分不清时直接问「您看我坐哪儿」，比自己硬挑座位稳妥。</p>
-<p class="src">来源：外交部礼宾知识。限制：座次没有全国统一官方标准，日常商务饭局更看主客关系和现场方便。</p></article>
-
 <article class="card reveal"><div class="head"><span class="num">16</span><h3>谁买单、怎么买单：谁邀请谁付，能报销先确认额度和发票要求</h3></div>
 <div class="meta"><span class="chip blue">证据 A</span><span class="chip">性价比 一般</span><span class="chip">成本 钱=中 · 时间=少 · 精力=中</span><span class="chip">口径：收入</span></div>
 <p><b>怎么做：</b>你发起的局提前把单买了或席间找机会结掉，别在桌上和客人推来抢去；想回请，另约一次更体面。能报销的先问清招待费额度、发票抬头和税号、是否需要事前审批，别自己垫了一大笔还报不了。两条红线：不得用公款支付应由个人负担的费用；折扣佣金要明示并如实入账，账外暗中的回扣属商业贿赂。</p>
 <p class="src">来源：党政机关国内公务接待管理规定（中办发〔2024〕7号）；反不正当竞争法第八条。限制：抢单更多是面子问题，按关系和公司习惯来。</p></article>
+
+<article class="card reveal"><div class="head"><span class="num">15</span><h3>座次的规矩：主位正对门口，主宾坐主人右手边，拿不准就问</h3></div>
+<div class="meta"><span class="chip">证据 B</span><span class="chip">性价比 一般</span><span class="chip">成本 钱=0 · 时间=少 · 精力=少</span><span class="chip">口径：时间精力</span></div>
+<p><b>怎么做：</b>中餐圆桌主位一般正对门口，最主要的客人安排在主位右手边，其余按身份从主位两侧排开；被让到主位推让一两句对方仍坚持就大方坐下，别在桌边推来推去耽误开席；分不清时直接问「您看我坐哪儿」，比自己硬挑座位稳妥。</p>
+<p class="src">来源：外交部礼宾知识。限制：座次没有全国统一官方标准，日常商务饭局更看主客关系和现场方便。</p></article>
 
 <article class="card reveal"><div class="head"><span class="num">17</span><h3>名片与介绍：先递谁、怎么称呼、加了微信第一句发什么</h3></div>
 <div class="meta"><span class="chip">证据 C</span><span class="chip">性价比 一般</span><span class="chip">成本 钱=0 · 时间=少 · 精力=少</span><span class="chip">口径：时间精力</span></div>
@@ -181,7 +209,7 @@ footer p{margin:3px 0}
 <p>所有内容仅供参考，不构成法律建议；金额、时限、比例以当地主管部门最新规定为准。遇到具体纠纷请咨询专业人士，或拨打 12333（人社）、12348（法律援助）。</p>
 </div></footer>
 
-<script>(function(){var b=document.getElementById('themeToggle');if(!b)return;function up(){b.textContent=document.documentElement.getAttribute('data-theme')==='dark'?'☀ 亮色':'☾ 暗色'}up();b.addEventListener('click',function(){var d=document.documentElement.getAttribute('data-theme')==='dark'?'light':'dark';document.documentElement.setAttribute('data-theme',d);try{localStorage.setItem('theme',d)}catch(e){}up()})})();</script>
+<script>(function(){var b=document.getElementById('themeToggle');if(!b)return;function up(){b.textContent=document.documentElement.getAttribute('data-theme')==='dark'?'☀ 亮色':'☾ 暗色'}up();b.addEventListener('click',function(){var d=document.documentElement.getAttribute('data-theme')==='dark'?'light':'dark';document.documentElement.setAttribute('data-theme',d);try{localStorage.setItem('theme',d)}catch(e){}up()})();var n=document.getElementById('siteNav'),t=document.getElementById('navToggle');if(n&&t){t.addEventListener('click',function(){var o=n.classList.toggle('open');t.setAttribute('aria-expanded',o?'true':'false');t.textContent=o?'\u2715':'\u2630'});n.addEventListener('click',function(e){var a=e.target&&e.target.closest?e.target.closest('a'):null;if(a&&n.classList.contains('open')){n.classList.remove('open');t.setAttribute('aria-expanded','false');t.textContent='\u2630'}})}})();</script>
 <script>
 (function(){
 var rm=window.matchMedia&&window.matchMedia('(prefers-reduced-motion: reduce)').matches;
@@ -189,6 +217,17 @@ var els=document.querySelectorAll('.reveal');
 if(rm||!('IntersectionObserver' in window)){for(var i=0;i<els.length;i++){els[i].classList.add('in')}return}
 var io=new IntersectionObserver(function(entries){entries.forEach(function(en){if(en.isIntersecting){en.target.classList.add('in');io.unobserve(en.target)}})},{threshold:0.06});
 for(var j=0;j<els.length;j++){io.observe(els[j])}
+})();
+</script>
+<div class="portal"><a href="../../index.html">&#8592; 总门户</a></div>
+<button class="toTop" type="button" id="toTop" aria-label="回到顶部">&#8593;</button>
+<script>
+(function(){
+  var b=document.getElementById('toTop');if(!b)return;
+  var rm=window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  function upd(){if(window.scrollY>600){b.classList.add('show')}else{b.classList.remove('show')}}
+  window.addEventListener('scroll',upd,{passive:true});upd();
+  b.addEventListener('click',function(){window.scrollTo({top:0,behavior:rm?'auto':'smooth'});});
 })();
 </script>
 </body>

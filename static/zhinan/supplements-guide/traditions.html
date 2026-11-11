@@ -1,0 +1,645 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>流派与传统滋补：人参、燕窝、草本与概念营销的批判性评估</title>
+<script>(function(){var d=document.documentElement;d.classList.add('js');var t=null;try{t=localStorage.getItem('theme')}catch(e){}if(t!=='light'&&t!=='dark'){var h=new Date().getHours();t=(h>=7&&h<17)?'light':'dark'}d.setAttribute('data-theme',t)})();</script>
+<style>
+*{margin:0;padding:0;box-sizing:border-box}
+:root{--bg:#f5f9fa;--surface:#ffffff;--surface2:#e9f1f2;--ink:#1c2d35;--muted:#557079;--accent:#0d7c8a;--accent-2:#095f6a;--on-accent:#ffffff;--line:#d6e3e5;--warn-bg:#fbf3e4;--warn-ink:#77571c;--warn-line:#e8d5ad;--danger:#a2403a;--shadow:0 1px 3px rgba(23,42,50,.08)}
+html[data-theme=dark]{--bg:#0e171c;--surface:#16242b;--surface2:#1b2e36;--ink:#e2edf0;--muted:#95abb3;--accent:#41c0ca;--accent-2:#7cd6dd;--on-accent:#04282c;--line:#273b44;--warn-bg:#2a2517;--warn-ink:#dcc38c;--warn-line:#4a3f22;--danger:#e28f87;--shadow:0 2px 8px rgba(0,0,0,.45)}
+body{font-family:"PingFang SC","Hiragino Sans GB","Microsoft YaHei","Noto Sans SC",sans-serif;background:var(--bg);color:var(--ink);line-height:1.78;font-size:16px}
+a{color:var(--accent);text-decoration:none}
+a:hover{text-decoration:underline}
+.wrap{max-width:960px;margin:0 auto;padding:0 20px}
+.site-head{background:var(--surface);border-bottom:1px solid var(--line);position:sticky;top:0;z-index:50}
+.head-in{display:flex;align-items:center;gap:12px;min-height:56px;position:relative}
+.brand{font-weight:700;color:var(--ink);font-size:1.05rem;white-space:nowrap}
+.site-nav{display:flex;gap:4px;flex-wrap:wrap;margin-left:auto}
+.site-nav a{padding:6px 10px;border-radius:6px;color:var(--muted);font-size:.92rem;white-space:nowrap}
+.site-nav a:hover{color:var(--accent);text-decoration:none;background:var(--surface2)}
+.site-nav a[aria-current=page]{color:var(--on-accent);background:var(--accent)}
+.head-actions{margin-left:auto;display:flex;gap:8px;align-items:center}
+.site-nav + .head-actions{margin-left:0}
+.icon-btn{border:1px solid var(--line);background:var(--surface);color:var(--ink);border-radius:8px;width:40px;height:40px;font-size:1.1rem;cursor:pointer;flex:none;display:inline-flex;align-items:center;justify-content:center}
+html.js .site-nav{display:none}
+html.js .icon-btn.js-menu{display:inline-flex}
+@media(min-width:721px){
+ html.js .site-nav{display:flex}
+ html.js .icon-btn.js-menu{display:none}
+}
+@media(max-width:720px){
+ .head-in{min-height:50px}
+ html.js .site-nav{position:absolute;top:100%;left:0;right:0;background:var(--surface);border-bottom:1px solid var(--line);flex-direction:column;padding:8px 14px 14px;box-shadow:var(--shadow)}
+ html.js .site-nav.open{display:flex}
+ html.js .site-nav a{display:block;padding:10px 8px;border-bottom:1px solid var(--line);font-size:1rem}
+ html.js .site-nav a:last-child{border-bottom:none}
+}
+main{padding:36px 0 50px}
+h1{font-size:1.85rem;line-height:1.4;margin-bottom:14px}
+h2{font-size:1.32rem;margin:2.2em 0 .7em;color:var(--accent-2)}
+html[data-theme=dark] h2{color:var(--accent)}
+h3{font-size:1.06rem;margin:1.6em 0 .5em}
+p{margin:.8em 0}
+.lede{font-size:1.05rem;color:var(--muted)}
+.callout{border-left:4px solid var(--accent);background:var(--surface2);padding:12px 16px;border-radius:0 8px 8px 0;margin:1.2em 0}
+.callout.warn{border-left-color:var(--danger);background:var(--warn-bg);color:var(--warn-ink)}
+.badge{display:inline-block;font-size:.76rem;line-height:1.7;padding:1px 10px;border-radius:999px;white-space:nowrap;font-weight:600}
+.bA{background:var(--accent);color:var(--on-accent)}
+.bB{border:1.5px solid var(--accent);color:var(--accent)}
+.bC{border:1px solid var(--muted);color:var(--muted)}
+.bD{color:var(--muted)}
+.src{font-size:.85rem;color:var(--muted)}
+ul,ol{padding-left:1.4em;margin:.7em 0}
+li{margin:.4em 0}
+footer{background:var(--surface);border-top:1px solid var(--line);padding:30px 0 36px;margin-top:20px}
+.foot-nav{display:flex;flex-wrap:wrap;gap:6px 16px;margin-bottom:14px;font-size:.92rem}
+.disclaimer{background:var(--warn-bg);border:1px solid var(--warn-line);color:var(--warn-ink);padding:14px 16px;border-radius:10px;font-size:.92rem}
+.jump{display:flex;flex-wrap:wrap;gap:8px;margin:1.2em 0}
+.jump a{font-size:.86rem;border:1px solid var(--line);background:var(--surface);padding:3px 12px;border-radius:999px;color:var(--muted)}
+.jump a:hover{color:var(--accent);text-decoration:none;border-color:var(--accent)}
+.dc{background:var(--surface);border:1px solid var(--line);border-radius:10px;padding:18px;box-shadow:var(--shadow);margin:1.2em 0}
+.dc h3{margin:0 0 .6em;padding-bottom:.5em;border-bottom:1px solid var(--line);display:flex;align-items:center;gap:8px;flex-wrap:wrap;font-size:1.12rem}
+.fr{margin:.7em 0;font-size:.95rem}
+.fr strong{font-weight:700}
+.tier{font-weight:700;color:var(--accent-2)}
+html[data-theme=dark] .tier{color:var(--accent)}
+.fld{display:inline-block;font-size:.72rem;font-weight:700;line-height:1.8;padding:0 9px;border-radius:999px;background:var(--surface2);color:var(--accent-2);border:1px solid var(--line);margin-right:7px;vertical-align:1px;white-space:nowrap}
+html[data-theme=dark] .fld{color:var(--accent)}
+.verdict{font-size:.9rem;color:var(--muted);border-top:1px dashed var(--line);padding-top:8px;margin-top:10px}
+.flag{color:var(--danger);font-weight:600}
+@media(max-width:375px){
+ body{font-size:15px}
+ .dc{padding:14px}
+ .jump a{font-size:.8rem;padding:2px 9px}
+}
+@media(prefers-reduced-motion:no-preference){
+ .js .reveal{opacity:0;transform:translateY(14px);transition:opacity .6s ease,transform .6s ease}
+ .js .reveal.in{opacity:1;transform:none}
+}
+@media(prefers-reduced-motion:reduce){.reveal{opacity:1!important;transform:none!important}}
+.portal{position:fixed;left:14px;bottom:14px;z-index:99}.portal a{display:inline-block;padding:7px 16px;border-radius:999px;background:rgba(20,20,20,.72);color:#fff;font-size:13px;text-decoration:none;backdrop-filter:blur(4px);font-family:system-ui,sans-serif}.portal a:hover{background:rgba(20,20,20,.9)}
+.toTop{position:fixed;right:14px;bottom:14px;z-index:98;display:none;border:none;cursor:pointer;padding:7px 14px;border-radius:999px;background:rgba(20,20,20,.72);color:#fff;font-size:14px;line-height:1;backdrop-filter:blur(4px);font-family:system-ui,sans-serif}.toTop:hover{background:rgba(20,20,20,.9)}.toTop.show{display:inline-block}
+</style>
+<noscript><style>.reveal{opacity:1!important;transform:none!important}.portal{position:fixed;left:14px;bottom:14px;z-index:99}.portal a{display:inline-block;padding:7px 16px;border-radius:999px;background:rgba(20,20,20,.72);color:#fff;font-size:13px;text-decoration:none;backdrop-filter:blur(4px);font-family:system-ui,sans-serif}.portal a:hover{background:rgba(20,20,20,.9)}
+.toTop{position:fixed;right:14px;bottom:14px;z-index:98;display:none;border:none;cursor:pointer;padding:7px 14px;border-radius:999px;background:rgba(20,20,20,.72);color:#fff;font-size:14px;line-height:1;backdrop-filter:blur(4px);font-family:system-ui,sans-serif}.toTop:hover{background:rgba(20,20,20,.9)}.toTop.show{display:inline-block}
+</style></noscript>
+</head>
+<body>
+<header class="site-head">
+ <div class="wrap head-in">
+  <a class="brand" href="index.html">保健品使用指南</a>
+  <nav id="nav" class="site-nav" aria-label="站内导航">
+   <a href="index.html">首页</a>
+   <a href="basics.html">基础知识</a>
+   <a href="evidence.html">证据分级</a>
+   <a href="by-need.html">按需选择</a>
+   <a href="decide.html">理性决策</a>
+   <a href="traditions.html" aria-current="page">流派与传统</a>
+   <a href="brands.html">品牌辨识</a>
+   <a href="safety.html">安全边界</a>
+   <a href="myths.html">误区破解</a>
+   <a href="buy.html">选购鉴别</a>
+   <a href="../index.html">总门户</a>
+  </nav>
+  <div class="head-actions">
+   <button id="themeBtn" class="icon-btn" type="button" aria-label="切换明暗主题">☾</button>
+   <button id="menuBtn" class="icon-btn js-menu" type="button" aria-expanded="false" aria-controls="nav" aria-label="打开导航菜单">☰</button>
+  </div>
+ </div>
+</header>
+<main>
+ <div class="wrap">
+  <h1 class="reveal">流派与传统滋补：把"老祖宗的宝贝"放到证据面前</h1>
+  <p class="lede reveal">传统滋补与现代功能营销是保健品市场两大主流叙事。本页不否定传统：青蒿素证明传统经验里确有宝藏，但宝藏要用现代方法验证才能安全使用。以下按"中医传统滋补（含蜂产品、补气养血、名贵与安神类）、西方草本、现代概念营销、海外传统与适应原、衍生品与传统剂型"五组共 50 余条逐条评估，每条给出传统声称、现有科学证据、活性成分研究现状与性价比判断，证据不足就直说。证据立场参考 NIH ODS 膳食补充剂事实清单、Cochrane 系统评价、美国自然疗法研究机构与权威综述的公开结论，以及中国药典与国家药监部门的警示信息。</p>
+
+  <div class="callout reveal"><strong>本页方法：</strong>"用了几千年"是假说的来源，不是结论的依据。放血疗法也用了两千年，柳树皮退烧却被验证成了阿司匹林。传统滋补品的价值要按成分、剂量与临床终点逐一检验，结论分四档：<strong>值得试（有较好证据）、证据不足、不建议、特定情况在医生指导下考虑。</strong></div>
+
+  <h2 class="reveal">快速跳转</h2>
+  <nav class="jump reveal" aria-label="条目快速跳转">
+   <a href="#tcm">中医传统滋补</a><a href="#herb">西方草本</a><a href="#modern">现代概念营销</a><a href="#adaptogen">海外传统与适应原</a><a href="#derived">衍生品与传统剂型</a><a href="#safety-note">传统与安全</a><a href="#yfsy">药食同源</a>
+  </nav>
+
+  <h2 class="reveal" id="tcm">一、中医传统滋补类</h2>
+  <p class="reveal">这一组的共同特征：传统声称多基于经验医学的类比推理（形似补形、色黑补肾、名贵补身），现代研究集中在成分分离与细胞实验，高质量人体随机对照试验稀少，而终端零售价里有很高比例是稀缺性叙事与礼品属性溢价。</p>
+
+  <article class="dc reveal" id="renshen">
+   <h3>人参 <span class="badge bC">C</span></h3>
+   <p class="fr"><span class="fld">传统声称</span>大补元气、复脉固脱、补脾益肺、生津安神，被称"百草之王"。</p>
+   <p class="fr"><span class="fld">科学证据</span>NIH ODS 对人参（美洲人参证据略多）的总结是：对 2 型糖尿病血糖控制有一定初步阳性信号，对精力、认知与免疫的宣称证据不足或不一致；Cochrane 对高丽红参的认知与勃起功能评价均因研究质量低而无法下肯定结论。人参本身没有一项达到权威机构明确推荐的适应症。</p>
+   <p class="fr"><span class="fld">成分研究</span>人参皂苷已分离鉴定逾百种，是论文最多的滋补成分之一，但体外与动物实验的有效浓度在人体口服后远达不到；皂苷含量还随产地、年限、炮制大幅波动，"研究热"与"临床冷"的落差在这味药上最典型。</p>
+   <p class="fr"><span class="fld">性价比</span>园参日常煲汤价可接受；高价"野山参"的价格几乎全部是收藏与礼品属性，与其健康价值无关。另有"人参滥用综合征"个案报告，并非多吃多补。</p>
+   <p class="verdict">理性结论：<strong>证据不足</strong>。日常炖汤作食材无妨，为"大补"花大钱不值。</p>
+  </article>
+
+  <article class="dc reveal" id="xiyangshen">
+   <h3>西洋参 <span class="badge bC">C</span></h3>
+   <p class="fr"><span class="fld">传统声称</span>补气养阴、清热生津，谓"补而不燥"，适合熬夜上火人群。</p>
+   <p class="fr"><span class="fld">科学证据</span>相对人参证据略好：NIH ODS 收录了西洋参在 2 型糖尿病辅助降糖与预防感冒的初步随机对照试验，结果方向积极但样本小、需要重复验证；对"抗疲劳、增强免疫"等主流宣称仍无可靠支持。</p>
+   <p class="fr"><span class="fld">成分研究</span>同样以人参皂苷为主（比例与人参不同），含量随栽培年限变化，市售切片与胶囊的实际皂苷量参差不齐，难以对应研究中使用的标准化提取物。</p>
+   <p class="fr"><span class="fld">性价比</span>加拿大与美国产区西洋参已成规模化农产品，原料并不稀缺，礼盒装溢价数倍属常态；含片类产品每片有效成分常低于研究剂量。</p>
+   <p class="verdict">理性结论：<strong>证据不足偏 C</strong>。糖尿病者若想尝试应先与医生确认（与降糖药叠加有低血糖个案），普通人不必为之上火式消费。</p>
+  </article>
+
+  <article class="dc reveal" id="huangqi">
+   <h3>黄芪 <span class="badge bC">C</span></h3>
+   <p class="fr"><span class="fld">传统声称</span>补气升阳、固表止汗、"提高抵抗力"，民间常与红枣枸杞同泡。</p>
+   <p class="fr"><span class="fld">科学证据</span>多数证据来自动物与细胞实验；人体研究规模小。中国药典将黄芪列为常用中药，用于特定证候的方剂，但"健康人日常泡水增强免疫"没有任何权威机构支持，免疫是网络不是油箱，不能"加满"。</p>
+   <p class="fr"><span class="fld">成分研究</span>黄芪甲苷、黄芪多糖是主要研究对象，抗疲劳与免疫调节数据以动物为主；药材质量随产区与年限差异大，泡水析出量也远低于煎煮与提取物。</p>
+   <p class="fr"><span class="fld">性价比</span>黄芪是最便宜的滋补药材之一，问题不在价格而在"有没有用"；阴虚火旺与感冒发热期中医自身也主张慎用，并非人人适宜。</p>
+   <p class="verdict">理性结论：<strong>证据不足</strong>。作为药膳食疗食材低风险，别指望它防病。</p>
+  </article>
+
+  <article class="dc reveal" id="gouqi">
+   <h3>枸杞 <span class="badge bB">B（作为食物）</span></h3>
+   <p class="fr"><span class="fld">传统声称</span>滋补肝肾、益精明目，保温杯里泡枸杞是国民级养生符号。</p>
+   <p class="fr"><span class="fld">科学证据</span>枸杞首先是食物：干枸杞含玉米黄素（叶黄素家族，对眼底黄斑有意义的色素）、多糖与胡萝卜素，作为日常食材的多样性与微量成分贡献是真实的。但"枸杞治病、抗衰"级别的人体证据不足，枸杞多糖研究以动物实验为主。</p>
+   <p class="fr"><span class="fld">成分研究</span>枸杞多糖与玉米黄素是两大方向；有小型研究显示规律食用可提升皮肤类胡萝卜素与眼底色素密度，属替代指标级别，谈不上疗效。</p>
+   <p class="fr"><span class="fld">性价比</span>散装干枸杞每斤几十元，性价比在滋补品里数一数二；而"黑枸杞花青素"概念把每斤价格推高十倍，其花青素含量与紫甘蓝、桑葚同量级，纯属概念溢价。</p>
+   <p class="verdict">理性结论：<strong>值得吃（当水果干零食），不值得当药买</strong>。红枸杞按食物吃即可，黑枸杞与冻干礼盒是营销产物。</p>
+  </article>
+
+  <article class="dc reveal" id="ejiao">
+   <h3>阿胶 <span class="badge bD">D（补血宣称）</span></h3>
+   <p class="fr"><span class="fld">传统声称</span>补血滋阴、润燥止血，"气血双补"，是礼品市场滋补三宝之一。</p>
+   <p class="fr"><span class="fld">科学证据</span>阿胶主要是驴皮熬制的胶原蛋白，口服后与其他蛋白质一样分解为氨基酸，不存在"直接补血"的通道。真正的缺铁性贫血补铁有效、巨幼细胞性贫血补叶酸与 B12 有效，都有明确证据；阿胶对贫血的宣称缺乏合格的人体对照试验，权威综述与医学科普机构（如丁香医生团队等）多次指出其证据缺口。历史上"东阿阿胶"多年持续提价的商业模式，也更依赖概念而非疗效验证。</p>
+   <p class="fr"><span class="fld">成分研究</span>研究热点是胶原蛋白水解物与小肽，但任何胶原蛋白（猪皮、鱼皮同样）都产生类似氨基酸谱；"驴皮特殊论"未被证明。</p>
+   <p class="fr"><span class="fld">性价比</span>每斤上千元的阿胶糕，蛋白质含量与价格数十元的牛肉或鸡蛋无法相比，是全站性价比落差最大的品类之一；辅料（核桃、芝麻、黄酒）才是口感来源。</p>
+   <p class="verdict">理性结论：<strong>不建议作为补血用途</strong>。确诊贫血请按医嘱补铁或补充相应营养素；当零食吃不反对，但要清楚买的主要是糖和胶。</p>
+  </article>
+
+  <article class="dc reveal" id="yanwo">
+   <h3>燕窝 <span class="badge bD">D</span></h3>
+   <p class="fr"><span class="fld">传统声称</span>养阴润燥、益气补中、美容养颜，孕妇食用"一人吃两人补"。</p>
+   <p class="fr"><span class="fld">科学证据</span>燕窝主体是雨燕科金丝燕的唾液腺分泌物，成分是蛋白质（含量约五成）与碳水化合物，干品蛋白质确实不低，但一次食用量（3 至 5 克干燕窝）提供的蛋白质不到 2 克，不如半个鸡蛋；其蛋白质还缺乏人体必需的某些氨基酸，属于不完全蛋白。NIH 与各国权威机构从未认可过燕窝的美容宣称。</p>
+   <p class="fr"><span class="fld">成分研究</span>"唾液酸（燕窝酸）"是营销核心词，确实参与神经发育的生理过程，但母体可自身合成，正常膳食下外源性补充的获益没有任何人体证据；细胞实验浓度与口服暴露量差距巨大。</p>
+   <p class="fr"><span class="fld">性价比</span>每克数十元的燕窝与每克不到一毛钱的鸡蛋相比，单位蛋白质价格高出数千倍，是"花钱买故事"的教科书案例；市售即食燕窝的燕窝投料量普遍更低。</p>
+   <p class="verdict">理性结论：<strong>不建议</strong>。预算相同的前提下，鸡蛋、奶、鱼与蔬果对皮肤和孕产营养的价值远为确切。</p>
+  </article>
+
+  <article class="dc reveal" id="lingzhi">
+   <h3>灵芝 <span class="badge bC">C</span></h3>
+   <p class="fr"><span class="fld">传统声称</span>安神、止咳、"久服轻身不老"，位列上药之首的传说加持。</p>
+   <p class="fr"><span class="fld">科学证据</span>灵芝孢子粉与提取物的研究数量不少，但 NIH ODS 与权威综述的态度是：免疫调节与辅助改善睡眠等宣称缺乏高质量人体证据，现有试验普遍样本小、周期短、终点模糊。中国药典收载灵芝为药材，用于特定方剂，与"健康人日常保健"是两回事。</p>
+   <p class="fr"><span class="fld">成分研究</span>灵芝三萜与多糖是主要研究对象，破壁孢子粉的"破壁"解决的是释放问题而非有效性问题；三萜含量在不同产品间差异巨大，标签数值也屡受第三方检测质疑。</p>
+   <p class="fr"><span class="fld">性价比</span>孢子粉每公斤数千元，价格支撑来自"稀缺工艺"叙事；与之相比研究剂量级的标准化提取物反而便宜得多，恰恰说明定价与证据无关。</p>
+   <p class="verdict">理性结论：<strong>证据不足</strong>。免疫力焦虑不该用每月数百元的孢子粉来解决。</p>
+  </article>
+
+  <article class="dc reveal" id="chongcao">
+   <h3>冬虫夏草 <span class="badge bD">D</span></h3>
+   <p class="fr"><span class="fld">传统声称</span>补肺益肾、阴阳双补，"软黄金"式的高端滋补符号。</p>
+   <p class="fr"><span class="fld">科学证据</span>证据状况在全组中最差之一：前些年国内监管部门曾通报部分冬虫夏草及其纯粉产品砷含量超标并暂停其作为保健食品试点；针对"抗疲劳、提高免疫、护肾"等宣称，没有可援引的高质量人体对照试验。2016 年原国家食品药品监管总局发布消费提示，明确冬虫夏草不属于药食同源目录，保健食品原料目录中也不再包含它。</p>
+   <p class="fr"><span class="fld">成分研究</span>曾经的明星成分"虫草素"在天然冬虫夏草中含量极低（现代研究多改用蛹虫草发酵提取），离体实验有效剂量与食用虫草的实际摄入量相差数个数量级；腺苷与多糖研究的临床转化同样寥寥。</p>
+   <p class="fr"><span class="fld">性价比</span>每公斤数十万元的价格是采挖稀缺、礼品经济与身份符号共同作用的结果，健康价值占定价的比例可以忽略；人工培育的蝉花虫草粉价格只有其零头，也反证了价格构成。</p>
+   <p class="verdict">理性结论：<strong>不建议</strong>。重金属风险、证据缺失与天价三者叠加，是理性消费的反面教材。</p>
+  </article>
+
+  <article class="dc reveal" id="shihu">
+   <h3>铁皮石斛 <span class="badge bC">C</span></h3>
+   <p class="fr"><span class="fld">传统声称</span>滋阴清热、益胃生津，"救命仙草"传说与枫斗泡饮习俗。</p>
+   <p class="fr"><span class="fld">科学证据</span>人体证据几乎空白：现有资料以成分分析与动物实验为主，"养胃、降糖、护肝、抗肿瘤"等宣称均无合格临床试验支持，权威机构没有任何相关推荐。中国药典将其列为药材用于特定证候，同样不等于日常保健依据。</p>
+   <p class="fr"><span class="fld">成分研究</span>石斛多糖为主要研究方向，联苄类与菲类化合物的抗肿瘤活性停留在体外阶段；铁皮石斛与其他石斛属植物（价格相差百倍）的成分差异研究也尚未支持"唯铁皮论"。</p>
+   <p class="fr"><span class="fld">性价比</span>野生资源枯竭后组培与大棚种植已让原料价大幅回落，但"野生枫斗"每公斤数万元的定价仍靠稀缺叙事维持；干品泡水的多糖析出率与煎煮提取物又不可同日而语。</p>
+   <p class="verdict">理性结论：<strong>证据不足</strong>。把它当茶饮无大害（注意农残与重金属来源），为传说付费不值。</p>
+  </article>
+
+  <article class="dc reveal" id="sanqi">
+   <h3>三七 <span class="badge bC">C（特定用途需医生）</span></h3>
+   <p class="fr"><span class="fld">传统声称</span>散瘀止血、消肿定痛，现代衍生宣称是"活血化瘀、疏通血管、预防心脑血管病"。</p>
+   <p class="fr"><span class="fld">科学证据</span>作为药材用于止血与伤痛处理有传统医学体系内的定位；但"日常服用三七粉防心梗中风"是现代营销嫁接的宣称，没有可靠人体证据支持，而且活血类成分与华法林等抗凝抗板药物存在相互作用风险，自行叠加可能诱发出血。怀疑心脑血管问题应做的是筛查与规范治疗（他汀、降压、抗血小板药物都有硬终点证据）。</p>
+   <p class="fr"><span class="fld">成分研究</span>三七总皂苷（含三七皂苷与人参皂苷类）研究充分，注射剂与提取物制剂在国内作为处方药用于特定适应症，这恰恰说明有效性与风险都需在医生掌控下权衡，而非自行当保健品磨粉服用。</p>
+   <p class="fr"><span class="fld">性价比</span>三七粉价格随产地规格波动大，若按"替代药物"的期望使用，机会成本（延误规范防治）远高于货币成本。</p>
+   <p class="verdict">理性结论：<strong>特定情况在医生指导下考虑</strong>。自行长期冲服预防心血管病：不建议。</p>
+  </article>
+
+  <article class="dc reveal" id="heizhima">
+   <h3>黑芝麻 <span class="badge bB">B（作为食物）</span></h3>
+   <p class="fr"><span class="fld">传统声称</span>补肝肾、益精血、乌须发，"以黑养黑"治白发的民间信仰。</p>
+   <p class="fr"><span class="fld">科学证据</span>作为食物黑芝麻表现不错：富含钙、镁、维生素 E、木脂素与不饱和脂肪，是均衡膳食的合格组成部分。但"吃黑芝麻乌发"缺乏证据支持，白发主要由遗传与年龄决定，黑色素细胞不认识食物的颜色，就像吃黄瓜不会变绿。</p>
+   <p class="fr"><span class="fld">成分研究</span>芝麻素与芝麻酚的抗氧化研究以动物与体外为主；芝麻的钙含量高但草酸影响吸收，作为钙来源不如奶制品可靠。</p>
+   <p class="fr"><span class="fld">性价比</span>芝麻与芝麻酱价廉物美，九蒸九晒芝麻丸的每克价格是其数十倍，溢价来自古法叙事而非营养差异；此类产品常加大量蜂蜜红糖，多吃等于多吃糖。</p>
+   <p class="verdict">理性结论：<strong>值得吃（普通芝麻与芝麻酱），乌发宣称不建议信</strong>。</p>
+  </article>
+
+     <h3 class="reveal">补充：补气养血、名贵与安神类</h3>
+   <p class="reveal">这组是药膳与礼品市场的常客，宣称集中在"补气血、抗疲劳、安神"，名贵品种则叠加稀缺叙事。逐条评估如下。</p>
+
+   <article class="dc reveal" id="danggui">
+    <h3>当归 <span class="badge bC">C</span></h3>
+    <p class="fr"><span class="fld">传统声称</span>补血活血、调经止痛，"妇科圣药"，常与黄芪配伍做当归生姜羊肉汤。</p>
+    <p class="fr"><span class="fld">科学证据</span>NCCIH 对当归（dong quai）的总结是：对更年期潮热等用途的人体证据非常有限，部分试验结果为阴性，不足以支持其健康宣称；中国药典将当归列为药材用于特定方剂，但这与"日常泡饮养颜补血"是两回事。确诊贫血应先查原因（缺铁、叶酸、B12），按医嘱补充。</p>
+    <p class="fr"><span class="fld">成分研究</span>藁本内酯与阿魏酸是主要研究对象，作用数据以体外与动物实验为主；当归含香豆素类成分，理论上与华法林等抗凝药存在相互作用风险。</p>
+    <p class="fr"><span class="fld">性价比</span>当归药材本身便宜，煲汤作食材成本可忽略；溢价主要出现在"当归精华""调经养颜"胶囊类产品上。</p>
+    <p class="verdict">理性结论：<strong>证据不足</strong>。药膳食材无妨，月经紊乱与贫血请先就医查因，别靠当归自我治疗。</p>
+   </article>
+
+   <article class="dc reveal" id="dangshen">
+    <h3>党参 <span class="badge bC">C</span></h3>
+    <p class="fr"><span class="fld">传统声称</span>补中益气、健脾益肺，"平价人参"，煲汤泡水的日常补气选择。</p>
+    <p class="fr"><span class="fld">科学证据</span>人体对照试验稀少，现有资料以成分分析与动物实验为主；"补气、抗疲劳、增强免疫"等宣称没有权威机构支持。中国药典收载其为药材，用于特定证候方剂，常作为人参的替代入药，这属于医师处方逻辑，不是自行进补依据。</p>
+    <p class="fr"><span class="fld">成分研究</span>党参多糖与党参炔苷是标志物，免疫与抗疲劳研究停留在动物层面；与黄芪类似，问题不在价格而在证据。</p>
+    <p class="fr"><span class="fld">性价比</span>党参是最便宜的滋补药材之一，几十元一斤；也因此商家更愿意把它做成高价的"党参精华口服液"。</p>
+    <p class="verdict">理性结论：<strong>证据不足</strong>。作为汤料食材低风险，别指望它"补气防病"。</p>
+   </article>
+
+   <article class="dc reveal" id="huangjing">
+    <h3>黄精 <span class="badge bC">C</span></h3>
+    <p class="fr"><span class="fld">传统声称</span>补气养阴、健脾润肺，"仙人余粮"，九蒸九晒后被奉为抗衰滋补品。</p>
+    <p class="fr"><span class="fld">科学证据</span>人体证据几乎空白："抗衰老、降血糖、提高免疫"等宣称没有可援引的高质量临床试验，权威机构没有任何相关推荐；药典定位是特定证候的方剂药材。生黄精还有刺激性，传统上强调炮制后使用，自行采挖生用有风险。</p>
+    <p class="fr"><span class="fld">成分研究</span>黄精多糖与甾体皂苷是研究热点，数据以细胞与动物实验为主，临床转化寥寥。</p>
+    <p class="fr"><span class="fld">性价比</span>药材价与黄芪党参同档，"古法九蒸九晒黄精丸"则按保健礼品定价，溢价来自工艺叙事而非成分差异。</p>
+    <p class="verdict">理性结论：<strong>证据不足</strong>。当药膳食材吃风险不大，为"抗衰"付费不值。</p>
+   </article>
+
+   <article class="dc reveal" id="hongjingtian">
+    <h3>红景天 <span class="badge bC">C</span></h3>
+    <p class="fr"><span class="fld">传统声称</span>抗高原反应、抗疲劳、抗压提神，"高原人参"，近年搭上适应原概念走红。</p>
+    <p class="fr"><span class="fld">科学证据</span>NCCIH 对红景天的态度是：部分小型试验提示或对主观疲劳与压力感受有轻度影响，但研究规模小、质量参差，证据不足以支持其宣称；预防急性高原反应的试验结果也不一致，权威机构未作推荐。预防高原反应有更可靠的措施：阶梯式上升、留足适应时间，必要时在医生指导下用药。</p>
+    <p class="fr"><span class="fld">成分研究</span>红景天苷与洛塞维是标志物，机制研究以动物为主；不同产品标准化程度差异大，试验结果难以互相印证。</p>
+    <p class="fr"><span class="fld">性价比</span>提取物胶囊价格不低，而"抗疲劳"最便宜的循证选项仍是睡眠与运动；为进藏囤红景天不如好好规划行程节奏。</p>
+    <p class="verdict">理性结论：<strong>证据有限</strong>。别把它当高原反应的护身符，更别当抗压药。</p>
+   </article>
+
+   <article class="dc reveal" id="lurong">
+    <h3>鹿茸（含鹿鞭等动物器官概念品） <span class="badge bD">D</span></h3>
+    <p class="fr"><span class="fld">传统声称</span>壮肾阳、益精血、强筋骨，鹿鞭、鹿血、鹿胎等"以形补形"衍生品被宣传为男性壮阳与产后大补的顶级选择。</p>
+    <p class="fr"><span class="fld">科学证据</span>鹿茸是鹿的幼角组织，成分为蛋白质、脂质与少量生长因子样物质；生长因子属蛋白质类，口服后经消化道分解，不存在"活性因子直接进补"的通道。"壮阳、提高睾酮"宣称没有可靠人体证据支持，鹿鞭等器官制品的"以形补形"逻辑更是类比推理，无任何临床证据。还要提醒：此类"壮阳"概念品是违规添加西药成分的重灾区，监管部门多次查处通报，误购误用可能既伤身又涉法。</p>
+    <p class="fr"><span class="fld">成分研究</span>IGF-1 等生长因子是营销核心词，相关研究以体外与动物实验为主，口服剂量下的人体效应未被证明。</p>
+    <p class="fr"><span class="fld">性价比</span>按克计价向名贵滋补看齐，单位蛋白质价格远超肉蛋奶；性功能困扰应就医排查心血管、内分泌与心理因素。</p>
+    <p class="verdict">理性结论：<strong>不建议</strong>。器官类概念品尤其要警惕违规添加药物成分的产品。</p>
+   </article>
+
+   <article class="dc reveal" id="xuelian">
+    <h3>雪莲 / 天山雪莲 <span class="badge bD">D（合法性与来源问题）</span></h3>
+    <p class="fr"><span class="fld">传统声称</span>"雪山圣花"、温肾壮阳、祛风除湿、调经，武侠叙事加持的高端礼品。</p>
+    <p class="fr"><span class="fld">科学证据</span>人体证据几乎空白：宣称功效以民间传说与动物实验为主，没有支持其健康宣称的临床试验。更要紧的是合法性问题：天山雪莲属国家重点保护野生植物，采挖与买卖野生来源受法律严格限制，市售"天山雪莲"大量是同属近缘植物冒充，来源与真伪极难追溯。</p>
+    <p class="fr"><span class="fld">成分研究</span>黄酮类与倍半萜类有一定化学研究，离临床证据还差整个证据链。</p>
+    <p class="fr"><span class="fld">性价比</span>价格建立在稀缺与传说之上，且可能买到违法采挖或假冒原料；无论功效如何，这一单都不该下。</p>
+    <p class="verdict">理性结论：<strong>不建议</strong>。证据缺失叠加保护植物的法律红线，属于碰都不要碰的品类。</p>
+   </article>
+
+   <article class="dc reveal" id="zanghonghua">
+    <h3>藏红花 <span class="badge bC">C（特定用途证据初步）</span></h3>
+    <p class="fr"><span class="fld">传统声称</span>活血化瘀、解郁安神、美容养颜，"红色黄金"，每克售价向名贵滋补看齐。</p>
+    <p class="fr"><span class="fld">科学证据</span>先分清物种：saffron 指番红花的柱头，有一些小型随机对照试验提示对轻中度抑郁情绪或有小幅改善，NCCIH 等机构认为证据初步且不足以推荐；中医"活血化瘀"的宣称没有对应的人体试验。国产"草红花"（菊科红花）是另一物种、价格低得多，常被混称为"红花"，购买时先确认买到的是什么。</p>
+    <p class="fr"><span class="fld">成分研究</span>西红花苷与藏红花酸是标志物；抗抑郁机制假说不少，剂量与疗程的重复验证仍在起步阶段。</p>
+    <p class="fr"><span class="fld">性价比</span>按克计价昂贵，成本主要是人工采摘与礼品属性；泡水每次用量极小，营养学上几乎可以忽略。</p>
+    <p class="verdict">理性结论：<strong>证据初步</strong>。抑郁情绪影响生活请就医，别靠香料自我治疗；当名贵调料少量使用无妨。</p>
+   </article>
+
+   <article class="dc reveal" id="tianma">
+    <h3>天麻（含"天麻素片"混充保健品提示） <span class="badge bC">C（作为药材；概念品 D）</span></h3>
+    <p class="fr"><span class="fld">传统声称</span>息风止痉、平肝潜阳，"定风草"，现代宣称是"补脑安神、治头晕、改善睡眠、提高记忆力"。</p>
+    <p class="fr"><span class="fld">科学证据</span>作为药典药材，天麻用于特定证候的方剂，属医师处方逻辑；"健康人日常服用补脑安神"没有可靠证据。天麻素是其中的单体成分，其片剂与注射剂在国内按药品管理，属处方药范畴，需医生判断适用与风险；近年监管与媒体多次披露市场上存在打着"天麻素片"旗号的压片糖果类食品，用相似包装暗示助眠功效，属典型的"食品混充药品"营销，遇到请直接排除。</p>
+    <p class="fr"><span class="fld">成分研究</span>天麻素文献不少，但高质量人体证据集中在药品用途的有限适应症上，不良反应与个体差异需医生评估，与保健品叙事是两回事。</p>
+    <p class="fr"><span class="fld">性价比</span>天麻药材价格不低，炖汤用量风险小；溢价重灾区是"天麻补脑安神"类概念产品，买到的常常是糖果。</p>
+    <p class="verdict">理性结论：<strong>证据不足（作为补品）；"天麻素片"类概念品不建议</strong>。头晕与睡眠问题先就医查因。</p>
+   </article>
+
+   <h3 class="reveal">补充：蜂产品与天然品类</h3>
+  <p class="reveal">这组是国内商超与礼品渠道最常见的"天然系"品类，叙事模板同样是"天然即滋养"，逐条放到证据面前。</p>
+
+  <article class="dc reveal" id="fengwangjiang">
+   <h3>蜂王浆 <span class="badge bD">D</span></h3>
+   <p class="fr"><span class="fld">传统声称</span>滋补强壮、延年益寿，"蜂王的专属食物"，是蜂产品礼盒的高端担当。</p>
+   <p class="fr"><span class="fld">科学证据</span>成分以水、蛋白质与糖为主，"喂蜂王浆的幼虫变蜂王"的类比不适用于人：蜂王成因在于发育阶段与种群机制，而非成年个体"进补"。免疫、抗衰、调节内分泌等宣称没有可靠人体试验支持；新鲜度与活性成分的稳定性也一直存疑。</p>
+   <p class="fr"><span class="fld">性价比</span>每斤数百到上千元，单位蛋白质与营养素价格远高于奶蛋；蜂产品过敏者（尤其哮喘、过敏体质）食用还有过敏反应报告。</p>
+   <p class="verdict">理性结论：<strong>证据不足，不建议为"大补"付费</strong>。过敏体质者慎用；提高免疫类话术的通用过滤器见<a href="myths.html">误区破解</a>页。</p>
+  </article>
+
+  <article class="dc reveal" id="fengjiao">
+   <h3>蜂胶 <span class="badge bC">C</span></h3>
+   <p class="fr"><span class="fld">传统声称</span>"天然抗生素"、增强免疫、护口腔、抗炎。</p>
+   <p class="fr"><span class="fld">科学证据</span>体外实验中蜂胶提取物确有抗菌活性，但这是几乎所有植物提取物在高浓度下都有的表现；人体临床试验规模小、质量参差，EFSA 未认可其免疫相关健康声称。接触性过敏的报告在蜂产品中不少见。</p>
+   <p class="fr"><span class="fld">性价比</span>滴剂与胶囊价差巨大，有效成分（黄酮类）含量也无统一标准，"巴西绿蜂胶"等产地叙事进一步推高价格。</p>
+   <p class="verdict">理性结论：<strong>证据不足</strong>。别拿它当免疫药，蜂胶过敏者禁用。</p>
+  </article>
+
+  <article class="dc reveal" id="jiaosu">
+   <h3>酵素 <span class="badge bD">D</span></h3>
+   <p class="fr"><span class="fld">传统声称</span>排毒养颜、改善代谢、"补充几百种活性酶"，常与断食打卡捆绑销售。</p>
+   <p class="fr"><span class="fld">科学证据</span>生理学上不成立：酶的本质是蛋白质，口服后与其他蛋白一样被消化分解为氨基酸，不可能以"活性酶"身份进入血液帮你代谢。市售"酵素"实际是发酵果蔬汁，主要成分是糖与少量有机酸；宣称的排毒效果没有任何可验证机制。</p>
+   <p class="fr"><span class="fld">性价比</span>每瓶上百元的酵素与自酿果醋在成分上没有本质区别，"日本进口""古法发酵"是溢价来源。</p>
+   <p class="verdict">理性结论：<strong>不建议</strong>，属于机制层面即可判伪的品类；相关排毒净化话术的通用拆解见<a href="myths.html">误区破解</a>页。</p>
+  </article>
+
+  <article class="dc reveal" id="qingzhi">
+   <h3>大麦若叶青汁 <span class="badge bD">D</span></h3>
+   <p class="fr"><span class="fld">传统声称</span>碱性食物之王、排毒、弥补蔬果摄入不足、"日本人长寿的秘密"。</p>
+   <p class="fr"><span class="fld">科学证据</span>烘干大麦嫩苗磨的粉，含少量纤维、维生素与叶绿素，每日几克的量远不能替代蔬菜水果（"一天一杯等于几斤青菜"是虚假换算）；"碱性食物纠正酸性体质"的底层叙事本身就是生理学谎言，本页碱性饮食一节已拆解。</p>
+   <p class="fr"><span class="fld">性价比</span>每条折算数元，同样的钱买一把绿叶菜营养密度高出数个量级。</p>
+   <p class="verdict">理性结论：<strong>不建议</strong>。蔬菜缺口要用蔬菜补，不是用粉末补。</p>
+  </article>
+
+  <article class="dc reveal" id="nuoliguo">
+   <h3>诺丽果 <span class="badge bD">D</span></h3>
+   <p class="fr"><span class="fld">传统声称</span>波利尼西亚"神果"、增强免疫、抗癌、降压，多经直销与微商渠道流通。</p>
+   <p class="fr"><span class="fld">科学证据</span>人体证据几乎为零，宣传依赖 testimonials 与动物实验；历史上 EU 曾因缺乏安全与效力数据驳回其新颖性食品申请，文献中另有零星肝损伤个案报告（因果未确证）。"抗癌"宣称在任何市场都属违法。</p>
+   <p class="fr"><span class="fld">性价比</span>果汁与浓缩胶囊定价远超其原料价值，渠道模式进一步抬价。</p>
+   <p class="verdict">理性结论：<strong>证据不足，不建议</strong>。</p>
+  </article>
+
+  <article class="dc reveal" id="jiegumei">
+   <h3>接骨木莓 <span class="badge bC">C</span></h3>
+   <p class="fr"><span class="fld">传统声称</span>欧洲传统草药，预防感冒、缩短感冒病程，近年被做进儿童软糖与滴剂。</p>
+   <p class="fr"><span class="fld">科学证据</span>有少数小型随机对照试验提示在旅行或感冒早期使用或略缩短症状持续天数，但研究规模小、部分有厂商资助；NCCIH 等机构的总体态度仍是证据不足以推荐。另注意：生果、叶与茎含凝集素等有毒成分，自制泡煮有中毒风险。</p>
+   <p class="fr"><span class="fld">性价比</span>提取物制品价格不低，而"预防感冒"有更便宜且证据更硬的选项：疫苗、洗手、睡眠。</p>
+   <p class="verdict">理性结论：<strong>证据有限</strong>。可了解但别当感冒药，更不能替代就医。</p>
+  </article>
+
+  <h2 class="reveal" id="herb">二、西方草本补充剂</h2>
+  <p class="reveal">欧美市场的草本补充剂与中医滋补平行发展，营销结构惊人相似：古老使用史加上单一活性成分故事。不同之处在于部分品种积累的临床试验更多，结论也更明确，包括明确的无效结论和明确的相互作用警告。</p>
+
+  <article class="dc reveal" id="stjohn">
+   <h3>圣约翰草 <span class="badge bB">B（轻中度抑郁）+ 强相互作用警告</span></h3>
+   <p class="fr"><span class="fld">传统与宣称</span>欧洲传统草药，现代宣称为缓解轻中度抑郁情绪，在德国等市场曾作为非处方药销售。</p>
+   <p class="fr"><span class="fld">科学证据</span>是草本里证据较好的一档：Cochrane 系统评价认为标准提取物对轻中度抑郁的效果优于安慰剂、与老一代抗抑郁药相近。但这不等于适合自行服用：抑郁症是需要诊断与随访的疾病，自行用药有延误与错判风险。</p>
+   <p class="fr"><span class="fld">相互作用</span><span class="flag">重点警告：</span>圣约翰草强力诱导肝药酶 CYP3A4 等代谢通路，会显著降低口服避孕药、环孢素、华法林、部分抗病毒药与抗肿瘤药的血药浓度，导致避孕失败与移植排斥等严重后果。NIH ODS 与各国药品监管机构均反复提示。服用任何处方药者使用前必须咨询医生或药师。</p>
+   <p class="fr"><span class="fld">性价比</span>提取物价不高，问题从来不是价格而是使用场景的错误。</p>
+   <p class="verdict">理性结论：<strong>特定情况在医生指导下考虑</strong>（经诊断的轻中度抑郁）；服药人群与自行诊断者：不建议。</p>
+  </article>
+
+  <article class="dc reveal" id="echinacea">
+   <h3>紫锥菊 <span class="badge bC">C</span></h3>
+   <p class="fr"><span class="fld">传统与宣称</span>北美原住民草药，宣称预防与缩短感冒。</p>
+   <p class="fr"><span class="fld">科学证据</span>Cochrane 评价的结论偏否定：对感冒预防无效果，对病程可能缩短极小幅度的上呼吸道症状，临床意义存疑；NIH ODS 同样认为证据不一致。与价格近乎免费的睡眠与洗手相比毫无优势。</p>
+   <p class="fr"><span class="fld">成分研究</span>菊苣酸与烷基酰胺类含量随品种、部位与制剂差异极大，不同市售产品根本不是同一种"药"，这也是研究结果混乱的原因之一。</p>
+   <p class="verdict">理性结论：<strong>证据不足</strong>。防感冒请打疫苗、洗手、睡够觉。</p>
+  </article>
+
+  <article class="dc reveal" id="ginkgo">
+   <h3>银杏叶提取物 <span class="badge bD">D（认知宣称）</span></h3>
+   <p class="fr"><span class="fld">传统与宣称</span>宣称改善记忆、预防老年痴呆、改善耳鸣与下肢循环。</p>
+   <p class="fr"><span class="fld">科学证据</span>被大型试验反复否定过：美国 NIH 资助的 GEM 研究（三千余名老年人，随访六年余）显示标准银杏提取物未能降低痴呆与阿尔茨海默病发生率；Cochrane 对认知与记忆的结论同样是不支持常规使用。预防痴呆唯一有据可查的措施仍然是运动、血压管理、听力矫正与社交等。</p>
+   <p class="fr"><span class="fld">成分研究</span>银杏黄酮与萜内酯的成分研究成熟，反而更能确认其效果有限；银杏叶制剂还有稀有出血事件报告，与抗凝抗板药合用需谨慎。</p>
+   <p class="verdict">理性结论：<strong>不建议</strong>（用于记忆与防痴呆）；对"聪明药"类宣称尤其如此。</p>
+  </article>
+
+  <article class="dc reveal" id="sawpalmetto">
+   <h3>锯叶棕 <span class="badge bD">D</span></h3>
+   <p class="fr"><span class="fld">传统与宣称</span>宣称改善良性前列腺增生引起的夜尿与排尿困难。</p>
+   <p class="fr"><span class="fld">科学证据</span>美国 NIH 资助的 STEP 试验与后续 Cochrane 评价显示，锯叶棕提取物与安慰剂相比在前列腺症状评分与尿流率上均无显著差异；各权威机构不推荐使用。夜尿多的中老年男性应先就医排查（前列腺癌、糖尿病、心衰都可能以夜尿为线索），而非自购草本。</p>
+   <p class="fr"><span class="fld">成分研究</span>脂肪酸甾醇混合物的标准化研究不少，恰恰是这些试验证伪了宣称，属于研究越认真、效果越消失的典型。</p>
+   <p class="verdict">理性结论：<strong>不建议</strong>。排尿症状请走泌尿外科而不是海淘购物车。</p>
+  </article>
+
+  <article class="dc reveal" id="blackcohosh">
+   <h3>黑升麻 <span class="badge bC">C</span></h3>
+   <p class="fr"><span class="fld">传统与宣称</span>宣称缓解更年期潮热盗汗。</p>
+   <p class="fr"><span class="fld">科学证据</span>结论反复：早期阳性研究多为非安慰剂对照，后续大型安慰剂对照试验多显示与安慰剂无显著差异，Cochrane 评价态度谨慎；NIH ODS 亦认为证据不一致。更年期症状严重者有规范选项（绝经激素治疗等），应就诊妇科。</p>
+   <p class="fr"><span class="fld">成分研究</span>三萜糖苷类为其标志物；曾有肝毒性个案报告（因果未确证），各国监管对相关产品保留监测。</p>
+   <p class="verdict">理性结论：<strong>证据不足</strong>。症状影响生活时，规范治疗比草本可靠。</p>
+  </article>
+
+  <article class="dc reveal" id="curcumin">
+   <h3>姜黄素 <span class="badge bC">C（受限于此路难通）</span></h3>
+   <p class="fr"><span class="fld">传统与宣称</span>源自咖喱香料姜黄，宣称抗炎、抗氧化、护关节、防慢病，论文与专利数量爆炸。</p>
+   <p class="fr"><span class="fld">科学证据</span>姜黄素是"文献明星、临床困难"的代表：口服生物利用度极低（大鼠实验中吸收比例都很小），普通粉末人体血药浓度几乎测不出；大量宣称抗炎抗氧化的综述被药理学界点名批评为忽略了其溶解与吸收屏障。为绕开屏障开发的胡椒素增敏与纳米制剂，把价格推高数倍，而高规格人体试验依然稀少。</p>
+   <p class="fr"><span class="fld">成分研究</span>体外实验里姜黄素确实是活跃分子，但这也让它成为著名的"泛分析干扰化合物"，荧光检测与蛋白结合特性使部分活性数据本身存疑；真实世界等效性未被确立。</p>
+   <p class="fr"><span class="fld">性价比</span>作为香料吃咖喱便宜又愉快；高生物利用度制剂每月花费上百元，买到的是药代动力学工程的门票，不是疗效证明。</p>
+   <p class="verdict">理性结论：<strong>证据不足</strong>。调料归调料，别把姜黄素片当消炎药。</p>
+  </article>
+
+  <h2 class="reveal" id="modern">三、现代流派与概念营销</h2>
+  <p class="reveal">第三组不是具体成分，而是卖点生产机制。它们的共同手法是：借助一个真实存在的科学概念（氧化应激、酸碱平衡、毒素、基因），把它简化成一句可以被产品解决的话。</p>
+
+  <article class="dc reveal" id="functional">
+   <h3>功能医学检测与"定制补剂"</h3>
+   <p class="fr"><span class="fld">宣称内容</span>通过几十项甚至上百项"功能医学检测"（微量元素、食物不耐受、氧化压力、荷尔蒙节律等）给你一份报告，再"量身定制"一套每月数百元的补剂方案。</p>
+   <p class="fr"><span class="fld">证据与问题</span>主流医学界对功能医学的总体评价是缺乏证据基础：其检测组合多未被临床指南认可，食物不耐受 IgG 检测被各国过敏学会明确指出不能诊断食物过敏；报告的解读逻辑通常是"人人都缺几十样"，最终指向自家商城。真正的营养评估（血清维生素 D、铁蛋白、B12 等）在医院几十元到几百元即可完成，医生会按结果决定是否治疗。</p>
+   <p class="fr"><span class="fld">价格结构</span>检测是入口，复购的补剂才是利润主体；"定制"标签让同质化原料获得数倍溢价。</p>
+   <p class="verdict">理性结论：<strong>不建议</strong>。怀疑营养缺乏请去医院做针对性检验，拿着结果与医生或临床药师讨论。</p>
+  </article>
+
+  <article class="dc reveal" id="antioxidant">
+   <h3>抗氧化剂理论（作为产品卖点）</h3>
+   <p class="fr"><span class="fld">宣称内容</span>自由基致衰老致病，补充抗氧化剂（维生素 E、C、硒、花青素、白藜芦醇等）能中和自由基、防癌抗衰。</p>
+   <p class="fr"><span class="fld">证据与问题</span>氧化应激确实参与病理，但"补充抗氧化剂能防病"这个推论已被 ATBC、CARET、SELECT 等大型试验反复证伪，部分试验反而显示死亡率上升或癌症增加；USPSTF 明确反对用 β 胡萝卜素与维生素 E 补充剂预防心血管病与癌症。蔬果的健康益处来自食物整体，吃果蔬而不是吃"果蔬里的抗氧化剂"。<a href="myths.html">误区破解</a>页有详细拆解。</p>
+   <p class="verdict">理性结论：<strong>不建议为防病目的服用抗氧化补充剂</strong>。</p>
+  </article>
+
+  <article class="dc reveal" id="alkaline">
+   <h3>碱性饮食与"排酸"产品</h3>
+   <p class="fr"><span class="fld">宣称内容</span>酸性体质是万病之源，喝碱性水、吃碱性食品可以"纠正体质"。</p>
+   <p class="fr"><span class="fld">证据与问题</span>血液 pH 由呼吸与肾脏精密调控在 7.35 至 7.45，口服任何食物都无法"改变体质酸碱"；若真的出现酸中毒或碱中毒，那是需要急诊处理的危重状态。"酸性体质"不是现代医学诊断，是营销词汇。相关产品从碱性水机到小球藻片，定价逻辑都建立在一句生理学谎言上。</p>
+   <p class="verdict">理性结论：<strong>不建议</strong>，这是可直接判定的伪科学叙事。</p>
+  </article>
+
+  <article class="dc reveal" id="detox">
+   <h3>排毒疗法与"清体"产品</h3>
+   <p class="fr"><span class="fld">宣称内容</span>清宿便、排肠毒、淋巴排毒、肝胆净化，配合断食、酵素、足贴、果汁 cleanse。</p>
+   <p class="fr"><span class="fld">证据与问题</span>人体已有肝脏与肾脏这套排毒系统，"排毒"产品没有定义过要排什么毒、排到哪里去、如何计量。足贴变黑是汗液氧化，"排出的结石"多为果汁与油脂皂化物；长期断食与泻下类产品反而可能造成电解质紊乱与肠道功能受损。这类宣传还常与"排毒反应"话术配套，把副作用解释成"起效"，属典型的不可证伪话术。</p>
+   <p class="verdict">理性结论：<strong>不建议</strong>。支持肝肾工作的最好方式是足量饮水、不酗酒、规范用药。</p>
+  </article>
+
+  <article class="dc reveal" id="superfood">
+   <h3>超级食物（superfood）营销</h3>
+   <p class="fr"><span class="fld">宣称内容</span>羽衣甘蓝、藜麦、奇亚籽、牛油果、枸杞、蓝莓、辣木、卡卡杜李……每隔一段时间出现一种"最健康食物"。</p>
+   <p class="fr"><span class="fld">证据与问题</span>营养学没有"超级食物"这个类别，这是营销与媒体共建的词：单一食物无法提供平衡膳食，蓝莓的花青素与紫甘蓝同量级，奇亚籽的 omega-3 属难转化的 ALA。真正的证据级结论永远指向膳食结构（多样蔬果、全谷、豆类、坚果）而非单品。超级食物叙事的实质是把普通食材以数倍价格卖给焦虑的中产。</p>
+   <p class="verdict">理性结论：<strong>证据不足（作为概念）</strong>。喜欢吃就买，别为"超级"二字付超级价格。</p>
+  </article>
+
+  <article class="dc reveal" id="mlm">
+   <h3>直销与微商模式产品特征</h3>
+   <p class="fr"><span class="fld">宣称内容</span>熟人推荐加社群打卡的"爆款"：代餐奶昔、酵素果冻、白芸豆阻断剂、月子神器、儿童增高钙。话术常有"专利配方""临床验证""央视频道报道"。</p>
+   <p class="fr"><span class="fld">证据与问题</span>这类产品的问题多不在成分本身，而在价格结构与信息结构：多级分销使渠道佣金占零售价的比例可能过半，产品必须靠高定价支撑分配链条，于是只能靠夸大宣称拉动购买；个人卖家无医学资质，无法评估使用者健康状况与药物相互作用，售后责任链条也最难追溯。识别特征包括：只在此渠道销售、要求囤货、以"事业机会"劝你加入、宣称依赖个人见证而非机构证据。</p>
+   <p class="verdict">理性结论：<strong>不建议</strong>。需要补什么，先看<a href="by-need.html">按需选择</a>与<a href="decide.html">理性决策</a>，再走正规渠道买基础款。</p>
+  </article>
+
+  <article class="dc reveal" id="xueha">
+   <h3>雪蛤（林蛙油） <span class="badge bD">D</span></h3>
+   <p class="fr"><span class="fld">传统声称</span>滋阴补肾、养颜抗衰、"动物性燕窝"，东北林蛙输卵管干制品（哈士蟆油）。</p>
+   <p class="fr"><span class="fld">科学证据</span>主成分是蛋白质与少量脂肪，与燕窝同属"名贵来源加平凡成分"的结构；"富含雌激素、以形补形"的宣称没有可靠人体证据支持，外源性雌激素样作用反而涉及安全性问题。市售干品还有来源掺假与卫生指标不合格的监管通报记录。</p>
+   <p class="fr"><span class="fld">性价比</span>按克计价向燕窝看齐，单位蛋白质价格是蛋奶的数百倍，与木瓜炖煮的"功效"主要来自糖分与口感。</p>
+   <p class="verdict">理性结论：<strong>不建议</strong>。证据与性价比双差，属概念溢价品类。</p>
+  </article>
+
+  <article class="dc reveal" id="taipansu">
+   <h3>胎盘素 / 动物来源概念品 <span class="badge bD">D</span></h3>
+   <p class="fr"><span class="fld">传统声称</span>以羊胎素、脐带提取物、鹿胎盘等为核心的"细胞活化、抗衰回春"，瑞士活细胞疗法的都市传说加持。</p>
+   <p class="fr"><span class="fld">科学证据</span>"活细胞抗衰"从未通过现代临床验证，相关疗法在多国监管框架下属于违规或不获批项目；国家药监部门多次警示美容注射类胎盘制品的风险。口服胎盘制品则只是蛋白质与铁的组合，宣称的激素与生长因子活性经口服无从谈起；注射类有感染、过敏与免疫风险。</p>
+   <p class="fr"><span class="fld">价格结构</span>定价锚定"稀缺生物活性"叙事，从口服胶囊到所谓抗衰诊所动辄数万元，属概念营销的顶级形态。</p>
+   <p class="verdict">理性结论：<strong>不建议，且有安全与合法性风险</strong>。任何"活细胞""胚胎素"注射项目都应远离。</p>
+  </article>
+
+  <h2 class="reveal" id="adaptogen">四、海外传统与适应原</h2>
+  <p class="reveal">阿育吠陀与各民族传统医学近年经"适应原（adaptogen）"概念包装进入全球市场：声称帮助身体"适应压力"。压力是真实的，问题在于这些草药能否兑现承诺。逐条评估如下。</p>
+
+  <article class="dc reveal" id="nanfeizuiqie">
+   <h3>南非醉茄（Ashwagandha） <span class="badge bC">C</span></h3>
+   <p class="fr"><span class="fld">传统声称</span>阿育吠陀核心适应原，抗压、助眠、提升精力与"睾酮支持"。</p>
+   <p class="fr"><span class="fld">科学证据</span>是适应原里研究最多的：多项小样本试验提示或小幅降低主观压力量表评分、改善睡眠质量，系统评价认为整体证据质量低、需更大规模试验；"增睾"宣称数据微弱。安全性方面已有肝损伤个案报告进入文献，甲状腺疾病者与孕妇不宜使用。</p>
+   <p class="fr"><span class="fld">性价比</span>标准化提取物价格不高，问题不在钱而在证据强度与适用人群。</p>
+   <p class="verdict">理性结论：<strong>证据有限</strong>。健康人不必依赖草药抗压，睡眠、运动与心理干预的证据更硬。</p>
+  </article>
+
+  <article class="dc reveal" id="majia">
+   <h3>玛咖 <span class="badge bC">C</span></h3>
+   <p class="fr"><span class="fld">传统声称</span>秘鲁安第斯"人参"，提升性欲与精力、改善生育力。</p>
+   <p class="fr"><span class="fld">科学证据</span>少数小型试验显示对主观性欲或有弱阳性影响，对性激素水平没有可检测的作用，机制不明；改善生育力与运动表现的证据不足。NCCIH 的总体立场是不支持其健康宣称。</p>
+   <p class="fr"><span class="fld">性价比</span>作为安第斯根茎作物原料本身廉价，溢价来自"秘鲁神根"叙事与保健品形态。</p>
+   <p class="verdict">理性结论：<strong>证据有限</strong>。真正的性功能困扰应就医排查心血管与内分泌因素。</p>
+  </article>
+
+  <article class="dc reveal" id="shengluole">
+   <h3>圣罗勒（Tulsi） <span class="badge bC">C</span></h3>
+   <p class="fr"><span class="fld">传统声称</span>阿育吠陀"圣草"，适应原抗压、降血糖、增强免疫。</p>
+   <p class="fr"><span class="fld">科学证据</span>人体研究数量少、样本小，初步结果方向不一；作为印度日常茶饮消费量下的安全性尚可，但浓缩提取物的获益证据不足以支撑宣称。</p>
+   <p class="fr"><span class="fld">性价比</span>当调味茶喝成本很低，胶囊提取物则是在为假设付费。</p>
+   <p class="verdict">理性结论：<strong>证据不足</strong>。茶饮无妨，别为"圣"字付药价。</p>
+  </article>
+
+  <article class="dc reveal" id="kawa">
+   <h3>卡瓦（Kava） <span class="badge bD">D + 肝毒性警告</span></h3>
+   <p class="fr"><span class="fld">传统声称</span>南太平洋仪式性饮品，放松抗焦虑且"不影响思维"，欧美曾作为草本镇静剂流行。</p>
+   <p class="fr"><span class="fld">科学证据</span><span class="flag">重点警告：</span>抗焦虑确有部分阳性随机对照试验，但本品的标志性问题是肝毒性：重度肝损伤病例报告促使美国 FDA 发布消费者警示、部分国家一度下架。获益是"可能有点用"，风险是"可能肝移植"，风险收益完全不成比例。</p>
+   <p class="fr"><span class="fld">性价比</span>不存在讨论性价比的前提，安全红线优先。</p>
+   <p class="verdict">理性结论：<strong>不建议使用</strong>。焦虑障碍有规范治疗（CBT 与经评估的药物），不要用肝毒性风险换"天然放松"。</p>
+  </article>
+
+  <article class="dc reveal" id="xiecao">
+   <h3>缬草 <span class="badge bC">C</span></h3>
+   <p class="fr"><span class="fld">传统声称</span>欧洲数百年助眠草药，"天然安眠药"。</p>
+   <p class="fr"><span class="fld">科学证据</span>Cochrane 与 AHRQ 的评价均认为证据不一致：部分试验显示或略缩短入睡时间，总体效应温和且不同产品差异大；长期安全性数据不足。个别使用者出现反常兴奋与次日嗜睡。</p>
+   <p class="fr"><span class="fld">性价比</span>价格不高，但慢性失眠的一线方案是失眠认知行为治疗（CBT-I），不是任何草本。</p>
+   <p class="verdict">理性结论：<strong>证据有限</strong>。短期偶用风险相对小，慢性失眠请走规范治疗。</p>
+  </article>
+
+  <article class="dc reveal" id="yangganju">
+   <h3>洋甘菊 <span class="badge bC">C</span></h3>
+   <p class="fr"><span class="fld">传统声称</span>舒缓放松、助眠、温和护肠胃，睡前茶饮的经典成分。</p>
+   <p class="fr"><span class="fld">科学证据</span>作为茶饮的临床证据稀少：小型研究提示或对主观放松与睡眠有温和作用，不足以构成疗效宣称；菊科植物过敏者可能出现交叉过敏。好在作为传统茶饮，消费剂量下的安全性记录良好。</p>
+   <p class="fr"><span class="fld">性价比</span>茶包价廉，"喝一杯热的东西放松一下"的仪式感本身或许就是主要作用成分。</p>
+   <p class="verdict">理性结论：<strong>当茶喝无妨，别当药买</strong>（高浓度提取物胶囊的宣称证据不足）。</p>
+  </article>
+
+     <h2 class="reveal" id="derived">五、衍生品与传统剂型</h2>
+   <p class="reveal">这一组是滋补市场最新的溢价发生器：把传统食材与药材做成"更浓缩、更先进、更方便"的形态（孢子粉、肽胶囊、膏方），或者把普通食品重新包装成功效产品（龟苓膏、凉茶、足贴）。产品形态变了，证据标准不会变。逐条评估如下。</p>
+
+   <article class="dc reveal" id="baozifen">
+    <h3>灵芝孢子粉 / 孢子油 <span class="badge bC">C（与灵芝子实体同档，宣称更多）</span></h3>
+    <p class="fr"><span class="fld">传统声称</span>"一克孢子胜过一斤灵芝"，破壁孢子粉与孢子油被宣传为浓缩十倍的灵芝精华，免疫与抗肿瘤话术升级。</p>
+    <p class="fr"><span class="fld">科学证据</span>先说与子实体的区别：孢子是灵芝的生殖细胞，三萜与多糖谱与子实体不同，但"孢子更强"没有被人体试验证明，灵芝子实体本身证据就不足（见上文灵芝一卡），孢子粉的免疫宣称同样缺乏高质量人体证据，"辅助抗肿瘤"宣称没有任何权威机构认可。破壁解决的是细胞壁释放问题，"破壁率"高低与有没有效果是两回事；孢子油则是脂肪提取物的进一步浓缩营销。</p>
+    <p class="fr"><span class="fld">成分研究</span>孢子粉标志物是灵芝三萜与多糖，检测中屡见含量虚标与掺假的第三方质疑；孢子油主成分就是脂质，"活性成分浓度"叙事缺乏临床对照。</p>
+    <p class="fr"><span class="fld">性价比</span>每公斤数千元到数万元，把本就证据不足的品类又加了一层工艺溢价；破壁、低温、航天级等词全部服务于定价。</p>
+    <p class="verdict">理性结论：<strong>证据不足，不建议</strong>。尤其拒绝任何"抗癌防复发"话术，肿瘤防治请遵循规范诊疗。</p>
+   </article>
+
+   <article class="dc reveal" id="zhenzhufen">
+    <h3>珍珠粉 <span class="badge bD">D（美白与补钙宣称）</span></h3>
+    <p class="fr"><span class="fld">传统声称</span>安神定惊、外敷美白、口服补钙，"珍珠养颜"的古代宫廷叙事，纳米珍珠粉更是营销升级版。</p>
+    <p class="fr"><span class="fld">科学证据</span>珍珠粉主体是碳酸钙加少量角蛋白与微量元素。口服"补钙"效率不如廉价的碳酸钙与奶制品，钙吸收的关键是剂量与维生素 D，不是原料名贵；口服"美白"没有任何机制与证据支持（皮肤黑素不归口服碳酸钙管）。外敷去角质或有些物理作用，但"纳米级深入肌肤"属营销话术，且贝壳粉冒充珍珠粉的打假案例屡见监管通报。</p>
+    <p class="fr"><span class="fld">成分研究</span>碳酸钙就是碳酸钙，化学纯度上药用碳酸钙反而更可控；珍珠"特殊活性"研究停留在成分鉴定层面。</p>
+    <p class="fr"><span class="fld">性价比</span>按克计价的珍珠粉与每瓶几块钱的钙片相比，单位钙价格高出上百倍，买的是故事不是钙。</p>
+    <p class="verdict">理性结论：<strong>不建议（美白与补钙用途）</strong>。补钙请按膳食与医嘱，防晒才是美白的第一顺位。</p>
+   </article>
+
+   <article class="dc reveal" id="heigouqi">
+    <h3>黑枸杞 <span class="badge bD">D（相对其价格）</span></h3>
+    <p class="fr"><span class="fld">传统声称</span>"花青素之王、软黄金"，抗氧化、护眼、抗衰，野外采摘叙事加持。</p>
+    <p class="fr"><span class="fld">科学证据</span>黑枸杞的花青素（原花青素类）含量与蓝莓、桑葚、紫甘蓝同量级，"花青素之王"名不副实；而花青素本身的健康宣称（护眼、抗衰、防病）在 NCCIH 等机构的评价中证据有限，多吃有色蔬果是更现实的途径。它被炒起来靠的是产地稀缺与颜色视觉冲击，不是成分独特性。</p>
+    <p class="fr"><span class="fld">成分研究</span>花青素研究以体外与短周期替代指标为主，高剂量提取物的临床获益未被确立。</p>
+    <p class="fr"><span class="fld">性价比</span>每斤数百到上千元，是蓝莓的十倍以上，花青素单位成本差出数量级；同样的钱买蓝莓紫甘蓝还有膳食纤维送。</p>
+    <p class="verdict">理性结论：<strong>不值得（按保健品价格购买）</strong>。想要花青素，蓝莓与普通深色蔬果便宜得多。</p>
+   </article>
+
+   <article class="dc reveal" id="haishen">
+    <h3>海参（自吃海参 vs 海参肽胶囊） <span class="badge bC">C（作为食材）/ D（肽胶囊宣称）</span></h3>
+    <p class="fr"><span class="fld">传统声称</span>补肾益精、滋阴养血，"海中人参"，术后产后进补必备；肽胶囊版本宣称"小分子肽高效吸收、免疫调节"。</p>
+    <p class="fr"><span class="fld">科学证据</span>海参干品蛋白质含量高但属于不完全蛋白，一次食用量提供的蛋白与蛋鱼肉相当甚至更低，"大补"宣称没有可靠人体证据；海参皂苷与多糖研究以动物实验为主。深加工的"海参肽"胶囊本质是蛋白酶水解产物（肽与氨基酸混合物），"小分子肽特殊吸收通道"被大幅夸大，最终仍以氨基酸与小肽形式吸收，与吃蛋白没有本质区别；免疫调节宣称同样缺乏人体证据，价格却翻了几倍。</p>
+    <p class="fr"><span class="fld">成分研究</span>海参多糖与皂苷是文献热点，细胞实验活跃、临床转化少；肽制品的"吸收率"数据多为厂商口径。</p>
+    <p class="fr"><span class="fld">性价比</span>自吃干海参每斤数千元已属礼品的定价逻辑；肽胶囊每克价格再高一个量级，买的是剂型概念。</p>
+    <p class="verdict">理性结论：<strong>当食材偶尔吃无妨（注意嘌呤与盐分），肽胶囊与"大补"宣称不建议</strong>。术后恢复靠规范营养支持，不是靠胶囊。</p>
+   </article>
+
+   <article class="dc reveal" id="mulijing">
+    <h3>牡蛎精 / 牡蛎肽 <span class="badge bD">D（壮阳宣称）</span></h3>
+    <p class="fr"><span class="fld">传统声称</span>"含锌量冠军、天然伟哥"，生蚝以形补形的传统加"锌促睾"的现代话术，主打男性精力市场。</p>
+    <p class="fr"><span class="fld">科学证据</span>牡蛎确实是锌含量高的食物，但牡蛎精与肽制品每片的锌含量通常只有几毫克，还不如一片几块钱的葡萄糖酸锌；只有临床缺锌者补锌才有意义，血锌正常的人额外补锌不会提升睾酮或性功能（NCCIH 等机构均不支持"补锌壮阳"对非缺乏者的宣称）。"肽"营销与海参肽同款话术，水解蛋白而已。含锌宣称产品也是非法添加西地那非类成分的高发区，监管通报多次出现。</p>
+    <p class="fr"><span class="fld">成分研究</span>锌的生理作用证据充分，但那是"缺锌补锌"的证据，不是"牡蛎提取物壮阳"的证据。</p>
+    <p class="fr"><span class="fld">性价比</span>按锌含量折算，牡蛎精胶囊的单位锌价格远超药店锌片；想要生蚝吃鲜的更便宜也更愉快。</p>
+    <p class="verdict">理性结论：<strong>不建议</strong>。怀疑缺锌去医院查血锌再决定；性功能困扰走正规男科。</p>
+   </article>
+
+   <article class="dc reveal" id="gaofang">
+    <h3>膏方 <span class="badge bC">C（因人而异，"一料一膏"多为营销）</span></h3>
+    <p class="fr"><span class="fld">传统声称</span>"一人一方、一料一膏、量身定制"，冬季膏方进补是江南习俗，营销强调古法熬制与名老中医开方。</p>
+    <p class="fr"><span class="fld">科学证据</span>膏方本质是复方药材浓缩加大量蜂蜜冰糖收膏，属于个体化的中医处方行为：若由有资质中医师辨证开方、针对具体证候使用，属于医疗范畴内的判断，其效果与风险都由处方医生负责。问题在市场端：大量"一料一膏定制"实际是流水线产品换个标签，销售者无处方资质；含何首乌等有肝损伤风险药材的膏方还屡见消费提示。健康人跟风吃膏方，大概率收获的是糖分与安慰剂，以及为"定制"二字付出的溢价。</p>
+    <p class="fr"><span class="fld">成分研究</span>膏方没有统一的成分与质量研究体系，每锅都不同，恰恰说明它无法按保健品标准评估。</p>
+    <p class="fr"><span class="fld">性价比</span>一料膏方数千元起步，定制叙事占价格大头；真有虚弱证候，规范的诊疗比跟风进补可靠。</p>
+    <p class="verdict">理性结论：<strong>特定情况在执业中医师指导下考虑（作为治疗行为）；商品化"定制膏方"不建议</strong>。</p>
+   </article>
+
+   <article class="dc reveal" id="guilinggao">
+    <h3>龟苓膏 / 凉茶 <span class="badge bB">B（作为食品）/ 功效宣称 D</span></h3>
+    <p class="fr"><span class="fld">传统声称</span>"清热解毒、祛湿降火"，龟苓膏与凉茶被宣传为有功效的传统食品，熬夜上火来一份。</p>
+    <p class="fr"><span class="fld">科学证据</span>先明确身份：市售龟苓膏与凉茶按食品（饮料）管理，"清热解毒去火"是中医理论语境的说法，不是经审批的功能宣称，监管也多次查处凉茶店宣传疗效、非法添加药物的案例。作为食品它们无害也无"疗效"：龟苓膏主要是仙草（凉粉草）淀粉冻加糖，凉茶主要是糖水加草药浸出物，部分凉茶含糖量与含糖饮料相当，多喝不降火只升糖。广东凉茶曾出现违法添加对乙酰氨基酚等西药成分的判例，宣称见效特别快的凉茶反而最危险。</p>
+    <p class="fr"><span class="fld">成分研究</span>凉粉草多糖等有一定食品科学研究，与"解毒"宣称无关。</p>
+    <p class="fr"><span class="fld">性价比</span>当甜品吃价格正常；为"下火功效"付费则是把食品当药买。</p>
+    <p class="verdict">理性结论：<strong>当食品吃可以，信功效、买到宣称疗效的产品不可以</strong>。上火请多喝水早点睡。</p>
+   </article>
+
+   <article class="dc reveal" id="zutie">
+    <h3>足贴 <span class="badge bD">D（判伪）</span></h3>
+    <p class="fr"><span class="fld">传统声称</span>睡前贴足底，早起揭下变黑，宣称"吸出体内湿气与毒素"，配套"排毒反应"话术把无效也解释成起效。</p>
+    <p class="fr"><span class="fld">科学证据</span><span class="flag">判伪：</span>变黑是足贴内粉末（竹醋、艾草炭类）遇汗液与水蒸气氧化变色的物理化学反应，对着一杯温水贴一夜同样变黑，与"体内毒素"无关；人体也没有"从足底排出毒素"的生理通道，排毒与湿气均无医学定义。这是机制层面即可判伪的产品，"排毒反应"话术属典型不可证伪结构。</p>
+    <p class="fr"><span class="fld">性价比</span>每贴数元的成本极低，定价全靠概念；任何价位的足贴都不存在性价比讨论的前提。</p>
+    <p class="verdict">理性结论：<strong>不建议，直接判伪</strong>。体内代谢废物交给肝与肾，它们不认识足贴。</p>
+   </article>
+
+   <h2 class="reveal" id="safety-note">六、客观说明：传统不等于无效，更不等于安全</h2>
+  <p class="reveal">批判性评估不是全盘否定传统。事实上，本页给了 B 级的圣约翰草、黑芝麻与枸杞，前一个来自欧洲传统，后两个是中式食疗；而现代医学里约四成药物的经典源头与天然产物有关。正确的态度是两条都用上：<strong>传统不等于无效</strong>（不能因"没做过试验"就断言没用），<strong>传统更不等于安全</strong>（不能因"老祖宗吃了没事"就放心吃）。反面证据是沉痛的：</p>
+  <ul class="reveal">
+   <li><strong>土三七（菊三七）：</strong>含吡咯里西啶类生物碱，民间当三七误用后可致肝窦阻塞综合征，是国内药物性肝损伤文献中反复出现的药源性事件，重症可致死。名字只差一个字，后果截然不同。</li>
+   <li><strong>何首乌：</strong>国家药监部门曾专门发布消费提示，提示口服何首乌及其制剂存在肝损伤风险，要求相关制剂修订说明书；生首乌风险更高。传统"乌发"用途的安全性数据远比大众想象复杂。</li>
+   <li><strong>其他提醒：</strong>雷公藤、番泻叶长期使用、含马兜铃酸药材的肾损害历史，都说明"纯天然"三个字在毒理上不构成任何担保。任何草药的作用与风险都应按药物标准评估。</li>
+  </ul>
+
+  <h2 class="reveal" id="yfsy">附："药食同源"目录的法律含义与边界</h2>
+  <p class="reveal">中国监管框架里的"药食同源"（按照传统既是食品又是中药材的物质目录）解决的是一个<strong>食品安全管理</strong>问题：列入目录的物质可以作为食品原料、按传统方式（通常是煲汤、煮粥、泡饮等普通烹调）使用。它不等于"有效"，也不等于"任何人任何剂量都可以随意吃"。要点有三：一是目录身份是"食品原料资格"，不是疗效认证；二是使用应遵守传统食用方式与数量，把它浓缩成高剂量提取物、胶囊化长期服用，就超出了目录的保护范围；三是即便在目录内，个体差异（孕期、肝病、过敏体质）与药物相互作用仍然存在。换句话说，"药食同源"划定的是法律边界，不是健康效果的证明；评价效果，仍然要回到证据。</p>
+
+  <p class="src reveal">本页证据立场综合自 NIH ODS 膳食补充剂事实清单、Cochrane 系统评价、USPSTF 推荐声明、美国国立补充与综合健康中心（NCCIH）的公开资料、大型临床试验（GEM、STEP、ATBC、CARET、SELECT 等）公开发表的结果，以及中国药典、国家药品监督管理局与原国家食品药品监督管理总局发布的风险提示。药食同源目录以国家卫生健康委与市场监管总局发布的现行版本为准。</p>
+  <div class="callout warn reveal"><strong>最后提醒：</strong>传统滋补品也是"补充剂"：正在服药、怀孕哺乳、有肝肾疾病或准备手术者，使用任何草本与滋补品前请咨询医生或临床药师，并阅读<a href="safety.html">安全边界</a>；对具体品牌的辨识方法见<a href="brands.html">品牌辨识</a>，营销话术的通用过滤器见<a href="myths.html">误区破解</a>。</div>
+ </div>
+</main>
+<footer>
+ <div class="wrap">
+  <nav class="foot-nav" aria-label="页脚导航">
+   <a href="index.html">首页</a><a href="basics.html">基础知识</a><a href="evidence.html">证据分级</a><a href="by-need.html">按需选择</a><a href="decide.html">理性决策</a><a href="traditions.html">流派与传统</a><a href="brands.html">品牌辨识</a><a href="safety.html">安全边界</a><a href="myths.html">误区破解</a><a href="buy.html">选购鉴别</a><a href="../index.html">返回总门户</a>
+  </nav>
+  <p class="disclaimer">本站内容仅供科普参考，不构成医疗建议；服用任何保健品前请咨询医生或临床药师，孕妇、儿童、慢性病及服药人群尤其如此。</p>
+ </div>
+</footer>
+<script>
+(function(){
+var doc=document;
+var mb=doc.getElementById('menuBtn'),nv=doc.getElementById('nav');
+if(mb&&nv){
+ mb.addEventListener('click',function(){var open=nv.classList.toggle('open');mb.setAttribute('aria-expanded',open?'true':'false')});
+ nv.addEventListener('click',function(e){if(e.target.closest('a')){nv.classList.remove('open');mb.setAttribute('aria-expanded','false')}});
+}
+var tb=doc.getElementById('themeBtn');
+function label(){var t=doc.documentElement.getAttribute('data-theme');tb.textContent=t==='dark'?'☀':'☾';tb.setAttribute('title',t==='dark'?'切换到浅色主题':'切换到深色主题')}
+if(tb){label();tb.addEventListener('click',function(){var cur=doc.documentElement.getAttribute('data-theme')==='dark'?'light':'dark';doc.documentElement.setAttribute('data-theme',cur);try{localStorage.setItem('theme',cur)}catch(e){}label()})}
+var els=doc.querySelectorAll('.reveal');
+if('IntersectionObserver' in window){
+ var io=new IntersectionObserver(function(es){es.forEach(function(en){if(en.isIntersecting){en.target.classList.add('in');io.unobserve(en.target)}})},{threshold:.06});
+ els.forEach(function(el){io.observe(el)});
+}else{els.forEach(function(el){el.classList.add('in')})}
+})();
+</script>
+<div class="portal"><a href="../index.html">&#8592; 总门户</a></div>
+<button class="toTop" type="button" id="toTop" aria-label="回到顶部">&#8593;</button>
+<script>
+(function(){
+  var b=document.getElementById('toTop');if(!b)return;
+  var rm=window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  function upd(){if(window.scrollY>600){b.classList.add('show')}else{b.classList.remove('show')}}
+  window.addEventListener('scroll',upd,{passive:true});upd();
+  b.addEventListener('click',function(){window.scrollTo({top:0,behavior:rm?'auto':'smooth'});});
+})();
+</script>
+</body>
+</html>

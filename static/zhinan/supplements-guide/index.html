@@ -1,0 +1,204 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>保健品使用指南：面向普通消费者的证据导向手册</title>
+<script>(function(){var d=document.documentElement;d.classList.add('js');var t=null;try{t=localStorage.getItem('theme')}catch(e){}if(t!=='light'&&t!=='dark'){var h=new Date().getHours();t=(h>=7&&h<17)?'light':'dark'}d.setAttribute('data-theme',t)})();</script>
+<style>
+*{margin:0;padding:0;box-sizing:border-box}
+:root{--bg:#f5f9fa;--surface:#ffffff;--surface2:#e9f1f2;--ink:#1c2d35;--muted:#557079;--accent:#0d7c8a;--accent-2:#095f6a;--on-accent:#ffffff;--line:#d6e3e5;--warn-bg:#fbf3e4;--warn-ink:#77571c;--warn-line:#e8d5ad;--danger:#a2403a;--shadow:0 1px 3px rgba(23,42,50,.08)}
+html[data-theme=dark]{--bg:#0e171c;--surface:#16242b;--surface2:#1b2e36;--ink:#e2edf0;--muted:#95abb3;--accent:#41c0ca;--accent-2:#7cd6dd;--on-accent:#04282c;--line:#273b44;--warn-bg:#2a2517;--warn-ink:#dcc38c;--warn-line:#4a3f22;--danger:#e28f87;--shadow:0 2px 8px rgba(0,0,0,.45)}
+body{font-family:"PingFang SC","Hiragino Sans GB","Microsoft YaHei","Noto Sans SC",sans-serif;background:var(--bg);color:var(--ink);line-height:1.78;font-size:16px}
+a{color:var(--accent);text-decoration:none}
+a:hover{text-decoration:underline}
+.wrap{max-width:960px;margin:0 auto;padding:0 20px}
+.site-head{background:var(--surface);border-bottom:1px solid var(--line);position:sticky;top:0;z-index:50}
+.head-in{display:flex;align-items:center;gap:12px;min-height:56px;position:relative}
+.brand{font-weight:700;color:var(--ink);font-size:1.05rem;white-space:nowrap}
+.site-nav{display:flex;gap:4px;flex-wrap:wrap;margin-left:auto}
+.site-nav a{padding:6px 10px;border-radius:6px;color:var(--muted);font-size:.92rem;white-space:nowrap}
+.site-nav a:hover{color:var(--accent);text-decoration:none;background:var(--surface2)}
+.site-nav a[aria-current=page]{color:var(--on-accent);background:var(--accent)}
+.head-actions{margin-left:auto;display:flex;gap:8px;align-items:center}
+.site-nav + .head-actions{margin-left:0}
+.icon-btn{border:1px solid var(--line);background:var(--surface);color:var(--ink);border-radius:8px;width:40px;height:40px;font-size:1.1rem;cursor:pointer;flex:none;display:inline-flex;align-items:center;justify-content:center}
+html.js .site-nav{display:none}
+html.js .icon-btn.js-menu{display:inline-flex}
+@media(min-width:721px){
+ html.js .site-nav{display:flex}
+ html.js .icon-btn.js-menu{display:none}
+}
+@media(max-width:720px){
+ .head-in{min-height:50px}
+ html.js .site-nav{position:absolute;top:100%;left:0;right:0;background:var(--surface);border-bottom:1px solid var(--line);flex-direction:column;padding:8px 14px 14px;box-shadow:var(--shadow)}
+ html.js .site-nav.open{display:flex}
+ html.js .site-nav a{display:block;padding:10px 8px;border-bottom:1px solid var(--line);font-size:1rem}
+ html.js .site-nav a:last-child{border-bottom:none}
+}
+main{padding:36px 0 50px}
+h1{font-size:1.85rem;line-height:1.4;margin-bottom:14px}
+h2{font-size:1.32rem;margin:2.2em 0 .7em;color:var(--accent-2)}
+html[data-theme=dark] h2{color:var(--accent)}
+h3{font-size:1.06rem;margin:1.6em 0 .5em}
+p{margin:.8em 0}
+.lede{font-size:1.05rem;color:var(--muted)}
+.cards{display:grid;grid-template-columns:repeat(auto-fit,minmax(255px,1fr));gap:14px;margin:1.2em 0}
+.card{background:var(--surface);border:1px solid var(--line);border-radius:10px;padding:18px;box-shadow:var(--shadow)}
+.card h3{margin-top:0}
+.card p{color:var(--muted);font-size:.94rem}
+.card .more{font-size:.9rem;display:inline-block;margin-top:.4em}
+.callout{border-left:4px solid var(--accent);background:var(--surface2);padding:12px 16px;border-radius:0 8px 8px 0;margin:1.2em 0}
+.callout.warn{border-left-color:var(--danger);background:var(--warn-bg);color:var(--warn-ink)}
+.table-scroll{overflow-x:auto;margin:1.2em 0;border:1px solid var(--line);border-radius:10px;background:var(--surface)}
+table{width:100%;border-collapse:collapse;font-size:.94rem;min-width:560px}
+th,td{padding:10px 12px;border-bottom:1px solid var(--line);text-align:left;vertical-align:top}
+th{background:var(--surface2);color:var(--ink);font-weight:600;white-space:nowrap}
+tr:last-child td{border-bottom:none}
+.badge{display:inline-block;font-size:.76rem;line-height:1.7;padding:1px 10px;border-radius:999px;white-space:nowrap;font-weight:600}
+.bA{background:var(--accent);color:var(--on-accent)}
+.bB{border:1.5px solid var(--accent);color:var(--accent)}
+.bC{border:1px solid var(--muted);color:var(--muted)}
+.bD{color:var(--muted)}
+.src{font-size:.85rem;color:var(--muted)}
+ul,ol{padding-left:1.4em;margin:.7em 0}
+li{margin:.4em 0}
+footer{background:var(--surface);border-top:1px solid var(--line);padding:30px 0 36px;margin-top:20px}
+.foot-nav{display:flex;flex-wrap:wrap;gap:6px 16px;margin-bottom:14px;font-size:.92rem}
+.disclaimer{background:var(--warn-bg);border:1px solid var(--warn-line);color:var(--warn-ink);padding:14px 16px;border-radius:10px;font-size:.92rem}
+@media(prefers-reduced-motion:no-preference){
+ .js .reveal{opacity:0;transform:translateY(14px);transition:opacity .6s ease,transform .6s ease}
+ .js .reveal.in{opacity:1;transform:none}
+}
+@media(prefers-reduced-motion:reduce){.reveal{opacity:1!important;transform:none!important}}
+.portal{position:fixed;left:14px;bottom:14px;z-index:99}.portal a{display:inline-block;padding:7px 16px;border-radius:999px;background:rgba(20,20,20,.72);color:#fff;font-size:13px;text-decoration:none;backdrop-filter:blur(4px);font-family:system-ui,sans-serif}.portal a:hover{background:rgba(20,20,20,.9)}
+.toTop{position:fixed;right:14px;bottom:14px;z-index:98;display:none;border:none;cursor:pointer;padding:7px 14px;border-radius:999px;background:rgba(20,20,20,.72);color:#fff;font-size:14px;line-height:1;backdrop-filter:blur(4px);font-family:system-ui,sans-serif}.toTop:hover{background:rgba(20,20,20,.9)}.toTop.show{display:inline-block}
+</style>
+<noscript><style>.reveal{opacity:1!important;transform:none!important}.portal{position:fixed;left:14px;bottom:14px;z-index:99}.portal a{display:inline-block;padding:7px 16px;border-radius:999px;background:rgba(20,20,20,.72);color:#fff;font-size:13px;text-decoration:none;backdrop-filter:blur(4px);font-family:system-ui,sans-serif}.portal a:hover{background:rgba(20,20,20,.9)}
+.toTop{position:fixed;right:14px;bottom:14px;z-index:98;display:none;border:none;cursor:pointer;padding:7px 14px;border-radius:999px;background:rgba(20,20,20,.72);color:#fff;font-size:14px;line-height:1;backdrop-filter:blur(4px);font-family:system-ui,sans-serif}.toTop:hover{background:rgba(20,20,20,.9)}.toTop.show{display:inline-block}
+</style></noscript>
+</head>
+<body>
+<header class="site-head">
+ <div class="wrap head-in">
+  <a class="brand" href="index.html">保健品使用指南</a>
+  <nav id="nav" class="site-nav" aria-label="站内导航">
+   <a href="index.html" aria-current="page">首页</a>
+   <a href="basics.html">基础知识</a>
+   <a href="evidence.html">证据分级</a>
+   <a href="by-need.html">按需选择</a>
+   <a href="decide.html">理性决策</a>
+   <a href="traditions.html">流派与传统</a>
+   <a href="brands.html">品牌辨识</a>
+   <a href="safety.html">安全边界</a>
+   <a href="myths.html">误区破解</a>
+   <a href="buy.html">选购鉴别</a>
+   <a href="../index.html">总门户</a>
+  </nav>
+  <div class="head-actions">
+   <button id="themeBtn" class="icon-btn" type="button" aria-label="切换明暗主题">☾</button>
+   <button id="menuBtn" class="icon-btn js-menu" type="button" aria-expanded="false" aria-controls="nav" aria-label="打开导航菜单">☰</button>
+  </div>
+ </div>
+</header>
+<main>
+ <div class="wrap">
+  <h1 class="reveal">保健品使用指南：先看证据，再谈补充</h1>
+  <p class="lede reveal">这是一本面向普通消费者的证据导向手册。我们不推销任何产品，只回答三个问题：保健食品到底是什么、哪些人可能需要补充什么、以及如何安全地辨别与选购。全部结论以国内外权威机构的公开立场为依据，包括美国国立卫生研究院膳食补充剂办公室（NIH ODS）、美国预防服务工作组（USPSTF）、Cochrane 系统评价、梅奥诊所与哈佛公共卫生学院的科普资料，以及中国营养学会、国家市场监督管理总局和国家药品监督管理局的官方文件。</p>
+
+  <h2 class="reveal">四条决策路径：从你现在的疑问出发</h2>
+   <div class="cards">
+    <div class="card reveal"><h3>① 听说某产品很神</h3><p>先到误区破解拆穿常见话术，再看流派与传统里对该品类的证据评估，最后用品牌辨识看穿定价与渠道套路。</p><a class="more" href="myths.html">误区破解 →</a> <a class="more" href="traditions.html">流派与传统 →</a> <a class="more" href="brands.html">品牌辨识 →</a></div>
+    <div class="card reveal"><h3>② 担心自己缺营养</h3><p>先用理性决策逐项核对补不补，再按自身人群查按需选择，想深究证据强度就看证据分级的 A/B/C/D 等级大表。</p><a class="more" href="decide.html">理性决策 →</a> <a class="more" href="by-need.html">按需选择 →</a> <a class="more" href="evidence.html">证据分级 →</a></div>
+    <div class="card reveal"><h3>③ 已经在吃了</h3><p>立即核对安全边界：各营养素的可耐受最高摄入量、过量危害、药物相互作用与手术前停用清单，正在服药者尤其必读。</p><a class="more" href="safety.html">安全边界 →</a></div>
+    <div class="card reveal"><h3>④ 决定要买</h3><p>购买前先学会选购鉴别：蓝帽子查询方法、读懂标签与剂量单位、识别营销话术、区分一般贸易与跨境渠道的差异。</p><a class="more" href="buy.html">选购鉴别 →</a></div>
+   </div>
+  <h2 class="reveal">核心结论速览</h2>
+  <div class="cards">
+   <div class="card reveal"><h3>保健食品不是药品</h3><p>在中国，合法保健食品须取得"蓝帽子"注册或备案，标签必须注明"保健食品不是药物，不能代替药物治疗疾病"。任何宣称能治疗、治愈疾病的产品宣传都涉嫌违法。</p><a class="more" href="basics.html">了解蓝帽子制度 →</a></div>
+   <div class="card reveal"><h3>食物优先，补充剂补缺</h3><p>中国营养学会《中国居民膳食指南》与哈佛公共卫生学院都强调：均衡膳食是营养素的首要来源。补充剂只对缺乏人群和有特定需求的人群有明确价值。</p><a class="more" href="evidence.html">查看证据分级 →</a></div>
+   <div class="card reveal"><h3>证据差别极大</h3><p>叶酸预防胎儿神经管缺陷证据充分（A级）；而复合维生素降低慢病风险、NMN 延缓衰老等宣称目前证据不足或级别很低。把"可能有用"和"已被证明"区分开，是本站的核心方法。</p><a class="more" href="evidence.html">A/B/C/D 等级说明 →</a></div>
+   <div class="card reveal"><h3>天然不等于安全</h3><p>高剂量脂溶性维生素会蓄积中毒，铁过量对儿童可致命，某些"纯天然"减肥、增肌类产品是药物性肝损伤的常见诱因。天然植物同样含有强效生物活性物质。</p><a class="more" href="safety.html">安全边界与上限 →</a></div>
+   <div class="card reveal"><h3>与药物会发生相互作用</h3><p>鱼油与抗凝药、圣约翰草与口服避孕药、钙与左甲状腺素等组合都可能改变药效。手术前通常建议停用大部分补充剂并告知麻醉医生。</p><a class="more" href="safety.html">相互作用清单 →</a></div>
+   <div class="card reveal"><h3>先查证，再付钱</h3><p>购买国产或一般贸易进口保健食品前，先在市场监管总局特殊食品信息查询平台核验蓝帽子注册号或备案号。"包治百病""排毒""改善酸性体质"都是典型营销话术。</p><a class="more" href="buy.html">选购与鉴别指南 →</a></div>
+  </div>
+
+  <h2 class="reveal">本站如何评估证据</h2>
+  <p class="reveal">我们对每类保健食品给出证据等级，含义如下：</p>
+  <div class="table-scroll reveal">
+   <table>
+    <thead><tr><th>等级</th><th>含义</th><th>典型例子</th></tr></thead>
+    <tbody>
+     <tr><td><span class="badge bA">A 证据充分</span></td><td>多项高质量随机对照试验或权威机构明确推荐，针对特定人群和目的有效。</td><td>备孕期补充叶酸预防胎儿神经管缺陷（WHO、中国营养学会推荐）</td></tr>
+     <tr><td><span class="badge bB">B 证据较好</span></td><td>有一定数量的临床试验支持，结论方向一致但规模或质量有限。</td><td>特定益生菌菌株辅助缩短抗生素相关腹泻（部分 Cochrane 评价）</td></tr>
+     <tr><td><span class="badge bC">C 证据有限</span></td><td>研究结果不一致，或仅有初步研究，不足以给出常规推荐。</td><td>辅酶 Q10 改善他汀相关肌肉症状</td></tr>
+     <tr><td><span class="badge bD">D 证据不足或反对</span></td><td>现有证据不支持其宣称，甚至提示有害；权威机构不建议使用。</td><td>β 胡萝卜素补充剂用于吸烟者预防肺癌（USPSTF 明确反对）</td></tr>
+    </tbody>
+   </table>
+  </div>
+  <p class="src reveal">等级划分参考 NIH ODS 各类膳食补充剂专业事实清单、USPSTF 推荐声明与 Cochrane 系统评价的总体结论，并结合中国营养学会膳食营养素参考摄入量（DRIs，2023 版）。等级针对"特定用途"而言：同一成分对不同人群、不同目的的等级可能不同。</p>
+
+  <h2 class="reveal">五条最值得记住的证据结论</h2>
+  <ol class="reveal">
+   <li><strong>叶酸：</strong>从备孕期开始每日补充 400 微克，可显著降低胎儿神经管缺陷风险，这是营养素补充中被反复验证最充分的例子之一。<span class="badge bA">A</span></li>
+   <li><strong>维生素 D：</strong>对缺乏者和骨质疏松风险人群有益；但大剂量补充预防癌症、心血管病等慢病的证据不支持（VITAL 等大型试验），不要盲目吃高剂量。</li>
+   <li><strong>复合维生素：</strong>USPSTF 认为，对营养充足的一般人群，复合维生素预防心血管病和癌症的证据不足；它不能替代不良饮食。</li>
+   <li><strong>抗氧化剂防癌：</strong>不仅证据不支持，β 胡萝卜素在吸烟者中反而显著增加肺癌风险，维生素 E 与硒的大规模试验（SELECT）也未显示获益。</li>
+   <li><strong>NMN/NR 抗衰老：</strong>人体临床研究仍处早期，尚无权威机构认可"延缓衰老"功效；在中国，NMN 亦不在保健食品原料目录内，相关"抗衰"宣称属于违规。</li>
+  </ol>
+
+  <h2 class="reveal">全站导航</h2>
+  <ul class="reveal">
+   <li><a href="basics.html">基础知识</a>：保健食品的法律定义、蓝帽子标志、注册与备案的区别、与药品和普通食品的界限、功能声称的法律边界。</li>
+   <li><a href="evidence.html">证据分级</a>：60 类常见品类的证据大表（含更多市售品类速览分组表）与逐条解读，每条标注证据等级与来源机构。</li>
+   <li><a href="by-need.html">按需选择</a>：孕产妇、老年人、素食者、健身人群、儿童、用眼与熬夜人群该补什么，以及哪些人通常不需要补。</li>
+   <li><a href="decide.html">理性决策</a>：20 种常见营养素的逐项决策卡，补不补、食补怎么选、剂量与时机、每月合理花费与价格红旗。</li>
+    <li><a href="traditions.html">流派与传统</a>：人参、燕窝、阿胶等传统滋补与西方草本、概念营销流派的逐条批判性评估，每条给出理性结论。</li>
+    <li><a href="brands.html">品牌辨识</a>：国内外主流品牌的定位、定价与争议分析，教你用查身份、折价格、看模式的方法评估任何品牌。</li>
+   <li><a href="safety.html">安全边界</a>：可耐受最高摄入量（UL）速查表、过量危害、药物相互作用、手术前停用与肝损伤风险。</li>
+   <li><a href="myths.html">误区破解</a>：胶原蛋白"吃啥补啥"、抗氧化剂防癌、天然等于安全、保健品替代药物等常见误区的逐一拆解。</li>
+   <li><a href="buy.html">选购鉴别</a>：蓝帽子查询方法、读懂标签与剂量单位、识别营销话术、进口产品的渠道差异。</li>
+  </ul>
+
+  <div class="callout reveal"><strong>如何使用本站：</strong>先读基础知识建立框架，再按自己的情况查"按需选择"，对感兴趣的品类去"证据分级"看证据强度，购买前核对"选购鉴别"，正在服药或患病者务必先读"安全边界"。</div>
+ </div>
+</main>
+<footer>
+ <div class="wrap">
+  <nav class="foot-nav" aria-label="页脚导航">
+   <a href="index.html">首页</a><a href="basics.html">基础知识</a><a href="evidence.html">证据分级</a><a href="by-need.html">按需选择</a><a href="decide.html">理性决策</a><a href="traditions.html">流派与传统</a><a href="brands.html">品牌辨识</a><a href="safety.html">安全边界</a><a href="myths.html">误区破解</a><a href="buy.html">选购鉴别</a><a href="../index.html">返回总门户</a>
+  </nav>
+  <p class="disclaimer">本站内容仅供科普参考，不构成医疗建议；服用任何保健品前请咨询医生或临床药师，孕妇、儿童、慢性病及服药人群尤其如此。</p>
+ </div>
+</footer>
+<script>
+(function(){
+var doc=document;
+var mb=doc.getElementById('menuBtn'),nv=doc.getElementById('nav');
+if(mb&&nv){
+ mb.addEventListener('click',function(){var open=nv.classList.toggle('open');mb.setAttribute('aria-expanded',open?'true':'false')});
+ nv.addEventListener('click',function(e){if(e.target.closest('a')){nv.classList.remove('open');mb.setAttribute('aria-expanded','false')}});
+}
+var tb=doc.getElementById('themeBtn');
+function label(){var t=doc.documentElement.getAttribute('data-theme');tb.textContent=t==='dark'?'☀':'☾';tb.setAttribute('title',t==='dark'?'切换到浅色主题':'切换到深色主题')}
+if(tb){label();tb.addEventListener('click',function(){var cur=doc.documentElement.getAttribute('data-theme')==='dark'?'light':'dark';doc.documentElement.setAttribute('data-theme',cur);try{localStorage.setItem('theme',cur)}catch(e){}label()})}
+var els=doc.querySelectorAll('.reveal');
+if('IntersectionObserver' in window){
+ var io=new IntersectionObserver(function(es){es.forEach(function(en){if(en.isIntersecting){en.target.classList.add('in');io.unobserve(en.target)}})},{threshold:.06});
+ els.forEach(function(el){io.observe(el)});
+}else{els.forEach(function(el){el.classList.add('in')})}
+})();
+</script>
+<div class="portal"><a href="../index.html">&#8592; 总门户</a></div>
+<button class="toTop" type="button" id="toTop" aria-label="回到顶部">&#8593;</button>
+<script>
+(function(){
+  var b=document.getElementById('toTop');if(!b)return;
+  var rm=window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  function upd(){if(window.scrollY>600){b.classList.add('show')}else{b.classList.remove('show')}}
+  window.addEventListener('scroll',upd,{passive:true});upd();
+  b.addEventListener('click',function(){window.scrollTo({top:0,behavior:rm?'auto':'smooth'});});
+})();
+</script>
+</body>
+</html>

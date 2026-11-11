@@ -1,0 +1,227 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>按需选择：不同人群该补什么、不该补什么</title>
+<script>(function(){var d=document.documentElement;d.classList.add('js');var t=null;try{t=localStorage.getItem('theme')}catch(e){}if(t!=='light'&&t!=='dark'){var h=new Date().getHours();t=(h>=7&&h<17)?'light':'dark'}d.setAttribute('data-theme',t)})();</script>
+<style>
+*{margin:0;padding:0;box-sizing:border-box}
+:root{--bg:#f5f9fa;--surface:#ffffff;--surface2:#e9f1f2;--ink:#1c2d35;--muted:#557079;--accent:#0d7c8a;--accent-2:#095f6a;--on-accent:#ffffff;--line:#d6e3e5;--warn-bg:#fbf3e4;--warn-ink:#77571c;--warn-line:#e8d5ad;--danger:#a2403a;--shadow:0 1px 3px rgba(23,42,50,.08)}
+html[data-theme=dark]{--bg:#0e171c;--surface:#16242b;--surface2:#1b2e36;--ink:#e2edf0;--muted:#95abb3;--accent:#41c0ca;--accent-2:#7cd6dd;--on-accent:#04282c;--line:#273b44;--warn-bg:#2a2517;--warn-ink:#dcc38c;--warn-line:#4a3f22;--danger:#e28f87;--shadow:0 2px 8px rgba(0,0,0,.45)}
+body{font-family:"PingFang SC","Hiragino Sans GB","Microsoft YaHei","Noto Sans SC",sans-serif;background:var(--bg);color:var(--ink);line-height:1.78;font-size:16px}
+a{color:var(--accent);text-decoration:none}
+a:hover{text-decoration:underline}
+.wrap{max-width:960px;margin:0 auto;padding:0 20px}
+.site-head{background:var(--surface);border-bottom:1px solid var(--line);position:sticky;top:0;z-index:50}
+.head-in{display:flex;align-items:center;gap:12px;min-height:56px;position:relative}
+.brand{font-weight:700;color:var(--ink);font-size:1.05rem;white-space:nowrap}
+.site-nav{display:flex;gap:4px;flex-wrap:wrap;margin-left:auto}
+.site-nav a{padding:6px 10px;border-radius:6px;color:var(--muted);font-size:.92rem;white-space:nowrap}
+.site-nav a:hover{color:var(--accent);text-decoration:none;background:var(--surface2)}
+.site-nav a[aria-current=page]{color:var(--on-accent);background:var(--accent)}
+.head-actions{margin-left:auto;display:flex;gap:8px;align-items:center}
+.site-nav + .head-actions{margin-left:0}
+.icon-btn{border:1px solid var(--line);background:var(--surface);color:var(--ink);border-radius:8px;width:40px;height:40px;font-size:1.1rem;cursor:pointer;flex:none;display:inline-flex;align-items:center;justify-content:center}
+html.js .site-nav{display:none}
+html.js .icon-btn.js-menu{display:inline-flex}
+@media(min-width:721px){
+ html.js .site-nav{display:flex}
+ html.js .icon-btn.js-menu{display:none}
+}
+@media(max-width:720px){
+ .head-in{min-height:50px}
+ html.js .site-nav{position:absolute;top:100%;left:0;right:0;background:var(--surface);border-bottom:1px solid var(--line);flex-direction:column;padding:8px 14px 14px;box-shadow:var(--shadow)}
+ html.js .site-nav.open{display:flex}
+ html.js .site-nav a{display:block;padding:10px 8px;border-bottom:1px solid var(--line);font-size:1rem}
+ html.js .site-nav a:last-child{border-bottom:none}
+}
+main{padding:36px 0 50px}
+h1{font-size:1.85rem;line-height:1.4;margin-bottom:14px}
+h2{font-size:1.32rem;margin:2.2em 0 .7em;color:var(--accent-2)}
+html[data-theme=dark] h2{color:var(--accent)}
+h3{font-size:1.06rem;margin:1.6em 0 .5em}
+p{margin:.8em 0}
+.lede{font-size:1.05rem;color:var(--muted)}
+.callout{border-left:4px solid var(--accent);background:var(--surface2);padding:12px 16px;border-radius:0 8px 8px 0;margin:1.2em 0}
+.callout.warn{border-left-color:var(--danger);background:var(--warn-bg);color:var(--warn-ink)}
+.table-scroll{overflow-x:auto;margin:1.2em 0;border:1px solid var(--line);border-radius:10px;background:var(--surface)}
+table{width:100%;border-collapse:collapse;font-size:.94rem;min-width:560px}
+th,td{padding:10px 12px;border-bottom:1px solid var(--line);text-align:left;vertical-align:top}
+th{background:var(--surface2);color:var(--ink);font-weight:600;white-space:nowrap}
+tr:last-child td{border-bottom:none}
+.badge{display:inline-block;font-size:.76rem;line-height:1.7;padding:1px 10px;border-radius:999px;white-space:nowrap;font-weight:600}
+.bA{background:var(--accent);color:var(--on-accent)}
+.bB{border:1.5px solid var(--accent);color:var(--accent)}
+.bC{border:1px solid var(--muted);color:var(--muted)}
+.bD{color:var(--muted)}
+.src{font-size:.85rem;color:var(--muted)}
+ul,ol{padding-left:1.4em;margin:.7em 0}
+li{margin:.4em 0}
+footer{background:var(--surface);border-top:1px solid var(--line);padding:30px 0 36px;margin-top:20px}
+.foot-nav{display:flex;flex-wrap:wrap;gap:6px 16px;margin-bottom:14px;font-size:.92rem}
+.disclaimer{background:var(--warn-bg);border:1px solid var(--warn-line);color:var(--warn-ink);padding:14px 16px;border-radius:10px;font-size:.92rem}
+@media(prefers-reduced-motion:no-preference){
+ .js .reveal{opacity:0;transform:translateY(14px);transition:opacity .6s ease,transform .6s ease}
+ .js .reveal.in{opacity:1;transform:none}
+}
+@media(prefers-reduced-motion:reduce){.reveal{opacity:1!important;transform:none!important}}
+.portal{position:fixed;left:14px;bottom:14px;z-index:99}.portal a{display:inline-block;padding:7px 16px;border-radius:999px;background:rgba(20,20,20,.72);color:#fff;font-size:13px;text-decoration:none;backdrop-filter:blur(4px);font-family:system-ui,sans-serif}.portal a:hover{background:rgba(20,20,20,.9)}
+.toTop{position:fixed;right:14px;bottom:14px;z-index:98;display:none;border:none;cursor:pointer;padding:7px 14px;border-radius:999px;background:rgba(20,20,20,.72);color:#fff;font-size:14px;line-height:1;backdrop-filter:blur(4px);font-family:system-ui,sans-serif}.toTop:hover{background:rgba(20,20,20,.9)}.toTop.show{display:inline-block}
+</style>
+<noscript><style>.reveal{opacity:1!important;transform:none!important}.portal{position:fixed;left:14px;bottom:14px;z-index:99}.portal a{display:inline-block;padding:7px 16px;border-radius:999px;background:rgba(20,20,20,.72);color:#fff;font-size:13px;text-decoration:none;backdrop-filter:blur(4px);font-family:system-ui,sans-serif}.portal a:hover{background:rgba(20,20,20,.9)}
+.toTop{position:fixed;right:14px;bottom:14px;z-index:98;display:none;border:none;cursor:pointer;padding:7px 14px;border-radius:999px;background:rgba(20,20,20,.72);color:#fff;font-size:14px;line-height:1;backdrop-filter:blur(4px);font-family:system-ui,sans-serif}.toTop:hover{background:rgba(20,20,20,.9)}.toTop.show{display:inline-block}
+</style></noscript>
+</head>
+<body>
+<header class="site-head">
+ <div class="wrap head-in">
+  <a class="brand" href="index.html">保健品使用指南</a>
+  <nav id="nav" class="site-nav" aria-label="站内导航">
+   <a href="index.html">首页</a>
+   <a href="basics.html">基础知识</a>
+   <a href="evidence.html">证据分级</a>
+   <a href="by-need.html" aria-current="page">按需选择</a>
+   <a href="decide.html">理性决策</a>
+   <a href="traditions.html">流派与传统</a>
+   <a href="brands.html">品牌辨识</a>
+   <a href="safety.html">安全边界</a>
+   <a href="myths.html">误区破解</a>
+   <a href="buy.html">选购鉴别</a>
+   <a href="../index.html">总门户</a>
+  </nav>
+  <div class="head-actions">
+   <button id="themeBtn" class="icon-btn" type="button" aria-label="切换明暗主题">☾</button>
+   <button id="menuBtn" class="icon-btn js-menu" type="button" aria-expanded="false" aria-controls="nav" aria-label="打开导航菜单">☰</button>
+  </div>
+ </div>
+</header>
+<main>
+ <div class="wrap">
+  <h1 class="reveal">按需选择：你和家人真正可能需要什么</h1>
+  <p class="lede reveal">补充剂的价值高度依赖"人"和"目的"。同一个叶酸，对备孕女性是 A 级推荐，对普通男性则是多余的花销。本页按人群给出建议，参考中国营养学会《中国居民膳食营养素参考摄入量（2023 版）》《中国居民膳食指南》、NIH ODS 面向不同人群的说明，以及梅奥诊所、哈佛公共卫生学院的相关科普。</p>
+
+  <h2 class="reveal">备孕与孕期女性</h2>
+  <ul class="reveal">
+   <li><strong>叶酸 <span class="badge bA">A</span>：</strong>从计划怀孕（或至少孕前三个月）起，每日补充 400 微克合成叶酸直至孕早期结束，可显著降低胎儿神经管缺陷风险。有神经管缺陷妊娠史者需遵医嘱服用更高剂量。</li>
+   <li><strong>铁：</strong>孕期铁需要量上升，是否补充应基于血常规和铁代谢检查，由产科医生决定；盲目补铁会便秘、恶心，过量更危险。</li>
+   <li><strong>DHA：</strong>中国营养学会建议孕期每日摄入 200 毫克 DHA，每周吃两三次富脂鱼通常即可满足；不吃鱼者可考虑藻油 DHA。鱼油类产品应选不含过量维生素 A 的剂型，避免鲨鱼、剑鱼等高汞鱼类。</li>
+   <li><strong>维生素 D：</strong>孕期需求与一般成人相近，缺乏者按医嘱纠正。孕妇属于用药敏感人群，任何补充剂使用前请与产科医生确认。</li>
+  </ul>
+
+  <h2 class="reveal">老年人</h2>
+  <ul class="reveal">
+   <li><strong>维生素 D <span class="badge bA">A</span>（缺乏与骨骼目的）：</strong>老年人皮肤合成维生素 D 能力下降、户外活动减少，中国营养学会推荐 65 岁以上每日 15 微克（600 IU）。<strong>钙：</strong>证据等级 C，优先由奶制品（每日 300 至 500 克奶及奶制品）和豆制品获得，补充剂对骨折预防的证据有限，不足部分再考虑小剂量补差额，避免总摄入长期超过 UL（2000 毫克）。</li>
+   <li><strong>维生素 B12 <span class="badge bA">A</span>：</strong>约一至两成老年人存在 B12 吸收不良，长期服用二甲双胍、质子泵抑制剂者风险更高，建议在检查后按需补充。</li>
+   <li><strong>蛋白质：</strong>老年人易肌肉减少，应保证每公斤体重约 1.0 至 1.2 克蛋白质（肾功能不全者除外）。食欲差、牙口不好的老人，用蛋白粉把蛋白质"补够"是合理的便利手段。</li>
+   <li><strong>多维是否需要：</strong>饮食量小、品种单一的老年人，服用一片常规剂量复合维生素作为保底是可接受的，但不要叠加多种单品造成总量超标。</li>
+  </ul>
+
+  <h2 class="reveal">素食者</h2>
+  <ul class="reveal">
+   <li><strong>维生素 B12 <span class="badge bA">A</span>：</strong>纯素饮食者必须补充 B12 或选用强化食品，这是营养学界的明确共识，否则长期缺乏可致贫血和神经损伤。</li>
+   <li><strong>铁与锌：</strong>植物性铁为非血红素铁，吸收率低；植酸还抑制锌吸收。建议多吃豆类、深色蔬菜并搭配富含维生素 C 的水果，月经量大的女性素食者应定期检查铁蛋白。</li>
+   <li><strong>Omega-3：</strong>亚麻酸转化为 DHA 的效率很低，不吃鱼者可考虑藻油 DHA。</li>
+   <li><strong>维生素 D、钙、硒：</strong>视日照和食材结构而定，必要时检测后补充。</li>
+  </ul>
+
+  <h2 class="reveal">健身与运动人群</h2>
+  <ul class="reveal">
+   <li><strong>蛋白质：</strong>力量训练者的每日蛋白质总量目标约为每公斤体重 1.4 至 2.0 克，这一"总量"才是有证据的核心；蛋白粉（乳清、大豆分离蛋白等）只是达标工具，与食物蛋白无本质区别。</li>
+   <li><strong>肌酸 <span class="badge bB">B</span>（一水肌酸、增肌与短时高强度表现）：</strong>一水肌酸是运动补充剂中证据最充分的一种，国际运动营养学会等机构认可其安全性与有效性；它不属于"必需"，无力量训练需求者不需要，且患肾病者不建议使用。逐项决策见<a href="decide.html#creatine">理性决策</a>页肌酸卡。</li>
+   <li><strong>警惕增肌类"黑产品"：</strong>某些网络渠道的"增肌粉""促睾"产品被检出非法添加蛋白同化激素，可致肝损伤、内分泌紊乱，详见<a href="safety.html">安全边界</a>。</li>
+  </ul>
+
+  <h2 class="reveal">儿童与青少年</h2>
+  <p class="reveal">正常饮食能量与营养充足的儿童不需要任何补充剂。明确有据可用的例外：婴儿出生后数日内开始每日补充 400 IU 维生素 D（中国、美国儿科建议一致），母乳喂养婴儿尤其如此；确诊缺铁或维生素 D 缺乏的儿童按医嘱治疗。儿童误服成人铁剂是常见中毒原因，所有补充剂都应放在儿童无法取用处。"儿童补脑""增高"类产品没有可靠证据，部分甚至非法添加激素。</p>
+
+  <h2 class="reveal">熬夜、久坐与用眼人群</h2>
+  <ul class="reveal">
+   <li><strong>褪黑素 <span class="badge bB">B</span>：</strong>倒班、跨时区旅行者可在出行前或目标入睡时间前小剂量（0.5 至 3 毫克）短期使用；长期慢性失眠应首选失眠认知行为治疗并就医，而不是长期依赖褪黑素。它不能"抵消"熬夜本身的危害。</li>
+   <li><strong>叶黄素：</strong>对已有中期老年黄斑变性者有延缓进展的证据（AREDS2），对年轻"屏幕族"预防近视或视疲劳没有可靠证据。护眼的最有效措施仍是"20-20-20"休息法则、充足户外活动与正确的用眼姿势。</li>
+   <li><strong>B 族"抗疲劳"：</strong>疲劳感不是 B 族缺乏的特异性症状；缺乏者补充有效，不缺者补充无益。持续疲劳应就医排查睡眠呼吸暂停、贫血、甲状腺问题等。</li>
+  </ul>
+
+   <h2 class="reveal">老年肌少症人群</h2>
+   <ul class="reveal">
+    <li><strong>训练与蛋白质是主力：</strong>各国共识一致认为，防治肌少症的核心是抗阻训练加足量蛋白质（每公斤体重 1.0 至 1.2 克及以上，肾功能不全者除外），任何补充剂都只是辅助。</li>
+    <li><strong>蛋白粉的位置：</strong>牙口差、食欲差的老人用蛋白粉（或强化蛋白的奶制品）把蛋白质"补够"是合理的便利手段，但它不提供食物蛋白附带的其他营养，也不能替代训练。</li>
+    <li><strong>维生素 D：</strong>老年人缺乏风险高，充足摄入配合训练对肌肉与骨骼有支持作用（中国营养学会推荐 65 岁以上每日 15 微克），但不要指望大剂量维生素 D 单独"长肌肉"。</li>
+    <li><strong>不要囤"增肌抗衰"产品：</strong>针对老人的"肌少症专用""细胞抗衰"配方溢价高、证据弱；确诊肌少症应在老年科或康复科医生指导下制定运动与营养方案。</li>
+   </ul>
+
+   <h2 class="reveal">备孕男性</h2>
+   <ul class="reveal">
+    <li><strong>叶酸与锌：</strong>系统评价提示，叶酸（单独或联合锌）对部分不育男性的精液参数或有小幅改善，但对实际妊娠率的影响证据不足；精液正常的男性常规补充叶酸、锌并不构成机构推荐，不要被"备孕男性专用配方"的高价收割。</li>
+    <li><strong>更有效的措施：</strong>戒烟、限酒、控制体重、避免高温环境（久坐、桑拿）与规律作息，对精子质量的改善证据远强于任何补充剂。</li>
+    <li><strong>不育先查因：</strong>备孕一年未成功应夫妻双方一起就诊生殖医学门诊，精液检查比自购补剂更能定位问题。</li>
+   </ul>
+
+   <h2 class="reveal">减重期人群</h2>
+   <ul class="reveal">
+    <li><strong>蛋白质：</strong>减重期保持蛋白质摄入（配合力量训练）有助保留瘦体重，饮食不足时用蛋白粉补差额是合理用法。</li>
+    <li><strong>维生素 D：</strong>肥胖者维生素 D 缺乏风险更高，减重期建议按检测情况补充。</li>
+    <li><strong>电解质：</strong>低碳水饮食或大量出汗者注意钠、钾、镁的摄入，优先从食物与合理使用电解质饮料解决，不需要"燃脂电解质胶囊"。</li>
+    <li><strong>复合维生素：</strong>只有极低能量饮食、代谢手术后的极端节食情形，才需要在医生或营养师指导下使用复合维生素；普通"少吃一点"的减重不需要。</li>
+    <li><strong>警惕减肥类产品：</strong>见<a href="buy.html">选购鉴别</a>页高危品类清单，"月瘦二十斤"类产品多为非法添加药物，是急性中毒与肝损伤高发区。</li>
+   </ul>
+
+   <h2 class="reveal">术后恢复期人群</h2>
+   <ul class="reveal">
+    <li><strong>遵医嘱是第一原则：</strong>术后营养方案（包括是否需要额外补充）由手术团队与临床营养科决定，不要自行"大补"。</li>
+    <li><strong>多数常规补充剂要暂停：</strong>涉及出血风险的鱼油、银杏、高剂量维生素 E 等通常要求术前一到两周停用并持续到医生许可，详见安全边界页。</li>
+    <li><strong>恢复期真正重要的事：</strong>按医嘱的能量与蛋白质目标进食、循序渐进活动、按时复诊；"术后专用营养包""加速愈合胶囊"大多没有与其价格相称的证据。</li>
+    <li><strong>入院时如实申报：</strong>把正在使用的所有补充剂告知医生与药师，包括"纯天然"产品。</li>
+   </ul>
+
+  <h2 class="reveal">哪些人通常不需要补</h2>
+  <ol class="reveal">
+   <li>饮食结构合理（每天有奶或豆制品、适量肉蛋鱼、足量蔬菜水果和全谷物）、无特殊生理阶段的健康成年人，不需要复合维生素、蛋白粉或任何"日常保养"补充剂。</li>
+   <li>不贫血、非孕期的男性和绝经后女性，不需要常规补铁；铁过量与糖尿病、心血管风险及血色病相关。</li>
+   <li>日照充足、户外活动多的人群，一般不需要大剂量维生素 D；高剂量（如每日 4000 IU 以上）自行长期服用并不可取。</li>
+   <li>对"抗衰老""提高免疫力""排毒"目的的任何补充剂，目前均无 A 或 B 级证据支持，详见<a href="myths.html">误区破解</a>。</li>
+  </ol>
+  <p class="src reveal">一个实用原则：先改善两周的饮食记录，再决定要不要补。多数人真正需要的补充剂不超过一至两种，"一把一把吃"几乎必然有总量超标的隐患，具体上限见<a href="safety.html">安全边界</a>。</p>
+
+  <div class="callout warn reveal"><strong>再次提醒：</strong>孕产妇、儿童、慢性病患者和长期服药者的补充决策应个体化，请把本页内容作为就诊前的背景知识，而非自行用药的依据。</div>
+ </div>
+</main>
+<footer>
+ <div class="wrap">
+  <nav class="foot-nav" aria-label="页脚导航">
+   <a href="index.html">首页</a><a href="basics.html">基础知识</a><a href="evidence.html">证据分级</a><a href="by-need.html">按需选择</a><a href="decide.html">理性决策</a><a href="traditions.html">流派与传统</a><a href="brands.html">品牌辨识</a><a href="safety.html">安全边界</a><a href="myths.html">误区破解</a><a href="buy.html">选购鉴别</a><a href="../index.html">返回总门户</a>
+  </nav>
+  <p class="disclaimer">本站内容仅供科普参考，不构成医疗建议；服用任何保健品前请咨询医生或临床药师，孕妇、儿童、慢性病及服药人群尤其如此。</p>
+ </div>
+</footer>
+<script>
+(function(){
+var doc=document;
+var mb=doc.getElementById('menuBtn'),nv=doc.getElementById('nav');
+if(mb&&nv){
+ mb.addEventListener('click',function(){var open=nv.classList.toggle('open');mb.setAttribute('aria-expanded',open?'true':'false')});
+ nv.addEventListener('click',function(e){if(e.target.closest('a')){nv.classList.remove('open');mb.setAttribute('aria-expanded','false')}});
+}
+var tb=doc.getElementById('themeBtn');
+function label(){var t=doc.documentElement.getAttribute('data-theme');tb.textContent=t==='dark'?'☀':'☾';tb.setAttribute('title',t==='dark'?'切换到浅色主题':'切换到深色主题')}
+if(tb){label();tb.addEventListener('click',function(){var cur=doc.documentElement.getAttribute('data-theme')==='dark'?'light':'dark';doc.documentElement.setAttribute('data-theme',cur);try{localStorage.setItem('theme',cur)}catch(e){}label()})}
+var els=doc.querySelectorAll('.reveal');
+if('IntersectionObserver' in window){
+ var io=new IntersectionObserver(function(es){es.forEach(function(en){if(en.isIntersecting){en.target.classList.add('in');io.unobserve(en.target)}})},{threshold:.06});
+ els.forEach(function(el){io.observe(el)});
+}else{els.forEach(function(el){el.classList.add('in')})}
+})();
+</script>
+<div class="portal"><a href="../index.html">&#8592; 总门户</a></div>
+<button class="toTop" type="button" id="toTop" aria-label="回到顶部">&#8593;</button>
+<script>
+(function(){
+  var b=document.getElementById('toTop');if(!b)return;
+  var rm=window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  function upd(){if(window.scrollY>600){b.classList.add('show')}else{b.classList.remove('show')}}
+  window.addEventListener('scroll',upd,{passive:true});upd();
+  b.addEventListener('click',function(){window.scrollTo({top:0,behavior:rm?'auto':'smooth'});});
+})();
+</script>
+</body>
+</html>

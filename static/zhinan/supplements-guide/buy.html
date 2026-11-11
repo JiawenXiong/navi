@@ -1,0 +1,214 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>选购鉴别：查蓝帽子、读懂标签、避开话术</title>
+<script>(function(){var d=document.documentElement;d.classList.add('js');var t=null;try{t=localStorage.getItem('theme')}catch(e){}if(t!=='light'&&t!=='dark'){var h=new Date().getHours();t=(h>=7&&h<17)?'light':'dark'}d.setAttribute('data-theme',t)})();</script>
+<style>
+*{margin:0;padding:0;box-sizing:border-box}
+:root{--bg:#f5f9fa;--surface:#ffffff;--surface2:#e9f1f2;--ink:#1c2d35;--muted:#557079;--accent:#0d7c8a;--accent-2:#095f6a;--on-accent:#ffffff;--line:#d6e3e5;--warn-bg:#fbf3e4;--warn-ink:#77571c;--warn-line:#e8d5ad;--danger:#a2403a;--shadow:0 1px 3px rgba(23,42,50,.08)}
+html[data-theme=dark]{--bg:#0e171c;--surface:#16242b;--surface2:#1b2e36;--ink:#e2edf0;--muted:#95abb3;--accent:#41c0ca;--accent-2:#7cd6dd;--on-accent:#04282c;--line:#273b44;--warn-bg:#2a2517;--warn-ink:#dcc38c;--warn-line:#4a3f22;--danger:#e28f87;--shadow:0 2px 8px rgba(0,0,0,.45)}
+body{font-family:"PingFang SC","Hiragino Sans GB","Microsoft YaHei","Noto Sans SC",sans-serif;background:var(--bg);color:var(--ink);line-height:1.78;font-size:16px}
+a{color:var(--accent);text-decoration:none}
+a:hover{text-decoration:underline}
+.wrap{max-width:960px;margin:0 auto;padding:0 20px}
+.site-head{background:var(--surface);border-bottom:1px solid var(--line);position:sticky;top:0;z-index:50}
+.head-in{display:flex;align-items:center;gap:12px;min-height:56px;position:relative}
+.brand{font-weight:700;color:var(--ink);font-size:1.05rem;white-space:nowrap}
+.site-nav{display:flex;gap:4px;flex-wrap:wrap;margin-left:auto}
+.site-nav a{padding:6px 10px;border-radius:6px;color:var(--muted);font-size:.92rem;white-space:nowrap}
+.site-nav a:hover{color:var(--accent);text-decoration:none;background:var(--surface2)}
+.site-nav a[aria-current=page]{color:var(--on-accent);background:var(--accent)}
+.head-actions{margin-left:auto;display:flex;gap:8px;align-items:center}
+.site-nav + .head-actions{margin-left:0}
+.icon-btn{border:1px solid var(--line);background:var(--surface);color:var(--ink);border-radius:8px;width:40px;height:40px;font-size:1.1rem;cursor:pointer;flex:none;display:inline-flex;align-items:center;justify-content:center}
+html.js .site-nav{display:none}
+html.js .icon-btn.js-menu{display:inline-flex}
+@media(min-width:721px){
+ html.js .site-nav{display:flex}
+ html.js .icon-btn.js-menu{display:none}
+}
+@media(max-width:720px){
+ .head-in{min-height:50px}
+ html.js .site-nav{position:absolute;top:100%;left:0;right:0;background:var(--surface);border-bottom:1px solid var(--line);flex-direction:column;padding:8px 14px 14px;box-shadow:var(--shadow)}
+ html.js .site-nav.open{display:flex}
+ html.js .site-nav a{display:block;padding:10px 8px;border-bottom:1px solid var(--line);font-size:1rem}
+ html.js .site-nav a:last-child{border-bottom:none}
+}
+main{padding:36px 0 50px}
+h1{font-size:1.85rem;line-height:1.4;margin-bottom:14px}
+h2{font-size:1.32rem;margin:2.2em 0 .7em;color:var(--accent-2)}
+html[data-theme=dark] h2{color:var(--accent)}
+h3{font-size:1.06rem;margin:1.6em 0 .5em}
+p{margin:.8em 0}
+.lede{font-size:1.05rem;color:var(--muted)}
+.callout{border-left:4px solid var(--accent);background:var(--surface2);padding:12px 16px;border-radius:0 8px 8px 0;margin:1.2em 0}
+.callout.warn{border-left-color:var(--danger);background:var(--warn-bg);color:var(--warn-ink)}
+.table-scroll{overflow-x:auto;margin:1.2em 0;border:1px solid var(--line);border-radius:10px;background:var(--surface)}
+table{width:100%;border-collapse:collapse;font-size:.94rem;min-width:600px}
+th,td{padding:10px 12px;border-bottom:1px solid var(--line);text-align:left;vertical-align:top}
+th{background:var(--surface2);color:var(--ink);font-weight:600;white-space:nowrap}
+tr:last-child td{border-bottom:none}
+.badge{display:inline-block;font-size:.76rem;line-height:1.7;padding:1px 10px;border-radius:999px;white-space:nowrap;font-weight:600}
+.bA{background:var(--accent);color:var(--on-accent)}
+.bB{border:1.5px solid var(--accent);color:var(--accent)}
+.bC{border:1px solid var(--muted);color:var(--muted)}
+.bD{color:var(--muted)}
+.src{font-size:.85rem;color:var(--muted)}
+ul,ol{padding-left:1.4em;margin:.7em 0}
+li{margin:.4em 0}
+footer{background:var(--surface);border-top:1px solid var(--line);padding:30px 0 36px;margin-top:20px}
+.foot-nav{display:flex;flex-wrap:wrap;gap:6px 16px;margin-bottom:14px;font-size:.92rem}
+.disclaimer{background:var(--warn-bg);border:1px solid var(--warn-line);color:var(--warn-ink);padding:14px 16px;border-radius:10px;font-size:.92rem}
+@media(prefers-reduced-motion:no-preference){
+ .js .reveal{opacity:0;transform:translateY(14px);transition:opacity .6s ease,transform .6s ease}
+ .js .reveal.in{opacity:1;transform:none}
+}
+@media(prefers-reduced-motion:reduce){.reveal{opacity:1!important;transform:none!important}}
+.portal{position:fixed;left:14px;bottom:14px;z-index:99}.portal a{display:inline-block;padding:7px 16px;border-radius:999px;background:rgba(20,20,20,.72);color:#fff;font-size:13px;text-decoration:none;backdrop-filter:blur(4px);font-family:system-ui,sans-serif}.portal a:hover{background:rgba(20,20,20,.9)}
+.toTop{position:fixed;right:14px;bottom:14px;z-index:98;display:none;border:none;cursor:pointer;padding:7px 14px;border-radius:999px;background:rgba(20,20,20,.72);color:#fff;font-size:14px;line-height:1;backdrop-filter:blur(4px);font-family:system-ui,sans-serif}.toTop:hover{background:rgba(20,20,20,.9)}.toTop.show{display:inline-block}
+</style>
+<noscript><style>.reveal{opacity:1!important;transform:none!important}.portal{position:fixed;left:14px;bottom:14px;z-index:99}.portal a{display:inline-block;padding:7px 16px;border-radius:999px;background:rgba(20,20,20,.72);color:#fff;font-size:13px;text-decoration:none;backdrop-filter:blur(4px);font-family:system-ui,sans-serif}.portal a:hover{background:rgba(20,20,20,.9)}
+.toTop{position:fixed;right:14px;bottom:14px;z-index:98;display:none;border:none;cursor:pointer;padding:7px 14px;border-radius:999px;background:rgba(20,20,20,.72);color:#fff;font-size:14px;line-height:1;backdrop-filter:blur(4px);font-family:system-ui,sans-serif}.toTop:hover{background:rgba(20,20,20,.9)}.toTop.show{display:inline-block}
+</style></noscript>
+</head>
+<body>
+<header class="site-head">
+ <div class="wrap head-in">
+  <a class="brand" href="index.html">保健品使用指南</a>
+  <nav id="nav" class="site-nav" aria-label="站内导航">
+   <a href="index.html">首页</a>
+   <a href="basics.html">基础知识</a>
+   <a href="evidence.html">证据分级</a>
+   <a href="by-need.html">按需选择</a>
+   <a href="decide.html">理性决策</a>
+   <a href="traditions.html">流派与传统</a>
+   <a href="brands.html">品牌辨识</a>
+   <a href="safety.html">安全边界</a>
+   <a href="myths.html">误区破解</a>
+   <a href="buy.html" aria-current="page">选购鉴别</a>
+   <a href="../index.html">总门户</a>
+  </nav>
+  <div class="head-actions">
+   <button id="themeBtn" class="icon-btn" type="button" aria-label="切换明暗主题">☾</button>
+   <button id="menuBtn" class="icon-btn js-menu" type="button" aria-expanded="false" aria-controls="nav" aria-label="打开导航菜单">☰</button>
+  </div>
+ </div>
+</header>
+<main>
+ <div class="wrap">
+  <h1 class="reveal">选购鉴别：把钱花在合规产品上</h1>
+  <p class="lede reveal">选购环节的目标只有一个：以合理价格买到"成分、剂量、来源都清楚"的合规产品。本页步骤依据国家市场监督管理总局发布的《保健食品注册与备案管理办法》《保健食品标注警示用语指南》以及特殊食品信息查询平台的公开说明，并结合 NIH ODS 关于阅读补充剂标签的消费者指引。</p>
+
+  <h2 class="reveal">第一步：查蓝帽子，三十秒完成身份核验</h2>
+  <ol class="reveal">
+   <li>在产品包装上找到天蓝色"蓝帽子"标志及其下方的注册号或备案号（"国食健注"或"食健备"字样）。</li>
+   <li>打开市场监管总局"特殊食品信息查询平台"（可在搜索引擎检索其官方网址，或从市场监管总局官网入口进入）。</li>
+   <li>输入注册备案号或产品名称，核对查询结果与包装上的产品名称、生产企业、保健功能、功效成分及含量是否一致。</li>
+   <li>注意有效期：注册证书信息会显示是否在有效期内。查不到、信息对不上、或包装根本没有蓝帽子却宣称保健功能，就不要买。</li>
+  </ol>
+  <p class="reveal">这一步能同时挡掉两类问题：无资质的"固体饮料冒充保健品"，以及盗用其他产品批号的套牌货。</p>
+
+  <h2 class="reveal">第二步：读懂标签，重点看六项信息</h2>
+  <ul class="reveal">
+   <li><strong>功效成分及含量：</strong>真正起作用的成分是什么、每份含多少。含糊的"因子""精华""复合物"是坏信号。</li>
+   <li><strong>适宜人群与不适宜人群：</strong>合法产品必须明确标注。看到"适宜人群：全部人群"反而可疑，因为几乎没有营养干预对所有人同样适用。</li>
+   <li><strong>食用量与食用方法：</strong>以此为服用基准，不要自行加量。</li>
+   <li><strong>警示语：</strong>必须有"保健食品不是药物，不能代替药物治疗疾病"，且警示区面积不少于标签所在面的百分之二十。</li>
+   <li><strong>生产日期与保质期、生产企业与许可证号。</strong></li>
+   <li><strong>过敏原与辅料表：</strong>对麸质、乳制品、大豆等过敏者尤其重要。</li>
+  </ul>
+
+  <h2 class="reveal">第三步：看懂数字，单位换算不上当</h2>
+  <div class="table-scroll reveal">
+   <table>
+    <thead><tr><th>常见单位</th><th>换算与陷阱</th></tr></thead>
+    <tbody>
+     <tr><td>IU 与微克（维生素 D）</td><td>维生素 D 的 400 IU 等于 10 微克。对比价格与剂量时务必统一单位，"每粒 5000 IU"远超成人推荐量。</td></tr>
+     <tr><td>微克与毫克</td><td>1000 微克等于 1 毫克。B12 标注 1000 微克很常见，因吸收率低属常用剂量；但叶酸若标 5000 微克（5 毫克）则属治疗剂量，须遵医嘱。</td></tr>
+     <tr><td>"每份"与"每粒"</td><td>某些产品一份为两粒甚至一勺，热量与剂量都要按份计算，否则会低估摄入。</td></tr>
+     <tr><td>百分比（NRV）</td><td>营养素参考值百分比告诉你一份占每日参考量的多少，用来快速判断剂量是"补缺"还是"逼近上限"。</td></tr>
+    </tbody>
+   </table>
+  </div>
+  <p class="src reveal">对照成人 UL 上限使用这些数字，详见<a href="safety.html">安全边界</a>。</p>
+
+   <h2 class="reveal">剂型与形态：多数差异是溢价，少数是真问题</h2>
+   <p class="reveal">同一成分的片剂、胶囊、软糖、液体、缓释之间，吸收率差异多数不大，不足以支撑数倍价差。真正值得留意的几件事：</p>
+   <ul class="reveal">
+    <li><strong>片剂与胶囊：</strong>最常规、最便宜、剂量最准的形态。压片与胶囊崩解合格的普通产品即可，吞咽困难者再考虑液体或颗粒。</li>
+    <li><strong>软糖：</strong>最大的问题是含糖与剂量精度：为改善口感加入糖或糖醇，多种软糖叠吃会带来不必要的糖摄入；软糖的生产工艺使活性成分含量偏差比片剂更大，USP 等第三方认证的软糖也很少。给孩子选软糖还要考虑"像糖果"带来的误服风险，务必存放在儿童拿不到的地方。</li>
+    <li><strong>液体与滴剂：</strong>吸收略快但意义有限，剂量刻度的准确性更关键；维生素 D 滴剂是婴儿场景的合理形态，成人多数不必为"液体更好吸收"多付钱。</li>
+    <li><strong>缓释（缓释片、分层释放胶囊）：</strong>对多数营养素意义有限。维生素 C、B 族等水溶性成分分次小剂量服用即可，"缓释技术"常是溢价话术；真正需要控释的是部分药品而非保健品。</li>
+    <li><strong>泡腾片：</strong>注意钠含量与含糖量，价格也普遍高于同剂量普通片。</li>
+   </ul>
+   <p class="src reveal">选剂型的原则：先看成分与剂量是否清楚，再看单位剂量价格；剂型只为吞咽、口感、婴幼儿滴服等实际需求付费，不为"吸收故事"付费。</p>
+
+  <h2 class="reveal">第四步：过滤营销话术</h2>
+  <p class="reveal">以下任一表述出现，就把该产品从候选中删除：</p>
+  <ul class="reveal">
+   <li>宣称治疗或治愈疾病："根治""治愈""替代药物""降压降糖"。</li>
+   <li>绝对化与恐吓式营销："百分百有效""再不排毒素就晚了""全家必备"。</li>
+   <li>伪科学概念："酸性体质""细胞级排毒""疏通血管"。</li>
+   <li>权威伪装：假借"解放军医院""三甲专家""诺贝尔技术"名义，或使用白大褂"专家"头像直播带货。</li>
+   <li>饥饿营销与囤货话术："仅限今天""三个月见效无效退款"。</li>
+   <li>用"高科技名词堆砌"代替成分表：量子、负离子、小分子活化等。</li>
+  </ul>
+
+  <h2 class="reveal">第五步：进口产品分清两条渠道</h2>
+  <ul class="reveal">
+   <li><strong>一般贸易进口：</strong>经注册或备案取得蓝帽子，与国产产品同等监管，首选。</li>
+   <li><strong>跨境电商零售进口（个人自用）：</strong>按个人物品监管，无蓝帽子，执行原产国标准；购买前应确认平台与商家的资质，认清"个人自用、不允许二次销售"的性质，并自行核对英文标签成分与剂量。此类商品页面同样不得宣称疾病治疗功能。</li>
+   <li><strong>海淘转运或代购：</strong>无中文标签、无中国监管背书，出现质量纠纷维权困难，不建议用于长期服用的品类。</li>
+  </ul>
+  <p class="reveal">无论哪条渠道，进口都不是质量保证：FDA 对膳食补充剂实行上市后监管，NIH ODS 建议美国消费者优先选择通过 USP、NSF 等第三方自愿认证的产品，这类认证核查的是"标签所写与瓶内所装一致、无有害污染"，可作跨境选购的参考。</p>
+
+  <h2 class="reveal">第六步：高危品类清单，能不碰就不碰</h2>
+  <p class="reveal">NMPA 与市场监管部门历年抽检和警方通报显示，非法添加最集中的品类是：减肥类（非法添加西布曲明、酚酞）、"壮阳"类（西地那非、他达拉非）、降糖类（二甲双胍、格列本脲）、增高类与部分"增肌促睾"产品（激素类成分）。这些产品实质是无标识药物，剂量不可控，是急性中毒与肝损伤的高发区。判断线索包括：见效异常快、要求大量囤货、只在私域微信群或无资质网店销售、价格与"疗程"深度绑定。</p>
+
+  <h2 class="reveal">第七步：留好凭证，遇到问题依法维权</h2>
+  <p class="reveal">保留订单截图、发票、包装与实物照片。发现虚假宣传或可疑产品，可拨打 12315 向市场监管部门投诉举报；服用后出现不适，先停用并就医，向医生出示产品及成分表，并可同步向当地药品不良反应监测机构或市场监管部门报告。</p>
+
+  <div class="callout reveal"><strong>一句话总结：</strong>先查证（蓝帽子可查）、再看表（成分剂量清楚）、后比价（单位统一、拒绝故事溢价）。选购之前，请回到<a href="evidence.html">证据分级</a>确认这个品类本身值不值得买：合规只是底线，有效才是目的。</div>
+ </div>
+</main>
+<footer>
+ <div class="wrap">
+  <nav class="foot-nav" aria-label="页脚导航">
+   <a href="index.html">首页</a><a href="basics.html">基础知识</a><a href="evidence.html">证据分级</a><a href="by-need.html">按需选择</a><a href="decide.html">理性决策</a><a href="traditions.html">流派与传统</a><a href="brands.html">品牌辨识</a><a href="safety.html">安全边界</a><a href="myths.html">误区破解</a><a href="buy.html">选购鉴别</a><a href="../index.html">返回总门户</a>
+  </nav>
+  <p class="disclaimer">本站内容仅供科普参考，不构成医疗建议；服用任何保健品前请咨询医生或临床药师，孕妇、儿童、慢性病及服药人群尤其如此。</p>
+ </div>
+</footer>
+<script>
+(function(){
+var doc=document;
+var mb=doc.getElementById('menuBtn'),nv=doc.getElementById('nav');
+if(mb&&nv){
+ mb.addEventListener('click',function(){var open=nv.classList.toggle('open');mb.setAttribute('aria-expanded',open?'true':'false')});
+ nv.addEventListener('click',function(e){if(e.target.closest('a')){nv.classList.remove('open');mb.setAttribute('aria-expanded','false')}});
+}
+var tb=doc.getElementById('themeBtn');
+function label(){var t=doc.documentElement.getAttribute('data-theme');tb.textContent=t==='dark'?'☀':'☾';tb.setAttribute('title',t==='dark'?'切换到浅色主题':'切换到深色主题')}
+if(tb){label();tb.addEventListener('click',function(){var cur=doc.documentElement.getAttribute('data-theme')==='dark'?'light':'dark';doc.documentElement.setAttribute('data-theme',cur);try{localStorage.setItem('theme',cur)}catch(e){}label()})}
+var els=doc.querySelectorAll('.reveal');
+if('IntersectionObserver' in window){
+ var io=new IntersectionObserver(function(es){es.forEach(function(en){if(en.isIntersecting){en.target.classList.add('in');io.unobserve(en.target)}})},{threshold:.06});
+ els.forEach(function(el){io.observe(el)});
+}else{els.forEach(function(el){el.classList.add('in')})}
+})();
+</script>
+<div class="portal"><a href="../index.html">&#8592; 总门户</a></div>
+<button class="toTop" type="button" id="toTop" aria-label="回到顶部">&#8593;</button>
+<script>
+(function(){
+  var b=document.getElementById('toTop');if(!b)return;
+  var rm=window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  function upd(){if(window.scrollY>600){b.classList.add('show')}else{b.classList.remove('show')}}
+  window.addEventListener('scroll',upd,{passive:true});upd();
+  b.addEventListener('click',function(){window.scrollTo({top:0,behavior:rm?'auto':'smooth'});});
+})();
+</script>
+</body>
+</html>

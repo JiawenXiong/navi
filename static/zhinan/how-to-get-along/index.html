@@ -7,7 +7,7 @@
 <script>
 (function(){var t=null;try{t=localStorage.getItem('theme')}catch(e){}
 if(t!=='light'&&t!=='dark'){var h=new Date().getHours();t=(h>=7&&h<17)?'light':'dark'}
-document.documentElement.setAttribute('data-theme',t);})();
+document.documentElement.setAttribute('data-theme',t);document.documentElement.classList.add('js')})();
 </script>
 <style>
 *{margin:0;padding:0;box-sizing:border-box}
@@ -15,12 +15,14 @@ document.documentElement.setAttribute('data-theme',t);})();
 --bg:#f6f2ec;--bg-trans:rgba(246,242,236,.96);--text:#332e28;--accent:#b4552d;--accent-soft:#cf9a7c;
 --card:#fffdf8;--border:#e7dfd3;--subtle:#faf4ec;--subtle-border:#ead9cb;--muted:#8a8177;--menu:#6b6259;
 --menu-hover:#efe6da;--out-border:#e0d5c6;--li:#44403a;--say:#4d463e;--secondary:#7c7267;--lede:#5c554c;
---on-accent:#fdf9f4;--hover-border:#dcc7b8;--shadow:rgba(120,90,60,.10)}
+--on-accent:#fdf9f4;--hover-border:#dcc7b8;--shadow:rgba(120,90,60,.10);
+--portal:rgba(20,20,20,.72);--portal-hover:rgba(20,20,20,.9);--on-portal:#ffffff}
 [data-theme="dark"]{
 --bg:#241f1b;--bg-trans:rgba(36,31,27,.96);--text:#f0e9dd;--accent:#e38b5f;--accent-soft:#c97a50;
 --card:#2c2721;--border:#3d362d;--subtle:#332c25;--subtle-border:#4a4136;--muted:#b5aa9a;--menu:#c6bbaa;
 --menu-hover:#3b332b;--out-border:#4a4136;--li:#ded4c5;--say:#ece2d2;--secondary:#b5aa9a;--lede:#cbc1b1;
---on-accent:#241f1b;--hover-border:#5c4f40;--shadow:rgba(0,0,0,.35)}
+--on-accent:#241f1b;--hover-border:#5c4f40;--shadow:rgba(0,0,0,.35);
+--portal:rgba(240,233,221,.16);--portal-hover:rgba(240,233,221,.26);--on-portal:#f0e9dd}
 @media (prefers-reduced-motion:no-preference){html{scroll-behavior:smooth}}
 body{background:var(--bg);color:var(--text);font:16px/1.75 -apple-system,BlinkMacSystemFont,"Segoe UI","PingFang SC","Hiragino Sans GB","Microsoft YaHei",sans-serif}
 .wrap{max-width:880px;margin:0 auto;padding:0 20px}
@@ -29,12 +31,26 @@ a{color:var(--accent)}
 .top-in{max-width:1080px;margin:0 auto;padding:0 20px;display:flex;align-items:center;gap:14px;height:56px}
 .brand{font-family:Georgia,"Songti SC",STSong,SimSun,serif;font-weight:700;color:var(--text);text-decoration:none;font-size:17px;white-space:nowrap}
 .brand span{color:var(--accent)}
-.menu{display:flex;gap:4px;flex:1;min-width:0;overflow-x:auto;white-space:nowrap;-webkit-overflow-scrolling:touch;scrollbar-width:none}
+.menu{display:flex;flex-wrap:wrap;gap:4px;row-gap:6px;flex:1;min-width:0}
 .menu::-webkit-scrollbar{display:none}
 .menu a{color:var(--menu);text-decoration:none;font-size:14.5px;padding:4px 12px;border-radius:999px;transition:color .2s,background .2s}
 .menu a:hover{color:var(--accent);background:var(--menu-hover)}
 .menu a[aria-current]{color:var(--on-accent);background:var(--accent)}
 .menu a.out{border:1px solid var(--out-border);padding:3px 12px}
+.nav-toggle{display:none;flex-shrink:0;width:36px;height:36px;border-radius:10px;border:1px solid var(--out-border);background:var(--card);color:var(--menu);font-size:17px;line-height:1;cursor:pointer}
+.nav-toggle:hover{color:var(--accent);border-color:var(--hover-border)}
+@media (max-width:720px){
+.top-in{height:52px;gap:10px}
+html.js .nav-toggle{display:block}
+html.js .theme-btn{margin-left:auto}
+html.js .menu{position:absolute;top:100%;left:0;right:0;flex-direction:column;flex-wrap:nowrap;gap:2px;max-height:0;overflow:hidden;padding:0 14px;background:var(--bg-trans);backdrop-filter:blur(6px);border-bottom:1px solid var(--border);box-shadow:0 14px 24px var(--shadow,rgba(120,90,60,.10))}
+html.js .menu.open{max-height:420px;padding:10px 14px 14px}
+html.js .menu a{display:block;font-size:15px;padding:9px 12px;border-radius:10px}
+html.js .menu a.out{border:1px solid var(--out-border);text-align:center}
+}
+@media (max-width:720px) and (prefers-reduced-motion:no-preference){
+html.js .menu{transition:max-height .25s ease,padding .25s ease}
+}
 .theme-btn{flex-shrink:0;width:34px;height:34px;border-radius:50%;border:1px solid var(--out-border);background:var(--card);color:var(--menu);font-size:15px;line-height:1;cursor:pointer}
 .theme-btn:hover{color:var(--accent);border-color:var(--hover-border)}
 .hero{padding:64px 0 20px}
@@ -42,7 +58,7 @@ a{color:var(--accent)}
 h1{font-family:Georgia,"Songti SC",STSong,SimSun,serif;font-size:clamp(30px,5vw,44px);line-height:1.25;letter-spacing:.02em;font-weight:700}
 .lede{margin-top:18px;font-size:17px;color:var(--lede);max-width:42em}
 .meta{margin-top:22px;display:flex;flex-wrap:wrap;gap:10px}
-.pill{display:inline-block;padding:4px 14px;border:1px solid var(--out-border);border-radius:999px;font-size:13.5px;color:var(--secondary);background:var(--card)}
+.pill{display:inline-block;padding:4px 14px;border:1px solid var(--out-border);border-radius:999px;font-size:13.5px;color:var(--secondary);background:var(--card);text-decoration:none}
 .note{margin-top:20px;background:var(--subtle);border:1px solid var(--subtle-border);border-radius:14px;padding:14px 18px;font-size:14px;color:var(--secondary)}
 h2.sec{font-family:Georgia,"Songti SC",STSong,SimSun,serif;font-size:25px;margin:56px 0 6px;font-weight:700}
 .sec-note{color:var(--muted);font-size:14.5px;margin-bottom:22px;max-width:40em}
@@ -61,7 +77,7 @@ h2.sec{font-family:Georgia,"Songti SC",STSong,SimSun,serif;font-size:25px;margin
 .entry header{display:flex;align-items:baseline;gap:12px;flex-wrap:wrap;margin-bottom:4px}
 .entry .num{font-family:Georgia,serif;color:var(--accent);font-size:14px;letter-spacing:.08em}
 .entry h3{font-size:18.5px;font-weight:650}
-.entry .scene{color:var(--muted);font-size:14.5px;margin:6px 0 16px;padding-left:12px;border-left:3px solid var(--subtle-border)}
+.entry .scene{color:var(--muted);font-size:15px;margin:6px 0 16px;padding-left:12px;border-left:3px solid var(--subtle-border)}
 .part{margin-top:14px}
 .part h4{font-size:13px;color:var(--accent);letter-spacing:.25em;margin-bottom:6px;font-weight:600}
 .part ul{list-style:none}
@@ -70,22 +86,29 @@ h2.sec{font-family:Georgia,"Songti SC",STSong,SimSun,serif;font-size:25px;margin
 .say{margin-top:8px;background:var(--subtle);border-left:3px solid var(--accent);border-radius:0 12px 12px 0;padding:12px 16px;font-size:15px;color:var(--say)}
 .say p+p{margin-top:8px}
 .say .tag{color:var(--accent);font-size:12.5px}
-.cost{margin-top:8px;font-size:14.5px;color:var(--secondary)}
+.cost{margin-top:8px;font-size:15px;color:var(--secondary)}
 .cost b{color:var(--lede)}
 footer{margin-top:72px;border-top:1px solid var(--border);padding:30px 0 44px;color:var(--muted);font-size:13.5px;line-height:1.8}
 footer a{color:var(--accent)}
-@media (max-width:640px){.entry{padding:20px 18px 16px}.top-in{gap:10px}.hero{padding:44px 0 12px}}
+@media (max-width:640px){.entry{padding:20px 18px 16px}.hero{padding:44px 0 12px}}
+.portal{position:fixed;left:14px;bottom:14px;z-index:99}
+a.portal,.portal a{display:inline-block;padding:7px 16px;border-radius:999px;background:var(--portal);color:var(--on-portal);font-size:13px;text-decoration:none;backdrop-filter:blur(4px);font-family:system-ui,sans-serif;transition:background .2s}
+a.portal:hover,.portal a:hover{background:var(--portal-hover)}
+.hero+.chap-nav{margin-top:36px}
+.howto-read>p{font-size:15px;color:var(--lede)}
 .reveal{opacity:0;transform:translateY(16px)}
 .reveal.in{opacity:1;transform:none;transition:opacity .6s ease,transform .6s ease}
 @media (prefers-reduced-motion:reduce){.reveal{opacity:1;transform:none;transition:none}.chap:hover{transform:none}}
 @media (prefers-reduced-motion:no-preference){body,.top,.entry,.say{transition:background-color .25s ease,border-color .25s ease,color .25s ease}}
+.toTop{position:fixed;right:14px;bottom:14px;z-index:98;display:none;border:none;cursor:pointer;padding:7px 14px;border-radius:999px;background:rgba(20,20,20,.72);color:#fff;font-size:14px;line-height:1;backdrop-filter:blur(4px);font-family:system-ui,sans-serif}.toTop:hover{background:rgba(20,20,20,.9)}.toTop.show{display:inline-block}
 </style>
-<noscript><style>.reveal,.rv{opacity:1 !important;transform:none !important}</style></noscript></head>
-<body><div style="position:fixed;left:14px;bottom:14px;z-index:99;"><a href="../index.html" style="display:inline-block;padding:7px 16px;border-radius:999px;background:rgba(20,20,20,.72);color:#fff;font-size:13px;text-decoration:none;backdrop-filter:blur(4px);font-family:system-ui,sans-serif;" onmouseover="this.style.background='rgba(20,20,20,.9)'" onmouseout="this.style.background='rgba(20,20,20,.72)'">&#8592; 总门户</a></div>
+<noscript><style>.reveal,.rv{opacity:1 !important;transform:none !important}.toTop{position:fixed;right:14px;bottom:14px;z-index:98;display:none;border:none;cursor:pointer;padding:7px 14px;border-radius:999px;background:rgba(20,20,20,.72);color:#fff;font-size:14px;line-height:1;backdrop-filter:blur(4px);font-family:system-ui,sans-serif}.toTop:hover{background:rgba(20,20,20,.9)}.toTop.show{display:inline-block}
+</style></noscript></head>
+<body><div class="portal"><a href="../index.html">&#8592; 总门户</a></div>
 <header class="top">
   <div class="top-in">
     <a class="brand" href="index.html">人情世故<span>指南</span></a>
-    <nav class="menu" aria-label="站内导航">
+    <nav class="menu" id="siteNav" aria-label="站内导航">
       <a href="index.html" aria-current="page">首页</a>
       <a href="pages/campus.html">校园篇</a>
       <a href="pages/work.html">职场篇</a>
@@ -93,6 +116,7 @@ footer a{color:var(--accent)}
       <a href="pages/manner.html">礼节篇</a>
       <a class="out" href="https://github.com/kkk-bot/HowToGetAlong" target="_blank" rel="noopener">GitHub</a>
     </nav>
+    <button class="nav-toggle" id="navToggle" type="button" aria-expanded="false" aria-controls="siteNav" aria-label="展开导航菜单">&#9776;</button>
     <button class="theme-btn" id="themeBtn" type="button" aria-label="切换明暗主题">◐</button>
   </div>
 </header>
@@ -178,7 +202,7 @@ footer a{color:var(--accent)}
 
   <h2 class="sec reveal">怎么读每一条</h2>
   <div class="howto-read reveal">
-    <p style="font-size:15px;color:#5c554c">全书 77 条共用一个结构：先看遇到的情况，再讲判断关键，然后落到三件最实用的事上。本站把每条整理成下面三要素，话术示例均参考原文风格整理，可按自己的关系与环境调整。</p>
+    <p>全书 77 条共用一个结构：先看遇到的情况，再讲判断关键，然后落到三件最实用的事上。本站把每条整理成下面三要素，话术示例均参考原文风格整理，可按自己的关系与环境调整。</p>
     <div class="tri">
       <div><b>怎么做</b>行动前的准备和具体步骤，把范围、期限和负责人确认清楚。</div>
       <div><b>话怎么说</b>可以直接开口的示例表达，说清边界，也给对方拒绝空间。</div>
@@ -311,6 +335,26 @@ footer a{color:var(--accent)}
     try{localStorage.setItem('theme',next)}catch(e){}
     sync();
   });
+})();
+</script>
+<script>
+(function(){
+  var n=document.getElementById('siteNav'),b=document.getElementById('navToggle');
+  if(!n||!b)return;
+  var set=function(o){n.classList.toggle('open',o);b.setAttribute('aria-expanded',o?'true':'false');b.innerHTML=o?'&#10005':'&#9776';b.setAttribute('aria-label',o?'收起导航菜单':'展开导航菜单')};
+  b.addEventListener('click',function(){set(!n.classList.contains('open'))});
+  n.addEventListener('click',function(e){if(e.target&&e.target.closest&&e.target.closest('a'))set(false)});
+  document.addEventListener('keydown',function(e){if(e.key==='Escape')set(false)});
+})();
+</script>
+<button class="toTop" type="button" id="toTop" aria-label="回到顶部">&#8593;</button>
+<script>
+(function(){
+  var b=document.getElementById('toTop');if(!b)return;
+  var rm=window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  function upd(){if(window.scrollY>600){b.classList.add('show')}else{b.classList.remove('show')}}
+  window.addEventListener('scroll',upd,{passive:true});upd();
+  b.addEventListener('click',function(){window.scrollTo({top:0,behavior:rm?'auto':'smooth'});});
 })();
 </script>
 </body>

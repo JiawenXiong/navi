@@ -2,11 +2,11 @@
 <html lang="zh-CN">
 <head>
 <meta charset="UTF-8">
-<script>(function(){try{var t=localStorage.getItem('theme');if(t!=='light'&&t!=='dark'){var h=new Date().getHours();t=(h>=7&&h<17)?'light':'dark'}document.documentElement.setAttribute('data-theme',t)}catch(e){document.documentElement.setAttribute('data-theme','light')}})();</script>
+<script>(function(){document.documentElement.classList.add('js');try{var t=localStorage.getItem('theme');if(t!=='light'&&t!=='dark'){var h=new Date().getHours();t=(h>=7&&h<17)?'light':'dark'}document.documentElement.setAttribute('data-theme',t)}catch(e){document.documentElement.setAttribute('data-theme','light')}})();</script>
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>健康与合同 · 高性价比工作指南</title>
 <style>
-:root,[data-theme=light]{--bg:#f4f6f9;--card:#ffffff;--ink:#1e2430;--ink2:#5b6472;--line:#e2e7ee;--accent:#0a5cff;--accent-soft:#e8f0ff;--on-accent:#fff;--src:#8a93a3;--accent-fade:#b9cffb;--radius:14px;color-scheme:light}
+:root,[data-theme=light]{--bg:#f4f6f9;--card:#ffffff;--ink:#1e2430;--ink2:#5b6472;--line:#e2e7ee;--accent:#0a5cff;--accent-soft:#e8f0ff;--on-accent:#fff;--src:#67707e;--accent-fade:#b9cffb;--radius:14px;--mono:Consolas,Menlo,monospace;color-scheme:light}
 [data-theme=dark]{--bg:#15181e;--card:#1e232b;--ink:#e6e9ef;--ink2:#a7b0bf;--line:#353c47;--accent:#4d9fff;--accent-soft:#12233d;--on-accent:#0b1220;--src:#8f99a9;--accent-fade:#1c3d6e;color-scheme:dark}
 *{box-sizing:border-box;margin:0;padding:0}
 body{background:var(--bg);color:var(--ink);font-family:"Microsoft YaHei","PingFang SC","Segoe UI",sans-serif;line-height:1.75;font-size:15.5px}
@@ -14,8 +14,8 @@ a{color:var(--accent);text-decoration:none}
 a:hover{text-decoration:underline}
 .wrap{max-width:1000px;margin:0 auto;padding:0 20px}
 .topbar{background:var(--card);border-bottom:1px solid var(--line);position:sticky;top:0;z-index:20}
-.nav{display:flex;align-items:center;gap:4px;white-space:nowrap;overflow-x:auto;scrollbar-width:none}
-.nav::-webkit-scrollbar{display:none}
+.nav{display:flex;align-items:center;gap:4px;flex-wrap:wrap;row-gap:4px;min-height:44px}
+.nav-menu{display:contents}
 .brand{font-weight:700;color:var(--ink);margin-right:14px;flex:none}
 .brand span{color:var(--accent)}
 .nav a{flex:none;padding:9px 12px;border-radius:10px;color:var(--ink2);font-size:14px}
@@ -24,6 +24,22 @@ a:hover{text-decoration:underline}
 .nav a.gh{border:1px solid var(--line);color:var(--accent)}
 .theme-btn{flex:none;margin-left:6px;padding:8px 12px;border-radius:10px;border:1px solid var(--line);background:var(--card);color:var(--ink);font-size:13px;cursor:pointer;font-family:inherit;line-height:1.2}
 .theme-btn:hover{background:var(--accent-soft);color:var(--accent)}
+.nav-toggle{display:none;flex:none;margin-left:6px;padding:8px 12px;border-radius:10px;border:1px solid var(--line);background:var(--card);color:var(--ink);font-size:15px;line-height:1.2;cursor:pointer;font-family:inherit}
+.nav-toggle:hover{background:var(--accent-soft);color:var(--accent)}
+@media (max-width:720px){
+html.js .nav{flex-wrap:nowrap;padding:2px 0}
+html.js .nav-menu{display:none}
+html.js .nav .theme-btn{margin-left:auto}
+html.js .nav-toggle{display:inline-flex;align-items:center}
+html.js .nav.open{flex-wrap:wrap;padding-bottom:6px}
+html.js .nav.open .nav-menu{display:flex;flex-direction:column;align-items:stretch;gap:2px;flex-basis:100%;width:100%;margin-top:4px;padding:6px 0 2px;border-top:1px solid var(--line)}
+html.js .nav.open .nav-menu a{padding:10px 12px}
+}
+@media (prefers-reduced-motion:no-preference){
+.nav-menu a{transition:background .15s ease,color .15s ease}
+html.js .nav.open .nav-menu{animation:navIn .18s ease}
+@keyframes navIn{from{opacity:0;transform:translateY(-6px)}to{opacity:1;transform:none}}
+}
 main{padding:34px 0 10px}
 .pagehead{margin-bottom:22px}
 .pagehead .crumb{font-size:13px;color:var(--ink2)}
@@ -33,18 +49,18 @@ h2.sec{font-size:19px;margin:34px 0 4px;padding-left:12px;border-left:4px solid 
 p.secsub{color:var(--ink2);font-size:14px;margin:0 0 14px 16px}
 .card{background:var(--card);border:1px solid var(--line);border-radius:var(--radius);padding:20px 22px;margin-bottom:14px}
 .card .head{display:flex;gap:12px;align-items:baseline}
-.card .num{font-family:Consolas,Menlo,monospace;font-size:13px;color:var(--accent);border:1px solid var(--accent);border-radius:8px;padding:0 8px;flex:none}
+.card .num{font-family:var(--mono);font-size:13px;color:var(--accent);border:1px solid var(--accent);border-radius:8px;padding:0 8px;flex:none}
 .card h3{font-size:16px;line-height:1.5}
 .meta{margin:8px 0 8px}
 .chip{display:inline-block;font-size:12px;border-radius:999px;padding:2px 10px;margin:0 6px 6px 0;border:1px solid var(--line);color:var(--ink2);background:var(--bg)}
 .chip.blue{background:var(--accent);border-color:var(--accent);color:var(--on-accent)}
 .chip.line{border-color:var(--accent);color:var(--accent);background:var(--accent-soft)}
-.card p{color:var(--ink2);font-size:14.5px}
+.card p{color:var(--ink2);font-size:15px}
 .card p b{color:var(--ink)}
 .src{margin-top:8px;font-size:12.5px;color:var(--src)}
 .evd{background:var(--card);border:1px solid var(--line);border-radius:var(--radius);padding:20px 22px;margin:14px 0}
 .evd h3{font-size:16px;margin-bottom:8px}
-.evd li{color:var(--ink2);font-size:14.5px;margin:6px 0}
+.evd li{color:var(--ink2);font-size:15px;margin:6px 0}
 .evd ul{padding-left:18px}
 footer{margin-top:44px;border-top:1px solid var(--line);background:var(--card)}
 footer .wrap{padding:22px 20px;color:var(--ink2);font-size:13px}
@@ -53,11 +69,16 @@ footer p{margin:3px 0}
 .reveal.in{opacity:1;transform:none}
 @media (prefers-reduced-motion:reduce){.reveal{opacity:1;transform:none;transition:none}}
 @media (max-width:640px){.card,.evd{padding:16px}}
+.portal{position:fixed;left:14px;bottom:14px;z-index:99}.portal a{display:inline-block;padding:7px 16px;border-radius:999px;background:rgba(20,20,20,.72);color:#fff;font-size:13px;text-decoration:none;backdrop-filter:blur(4px);font-family:system-ui,sans-serif}.portal a:hover{background:rgba(20,20,20,.9)}
+.toTop{position:fixed;right:14px;bottom:14px;z-index:98;display:none;border:none;cursor:pointer;padding:7px 14px;border-radius:999px;background:rgba(20,20,20,.72);color:#fff;font-size:14px;line-height:1;backdrop-filter:blur(4px);font-family:system-ui,sans-serif}.toTop:hover{background:rgba(20,20,20,.9)}.toTop.show{display:inline-block}
 </style>
-<noscript><style>.reveal,.rv{opacity:1 !important;transform:none !important}</style></noscript></head>
+<noscript><style>.reveal,.rv{opacity:1 !important;transform:none !important}.portal{position:fixed;left:14px;bottom:14px;z-index:99}.portal a{display:inline-block;padding:7px 16px;border-radius:999px;background:rgba(20,20,20,.72);color:#fff;font-size:13px;text-decoration:none;backdrop-filter:blur(4px);font-family:system-ui,sans-serif}.portal a:hover{background:rgba(20,20,20,.9)}
+.toTop{position:fixed;right:14px;bottom:14px;z-index:98;display:none;border:none;cursor:pointer;padding:7px 14px;border-radius:999px;background:rgba(20,20,20,.72);color:#fff;font-size:14px;line-height:1;backdrop-filter:blur(4px);font-family:system-ui,sans-serif}.toTop:hover{background:rgba(20,20,20,.9)}.toTop.show{display:inline-block}
+</style></noscript></head>
 <body>
-<header class="topbar"><div class="wrap"><nav class="nav">
+<header class="topbar"><div class="wrap"><nav class="nav" id="siteNav" aria-label="站内导航">
 <a class="brand" href="../index.html">高性价比<span>工作指南</span></a>
+<div class="nav-menu">
 <a href="../index.html">返回首页</a>
 <a href="jobhunt.html">求职与谈薪</a>
 <a href="onboard.html">入职与社保</a>
@@ -65,7 +86,9 @@ footer p{margin:3px 0}
 <a href="growth.html">成长与礼仪</a>
 <a class="on" href="rights.html">健康与合同</a>
 <a class="gh" href="https://github.com/NiceCao/HowToWorkBetter" target="_blank" rel="noopener">GitHub 仓库</a>
+</div>
 <button type="button" class="theme-btn" id="themeToggle" aria-label="切换明暗主题">☾ 暗色</button>
+<button type="button" class="nav-toggle" id="navToggle" aria-expanded="false" aria-controls="siteNav" aria-label="展开或收起导航菜单">☰</button>
 </nav></div></header>
 
 <main class="wrap">
@@ -77,6 +100,7 @@ footer p{margin:3px 0}
 
 <h2 class="sec reveal">一、职场健康</h2>
 <p class="secsub">来自第 39 章：减少久坐、盯屏、熬夜和情绪压力带来的损耗。</p>
+<p class="src">组内按证据等级 A→C 排序</p>
 
 <article class="card reveal"><div class="head"><span class="num">01</span><h3>每坐满一小时起身活动几分钟，把一天的久坐时间切碎</h3></div>
 <div class="meta"><span class="chip blue">证据 A</span><span class="chip line">性价比 极高</span><span class="chip">成本 钱=0到200 · 时间=少 · 精力=低</span><span class="chip">口径：职业寿命 / 时间精力</span></div>
@@ -103,11 +127,6 @@ footer p{margin:3px 0}
 <p><b>说人话：</b>一天站十个小时或坐十个小时，账都记在腰、颈、膝盖和腿上：每小时动一动换一次重心，鞋里加软垫，回宿舍把腿抬高。接触职业病危害的岗位要做上岗前、在岗期间和离岗时的职业健康检查，费用由单位出、结果要书面告知；没做离岗前检查，单位不得解除或终止合同。动手清单：问人事要本岗位的职业病危害告知书和检测报告；确认体检机构有资质；体检结果要书面件自己留一份。</p>
 <p class="src">来源：职业病防治法第三十五条。限制：有调查显示离岗检查是三个环节里落实最差的一环，不能光等厂里安排。</p></article>
 
-<article class="card reveal"><div class="head"><span class="num">06</span><h3>出差在外先把安全防线设好：夜到、打车、证件财物、报备</h3></div>
-<div class="meta"><span class="chip">证据 C</span><span class="chip line">性价比 极高</span><span class="chip">成本 钱=少 · 时间=少 · 精力=中</span><span class="chip">口径：人身安全</span></div>
-<p><b>怎么做：</b>夜间到达提前订好离站近的正规酒店、让酒店接站或走平台打车，不坐无牌黑车；上车前把车牌和行程分享给同事或家人，落座后排；身份证、银行卡、备用现金分开放；到达、见完客户、离开各给同事发一条消息，把酒店名和房间号告诉一位同事；遇到异常先离开现场再处理。</p>
-<p class="src">来源：无（通识经验）。限制：不同城市、性别和身体状况的风险不一样，以当地治安提示和公司差旅制度为准。</p></article>
-
 <article class="card reveal"><div class="head"><span class="num">07</span><h3>按年龄和风险选项目，固定每年做一次体检</h3></div>
 <div class="meta"><span class="chip blue">证据 A</span><span class="chip line">性价比 高</span><span class="chip">成本 钱=300到2000每年 · 时间=少 · 精力=低</span><span class="chip">口径：职业寿命 / 收入</span></div>
 <p><b>说人话：</b>2025 年国家卫生健康委印发《成人健康体检项目推荐指引（2025 年版）》，把基本体检项目和慢性病风险筛查项目分开，选项目照它来。每年一次基础体检；按年龄、家族史和生活习惯加做；把往年报告放在一起比趋势，比只看单次数值更有用。公司套餐偏基础的可自费加做几项，结果对个人保密。</p>
@@ -133,8 +152,16 @@ footer p{margin:3px 0}
 <p><b>说人话：</b>工作中受伤、上下班途中发生非本人主要责任的交通事故、被诊断为职业病，都可以走工伤保险。单位应在事故发生后 30 日内申请认定，单位不申请的本人或近亲属可在 1 年内自行申请；认定为工伤、伤情稳定后做劳动能力鉴定再申领待遇。一次性工亡补助金为上一年度全国城镇居民人均可支配收入的 20 倍，按 2024 年数据 54188 元算约 108.4 万元，每年更新。工伤是事后补救，重点是预防。</p>
 <p class="src">来源：工伤保险条例；国家统计局（2025）居民收入数据。限制：上下班途中的事故须本人不承担主要责任，自己摔伤一般不算。</p></article>
 
+<article class="card reveal"><div class="head"><span class="num">06</span><h3>出差在外先把安全防线设好：夜到、打车、证件财物、报备</h3></div>
+<div class="meta"><span class="chip">证据 C</span><span class="chip line">性价比 极高</span><span class="chip">成本 钱=少 · 时间=少 · 精力=中</span><span class="chip">口径：人身安全</span></div>
+<p><b>怎么做：</b>夜间到达提前订好离站近的正规酒店、让酒店接站或走平台打车，不坐无牌黑车；上车前把车牌和行程分享给同事或家人，落座后排；身份证、银行卡、备用现金分开放；到达、见完客户、离开各给同事发一条消息，把酒店名和房间号告诉一位同事；遇到异常先离开现场再处理。</p>
+<p class="src">来源：无（通识经验）。限制：不同城市、性别和身体状况的风险不一样，以当地治安提示和公司差旅制度为准。</p></article>
+
+
+
 <h2 class="sec reveal">二、劳动合同：签之前看什么</h2>
 <p class="secsub">来自第 41 章：把影响收入和自由度的条款看清楚、写具体。</p>
+<p class="src">组内按证据等级 A→C 排序</p>
 
 <article class="card reveal"><div class="head"><span class="num">12</span><h3>入职一个月内把书面合同签掉，公司拖着不签可以主张二倍工资</h3></div>
 <div class="meta"><span class="chip blue">证据 A</span><span class="chip line">性价比 极高</span><span class="chip">成本 钱=0 · 时间=少 · 精力=低</span><span class="chip">口径：收入 / 职业自由</span></div>
@@ -158,6 +185,7 @@ footer p{margin:3px 0}
 
 <h2 class="sec reveal">三、证据保留要点</h2>
 <p class="secsub">来自第 43 章：从入职起按四类攒，原件不要只留截图。</p>
+<p class="src">组内按证据等级 A→C 排序</p>
 <article class="card reveal"><div class="head"><span class="num">16</span><h3>按劳动关系、工资报酬、工作内容、公司违法四类留证据</h3></div>
 <div class="meta"><span class="chip blue">证据 A</span><span class="chip line">性价比 极高</span><span class="chip">成本 钱=0 · 时间=少 · 精力=低</span><span class="chip">口径：收入 / 职业自由</span></div>
 <p><b>怎么做：</b>劳动关系类：劳动合同、录用通知、工牌、社保或公积金缴费记录、工资银行流水；工资报酬类：工资条、带交易对手名称的银行流水、奖金提成的书面约定；工作内容类：考勤记录、周报日报、工作群记录、审批记录、交付物；公司违法类：解除通知、调岗降薪通知、处罚通知、辱骂或威胁的原始记录、加班安排、愿作证的同事。</p>
@@ -180,7 +208,7 @@ footer p{margin:3px 0}
 <p>所有内容仅供参考，不构成法律、医疗建议；金额、时限、比例以当地主管部门最新规定为准。遇到具体纠纷请咨询专业人士，或拨打 12333（人社）、12348（法律援助）。</p>
 </div></footer>
 
-<script>(function(){var b=document.getElementById('themeToggle');if(!b)return;function up(){b.textContent=document.documentElement.getAttribute('data-theme')==='dark'?'☀ 亮色':'☾ 暗色'}up();b.addEventListener('click',function(){var d=document.documentElement.getAttribute('data-theme')==='dark'?'light':'dark';document.documentElement.setAttribute('data-theme',d);try{localStorage.setItem('theme',d)}catch(e){}up()})})();</script>
+<script>(function(){var b=document.getElementById('themeToggle');if(!b)return;function up(){b.textContent=document.documentElement.getAttribute('data-theme')==='dark'?'☀ 亮色':'☾ 暗色'}up();b.addEventListener('click',function(){var d=document.documentElement.getAttribute('data-theme')==='dark'?'light':'dark';document.documentElement.setAttribute('data-theme',d);try{localStorage.setItem('theme',d)}catch(e){}up()})();var n=document.getElementById('siteNav'),t=document.getElementById('navToggle');if(n&&t){t.addEventListener('click',function(){var o=n.classList.toggle('open');t.setAttribute('aria-expanded',o?'true':'false');t.textContent=o?'\u2715':'\u2630'});n.addEventListener('click',function(e){var a=e.target&&e.target.closest?e.target.closest('a'):null;if(a&&n.classList.contains('open')){n.classList.remove('open');t.setAttribute('aria-expanded','false');t.textContent='\u2630'}})}})();</script>
 <script>
 (function(){
 var rm=window.matchMedia&&window.matchMedia('(prefers-reduced-motion: reduce)').matches;
@@ -188,6 +216,17 @@ var els=document.querySelectorAll('.reveal');
 if(rm||!('IntersectionObserver' in window)){for(var i=0;i<els.length;i++){els[i].classList.add('in')}return}
 var io=new IntersectionObserver(function(entries){entries.forEach(function(en){if(en.isIntersecting){en.target.classList.add('in');io.unobserve(en.target)}})},{threshold:0.06});
 for(var j=0;j<els.length;j++){io.observe(els[j])}
+})();
+</script>
+<div class="portal"><a href="../../index.html">&#8592; 总门户</a></div>
+<button class="toTop" type="button" id="toTop" aria-label="回到顶部">&#8593;</button>
+<script>
+(function(){
+  var b=document.getElementById('toTop');if(!b)return;
+  var rm=window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  function upd(){if(window.scrollY>600){b.classList.add('show')}else{b.classList.remove('show')}}
+  window.addEventListener('scroll',upd,{passive:true});upd();
+  b.addEventListener('click',function(){window.scrollTo({top:0,behavior:rm?'auto':'smooth'});});
 })();
 </script>
 </body>

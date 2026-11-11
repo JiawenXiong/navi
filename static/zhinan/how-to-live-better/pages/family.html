@@ -3,37 +3,57 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>恋爱与育儿 · 高性价比人生指南精读版</title>
+<title>恋爱与育儿 · 高性价比人生指南</title>
 <script>
 (function(){var t=null;try{t=localStorage.getItem('theme')}catch(e){}
 if(t!=='light'&&t!=='dark'){var h=new Date().getHours();t=(h>=7&&h<17)?'light':'dark'}
-document.documentElement.setAttribute('data-theme',t)})();
+document.documentElement.setAttribute('data-theme',t);document.documentElement.classList.add('js')})();
 </script>
 <style>
 *{box-sizing:border-box;margin:0;padding:0}
-:root{--bg:#f7f3ea;--ink:#2a2a24;--soft:#4a4a3f;--muted:#5a5a4d;--muted2:#7a7a6c;--body-ink:#3d3d33;--link:#2d5a4a;--accent:#2d5a4a;--deep:#1f4437;--head-bg:#f2ecdd;--nav-hover:#e3ead9;--nav-hover-ink:#1f4437;--on-bg:#2d5a4a;--on-ink:#f7f3ea;--card:#fffdf7;--line:#e4ddc9;--th-bg:#e7efe9;--chip-bg:#e7efe9;--chip-ink:#24503f;--chip-hover:#d5e3d8;--bA-bg:#2d5a4a;--bA-ink:#f7f3ea;--bB-bg:#dce8df;--bB-ink:#24503f;--bB-line:#9dbcaa;--bC-ink:#6a6a5f;--bC-line:#b9b5a6;--note-bg:#f0ead9;--note-line:#e0d8c2;--kick-bg:#eef3ec;--src:#9a9684;--tag-bg:#f6e8d8;--tag-ink:#8a5a1e;--tag-line:#e0c9a6;--foot-bg:#243b32;--foot-ink:#cfd8cf;--foot-link:#a8d0b8}
+:root{--bg:#f7f3ea;--ink:#2a2a24;--soft:#4a4a3f;--muted:#5a5a4d;--muted2:#7a7a6c;--body-ink:#3d3d33;--link:#2d5a4a;--accent:#2d5a4a;--deep:#1f4437;--head-bg:#f2ecdd;--nav-hover:#e3ead9;--nav-hover-ink:#1f4437;--on-bg:#2d5a4a;--on-ink:#f7f3ea;--card:#fffdf7;--line:#e4ddc9;--th-bg:#e7efe9;--chip-bg:#e7efe9;--chip-ink:#24503f;--chip-hover:#d5e3d8;--bA-bg:#2d5a4a;--bA-ink:#f7f3ea;--bB-bg:#dce8df;--bB-ink:#24503f;--bB-line:#9dbcaa;--bC-ink:#6a6a5f;--bC-line:#b9b5a6;--note-bg:#f0ead9;--note-line:#e0d8c2;--kick-bg:#eef3ec;--src:#767460;--tag-bg:#f6e8d8;--tag-ink:#8a5a1e;--tag-line:#e0c9a6;--foot-bg:#243b32;--foot-ink:#cfd8cf;--foot-link:#a8d0b8}
 [data-theme="dark"]{--bg:#0f1e18;--ink:#ece7d9;--soft:#c9c6b6;--muted:#bfc4b4;--muted2:#a3ab9d;--body-ink:#d6d9cc;--link:#7cc9a4;--accent:#6fbf98;--deep:#a9e0c3;--head-bg:#14251d;--nav-hover:#24382e;--nav-hover-ink:#e2efe6;--on-bg:#2f6b52;--on-ink:#f2f7f0;--card:#16291f;--line:#2e463a;--th-bg:#1d3a2d;--chip-bg:#1d3a2d;--chip-ink:#a8e3c4;--chip-hover:#274a39;--bA-bg:#5fbf95;--bA-ink:#0c1b14;--bB-bg:#1d3a2d;--bB-ink:#a8e3c4;--bB-line:#3d6a55;--bC-ink:#b9c2b4;--bC-line:#55645c;--note-bg:#1c2f24;--note-line:#35503f;--kick-bg:#16291f;--src:#97a496;--tag-bg:#3a2c17;--tag-ink:#e8c088;--tag-line:#6a5232;--foot-bg:#0b1712;--foot-ink:#b7c4b7;--foot-link:#8fd4b4}
 html{scroll-behavior:smooth}
 body{font-family:"Microsoft YaHei","PingFang SC","Noto Sans SC",system-ui,sans-serif;background:var(--bg);color:var(--ink);line-height:1.75;font-size:16px}
 .wrap{max-width:1060px;margin:0 auto;padding:0 20px}
 a{color:var(--link)}
 header.site{position:sticky;top:0;z-index:20;background:var(--head-bg);border-bottom:2px solid var(--accent)}
-nav.top{display:flex;align-items:center;gap:2px;white-space:nowrap;overflow-x:auto;padding:9px 0;font-size:14.5px;-webkit-overflow-scrolling:touch}
+nav.top{display:flex;flex-wrap:wrap;align-items:center;gap:2px;row-gap:8px;padding:9px 0;font-size:14.5px;position:relative}
 nav.top::-webkit-scrollbar{display:none}
 nav.top a{text-decoration:none;color:var(--ink);padding:5px 12px;border-radius:8px;flex:0 0 auto}
 nav.top a:hover{background:var(--nav-hover)}
 nav.top a.on{background:var(--on-bg);color:var(--on-ink)}
 nav.top a.gh{margin-left:auto;color:var(--link);font-weight:700}
 nav.top a.gh:hover{background:var(--nav-hover);color:var(--nav-hover-ink)}
+nav.top .brand{font-weight:700;color:var(--deep);white-space:nowrap}
+nav.top .brand:hover{color:var(--nav-hover-ink)}
+.nav-links{display:flex;flex-wrap:wrap;align-items:center;gap:2px;row-gap:8px}
+.nav-links-in{display:contents}
 .theme-btn{flex:0 0 auto;font-size:14px;line-height:1;padding:6px 11px;border-radius:8px;border:1px solid var(--line);background:var(--card);color:var(--ink);cursor:pointer}
 .theme-btn:hover{background:var(--nav-hover);color:var(--nav-hover-ink)}
+.nav-toggle{display:none;flex:0 0 auto;margin-left:auto;font-size:15px;line-height:1;padding:8px 12px;border-radius:8px;border:1px solid var(--line);background:var(--card);color:var(--ink);cursor:pointer}
+.nav-toggle:hover{background:var(--nav-hover);color:var(--nav-hover-ink)}
+@media (max-width:720px){
+html.js nav.top{flex-wrap:nowrap;row-gap:0;min-height:52px;padding:7px 0}
+html.js .nav-toggle{display:inline-block}
+html.js .nav-links{display:grid;grid-template-rows:0fr;flex-wrap:nowrap;position:absolute;top:100%;left:0;right:0;margin:0;padding:0;background:var(--head-bg);border-bottom:0 solid var(--accent)}
+html.js .nav-links.open{grid-template-rows:1fr;border-bottom-width:2px;box-shadow:0 12px 20px rgba(20,30,25,.14)}
+html.js .nav-links-in{display:flex;min-height:0;overflow:hidden;flex-direction:column;padding:0 14px}
+html.js .nav-links.open .nav-links-in{padding:8px 14px 12px}
+html.js .nav-links a{display:block;padding:9px 12px}
+html.js .nav-links a.gh{margin-left:0}
+}
+@media (max-width:720px) and (prefers-reduced-motion: no-preference){
+html.js .nav-links{transition:grid-template-rows .25s ease,border-bottom-width .25s ease}
+html.js .nav-links-in{transition:padding .25s ease}
+}
 .pagehead{padding:40px 0 24px;border-bottom:1px solid var(--line)}
 .pagehead h1{font-size:clamp(24px,4vw,34px);color:var(--deep);margin-bottom:10px}
-.pagehead p{color:var(--soft);max-width:46em;font-size:15.5px}
+.pagehead p{color:var(--soft);max-width:46em;font-size:15.5px;margin-bottom:10px}
 .subnav{display:flex;flex-wrap:wrap;gap:8px;margin-top:18px}
 .subnav a{font-size:13.5px;text-decoration:none;background:var(--chip-bg);color:var(--chip-ink);border-radius:999px;padding:4px 14px}
 .subnav a:hover{background:var(--chip-hover)}
-section.block{padding:38px 0 8px}
+section.block{padding:38px 0 8px;scroll-margin-top:70px}
 h2.sec{font-size:23px;color:var(--deep);border-left:6px solid var(--accent);padding-left:14px;margin-bottom:6px}
 p.secdesc{color:var(--muted);margin-bottom:18px;max-width:46em;font-size:15px}
 .list{display:flex;flex-direction:column;gap:14px;margin-bottom:28px}
@@ -44,12 +64,21 @@ p.secdesc{color:var(--muted);margin-bottom:18px;max-width:46em;font-size:15px}
 .badge.a{background:var(--bA-bg);color:var(--bA-ink)}
 .badge.b{background:var(--bB-bg);color:var(--bB-ink);border:1px solid var(--bB-line)}
 .badge.c{background:transparent;color:var(--bC-ink);border:1px solid var(--bC-line)}
-.tag-disp{display:inline-block;font-size:11.5px;padding:1px 8px;border-radius:6px;background:var(--tag-bg);color:var(--tag-ink);border:1px solid var(--tag-line);margin-top:4px}
-.card dl div{margin-bottom:6px;font-size:14.6px;color:var(--body-ink)}
+.card dl div{margin-bottom:6px;font-size:15px;color:var(--body-ink)}
 .card dt{display:inline;font-weight:700;color:var(--accent)}
 .card dd{display:inline;margin:0}
-.card .src{font-size:12.5px;color:var(--src);margin-top:8px;border-top:1px dashed var(--line);padding-top:8px}
-.note{background:var(--note-bg);border:1px solid var(--note-line);border-radius:12px;padding:16px 20px;font-size:14.3px;color:var(--muted);margin-bottom:30px}
+.card p.extra{font-size:15px;color:var(--body-ink);margin-bottom:6px}
+.card .src{font-size:12.5px;color:var(--src);margin-top:8px;border-top:1px dashed var(--line);padding-top:8px;word-break:break-word}
+.note{background:var(--note-bg);border:1px solid var(--note-line);border-radius:12px;padding:16px 20px;font-size:14.5px;color:var(--muted);margin-bottom:30px}
+.chnav{display:flex;justify-content:space-between;gap:10px;flex-wrap:wrap;margin-bottom:30px}
+.chnav a{display:inline-block;text-decoration:none;font-size:14.5px;background:var(--chip-bg);color:var(--chip-ink);border-radius:999px;padding:6px 16px}
+.chnav a:hover{background:var(--chip-hover)}
+.grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,300px,1fr));gap:16px;margin-bottom:26px}
+.navcard{display:block;text-decoration:none;background:var(--card);border:1px solid var(--line);border-radius:12px;padding:22px;color:var(--ink);transition:border-color .2s,box-shadow .2s}
+.navcard:hover{border-color:var(--accent);box-shadow:0 3px 10px rgba(45,90,74,.15)}
+.navcard h3{font-size:19px;color:var(--deep);margin-bottom:6px}
+.navcard p{font-size:14.5px;color:var(--muted);margin-bottom:10px}
+.navcard .go{display:inline-block;margin-top:4px;font-size:14px;font-weight:700;color:var(--accent)}
 footer.site{margin-top:44px;background:var(--foot-bg);color:var(--foot-ink);padding:28px 0 24px;font-size:13.5px}
 footer.site a{color:var(--foot-link)}
 footer.site .wrap p{margin-bottom:6px}
@@ -57,287 +86,157 @@ footer.site .wrap p{margin-bottom:6px}
 @media (prefers-reduced-motion: no-preference){
 .reveal{opacity:0;transform:translateY(14px);transition:opacity .5s ease,transform .5s ease}
 .reveal.in{opacity:1;transform:none}
+.navcard{transition:border-color .25s,box-shadow .25s,opacity .5s ease,transform .5s ease}
 }
+@media (prefers-reduced-motion: reduce){.reveal{opacity:1 !important;transform:none !important}}.portal{position:fixed;left:14px;bottom:14px;z-index:99}.portal a{display:inline-block;padding:7px 16px;border-radius:999px;background:rgba(20,20,20,.72);color:#fff;font-size:13px;text-decoration:none;backdrop-filter:blur(4px);font-family:system-ui,sans-serif}.portal a:hover{background:rgba(20,20,20,.9)}
+.toTop{position:fixed;right:14px;bottom:14px;z-index:98;display:none;border:none;cursor:pointer;padding:7px 14px;border-radius:999px;background:rgba(20,20,20,.72);color:#fff;font-size:14px;line-height:1;backdrop-filter:blur(4px);font-family:system-ui,sans-serif}.toTop:hover{background:rgba(20,20,20,.9)}.toTop.show{display:inline-block}
 
-@media (prefers-reduced-motion: reduce){.reveal{opacity:1 !important;transform:none !important}}</style>
-<noscript><style>.reveal{opacity:1 !important;transform:none !important}</style></noscript></head>
-<body>
+/* ---- 导航重构（全站共用）：主题分组目录 / 主题色 / 章页页头 / 卡片分页 ---- */
+:root{--t-health:#2d5a4a;--t-health-bg:#dce8df;--t-health-ink:#24503f;--t-health-inv:#f7f3ea;--t-money:#8a5a1e;--t-money-bg:#f6e8d8;--t-money-ink:#7a4d16;--t-money-inv:#fbf3e6;--t-security:#3f6076;--t-security-bg:#e2e9ee;--t-security-ink:#35526a;--t-security-inv:#f2f6f8;--t-family:#9a4a38;--t-family-bg:#f3e3dd;--t-family-ink:#7e3a2b;--t-family-inv:#faf1ec;--t-career:#5f6b24;--t-career-bg:#eef0da;--t-career-ink:#4f5a1c;--t-career-inv:#f8f9ec}
+[data-theme="dark"]{--t-health:#6fbf98;--t-health-bg:#1d3a2d;--t-health-ink:#a8e3c4;--t-health-inv:#0c1b14;--t-money:#e0b678;--t-money-bg:#3a2c17;--t-money-ink:#e8c088;--t-money-inv:#211608;--t-security:#8fc3dc;--t-security-bg:#173038;--t-security-ink:#a3cede;--t-security-inv:#0b1a20;--t-family:#dfa08d;--t-family-bg:#3a211a;--t-family-ink:#eab8a8;--t-family-inv:#1f100a;--t-career:#c2d178;--t-career-bg:#2c3213;--t-career-ink:#d6dfa4;--t-career-inv:#151a07}
+.tg-health,.ph-health{--tc:var(--t-health);--tc-bg:var(--t-health-bg);--tc-ink:var(--t-health-ink);--tc-inv:var(--t-health-inv)}
+.tg-money,.ph-money{--tc:var(--t-money);--tc-bg:var(--t-money-bg);--tc-ink:var(--t-money-ink);--tc-inv:var(--t-money-inv)}
+.tg-security,.ph-security{--tc:var(--t-security);--tc-bg:var(--t-security-bg);--tc-ink:var(--t-security-ink);--tc-inv:var(--t-security-inv)}
+.tg-family,.ph-family{--tc:var(--t-family);--tc-bg:var(--t-family-bg);--tc-ink:var(--t-family-ink);--tc-inv:var(--t-family-inv)}
+.tg-career,.ph-career{--tc:var(--t-career);--tc-bg:var(--t-career-bg);--tc-ink:var(--t-career-ink);--tc-inv:var(--t-career-inv)}
+.tint{border-left:4px solid var(--tc,var(--accent))}
+.crumbs{display:flex;flex-wrap:wrap;align-items:center;gap:7px;font-size:13px;color:var(--muted2);margin-bottom:12px}
+.crumbs a{color:var(--muted);text-decoration:none}
+.crumbs a:hover{color:var(--link);text-decoration:underline}
+.crumbs .sep{font-size:11px}
+.crumbs .cur{color:var(--tc,var(--ink));font-weight:700}
+.tg-head{display:flex;flex-wrap:wrap;align-items:center;gap:6px 12px;margin-bottom:14px}
+.tg-badge{display:inline-flex;align-items:center;gap:8px;text-decoration:none;font-size:15px;font-weight:700;color:var(--tc-ink);background:var(--tc-bg);border-radius:999px;padding:5px 16px}
+.tg-badge::before{content:"";display:block;width:9px;height:9px;border-radius:50%;background:var(--tc)}
+.tg-badge:hover{background:var(--tc);color:var(--tc-inv)}
+.tg-stats{font-size:13.5px;color:var(--muted)}
+.tg-more{margin-left:auto;font-size:13.5px;font-weight:700;color:var(--tc);text-decoration:none;white-space:nowrap}
+.tg-more:hover{text-decoration:underline}
+.topic-group{margin:34px 0 6px;scroll-margin-top:76px}
+.chgrid{display:grid;grid-template-columns:repeat(auto-fill,minmax(min(100%,252px),1fr));gap:12px;margin-bottom:8px}
+.chcard{display:flex;flex-direction:column;gap:7px;background:var(--card);border:1px solid var(--line);border-radius:12px;padding:14px 16px 13px;text-decoration:none;color:var(--ink)}
+.chcard:hover{border-color:var(--tc,var(--accent));box-shadow:0 3px 10px rgba(45,90,74,.13)}
+.chcard .chtop{display:flex;align-items:center;justify-content:space-between;gap:8px}
+.chcard .chnum{font-size:12px;font-weight:700;letter-spacing:.06em;color:var(--tc-ink,var(--chip-ink));background:var(--tc-bg,var(--chip-bg));border-radius:6px;padding:2px 9px}
+.chcard .chcount{font-size:12px;color:var(--muted);background:var(--chip-bg);border-radius:999px;padding:2px 10px;white-space:nowrap}
+.chcard h3{font-size:15.5px;line-height:1.45;color:var(--deep)}
+.chcard p{font-size:13px;line-height:1.65;color:var(--muted)}
+.chcard .go{display:block;margin-top:2px;font-size:13px;font-weight:700;color:var(--link)}
+.dist{display:flex;height:6px;border-radius:999px;overflow:hidden;background:var(--line);flex:0 1 170px;min-width:96px}
+.chcard .dist{flex:none;min-width:0;margin-top:auto}
+.dist i{display:block;height:100%;flex-shrink:0}
+.dist i.da{background:var(--bA-bg)}
+.dist i.db{background:var(--bB-line)}
+.dist i.dc{background:var(--bC-line)}
+.dist-txt{font-size:11.5px;color:var(--muted2)}
+.chstats{display:flex;flex-wrap:wrap;align-items:center;gap:8px;margin-top:14px}
+.chstats .nchip{font-size:13.5px;font-weight:700;color:var(--deep);background:var(--chip-bg);border-radius:999px;padding:3px 13px}
+.atoc{display:flex;flex-wrap:wrap;gap:7px;margin-top:16px;padding-top:16px;border-top:1px dashed var(--line)}
+.atoc .hint{flex:1 0 100%;font-size:12.5px;color:var(--muted2)}
+.atoc a{font-size:12.5px;line-height:1.6;text-decoration:none;color:var(--chip-ink);background:var(--chip-bg);border-radius:999px;padding:3px 12px;max-width:100%}
+.atoc a:hover{background:var(--chip-hover);color:var(--deep)}
+.atoc a .no{font-weight:700;font-size:11px;color:var(--muted2);margin-right:5px}
+.atoc a.all{background:transparent;border:1px dashed var(--line);color:var(--muted)}
+.atoc a.all:hover{border-style:solid;color:var(--deep);background:var(--chip-bg)}
+.pager{display:grid;grid-template-columns:1fr 1fr;gap:12px;margin:34px 0 4px}
+.pager a{display:flex;flex-direction:column;gap:3px;text-decoration:none;background:var(--card);border:1px solid var(--line);border-radius:12px;padding:14px 18px;color:var(--ink)}
+.pager a:hover{border-color:var(--accent);box-shadow:0 3px 10px rgba(45,90,74,.13)}
+.pager a .dir{font-size:12px;font-weight:700;letter-spacing:.05em;color:var(--muted2)}
+.pager a b{font-size:15px;line-height:1.5;color:var(--deep)}
+.pager a.next{align-items:flex-end;text-align:right}
+.pager-mid{text-align:center;font-size:13.5px;margin-top:12px}
+.pager-mid a{color:var(--link)}
+.quickloc{margin-top:4px;margin-bottom:8px}
+.quickloc .qlabel{align-self:center;font-size:13px;color:var(--muted2);margin-right:4px}
+.list .card{scroll-margin-top:84px}
+@media (prefers-reduced-motion: no-preference){.chcard,.pager a,.tg-badge{transition:border-color .25s,box-shadow .25s,opacity .5s ease,transform .5s ease,background .2s,color .2s}}
+@media (max-width:560px){.pager{grid-template-columns:1fr}.pager a.next{align-items:flex-start;text-align:left}.chcard{padding:13px 14px 12px}}
+</style>
+<noscript><style>.reveal{opacity:1 !important;transform:none !important}.portal{position:fixed;left:14px;bottom:14px;z-index:99}.portal a{display:inline-block;padding:7px 16px;border-radius:999px;background:rgba(20,20,20,.72);color:#fff;font-size:13px;text-decoration:none;backdrop-filter:blur(4px);font-family:system-ui,sans-serif}.portal a:hover{background:rgba(20,20,20,.9)}
+.toTop{position:fixed;right:14px;bottom:14px;z-index:98;display:none;border:none;cursor:pointer;padding:7px 14px;border-radius:999px;background:rgba(20,20,20,.72);color:#fff;font-size:14px;line-height:1;backdrop-filter:blur(4px);font-family:system-ui,sans-serif}.toTop:hover{background:rgba(20,20,20,.9)}.toTop.show{display:inline-block}
+</style></noscript></head>
 <header class="site">
   <div class="wrap">
     <nav class="top">
-      <a href="../index.html">首页</a>
-      <a href="health.html">健康与急救</a>
-      <a href="money.html">金钱与红线</a>
-      <a href="security.html">失业与保障</a>
-      <a class="on" href="family.html">恋爱与育儿</a>
-      <a href="career.html">创业与技能</a>
-      <a class="gh" href="https://github.com/eternity4719/HowToLiveBetter" target="_blank" rel="noopener">GitHub 仓库</a>
+      <a class="brand" href="../index.html">人生指南</a>
+      <button class="nav-toggle" type="button" aria-expanded="false" aria-controls="navlinks" aria-label="展开或收起导航菜单">☰</button>
+      <div class="nav-links" id="navlinks">
+        <div class="nav-links-in">
+          <a href="../index.html">首页</a>
+          <a href="health.html">健康与急救</a>
+          <a href="money.html">金钱与红线</a>
+          <a href="security.html">失业与保障</a>
+          <a class="on" href="family.html">恋爱与育儿</a>
+          <a href="career.html">创业与技能</a>
+          <a class="gh" href="https://github.com/eternity4719/HowToLiveBetter" target="_blank" rel="noopener">GitHub 仓库</a>
+        </div>
+      </div>
       <button class="theme-btn" type="button" aria-label="切换明暗主题">🌓</button>
     </nav>
   </div>
 </header>
-
 <main>
-  <div class="pagehead wrap">
+  <div class="pagehead wrap ph-family">
+    <div class="crumbs"><a href="../index.html">首页</a><span class="sep">›</span><span class="cur">恋爱与育儿</span></div>
     <h1>恋爱与育儿</h1>
-    <p>恋爱婚育与怀孕育儿两个主题，摘编自原书第 10 节（恋爱和结婚划不划算）、第 18 节（养孩子划不划算）、第 27 节（怀孕和生产）和第 20 节（刚出生的孩子怎么带）。既有法律账（彩礼房产、领证、抚养费），也有婴儿安全睡眠、冲奶水温这类救命细节。</p>
-    <div class="subnav">
-      <a href="#lianai">恋爱与结婚</a>
-      <a href="#yunyu">怀孕与育儿</a>
-    </div>
+    <p>恋爱结婚的账、要不要孩子的账，怀孕生产的检查与安全，新生儿的喂养睡眠疫苗，上学以后孩子的健康与规矩。摘自原书第 10、18、20、27、30 章。</p>
+    <div class="chstats"><span class="nchip">5 章</span><span class="nchip">88 条</span><span class="badge a">A 53</span><span class="badge b">B 28</span><span class="badge c">C 7</span><span class="dist" role="img" aria-label="证据等级 A 53 条、B 28 条、C 7 条"><i class="da" style="width:60.2%"></i><i class="db" style="width:31.8%"></i><i class="dc" style="width:8.0%"></i></span></div>
+    <div class="subnav"><a href="../index.html#chapters">全部 34 章目录</a><a href="../index.html#topics">五个主题</a></div>
   </div>
 
-  <section class="block wrap" id="lianai">
-    <h2 class="sec">恋爱与结婚</h2>
-    <p class="secdesc">口径：时间、金钱与人身自由。这一节把感情问题拆成能算的账：谁的时间被占掉、钱在法律上算谁的、退出要付多大代价。</p>
-    <div class="list">
-
-      <article class="card reveal">
-        <div class="card-head"><h3>认识更多人，而不是死磕一个</h3><span class="badge a">证据 A</span></div>
-        <dl>
-          <div><dt>成本：</dt><dd>不花钱，时间花在多认识几个人上。难在忍住不死磕。</dd></div>
-          <div><dt>收益：</dt><dd>两场闪电约会研究让人在见面前填了 100 多项择偶问卷，问卷只能算出谁普遍容易喜欢别人、谁普遍受欢迎，算不出这两个人之间来不来电。合不合得来只有见了面才知道，所以要多见几个人。</dd></div>
-        </dl>
-        <p class="src">出自第 10 节第 1 条</p>
-      </article>
-
-      <article class="card reveal">
-        <div class="card-head"><h3>对方明确拒绝之后就停下，继续纠缠是治安违法</h3><span class="badge a">证据 A</span></div>
-        <dl>
-          <div><dt>成本：</dt><dd>不花钱也不花时间。难在忍住：不再发消息、不再去等人。</dd></div>
-          <div><dt>收益：</dt><dd>对方明确拒绝后还反复发消息、去等人，干扰到对方正常生活的，就是治安违法：可拘留 5 日以下或罚 1000 元以下，情节较重的拘留 5 到 10 日；公安还可以下令禁止接触对方，违反了再拘留。这是红线，不是「诚意」。</dd></div>
-        </dl>
-        <p class="src">出自第 10 节第 2 条</p>
-      </article>
-
-      <article class="card reveal">
-        <div class="card-head"><h3>异地恋不比同城差，真正的坎是搬到一起之后的头三个月</h3><span class="badge b">证据 B</span></div>
-        <dl>
-          <div><dt>成本：</dt><dd>路费和来回路上的时间，见面次数比同城少。难在长期扛住见不着面。</dd></div>
-          <div><dt>收益：</dt><dd>追踪数据里约一半异地伴侣走到了同城这一步，另一半在分开期间就结束了；重聚的这一半里，三分之一在 3 个月内分手。要搬到一起，提前把这三个月当坎来准备。</dd></div>
-        </dl>
-        <p class="src">出自第 10 节第 6 条</p>
-      </article>
-
-      <article class="card reveal">
-        <div class="card-head"><h3>父母出资买房，转账当天就把是借是送写清楚</h3><span class="badge a">证据 A</span></div>
-        <dl>
-          <div><dt>成本：</dt><dd>不花钱。出资当天写一页说明，写明这笔钱赠与谁还是借给谁，出资的父母和子女都签字；写借款的让夫妻两人都签，转账备注写同一句话。</dd></div>
-          <div><dt>收益：</dt><dd>婚前父母出钱买房默认只给自己孩子，婚后出的钱没约定按夫妻共同财产算。2025 年 2 月起，婚后一方父母全额出资、没写明只给自己孩子的，离婚时房子可以判给出资方的孩子，另一方补不补偿由法院再定。要算借款，就当天写清楚。</dd></div>
-        </dl>
-        <p class="src">出自第 10 节第 11 条</p>
-      </article>
-
-      <article class="card reveal">
-        <div class="card-head"><h3>领证只要身份证加一份签字声明，不用户口簿，不收钱</h3><span class="badge a">证据 A</span></div>
-        <dl>
-          <div><dt>成本：</dt><dd>不花钱，两个人亲自到场，办完通常几十分钟。</dd></div>
-          <div><dt>收益：</dt><dd>2025 年 5 月起领证只要两样：本人身份证，加一份写明无配偶、与对方无直系血亲和三代以内旁系血亲关系的签字声明。户口簿不用带，也不用回一方户口所在地办，符合条件当场发证。</dd></div>
-        </dl>
-        <p class="src">出自第 10 节第 13 条</p>
-      </article>
-
-      <article class="card reveal">
-        <div class="card-head"><h3>婚前做一次婚检，有重大疾病必须在登记前如实告诉对方</h3><span class="badge b">证据 B</span></div>
-        <dl>
-          <div><dt>成本：</dt><dd>多数地区对适龄人群免费或减免，自费也就几百元，花半天时间。</dd></div>
-          <div><dt>收益：</dt><dd>有重大疾病没在登记前如实告知，对方可以起诉撤销这段婚姻（知道之日起一年内提出）。婚检从 2003 年起就不是领证的前置条件，去不去自愿，但隐瞒重大疾病的后果是婚姻可撤销。</dd></div>
-        </dl>
-        <p class="src">出自第 10 节第 14 条</p>
-      </article>
-
-      <article class="card reveal">
-        <div class="card-head"><h3>办了婚礼、摆了酒席，也要去领结婚证</h3><span class="badge a">证据 A</span></div>
-        <dl>
-          <div><dt>成本：</dt><dd>不花钱，两个人去婚姻登记处几十分钟。</dd></div>
-          <div><dt>收益：</dt><dd>1994 年 2 月以后只办婚礼不领证的，法律上不是夫妻，只算同居：对方去世你不能按配偶继承遗产，想分开时法院也不按离婚办。补办登记就能解决，效力还能往前算。</dd></div>
-        </dl>
-        <p class="src">出自第 10 节第 21 条</p>
-      </article>
-
-      <article class="card reveal">
-        <div class="card-head"><h3>配偶拿共同的钱大额打赏主播、转给婚外的人：不离婚也能请求分割</h3><span class="badge a">证据 A</span></div>
-        <dl>
-          <div><dt>成本：</dt><dd>要打官司：律师费自己出，一审普通程序按规定 6 个月内审完，还要自己把转账流水、打赏记录一笔笔找出来。</dd></div>
-          <div><dt>收益：</dt><dd>配偶没跟你商量拿共同的钱大额打赏主播的，不离婚也能请法院把共同财产分开，离婚时还能让对方少分或不分；转给婚外的人的钱可以起诉收钱的人退回，对方说花掉了也照样要退。</dd></div>
-        </dl>
-        <p class="src">出自第 10 节第 22 条</p>
-      </article>
-
-      <article class="card reveal">
-        <div class="card-head"><h3>离婚协议里把孩子跟谁、抚养费、探望写具体</h3><span class="badge a">证据 A</span></div>
-        <dl>
-          <div><dt>成本：</dt><dd>写进协议不花钱，难在坐下来谈细：每月几号付、付到哪个账户、哪个周末接孩子、寒暑假怎么分。谈不拢打官司，受理费每件 50 到 300 元。</dd></div>
-          <div><dt>收益：</dt><dd>孩子跟谁、每月给多少、什么时候见孩子，谈不拢由法院判：有固定收入的，抚养费一般给月收入的两到三成。写好的钱对方不给可以起诉要回；对方拦着不让见孩子，法院可以罚款、拘留他。写得越具体，离婚后越少再打官司。</dd></div>
-        </dl>
-        <p class="src">出自第 10 节第 23 条</p>
-      </article>
-
-      <article class="card reveal">
-        <div class="card-head"><h3>先把能领的算进来：育儿补贴每年 3600 元，个税每孩每月扣 2000 元</h3><span class="badge a">证据 A</span></div>
-        <dl>
-          <div><dt>成本：</dt><dd>不花钱。补贴去孩子户口所在地申请，跑一趟；个税扣除在「个人所得税」App 上填或交单位填。</dd></div>
-          <div><dt>收益：</dt><dd>不满 3 岁的孩子每年能领 3600 元育儿补贴，不用交税（2025 年以前出生的按剩余月数折算）；从出生到全日制上学结束，每个孩子每月能从父母应税收入里减掉 2000 元，税率 3% 的一年少交 720 元、10% 的少交 2400 元。</dd></div>
-        </dl>
-        <p class="src">出自第 18 节第 1 条</p>
-      </article>
-
-      <article class="card reveal">
-        <div class="card-head"><h3>产假 98 天，生育津贴由生育保险基金发</h3><span class="badge a">证据 A</span></div>
-        <dl>
-          <div><dt>成本：</dt><dd>不花钱，由单位去申报，自己不用跑。</dd></div>
-          <div><dt>收益：</dt><dd>生孩子至少 98 天产假，难产、多胞胎再加，期间由生育保险基金按单位上年度职工月平均工资发生育津贴；单位没上生育保险的由单位自己发。男方陪产假和夫妻育儿假看本省条例，例如北京陪产假 15 天、孩子 3 岁前每人每年 5 个工作日育儿假。</dd></div>
-        </dl>
-        <p class="src">出自第 18 节第 2 条</p>
-      </article>
-
-      <article class="card reveal">
-        <div class="card-head"><h3>知道这条：不得因怀孕、生育、哺乳降工资或者辞退</h3><span class="badge a">证据 A</span></div>
-        <dl>
-          <div><dt>成本：</dt><dd>不花钱。</dd></div>
-          <div><dt>收益：</dt><dd>单位因怀孕、生孩子、喂奶给你降工资或辞退都是违法的。孩子不满一周岁，每天有 1 小时喂奶时间，单位也不能安排加班和夜班，违反的按每人 1000 到 5000 元罚款。被违法辞退怎么索赔见第 19 节。</dd></div>
-        </dl>
-        <p class="src">出自第 18 节第 3 条</p>
-      </article>
-
-      <article class="card reveal">
-        <div class="card-head"><h3>打算晚几年再生孩子的，先把女方的年龄这笔账算上</h3><span class="badge a">证据 A</span></div>
-        <dl>
-          <div><dt>成本：</dt><dd>不花钱，花的是一次认真的谈话。难在把生孩子和工作、买房放在一起排，不能只是往后推。</dd></div>
-          <div><dt>收益：</dt><dd>女方年龄越大越难自然怀上：40 岁出头每个月怀上的几率只有 30 岁出头的一半左右，怀上后 40 到 44 岁流产比例约三分之一；试管婴儿也补不回来，43、44 岁每移植一个胚胎只有约 5% 能生下孩子。</dd></div>
-        </dl>
-        <p class="src">出自第 18 节第 7 条</p>
-      </article>
-
+  <section class="block wrap" id="chapters">
+    <div class="chgrid tg-family">
+      <a class="chcard reveal" href="c10.html">
+        <span class="chtop"><span class="chnum">c10</span><span class="chcount">23 条</span></span>
+        <h3>恋爱和结婚划不划算</h3>
+        <p>结婚这件事的钱、健康、法律与关系账</p>
+        <span class="dist" role="img" aria-label="证据等级 A 17 条、B 5 条、C 1 条"><i class="da" style="width:73.9%"></i><i class="db" style="width:21.7%"></i><i class="dc" style="width:4.4%"></i></span>
+        <span class="dist-txt">A 17 · B 5 · C 1</span>
+        <span class="go">进入章节 →</span>
+        </a>
+      <a class="chcard reveal" href="c18.html">
+        <span class="chtop"><span class="chnum">c18</span><span class="chcount">7 条</span></span>
+        <h3>养孩子划不划算</h3>
+        <p>养孩子的钱和时间两笔账</p>
+        <span class="dist" role="img" aria-label="证据等级 A 4 条、B 0 条、C 3 条"><i class="da" style="width:57.1%"></i><i class="dc" style="width:42.9%"></i></span>
+        <span class="dist-txt">A 4 · C 3</span>
+        <span class="go">进入章节 →</span>
+        </a>
+      <a class="chcard reveal" href="c20.html">
+        <span class="chtop"><span class="chnum">c20</span><span class="chcount">17 条</span></span>
+        <h3>刚出生的孩子怎么带</h3>
+        <p>孩子刚出生那一年的喂养、睡眠与疫苗</p>
+        <span class="dist" role="img" aria-label="证据等级 A 8 条、B 7 条、C 2 条"><i class="da" style="width:47.1%"></i><i class="db" style="width:41.2%"></i><i class="dc" style="width:11.7%"></i></span>
+        <span class="dist-txt">A 8 · B 7 · C 2</span>
+        <span class="go">进入章节 →</span>
+        </a>
+      <a class="chcard reveal" href="c27.html">
+        <span class="chtop"><span class="chnum">c27</span><span class="chcount">20 条</span></span>
+        <h3>怀孕和生产：从发现怀孕到出院办证</h3>
+        <p>产检时间表、分娩安全与办出生证</p>
+        <span class="dist" role="img" aria-label="证据等级 A 16 条、B 4 条、C 0 条"><i class="da" style="width:80.0%"></i><i class="db" style="width:20.0%"></i></span>
+        <span class="dist-txt">A 16 · B 4</span>
+        <span class="go">进入章节 →</span>
+        </a>
+      <a class="chcard reveal" href="c30.html">
+        <span class="chtop"><span class="chnum">c30</span><span class="chcount">21 条</span></span>
+        <h3>上学以后的孩子</h3>
+        <p>上学以后孩子的健康与规矩</p>
+        <span class="dist" role="img" aria-label="证据等级 A 8 条、B 12 条、C 1 条"><i class="da" style="width:38.1%"></i><i class="db" style="width:57.1%"></i><i class="dc" style="width:4.8%"></i></span>
+        <span class="dist-txt">A 8 · B 12 · C 1</span>
+        <span class="go">进入章节 →</span>
+        </a>
     </div>
-  </section>
-
-  <section class="block wrap" id="yunyu">
-    <h2 class="sec">怀孕与育儿</h2>
-    <p class="secdesc">口径：婴儿死亡率、死亡率与金钱。这一节的多数条目不花钱或只花几十元，做法都简单，难在记住和坚持。</p>
-    <div class="list">
-
-      <article class="card reveal">
-        <div class="card-head"><h3>准备怀孕就开始每天补 0.4 毫克叶酸，吃到孕早期满 3 个月</h3><span class="badge a">证据 A</span></div>
-        <dl>
-          <div><dt>成本：</dt><dd>几十元一瓶；农村妇女不用花钱，国家免费增补叶酸项目会发。难在天天记得住。</dd></div>
-          <div><dt>收益：</dt><dd>怀孕前后每天吃一粒叶酸，孩子出现神经管缺陷（无脑儿、脊柱裂这类）的概率大约能降七成。已经生过一个这样孩子的人，再生一个还出问题的概率大约降到原来的三分之一。</dd></div>
-        </dl>
-        <p class="src">出自第 27 节第 1 条</p>
-      </article>
-
-      <article class="card reveal">
-        <div class="card-head"><h3>第一次产检就把艾滋病、梅毒、乙肝三项查掉</h3><span class="badge a">证据 A</span></div>
-        <dl>
-          <div><dt>成本：</dt><dd>艾滋病的咨询和初筛按条例免费；梅毒、乙肝收不收费问产检医院。</dd></div>
-          <div><dt>收益：</dt><dd>查出来也不是绝路：艾滋病国家免费给治疗和咨询；梅毒尽早用青霉素治；乙肝的孩子一出生同时打疫苗和免疫球蛋白，挡住母婴传播。三项都是一次抽血顺带查掉的事。</dd></div>
-        </dl>
-        <p class="src">出自第 27 节第 3 条</p>
-      </article>
-
-      <article class="card reveal">
-        <div class="card-head"><h3>背下「立刻去医院」的清单，孕期和产后一年内都算数</h3><span class="badge a">证据 A</span></div>
-        <dl>
-          <div><dt>成本：</dt><dd>不花钱，花五分钟记住，最好让同住的人也知道。</dd></div>
-          <div><dt>收益：</dt><dd>任何一条出现马上去医院，别在家等一晚：头痛不好或越来越重、看东西变样、发烧到 38 度、手或脸肿得厉害、喘不上气、胸痛或心跳快、肚子剧痛不缓解、胎动停了或明显变少、阴道出血或流液、一条胳膊或腿又肿又痛、想伤害自己或孩子。</dd></div>
-        </dl>
-        <p class="src">出自第 27 节第 7 条</p>
-      </article>
-
-      <article class="card reveal">
-        <div class="card-head"><h3>破水了就地平躺、垫高臀部、打 120，不要走动也不要洗澡</h3><span class="badge b">证据 B</span></div>
-        <dl>
-          <div><dt>成本：</dt><dd>不花钱。</dd></div>
-          <div><dt>收益：</dt><dd>站着走动羊水流得更快，脐带可能跟着被冲下来，那是能要孩子命的急症。正确做法是就地躺下、把臀部垫高、打 120。</dd></div>
-        </dl>
-        <p class="src">出自第 27 节第 8 条</p>
-      </article>
-
-      <article class="card reveal">
-        <div class="card-head"><h3>怀孕 28 周以后入睡时侧着躺，别仰面躺着睡<span class="tag-disp">争议</span></h3><span class="badge b">证据 B</span></div>
-        <dl>
-          <div><dt>成本：</dt><dd>不花钱，难在习惯仰睡的人要改姿势。</dd></div>
-          <div><dt>收益：</dt><dd>孕 28 周以后仰面躺着入睡，孩子死在肚子里的风险比侧着睡明显更高；左侧右侧一样，挑舒服的那边。半夜醒来发现仰着不用慌，翻回侧面接着睡。这个结果靠事后回忆得来，还有争议。</dd></div>
-        </dl>
-        <p class="src">出自第 27 节第 19 条</p>
-      </article>
-
-      <article class="card reveal">
-        <div class="card-head"><h3>出院前把《出生医学证明》办掉，名字提前想好别写错字</h3><span class="badge a">证据 A</span></div>
-        <dl>
-          <div><dt>成本：</dt><dd>不花钱，办出院手续时顺手就办了。</dd></div>
-          <div><dt>收益：</dt><dd>这张证是上户口、参保、上学的前置件。在医院生的向接生机构领；没在助产机构生的要先做亲子鉴定才能领。名字里的字先确认户籍系统打得出来。</dd></div>
-        </dl>
-        <p class="src">出自第 27 节第 12 条</p>
-      </article>
-
-      <article class="card reveal">
-        <div class="card-head"><h3>拿到出生证就给孩子办居民医保，别等落完户</h3><span class="badge a">证据 A</span></div>
-        <dl>
-          <div><dt>成本：</dt><dd>一年交一次居民医保保费，几百元。</dd></div>
-          <div><dt>收益：</dt><dd>拿到出生证就能在网上参保，参上了出院时的住院费当场就能报。新生儿的住院费不低，参保和没参保差别很大。</dd></div>
-        </dl>
-        <p class="src">出自第 27 节第 14 条</p>
-      </article>
-
-      <article class="card reveal">
-        <div class="card-head"><h3>产后 42 天那次复查别跳过，它同时是产后抑郁筛查</h3><span class="badge a">证据 A</span></div>
-        <dl>
-          <div><dt>成本：</dt><dd>不花钱，属于基本公共卫生服务，占半天时间。难在刚出月子懒得动。</dd></div>
-          <div><dt>收益：</dt><dd>按地方公开的服务清单，这次复查含血常规、白带常规和一次产后抑郁筛查。产后一年内都可能出大问题，别觉得出了月子就安全了。</dd></div>
-        </dl>
-        <p class="src">出自第 27 节第 16 条</p>
-      </article>
-
-      <article class="card reveal">
-        <div class="card-head"><h3>让婴儿仰着睡，睡硬的平面，同房不同床，床上不放软东西</h3><span class="badge a">证据 A</span></div>
-        <dl>
-          <div><dt>成本：</dt><dd>床垫换成硬的几百元。难在顶住长辈的说法一直按这个来。</dd></div>
-          <div><dt>收益：</dt><dd>婴儿脸朝上躺在不倾斜的硬平面上（斜摇篮和婴儿椅不能当床），大人孩子同房不同床，床上不放枕头、被子、床围、毛绒玩具。仅美国每年就有约 3500 个婴儿死于和睡眠有关的原因。</dd></div>
-        </dl>
-        <p class="src">出自第 20 节第 1 条</p>
-      </article>
-
-      <article class="card reveal">
-        <div class="card-head"><h3>冲奶粉用 70 度以上的水，冲好放凉再喂，喝剩的倒掉</h3><span class="badge a">证据 A</span></div>
-        <dl>
-          <div><dt>成本：</dt><dd>不花钱，每次多等几分钟放凉。难在孩子饿得哭的时候也要等水温。</dd></div>
-          <div><dt>收益：</dt><dd>奶粉不是无菌的，可能带一种细菌，新生儿感染后四成到八成会死。先倒热水、等降到约 73.8 度再放奶粉，多数情况下能把这种菌杀到原来的十万分之一以下。早产、低出生体重和不满 2 个月的婴儿尤其要这样。</dd></div>
-        </dl>
-        <p class="src">出自第 20 节第 5 条</p>
-      </article>
-
-      <article class="card reveal">
-        <div class="card-head"><h3>按国家免疫规划把该打的疫苗打齐，全程免费</h3><span class="badge a">证据 A</span></div>
-        <dl>
-          <div><dt>成本：</dt><dd>不花钱，法律写明接种免疫规划疫苗不得收取任何费用；按月龄跑几趟接种门诊，预防接种证收好别弄丢。</dd></div>
-          <div><dt>收益：</dt><dd>入托、入学都要查预防接种证，漏打的一般会被查出来补上；错过了只补没打完的那几剂，不用从头再打，换了厂家也能接着打。出生后 24 小时内还有乙肝疫苗第一针，一定要打上。</dd></div>
-        </dl>
-        <p class="src">出自第 20 节第 2、3 条</p>
-      </article>
-
-      <article class="card reveal">
-        <div class="card-head"><h3>孩子出生后每天喂 400 国际单位维生素 D，吃母乳的尤其别漏</h3><span class="badge b">证据 B</span></div>
-        <dl>
-          <div><dt>成本：</dt><dd>维生素 D 滴剂一瓶几十元，每天滴一次。难在天天记着，至少喂到 1 岁。</dd></div>
-          <div><dt>收益：</dt><dd>母乳里维生素 D 很少，婴儿又不宜多晒太阳。土耳其农村没补的孩子一年里有 3.8% 得了佝偻病，补了的一个都没有。正常足月的孩子 6 个月内一般不用另外补钙。</dd></div>
-        </dl>
-        <p class="src">出自第 20 节第 16 条</p>
-      </article>
-
-    </div>
-    <div class="note">本页是摘编。第 27 节还有无痛分娩、妊娠期糖尿病、流感疫苗等条目，第 20 节还有新生儿黄疸信号、不喂蜂蜜、不摇晃婴儿等，完整内容见原仓库。</div>
+    <div class="note">这是一份备选单，不是任务清单。挑走一两条就算数，剩下的放着，需要时再回来查。书里的政策各地执行不一样、也可能过时，真去办事、看病、打官司时，以当地部门、医生和律师的说法为准。</div>
   </section>
 </main>
-
 <footer class="site">
   <div class="wrap">
-    <p><a href="../index.html">返回首页</a> · 内容摘编自开源书《高性价比人生指南》（<a href="https://creativecommons.org/licenses/by/4.0/" target="_blank" rel="noopener">CC BY 4.0</a>），本站作了浓缩与重新分组。</p>
+    <p><a href="../index.html">返回首页</a> · 内容出自开源书《高性价比人生指南》（<a href="https://creativecommons.org/licenses/by/4.0/" target="_blank" rel="noopener">CC BY 4.0</a>）。</p>
     <p>完整原文、来源核实记录与在线检索：<a href="https://github.com/eternity4719/HowToLiveBetter" target="_blank" rel="noopener">GitHub 仓库 eternity4719/HowToLiveBetter</a></p>
-    <p>医疗相关内容以医生的说法为准；法律政策以当地最新规定为准。</p>
+    <p>本站不构成医疗、法律或投资建议；政策与补贴标准随时间变化，以官方最新规定为准。</p>
   </div>
 </footer>
-
 <script>
 (function(){
   if (!window.matchMedia('(prefers-reduced-motion: no-preference)').matches) return;
@@ -350,9 +249,25 @@ footer.site .wrap p{margin-bottom:6px}
 })();
 </script>
 <script>
+(function(){var t=document.querySelector('.nav-toggle'),l=document.getElementById('navlinks');if(!t||!l)return;
+t.addEventListener('click',function(){var o=l.classList.toggle('open');t.setAttribute('aria-expanded',o?'true':'false')});
+l.addEventListener('click',function(e){if(e.target.closest('a')){l.classList.remove('open');t.setAttribute('aria-expanded','false')}});})();
+</script>
+<script>
 (function(){var b=document.querySelector('.theme-btn');if(!b)return;
 function sync(){var d=document.documentElement.getAttribute('data-theme')==='dark';b.textContent=d?'\u2600\uFE0F':'\uD83C\uDF19';b.setAttribute('aria-label',d?'\u5207\u6362\u5230\u6D45\u8272\u4E3B\u9898':'\u5207\u6362\u5230\u6DF1\u8272\u4E3B\u9898')}
 b.addEventListener('click',function(){var t=document.documentElement.getAttribute('data-theme')==='dark'?'light':'dark';document.documentElement.setAttribute('data-theme',t);try{localStorage.setItem('theme',t)}catch(e){}sync()});
 sync()})();
-</script></body>
+</script><div class="portal"><a href="../../index.html">&#8592; 总门户</a></div>
+<button class="toTop" type="button" id="toTop" aria-label="回到顶部">&#8593;</button>
+<script>
+(function(){
+  var b=document.getElementById('toTop');if(!b)return;
+  var rm=window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  function upd(){if(window.scrollY>600){b.classList.add('show')}else{b.classList.remove('show')}}
+  window.addEventListener('scroll',upd,{passive:true});upd();
+  b.addEventListener('click',function(){window.scrollTo({top:0,behavior:rm?'auto':'smooth'});});
+})();
+</script>
+</body>
 </html>

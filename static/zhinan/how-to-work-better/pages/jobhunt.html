@@ -2,11 +2,11 @@
 <html lang="zh-CN">
 <head>
 <meta charset="UTF-8">
-<script>(function(){try{var t=localStorage.getItem('theme');if(t!=='light'&&t!=='dark'){var h=new Date().getHours();t=(h>=7&&h<17)?'light':'dark'}document.documentElement.setAttribute('data-theme',t)}catch(e){document.documentElement.setAttribute('data-theme','light')}})();</script>
+<script>(function(){document.documentElement.classList.add('js');try{var t=localStorage.getItem('theme');if(t!=='light'&&t!=='dark'){var h=new Date().getHours();t=(h>=7&&h<17)?'light':'dark'}document.documentElement.setAttribute('data-theme',t)}catch(e){document.documentElement.setAttribute('data-theme','light')}})();</script>
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>求职与谈薪 · 高性价比工作指南</title>
 <style>
-:root,[data-theme=light]{--bg:#f4f6f9;--card:#ffffff;--ink:#1e2430;--ink2:#5b6472;--line:#e2e7ee;--accent:#0a5cff;--accent-soft:#e8f0ff;--on-accent:#fff;--src:#8a93a3;--accent-fade:#b9cffb;--radius:14px;color-scheme:light}
+:root,[data-theme=light]{--bg:#f4f6f9;--card:#ffffff;--ink:#1e2430;--ink2:#5b6472;--line:#e2e7ee;--accent:#0a5cff;--accent-soft:#e8f0ff;--on-accent:#fff;--src:#67707e;--accent-fade:#b9cffb;--radius:14px;--mono:Consolas,Menlo,monospace;color-scheme:light}
 [data-theme=dark]{--bg:#15181e;--card:#1e232b;--ink:#e6e9ef;--ink2:#a7b0bf;--line:#353c47;--accent:#4d9fff;--accent-soft:#12233d;--on-accent:#0b1220;--src:#8f99a9;--accent-fade:#1c3d6e;color-scheme:dark}
 *{box-sizing:border-box;margin:0;padding:0}
 body{background:var(--bg);color:var(--ink);font-family:"Microsoft YaHei","PingFang SC","Segoe UI",sans-serif;line-height:1.75;font-size:15.5px}
@@ -14,8 +14,8 @@ a{color:var(--accent);text-decoration:none}
 a:hover{text-decoration:underline}
 .wrap{max-width:1000px;margin:0 auto;padding:0 20px}
 .topbar{background:var(--card);border-bottom:1px solid var(--line);position:sticky;top:0;z-index:20}
-.nav{display:flex;align-items:center;gap:4px;white-space:nowrap;overflow-x:auto;scrollbar-width:none}
-.nav::-webkit-scrollbar{display:none}
+.nav{display:flex;align-items:center;gap:4px;flex-wrap:wrap;row-gap:4px;min-height:44px}
+.nav-menu{display:contents}
 .brand{font-weight:700;color:var(--ink);margin-right:14px;flex:none}
 .brand span{color:var(--accent)}
 .nav a{flex:none;padding:9px 12px;border-radius:10px;color:var(--ink2);font-size:14px}
@@ -24,6 +24,22 @@ a:hover{text-decoration:underline}
 .nav a.gh{border:1px solid var(--line);color:var(--accent)}
 .theme-btn{flex:none;margin-left:6px;padding:8px 12px;border-radius:10px;border:1px solid var(--line);background:var(--card);color:var(--ink);font-size:13px;cursor:pointer;font-family:inherit;line-height:1.2}
 .theme-btn:hover{background:var(--accent-soft);color:var(--accent)}
+.nav-toggle{display:none;flex:none;margin-left:6px;padding:8px 12px;border-radius:10px;border:1px solid var(--line);background:var(--card);color:var(--ink);font-size:15px;line-height:1.2;cursor:pointer;font-family:inherit}
+.nav-toggle:hover{background:var(--accent-soft);color:var(--accent)}
+@media (max-width:720px){
+html.js .nav{flex-wrap:nowrap;padding:2px 0}
+html.js .nav-menu{display:none}
+html.js .nav .theme-btn{margin-left:auto}
+html.js .nav-toggle{display:inline-flex;align-items:center}
+html.js .nav.open{flex-wrap:wrap;padding-bottom:6px}
+html.js .nav.open .nav-menu{display:flex;flex-direction:column;align-items:stretch;gap:2px;flex-basis:100%;width:100%;margin-top:4px;padding:6px 0 2px;border-top:1px solid var(--line)}
+html.js .nav.open .nav-menu a{padding:10px 12px}
+}
+@media (prefers-reduced-motion:no-preference){
+.nav-menu a{transition:background .15s ease,color .15s ease}
+html.js .nav.open .nav-menu{animation:navIn .18s ease}
+@keyframes navIn{from{opacity:0;transform:translateY(-6px)}to{opacity:1;transform:none}}
+}
 main{padding:34px 0 10px}
 .pagehead{margin-bottom:22px}
 .pagehead .crumb{font-size:13px;color:var(--ink2)}
@@ -33,13 +49,13 @@ h2.sec{font-size:19px;margin:34px 0 4px;padding-left:12px;border-left:4px solid 
 p.secsub{color:var(--ink2);font-size:14px;margin:0 0 14px 16px}
 .card{background:var(--card);border:1px solid var(--line);border-radius:var(--radius);padding:20px 22px;margin-bottom:14px}
 .card .head{display:flex;gap:12px;align-items:baseline}
-.card .num{font-family:Consolas,Menlo,monospace;font-size:13px;color:var(--accent);border:1px solid var(--accent);border-radius:8px;padding:0 8px;flex:none}
+.card .num{font-family:var(--mono);font-size:13px;color:var(--accent);border:1px solid var(--accent);border-radius:8px;padding:0 8px;flex:none}
 .card h3{font-size:16px;line-height:1.5}
 .meta{margin:8px 0 8px}
 .chip{display:inline-block;font-size:12px;border-radius:999px;padding:2px 10px;margin:0 6px 6px 0;border:1px solid var(--line);color:var(--ink2);background:var(--bg)}
 .chip.blue{background:var(--accent);border-color:var(--accent);color:var(--on-accent)}
 .chip.line{border-color:var(--accent);color:var(--accent);background:var(--accent-soft)}
-.card p{color:var(--ink2);font-size:14.5px}
+.card p{color:var(--ink2);font-size:15px}
 .card p b{color:var(--ink)}
 .src{margin-top:8px;font-size:12.5px;color:var(--src)}
 footer{margin-top:44px;border-top:1px solid var(--line);background:var(--card)}
@@ -49,11 +65,16 @@ footer p{margin:3px 0}
 .reveal.in{opacity:1;transform:none}
 @media (prefers-reduced-motion:reduce){.reveal{opacity:1;transform:none;transition:none}}
 @media (max-width:640px){.card{padding:16px}}
+.portal{position:fixed;left:14px;bottom:14px;z-index:99}.portal a{display:inline-block;padding:7px 16px;border-radius:999px;background:rgba(20,20,20,.72);color:#fff;font-size:13px;text-decoration:none;backdrop-filter:blur(4px);font-family:system-ui,sans-serif}.portal a:hover{background:rgba(20,20,20,.9)}
+.toTop{position:fixed;right:14px;bottom:14px;z-index:98;display:none;border:none;cursor:pointer;padding:7px 14px;border-radius:999px;background:rgba(20,20,20,.72);color:#fff;font-size:14px;line-height:1;backdrop-filter:blur(4px);font-family:system-ui,sans-serif}.toTop:hover{background:rgba(20,20,20,.9)}.toTop.show{display:inline-block}
 </style>
-<noscript><style>.reveal,.rv{opacity:1 !important;transform:none !important}</style></noscript></head>
+<noscript><style>.reveal,.rv{opacity:1 !important;transform:none !important}.portal{position:fixed;left:14px;bottom:14px;z-index:99}.portal a{display:inline-block;padding:7px 16px;border-radius:999px;background:rgba(20,20,20,.72);color:#fff;font-size:13px;text-decoration:none;backdrop-filter:blur(4px);font-family:system-ui,sans-serif}.portal a:hover{background:rgba(20,20,20,.9)}
+.toTop{position:fixed;right:14px;bottom:14px;z-index:98;display:none;border:none;cursor:pointer;padding:7px 14px;border-radius:999px;background:rgba(20,20,20,.72);color:#fff;font-size:14px;line-height:1;backdrop-filter:blur(4px);font-family:system-ui,sans-serif}.toTop:hover{background:rgba(20,20,20,.9)}.toTop.show{display:inline-block}
+</style></noscript></head>
 <body>
-<header class="topbar"><div class="wrap"><nav class="nav">
+<header class="topbar"><div class="wrap"><nav class="nav" id="siteNav" aria-label="站内导航">
 <a class="brand" href="../index.html">高性价比<span>工作指南</span></a>
+<div class="nav-menu">
 <a href="../index.html">返回首页</a>
 <a class="on" href="jobhunt.html">求职与谈薪</a>
 <a href="onboard.html">入职与社保</a>
@@ -61,7 +82,9 @@ footer p{margin:3px 0}
 <a href="growth.html">成长与礼仪</a>
 <a href="rights.html">健康与合同</a>
 <a class="gh" href="https://github.com/NiceCao/HowToWorkBetter" target="_blank" rel="noopener">GitHub 仓库</a>
+</div>
 <button type="button" class="theme-btn" id="themeToggle" aria-label="切换明暗主题">☾ 暗色</button>
+<button type="button" class="nav-toggle" id="navToggle" aria-expanded="false" aria-controls="siteNav" aria-label="展开或收起导航菜单">☰</button>
 </nav></div></header>
 
 <main class="wrap">
@@ -73,6 +96,7 @@ footer p{margin:3px 0}
 
 <h2 class="sec reveal">一、选行业与挑公司</h2>
 <p class="secsub">来自第 1 章行业选择、第 2 章公司选择、第 3 章企业文化：先看长期增长，再看天花板、护城河和匹配度。</p>
+<p class="src">组内按证据等级 A→C 排序</p>
 
 <article class="card reveal"><div class="head"><span class="num">01</span><h3>选行业先看长期增长，再看天花板、护城河和匹配度</h3></div>
 <div class="meta"><span class="chip blue">证据 A</span><span class="chip line">性价比 极高</span><span class="chip">成本 钱=0 · 时间=中 · 精力=低</span><span class="chip">口径：职业寿命 / 收入</span></div>
@@ -83,16 +107,6 @@ footer p{margin:3px 0}
 <div class="meta"><span class="chip blue">证据 A</span><span class="chip line">性价比 极高</span><span class="chip">成本 钱=0 · 时间=中 · 精力=低</span><span class="chip">口径：收入</span></div>
 <p><b>说人话：</b>2025 年城镇非私营单位就业人员年平均工资 129441 元、城镇私营单位 71590 元。这两个数是全国量级参照：官方平均是税前应发、受高薪人群拉动，中位数通常更低，落不到某个具体岗位，只能看量级。</p>
 <p class="src">来源：国家统计局对 2025 年城镇单位就业人员平均工资数据的解读。</p></article>
-
-<article class="card reveal"><div class="head"><span class="num">03</span><h3>同时拿到几家公司的机会时，按可核对项比较再决定去哪家</h3></div>
-<div class="meta"><span class="chip">证据 B</span><span class="chip line">性价比 高</span><span class="chip">成本 钱=0 · 时间=少 · 精力=低</span><span class="chip">口径：职业寿命</span></div>
-<p><b>怎么做：</b>第 2 章公司选择解决的是：手里有几个机会时怎么判断哪家值得去。把薪资结构、业务前景、直属领导、团队情况逐项列出来比，能核对的核对了再选，别只看品牌和口头描述。</p>
-<p class="src">来源：见仓库第 2 章各条；比较框架属经验做法与公开资料结合。</p></article>
-
-<article class="card reveal"><div class="head"><span class="num">04</span><h3>面试时怎么看穿企业文化的真假</h3></div>
-<div class="meta"><span class="chip">证据 C</span><span class="chip">性价比 高</span><span class="chip">成本 钱=0 · 时间=少 · 精力=低</span><span class="chip">口径：职业寿命</span></div>
-<p><b>怎么做：</b>第 3 章给出面试时判断公司文化是真还是装的方法：看面试流程本身是否规范、面试官怎么谈加班和离职、在职员工的评价怎么说，用可观察的行为而不是墙上的口号来判断。</p>
-<p class="src">来源：无（经验判断，仓库第 3 章在限制里说明了这一点的边界）。</p></article>
 
 <article class="card reveal"><div class="head"><span class="num">05</span><h3>择业反面清单：无底薪纯提成的岗位要警惕</h3></div>
 <div class="meta"><span class="chip blue">证据 A</span><span class="chip line">性价比 极高</span><span class="chip">成本 钱=0 · 时间=少 · 精力=低</span><span class="chip">口径：收入</span></div>
@@ -109,8 +123,21 @@ footer p{margin:3px 0}
 <p><b>怎么做：</b>这几类陷阱的共性是承诺的收益拿不到、还可能搭进去钱或人身自由：境外高薪招聘先核实渠道资质；以租代招把招聘变成设备租赁；兼职垫钱先买货再返款的多数是骗局；抬头虚高的岗位名与实际职责不符，影响后续跳槽定价。遇到就绕开。</p>
 <p class="src">来源：仓库第 8 章逐条附法规依据与识别方法。</p></article>
 
+<article class="card reveal"><div class="head"><span class="num">03</span><h3>同时拿到几家公司的机会时，按可核对项比较再决定去哪家</h3></div>
+<div class="meta"><span class="chip">证据 B</span><span class="chip line">性价比 高</span><span class="chip">成本 钱=0 · 时间=少 · 精力=低</span><span class="chip">口径：职业寿命</span></div>
+<p><b>怎么做：</b>第 2 章公司选择解决的是：手里有几个机会时怎么判断哪家值得去。把薪资结构、业务前景、直属领导、团队情况逐项列出来比，能核对的核对了再选，别只看品牌和口头描述。</p>
+<p class="src">来源：见仓库第 2 章各条；比较框架属经验做法与公开资料结合。</p></article>
+
+<article class="card reveal"><div class="head"><span class="num">04</span><h3>面试时怎么看穿企业文化的真假</h3></div>
+<div class="meta"><span class="chip">证据 C</span><span class="chip">性价比 高</span><span class="chip">成本 钱=0 · 时间=少 · 精力=低</span><span class="chip">口径：职业寿命</span></div>
+<p><b>怎么做：</b>第 3 章给出面试时判断公司文化是真还是装的方法：看面试流程本身是否规范、面试官怎么谈加班和离职、在职员工的评价怎么说，用可观察的行为而不是墙上的口号来判断。</p>
+<p class="src">来源：无（经验判断，仓库第 3 章在限制里说明了这一点的边界）。</p></article>
+
+
+
 <h2 class="sec reveal">二、投简历与面试</h2>
 <p class="secsub">来自第 14 章跳槽涨薪：渠道、面试与时机。</p>
+<p class="src">组内按证据等级 A→C 排序</p>
 
 <article class="card reveal"><div class="head"><span class="num">08</span><h3>找工作优先走内推，别只靠海投</h3></div>
 <div class="meta"><span class="chip">证据 B</span><span class="chip line">性价比 高</span><span class="chip">成本 钱=0 · 时间=少 · 精力=低</span><span class="chip">口径：职业寿命</span></div>
@@ -129,6 +156,7 @@ footer p{margin:3px 0}
 
 <h2 class="sec reveal">三、谈薪资</h2>
 <p class="secsub">来自第 9 章谈薪，按性价比从高到低排。</p>
+<p class="src">组内按证据等级 A→C 排序</p>
 
 <article class="card reveal"><div class="head"><span class="num">11</span><h3>先让对方给出薪资区间，自己不要先报具体数字</h3></div>
 <div class="meta"><span class="chip blue">证据 A</span><span class="chip line">性价比 极高</span><span class="chip">成本 钱=0 · 时间=0 · 精力=低</span><span class="chip">口径：收入</span></div>
@@ -181,7 +209,7 @@ footer p{margin:3px 0}
 <p>所有内容仅供参考，不构成法律建议；金额、时限、比例以当地主管部门最新规定为准。遇到具体纠纷请咨询专业人士，或拨打 12333（人社）、12348（法律援助）。</p>
 </div></footer>
 
-<script>(function(){var b=document.getElementById('themeToggle');if(!b)return;function up(){b.textContent=document.documentElement.getAttribute('data-theme')==='dark'?'☀ 亮色':'☾ 暗色'}up();b.addEventListener('click',function(){var d=document.documentElement.getAttribute('data-theme')==='dark'?'light':'dark';document.documentElement.setAttribute('data-theme',d);try{localStorage.setItem('theme',d)}catch(e){}up()})})();</script>
+<script>(function(){var b=document.getElementById('themeToggle');if(!b)return;function up(){b.textContent=document.documentElement.getAttribute('data-theme')==='dark'?'☀ 亮色':'☾ 暗色'}up();b.addEventListener('click',function(){var d=document.documentElement.getAttribute('data-theme')==='dark'?'light':'dark';document.documentElement.setAttribute('data-theme',d);try{localStorage.setItem('theme',d)}catch(e){}up()})();var n=document.getElementById('siteNav'),t=document.getElementById('navToggle');if(n&&t){t.addEventListener('click',function(){var o=n.classList.toggle('open');t.setAttribute('aria-expanded',o?'true':'false');t.textContent=o?'\u2715':'\u2630'});n.addEventListener('click',function(e){var a=e.target&&e.target.closest?e.target.closest('a'):null;if(a&&n.classList.contains('open')){n.classList.remove('open');t.setAttribute('aria-expanded','false');t.textContent='\u2630'}})}})();</script>
 <script>
 (function(){
 var rm=window.matchMedia&&window.matchMedia('(prefers-reduced-motion: reduce)').matches;
@@ -189,6 +217,17 @@ var els=document.querySelectorAll('.reveal');
 if(rm||!('IntersectionObserver' in window)){for(var i=0;i<els.length;i++){els[i].classList.add('in')}return}
 var io=new IntersectionObserver(function(entries){entries.forEach(function(en){if(en.isIntersecting){en.target.classList.add('in');io.unobserve(en.target)}})},{threshold:0.06});
 for(var j=0;j<els.length;j++){io.observe(els[j])}
+})();
+</script>
+<div class="portal"><a href="../../index.html">&#8592; 总门户</a></div>
+<button class="toTop" type="button" id="toTop" aria-label="回到顶部">&#8593;</button>
+<script>
+(function(){
+  var b=document.getElementById('toTop');if(!b)return;
+  var rm=window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  function upd(){if(window.scrollY>600){b.classList.add('show')}else{b.classList.remove('show')}}
+  window.addEventListener('scroll',upd,{passive:true});upd();
+  b.addEventListener('click',function(){window.scrollTo({top:0,behavior:rm?'auto':'smooth'});});
 })();
 </script>
 </body>

@@ -3,11 +3,11 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>金钱篇 · 朋友与金钱、饭局冲突、长期关系 · 人情世故指南</title>
+<title>金钱篇 · 人情世故指南</title>
 <script>
 (function(){var t=null;try{t=localStorage.getItem('theme')}catch(e){}
 if(t!=='light'&&t!=='dark'){var h=new Date().getHours();t=(h>=7&&h<17)?'light':'dark'}
-document.documentElement.setAttribute('data-theme',t);})();
+document.documentElement.setAttribute('data-theme',t);document.documentElement.classList.add('js')})();
 </script>
 <style>
 *{margin:0;padding:0;box-sizing:border-box}
@@ -15,12 +15,14 @@ document.documentElement.setAttribute('data-theme',t);})();
 --bg:#f6f2ec;--bg-trans:rgba(246,242,236,.96);--text:#332e28;--accent:#b4552d;--accent-soft:#cf9a7c;
 --card:#fffdf8;--border:#e7dfd3;--subtle:#faf4ec;--subtle-border:#ead9cb;--muted:#8a8177;--menu:#6b6259;
 --menu-hover:#efe6da;--out-border:#e0d5c6;--li:#44403a;--say:#4d463e;--secondary:#7c7267;--lede:#5c554c;
---on-accent:#fdf9f4;--hover-border:#dcc7b8}
+--on-accent:#fdf9f4;--hover-border:#dcc7b8;--shadow:rgba(120,90,60,.10);
+--portal:rgba(20,20,20,.72);--portal-hover:rgba(20,20,20,.9);--on-portal:#ffffff}
 [data-theme="dark"]{
 --bg:#241f1b;--bg-trans:rgba(36,31,27,.96);--text:#f0e9dd;--accent:#e38b5f;--accent-soft:#c97a50;
 --card:#2c2721;--border:#3d362d;--subtle:#332c25;--subtle-border:#4a4136;--muted:#b5aa9a;--menu:#c6bbaa;
 --menu-hover:#3b332b;--out-border:#4a4136;--li:#ded4c5;--say:#ece2d2;--secondary:#b5aa9a;--lede:#cbc1b1;
---on-accent:#241f1b;--hover-border:#5c4f40}
+--on-accent:#241f1b;--hover-border:#5c4f40;--shadow:rgba(0,0,0,.35);
+--portal:rgba(240,233,221,.16);--portal-hover:rgba(240,233,221,.26);--on-portal:#f0e9dd}
 @media (prefers-reduced-motion:no-preference){html{scroll-behavior:smooth}}
 body{background:var(--bg);color:var(--text);font:16px/1.75 -apple-system,BlinkMacSystemFont,"Segoe UI","PingFang SC","Hiragino Sans GB","Microsoft YaHei",sans-serif}
 .wrap{max-width:880px;margin:0 auto;padding:0 20px}
@@ -29,26 +31,49 @@ a{color:var(--accent)}
 .top-in{max-width:1080px;margin:0 auto;padding:0 20px;display:flex;align-items:center;gap:14px;height:56px}
 .brand{font-family:Georgia,"Songti SC",STSong,SimSun,serif;font-weight:700;color:var(--text);text-decoration:none;font-size:17px;white-space:nowrap}
 .brand span{color:var(--accent)}
-.menu{display:flex;gap:4px;flex:1;min-width:0;overflow-x:auto;white-space:nowrap;-webkit-overflow-scrolling:touch;scrollbar-width:none}
+.menu{display:flex;flex-wrap:wrap;gap:4px;row-gap:6px;flex:1;min-width:0}
 .menu::-webkit-scrollbar{display:none}
 .menu a{color:var(--menu);text-decoration:none;font-size:14.5px;padding:4px 12px;border-radius:999px;transition:color .2s,background .2s}
 .menu a:hover{color:var(--accent);background:var(--menu-hover)}
 .menu a[aria-current]{color:var(--on-accent);background:var(--accent)}
 .menu a.out{border:1px solid var(--out-border);padding:3px 12px}
+.nav-toggle{display:none;flex-shrink:0;width:36px;height:36px;border-radius:10px;border:1px solid var(--out-border);background:var(--card);color:var(--menu);font-size:17px;line-height:1;cursor:pointer}
+.nav-toggle:hover{color:var(--accent);border-color:var(--hover-border)}
+@media (max-width:720px){
+.top-in{height:52px;gap:10px}
+html.js .nav-toggle{display:block}
+html.js .theme-btn{margin-left:auto}
+html.js .menu{position:absolute;top:100%;left:0;right:0;flex-direction:column;flex-wrap:nowrap;gap:2px;max-height:0;overflow:hidden;padding:0 14px;background:var(--bg-trans);backdrop-filter:blur(6px);border-bottom:1px solid var(--border);box-shadow:0 14px 24px var(--shadow,rgba(120,90,60,.10))}
+html.js .menu.open{max-height:420px;padding:10px 14px 14px}
+html.js .menu a{display:block;font-size:15px;padding:9px 12px;border-radius:10px}
+html.js .menu a.out{border:1px solid var(--out-border);text-align:center}
+}
+@media (max-width:720px) and (prefers-reduced-motion:no-preference){
+html.js .menu{transition:max-height .25s ease,padding .25s ease}
+}
 .theme-btn{flex-shrink:0;width:34px;height:34px;border-radius:50%;border:1px solid var(--out-border);background:var(--card);color:var(--menu);font-size:15px;line-height:1;cursor:pointer}
 .theme-btn:hover{color:var(--accent);border-color:var(--hover-border)}
-.page-head{padding:48px 0 6px}
-.kicker{color:var(--accent);font-size:13px;letter-spacing:.35em;margin-bottom:12px}
-h1{font-family:Georgia,"Songti SC",STSong,SimSun,serif;font-size:clamp(26px,4.5vw,36px);line-height:1.3;font-weight:700}
-.lede{margin-top:14px;font-size:16px;color:var(--lede);max-width:42em}
-h2.sec{font-family:Georgia,"Songti SC",STSong,SimSun,serif;font-size:23px;margin:52px 0 6px;font-weight:700;display:flex;align-items:baseline;gap:12px}
-h2.sec .no{color:var(--accent);font-size:14px;letter-spacing:.2em;font-family:Georgia,serif}
+.hero{padding:64px 0 20px}
+.kicker{color:var(--accent);font-size:13px;letter-spacing:.35em;margin-bottom:14px}
+h1{font-family:Georgia,"Songti SC",STSong,SimSun,serif;font-size:clamp(30px,5vw,44px);line-height:1.25;letter-spacing:.02em;font-weight:700}
+.lede{margin-top:18px;font-size:17px;color:var(--lede);max-width:42em}
+.meta{margin-top:22px;display:flex;flex-wrap:wrap;gap:10px}
+.pill{display:inline-block;padding:4px 14px;border:1px solid var(--out-border);border-radius:999px;font-size:13.5px;color:var(--secondary);background:var(--card);text-decoration:none}
+.note{margin-top:20px;background:var(--subtle);border:1px solid var(--subtle-border);border-radius:14px;padding:14px 18px;font-size:14px;color:var(--secondary)}
+h2.sec{font-family:Georgia,"Songti SC",STSong,SimSun,serif;font-size:25px;margin:56px 0 6px;font-weight:700}
 .sec-note{color:var(--muted);font-size:14.5px;margin-bottom:22px;max-width:40em}
+.chap-nav{display:grid;grid-template-columns:repeat(auto-fill,minmax(min(232px,100%),1fr));gap:14px}
+.chap{display:block;background:var(--card);border:1px solid var(--border);border-radius:16px;padding:18px 18px 16px;text-decoration:none;color:inherit;transition:transform .25s,box-shadow .25s,border-color .25s}
+.chap:hover{transform:translateY(-3px);box-shadow:0 10px 24px var(--shadow);border-color:var(--hover-border)}
+.chap .no{font-family:Georgia,serif;color:var(--accent);font-size:13px;letter-spacing:.2em}
+.chap h3{font-size:16.5px;margin:6px 0 4px;font-weight:650}
+.chap p{font-size:13.5px;color:var(--muted);line-height:1.6}
+.chap .go{margin-top:10px;font-size:13px;color:var(--accent)}
 .entry{background:var(--card);border:1px solid var(--border);border-radius:16px;padding:26px 26px 22px;margin-bottom:18px}
 .entry header{display:flex;align-items:baseline;gap:12px;flex-wrap:wrap;margin-bottom:4px}
 .entry .num{font-family:Georgia,serif;color:var(--accent);font-size:14px;letter-spacing:.08em}
 .entry h3{font-size:18.5px;font-weight:650}
-.entry .scene{color:var(--muted);font-size:14.5px;margin:6px 0 16px;padding-left:12px;border-left:3px solid var(--subtle-border)}
+.entry .scene{color:var(--muted);font-size:15px;margin:6px 0 16px;padding-left:12px;border-left:3px solid var(--subtle-border)}
 .part{margin-top:14px}
 .part h4{font-size:13px;color:var(--accent);letter-spacing:.25em;margin-bottom:6px;font-weight:600}
 .part ul{list-style:none}
@@ -57,27 +82,29 @@ h2.sec .no{color:var(--accent);font-size:14px;letter-spacing:.2em;font-family:Ge
 .say{margin-top:8px;background:var(--subtle);border-left:3px solid var(--accent);border-radius:0 12px 12px 0;padding:12px 16px;font-size:15px;color:var(--say)}
 .say p+p{margin-top:8px}
 .say .tag{color:var(--accent);font-size:12.5px}
-.cost{margin-top:8px;font-size:14.5px;color:var(--secondary)}
+.cost{margin-top:8px;font-size:15px;color:var(--secondary)}
 .cost b{color:var(--lede)}
-.pager{display:flex;gap:12px;margin-top:40px;flex-wrap:wrap}
-.pager a{flex:1;min-width:min(220px,100%);background:var(--card);border:1px solid var(--border);border-radius:16px;padding:16px 18px;text-decoration:none;color:inherit;transition:border-color .25s,transform .25s}
-.pager a:hover{border-color:var(--hover-border);transform:translateY(-2px)}
-.pager .lab{font-size:12.5px;color:var(--muted);letter-spacing:.2em}
-.pager .ttl{font-weight:650;font-size:15.5px;margin-top:2px}
 footer{margin-top:72px;border-top:1px solid var(--border);padding:30px 0 44px;color:var(--muted);font-size:13.5px;line-height:1.8}
 footer a{color:var(--accent)}
-@media (max-width:640px){.entry{padding:20px 18px 16px}.top-in{gap:10px}.page-head{padding:36px 0 4px}}
+@media (max-width:640px){.entry{padding:20px 18px 16px}.hero{padding:44px 0 12px}}
+.portal{position:fixed;left:14px;bottom:14px;z-index:99}
+a.portal,.portal a{display:inline-block;padding:7px 16px;border-radius:999px;background:var(--portal);color:var(--on-portal);font-size:13px;text-decoration:none;backdrop-filter:blur(4px);font-family:system-ui,sans-serif;transition:background .2s}
+a.portal:hover,.portal a:hover{background:var(--portal-hover)}
+.hero+.chap-nav{margin-top:36px}
+.howto-read>p{font-size:15px;color:var(--lede)}
 .reveal{opacity:0;transform:translateY(16px)}
 .reveal.in{opacity:1;transform:none;transition:opacity .6s ease,transform .6s ease}
-@media (prefers-reduced-motion:reduce){.reveal{opacity:1;transform:none;transition:none}}
+@media (prefers-reduced-motion:reduce){.reveal{opacity:1;transform:none;transition:none}.chap:hover{transform:none}}
 @media (prefers-reduced-motion:no-preference){body,.top,.entry,.say{transition:background-color .25s ease,border-color .25s ease,color .25s ease}}
+.toTop{position:fixed;right:14px;bottom:14px;z-index:98;display:none;border:none;cursor:pointer;padding:7px 14px;border-radius:999px;background:rgba(20,20,20,.72);color:#fff;font-size:14px;line-height:1;backdrop-filter:blur(4px);font-family:system-ui,sans-serif}.toTop:hover{background:rgba(20,20,20,.9)}.toTop.show{display:inline-block}
 </style>
-<noscript><style>.reveal,.rv{opacity:1 !important;transform:none !important}</style></noscript></head>
-<body>
+<noscript><style>.reveal,.rv{opacity:1 !important;transform:none !important}.toTop{position:fixed;right:14px;bottom:14px;z-index:98;display:none;border:none;cursor:pointer;padding:7px 14px;border-radius:999px;background:rgba(20,20,20,.72);color:#fff;font-size:14px;line-height:1;backdrop-filter:blur(4px);font-family:system-ui,sans-serif}.toTop:hover{background:rgba(20,20,20,.9)}.toTop.show{display:inline-block}
+</style></noscript></head>
+<body><div class="portal"><a href="../index.html">&#8592; 总门户</a></div>
 <header class="top">
   <div class="top-in">
     <a class="brand" href="../index.html">人情世故<span>指南</span></a>
-    <nav class="menu" aria-label="站内导航">
+    <nav class="menu" id="siteNav" aria-label="站内导航">
       <a href="../index.html">首页</a>
       <a href="campus.html">校园篇</a>
       <a href="work.html">职场篇</a>
@@ -85,103 +112,114 @@ footer a{color:var(--accent)}
       <a href="manner.html">礼节篇</a>
       <a class="out" href="https://github.com/kkk-bot/HowToGetAlong" target="_blank" rel="noopener">GitHub</a>
     </nav>
+    <button class="nav-toggle" id="navToggle" type="button" aria-expanded="false" aria-controls="siteNav" aria-label="展开导航菜单">&#9776;</button>
     <button class="theme-btn" id="themeBtn" type="button" aria-label="切换明暗主题">◐</button>
   </div>
 </header>
 
 <main class="wrap">
-  <section class="page-head">
-    <p class="kicker">金钱篇 · 第 4、5、6 章</p>
-    <h1>钱、冲突与长期关系：<br>把感情和约定都照顾到</h1>
-    <p class="lede">朋友借钱、催还、垫款、随礼与合伙；饭局敬酒、隐私追问、玩笑冒犯与合照发布；长期联系、倾听分担与关系施压。这二十二章处理的都是最容易伤感情、也最需要说清约定的事。</p>
+  <section class="hero">
+    <p class="kicker">大学生与职场新人实用手册 · 分篇之三</p>
+    <h1>金钱篇</h1>
+    <p class="lede">本篇收录第 4 章“朋友与金钱”、第 5 章“饭局、隐私与冲突”与第 6 章“长期关系与边界”的全部 22 条。借钱、催还、垫款、随礼与合伙，敬酒拒酒、隐私追问、玩笑边界与合照发布，以及联系、倾听、分担与关系施压，都按“怎么做 · 话怎么说 · 代价是什么”三要素整理。</p>
+    <div class="meta">
+      <span class="pill">第 4 章 · 6 条</span>
+      <span class="pill">第 5 章 · 8 条</span>
+      <span class="pill">第 6 章 · 8 条</span>
+      <span class="pill"><a href="#ch4">朋友与金钱</a></span>
+      <span class="pill"><a href="#ch5">饭局隐私与冲突</a></span>
+      <span class="pill"><a href="#ch6">长期关系与边界</a></span>
+      <span class="pill">整理自开源项目 HowToGetAlong</span>
+    </div>
+    <p class="note">内容依据 GitHub 项目 kkk-bot/HowToGetAlong 整理，全部为经验建议，仅供学习与交流参考。请结合自身处境、关系与适用规则独立判断，不宜直接照搬示例。</p>
   </section>
 
-  <h2 class="sec reveal"><span class="no">第 4 章</span>朋友与金钱：把感情和约定都照顾到</h2>
-  <p class="sec-note reveal">涉及钱的往来，先看承受能力和书面约定，感情归感情，约定归约定。</p>
+  <div class="chap-nav reveal">
+    <a class="chap" href="#ch4"><span class="no">第 4 章</span><h3>朋友与金钱</h3><p>借钱判断、催还安排、垫款结算、随礼预算、合伙约定与消费推荐。</p><span class="go">本章 6 条 ↓</span></a>
+    <a class="chap" href="#ch5"><span class="no">第 5 章</span><h3>饭局、隐私与冲突</h3><p>敬酒与拒酒、隐私边界、沟通渠道、误会修复、玩笑冒犯、批评与旁观相助。</p><span class="go">本章 8 条 ↓</span></a>
+    <a class="chap" href="#ch6"><span class="no">第 6 章</span><h3>长期关系与边界</h3><p>建立联系、具体邀约、分担重约、倾听支持、投入调整、退出收尾与关系施压。</p><span class="go">本章 8 条 ↓</span></a>
+  </div>
 
-  <article class="entry reveal">
+  <h2 class="sec reveal" id="ch4">第 4 章 · 朋友与金钱：把感情和约定都照顾到</h2>
+  <p class="sec-note reveal">钱的事先说清条件与承受能力，感情反而更不容易被消耗。</p>
+
+  <article class="entry reveal" id="e4-1">
     <header><span class="num">4.1</span><h3>朋友借钱时，先判断自己是否承担得起</h3></header>
     <p class="scene">朋友急着借钱，你怕拒绝伤感情，也怕借出后影响自己的生活。</p>
     <div class="part"><h4>怎么做</h4><ul>
-      <li>先看自己的必要支出：这笔钱即使迟还或不还，也承受得起吗？</li>
-      <li>决定前列一张小清单：借款还是赠与、金额与用途、必要支出、还款来源和日期。</li>
-      <li>决定借就用双方能保存的文字写清借款人、金额、转账用途和还款约定，并约定还不上时如何提前通知。</li>
-      <li>说明能借的上限，不把“先借一点”变成默认持续追加；之前答应不代表继续加借。</li>
+      <li>先看自己的必要支出：这笔钱即使迟还或不还，也承受得起吗？决定借之前问清金额与还款安排，不因催促立即转账。</li>
+      <li>决定前列一张小清单：借款还是赠与、金额与用途、必要支出、对方提出的还款来源和日期；用途只问与决定有关的部分。</li>
+      <li>决定借就用双方能保存的文字写清借款人、金额、用途和还款约定，并约定还不上时如何提前通知；说明能借的上限，不默认持续追加。</li>
     </ul></div>
     <div class="part"><h4>话怎么说</h4>
       <blockquote class="say"><p>“我知道你现在急着用钱。我这边也得先留足生活开支，这次没法借给你，不好意思。”</p><p><span class="tag">对方说“我们这么熟，就帮这一次”</span>“正因为是朋友，我想把能做的说清楚。我这次不借钱，这个决定不变；如果你需要核对已经找到的其他办法，我可以帮你看一看。”</p></blockquote>
     </div>
-    <div class="part"><h4>代价是什么</h4><p class="cost">表达拒绝的压力；借出时承担资金占用与无法收回的风险。明确约定也不保证能收回钱；拒绝也可能改变关系，但不要拿借钱测试朋友忠诚度。</p></div>
+    <div class="part"><h4>代价是什么</h4><p class="cost">表达拒绝的压力；借出时承担资金占用与无法收回的风险。明确约定也不保证能收回钱；拒绝也可能改变关系。<b>不要拿借钱作为测试朋友忠诚度的工具</b>。</p></div>
   </article>
 
-  <article class="entry reveal">
+  <article class="entry reveal" id="e4-2">
     <header><span class="num">4.2</span><h3>到约定日期没还钱时，明确问还款安排</h3></header>
     <p class="scene">借款到期，对方没有提还钱，你觉得开口像是在破坏友谊。</p>
     <div class="part"><h4>怎么做</h4><ul>
       <li>核对金额、原先约定与转账记录，直接询问具体还款安排，避免只发暗示。</li>
-      <li>同意调整时明确是全额延期还是分期、每次金额和日期，以及情况变化时谁主动联系。</li>
-      <li>多次失约时停止新增借款并保存记录；金额很大或有争议时，比较正式处理的成本再咨询专业渠道。</li>
-      <li>协商前说明自己的用款约束，不把“我们再谈”当作默认接受延期。</li>
+      <li>同意调整时明确是全额延期还是分期、每次金额和日期，以及情况变化时谁主动联系；协商前说明自己的用款约束。</li>
+      <li>多次失约就保存事实记录、停止新增借款；再次失约且无可执行安排时，按实际情况考虑适用的正式渠道，不公开其私人信息施压。</li>
     </ul></div>
     <div class="part"><h4>话怎么说</h4>
       <blockquote class="say"><p>“跟你确认一下，之前那笔借款约定今天归还，你今天能转回吗？如果现在确实有困难，我们可以再谈具体安排，麻烦告诉我能还的金额和日期，我也好安排这边的用款。”</p></blockquote>
     </div>
-    <div class="part"><h4>代价是什么</h4><p class="cost">沟通时间与关系压力。对方确有困难时可以协商，但协商不是必须放弃自己的需求；关系重要与还款责任可以同时讨论，不公开其私人信息施压。</p></div>
+    <div class="part"><h4>代价是什么</h4><p class="cost">沟通时间与关系压力。对方确有困难可以协商，但协商不是必须放弃自己的需求；关系重要与还款责任可以同时讨论，新的书面安排也不能保证履行。</p></div>
   </article>
 
-  <article class="entry reveal">
+  <article class="entry reveal" id="e4-3">
     <header><span class="num">4.3</span><h3>帮人垫钱之前，确认费用和结算方式</h3></header>
-    <p class="scene">聚餐、订票或合购由你付款，结束后大家都没提结算；领导说“一起点饮料吧”，没说谁付款。</p>
+    <p class="scene">聚餐、订票或合购由你付款，结束后大家都没提结算；领导说“一起点饮料吧”，没说明谁付款，或被叫去帮大家下单。</p>
     <div class="part"><h4>怎么做</h4><ul>
-      <li>付款前确认是请客、分摊还是代付，告知预计金额和结算方法；大额或人多先收款再下单。</li>
-      <li>拼单先确认谁参加、各自点什么、如何分摊；没回复或明确不点的人，不加入付款人数。</li>
-      <li>领导提议点饮料没说付款时，向实际下单的人简短确认自己的金额，不在群里反复问“是不是领导请客”。</li>
-      <li>用优惠券拼单时，下单前说清优惠和配送费怎么分，结算按各人实际支出。</li>
+      <li>付款前确认是请客、分摊还是代付，告知预计金额和结算方法；大额或不熟悉的参与者可以先收款再下单。</li>
+      <li>小额拼单也先确认谁参加、各自点什么、如何分摊；没回复或明确不点的人，不直接加入付款人数；用优惠券时下单前说清优惠和配送费怎么分。</li>
+      <li>领导提议一起点而付款未说明时，简短询问自己这份转给谁；被安排代下单时先说明谁付款以及是否垫款，不方便垫整单可以提出先收齐再下单。</li>
     </ul></div>
     <div class="part"><h4>话怎么说</h4>
-      <blockquote class="say"><p><span class="tag">代付确认</span>“这次可以由我先代付，结束后按实际账单结算，大家觉得可以吗？不参加的项目或费用分摊有不同想法，也请提前说。”</p><p><span class="tag">领导提议一起点、付款未说明</span>“好呀，我选这杯。我的这份要转给谁？”</p><p><span class="tag">被安排帮大家下单</span>“好，我把大家要的记一下。费用这次怎么结算？我确认好就下单。”</p><p><span class="tag">今天不想喝</span>“谢谢您惦记，我今天就不点了，大家喝得开心。”</p></blockquote>
+      <blockquote class="say"><p><span class="tag">领导提议一起点</span>“好呀，我选这杯。我的这份要转给谁？”</p><p><span class="tag">被安排帮大家下单</span>“好，我把大家要的记一下。费用这次怎么结算？我确认好就下单。”</p><p><span class="tag">不方便垫款</span>“我可以帮忙整理订单，不过不方便先垫整单。我们先收齐各自这份再下单，您看可以吗？”</p><p><span class="tag">拼单结算</span>“这单用了满减，我把优惠和配送费的分法列在账单里了，大家先核对各自实际这一份。有不一致的，我们确认后再转。”</p></blockquote>
     </div>
-    <div class="part"><h4>代价是什么</h4><p class="cost">协调与核账时间，以及垫款期间的资金占用。参与点单、帮忙下单和承担费用是不同事项；不方便垫整单可以提前说明，也可以不参与；职务高低不决定谁必须请客。</p></div>
+    <div class="part"><h4>代价是什么</h4><p class="cost">协调与核账时间，以及垫款期间的资金占用。职务高低不决定谁必须请客；自愿多付不代表买到关系，不编造忌口或财务困难来拒绝参与。</p></div>
   </article>
 
-  <article class="entry reveal">
+  <article class="entry reveal" id="e4-4">
     <header><span class="num">4.4</span><h3>随礼或感谢时，先看预算、关系和规则</h3></header>
     <p class="scene">别人说某个金额“是规矩”，你担心少了丢脸，多了又超出预算。</p>
     <div class="part"><h4>怎么做</h4><ul>
-      <li>先定可承担预算，不因别人送得多而追加，不规定送礼频率。</li>
-      <li>涉及评分、招聘、采购或审批的对象，先查具体机构规则。</li>
-      <li>选对方方便使用和接受的物品，不知道偏好直接问；也可考虑展览、课程等体验礼物，先确认兴趣和有效期。</li>
-      <li>对方拒收时停止，不委托别人绕过拒绝，也不提高金额或频率争取接受。</li>
+      <li>先定可承担预算；私人随礼了解活动与习惯后按预算决定，不因别人送得多而追加。</li>
+      <li>选礼核对领取是否方便、是否需要额外支出；不知道偏好时直接问；考虑展览、课程等体验礼物时，先问是否感兴趣并核对时间与费用。</li>
+      <li>涉及老师、客户或职务相关对象先查机构收礼限制；对方拒收就停止，不委托别人绕过拒绝。</li>
     </ul></div>
     <div class="part"><h4>话怎么说</h4>
       <blockquote class="say"><p>“谢谢邀请，真替你高兴！我会按自己的预算表达心意，金额就不跟大家比了，祝福肯定是认真的。”</p><p><span class="tag">了解礼物偏好</span>“想给你准备个小礼物，你是更喜欢能用得上的，还是留作纪念的？不方便收的话也没关系。”</p></blockquote>
     </div>
-    <div class="part"><h4>代价是什么</h4><p class="cost">金钱或时间，也可能面对他人的评价。随手礼不是义务；帮助不能自动记成必须偿还的人情债；不借礼物获取特殊待遇，礼物造成对方回礼压力时换成具体感谢。</p></div>
+    <div class="part"><h4>代价是什么</h4><p class="cost">金钱或时间，也可能面对他人的评价。随手礼不是义务，帮助不能自动记成必须偿还的人情债；有回报要求应事先说清，不借礼物获取特殊待遇。</p></div>
   </article>
 
-  <article class="entry reveal">
+  <article class="entry reveal" id="e4-5">
     <header><span class="num">4.5</span><h3>合伙或合购前，先讨论分工、费用和退出</h3></header>
-    <p class="scene">你和朋友打算一起接单、合租或合购设备，觉得谈条件伤感情；合购后有人退出，剩余费用和归属说不清。</p>
+    <p class="scene">你和朋友打算一起接单、合租或合购设备，觉得谈条件伤感情；合购后有人不再使用却还在分摊续费。</p>
     <div class="part"><h4>怎么做</h4><ul>
-      <li>投入前确认各自出资、权限、日常责任、费用分摊与退出结算。</li>
-      <li>持续付费项目先核对服务是否允许共享、谁续费、自动续费怎么取消，以及退出的通知方式。</li>
-      <li>重要条件谈不拢时缩小范围或不开始，别把“已经谈了很久”当成必须投入的理由。</li>
-      <li>账号或物品仅由一人控制时，把可核对的费用、权限与交接列出来谈；不擅自删除他人资料或扣留物品逼其付款。</li>
+      <li>在投入前确认各自出资、权限、日常责任、费用分摊与退出办法；持续付费项目先核对服务是否允许共享、谁管理账号、是否自动续费。</li>
+      <li>按期续费的项目每次续费前按约确认参与者，不把上期同意当长期同意；有人退出时，区分已发生与尚未发生的费用，按事先约定商量。</li>
+      <li>重要条件谈不拢时，缩小试合作范围或不开始，别把已谈很久当成必须投入的理由；不擅自删除他人资料或以扣留物品逼其付款。</li>
     </ul></div>
     <div class="part"><h4>话怎么说</h4>
       <blockquote class="say"><p>“我也希望这次合作顺利，咱们先把各自出多少钱、负责哪些事，以及有人退出时怎么结算写清楚，好吗？提前说开，后面相处也更踏实。”</p><p><span class="tag">合购前确认续费</span>“咱们先确认这个服务允许这样共享。若能合购，再说清谁续费、续费前怎么确认；有人不想继续时，剩余费用和使用权限怎么处理，也提前约好。”</p></blockquote>
     </div>
-    <div class="part"><h4>代价是什么</h4><p class="cost">前期谈判与核对时间，可能发现双方根本不合适。文字约定不消除经营和付款风险；友情不是付款保证，提前约定不能保证随时退款或消除亏损。</p></div>
+    <div class="part"><h4>代价是什么</h4><p class="cost">前期谈判与核对时间，可能发现双方根本不合适。文字约定不消除经营和付款风险；提前约定不能保证随时退款或消除亏损，不把友情当作付款保证。</p></div>
   </article>
 
-  <article class="entry reveal">
+  <article class="entry reveal" id="e4-6">
     <header><span class="num">4.6</span><h3>朋友推荐产品或课程时，先独立判断</h3></header>
     <p class="scene">熟人卖保险、课程或其他产品，你怕不买伤感情。</p>
     <div class="part"><h4>怎么做</h4><ul>
-      <li>问价格、服务、退出条件，以及推荐人是否从销售中获益。</li>
-      <li>另查独立的产品说明或评价；转发同一宣传稿的多个账号不能替代独立核查。</li>
-      <li>给自己独立比较的时间；被催付款时先暂停新增支出，按未来价值判断，不因之前付过钱继续买。</li>
-      <li>对方只催付款、不愿说明条件时暂停购买，关系亲近不能替代产品核实。</li>
+      <li>核对实际需求、总价、交付与退款条件；另查独立的产品说明或评价，转发同一宣传稿的多个账号不能替代独立核查。</li>
+      <li>询问价格、服务、退出条件，以及推荐人是否从销售中获益；比较自己是否真需要，给自己独立比较的时间。</li>
+      <li>被催付款或不断要求升级时，先暂停新增支出，列清已交付什么、下一笔费用能获得什么，再按未来价值判断，不因为之前付过钱就继续购买。</li>
     </ul></div>
     <div class="part"><h4>话怎么说</h4>
       <blockquote class="say"><p>“谢谢你想着我，也谢谢你介绍这些信息。我先看看完整资料，再对照自己的需求和预算考虑；合适再决定，不合适的话这次就不买了。”</p></blockquote>
@@ -189,230 +227,215 @@ footer a{color:var(--accent)}
     <div class="part"><h4>代价是什么</h4><p class="cost">查资料和拒绝的时间，以及可能的尴尬。朋友真心推荐也可能不适合你；分期收费或追加服务本身不能证明欺骗，应核对交付与条件。</p></div>
   </article>
 
-  <h2 class="sec reveal"><span class="no">第 5 章</span>饭局、隐私与冲突：表达清楚，也尊重别人</h2>
-  <p class="sec-note reveal">饭桌、群聊和朋友圈里的边界：话可以客气，范围要说清。</p>
+  <h2 class="sec reveal" id="ch5">第 5 章 · 饭局、隐私与冲突：表达清楚，也尊重别人</h2>
+  <p class="sec-note reveal">饭局上表达心意、守住自己的选择；分歧里选对渠道，也守住别人的边界。</p>
 
-  <article class="entry reveal">
+  <article class="entry reveal" id="e5-1">
     <header><span class="num">5.1</span><h3>参加饭局时，表达祝福并保留饮酒选择</h3></header>
-    <p class="scene">想举杯感谢或祝福却不知道敬酒词怎么说；不想喝酒或不想参加，担心显得扫兴。</p>
+    <p class="scene">饭局上想举杯感谢或祝福却不知道说什么；也可能不想喝酒或不想参加，担心显得扫兴。</p>
     <div class="part"><h4>怎么做</h4><ul>
-      <li>选一件真实的感谢或与场合有关的祝福，准备两三句即可；不熟悉时避免评价收入、婚育和私人经历。</li>
-      <li>大家方便听时再简短举杯，说完即可，不要求干杯或逐人回敬。</li>
-      <li>茶水、饮料同样可以表达心意；提前说明饮酒选择并安排返程。</li>
-      <li>被继续劝时重复自己的选择，不必不断增加理由；遇到强迫或不安全的情况，联系信任的人协助离开。</li>
+      <li>选一件真实的感谢或与场合有关的祝福，准备两三句即可；可选“感谢 → 一件真实共同经历 → 与场合有关的祝福”，没有合适回忆时省略。</li>
+      <li>大家方便听时再简短举杯，说完即可，不要求干杯或逐人回敬；茶水、饮料同样可以表达心意。</li>
+      <li>被劝时重复自己的选择，不必不断增加理由；遇到强迫或明显不安全的情况，联系信任的人协助离开。</li>
     </ul></div>
     <div class="part"><h4>话怎么说</h4>
-      <blockquote class="say"><p><span class="tag">朋友聚餐</span>“难得今天能聚齐，见到大家很开心。祝大家最近都顺顺利利，今晚好好吃饭、慢慢聊！”</p><p><span class="tag">感谢老师</span>“谢谢您这学期的指导，尤其是选题上的建议，让我少走了不少弯路。祝您工作顺利，今天吃得开心。”</p><p><span class="tag">团队庆功</span>“这次项目能顺利完成，感谢大家一起配合。辛苦了！祝接下来的工作也顺利。”</p><p><span class="tag">不喝酒</span>“我今天用茶代酒，和大家一起祝贺，祝大家一切顺利！”<span class="tag">　不参加</span>“谢谢你邀请我，这次聚餐我就不参加了，祝你们吃得开心！”</p></blockquote>
+      <blockquote class="say"><p><span class="tag">朋友聚餐</span>“难得今天能聚齐，见到大家很开心。祝大家最近都顺顺利利，今晚好好吃饭、慢慢聊！”</p><p><span class="tag">感谢老师</span>“谢谢您这学期的指导，尤其是选题上的建议，让我少走了不少弯路。祝您工作顺利，今天吃得开心。”</p><p><span class="tag">同事庆功</span>“这次项目能顺利完成，感谢大家一起配合。辛苦了！祝我们接下来的工作也顺利。”</p><p><span class="tag">不喝酒</span>“我今天用茶代酒，和大家一起祝贺，祝大家一切顺利！”</p><p><span class="tag">不参加</span>“谢谢你邀请我，这次聚餐我就不参加了，祝你们吃得开心！”</p></blockquote>
     </div>
-    <div class="part"><h4>代价是什么</h4><p class="cost">开口表达的精力与可能的紧张；表达过长或过度赞美也可能让人不自在。请把感谢事项换成真实经历，不照搬没发生过的帮助；无需凑敬酒顺序、比杯口高低或拼酒量。</p></div>
+    <div class="part"><h4>代价是什么</h4><p class="cost">开口表达的精力与可能的紧张。无需拼酒量、比杯口高低或用“我干了你随意”制造压力；没有适合说的话也可以不发言。</p></div>
   </article>
 
-  <article class="entry reveal">
+  <article class="entry reveal" id="e5-2">
     <header><span class="num">5.2</span><h3>被问隐私时，说明哪些信息不方便分享</h3></header>
     <p class="scene">对方追问收入、成绩、家庭财务或感情经历，你不想说，又怕尴尬。</p>
     <div class="part"><h4>怎么做</h4><ul>
-      <li>判断是日常闲聊还是正式流程确实需要的信息；私人交往可以选择不分享。</li>
-      <li>准备可分享的简短回答和转话题方式，私密内容无需编理由证明。</li>
-      <li>继续追问就重复“不方便分享”，必要时结束话题或离场，不编一个具体数字维持场面。</li>
-      <li>正式场合先确认用途、必要性与提交渠道；组织合法必要的信息要求需另行核对。</li>
+      <li>判断是日常闲聊，还是正式流程确实需要的信息；私人交往可以选择不分享，正式场合确认用途、必要性与渠道。</li>
+      <li>准备可分享的简短回答与转话题方式，私密内容无需编理由证明；刚认识时先分享与当前话题有关的内容，按意愿逐步展开。</li>
+      <li>继续追问时重复“不方便分享”，适当结束话题；对方反复追问或公开传播时，减少信息分享或离场。</li>
     </ul></div>
     <div class="part"><h4>话怎么说</h4>
-      <blockquote class="say"><p>“谢谢关心，这部分我想留给自己，就先不展开了。你最近怎么样？”</p><p><span class="tag">对方说“这有什么不能说的”</span>“我明白你是想了解近况，但这部分我确实不想聊。工作或最近看的书，我们倒是可以聊聊。”</p></blockquote>
+      <blockquote class="say"><p>“谢谢关心，这部分我想留给自己，就先不展开了。你最近怎么样？”</p><p><span class="tag">正式场合</span>“想确认一下，这是需要正式提交的信息吗？方便说明用途和提交渠道吗？我了解清楚后再按要求提供。”</p></blockquote>
     </div>
-    <div class="part"><h4>代价是什么</h4><p class="cost">表达边界的不自在，以及可能被认为不够亲近。保护隐私不等于隐藏工作需要的能力、进度与风险；不能把所有正式信息要求一概当成侵犯隐私。</p></div>
+    <div class="part"><h4>代价是什么</h4><p class="cost">表达边界的不自在，以及可能被认为不够亲近的代价。组织可能有合法、必要的信息要求，需要另查规则；工作需要的能力与进度仍按职责如实说明。</p></div>
   </article>
 
-  <article class="entry reveal">
+  <article class="entry reveal" id="e5-3">
     <header><span class="num">5.3</span><h3>发生分歧时，按目的选择私聊、群聊和记录</h3></header>
     <p class="scene">群里吵起来，你想说清楚，又担心越说越僵；转私聊后又怕共同约定丢失。</p>
     <div class="part"><h4>怎么做</h4><ul>
-      <li>先说已确认的事情和自己的需要，区分事实、猜测和不同意见。</li>
-      <li>个人误会优先私下核对；影响共同任务的决定在相关渠道同步确认。</li>
-      <li>把希望这次沟通解决的事项写成一个具体问题：核对哪项事实、调整哪段分工、由谁确认什么。</li>
-      <li>对方只肯口头说时，沟通后用文字归纳并请对方确认，区分“双方已同意”和“自己提出的建议”。</li>
+      <li>把希望这次沟通解决的事项写成一个具体问题：核对哪项事实、调整哪段分工、由谁确认什么；选择合适时机与参与者。</li>
+      <li>先说已确认的事情与自己的需要，区分事实、猜测和不同意见；个人误会优先私下核对，影响共同任务的决定在相关渠道同步确认。</li>
+      <li>对方只肯口头说时，沟通后用文字归纳并请对方确认，区分“双方已同意”和“自己提出的建议”；讨论只剩重复指责时暂停。</li>
     </ul></div>
     <div class="part"><h4>话怎么说</h4>
       <blockquote class="say"><p>“我们对这部分的理解可能不太一样，先私下把具体情况核对清楚，好吗？涉及大家的分工和时间，确认后再发回群里，避免其他人接到不同的信息。”</p><p><span class="tag">向朋友表达不满</span>“我们上次约好一起准备，后来你没到，也没有提前告诉我，我临时接了剩下的部分。想问问当时是什么情况，也希望以后有变动能提前说。”</p></blockquote>
     </div>
-    <div class="part"><h4>代价是什么</h4><p class="cost">沟通与整理记录的时间，以及公开纠正时的关系压力。记录只保留解决事项所需内容，不为争赢扩大传播截图；遇到持续羞辱或威胁时另找支持，不组织反向围攻。</p></div>
+    <div class="part"><h4>代价是什么</h4><p class="cost">沟通与整理记录的时间，以及公开纠正时的关系压力。记录只保留解决事项所需的内容，不为争赢扩大传播截图。</p></div>
   </article>
 
-  <article class="entry reveal">
+  <article class="entry reveal" id="e5-4">
     <header><span class="num">5.4</span><h3>修复误会时，先核对行为，再承认自己的影响</h3></header>
     <p class="scene">你的话让对方不舒服，你觉得本意没错，双方开始争论谁更敏感。</p>
     <div class="part"><h4>怎么做</h4><ul>
-      <li>询问具体是哪句话或行为造成影响，不急着解释本意。</li>
-      <li>对自己确认做过的事和已知影响负责，说明一项能兑现的补救。</li>
-      <li>不承认未经核实的指控；事实争议明确哪些已确认、哪些需要核对。</li>
+      <li>询问具体是哪句话或行为造成影响；对自己确认做过的事和已知影响负责，表达歉意，再说明一项能兑现的补救。</li>
+      <li>不用解释本意替代承担，也不承认尚未核实的指控；双方暂时不愿谈时先暂停，另找时间重谈。</li>
       <li>对方接受道歉但暂不想恢复来往时，继续兑现已约定的补救，尊重暂缓联系，不反复追问是否原谅。</li>
     </ul></div>
     <div class="part"><h4>话怎么说</h4>
-      <blockquote class="say"><p>“刚才没有征得你的同意，我就把这件事说出去了，对不起，是我处理不妥。我会停止转述，也会请已经听到的人不要再传播。之后涉及你的事情，我会先问你。”</p><p><span class="tag">重谈之前</span>“刚才我打断了你，还提高了声音，这部分是我的问题。你愿意的话，我们找个都方便的时间再谈；我想先听清这对你的影响。”</p></blockquote>
+      <blockquote class="say"><p>“刚才没有征得你的同意，我就把这件事说出去了，对不起，是我处理不妥。我会停止转述，也会请已经听到的人不要再传播。之后涉及你的事情，我会先问你。”</p><p><span class="tag">重谈之前</span>“刚才我打断了你，还提高了声音，这部分是我的问题。你愿意的话，我们找个都方便的时间再谈；我想先听清这对你的影响，再商量后面怎么处理。”</p></blockquote>
     </div>
-    <div class="part"><h4>代价是什么</h4><p class="cost">承认失误与修复的精力，有些影响未必能完全消除。道歉不保证原谅或恢复关系；不用“对不起，但你也……”把道歉变成反驳；没有做过的事可以澄清。</p></div>
+    <div class="part"><h4>代价是什么</h4><p class="cost">承认失误与修复的精力，有些影响未必能完全消除。道歉不保证原谅或恢复关系；没有做过的事可以澄清，不靠承认所有指控换取和解。</p></div>
   </article>
 
-  <article class="entry reveal">
+  <article class="entry reveal" id="e5-5">
     <header><span class="num">5.5</span><h3>被开玩笑冒犯时，指出具体边界</h3></header>
-    <p class="scene">有人拿你的外貌、家庭或经历开玩笑，又说你太敏感；或当众拿你的收入、成绩与别人比较。</p>
+    <p class="scene">有人拿你的外貌、家庭或经历开玩笑，又说你太敏感；或当众拿你的收入、成绩与他人比较。</p>
     <div class="part"><h4>怎么做</h4><ul>
-      <li>用具体行为说明不接受的部分，提出停止要求，不必证明所有人都觉得冒犯。</li>
-      <li>不必先认定对方故意伤害，才能提出停止；对方说“只是关心”时，可承认听到关心，同时仍提出停止。</li>
-      <li>被说“开不起玩笑”时，重复要求或离开，不陷入证明自己有幽默感的争论。</li>
-      <li>说明后仍重复，或出现威胁、公开羞辱时，减少接触并寻求适当支持，整理具体时间与原话。</li>
+      <li>用具体行为说明不接受的部分，说明具体话题你不接受并提出停止要求，不必证明所有人都觉得冒犯。</li>
+      <li>一次失言可直接提醒；对方说“只是关心”时，可以承认听到了关心，同时仍提出停止；有人劝“别扫兴”时简短重申即可。</li>
+      <li>说明后仍重复，或出现威胁、公开羞辱和实际工作影响时，减少接触并寻求支持；必要时整理具体时间、原话与相关消息。</li>
     </ul></div>
     <div class="part"><h4>话怎么说</h4>
       <blockquote class="say"><p>“这个话题让我不舒服，我不想再被拿来开玩笑，请不要继续说了。我们可以聊别的。”</p><p><span class="tag">被公开比较</span>“我知道大家在聊天，不过我不想把自己的成绩和收入拿来比较。这个话题就先到这里，我们换个轻松的聊吧。”</p></blockquote>
     </div>
-    <div class="part"><h4>代价是什么</h4><p class="cost">打断气氛的压力，以及对方不认同的可能。提醒边界不保证对方接受；一次失言与反复针对需要区分；对方说没有恶意，也不能代替停止具体行为。</p></div>
+    <div class="part"><h4>代价是什么</h4><p class="cost">打断气氛的压力，以及对方不认同的可能。提醒边界不保证对方接受；对方说没有恶意，也不能代替停止具体行为，不要求用讽刺反击换取尊重。</p></div>
   </article>
 
-  <article class="entry reveal">
+  <article class="entry reveal" id="e5-6">
     <header><span class="num">5.6</span><h3>收到批评时，区分可用信息和情绪评价</h3></header>
     <p class="scene">有人说你“不懂做人”，却不给具体例子。</p>
     <div class="part"><h4>怎么做</h4><ul>
-      <li>拆出事实、可改行动与无须接受的评价，核对具体例子。</li>
-      <li>先问反馈来自哪个具体观察、希望未来怎样做，再决定哪些值得采用。</li>
-      <li>一次聚焦一项改进，不为结束批评而立即答应全部调整。</li>
-      <li>对方说不清例子时，说明先按已确认标准推进；只有辱骂就结束当次讨论。</li>
+      <li>拆出事实、可改行动与无须接受的评价；先问反馈来自哪个具体观察、希望未来怎样做，再决定哪些值得采用。</li>
+      <li>一次聚焦一项改进，核对是否符合已约定的要求和现有资源；不为了结束批评而立即答应全部调整。</li>
+      <li>多人意见相冲突时，分别记录各自针对的任务与标准，请实际负责人确认优先级，不通过谁语气更强判断正确。</li>
     </ul></div>
     <div class="part"><h4>话怎么说</h4>
       <blockquote class="say"><p>“我愿意听具体的意见。你说的是哪次事情、哪个做法？比如没及时通知这类问题，我知道后可以调整；但‘不会做人’比较笼统，我还不清楚你希望我改什么。”</p></blockquote>
     </div>
-    <div class="part"><h4>代价是什么</h4><p class="cost">听取不舒服信息和核实的精力。反对表达方式不等于所有批评都错，也不要求接受别人给你的整体人格判断；不要求为获取有用信息持续承受羞辱。</p></div>
+    <div class="part"><h4>代价是什么</h4><p class="cost">听取不舒服信息和核实的精力。反对表达方式不等于所有批评都错，也不要求接受别人给你的整体人格判断；若只有辱骂，结束当次讨论。</p></div>
   </article>
 
-  <article class="entry reveal">
+  <article class="entry reveal" id="e5-7">
     <header><span class="num">5.7</span><h3>发布合照、截图或定位前，确认同意的范围</h3></header>
-    <p class="scene">对方同意拍照，但没有说过愿不愿意公开；你想发合照、转发聊天记录或标记朋友位置。</p>
+    <p class="scene">你想发聚会合照、转发聊天记录，或标记朋友账号和所在地点；对方同意拍照，但没有说过愿不愿意公开。</p>
     <div class="part"><h4>怎么做</h4><ul>
-      <li>发布前问清具体内容与可见范围；对方同意拍照不等于同意公开。</li>
-      <li>没有得到回复时先不发布能识别对方的内容，可换成自己单独的照片或不含私人信息的文字。</li>
-      <li>涉及多人时分别确认，不替别人作主；受众、文字或标记范围改变时重新确认。</li>
-      <li>遮住姓名后仍可能从头像、上下文识别人时，不能把打码当成已经处理妥当。</li>
+      <li>发布前问清具体内容与可见范围：核对账号标记、位置、姓名和背景里的信息；对方是否同意的是这份具体内容及受众，还是只同意拍照。</li>
+      <li>没有得到回复时先不发布能识别对方的内容，可换自己单独的照片或不含私人信息的文字；涉及多人时分别确认，不替别人作主。</li>
+      <li>用外部工具整理聊天或客户资料也先确认能否提供；遮住姓名后仍可能从头像、上下文识别人，不能把打码当成已经处理妥当；对方改变主意时及时停止并处理原帖。</li>
     </ul></div>
     <div class="part"><h4>话怎么说</h4>
       <blockquote class="say"><p>“这张合照我想发朋友圈，只对同学可见，不标位置。你愿意露面吗？不方便的话我换一张。”</p><p><span class="tag">转发聊天</span>“这段建议对另一位同学可能有帮助，我想只转这几句，不带你的名字。你方便让我转吗？不方便就算了。”</p><p><span class="tag">请求撤下</span>“谢谢你记着这次聚会，不过我不想公开这张照片和位置。能帮我撤下这一条吗？下次涉及我的内容，先跟我确认一下。”</p></blockquote>
     </div>
-    <div class="part"><h4>代价是什么</h4><p class="cost">确认与修改内容的时间，可能无法使用最满意的照片，也可能需要推迟发布。一次许可不自动覆盖后续内容；撤下原帖不代表网络副本已消失。</p></div>
+    <div class="part"><h4>代价是什么</h4><p class="cost">确认与修改内容的时间，可能无法使用最满意的照片。一次许可不自动覆盖所有后续内容；撤下原帖不代表网络副本已消失。</p></div>
   </article>
 
-  <article class="entry reveal">
+  <article class="entry reveal" id="e5-8">
     <header><span class="num">5.8</span><h3>看到别人被冒犯时，先判断安全和需要的帮助</h3></header>
-    <p class="scene">聚会中有人反复拿同伴的经历取笑，或群里出现针对个人的羞辱，你想帮忙却不知从何入手。</p>
+    <p class="scene">聚会中有人反复拿同伴的经历取笑，或群里出现针对个人的羞辱；你想帮忙，却不知道当众回应会不会让事情更难处理。</p>
     <div class="part"><h4>怎么做</h4><ul>
-      <li>优先照顾安全；条件允许时简短问当事人需要什么帮助。</li>
-      <li>可选择转移话题、陪同离开、请合适第三方协助或事后关心，不当众争辩也能帮忙。</li>
-      <li>没有亲眼看到时说明只是转述，先核对；线上可私信询问、按规则向管理员反映，不组织反向辱骂。</li>
-      <li>需要记录时只保留自己确实知道的内容，询问当事人是否需要资料及如何交付，不擅自公开。</li>
+      <li>先判断有没有即时危险、当事人愿意得到哪种帮助；确认可联系的现场工作人员、老师、负责人或群管理员。</li>
+      <li>优先照顾安全，条件允许时简短问当事人需要什么：转移话题、陪同离开、请第三方协助或事后关心，不必把当众争辩当成唯一帮助。</li>
+      <li>线上可私信询问、按规则向管理员反映，不组织反向辱骂；需要记录时只保留自己确实知道的内容，询问当事人是否需要资料及如何交付。</li>
     </ul></div>
     <div class="part"><h4>话怎么说</h4>
       <blockquote class="say"><p>“刚才那件事我看到了。你想先离开这里，还是需要我陪你找工作人员？”</p><p><span class="tag">请第三方帮助</span>“这边已经重复拿他的私人经历开玩笑，他说过不想继续。能否请你过来协助停止这个话题？”</p><p><span class="tag">线上私信</span>“要不要我帮你把相关链接和截图单独存好？我先不转发，你决定是否需要提交。”</p></blockquote>
     </div>
-    <div class="part"><h4>代价是什么</h4><p class="cost">时间、注意力与可能被针对的压力；找到的负责人也可能无法立即解决。尊重当事人意愿不意味着忽略即时危险，不要求以自己的安全换取“仗义”。</p></div>
+    <div class="part"><h4>代价是什么</h4><p class="cost">时间、注意力与可能被针对的压力。不同意某人观点不等于其正在骚扰别人；尊重当事人意愿不意味着忽略即时危险，不要求以自己的安全换取“仗义”。</p></div>
   </article>
 
-  <h2 class="sec reveal"><span class="no">第 6 章</span>长期关系：既能互相照顾，也能调整距离</h2>
-  <p class="sec-note reveal">关系的远近是可以商量的事：把期待说成具体安排，不用测试和冷落维系感情。</p>
+  <h2 class="sec reveal" id="ch6">第 6 章 · 长期关系与边界：既能互相照顾，也能调整距离</h2>
+  <p class="sec-note reveal">长期相处的关键不是时刻热络，而是把联系、分担和期待调整到双方都能持续的节奏。</p>
 
-  <article class="entry reveal">
+  <article class="entry reveal" id="e6-1">
     <header><span class="num">6.1</span><h3>从小请求开始建立联系，不急着证明关系</h3></header>
     <p class="scene">你想认识同学或同事，却觉得必须马上变熟。</p>
     <div class="part"><h4>怎么做</h4><ul>
-      <li>用共同课程、任务或兴趣开启交流，提出对方容易判断的小邀请。</li>
-      <li>进一步信任前，看对方是否兑现约定、尊重拒绝并为失误承担具体责任，多次相处是否一致。</li>
-      <li>聊得来不等于立即交付重要财物或承担长期任务；逐步增加投入。</li>
-      <li>回应少就正常打招呼，也去认识其他人，不靠不断制造请求保持联系。</li>
+      <li>找真实共同话题或一个小而明确的问题，提出对方容易判断的小邀请；不夸大熟悉程度。</li>
+      <li>进一步信任前，看对方是否兑现约定、尊重拒绝并为失误承担具体责任，这些行为是否在多次相处中一致。</li>
+      <li>回应少就正常打招呼，也去认识其他人；不把“我刚才讲得不够好”直接当成“对方不喜欢我”，不靠不断制造请求保持联系。</li>
     </ul></div>
     <div class="part"><h4>话怎么说</h4>
       <blockquote class="say"><p>“你也选了这门课吗？我正在整理复习范围，想跟你对一下有没有漏掉的部分。你方便的时候，我们一起看一眼？”</p></blockquote>
     </div>
-    <div class="part"><h4>代价是什么</h4><p class="cost">主动交流的精力和可能被冷淡回应的失落。不把“我刚才讲得不够好”直接当成“对方不喜欢我”；不编造共同兴趣或过度奉承，也无需故意设置考验来识人。</p></div>
+    <div class="part"><h4>代价是什么</h4><p class="cost">主动交流的精力和可能被冷淡回应的失落。聊天舒服不能证明对方能力高于你或必有目的；无需故意设置考验或制造冲突来识人。</p></div>
   </article>
 
-  <article class="entry reveal">
+  <article class="entry reveal" id="e6-2">
     <header><span class="num">6.2</span><h3>与朋友联系时，让邀请具体且允许拒绝</h3></header>
-    <p class="scene">你总说“改天聚”却一直没约成；或看到朋友与别人聚会没邀请你，想问又怕显得计较。</p>
+    <p class="scene">你总说“改天聚”，却一直没约成；或看到朋友与别人聚会没邀请你，想问又怕显得计较。</p>
     <div class="part"><h4>怎么做</h4><ul>
-      <li>给出具体活动、可选时间和预计花费，允许对方另约或不参加。</li>
-      <li>久未联系时，用一件真实共同经历或近况开启问候，不把问候绑定后续求助。</li>
-      <li>想参加以后的活动可以直接表达兴趣，同时尊重别人自己的小圈子。</li>
-      <li>连续约不上时问是否愿意换种联系形式；拒绝后未提替代时间就先停止重复邀约。</li>
+      <li>给出具体活动、时间与预计花费，允许对方另约或不参加；久未联系时从一件真实共同经历或近况开始，不把问候绑定后续求助。</li>
+      <li>没有事先约定就表达兴趣，不要求被纳入每次活动；原本约定一起却临时变动，先问清变化与通知安排。</li>
+      <li>连续约不上可以问是否换种联系形式，不反复测试对方；老朋友未回复时先停止连续追问。</li>
     </ul></div>
     <div class="part"><h4>话怎么说</h4>
       <blockquote class="say"><p>“这周末想找个时间散步，你有空一起吗？如果这周不方便也没关系，等我们都有空再约。”</p><p><span class="tag">想参加以后的活动</span>“看到你们去看展了，我也对这个主题挺感兴趣。以后有合适的安排可以叫上我；如果是你们自己的小聚，也不用特意调整。”</p><p><span class="tag">久未联系的问候</span>“今天路过以前常去的那家店，想起我们上课时的事，就来问候一下。你最近怎么样？”</p></blockquote>
     </div>
-    <div class="part"><h4>代价是什么</h4><p class="cost">安排时间与接受拒绝的压力。联系次数没有统一标准，低频相处也可能令双方满意；一次未被邀请不能证明被排斥，也不通过查行程、冷落或让第三人试探来验证关系。</p></div>
+    <div class="part"><h4>代价是什么</h4><p class="cost">安排时间与接受拒绝的压力。联系次数没有统一标准，一次未被邀请不能证明被排斥；不通过查行程、冷落或让第三人试探来验证关系。</p></div>
   </article>
 
-  <article class="entry reveal">
+  <article class="entry reveal" id="e6-3">
     <header><span class="num">6.3</span><h3>共同责任分配不均时，重新约定</h3></header>
     <p class="scene">合租家务、社团事务或朋友出游，总由你收尾。</p>
     <div class="part"><h4>怎么做</h4><ul>
-      <li>列出反复发生的任务与各自投入，把希望分担的任务、完成标准和时间说清，请对方确认。</li>
-      <li>从一项反复发生的任务开始核对，不一次翻出所有不满。</li>
-      <li>讨论分担或轮换，而不只说自己付出最多；对方能力有限可交换不同任务。</li>
-      <li>新安排依旧执行不了时调整任务或减少共同承担，不只重复要求更自觉。</li>
+      <li>列出重复任务与实际投入，把希望分担的任务、完成标准和时间说清，请对方确认能否承担。</li>
+      <li>讨论分担或轮换，而不只说自己付出最多；未说明的期待先协商，已明确答应却没完成的事项再核对原因与调整办法。</li>
+      <li>只是担心尴尬时，从一项反复发生的任务开始核对，听取对方的时间与能力限制，不一次翻出所有不满。</li>
     </ul></div>
     <div class="part"><h4>话怎么说</h4>
       <blockquote class="say"><p>“最近三次订票和对账都是我在做，这次想请你接一下，可以吗？以后我们轮换着来，也让安排更均衡些。”</p></blockquote>
     </div>
-    <div class="part"><h4>代价是什么</h4><p class="cost">协商精力与重新安排的时间。公平不一定等于每次一人一半，要看双方同意的整体安排；存在威胁或明显报复风险时，先选择安全的协助渠道。</p></div>
+    <div class="part"><h4>代价是什么</h4><p class="cost">协商精力与重新安排的时间。公平不一定等于每次一人一半；新安排依旧执行不了时调整任务或减少共同承担，存在威胁或报复风险时先选择安全的协助渠道。</p></div>
   </article>
 
-  <article class="entry reveal">
+  <article class="entry reveal" id="e6-4">
     <header><span class="num">6.4</span><h3>倾听朋友烦恼前，先问需要陪伴还是建议</h3></header>
     <p class="scene">朋友倾诉时，你不停给方案，对方却觉得不被理解。</p>
     <div class="part"><h4>怎么做</h4><ul>
-      <li>先听完，问对方希望被听见、一起分析还是获得具体帮助。</li>
-      <li>用自己的话概括事实与需要，请对方纠正；听到修正后更新理解。</li>
-      <li>给建议前确认其愿意听，也说明自己能投入的时间。</li>
-      <li>想分享类似经历先问是否愿意听，不用“我以前更惨”把话题接走；连续陪聊影响自己生活时重新协商频率。</li>
+      <li>先询问需求与是否方便聊，说明自己的时间和能力范围；先听完，再问对方希望被听见、一起分析，还是获得具体帮助。</li>
+      <li>不确定时用自己的话概括事实与需要，请对方纠正；给建议前确认其愿意听；想分享类似经历先问是否愿意听，不用“我以前更惨”把话题接走。</li>
+      <li>连续陪聊影响睡眠、课程或工作时，按实际影响重新协商频率与时段；对方愿意时一起找其他可信赖的支持，未经同意不转发其倾诉内容。</li>
     </ul></div>
     <div class="part"><h4>话怎么说</h4>
-      <blockquote class="say"><p>“你可以慢慢说。你现在更想让我听你聊聊，还是一起想办法？我现在能认真陪你聊一会儿，晚点还有自己的事要处理，先跟你说一下。”</p><p><span class="tag">调整陪伴</span>“这几次聊到很晚，我第二天上课有些吃力。我仍愿意听你说，但之后需要按自己的休息时间结束。”</p></blockquote>
+      <blockquote class="say"><p>“你可以慢慢说。你现在更想让我听你聊聊，还是一起想办法？我现在能认真陪你聊一会儿，晚点还有自己的事要处理，先跟你说一下。”</p><p><span class="tag">调整陪伴</span>“这几次聊到很晚，我第二天上课有些吃力。我仍愿意听你说，但之后需要按自己的休息时间结束；我们可以先问彼此什么时候方便，再决定聊多久。”</p><p><span class="tag">事后关心</span>“前几天你提到那件事，我还记着。你愿意的话，我们可以再聊聊；不想展开也没关系，不用专门给我交代进度。”</p></blockquote>
     </div>
-    <div class="part"><h4>代价是什么</h4><p class="cost">注意力、时间与情绪负担。复述是核对理解，不代表认同；朋友的支持不能替代专业服务；聊不动时说明需要暂停并约定后续，而不是突然消失。</p></div>
+    <div class="part"><h4>代价是什么</h4><p class="cost">注意力、时间与情绪负担。复述是核对理解，不代表认同；朋友的支持不能替代专业服务，不要求你承受持续辱骂或独自解决其困境。</p></div>
   </article>
 
-  <article class="entry reveal">
+  <article class="entry reveal" id="e6-5">
     <header><span class="num">6.5</span><h3>发现关系投入不同步时，调整而不是测试</h3></header>
     <p class="scene">你总主动联系和帮忙，觉得对方没有同等回应。</p>
     <div class="part"><h4>怎么做</h4><ul>
-      <li>区分双方期待不同、暂时困难与长期失约；说明一个具体需求，再观察实际行动。</li>
-      <li>回顾可观察的互动与自己的负担，决定可持续的投入程度。</li>
-      <li>不靠冷落试探对方忠诚；对方不愿讨论就按自己的承受能力减少投入，保留正常礼貌。</li>
-      <li>明确边界后仍持续羞辱、纠缠的，减少共同事务和联系，必要时寻求支持。</li>
+      <li>回顾可观察的互动与自己的负担，区分双方期待不同、暂时困难与长期失约。</li>
+      <li>说明一个具体需求，再观察实际行动；对方不愿讨论时，按自己的承受能力减少投入，保留正常礼貌。</li>
+      <li>说明困难或拒绝请求后，看对方是接受边界，还是反复施压、贬低或要求你用答应来证明关系；后者出现时缩小承担范围并寻求支持。</li>
     </ul></div>
     <div class="part"><h4>话怎么说</h4>
-      <blockquote class="say"><p>“最近几次想跟你聊聊都没碰上，我有点想念以前一起聊天的时间。想问问，你现在更方便怎样联系、多久聊一次？我们找个彼此都舒服的节奏就好。”</p><p><span class="tag">被要求证明关系</span>“我重视我们之间的关系，但这件事我确实不能答应。可以谈其他安排，不过这次的决定不会变。”</p></blockquote>
+      <blockquote class="say"><p>“最近几次想跟你聊聊都没碰上，我有点想念以前一起聊天的时间。想问问，你现在更方便怎样联系、多久聊一次？我们找个彼此都舒服的节奏就好。”</p><p><span class="tag">拒绝后仍被要求证明关系</span>“我重视我们之间的关系，但这件事我确实不能答应。可以谈其他安排，不过这次的决定不会变。”</p></blockquote>
     </div>
-    <div class="part"><h4>代价是什么</h4><p class="cost">谈期待的压力，以及可能接受关系变淡。互惠不是每次都等额回报，也不能只凭一次拒绝给关系定性；看是否反复越过已说明的边界，不推断其隐藏动机。</p></div>
+    <div class="part"><h4>代价是什么</h4><p class="cost">谈期待的压力，以及可能接受关系变淡。互惠不是每次都等额回报，也不能只凭一次拒绝给关系定性；避免用冷落测试对方忠诚。</p></div>
   </article>
 
-  <article class="entry reveal">
+  <article class="entry reveal" id="e6-6">
     <header><span class="num">6.6</span><h3>需要退出关系时，减少承诺并处理未完成约定</h3></header>
     <p class="scene">某段关系让你长期不舒服，你想拉开距离又担心被指责。</p>
     <div class="part"><h4>怎么做</h4><ul>
-      <li>明确自己想减少的是联系、活动还是合作。</li>
-      <li>处理借物、费用和已答应的任务，整理待履行事项与必要联系渠道。</li>
-      <li>说明结束或减少参与的范围，不边疏远边新增承诺。</li>
-      <li>对方持续纠缠时重复边界并选择合适渠道求助，不反复单独解释。</li>
+      <li>明确自己想减少的是联系、活动还是合作，整理待履行事项与必要联系渠道。</li>
+      <li>处理借物、费用和已答应的任务，说明结束或减少参与的范围。</li>
+      <li>对方持续纠缠时重复边界并选择合适渠道求助，不反复单独解释；有威胁或不安全感时优先找支持。</li>
     </ul></div>
     <div class="part"><h4>话怎么说</h4>
       <blockquote class="say"><p>“跟你提前说一声，之后这类活动我就不参加了，你安排时不用再算上我。之前答应给你的资料，我仍会按约定发完。”</p></blockquote>
     </div>
-    <div class="part"><h4>代价是什么</h4><p class="cost">失落、关系摩擦和收尾时间。退出不保证对方接受；不需要通过公开揭短证明自己有资格离开；有威胁或不安全感时优先找支持。</p></div>
+    <div class="part"><h4>代价是什么</h4><p class="cost">失落、关系摩擦和收尾时间。退出不保证对方接受，也不需要通过公开揭短证明自己有资格离开。</p></div>
   </article>
 
-  <article class="entry reveal">
+  <article class="entry reveal" id="e6-7">
     <header><span class="num">6.7</span><h3>朋友分享好消息时，先回应对方在意的部分</h3></header>
     <p class="scene">朋友考试通过、拿到 offer 或完成目标，你想祝贺，却马上开始分析风险，或转而讲自己的经历。</p>
     <div class="part"><h4>怎么做</h4><ul>
-      <li>先回应对方表达的喜悦，给真实、适度的祝贺。</li>
-      <li>愿意继续聊时，问对方最满意或最期待的部分；不熟悉准备过程时不编造“看你努力了很久”。</li>
-      <li>不急着比成绩、泼冷水或把庆祝变成指导；对方也表达担忧时，先承接情绪再询问是否一起分析。</li>
-      <li>自己也感到失落时，可先作简短真实的祝贺，之后处理自己的情绪。</li>
+      <li>先听完消息，分清已确认的结果与未来打算；回应对方表达的喜悦，给真实、适度的祝贺。</li>
+      <li>愿意继续聊时，问他最满意或最期待的部分；选一个自己确实了解的细节，不熟悉准备过程时不编造“看你努力了很久”。</li>
+      <li>自己也感到失落时，可以先作简短、真实的祝贺，之后处理自己的情绪，不通过贬低对方的结果来缓解比较压力。</li>
     </ul></div>
     <div class="part"><h4>话怎么说</h4>
       <blockquote class="say"><p>“太好了，恭喜你拿到这个机会！听起来你很期待，你最想开始做的是哪一部分？”</p><p><span class="tag">确实了解准备过程</span>“前阵子看你一直在准备，现在终于有结果了，真替你高兴。”</p></blockquote>
@@ -420,31 +443,24 @@ footer a{color:var(--accent)}
     <div class="part"><h4>代价是什么</h4><p class="cost">注意力、倾听时间，以及面对比较情绪时调整表达的精力。喜讯是否公开由当事人决定，祝贺不等于许可你转发；不凭一次平淡回应认定别人嫉妒。</p></div>
   </article>
 
-  <article class="entry reveal">
+  <article class="entry reveal" id="e6-8">
     <header><span class="num">6.8</span><h3>被“不给面子”施压时，重申可承担的范围</h3></header>
-    <p class="scene">你已说明不能帮忙，对方说“这点事都不答应，就是不给我面子”，把一次请求与关系绑定。</p>
+    <p class="scene">你已说明不能帮忙，对方说“这点事都不答应，就是不给我面子”，把一次请求与你们的关系绑定。</p>
     <div class="part"><h4>怎么做</h4><ul>
-      <li>先核对已有承诺：应履行的约定要处理，新请求与它分开。</li>
-      <li>承认对方期待落空，但不因此改变无法承担的决定。</li>
-      <li>简短重申范围，不反复披露隐私或编造困难；愿意给替代选项时，只提出确实能做到的一项。</li>
-      <li>拒绝后持续辱骂、威胁或要求证明关系时，减少当次接触并找支持。</li>
+      <li>先核对已有承诺：没有替代帮助也可以直接拒绝，不把新请求与应履行的约定混在一起。</li>
+      <li>承认对方期待落空，但不因此改变无法承担的决定；简短重申范围，不反复披露隐私或编造困难。</li>
+      <li>愿意给替代选项时，只提出确实能做到的一项；反复施压时重复决定，必要时结束当次交流并找支持。</li>
     </ul></div>
     <div class="part"><h4>话怎么说</h4>
-      <blockquote class="say"><p>“我知道你希望我帮这个忙，也理解你可能会失望。但这件事我确实不能答应，希望我们不用靠答应每个请求来证明关系。”</p><p><span class="tag">对方说“不来就是不给我面子”</span>“我知道你希望我在，但这次安排我不参加。希望你玩得开心；我的决定不变。”</p><p><span class="tag">仍被施压</span>“答复已经说明了，继续讨论也不会改变安排，我们先聊到这里。”</p></blockquote>
+      <blockquote class="say"><p>“我知道你希望我帮这个忙，也理解你可能会失望。但这件事我确实不能答应，希望我们不用靠答应每个请求来证明关系。”</p><p><span class="tag">对方继续质疑关系</span>“我重视我们的关系，但这次请求的答复仍然是不答应。我们先把这个话题停在这里。”</p></blockquote>
     </div>
-    <div class="part"><h4>代价是什么</h4><p class="cost">面对失望与关系变化的压力，也可能暂时减少来往。礼貌拒绝不能保证对方满意；不能用“边界”逃避已确认的责任，也不要把所有失望都叫操控。</p></div>
+    <div class="part"><h4>代价是什么</h4><p class="cost">面对失望与关系变化的压力，也可能暂时减少来往。礼貌拒绝不能保证对方满意，也不能用“边界”逃避已确认的责任；不要把所有失望都叫操控。</p></div>
   </article>
-
-  <nav class="pager reveal">
-    <a href="work.html"><span class="lab">上一篇</span><div class="ttl">职场篇 · 实习与求职</div></a>
-    <a href="../index.html"><span class="lab">返回</span><div class="ttl">首页 · 十章全景</div></a>
-    <a href="manner.html"><span class="lab">下一篇</span><div class="ttl">礼节篇 · 礼节与关系</div></a>
-  </nav>
 </main>
 
 <footer>
   <div class="wrap">
-    <p>本站内容整理自开源项目 <a href="https://github.com/kkk-bot/HowToGetAlong" target="_blank" rel="noopener">kkk-bot/HowToGetAlong</a>（10 章 77 条，© 2026 kkk-bot，个人非商业学习使用许可）。全部为经验建议，仅供参考，请结合自身处境独立判断，不宜直接照搬示例。</p>
+    <p>本站内容整理自开源项目 <a href="https://github.com/kkk-bot/HowToGetAlong" target="_blank" rel="noopener">kkk-bot/HowToGetAlong</a>（10 章 77 条，© 2026 kkk-bot，个人非商业学习使用许可）。全部为经验建议，仅供参考，不保证适用于所有人或取得特定效果。</p>
     <p>站点页面 · <a href="../index.html">首页</a> · <a href="campus.html">校园篇</a> · <a href="work.html">职场篇</a> · <a href="money.html">金钱篇</a> · <a href="manner.html">礼节篇</a></p>
   </div>
 </footer>
@@ -478,6 +494,26 @@ footer a{color:var(--accent)}
     try{localStorage.setItem('theme',next)}catch(e){}
     sync();
   });
+})();
+</script>
+<script>
+(function(){
+  var n=document.getElementById('siteNav'),b=document.getElementById('navToggle');
+  if(!n||!b)return;
+  var set=function(o){n.classList.toggle('open',o);b.setAttribute('aria-expanded',o?'true':'false');b.innerHTML=o?'&#10005':'&#9776';b.setAttribute('aria-label',o?'收起导航菜单':'展开导航菜单')};
+  b.addEventListener('click',function(){set(!n.classList.contains('open'))});
+  n.addEventListener('click',function(e){if(e.target&&e.target.closest&&e.target.closest('a'))set(false)});
+  document.addEventListener('keydown',function(e){if(e.key==='Escape')set(false)});
+})();
+</script>
+<button class="toTop" type="button" id="toTop" aria-label="回到顶部">&#8593;</button>
+<script>
+(function(){
+  var b=document.getElementById('toTop');if(!b)return;
+  var rm=window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  function upd(){if(window.scrollY>600){b.classList.add('show')}else{b.classList.remove('show')}}
+  window.addEventListener('scroll',upd,{passive:true});upd();
+  b.addEventListener('click',function(){window.scrollTo({top:0,behavior:rm?'auto':'smooth'});});
 })();
 </script>
 </body>

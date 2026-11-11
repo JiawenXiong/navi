@@ -3,8 +3,8 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>开源生活指南合集 · 八个项目的完整中文阅读站</title>
-<meta name="description" content="八个开源人生指南项目的中文多页阅读站：健康、做饭、延寿、生活、投资、人情世故、工作与人生进阶，内容可直接在网页中完整阅读。">
+<title>开源生活指南合集 · 九个站点的完整中文阅读站</title>
+<meta name="description" content="九个指南站点的中文多页阅读站：健康、做饭、延寿、生活、投资、人情世故、工作与人生进阶，内容可直接在网页中完整阅读。">
 <script>
 (function () {
   var t = null;
@@ -53,14 +53,14 @@
   .btn.ghost { border: 1px solid var(--line); color: var(--ink); background: var(--card); }
   .btn.ghost:hover { border-color: var(--accent); color: var(--accent); }
 
-  .stats { border-top: 1px solid var(--line); border-bottom: 1px solid var(--line); padding: 24px 0; }
-  .stats .wrap { display: flex; gap: 48px; flex-wrap: wrap; }
-  .stat b { font-size: 26px; font-weight: 800; }
-  .stat span { display: block; font-size: 13px; color: var(--muted); }
-
   section.sites { padding: 64px 0 24px; }
   section.sites > .wrap > h2 { font-size: 26px; font-weight: 800; margin-bottom: 8px; }
   section.sites > .wrap > p.lead { color: var(--muted); margin-bottom: 28px; font-size: 15px; }
+  .group-h {
+    font-size: 14px; font-weight: 700; letter-spacing: .14em; color: var(--accent);
+    margin: 40px 0 6px; padding-top: 18px; border-top: 1px solid var(--line);
+  }
+  .group-h:first-of-type { margin-top: 28px; border-top: none; padding-top: 0; }
   .site-block { border: 1px solid var(--line); border-radius: var(--radius); background: var(--card); padding: 26px 26px 22px; margin-bottom: 18px; }
   .site-block .head { display: flex; align-items: baseline; justify-content: space-between; gap: 16px; flex-wrap: wrap; }
   .site-block h3 { font-size: 20px; font-weight: 800; }
@@ -81,7 +81,8 @@
   .reveal.in { opacity: 1; transform: none; }
   @media (prefers-reduced-motion: reduce) { html { scroll-behavior: auto; } .reveal { opacity: 1; transform: none; transition: none; } }
 
-@media (prefers-reduced-motion: reduce){.reveal{opacity:1 !important;transform:none !important}}</style>
+@media (prefers-reduced-motion: reduce){.reveal{opacity:1 !important;transform:none !important}}.toTop{position:fixed;right:14px;bottom:14px;z-index:98;display:none;border:none;cursor:pointer;padding:7px 14px;border-radius:999px;background:rgba(20,20,20,.72);color:#fff;font-size:14px;line-height:1;backdrop-filter:blur(4px);font-family:system-ui,sans-serif}.toTop:hover{background:rgba(20,20,20,.9)}.toTop.show{display:inline-block}
+</style>
 </head>
 <body>
 
@@ -89,7 +90,7 @@
   <nav class="wrap bar">
     <div class="brand"><a href="index.html">开源生活指南合集</a></div>
     <ul>
-      <li><a href="#sites">八个站点</a></li>
+      <li><a href="#sites">九个站点</a></li>
       <li><button id="themeToggle" type="button" aria-label="切换明暗主题" style="border:1px solid var(--line);background:var(--card);color:var(--ink);border-radius:999px;padding:5px 14px;font-size:13px;cursor:pointer;">切换主题</button></li>
     </ul>
   </nav>
@@ -97,27 +98,19 @@
 
 <main>
   <section class="hero wrap">
-    <span class="eyebrow">八个开源项目 · 完整中文阅读站</span>
-    <h1>八个开源人生指南，一页直达全部正文</h1>
-    <p class="sub">健康、做饭、延寿、生活、投资、人情世故、职场与人生进阶。每个项目一个独立站点，内容按主题分成多个页面，直接在网页里完整阅读，无需跳回 GitHub。</p>
+    <span class="eyebrow">九个站点 · 完整中文阅读站</span>
+    <h1>九个指南站点，一页直达全部正文</h1>
+    <p class="sub">健康、做饭、延寿、生活、投资、人情世故、职场、人生进阶与保健品理性使用，全部正文按主题分页，可直接阅读。</p>
     <div class="ctas">
-      <a class="btn primary" href="#sites">选择一个站点开始阅读</a>
+      <a class="btn primary" href="#sites">浏览目录</a>
     </div>
   </section>
-
-  <div class="stats">
+<section class="sites" id="sites">
     <div class="wrap">
-      <div class="stat"><b>8</b><span>独立站点</span></div>
-      <div class="stat"><b>50+</b><span>内容页面</span></div>
-      <div class="stat"><b>0</b><span>构建依赖</span></div>
-      <div class="stat"><b>0</b><span>图片与外部资源</span></div>
-    </div>
-  </div>
+      <h2>站点目录</h2>
+      <p class="lead">按类型分组。每个条目是该站的内容概览；点击标题进入站点首页，标签直达子页面。</p>
 
-  <section class="sites" id="sites">
-    <div class="wrap">
-      <h2>八个站点</h2>
-      <p class="lead">点击标题进入站点首页，或从标签直达任意子页面。</p>
+      <h3 class="group-h">健康与长寿</h3>
 
       <div class="site-block reveal">
         <div class="head"><h3><a href="human-system-optimization/index.html">健康学习到 150 岁 · 人体系统调优指南</a></h3><span class="repo">zijie0/HumanSystemOptimization</span></div>
@@ -133,8 +126,39 @@
       </div>
 
       <div class="site-block reveal">
+        <div class="head"><h3><a href="how-to-live-longer/index.html">程序员延寿指南</a></h3><span class="repo">geekan/HowToLiveLonger</span></div>
+        <p class="desc">以全因死亡率为统一指标、按证据分级整理的干预措施数据库，附 HR/RR/CI 指标白话解读与常见误读纠正。</p>
+        <div class="pages">
+          <a href="how-to-live-longer/index.html">首页</a>
+          <a href="how-to-live-longer/method.html">方法学与指标解读</a>
+          <a href="how-to-live-longer/exercise.html">运动与睡眠</a>
+          <a href="how-to-live-longer/diet.html">饮食与补剂</a>
+          <a href="how-to-live-longer/misread.html">常见误读</a>
+        </div>
+      </div>
+
+      <div class="site-block reveal">
+        <div class="head"><h3><a href="supplements-guide/index.html">保健品使用指南 · 理性看待营养补剂</a></h3><span class="repo">调研编写 · 证据导向</span></div>
+        <p class="desc">常见营养补剂的证据分级、按人群选择、剂量上限与药物相互作用、传统滋补与品牌批判性评估，附逐营养素决策卡：是否需要补、食补替代、剂量频率与合理价格区间。</p>
+        <div class="pages">
+          <a href="supplements-guide/index.html">首页</a>
+          <a href="supplements-guide/basics.html">基础认知</a>
+          <a href="supplements-guide/evidence.html">证据分级</a>
+          <a href="supplements-guide/by-need.html">按人群选择</a>
+          <a href="supplements-guide/decide.html">营养素决策卡</a>
+          <a href="supplements-guide/traditions.html">流派与传统滋补</a>
+          <a href="supplements-guide/brands.html">品牌辨识</a>
+          <a href="supplements-guide/safety.html">安全与上限</a>
+          <a href="supplements-guide/myths.html">误区拆解</a>
+          <a href="supplements-guide/buy.html">选购鉴别</a>
+        </div>
+      </div>
+
+      <h3 class="group-h">日常生活</h3>
+
+      <div class="site-block reveal">
         <div class="head"><h3><a href="how-to-cook/index.html">程序员在家做饭指南</a></h3><span class="repo">Anduin2017/HowToCook</span></div>
-        <p class="desc">373 道菜谱全收录：从搭厨房、学用刀到素菜、荤菜、水产、早餐、主食、汤粥、甜品与酱料，用料与步骤整理自仓库原文。</p>
+        <p class="desc">373 道菜谱全收录：从搭厨房、学用刀到素菜、荤菜、水产、早餐、主食、汤粥、甜品与酱料，用料与步骤整理自仓库原文，支持按难度筛选。</p>
         <div class="pages">
           <a href="how-to-cook/index.html">首页</a>
           <a href="how-to-cook/start.html">学前准备</a>
@@ -151,53 +175,19 @@
       </div>
 
       <div class="site-block reveal">
-        <div class="head"><h3><a href="how-to-live-longer/index.html">程序员延寿指南</a></h3><span class="repo">geekan/HowToLiveLonger</span></div>
-        <p class="desc">以全因死亡率为统一指标、按证据分级整理的干预措施数据库，附常见误读纠正。</p>
-        <div class="pages">
-          <a href="how-to-live-longer/index.html">首页</a>
-          <a href="how-to-live-longer/method.html">方法学</a>
-          <a href="how-to-live-longer/exercise.html">运动与睡眠</a>
-          <a href="how-to-live-longer/diet.html">饮食与补剂</a>
-          <a href="how-to-live-longer/misread.html">常见误读</a>
-        </div>
-      </div>
-
-      <div class="site-block reveal">
         <div class="head"><h3><a href="how-to-live-better/index.html">高性价比人生指南</a></h3><span class="repo">eternity4719/HowToLiveBetter</span></div>
-        <p class="desc">34 章 772 条：长寿防病、急救、理财、法律红线、医保社保、婚育、创业合规与出国，每条注明成本收益与证据等级。</p>
+        <p class="desc">全书 34 章 772 条全收录，每条含成本、收益、证据等级与来源；34 个章页逐章完整呈现，五个主题页做章节导航。</p>
         <div class="pages">
-          <a href="how-to-live-better/index.html">首页</a>
-          <a href="how-to-live-better/pages/health.html">长寿防病与急救</a>
-          <a href="how-to-live-better/pages/money.html">理财与法律红线</a>
-          <a href="how-to-live-better/pages/security.html">失业工伤与医保社保</a>
-          <a href="how-to-live-better/pages/family.html">恋爱婚育与育儿</a>
-          <a href="how-to-live-better/pages/career.html">创业合规与出国技能</a>
+          <a href="how-to-live-better/index.html">首页 · 全部 34 章</a>
+          <a href="how-to-live-better/pages/health.html">健康与急救 8 章</a>
+          <a href="how-to-live-better/pages/money.html">金钱与红线 6 章</a>
+          <a href="how-to-live-better/pages/security.html">失业与保障 5 章</a>
+          <a href="how-to-live-better/pages/family.html">恋爱与育儿 5 章</a>
+          <a href="how-to-live-better/pages/career.html">创业与技能 10 章</a>
         </div>
       </div>
 
-      <div class="site-block reveal">
-        <div class="head"><h3><a href="investing-for-beginners/index.html">投资入门知识框架</a></h3><span class="repo">xuchonglang/investing-for-beginners</span></div>
-        <p class="desc">美股、期权与加密货币三大模块、1000 余词条的知识框架与学习路径。内容仅供学习，不构成投资建议。</p>
-        <div class="pages">
-          <a href="investing-for-beginners/index.html">首页</a>
-          <a href="investing-for-beginners/stocks.html">美股入门</a>
-          <a href="investing-for-beginners/options.html">期权进阶</a>
-          <a href="investing-for-beginners/crypto.html">加密货币</a>
-          <a href="investing-for-beginners/path.html">学习路径与风险管理</a>
-        </div>
-      </div>
-
-      <div class="site-block reveal">
-        <div class="head"><h3><a href="how-to-get-along/index.html">人情世故实践指南</a></h3><span class="repo">kkk-bot/HowToGetAlong</span></div>
-        <p class="desc">面向大学生与职场新人：合作、求助、拒绝、金钱、礼节与冲突，每条讲清怎么做、话怎么说、代价是什么。</p>
-        <div class="pages">
-          <a href="how-to-get-along/index.html">首页</a>
-          <a href="how-to-get-along/pages/campus.html">校园与求助</a>
-          <a href="how-to-get-along/pages/work.html">实习与职场</a>
-          <a href="how-to-get-along/pages/money.html">金钱与边界</a>
-          <a href="how-to-get-along/pages/manner.html">礼节与亲密关系</a>
-        </div>
-      </div>
+      <h3 class="group-h">职场与人际</h3>
 
       <div class="site-block reveal">
         <div class="head"><h3><a href="how-to-work-better/index.html">高性价比工作指南</a></h3><span class="repo">NiceCao/HowToWorkBetter</span></div>
@@ -213,6 +203,32 @@
       </div>
 
       <div class="site-block reveal">
+        <div class="head"><h3><a href="how-to-get-along/index.html">人情世故实践指南</a></h3><span class="repo">kkk-bot/HowToGetAlong</span></div>
+        <p class="desc">面向大学生与职场新人：合作、求助、拒绝、金钱、礼节与冲突，每条讲清怎么做、话怎么说、代价是什么。</p>
+        <div class="pages">
+          <a href="how-to-get-along/index.html">首页</a>
+          <a href="how-to-get-along/pages/campus.html">校园与求助</a>
+          <a href="how-to-get-along/pages/work.html">实习与职场</a>
+          <a href="how-to-get-along/pages/money.html">金钱与边界</a>
+          <a href="how-to-get-along/pages/manner.html">礼节与亲密关系</a>
+        </div>
+      </div>
+
+      <h3 class="group-h">财富与成长</h3>
+
+      <div class="site-block reveal">
+        <div class="head"><h3><a href="investing-for-beginners/index.html">投资入门知识框架</a></h3><span class="repo">xuchonglang/investing-for-beginners</span></div>
+        <p class="desc">美股、期权与加密货币三大模块、1000 余词条的知识框架与学习路径。内容仅供学习，不构成投资建议。</p>
+        <div class="pages">
+          <a href="investing-for-beginners/index.html">首页</a>
+          <a href="investing-for-beginners/stocks.html">美股入门</a>
+          <a href="investing-for-beginners/options.html">期权进阶</a>
+          <a href="investing-for-beginners/crypto.html">加密货币</a>
+          <a href="investing-for-beginners/path.html">学习路径与风险管理</a>
+        </div>
+      </div>
+
+      <div class="site-block reveal">
         <div class="head"><h3><a href="up/index.html">人生进阶指南 · AI 时代的终身学习地图</a></h3><span class="repo">byoungd/up</span></div>
         <p class="desc">中英双语：AI、学习、创业、财富、爱情与人生六大主题，以及一条贯穿全书的个人工作线。</p>
         <div class="pages">
@@ -222,6 +238,7 @@
           <a href="up/life.html">爱情与人生</a>
         </div>
       </div>
+
     </div>
   </section>
 </main>
@@ -250,5 +267,15 @@
   })();
 </script>
 
+<button class="toTop" type="button" id="toTop" aria-label="回到顶部">&#8593;</button>
+<script>
+(function(){
+  var b=document.getElementById('toTop');if(!b)return;
+  var rm=window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  function upd(){if(window.scrollY>600){b.classList.add('show')}else{b.classList.remove('show')}}
+  window.addEventListener('scroll',upd,{passive:true});upd();
+  b.addEventListener('click',function(){window.scrollTo({top:0,behavior:rm?'auto':'smooth'});});
+})();
+</script>
 </body>
 </html>
