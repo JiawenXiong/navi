@@ -1,0 +1,195 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<script>(function(){try{var t=localStorage.getItem('theme');if(t!=='light'&&t!=='dark'){var h=new Date().getHours();t=(h>=7&&h<17)?'light':'dark'}document.documentElement.setAttribute('data-theme',t)}catch(e){document.documentElement.setAttribute('data-theme','light')}})();</script>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>成长与礼仪 · 高性价比工作指南</title>
+<style>
+:root,[data-theme=light]{--bg:#f4f6f9;--card:#ffffff;--ink:#1e2430;--ink2:#5b6472;--line:#e2e7ee;--accent:#0a5cff;--accent-soft:#e8f0ff;--on-accent:#fff;--src:#8a93a3;--accent-fade:#b9cffb;--radius:14px;color-scheme:light}
+[data-theme=dark]{--bg:#15181e;--card:#1e232b;--ink:#e6e9ef;--ink2:#a7b0bf;--line:#353c47;--accent:#4d9fff;--accent-soft:#12233d;--on-accent:#0b1220;--src:#8f99a9;--accent-fade:#1c3d6e;color-scheme:dark}
+*{box-sizing:border-box;margin:0;padding:0}
+body{background:var(--bg);color:var(--ink);font-family:"Microsoft YaHei","PingFang SC","Segoe UI",sans-serif;line-height:1.75;font-size:15.5px}
+a{color:var(--accent);text-decoration:none}
+a:hover{text-decoration:underline}
+.wrap{max-width:1000px;margin:0 auto;padding:0 20px}
+.topbar{background:var(--card);border-bottom:1px solid var(--line);position:sticky;top:0;z-index:20}
+.nav{display:flex;align-items:center;gap:4px;white-space:nowrap;overflow-x:auto;scrollbar-width:none}
+.nav::-webkit-scrollbar{display:none}
+.brand{font-weight:700;color:var(--ink);margin-right:14px;flex:none}
+.brand span{color:var(--accent)}
+.nav a{flex:none;padding:9px 12px;border-radius:10px;color:var(--ink2);font-size:14px}
+.nav a:hover{background:var(--accent-soft);color:var(--accent);text-decoration:none}
+.nav a.on{background:var(--accent);color:var(--on-accent)}
+.nav a.gh{border:1px solid var(--line);color:var(--accent)}
+.theme-btn{flex:none;margin-left:6px;padding:8px 12px;border-radius:10px;border:1px solid var(--line);background:var(--card);color:var(--ink);font-size:13px;cursor:pointer;font-family:inherit;line-height:1.2}
+.theme-btn:hover{background:var(--accent-soft);color:var(--accent)}
+main{padding:34px 0 10px}
+.pagehead{margin-bottom:22px}
+.pagehead .crumb{font-size:13px;color:var(--ink2)}
+.pagehead h1{font-size:26px;margin:6px 0 8px}
+.pagehead p{color:var(--ink2);max-width:760px}
+h2.sec{font-size:19px;margin:34px 0 4px;padding-left:12px;border-left:4px solid var(--accent)}
+p.secsub{color:var(--ink2);font-size:14px;margin:0 0 14px 16px}
+.card{background:var(--card);border:1px solid var(--line);border-radius:var(--radius);padding:20px 22px;margin-bottom:14px}
+.card .head{display:flex;gap:12px;align-items:baseline}
+.card .num{font-family:Consolas,Menlo,monospace;font-size:13px;color:var(--accent);border:1px solid var(--accent);border-radius:8px;padding:0 8px;flex:none}
+.card h3{font-size:16px;line-height:1.5}
+.meta{margin:8px 0 8px}
+.chip{display:inline-block;font-size:12px;border-radius:999px;padding:2px 10px;margin:0 6px 6px 0;border:1px solid var(--line);color:var(--ink2);background:var(--bg)}
+.chip.blue{background:var(--accent);border-color:var(--accent);color:var(--on-accent)}
+.chip.line{border-color:var(--accent);color:var(--accent);background:var(--accent-soft)}
+.card p{color:var(--ink2);font-size:14.5px}
+.card p b{color:var(--ink)}
+.src{margin-top:8px;font-size:12.5px;color:var(--src)}
+footer{margin-top:44px;border-top:1px solid var(--line);background:var(--card)}
+footer .wrap{padding:22px 20px;color:var(--ink2);font-size:13px}
+footer p{margin:3px 0}
+.reveal{opacity:0;transform:translateY(14px);transition:opacity .5s ease,transform .5s ease}
+.reveal.in{opacity:1;transform:none}
+@media (prefers-reduced-motion:reduce){.reveal{opacity:1;transform:none;transition:none}}
+@media (max-width:640px){.card{padding:16px}}
+</style>
+<noscript><style>.reveal,.rv{opacity:1 !important;transform:none !important}</style></noscript></head>
+<body>
+<header class="topbar"><div class="wrap"><nav class="nav">
+<a class="brand" href="../index.html">高性价比<span>工作指南</span></a>
+<a href="../index.html">返回首页</a>
+<a href="jobhunt.html">求职与谈薪</a>
+<a href="onboard.html">入职与社保</a>
+<a href="crisis.html">被裁与维权</a>
+<a class="on" href="growth.html">成长与礼仪</a>
+<a href="rights.html">健康与合同</a>
+<a class="gh" href="https://github.com/NiceCao/HowToWorkBetter" target="_blank" rel="noopener">GitHub 仓库</a>
+<button type="button" class="theme-btn" id="themeToggle" aria-label="切换明暗主题">☾ 暗色</button>
+</nav></div></header>
+
+<main class="wrap">
+<div class="pagehead reveal">
+<div class="crumb">板块四 · 生存与晋升 + 板块六 · 职业寿命与转型（第 15、35、37、38、51 章）</div>
+<h1>成长与礼仪</h1>
+<p>技能怎么投资、路怎么转、副业怎么做，以及商务饭局和日常职场里那些没人专门教、但天天要用的礼仪。以下条目提炼自仓库第 35 章技能投资、第 37 章职业转型、第 38 章专家vs管理、第 15 章副业与兼职与第 51 章商务宴请与职场礼仪。</p>
+</div>
+
+<h2 class="sec reveal">一、职业规划与转型</h2>
+<p class="secsub">来自第 35 章技能投资与第 37 章职业转型，均按性价比从高到低排。</p>
+
+<article class="card reveal"><div class="head"><span class="num">01</span><h3>先把一项能独立交付的硬技能练到能用，再补沟通汇报这类软技能</h3></div>
+<div class="meta"><span class="chip blue">证据 A</span><span class="chip line">性价比 极高</span><span class="chip">成本 钱=0到中等 · 时间=高 · 精力=高</span><span class="chip">口径：职业寿命 / 收入</span></div>
+<p><b>说人话：</b>能独立交付的硬技能是你吃饭的本钱，也是别人找你合作的理由；先把它练到能独立交付，再补软技能。优先练能带到下一家公司用的能力：数据分析、写作、项目管理。</p>
+<p class="src">来源：见仓库第 35 章第 1、2 条，附官方与研究来源。</p></article>
+
+<article class="card reveal"><div class="head"><span class="num">02</span><h3>在一个行业里持续跟踪政策、上下游和主要玩家，把认知积累成判断</h3></div>
+<div class="meta"><span class="chip blue">证据 A</span><span class="chip line">性价比 极高</span><span class="chip">成本 钱=低 · 时间=高 · 精力=中</span><span class="chip">口径：职业寿命</span></div>
+<p><b>怎么做：</b>行业认知是复利：每年固定投入，用「为了做事而学」的方式补技能更新；重复劳动里也能攒出能带走的能力，比如流程优化、异常处理、对上下游的理解。想跟老师傅学到东西，先让他觉得带你省事。</p>
+<p class="src">来源：见仓库第 35 章第 3、4、5、6 条。</p></article>
+
+<article class="card reveal"><div class="head"><span class="num">03</span><h3>考证优先选《国家职业资格目录》里的准入类证书，报班前算清回报</h3></div>
+<div class="meta"><span class="chip">证据 B</span><span class="chip line">性价比 高</span><span class="chip">成本 钱=中 · 时间=中到高 · 精力=中</span><span class="chip">口径：收入 / 职业寿命</span></div>
+<p><b>说人话：</b>花钱多的投入先算账：考证查它在目标岗位的认可度和真实回报，报名前查清发证机构和退费规则；读研或读 MBA 前先算机会成本，要转行或进学历门槛高的行业再读；英语按用途学，工作要读英文资料先练阅读，要进外企再练口语。</p>
+<p class="src">来源：见仓库第 35 章第 7、8、9 条。</p></article>
+
+<article class="card reveal"><div class="head"><span class="num">04</span><h3>想转行，先分清让你想走的是公司、岗位还是行业，只有行业本身出问题时才值得跨行</h3></div>
+<div class="meta"><span class="chip blue">证据 A</span><span class="chip line">性价比 极高</span><span class="chip">成本 钱=0 · 时间=少 · 精力=低</span><span class="chip">口径：职业寿命 / 职业自由</span></div>
+<p><b>说人话：</b>公司不行换公司、岗位不行换岗位，代价都比跨行业小得多。转行时优先做技能平移，用能复用的经验而不是从零开始；想换方向优先走公司内部转岗，成本通常低于跨行业跳槽；选方向先判断行业在扩张还是收缩，再逐条核对目标岗位的真实要求。</p>
+<p class="src">来源：见仓库第 37 章第 1、2、4、5 条。</p></article>
+
+<article class="card reveal"><div class="head"><span class="num">05</span><h3>转行前算清要降多少薪、多久能涨回来，先定一条可接受的底线</h3></div>
+<div class="meta"><span class="chip">证据 B</span><span class="chip line">性价比 高</span><span class="chip">成本 钱=中 · 时间=少 · 精力=中</span><span class="chip">口径：收入 / 职业寿命</span></div>
+<p><b>怎么做：</b>挑行业上行、家庭负担轻的窗口转，把落差期当成正常阶段；提前留好退回或止损的路，别把全部身家押在一次转型上。</p>
+<p class="src">来源：见仓库第 37 章第 6、7、8 条。</p></article>
+
+<article class="card reveal"><div class="head"><span class="num">06</span><h3>专家线还是管理线：先按收入口径和每天的活判断，别只看头衔好听</h3></div>
+<div class="meta"><span class="chip blue">证据 A</span><span class="chip line">性价比 极高</span><span class="chip">成本 钱=0 · 时间=少 · 精力=低</span><span class="chip">口径：职业寿命 / 收入</span></div>
+<p><b>说人话：</b>转管理不是升职加薪，它是换一套工作方式：向上对齐、向下定规则给反馈、向平级找共同利益。走专家线要靠选对领域和把能力做成可迁移的，把成果做成能展示的作品。想换路线先算清代价：专家转管理，转过去再想回头不容易。</p>
+<p class="src">来源：见仓库第 38 章第 1、3、4、8 条。</p></article>
+
+<h2 class="sec reveal">二、副业与兼职</h2>
+<p class="secsub">来自第 15 章：下班了怎么赚外快。</p>
+
+<article class="card reveal"><div class="head"><span class="num">07</span><h3>副业从主业技能延伸，别从外卖、问卷这类纯体力活起步</h3></div>
+<div class="meta"><span class="chip blue">证据 A</span><span class="chip line">性价比 极高</span><span class="chip">成本 钱=0 · 时间=少 · 精力=低</span><span class="chip">口径：收入</span></div>
+<p><b>说人话：</b>把已经在领工资的技能下班后再卖给第二个客户，是最顺的副业路径；用你所在行业的信息差做副业，先把外行不懂的东西整理成产品。纯体力活时薪低、攒不下可复用的能力。</p>
+<p class="src">来源：见仓库第 15 章第 1、2、3 条。</p></article>
+
+<article class="card reveal"><div class="head"><span class="num">08</span><h3>接单先深耕 1 到 2 个平台，把前三单当作品集而不是收入</h3></div>
+<div class="meta"><span class="chip blue">证据 A</span><span class="chip line">性价比 极高</span><span class="chip">成本 钱=0 · 时间=少 · 精力=中</span><span class="chip">口径：收入</span></div>
+<p><b>怎么做：</b>平台在精不在多，深耕一两个把评分和案例攒起来；前三单的目的是攒作品集和评价，报价可以让，交付质量不能让。</p>
+<p class="src">来源：见仓库第 15 章第 4 条。</p></article>
+
+<article class="card reveal"><div class="head"><span class="num">09</span><h3>凡是要你先垫钱、先交费的副业，一律不做</h3></div>
+<div class="meta"><span class="chip blue">证据 A</span><span class="chip line">性价比 高</span><span class="chip">成本 钱=0 · 时间=少 · 精力=低</span><span class="chip">口径：收入</span></div>
+<p><b>说人话：</b>帮你省钱就是帮你赚钱。刷单垫付、进货返款、交会费才给单子的，多数是骗局或击鼓传花；识别骗局这一条本身就是高回报动作。</p>
+<p class="src">来源：见仓库第 15 章第 5 条，附相关案例与规定。</p></article>
+
+<article class="card reveal"><div class="head"><span class="num">10</span><h3>按结果定价，副业时薪至少是主业时薪的 1.5 倍</h3></div>
+<div class="meta"><span class="chip">证据 B</span><span class="chip line">性价比 高</span><span class="chip">成本 钱=0 · 时间=少 · 精力=低</span><span class="chip">口径：收入 / 时间精力</span></div>
+<p><b>说人话：</b>副业没有社保和稳定订单，按小时卖时间要卖得更贵才划算；按结果定价能把同一份产出卖多次。定价前先查同类服务的市场价。</p>
+<p class="src">来源：见仓库第 15 章第 6 条。</p></article>
+
+<article class="card reveal"><div class="head"><span class="num">11</span><h3>做副业前先查劳动合同里的竞业限制和兼职条款，再定方向</h3></div>
+<div class="meta"><span class="chip">证据 B</span><span class="chip line">性价比 高</span><span class="chip">成本 钱=0 · 时间=少 · 精力=中</span><span class="chip">口径：职业自由</span></div>
+<p><b>说人话：</b>别让副业变成被解除合同的理由。先看自己合同里有没有兼职限制、竞业范围和保密条款；接私活不碰主业的客户和保密信息，收入该报税的报税。别指望被动收入：2025 年全国居民人均财产净收入一年只有 3490 元，门槛比想象的高。</p>
+<p class="src">来源：见仓库第 15 章第 7、8 条，附国家统计局数据。</p></article>
+
+<h2 class="sec reveal">三、公务与商务礼仪</h2>
+<p class="secsub">来自第 51 章商务宴请与职场礼仪：先看高性价比的点菜、敬酒、酒局之后三条，再看座次、买单、名片、着装、电梯五条。涉及公款、报销、饮酒的地方都有合规红线和拒绝权。</p>
+
+<article class="card reveal"><div class="head"><span class="num">12</span><h3>点菜的分寸：谁点、先问忌口、控住菜量和预算</h3></div>
+<div class="meta"><span class="chip blue">证据 A</span><span class="chip line">性价比 高</span><span class="chip">成本 钱=中（做东承担） · 时间=少 · 精力=中</span><span class="chip">口径：收入</span></div>
+<p><b>怎么做：</b>先把菜单递给主客，客人谦让再由做东的人点；点之前问一圈忌口（不吃辣、海鲜过敏、清真等硬性要求提前问清）；热菜数量大体按人数配，宁可少点、不够中途再加；预算先看菜单价位定下来，酒水往往是大头、单独估一个数。不点野生保护动物和高档食材，公务活动用餐另有标准约束。</p>
+<p class="src">来源：反食品浪费法第六、七条；外交部礼宾知识。限制：点菜讲究属通识经验，各地餐桌文化差别大。</p></article>
+
+<article class="card reveal"><div class="head"><span class="num">13</span><h3>敬酒与不喝酒：提前报备、给替代方案，没有人有权力强迫你饮酒</h3></div>
+<div class="meta"><span class="chip blue">证据 A</span><span class="chip line">性价比 高</span><span class="chip">成本 钱=0 · 时间=中 · 精力=中</span><span class="chip">口径：职业自由 / 职业寿命</span></div>
+<p><b>怎么做：</b>不能喝就一入席说清「我今天开车，以茶代酒」，别等被劝到跟前才推；用茶或饮料代酒，主动先敬一圈、先敬主位再按座次来，礼数不落；被反复强劝时直接说「身体原因真不能喝」，必要时请同事帮腔。两条红线：喝了酒就算坐副驾让辅助驾驶开车，一样按醉驾处理；同饮者对明显醉酒的人未尽提醒、护送义务，出事可能担责。</p>
+<p class="src">来源：最高法指导性案例227号；两高两部关于办理醉酒危险驾驶刑事案件的意见（2023）。限制：个别场合仍有以酒量论事的氛围，明确拒绝前先评估对方接受度。</p></article>
+
+<article class="card reveal"><div class="head"><span class="num">14</span><h3>酒局之后：安全到家、向上报备、第二天跟进</h3></div>
+<div class="meta"><span class="chip blue">证据 A</span><span class="chip line">性价比 高</span><span class="chip">成本 钱=少（交通） · 时间=中 · 精力=中</span><span class="chip">口径：职业自由 / 职业寿命</span></div>
+<p><b>怎么做：</b>散场三件事：喝了酒不开车，提前叫好代驾或打车，把车钥匙交给没喝酒的同伴；重要饭局回去跟上级报备一句，谈成什么、对方什么态度、下一步谁做什么；答应客户的事第二天上午落实，发条微信把承诺接住。代驾的钱比罚款和刑责便宜得多。</p>
+<p class="src">来源：道路交通安全法第二十二、九十一条；最高法指导性案例271号。限制：报备是否必要取决于公司要求和饭局重要性。</p></article>
+
+<article class="card reveal"><div class="head"><span class="num">15</span><h3>座次的规矩：主位正对门口，主宾坐主人右手边，拿不准就问</h3></div>
+<div class="meta"><span class="chip">证据 B</span><span class="chip">性价比 一般</span><span class="chip">成本 钱=0 · 时间=少 · 精力=少</span><span class="chip">口径：时间精力</span></div>
+<p><b>怎么做：</b>中餐圆桌主位一般正对门口，最主要的客人安排在主位右手边，其余按身份从主位两侧排开；被让到主位推让一两句对方仍坚持就大方坐下，别在桌边推来推去耽误开席；分不清时直接问「您看我坐哪儿」，比自己硬挑座位稳妥。</p>
+<p class="src">来源：外交部礼宾知识。限制：座次没有全国统一官方标准，日常商务饭局更看主客关系和现场方便。</p></article>
+
+<article class="card reveal"><div class="head"><span class="num">16</span><h3>谁买单、怎么买单：谁邀请谁付，能报销先确认额度和发票要求</h3></div>
+<div class="meta"><span class="chip blue">证据 A</span><span class="chip">性价比 一般</span><span class="chip">成本 钱=中 · 时间=少 · 精力=中</span><span class="chip">口径：收入</span></div>
+<p><b>怎么做：</b>你发起的局提前把单买了或席间找机会结掉，别在桌上和客人推来抢去；想回请，另约一次更体面。能报销的先问清招待费额度、发票抬头和税号、是否需要事前审批，别自己垫了一大笔还报不了。两条红线：不得用公款支付应由个人负担的费用；折扣佣金要明示并如实入账，账外暗中的回扣属商业贿赂。</p>
+<p class="src">来源：党政机关国内公务接待管理规定（中办发〔2024〕7号）；反不正当竞争法第八条。限制：抢单更多是面子问题，按关系和公司习惯来。</p></article>
+
+<article class="card reveal"><div class="head"><span class="num">17</span><h3>名片与介绍：先递谁、怎么称呼、加了微信第一句发什么</h3></div>
+<div class="meta"><span class="chip">证据 C</span><span class="chip">性价比 一般</span><span class="chip">成本 钱=0 · 时间=少 · 精力=少</span><span class="chip">口径：时间精力</span></div>
+<p><b>怎么做：</b>介绍的先后：把职位低的先介绍给职位高的、把本公司的人先介绍给客人，让被尊重的一方「等着被介绍」。递名片站着递、双手、字朝向对方；收到看一两秒再收进名片夹。加微信第一句自报身份加场合，比如「张总您好，我是某公司小李，今天饭桌上见过」，别只发一个「你好」。</p>
+<p class="src">来源：无（职场通识，仓库第 51 章第 6 条来源栏写「无」）。限制：互联网、创意团队里过度礼数反而生分，以自然、让对方舒服为准。</p></article>
+
+<article class="card reveal"><div class="head"><span class="num">18</span><h3>见客户的着装：宁可比对方正式半档，钱花在合身和整洁上</h3></div>
+<div class="meta"><span class="chip">证据 C</span><span class="chip">性价比 一般</span><span class="chip">成本 钱=少 · 时间=少 · 精力=少</span><span class="chip">口径：时间精力</span></div>
+<p><b>怎么做：</b>目标是让对方把注意力放在你谈的事上。先摸底：问对接人「你们平时穿什么」；分场合：正式谈判衬衫西装，常规拜访衬衫或纯色针织配西裤，互联网创意行业干净休闲即可。深色纯色、剪裁合身、熨平整、鞋子擦亮，比牌子升值快；少戴配饰，香水淡一点。</p>
+<p class="src">来源：无（经验做法）。限制：金融、律所偏正式，互联网偏自由，以对方和本公司制度为准；着装只减少印象扣分，代替不了业务能力。</p></article>
+
+<article class="card reveal"><div class="head"><span class="num">19</span><h3>电梯、走廊、门口的先后：核心是让客人方便</h3></div>
+<div class="meta"><span class="chip">证据 C</span><span class="chip">性价比 一般</span><span class="chip">成本 钱=0 · 时间=少 · 精力=少</span><span class="chip">口径：时间精力</span></div>
+<p><b>怎么做：</b>有人操作的电梯客人先进先出；自动电梯陪同先进去按住开门键、客人再进，出时客人先出。往外开的门主人拉开门请客人先过；往里开的门主人先推门扶住。走廊引导的人走在客人侧前方，让客人走内侧；送客送到电梯口或车边，等电梯门关上或车开走再回。拿不准时以「让客人方便」为原则，不必死记顺序。</p>
+<p class="src">来源：外交部礼宾知识（迎宾、陪同部分）加通识惯例。限制：不同企业、城市松紧不一，年轻团队里过分讲究反而不自然。</p></article>
+</main>
+
+<footer><div class="wrap">
+<p>内容提炼自开源项目 <a href="https://github.com/NiceCao/HowToWorkBetter" target="_blank" rel="noopener">NiceCao/HowToWorkBetter（高性价比工作指南）</a>第 15、35、37、38、51 章，正文以 CC BY 4.0 许可发布。</p>
+<p>所有内容仅供参考，不构成法律建议；金额、时限、比例以当地主管部门最新规定为准。遇到具体纠纷请咨询专业人士，或拨打 12333（人社）、12348（法律援助）。</p>
+</div></footer>
+
+<script>(function(){var b=document.getElementById('themeToggle');if(!b)return;function up(){b.textContent=document.documentElement.getAttribute('data-theme')==='dark'?'☀ 亮色':'☾ 暗色'}up();b.addEventListener('click',function(){var d=document.documentElement.getAttribute('data-theme')==='dark'?'light':'dark';document.documentElement.setAttribute('data-theme',d);try{localStorage.setItem('theme',d)}catch(e){}up()})})();</script>
+<script>
+(function(){
+var rm=window.matchMedia&&window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+var els=document.querySelectorAll('.reveal');
+if(rm||!('IntersectionObserver' in window)){for(var i=0;i<els.length;i++){els[i].classList.add('in')}return}
+var io=new IntersectionObserver(function(entries){entries.forEach(function(en){if(en.isIntersecting){en.target.classList.add('in');io.unobserve(en.target)}})},{threshold:0.06});
+for(var j=0;j<els.length;j++){io.observe(els[j])}
+})();
+</script>
+</body>
+</html>

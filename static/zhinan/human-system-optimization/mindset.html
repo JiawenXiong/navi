@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>心态与动力 · 人体系统优化</title>
+<script>(function(){var t;try{t=localStorage.getItem("theme")}catch(e){}if(t!=="light"&&t!=="dark"){var h=new Date().getHours();t=(h>=7&&h<17)?"light":"dark"}document.documentElement.setAttribute("data-theme",t)})()</script>
+<style>
+:root{--bg:#0a0f0d;--panel:#0f1512;--panel-2:#121a16;--line:#1e2a24;--ink:#d7e2dc;--muted:#8fa69b;--accent:#34d399;--accent-2:#10b981;--nav-bg:rgba(10,15,13,.92);--nav-line:rgba(52,211,153,.16);--accent-bord:rgba(52,211,153,.4);--accent-bord-strong:rgba(52,211,153,.45);--accent-tint:rgba(52,211,153,.07);--accent-glow:rgba(52,211,153,.6);--bar-bg:#16211c;--warn:#d4b06a;--warn-tint:rgba(212,176,106,.07);color-scheme:dark;}
+[data-theme="light"]{--bg:#edf3ee;--panel:#f7faf7;--panel-2:#e6efe9;--line:#d3e0d7;--ink:#1c2b24;--muted:#4f6659;--accent:#047857;--accent-2:#059669;--nav-bg:rgba(246,250,247,.92);--nav-line:rgba(4,120,87,.2);--accent-bord:rgba(4,120,87,.35);--accent-bord-strong:rgba(4,120,87,.5);--accent-tint:rgba(4,120,87,.07);--accent-glow:rgba(4,120,87,.45);--bar-bg:#d9e5dc;--warn:#8a6a1f;--warn-tint:rgba(138,106,31,.08);color-scheme:light;}
+.tbtn{flex:0 0 auto;margin-left:4px;background:var(--accent-tint);color:var(--accent);border:1px solid var(--accent-bord);border-radius:999px;padding:5px 12px;font-size:14px;cursor:pointer;font-family:inherit;line-height:1.5;}
+.tbtn:hover{border-color:var(--accent-bord-strong);}
+.tbtn .ico-sun,.tbtn .ico-moon{display:none;}
+[data-theme="dark"] .tbtn .ico-sun{display:inline;}
+[data-theme="light"] .tbtn .ico-moon{display:inline;}
+*{margin:0;padding:0;box-sizing:border-box;}
+@media (prefers-reduced-motion: no-preference){html{scroll-behavior:smooth;}}
+body{background:var(--bg);color:var(--ink);font-family:"PingFang SC","Microsoft YaHei","Noto Sans SC",sans-serif;line-height:1.75;}
+code,.mono{font-family:ui-monospace,"Cascadia Code",Consolas,"JetBrains Mono",monospace;}
+a{color:var(--accent);text-decoration:none;}
+a:hover{text-decoration:underline;}
+.wrap{max-width:1080px;margin:0 auto;padding:0 22px;}
+nav.top{position:sticky;top:0;z-index:50;background:var(--nav-bg);backdrop-filter:blur(8px);border-bottom:1px solid var(--nav-line);}
+nav.top .row{display:flex;align-items:center;gap:4px;overflow-x:auto;white-space:nowrap;padding:12px 0;scrollbar-width:none;}
+nav.top .row::-webkit-scrollbar{display:none;}
+nav.top .brand{font-weight:700;color:var(--accent);margin-right:12px;display:flex;align-items:center;gap:8px;}
+nav.top .brand .dot{width:9px;height:9px;border-radius:50%;background:var(--accent);box-shadow:0 0 10px var(--accent);display:inline-block;}
+nav.top a.nl{color:var(--muted);padding:5px 12px;border-radius:999px;font-size:14px;border:1px solid transparent;}
+nav.top a.nl:hover{color:var(--accent);text-decoration:none;border-color:var(--accent-bord);}
+nav.top a.nl.on{color:var(--accent);border-color:var(--accent-bord-strong);background:var(--accent-tint);}
+nav.top a.nl.ext{border:1px dashed var(--accent-bord);}
+footer{border-top:1px solid var(--line);margin-top:64px;padding:32px 0 40px;color:var(--muted);font-size:13px;}
+footer .cols{display:flex;flex-wrap:wrap;gap:24px;justify-content:space-between;}
+.page-head{padding:56px 0 8px;}
+.kicker{font-family:ui-monospace,Consolas,monospace;font-size:12px;letter-spacing:.3em;color:var(--accent);margin-bottom:12px;}
+h1{font-size:clamp(28px,4.5vw,40px);}
+h1 .em{color:var(--accent);}
+.lede{color:var(--muted);max-width:780px;margin-top:14px;font-size:16px;}
+section{padding:30px 0;}
+h2.sec{font-size:23px;margin-bottom:6px;padding-left:14px;border-left:3px solid var(--accent);}
+p.sub{color:var(--muted);margin-bottom:20px;font-size:14.5px;}
+.grid{display:grid;gap:16px;}
+.grid.c2{grid-template-columns:repeat(auto-fit,minmax(min(100%,300px),1fr));}
+.grid.c3{grid-template-columns:repeat(auto-fit,minmax(min(100%,220px),1fr));}
+.card{background:var(--panel);border:1px solid var(--line);border-radius:16px;padding:22px 20px;}
+.card h3{font-size:17px;margin-bottom:10px;}
+.card h3 .idx{font-family:ui-monospace,Consolas,monospace;color:var(--accent);font-size:12px;margin-right:8px;}
+.card p{color:var(--muted);font-size:14.5px;}
+.badge{display:inline-block;font-family:ui-monospace,Consolas,monospace;font-size:12px;color:var(--accent);border:1px solid var(--accent-bord);border-radius:999px;padding:2px 12px;margin:3px 4px 3px 0;background:var(--accent-tint);}
+ul.list{list-style:none;}
+ul.list li{padding:9px 0 9px 26px;position:relative;border-bottom:1px dashed var(--line);font-size:15px;}
+ul.list li:last-child{border-bottom:none;}
+ul.list li::before{content:">";position:absolute;left:4px;color:var(--accent);font-family:ui-monospace,Consolas,monospace;font-size:13px;top:10px;}
+ul.list li b{color:var(--ink);}
+ul.list li span{color:var(--muted);}
+.stat{background:var(--panel-2);border:1px solid var(--line);border-radius:14px;padding:18px 20px;}
+.stat .n{font-family:ui-monospace,Consolas,monospace;font-size:25px;color:var(--accent);}
+.stat .l{font-size:13px;color:var(--muted);margin-top:4px;}
+.bar{height:8px;background:var(--bar-bg);border-radius:999px;overflow:hidden;margin-top:10px;}
+.bar i{display:block;height:100%;border-radius:999px;background:linear-gradient(90deg,var(--accent-2),var(--accent));}
+.note{border-left:3px solid var(--accent);background:var(--accent-tint);border-radius:0 12px 12px 0;padding:14px 18px;color:var(--muted);font-size:14px;margin-top:20px;}
+.reveal{opacity:0;transform:translateY(16px);transition:opacity .6s ease,transform .6s ease;}
+.reveal.in{opacity:1;transform:none;}
+@media (prefers-reduced-motion: reduce){.reveal{opacity:1;transform:none;transition:none;}}
+</style>
+<noscript><style>.reveal{opacity:1 !important;transform:none !important}</style></noscript></head>
+<body>
+<nav class="top"><div class="wrap row">
+<a class="brand" href="index.html"><span class="dot"></span>HSO</a>
+<a class="nl" href="../index.html">返回总门户</a>
+<a class="nl" href="index.html">首页</a>
+<a class="nl" href="sleep.html">睡眠</a>
+<a class="nl" href="diet.html">饮食</a>
+<a class="nl on" href="mindset.html">心态与动力</a>
+<a class="nl" href="focus.html">学习与专注</a>
+<a class="nl" href="longevity.html">长寿</a>
+<button class="tbtn" id="themeBtn" type="button" aria-label="切换明暗主题" title="切换明暗主题"><span class="ico-sun">☀ 浅色</span><span class="ico-moon">☾ 深色</span></button>
+<a class="nl ext" href="https://github.com/zijie0/HumanSystemOptimization" target="_blank" rel="noopener">GitHub ↗</a>
+</div></nav>
+
+<header class="page-head wrap">
+<div class="kicker">MODULE 03 / MINDSET &amp; DRIVE</div>
+<h1>心态与动力：掌管动机的<span class="em">多巴胺系统</span></h1>
+<p class="lede">多巴胺作用于两个神经回路：一个影响身体运动（帕金森病与其分泌不足有关），另一个影响动机、欲望与快乐，覆盖工作、学习、社交、娱乐几乎一切活动。这一集是 Huberman 开播以来播放量最高的一期，对强健心智有非常好的指导作用。</p>
+<div><span class="badge">dopamine baseline</span><span class="badge">去甲肾上腺素</span><span class="badge">间歇性随机奖励</span><span class="badge">成长型思维</span><span class="badge">冷水浴</span></div>
+</header>
+
+<section class="wrap">
+<h2 class="sec">原理：快乐货币的运作法则</h2>
+<p class="sub">为什么我们会放弃：不安、压力、沮丧使去甲肾上腺素水平不断上升，超过阈值后认知控制关闭，于是放弃。多巴胺能抑制去甲肾上腺素，持续激励我们前行。</p>
+<div class="grid c2 reveal">
+<div class="card"><h3><span class="idx">法则一</span>相对变化量重于绝对值</h3><p>多巴胺水平低时情绪低落、没有动力，高时兴奋快乐。达成目标后多巴胺冲上高峰，随后回落到比 baseline 更低的水平并持续一段时间。刷到一个有趣视频会快乐，紧接着刷下一个就没那么强烈，因为水平已在高位、难以形成更大变化量；同样的视频隔几天再看会觉得有意思得多。持续做一件喜欢的事，快乐阈值会不断提高。</p></div>
+<div class="card"><h3><span class="idx">法则二</span>多巴胺储备有限</h3><p>无论通过学习、工作、娱乐、社交还是运动获得快乐，消耗的都是同一种"快乐货币"。自律者的 work hard, play hard 生活方式，长期会让 baseline 逐渐下降，出现耗尽（burn out）感。游戏上瘾更危险：一方面能引起兴趣的事物变少，另一方面最终连游戏本身也无法触发多巴胺释放，引发严重抑郁。</p></div>
+<div class="card"><h3><span class="idx">法则三</span>叠加效应</h3><p>健身时挑状态好的日子、喝能量饮料、约朋友一起、边健身边社交、听喜欢的音乐，多种快乐因素叠加会带来"前所未有的快乐"。但高峰越高，随后的低谷越长，且长此以往会削弱单纯从运动中获取快乐的能力。边吃饭、边玩手机、拍照发朋友圈，可以数数叠加了几种快乐因素。</p></div>
+<div class="card"><h3><span class="idx">法则四</span>认知闭环的陷阱</h3><p>接收到的信息支撑已有信念时也会释放多巴胺，让人快乐，这本质上会扭曲我们对世界的认知。网上大量争论无法达成共识很大程度"归功"于此。克服方法是调节情绪、让自己处于镇静状态（提升血清素水平），才能更好地倾听和吸收与自身认知不一致的信息。</p></div>
+</div>
+</section>
+
+<section class="wrap">
+<h2 class="sec">影响多巴胺释放的因素</h2>
+<p class="sub">各类外界因素对多巴胺 baseline 的提升倍数（数据来自原 README 引用的播客内容）。</p>
+<div class="grid c3 reveal">
+<div class="stat"><div class="n">1.5x</div><div class="l">巧克力</div><div class="bar"><i style="width:15%"></i></div></div>
+<div class="stat"><div class="n">2x</div><div class="l">性行为；喜爱的运动（如跑步爱好者）</div><div class="bar"><i style="width:20%"></i></div></div>
+<div class="stat"><div class="n">2.5x</div><div class="l">尼古丁；可卡因；冷水浴（持续约 3 小时）</div><div class="bar"><i style="width:25%"></i></div></div>
+<div class="stat"><div class="n">10x</div><div class="l">安非他命</div><div class="bar"><i style="width:100%"></i></div></div>
+</div>
+<ul class="list reveal" style="margin-top:18px;">
+<li><b>咖啡因</b><span>：本身只少量提升多巴胺，但会抑制部分多巴胺受体，提升同等多巴胺的感受效果。</span></li>
+<li><b>马黛茶</b><span>：包含咖啡因，能控制血糖，还能保护多巴胺神经元，Huberman 非常推荐。</span></li>
+<li><b>刺蒺藜豆</b><span>：提升多巴胺（基本等同于 L-DOPA），还能提升男性精子数量和质量。</span></li>
+<li><b>健康社交关系</b><span>：也会促进多巴胺释放。</span></li>
+<li><b>药物类</b><span>：L-Tyrosine（酪氨酸）、PEA（巧克力中也有）、Huperzine A，以及 Adderall、Modafinil、Alpha-GPC、Ginkgo 等"聪明药"。不推荐持续使用：释放后的高峰会带来 baseline 降低，导致无法享受活动快乐、无法专注、限制学习能力和神经元可塑性。一周一次的频率应该是安全的。</span></li>
+<li><b>冷水浴细节</b><span>：建议 10 至 14 摄氏度水温，每周 11 分钟左右足够，注意安全。已经习惯冷水浴后就没有释放多巴胺的效果了。</span></li>
+<li><b>降低因素</b><span>：褪黑素会引起多巴胺减少（再次不推荐褪黑素助眠）；睡眠时段接触光源也会让接下来几天的多巴胺水平下降，半夜睡不着刷手机是很有害的。</span></li>
+</ul>
+</section>
+
+<section class="wrap">
+<h2 class="sec">维持健康多巴胺水平的策略</h2>
+<div class="grid c2 reveal">
+<div class="card"><h3><span class="idx">策略</span>模拟赌场的间歇性随机奖励</h3><p>赌场并非每次下注都赢，偶尔赢一次释放多巴胺且随金额浮动，吸引玩家持续参与；很多游戏与社交产品也借鉴了这一设计。对自己的日常活动，可以利用叠加效应的随机化：今天是否听音乐、是否带手机去健身、是否先喝能量饮料，都随机决定。什么都不叠加、单纯健身时多巴胺释放量相对较低，如此实现有高有低的随机奖励，避免快乐阈值单调爬升。</p></div>
+<div class="card"><h3><span class="idx">反例</span>奖励会稀释活动本身的愉悦</h3><p>经典实验：挑选天生喜爱画画的小朋友，完成画作后给予奖励；移除奖励后，小朋友对画画的兴趣和动力大大降低。外部奖励（金钱、美食）反而会降低活动本身的愉悦程度。若始终以完成后的奖励为目标，过程中就很少释放多巴胺，让原本困难的过程更难坚持。</p></div>
+</div>
+</section>
+
+<section class="wrap">
+<h2 class="sec">成长型思维：主观思想反向改造本能系统</h2>
+<div class="card reveal">
+<p>多巴胺像我们的"本能系统"，决定是否有动力做一件事；但主观思想可以影响这个系统起作用的方式，这正是人类能摆脱动物本能、完成"反人性"投入的原因。具体做法是<b>通过自我暗示，把努力过程本身当作一种奖励</b>：我在努力学习，这个过程本身有趣、让我不断变强，这样的想法会在过程中激发多巴胺释放，提升情绪与动力，让困难相对容易克服。专注于过程本身，而不是在过程前做外界刺激（如药物），或在过程后给自己巨大奖励。</p>
+<p style="margin-top:12px;">人类的"硬件系统"都差不多，但知识、思维这些"软件"可以千差万别，可以通过自律与自我暗示改变对各类活动的喜好：暗示 fasting 对健康的益处来获取满足感，而不是借助禁食结束后的大快朵颐；通过自律抵御高油盐食物，暗示植物类食物的好处，坚持一段时间后会觉得花椰菜也挺美味。这也是原文花大量篇幅讲原理的原因：原理知识能让我们做更好的自我暗示。</p>
+</div>
+<div class="note">这一章的播客对作者本人冲击非常大，强烈建议观看原节目 Controlling Your Dopamine for Motivation, Focus &amp; Satisfaction（见 GitHub 项目 README 中的链接）。</div>
+</section>
+
+<footer><div class="wrap cols">
+<div>人体系统优化 · 基于 <a href="https://github.com/zijie0/HumanSystemOptimization" target="_blank" rel="noopener">zijie0/HumanSystemOptimization</a> 制作</div>
+<div class="mono">S3 mindset · next: <a href="focus.html">学习与专注</a></div>
+</div></footer>
+<script>
+(function(){
+if(!window.matchMedia||!matchMedia('(prefers-reduced-motion: no-preference)').matches)return;
+var els=document.querySelectorAll('.reveal');
+if(!('IntersectionObserver' in window)){els.forEach(function(e){e.classList.add('in');});return;}
+var io=new IntersectionObserver(function(es){es.forEach(function(en){if(en.isIntersecting){en.target.classList.add('in');io.unobserve(en.target);}});},{threshold:.12});
+els.forEach(function(e){io.observe(e);});
+})();(function(){var b=document.getElementById("themeBtn");if(!b)return;b.addEventListener("click",function(){var r=document.documentElement;var n=r.getAttribute("data-theme")==="light"?"dark":"light";r.setAttribute("data-theme",n);try{localStorage.setItem("theme",n)}catch(e){}})();
+</script>
+</body>
+</html>

@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>饮食 · 人体系统优化</title>
+<script>(function(){var t;try{t=localStorage.getItem("theme")}catch(e){}if(t!=="light"&&t!=="dark"){var h=new Date().getHours();t=(h>=7&&h<17)?"light":"dark"}document.documentElement.setAttribute("data-theme",t)})()</script>
+<style>
+:root{--bg:#0a0f0d;--panel:#0f1512;--panel-2:#121a16;--line:#1e2a24;--ink:#d7e2dc;--muted:#8fa69b;--accent:#34d399;--accent-2:#10b981;--nav-bg:rgba(10,15,13,.92);--nav-line:rgba(52,211,153,.16);--accent-bord:rgba(52,211,153,.4);--accent-bord-strong:rgba(52,211,153,.45);--accent-tint:rgba(52,211,153,.07);--accent-glow:rgba(52,211,153,.6);--bar-bg:#16211c;--warn:#d4b06a;--warn-tint:rgba(212,176,106,.07);color-scheme:dark;}
+[data-theme="light"]{--bg:#edf3ee;--panel:#f7faf7;--panel-2:#e6efe9;--line:#d3e0d7;--ink:#1c2b24;--muted:#4f6659;--accent:#047857;--accent-2:#059669;--nav-bg:rgba(246,250,247,.92);--nav-line:rgba(4,120,87,.2);--accent-bord:rgba(4,120,87,.35);--accent-bord-strong:rgba(4,120,87,.5);--accent-tint:rgba(4,120,87,.07);--accent-glow:rgba(4,120,87,.45);--bar-bg:#d9e5dc;--warn:#8a6a1f;--warn-tint:rgba(138,106,31,.08);color-scheme:light;}
+.tbtn{flex:0 0 auto;margin-left:4px;background:var(--accent-tint);color:var(--accent);border:1px solid var(--accent-bord);border-radius:999px;padding:5px 12px;font-size:14px;cursor:pointer;font-family:inherit;line-height:1.5;}
+.tbtn:hover{border-color:var(--accent-bord-strong);}
+.tbtn .ico-sun,.tbtn .ico-moon{display:none;}
+[data-theme="dark"] .tbtn .ico-sun{display:inline;}
+[data-theme="light"] .tbtn .ico-moon{display:inline;}
+*{margin:0;padding:0;box-sizing:border-box;}
+@media (prefers-reduced-motion: no-preference){html{scroll-behavior:smooth;}}
+body{background:var(--bg);color:var(--ink);font-family:"PingFang SC","Microsoft YaHei","Noto Sans SC",sans-serif;line-height:1.75;}
+code,.mono{font-family:ui-monospace,"Cascadia Code",Consolas,"JetBrains Mono",monospace;}
+a{color:var(--accent);text-decoration:none;}
+a:hover{text-decoration:underline;}
+.wrap{max-width:1080px;margin:0 auto;padding:0 22px;}
+nav.top{position:sticky;top:0;z-index:50;background:var(--nav-bg);backdrop-filter:blur(8px);border-bottom:1px solid var(--nav-line);}
+nav.top .row{display:flex;align-items:center;gap:4px;overflow-x:auto;white-space:nowrap;padding:12px 0;scrollbar-width:none;}
+nav.top .row::-webkit-scrollbar{display:none;}
+nav.top .brand{font-weight:700;color:var(--accent);margin-right:12px;display:flex;align-items:center;gap:8px;}
+nav.top .brand .dot{width:9px;height:9px;border-radius:50%;background:var(--accent);box-shadow:0 0 10px var(--accent);display:inline-block;}
+nav.top a.nl{color:var(--muted);padding:5px 12px;border-radius:999px;font-size:14px;border:1px solid transparent;}
+nav.top a.nl:hover{color:var(--accent);text-decoration:none;border-color:var(--accent-bord);}
+nav.top a.nl.on{color:var(--accent);border-color:var(--accent-bord-strong);background:var(--accent-tint);}
+nav.top a.nl.ext{border:1px dashed var(--accent-bord);}
+footer{border-top:1px solid var(--line);margin-top:64px;padding:32px 0 40px;color:var(--muted);font-size:13px;}
+footer .cols{display:flex;flex-wrap:wrap;gap:24px;justify-content:space-between;}
+.page-head{padding:56px 0 8px;}
+.kicker{font-family:ui-monospace,Consolas,monospace;font-size:12px;letter-spacing:.3em;color:var(--accent);margin-bottom:12px;}
+h1{font-size:clamp(28px,4.5vw,40px);}
+h1 .em{color:var(--accent);}
+.lede{color:var(--muted);max-width:780px;margin-top:14px;font-size:16px;}
+section{padding:30px 0;}
+h2.sec{font-size:23px;margin-bottom:6px;padding-left:14px;border-left:3px solid var(--accent);}
+p.sub{color:var(--muted);margin-bottom:20px;font-size:14.5px;}
+.grid{display:grid;gap:16px;}
+.grid.c2{grid-template-columns:repeat(auto-fit,minmax(min(100%,300px),1fr));}
+.grid.c3{grid-template-columns:repeat(auto-fit,minmax(min(100%,220px),1fr));}
+.card{background:var(--panel);border:1px solid var(--line);border-radius:16px;padding:22px 20px;}
+.card h3{font-size:17px;margin-bottom:10px;}
+.card h3 .idx{font-family:ui-monospace,Consolas,monospace;color:var(--accent);font-size:12px;margin-right:8px;}
+.card p{color:var(--muted);font-size:14.5px;}
+.badge{display:inline-block;font-family:ui-monospace,Consolas,monospace;font-size:12px;color:var(--accent);border:1px solid var(--accent-bord);border-radius:999px;padding:2px 12px;margin:3px 4px 3px 0;background:var(--accent-tint);}
+ul.list{list-style:none;}
+ul.list li{padding:9px 0 9px 26px;position:relative;border-bottom:1px dashed var(--line);font-size:15px;}
+ul.list li:last-child{border-bottom:none;}
+ul.list li::before{content:">";position:absolute;left:4px;color:var(--accent);font-family:ui-monospace,Consolas,monospace;font-size:13px;top:10px;}
+ul.list li b{color:var(--ink);}
+ul.list li span{color:var(--muted);}
+.stat{background:var(--panel-2);border:1px solid var(--line);border-radius:14px;padding:18px 20px;}
+.stat .n{font-family:ui-monospace,Consolas,monospace;font-size:25px;color:var(--accent);}
+.stat .l{font-size:13px;color:var(--muted);margin-top:4px;}
+.bar{height:8px;background:var(--bar-bg);border-radius:999px;overflow:hidden;margin-top:10px;}
+.bar i{display:block;height:100%;border-radius:999px;background:linear-gradient(90deg,var(--accent-2),var(--accent));}
+.note{border-left:3px solid var(--accent);background:var(--accent-tint);border-radius:0 12px 12px 0;padding:14px 18px;color:var(--muted);font-size:14px;margin-top:20px;}
+.reveal{opacity:0;transform:translateY(16px);transition:opacity .6s ease,transform .6s ease;}
+.reveal.in{opacity:1;transform:none;}
+@media (prefers-reduced-motion: reduce){.reveal{opacity:1;transform:none;transition:none;}}
+</style>
+<noscript><style>.reveal{opacity:1 !important;transform:none !important}</style></noscript></head>
+<body>
+<nav class="top"><div class="wrap row">
+<a class="brand" href="index.html"><span class="dot"></span>HSO</a>
+<a class="nl" href="../index.html">返回总门户</a>
+<a class="nl" href="index.html">首页</a>
+<a class="nl" href="sleep.html">睡眠</a>
+<a class="nl on" href="diet.html">饮食</a>
+<a class="nl" href="mindset.html">心态与动力</a>
+<a class="nl" href="focus.html">学习与专注</a>
+<a class="nl" href="longevity.html">长寿</a>
+<button class="tbtn" id="themeBtn" type="button" aria-label="切换明暗主题" title="切换明暗主题"><span class="ico-sun">☀ 浅色</span><span class="ico-moon">☾ 深色</span></button>
+<a class="nl ext" href="https://github.com/zijie0/HumanSystemOptimization" target="_blank" rel="noopener">GitHub ↗</a>
+</div></nav>
+
+<header class="page-head wrap">
+<div class="kicker">MODULE 02 / DIET</div>
+<h1>饮食：何时吃，与吃什么<span class="em">同等重要</span></h1>
+<p class="lede">身体存在两种化学状态：吃饱时（高血糖）细胞积极复制与成长，禁食时（低血糖）细胞积极修复与清理（autophagic）。饮食时间的选择，本质是在控制这两种状态的持续时间和平衡关系。睡眠时天然禁食，因此间歇性禁食与生物钟天然对齐。</p>
+<div><span class="badge">intermittent fasting</span><span class="badge">8 小时进食窗口</span><span class="badge">肠道菌群</span><span class="badge">发酵食品</span><span class="badge">地中海饮食</span></div>
+</header>
+
+<section class="wrap">
+<h2 class="sec">背景：震动学术界的 2012 年小鼠实验</h2>
+<div class="grid c2 reveal">
+<div class="card"><h3><span class="idx">实验</span>进食窗口对照</h3><p>科学家把小白鼠分成两大组：一组可以在一天中任何时间进食，另一组只能在固定的 8 小时里吃东西；大组内再分健康与不健康食物小组。结果：只能 8 小时进食的小鼠即使吃高脂肪的不健康食物，健康水平仍得到保持甚至提高，明显优于不做限制的所有组。</p></div>
+<div class="card"><h3><span class="idx">后续</span>人体研究的好处清单</h3><p>后续针对人类不同性别、年龄、职业（包括运动员）的实验发现，间歇性禁食的好处包括：促进肝脏健康、胆汁酸代谢、炎症自愈、保持体重、提升有益的 brown fat 储备、防止非酒精性脂肪肝、血糖控制、肠道健康等。养成习惯 60 天以上，身体会倾向于代谢脂肪供能。大量研究人员包括 Huberman 本人因此养成了 fasting 习惯。</p></div>
+</div>
+</section>
+
+<section class="wrap">
+<h2 class="sec">实践：从基础到高阶</h2>
+<ul class="list reveal">
+<li><b>基础版原则</b><span>：起床后至少 1 小时内不要吃东西，同时睡前的 2 至 3 小时不吃任何东西，即可享受 fasting 的基础收益。</span></li>
+<li><b>高阶版：8 小时窗口</b><span>：研究结果中最理想的进食窗口是 8 小时，结合社会习俗，合理区间在 10 至 18 点或 12 至 20 点。不吃早饭并不是什么坏事。</span></li>
+<li><b>增肌者注意</b><span>：想通过健身增肌，建议把进食窗口往前移，早上摄入蛋白质对肌肉增长有益；健身时间可自由选择。</span></li>
+<li><b>稳定性至关重要</b><span>：尽量保证窗口时间稳定，否则效果类似频繁倒时差，会打不少收益折扣。</span></li>
+<li><b>渐进切换</b><span>：想尝试高阶 fasting，可每两天缩短 1 小时进食窗口，逐渐达到 8 小时。</span></li>
+<li><b>什么会中断禁食</b><span>：依据是血糖水平。喝水、茶、不加牛奶的咖啡不会中断；一勺糖就会中断。晚饭后散步等轻量运动可加快血糖清理；二甲双胍、黄连素可直接促进血糖清理，肉桂皮、柠檬汁也能轻微降低血糖。</span></li>
+<li><b>头晕颤抖怎么办</b><span>：不必立刻进食或补糖，喝一点盐水（可加柠檬汁）一般就能很好缓解。可参考 Lex 补充电解质（钠、镁、钾）的做法。</span></li>
+</ul>
+<div class="grid c3" style="margin-top:16px;">
+<div class="stat reveal"><div class="n">8 h</div><div class="l">研究中最理想的进食窗口</div><div class="bar"><i style="width:33%"></i></div></div>
+<div class="stat reveal"><div class="n">60 天</div><div class="l">此后身体倾向代谢脂肪供能</div><div class="bar"><i style="width:60%"></i></div></div>
+<div class="stat reveal"><div class="n">1h / 2-3h</div><div class="l">起床后禁食 / 睡前禁食的基础底线</div><div class="bar"><i style="width:50%"></i></div></div>
+</div>
+</section>
+
+<section class="wrap">
+<h2 class="sec">肠道菌群：发酵食品的意外胜利</h2>
+<p class="sub">Huberman 与知名微生物学家 Sonnenburg 的访谈要点：肠道菌群不仅影响消化，对人体免疫系统也非常关键。</p>
+<ul class="list reveal">
+<li><b>多样性即健康</b><span>：什么是最健康的菌群生态尚无标准结论，但总体来看菌群多样性程度高一般就表示更健康。</span></li>
+<li><b>成长环境的影响</b><span>：婴儿出生成长方式会形成截然不同的菌群生态。适当暴露于微生物环境（养宠物、让孩子自由玩耍）有益，无需过度清洁消毒。</span></li>
+<li><b>慎用抗生素</b><span>：会严重破坏肠道菌群生态。</span></li>
+<li><b>发酵组完胜</b><span>：实验对比高纤维食物（全谷、豆类、蔬菜、坚果）与发酵食品（酸奶、牛奶酒 kefir、康普茶、酸菜、泡菜、纳豆，需自然发酵、冷藏非罐装、无糖无添加）。发酵组显著提升菌群多样性，被试者几十个免疫标志物显著降低，对各类炎症都有更好的抑制作用。</span></li>
+<li><b>高纤维的局限</b><span>：菌群本来就多样的人吃高纤维有益；工业化饮食多代转变后，仅靠提高纤维量难以改变菌群结构。</span></li>
+<li><b>益生菌与益生元</b><span>：益生菌的效果没有广泛研究支持且监管有限；益生元效果好坏参半，缺乏多样性、溶解过快等问题使总体效果存疑。</span></li>
+<li><b>饮食结构推荐</b><span>：地中海饮食与生酮饮食健康效果接近，但更容易坚持，长期生酮可能有风险，总体更推荐地中海结构。日常以植物类食物为主，避免深加工食品，控制糖摄入。东方饮食习惯可参考官方《中国居民膳食指南》。</span></li>
+</ul>
+</section>
+
+<section class="wrap">
+<h2 class="sec">饮食与禁食的世界观</h2>
+<p class="sub">几个容易被忽略的背景事实，有助于理解 fasting 并不是新潮产物。</p>
+<ul class="list reveal">
+<li><b>文化先例</b><span>：世界上很多民族文化与宗教都有跟禁食相关的习俗，甚至会持续很多天。睡眠时我们天然不吃东西，因此一天中本来就存在禁食状态，饮食时间的选择就是在调节"生长"与"修复"两种状态的配比。</span></li>
+<li><b>与 Lex Fridman 的呼应</b><span>：作者最初注意到饮食习惯，是因为 Lex Fridman 分享了自己采取生酮饮食与 fasting 的习惯；Huberman 的几期 fasting 与肠道健康播客从科学角度补全了背后的机理。</span></li>
+<li><b>Christopher Gardner 研究</b><span>：访谈中引用了 Gardner 关于生酮饮食与地中海饮食比较的研究，结论是两者对健康的影响效果接近，但地中海饮食更容易长期坚持，这是原文更推荐地中海结构的核心依据。</span></li>
+</ul>
+</section>
+
+<section class="wrap">
+<h2 class="sec">作者的个人实践</h2>
+<div class="card reveal">
+<p>作者本人已执行 8 小时进食窗口的 fasting，感觉良好：中午吃蔬菜为主的轻食，晚上比较放飞；早上看情况喝点盐水、茶或 AG1 补充剂。关于 fasting 与胆结石的关系，作者考证后认为实验上没有定论：有论文显示 fasting 中胆汁饱和度先升后降、结合生酮反而有益胆囊；也有研究显示长期夜间禁食与节食提升胆结石概率（但减肥本身就提升概率）。Huberman 与 Satchin Panda 两位权威均未提及此问题，理想做法是在执行 fasting 时持续跟踪医学指标。</p>
+</div>
+</section>
+
+<footer><div class="wrap cols">
+<div>人体系统优化 · 基于 <a href="https://github.com/zijie0/HumanSystemOptimization" target="_blank" rel="noopener">zijie0/HumanSystemOptimization</a> 制作</div>
+<div class="mono">S2 diet · next: <a href="mindset.html">心态与动力</a></div>
+</div></footer>
+<script>
+(function(){
+if(!window.matchMedia||!matchMedia('(prefers-reduced-motion: no-preference)').matches)return;
+var els=document.querySelectorAll('.reveal');
+if(!('IntersectionObserver' in window)){els.forEach(function(e){e.classList.add('in');});return;}
+var io=new IntersectionObserver(function(es){es.forEach(function(en){if(en.isIntersecting){en.target.classList.add('in');io.unobserve(en.target);}});},{threshold:.12});
+els.forEach(function(e){io.observe(e);});
+})();(function(){var b=document.getElementById("themeBtn");if(!b)return;b.addEventListener("click",function(){var r=document.documentElement;var n=r.getAttribute("data-theme")==="light"?"dark":"light";r.setAttribute("data-theme",n);try{localStorage.setItem("theme",n)}catch(e){}})();
+</script>
+</body>
+</html>

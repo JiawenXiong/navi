@@ -1,0 +1,211 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>常见误读纠正 · HowToLiveLonger</title>
+<script>(function(){var t;try{t=localStorage.getItem('theme')}catch(e){}if(t!=='light'&&t!=='dark'){var h=new Date().getHours();t=(h>=7&&h<17)?'light':'dark'}document.documentElement.setAttribute('data-theme',t)})();</script>
+<style>
+:root{color-scheme:light;--blue:#1a4fc4;--blue-dark:#12358a;--blue-soft:#e8eefb;--link:#1a4fc4;--grad1:#12358a;--grad2:#1a4fc4;--ink:#1c2333;--muted:#5b6474;--bg:#f5f6f8;--card:#ffffff;--line:#dfe3ea;--ok:#1c7d43;--warn:#a15c00;--bad:#a11d2a;--bC-bg:#f0ede6;--bC-fg:#a15c00;--bD-bg:#eceef1;--bD-fg:#5b6474;--bU-bg:#e4e7ec;--bU-fg:#4b5563;--bU-line:#b7bdc9;--vok-bg:#e4f2e8;--vok-fg:#1c7d43;--vpart-bg:#fdf3e2;--vpart-fg:#a15c00;--vfix-bg:#fcebec;--vfix-fg:#a11d2a;--vno-bg:#eceef1;--vno-fg:#5b6474;--note-bg:#fbfcfe;--meta-bg:#f8f9fb;--warnbox-bg:#fdf6f6;--cwb:#fdf3f3;--cwbd:#efc9cd;--cwfg:#7c1d27;--crb:#eef7f0;--crbd:#c8e3d0;--crfg:#155c33;}
+[data-theme="dark"]{color-scheme:dark;--blue:#2e56b5;--blue-dark:#a9c4f5;--blue-soft:#243350;--link:#85a9f2;--grad1:#182645;--grad2:#26437f;--ink:#e8ecf4;--muted:#a6b0c2;--bg:#12161d;--card:#1a1f28;--line:#333c4c;--ok:#7ed9a4;--warn:#f0b45c;--bad:#f4949e;--bC-bg:#33290f;--bC-fg:#f0b45c;--bD-bg:#272e39;--bD-fg:#a6b0c2;--bU-bg:#222833;--bU-fg:#9aa5b8;--bU-line:#4a5568;--vok-bg:#17301f;--vok-fg:#7ed9a4;--vpart-bg:#33290f;--vpart-fg:#f0b45c;--vfix-bg:#3a2028;--vfix-fg:#f4949e;--vno-bg:#272e39;--vno-fg:#a6b0c2;--note-bg:#1d2430;--meta-bg:#20262f;--warnbox-bg:#2c1d22;--cwb:#33202a;--cwbd:#5c2f3c;--cwfg:#f3a3ad;--crb:#17301f;--crbd:#2d5540;--crfg:#7fdda8;}
+.themebtn{flex:0 0 auto;margin-left:6px;padding:5px 12px;font-size:13px;font-weight:600;border:1px solid var(--line);background:var(--card);color:var(--muted);border-radius:8px;cursor:pointer;line-height:1.5;}
+.themebtn:hover{color:var(--link);border-color:var(--link);}
+@media(max-width:480px){.hero,.pagehead{padding:24px 18px;}}
+*{box-sizing:border-box;}
+body{margin:0;font-family:"PingFang SC","Microsoft YaHei","Noto Sans SC",sans-serif;color:var(--ink);background:var(--bg);line-height:1.75;}
+a{color:var(--link);text-decoration:none;}
+a:hover{text-decoration:underline;}
+.nav{background:var(--card);border-bottom:1px solid var(--line);position:sticky;top:0;z-index:10;}
+.nav-inner{max-width:1080px;margin:0 auto;padding:0 16px;display:flex;align-items:center;gap:4px;overflow-x:auto;white-space:nowrap;-webkit-overflow-scrolling:touch;}
+.nav a{padding:12px 12px;font-size:14.5px;color:var(--muted);border-bottom:2.5px solid transparent;flex:0 0 auto;}
+.nav a:hover{color:var(--link);text-decoration:none;}
+.nav a[aria-current]{color:var(--link);border-bottom-color:var(--link);font-weight:600;}
+.nav .brand{font-weight:700;color:var(--ink);margin-right:8px;}
+.nav .ext{margin-left:auto;color:var(--blue-dark);}
+main{max-width:1080px;margin:0 auto;padding:28px 16px 56px;}
+.pagehead{background:linear-gradient(135deg,var(--grad1),var(--grad2));color:#fff;border-radius:14px;padding:28px 30px;margin-bottom:26px;}
+.pagehead h1{margin:0;font-size:clamp(22px,3.6vw,30px);}
+.pagehead p{margin:8px 0 0;color:#e9eefb;font-size:15px;max-width:44em;}
+h2{font-size:21px;margin:34px 0 12px;color:var(--blue-dark);}
+section{scroll-margin-top:70px;}
+.item{background:var(--card);border:1px solid var(--line);border-radius:12px;padding:18px 20px;margin-bottom:14px;}
+.item h3{margin:0 0 6px;font-size:17px;display:flex;flex-wrap:wrap;align-items:center;gap:8px;}
+.claim{border-radius:10px;padding:10px 14px;font-size:14px;margin:8px 0;}
+.claim.wrong{background:var(--cwb);border:1px solid var(--cwbd);color:var(--cwfg);}
+.claim.right{background:var(--crb);border:1px solid var(--crbd);color:var(--crfg);}
+.claim strong{display:block;margin-bottom:2px;}
+.item p{margin:6px 0;font-size:14.5px;color:var(--muted);}
+.meta{font-size:13px;color:var(--muted);background:var(--meta-bg);border-radius:8px;padding:8px 12px;margin:8px 0;}
+.badge{display:inline-block;border-radius:6px;font-size:12px;font-weight:700;padding:1px 9px;line-height:1.7;}
+.bA{background:var(--blue);color:#fff;}
+.bB{background:var(--blue-soft);color:var(--blue-dark);}
+.bC{background:var(--bC-bg);color:var(--bC-fg);}
+.bD{background:var(--bD-bg);color:var(--bD-fg);}
+.bU{background:var(--bU-bg);color:var(--bU-fg);border:1px dashed var(--bU-line);}
+.verdict{display:inline-block;border-radius:6px;font-size:12px;font-weight:600;padding:1px 9px;}
+.v-ok{background:var(--vok-bg);color:var(--vok-fg);}
+.v-part{background:var(--vpart-bg);color:var(--vpart-fg);}
+.v-fix{background:var(--vfix-bg);color:var(--vfix-fg);}
+.v-no{background:var(--vno-bg);color:var(--vno-fg);}
+.stat{display:inline-block;background:var(--blue-soft);color:var(--blue-dark);border-radius:8px;padding:2px 10px;font-size:13.5px;font-weight:600;margin:2px 4px 2px 0;font-variant-numeric:tabular-nums;}
+.note{background:var(--note-bg);border-left:4px solid var(--blue);border-radius:0 10px 10px 0;padding:12px 16px;font-size:14px;color:var(--muted);margin:14px 0;}
+.note strong{color:var(--ink);}
+footer{border-top:1px solid var(--line);background:var(--card);}
+.foot-inner{max-width:1080px;margin:0 auto;padding:20px 16px;font-size:13px;color:var(--muted);display:flex;flex-wrap:wrap;gap:8px 24px;align-items:center;}
+.reveal{opacity:0;transform:translateY(12px);transition:opacity .5s ease,transform .5s ease;}
+.reveal.on{opacity:1;transform:none;}
+@media(prefers-reduced-motion:reduce){.reveal{opacity:1;transform:none;transition:none;}}
+</style>
+<noscript><style>.reveal,.rv{opacity:1 !important;transform:none !important}</style></noscript></head>
+<body>
+<nav class="nav"><div class="nav-inner">
+<span class="brand">HowToLiveLonger</span>
+<a href="index.html">首页</a>
+<a href="method.html">方法学</a>
+<a href="exercise.html">运动·睡眠·久坐</a>
+<a href="diet.html">饮食·药物·环境</a>
+<a href="misread.html" aria-current="page">误读纠正</a>
+<a class="ext" href="../index.html">返回上级</a>
+<a class="ext" href="https://github.com/geekan/HowToLiveLonger">GitHub</a>
+<button class="themebtn" id="themeToggle" type="button">主题</button>
+</div></nav>
+
+<main>
+<div class="pagehead"><h1>常见误读纠正</h1><p>流传最广的长寿说法往往错在三个地方：数字张冠李戴、终点不是全因死亡、把观察关联当成干预效果。下面每个条目都给出“流传说法”与“核验后口径”的对照。</p></div>
+
+<section>
+<h2>被传错的条目</h2>
+
+<div class="item reveal">
+<h3>辣椒：“常吃辣患病死亡风险可降低 61%” <span class="badge bC">C</span> <span class="verdict v-fix">需纠正</span></h3>
+<div class="claim wrong"><strong>流传说法</strong>常吃辣死亡风险降低 61%；吃辣椒的人死亡率只有不吃的一半多；总死亡降 23%。</div>
+<div class="claim right"><strong>核验口径</strong>61% 来自意大利 Moli-sani 队列的脑血管死亡 HR 0.39，不是“总患病死亡”。同队列每周 &gt;4 次吃辣的 ACM HR 为 0.77（降 23%，参照组是从不/很少吃）。美国 NHANES III 队列调整后 ACM HR 0.87；流传的 21.6% 对 33.6% 是粗死亡比例，受年龄结构影响很大。</div>
+<div><span class="stat">意大利 ACM HR 0.77（0.66–0.90）</span><span class="stat">脑血管死亡 HR 0.39（0.20–0.75）</span><span class="stat">美国 HR 0.87（0.77–0.97）</span></div>
+<div class="meta">人群：意大利 22,811 人（中位 8.2 年）；美国 16,179 人（中位 18.9 年）｜均为前瞻队列</div>
+<p><strong>行动：</strong>喜欢且耐受时可作调味；胃肠不适者无需强迫，不能以此替代控压等治疗。</p>
+</div>
+
+<div class="item reveal">
+<h3>戒酒：“饮酒 +50% ACM 且无上限” <span class="badge bB">B</span> <span class="verdict v-fix">需纠正</span></h3>
+<div class="claim wrong"><strong>流传说法</strong>原行动节写“戒酒（否则 +约50% ACM，无上限）”，等于说任何饮酒统一抬升死亡一半。</div>
+<div class="claim right"><strong>核验口径</strong>107 个队列、484 万人的系统综述显示：校正既往饮酒者偏倚后，低量饮酒（1.3 至 &lt;25 克乙醇/日）RR 0.93 但 CI 跨 1，没有显著保护也没有证明有害；45 至 &lt;65 克/日 RR 1.19；≥65 克/日 RR 1.35。剂量决定风险，不存在统一 +50%，也不能把低量无显著关联读成“某剂量绝对安全”。</div>
+<div><span class="stat">1.3–&lt;25g/日 RR 0.93（0.85–1.01）</span><span class="stat">45–&lt;65g/日 RR 1.19（1.07–1.32）</span><span class="stat">≥65g/日 RR 1.35（1.23–1.47）</span></div>
+<div class="meta">人群：107 队列、4,838,825 人、425,564 死亡｜设计：ACM 系统综述与 meta 回归</div>
+<p><strong>行动：</strong>不饮酒者不要为健康开始；饮酒者减少总量和暴饮；有依赖或戒断史者寻求医学支持，避免无支持骤停。</p>
+</div>
+
+<div class="item reveal">
+<h3>氨糖：“降低心血管死亡率 65%，效果堪比运动” <span class="badge bC">C</span> <span class="verdict v-fix">需纠正</span></h3>
+<div class="claim wrong"><strong>流传说法</strong>氨糖（软骨素）降低心血管死亡率 65%、总体死亡率 39%，效果与坚持定期运动相当。</div>
+<div class="claim right"><strong>核验口径</strong>39% 与 65% 对应的仅是年龄校正模型。充分校正混杂后 ACM HR 0.73（低 27%）、心血管死亡 HR 0.42（低 58%）。这是 NHANES 观察数据：使用者本就更多运动、不吸烟、受教育更高，健康使用者偏倚明显；持续使用者实为 658 人而非流传的 648。没有证据支持“等同运动”，也推不出 500–1000 毫克的延寿剂量。</div>
+<div><span class="stat">多变量校正 ACM HR 0.73（0.57–0.93）</span><span class="stat">CVD死亡 HR 0.42（0.23–0.75）</span></div>
+<div class="meta">人群：NHANES 1999–2010，16,686 名 ≥40 岁成人，中位随访 107 个月｜设计：全国队列死亡随访分析</div>
+<p><strong>行动：</strong>不为延寿开始服用；有关节症状或抗凝治疗者先与医生讨论适用性和相互作用。</p>
+</div>
+
+<div class="item reveal">
+<h3>晒太阳：“多晒太阳平均多活 6 年” <span class="badge bD">D</span> <span class="verdict v-fix">需纠正</span></h3>
+<div class="claim wrong"><strong>流传说法</strong>丹麦 26 年研究发现多晒太阳显著延寿，连晒出皮肤癌的患者平均寿命也比普通人长 6 岁；行动节写作“晒太阳 -约40% ACM”。</div>
+<div class="claim right"><strong>核验口径</strong>丹麦研究是用皮肤癌诊断作为日晒的代理指标：非黑色素瘤皮肤癌诊断者 ACM HR 0.52、黑色素瘤 0.89。作者明确声明不能作因果结论。皮肤癌患者往往户外活动多、就医多、社会经济条件好，生存选择效应明显。瑞典日晒习惯队列估计的寿命差是 0.6 至 2.1 年，也不是 6 年，更没有“-40% ACM”的依据。</div>
+<div><span class="stat">非黑色素瘤皮肤癌 HR 0.52（0.52–0.53）</span><span class="stat">黑色素瘤 HR 0.89（0.87–0.91）</span></div>
+<div class="meta">人群：丹麦 &gt;40 岁 440 万人登记数据（1980–2006）；瑞典 29,518 名女性 20 年随访</div>
+<p><strong>行动：</strong>可规律户外活动、接触自然光，同时避免晒伤和日光浴床；皮肤癌高风险者按医嘱防晒。</p>
+</div>
+
+<div class="item reveal">
+<h3>吃盐：“钠摄入越高死亡越低，多吃盐更长寿” <span class="badge bD">D</span> <span class="verdict v-fix">需纠正</span></h3>
+<div class="claim wrong"><strong>流传说法</strong>181 国研究显示每多 1 克/日钠摄入，出生时健康预期寿命多 2.6 年、全因死亡少 131 例，说明可以放心吃盐。</div>
+<div class="claim right"><strong>核验口径</strong>数字确实出自该论文摘要，但它是国家层面的生态回归：国民平均钠摄入与国家平均死亡指标的相关，属于生态学谬误的典型场景，作者在结论中写明“不可据此实施营养干预”。个体层面的因果证据要看 SSaSS 这样的随机试验：高风险人群用富钾低钠盐替代普通盐，ACM 率比 0.88。</div>
+<div><span class="stat neg">生态回归 β −131 死亡/每+1克钠（国家层面）</span><span class="stat">SSaSS 代用盐率比 0.88（0.82–0.95）</span></div>
+<div class="meta">人群：181 国汇总数据；SSaSS 20,995 名中国高风险成人</div>
+<p><strong>行动：</strong>不要为延寿增加钠；按个人血压、疾病和饮食情况控盐。</p>
+</div>
+
+<div class="item reveal">
+<h3>亚精胺：“降低 30%–60% 死亡率” <span class="badge bC">C</span> <span class="verdict v-fix">需纠正</span></h3>
+<div class="claim wrong"><strong>流传说法</strong>亚精胺摄入量高的组死亡率只有低组的零头（40.5% 对 15.1%），补充亚精胺可降低 30%–60% 死亡率。</div>
+<div class="claim right"><strong>核验口径</strong>40.5、23.7、15.1 的单位是每千人年死亡数，不是百分比。年龄能解释大部分粗关联；充分校正后膳食亚精胺每增加 1 个标准差 ACM HR 0.76。暴露是全谷物、蔬果等整体膳食，不是补剂；2022 年的认知补剂随机试验（100 人、12 个月）主要结局未见改善，与延寿无关。</div>
+<div><span class="stat">每+1SD 膳食摄入 HR 0.76（0.67–0.86）</span></div>
+<div class="meta">人群：Bruneck 829 人，45–84 岁，1995–2015 年 341 例死亡；SAPHIR 队列独立验证</div>
+<p><strong>行动：</strong>通过全谷、豆类等均衡食物摄入即可；不按“降 60% 死亡率”购买补剂。</p>
+</div>
+
+<div class="item reveal">
+<h3>新鲜水果：“每天 200 克水果死亡率降 17%” <span class="badge bC">C</span> <span class="verdict v-fix">需纠正</span></h3>
+<div class="claim wrong"><strong>流传说法</strong>每天摄入 200 克新鲜水果可使死亡率降低 17%，大血管并发症降 13%、微血管降 28%，推广给所有人。</div>
+<div class="claim right"><strong>核验口径</strong>原引文（全球疾病负担会议摘要）并非该数字出处，属引文错配。真实来源是中国 CKB 糖尿病人群：鲜果每增加 100 克/天（不是 200 克）ACM HR 0.83，微血管 0.72、宏血管 0.87。研究对象是 30,300 名糖尿病患者，不能推广为所有人群的普遍效果。</div>
+<div><span class="stat">糖尿病者每+100g/天 HR 0.83（0.74–0.93）</span></div>
+<div class="meta">人群：CKB 基线糖尿病 30,300 人，3,389 死亡，约 7 年｜设计：单一大型前瞻队列</div>
+<p><strong>行动：</strong>适量完整水果替代甜点，按血糖和治疗计划调整；不以果汁代替。</p>
+</div>
+
+<div class="item reveal">
+<h3>黄酮类食物：“吃含黄酮食物死亡风险降 20%” <span class="badge bC">C</span> <span class="verdict v-fix">需纠正</span></h3>
+<div class="claim wrong"><strong>流传说法</strong>每天二两西兰花之类含黄酮食物就能降 20% 死亡风险。</div>
+<div class="claim right"><strong>核验口径</strong>丹麦队列的进一步调整模型中，总黄酮第 3、第 5 五分位对第 1 五分位的 HR 分别是 0.88 和 0.92；摄入约 500 毫克/天后关联趋平。笼统的“降 20%”忽略了模型差异，也不是“每天 100 克西兰花”的试验结论，更不能推断黄酮补充剂有效。</div>
+<div><span class="stat">Q3 HR 0.88（0.84–0.91）</span><span class="stat">Q5 HR 0.92（0.88–0.97）</span></div>
+<div class="meta">人群：丹麦 56,048 人、14,083 死亡、23 年随访｜设计：前瞻队列</div>
+<p><strong>行动：</strong>多样化蔬果豆类；不依赖黄酮补充剂，不用来抵消吸烟饮酒。</p>
+</div>
+
+<div class="item reveal">
+<h3>超加工食品：“常吃的人平均死亡年龄仅 58 岁” <span class="badge bC">C</span> <span class="verdict v-fix">需纠正</span></h3>
+<div class="claim wrong"><strong>流传说法</strong>常吃薯片汉堡巧克力的人平均死亡年龄仅仅 58 岁。</div>
+<div class="claim right"><strong>核验口径</strong>58.0 岁是 SUN 研究中全部 335 名死亡者的平均死亡年龄（标准差 15.6），是样本描述而不是常吃者的预期寿命。可用的结论是：最高四分位摄入组 ACM HR 1.62，每增加一份/天 HR 1.18。</div>
+<div><span class="stat neg">最高四分位 HR 1.62（1.13–2.33）</span></div>
+<div class="meta">人群：西班牙 SUN 19,899 人｜设计：前瞻队列</div>
+<p><strong>行动：</strong>以较少加工的完整食物替代部分超加工食品。</p>
+</div>
+
+<div class="item reveal">
+<h3>坚果：“每日食生坚果死亡率降 20%，必须生吃” <span class="badge bB">B</span> <span class="verdict v-fix">需纠正</span></h3>
+<div class="claim wrong"><strong>流传说法</strong>按每周重量份数吃坚果，7 份以上降 20%；另有 7,216 人的“横断面”研究称每周 3 份以上降 39%。</div>
+<div class="claim right"><strong>核验口径</strong>NEJM 的分组是每周频率（&lt;1、1、2–4、5–6、≥7 次），不是按总重量；降 7%、11%、13%、15%、20% 对应各频率组。PREDIMED 的 HR 0.61 来自试验内的坚果摄入观察分析，不是横断面，也不是单独随机分配坚果的死亡效果。生吃与烘烤的优劣没有被直接检验。</div>
+<div><span class="stat">≥7次/周 HR 0.80（0.73–0.86）</span><span class="stat">PREDIMED >3份/周 HR 0.61（0.45–0.83）</span></div>
+<p><strong>行动：</strong>过敏者避免；选无盐、少糖坚果，替代其他高能量零食。</p>
+</div>
+
+<div class="item reveal">
+<h3>就寝时间：“早睡比熬夜更伤身，早睡 +43% ACM” <span class="badge bC">C</span> <span class="verdict v-part">部分支持</span></h3>
+<div class="claim wrong"><strong>流传说法</strong>早睡增加 43% 死亡风险，晚睡增加 15%，所以别太早睡。</div>
+<div class="claim right"><strong>核验口径</strong>PURE 原论文摘要中没有提供可复核的 ACM 独立效应及置信区间；可核验的是充分调整后的复合终点（死亡加非致死心血管事件）：约 22 点前 HR 1.09、午夜后 HR 1.10，且充分调整后关联大幅削弱。二手数字不能当作充分调整的 ACM 结论，也不该据此刻意推迟合适的早睡。</div>
+<div><span class="stat">复合终点 HR 1.09 / 1.10</span><span class="stat">ACM 独立数值：未能核实</span></div>
+<div class="meta">人群：21 国 PURE 112,198 人，9.2 年随访</div>
+<p><strong>行动：</strong>按个人节律保持规律、足量睡眠。</p>
+</div>
+
+<div class="item reveal">
+<h3>走路：“走路降低全因死亡超过 50%” <span class="badge bC">C</span> <span class="verdict v-ok">支持但需限定</span></h3>
+<div class="claim wrong"><strong>流传说法</strong>标题式结论：走路就能把死亡风险砍掉一半以上，每天一万步最好。</div>
+<div class="claim right"><strong>核验口径</strong>CARDIA 研究中 7,000–9,999 步组 HR 0.28、≥10,000 步组 HR 0.45，但仅 72 例死亡、单次加速度计测量，估计不稳定；且一万步组的点估计反而高于七千步组，“越多越好”不成立，7,000 步也不是普适阈值。原文自己注明只能表示相关性。</div>
+<div><span class="stat">7,000–9,999步 HR 0.28（0.15–0.54）</span><span class="stat">≥10,000步 HR 0.45（0.25–0.81）</span></div>
+<p><strong>行动：</strong>从自身基线逐渐增加步行；有行动障碍或心肺疾病者个体化安排。</p>
+</div>
+</section>
+
+<section>
+<h2>误读的共同套路</h2>
+<div class="note"><strong>套路一：换终点。</strong>把癌症发病、心血管发病、复合终点、动物实验悄悄说成“死亡率下降”。<strong>套路二：换人群。</strong>糖尿病患者的数字被说成对所有人有效。<strong>套路三：换口径。</strong>粗比例、年龄校正模型、充分校正模型混着用，哪个数字大用哪个。<strong>套路四：换算寿命。</strong>把 HR 翻译成“多活 X 年”，这种换算已被仓库明确否定。凡遇到这四种表述，先回证据台账查原文。</div>
+<div class="note">更多被完整核验的条目见<a href="exercise.html">运动·睡眠·久坐</a>与<a href="diet.html">饮食·药物·环境</a>两个子页；阅读任何数字前，建议先看<a href="method.html">方法学页</a>的六个“不要”。</div>
+</section>
+</main>
+
+<footer><div class="foot-inner">
+<span>数据来源：<a href="https://github.com/geekan/HowToLiveLonger" target="_blank" rel="noopener">geekan/HowToLiveLonger</a>（data/evidence.json，核验基线 2026-10）</span>
+<span><a href="../index.html">返回上级目录</a></span>
+<span>本页为非官方中文静态站点，仅供学习参考，不构成医疗建议。</span>
+</div></footer>
+
+<script>
+(function(){
+if(!window.matchMedia||!matchMedia('(prefers-reduced-motion: no-preference)').matches)return;
+if(!('IntersectionObserver' in window))return;
+var io=new IntersectionObserver(function(es){es.forEach(function(e){if(e.isIntersecting){e.target.classList.add('on');io.unobserve(e.target);}});},{threshold:.12});
+document.querySelectorAll('.reveal').forEach(function(el){io.observe(el);});
+})();
+document.querySelectorAll('.reveal').forEach(function(el){io.observe(el);});
+})();
+(function(){var b=document.getElementById('themeToggle');if(!b)return;function set(t){document.documentElement.setAttribute('data-theme',t);try{localStorage.setItem('theme',t)}catch(e){}b.textContent=t==='dark'?'☀️ 亮色':'🌙 暗色';b.setAttribute('aria-label',t==='dark'?'切换到浅色主题':'切换到深色主题');}set(document.documentElement.getAttribute('data-theme')==='dark'?'dark':'light');b.addEventListener('click',function(){set(document.documentElement.getAttribute('data-theme')==='dark'?'light':'dark')});})();
+</script>
+</body>
+</html>

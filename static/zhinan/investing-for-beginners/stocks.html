@@ -1,0 +1,233 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>美股入门 · 核心概念与知识框架 | 投资入门导读站</title>
+<script>
+document.documentElement.classList.add('js');
+(function(){var t=null;try{t=localStorage.getItem('theme');}catch(e){}
+if(t!=='light'&&t!=='dark'){var h=new Date().getHours();t=(h>=7&&h<17)?'light':'dark';}
+document.documentElement.setAttribute('data-theme',t);})();
+</script>
+<style>
+:root{
+  color-scheme:light;
+  --bg:#eef1f5; --bg2:#e3e8ef; --panel:#f7f9fc; --panel2:#fdfefe;
+  --line:#c8d1dd; --line2:#aeb9c8;
+  --txt:#1c2534; --muted:#46536a; --faint:#5b6880;
+  --amber:#8a5a00; --amber2:#6f4800; --amber-dim:rgba(138,90,0,.09); --amber-line:rgba(138,90,0,.45);
+  --amber-ink:#ffffff; --navbg:rgba(238,241,245,.92);
+  --mono:ui-monospace,"SF Mono",Consolas,"Courier New",monospace;
+  --sans:system-ui,-apple-system,"Segoe UI","PingFang SC","Microsoft YaHei",sans-serif;
+  --r:14px;
+}
+[data-theme="dark"]{
+  color-scheme:dark;
+  --bg:#060b16; --bg2:#0a1322; --panel:#0d1728; --panel2:#101d33;
+  --line:#1d2c47; --line2:#2a4166;
+  --txt:#d9e2f0; --muted:#8b9cb5; --faint:#5f7290;
+  --amber:#f2b233; --amber2:#ffd070; --amber-dim:rgba(242,178,51,.10); --amber-line:rgba(242,178,51,.38);
+  --amber-ink:#0a1322; --navbg:rgba(6,11,22,.93);
+}
+*{box-sizing:border-box;margin:0;padding:0}
+body{background:var(--bg);color:var(--txt);font-family:var(--sans);line-height:1.75;font-size:16px}
+a{color:var(--amber);text-decoration:none}
+a:hover{text-decoration:underline}
+.wrap{max-width:1080px;margin:0 auto;padding:0 22px}
+.topline{border-bottom:1px solid var(--line);background:var(--bg2);font-family:var(--mono);font-size:12px;color:var(--faint)}
+.topline .wrap{display:flex;justify-content:space-between;gap:12px;padding-top:7px;padding-bottom:7px;flex-wrap:wrap}
+.topline b{color:var(--amber);font-weight:600}
+nav.mainnav{position:sticky;top:0;z-index:50;background:var(--navbg);backdrop-filter:blur(8px);border-bottom:1px solid var(--line)}
+.mainnav .wrap{display:flex;align-items:center;gap:4px;height:56px;overflow-x:auto;white-space:nowrap}
+.brand{font-family:var(--mono);font-weight:700;color:var(--txt);margin-right:14px;letter-spacing:.5px;font-size:15px}
+.brand b{color:var(--amber)}
+.mainnav a.nl{padding:7px 13px;border-radius:9px;color:var(--muted);font-size:14.5px;border:1px solid transparent;flex:none}
+.mainnav a.nl:hover{color:var(--amber2);text-decoration:none;background:var(--amber-dim)}
+.mainnav a.nl.on{color:var(--amber);border-color:var(--amber-line);background:var(--amber-dim)}
+.mainnav a.git{border:1px solid var(--line2);font-family:var(--mono);font-size:13px}
+.mainnav .tbtn{margin-left:auto;border:1px solid var(--line2);font-family:var(--mono);font-size:13px;color:var(--muted);background:transparent;cursor:pointer;flex:none;padding:7px 13px;border-radius:9px}
+.mainnav .tbtn:hover{color:var(--amber2);border-color:var(--amber-line);background:var(--amber-dim)}
+.mainnav .tbtn:focus-visible{outline:2px solid var(--amber);outline-offset:2px}
+header.hero{padding:52px 0 20px}
+.kicker{font-family:var(--mono);font-size:13px;color:var(--amber);letter-spacing:2px}
+h1{font-size:clamp(27px,4.4vw,38px);line-height:1.25;margin:12px 0 14px;font-weight:800}
+h1 .accent{color:var(--amber)}
+.lead{color:var(--muted);font-size:16px;max-width:66ch}
+.notice{margin:26px 0;border:1px dashed var(--amber-line);background:var(--amber-dim);border-radius:12px;padding:14px 18px;font-size:14px;color:var(--amber2);max-width:820px}
+.notice .nlabel{font-family:var(--mono);font-size:11px;letter-spacing:1.5px;display:block;margin-bottom:5px;color:var(--amber)}
+h2.sec{display:flex;align-items:center;gap:12px;margin:52px 0 8px;font-size:20px;font-weight:800}
+.secno{font-family:var(--mono);color:var(--amber);font-size:12.5px;border:1px solid var(--amber-line);border-radius:7px;padding:3px 9px;background:var(--amber-dim);letter-spacing:1px;flex:none}
+.secsub{color:var(--faint);font-size:13.5px;margin-bottom:20px;font-family:var(--mono)}
+.grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(310px,1fr));gap:16px}
+.card{background:linear-gradient(180deg,var(--panel2),var(--panel));border:1px solid var(--line);border-radius:var(--r);padding:19px 19px 17px;transition:border-color .25s}
+.card:hover{border-color:var(--amber-line)}
+.thead{display:flex;align-items:center;gap:10px;flex-wrap:wrap}
+.tcode{font-family:var(--mono);font-size:10.5px;color:var(--amber);border:1px solid var(--amber-line);background:var(--amber-dim);padding:2px 7px;border-radius:6px;letter-spacing:.5px;flex:none}
+.tname{font-size:16px;font-weight:700}
+.ten{font-family:var(--mono);font-size:11.5px;color:var(--faint);margin-top:2px}
+.card p{margin-top:9px;font-size:14px;color:var(--muted);line-height:1.8}
+.card p b{color:var(--txt);font-weight:600}
+footer{margin-top:70px;border-top:1px solid var(--line);background:var(--bg2)}
+footer .wrap{padding:30px 22px;display:flex;flex-wrap:wrap;gap:16px;justify-content:space-between;align-items:flex-start;font-size:13.5px;color:var(--faint)}
+footer .fmono{font-family:var(--mono);font-size:12px}
+footer a{color:var(--muted)}
+footer .fdisc{max-width:520px}
+footer .fdisc strong{color:var(--amber);font-weight:600}
+.backlink{display:inline-block;margin-top:20px;font-family:var(--mono);font-size:13px;color:var(--muted)}
+.backlink:hover{color:var(--amber)}
+@media (max-width:480px){
+  .wrap{padding:0 16px}
+  .mainnav .wrap{gap:2px}
+  .mainnav{scrollbar-width:thin}
+  .grid{grid-template-columns:1fr}
+}
+@media (prefers-reduced-motion: no-preference){
+  html{scroll-behavior:smooth}
+  html.js .reveal{opacity:0;transform:translateY(14px);transition:opacity .6s ease,transform .6s ease}
+  html.js .reveal.in{opacity:1;transform:none}
+  .card{transition:border-color .25s}
+}
+</style>
+<noscript><style>.reveal{opacity:1 !important;transform:none !important}</style></noscript></head>
+<body><div style="position:fixed;left:14px;bottom:14px;z-index:99;"><a href="../index.html" style="display:inline-block;padding:7px 16px;border-radius:999px;background:rgba(20,20,20,.72);color:#fff;font-size:13px;text-decoration:none;backdrop-filter:blur(4px);font-family:system-ui,sans-serif;" onmouseover="this.style.background='rgba(20,20,20,.9)'" onmouseout="this.style.background='rgba(20,20,20,.72)'">&#8592; 总门户</a></div>
+<div class="topline"><div class="wrap"><span>IFB://MODULE/STOCKS &nbsp;<b>EQUITIES</b></span><span>TERM CARDS: <b>28</b></span><span>MKT: <b>US</b></span></div></div>
+<nav class="mainnav"><div class="wrap">
+  <span class="brand">IFB<b>::导读站</b></span>
+  <a class="nl" href="index.html">首页</a>
+  <a class="nl on" href="stocks.html" aria-current="page">美股入门</a>
+  <a class="nl" href="options.html">期权进阶</a>
+  <a class="nl" href="crypto.html">加密货币</a>
+  <a class="nl" href="path.html">学习路径</a>
+  <a class="nl git" href="https://github.com/xuchonglang/investing-for-beginners" target="_blank" rel="noopener">GitHub ↗</a>
+  <button class="tbtn" id="themeToggle" type="button">主题</button>
+</div></nav>
+
+<header class="hero"><div class="wrap">
+  <p class="kicker">MODULE 01 · EQUITIES</p>
+  <h1>美股入门：<span class="accent">核心概念与知识框架</span></h1>
+  <p class="lead">美股模块覆盖交易时段、订单类型、公司披露、估值与市场结构。下面 28 张术语卡片按四个层次组织：先学会下单与执行，再认识市场与产品，然后读懂财报与估值，最后理解账户与风险。每张卡片对应仓库 content/stocks 下的一个真实词条。</p>
+  <div class="notice"><span class="nlabel">RISK · DISCLAIMER</span>本页内容仅供学习交流，不构成投资建议。股票投资存在本金损失风险。</div>
+</div></header>
+
+<main><div class="wrap">
+
+  <h2 class="sec reveal"><span class="secno">A</span>交易与执行</h2>
+  <p class="secsub reveal">ORDERS · EXECUTION · 先搞清楚一张订单会发生什么</p>
+  <div class="grid">
+    <div class="card reveal"><div class="thead"><span class="tcode">STK-01</span><span class="tname">市价单与限价单</span></div><div class="ten">Market Order / Limit Order</div>
+      <p>两种最基础的下单方式：<b>市价单优先成交</b>，按当前最好价格尽快成交，但不保证成交价；<b>限价单优先控制价格</b>，设定价格边界，市场未达标时可能完全不成交。盘前盘后、小盘股和波动剧烈时段更适合限价单。</p></div>
+    <div class="card reveal"><div class="thead"><span class="tcode">STK-02</span><span class="tname">盘前盘后交易</span></div><div class="ten">Pre-market / After-hours</div>
+      <p>正式时段之外的延长交易时段。流动性明显更薄、价差更宽、价格波动更剧烈，成交量小的标的可能长时间无人接单。看到盘后大涨先想想流动性，再决定要不要行动。</p></div>
+    <div class="card reveal"><div class="thead"><span class="tcode">STK-03</span><span class="tname">买卖价差</span></div><div class="ten">Bid-Ask Spread</div>
+      <p>买一价与卖一价之间的差额，是<b>隐性的交易成本</b>。价差越宽，进出一次的摩擦成本越高。下单前先看价差，比只看最新成交价更有意义。</p></div>
+    <div class="card reveal"><div class="thead"><span class="tcode">STK-04</span><span class="tname">滑点</span></div><div class="ten">Slippage</div>
+      <p>预期成交价与实际成交价之间的偏差。订单较大、市场快速变化或订单簿较薄时，成交可能跨越多个价位。止损单在跳空时尤其容易出现大幅滑点。</p></div>
+    <div class="card reveal"><div class="thead"><span class="tcode">STK-05</span><span class="tname">成交量与流动性</span></div><div class="ten">Volume vs Liquidity</div>
+      <p>成交量是一段时间内成交的数量；流动性是<b>能否以合理价格快速进出</b>。流动性还取决于订单簿深度、价差和做市机制。成交量大的标的未必流动性好，两者不是一回事。</p></div>
+    <div class="card reveal"><div class="thead"><span class="tcode">STK-06</span><span class="tname">止损</span></div><div class="ten">Stop Loss</div>
+      <p>预设触发价格、价格到达后自动卖出的订单，用来限制损失。但止损<b>不保证按触发价成交</b>：跳空开盘和流动性不足时，实际损失可能明显大于预期。</p></div>
+    <div class="card reveal"><div class="thead"><span class="tcode">STK-07</span><span class="tname">Day 与 GTC 订单</span></div><div class="ten">Day / Good Till Canceled</div>
+      <p>Day 订单当日有效，收盘未成交自动作废；GTC 持续有效直到成交或手动撤销。挂单过夜要留意隔夜消息可能让开盘价远离你的挂单价。</p></div>
+    <div class="card reveal"><div class="thead"><span class="tcode">STK-08</span><span class="tname">T+1 结算</span></div><div class="ten">Settlement Cycle</div>
+      <p>美股证券交易在成交后一个营业日完成券款交收。结算周期影响卖出后资金可提取、可再用的节奏，也是现金账户反复交易时需要注意的规则边界。</p></div>
+  </div>
+
+  <h2 class="sec reveal"><span class="secno">B</span>市场与产品</h2>
+  <p class="secsub reveal">MARKET · PRODUCTS · 指数、ETF 与市场机制</p>
+  <div class="grid">
+    <div class="card reveal"><div class="thead"><span class="tcode">STK-09</span><span class="tname">股票代码</span></div><div class="ten">Ticker Symbol</div>
+      <p>每只上市证券的唯一简称，如 AAPL、NVDA。同一家公司的不同类别股份可能对应不同代码，查资料时先确认代码对应的具体证券。</p></div>
+    <div class="card reveal"><div class="thead"><span class="tcode">STK-10</span><span class="tname">美股指数</span></div><div class="ten">Market Index</div>
+      <p>由一篮子股票按规则计算出的整体表现指标，如标普 500、纳斯达克 100、道琼斯。指数用于观察市场状态、对比业绩，也是指数基金和 ETF 的跟踪标的。</p></div>
+    <div class="card reveal"><div class="thead"><span class="tcode">STK-11</span><span class="tname">ETF 交易所交易基金</span></div><div class="ten">Exchange-Traded Fund</div>
+      <p>持有一篮子资产并像股票一样在交易时段买卖的基金，一笔交易获得分散敞口。选择时关注跟踪指数、费率、跟踪误差、规模与流动性，以及是否使用杠杆或衍生品。ETF 降低单一公司风险，但<b>不能消除市场下跌</b>。</p></div>
+    <div class="card reveal"><div class="thead"><span class="tcode">STK-12</span><span class="tname">市值</span></div><div class="ten">Market Cap</div>
+      <p>股价乘以总股本，是市场给公司的整体定价，常用来区分大盘、中盘和小盘股。小市值股票流动性通常更差，波动和操纵风险更高。</p></div>
+    <div class="card reveal"><div class="thead"><span class="tcode">STK-13</span><span class="tname">做多与做空</span></div><div class="ten">Long / Short</div>
+      <p>做多是买入并期待价格上涨；做空是借入股票卖出，下跌后买回归还赚取差价。做空要支付融券费用，且<b>最大理论损失没有上限</b>，难借券的股票费率可能很高。</p></div>
+    <div class="card reveal"><div class="thead"><span class="tcode">STK-14</span><span class="tname">轧空</span></div><div class="ten">Short Squeeze</div>
+      <p>股价上涨迫使空头买回股票止损或满足保证金要求，新增买盘又推动价格继续上涨的循环。高空头比例、难借券和流通盘小的标的更敏感，但追涨轧空股同样危险：价格脱离基本面后可能快速反转。</p></div>
+    <div class="card reveal"><div class="thead"><span class="tcode">STK-15</span><span class="tname">熔断机制</span></div><div class="ten">Circuit Breaker</div>
+      <p>指数跌幅达到阈值时暂停交易一段时间的市场保护机制，目的是给市场冷静时间、防止恐慌性踩踏。它不改变基本面方向，复盘时不必过度解读。</p></div>
+    <div class="card reveal"><div class="thead"><span class="tcode">STK-16</span><span class="tname">VIX 恐慌指数</span></div><div class="ten">VIX Index</div>
+      <p>反映市场对未来波动率预期的指数，常被称为恐慌指标。VIX 快速升高通常对应市场情绪紧张，但它衡量的是波动的预期，不直接预测涨跌方向。</p></div>
+  </div>
+
+  <h2 class="sec reveal"><span class="secno">C</span>财报与估值</h2>
+  <p class="secsub reveal">FUNDAMENTALS · VALUATION · 从数字理解一家公司</p>
+  <div class="grid">
+    <div class="card reveal"><div class="thead"><span class="tcode">STK-17</span><span class="tname">财报</span></div><div class="ten">Earnings Report</div>
+      <p>上市公司定期披露的经营结果，包含营收、利润、现金流与未来指引。看财报的关键不是绝对数字，而是<b>与市场预期和同行的差异</b>，以及数据背后的经营变化。</p></div>
+    <div class="card reveal"><div class="thead"><span class="tcode">STK-18</span><span class="tname">市盈率</span></div><div class="ten">P/E Ratio</div>
+      <p>股价除以每股收益，表示市场为每单位盈利支付的价格。低 PE 可能是低估，也可能反映盈利将下滑或风险较高；亏损公司没有有意义的正 PE，周期股在利润高点反而显得便宜。Trailing PE 用历史盈利，Forward PE 用预测盈利，口径不能混用。</p></div>
+    <div class="card reveal"><div class="thead"><span class="tcode">STK-19</span><span class="tname">每股收益</span></div><div class="ten">EPS</div>
+      <p>净利润摊到每股的盈利指标，是 PE 的分母。要注意基本 EPS 与稀释 EPS 的差别：可转债、期权等潜在股份会摊薄每股收益，仓库专门有词条讲稀释股数的核对。</p></div>
+    <div class="card reveal"><div class="thead"><span class="tcode">STK-20</span><span class="tname">自由现金流</span></div><div class="ten">Free Cash Flow</div>
+      <p>经营现金流扣除维持和扩展业务所需资本开支后剩下的现金。它比会计利润更难粉饰，是分红、回购和估值的真实资金来源，仓库称其为判断盈利质量的重要抓手。</p></div>
+    <div class="card reveal"><div class="thead"><span class="tcode">STK-21</span><span class="tname">净资产收益率</span></div><div class="ten">ROE</div>
+      <p>净利润除以股东权益，衡量公司用自有资本赚钱的效率。高 ROE 如果是靠高杠杆堆出来的，质量要打折扣；结合杜邦分析可以把 ROE 拆成利润率、周转率和杠杆三个来源。</p></div>
+    <div class="card reveal"><div class="thead"><span class="tcode">STK-22</span><span class="tname">资产负债表</span></div><div class="ten">Balance Sheet</div>
+      <p>某一时点公司资产、负债与股东权益的快照。重点看现金与债务的期限结构、商誉占资产的比重，以及或有负债等表外风险，判断公司能否扛过坏年景。</p></div>
+    <div class="card reveal"><div class="thead"><span class="tcode">STK-23</span><span class="tname">现金流折现估值</span></div><div class="ten">DCF</div>
+      <p>把公司未来的自由现金流按折现率折算成今天的价值。结果对增长假设和折现率<b>极其敏感</b>，更适合用来理解定价逻辑、检验市场隐含的预期，而不是给出精确目标价。</p></div>
+    <div class="card reveal"><div class="thead"><span class="tcode">STK-24</span><span class="tname">安全边际</span></div><div class="ten">Margin of Safety</div>
+      <p>在估算的内在价值之下留出折扣再买入，为判断错误和坏运气留出缓冲。它是价值投资框架里控制风险的核心手段：买得便宜本身就是一种保护。</p></div>
+  </div>
+
+  <h2 class="sec reveal"><span class="secno">D</span>账户与风险</h2>
+  <p class="secsub reveal">ACCOUNT · RISK · 杠杆、结构性产品与缓冲</p>
+  <div class="grid">
+    <div class="card reveal"><div class="thead"><span class="tcode">STK-25</span><span class="tname">保证金账户与 Margin Call</span></div><div class="ten">Margin Account / Margin Call</div>
+      <p>保证金账户允许向券商借钱买入证券。当账户权益低于保证金要求时，券商会发出 Margin Call 要求补钱或减仓；收到通知<b>不保证有时间等待反弹</b>，协议通常允许券商直接出售资产。仓库建议保留缓冲并压力测试跳空情形，而不是贴着最低比例持仓。</p></div>
+    <div class="card reveal"><div class="thead"><span class="tcode">STK-26</span><span class="tname">杠杆 ETF</span></div><div class="ten">Leveraged ETF</div>
+      <p>用衍生品实现单日倍数回报的 ETF。由于每日重置复利，波动会被持续损耗，长期回报会明显偏离"倍数乘以指数涨幅"的直觉，<b>不适合长期无脑持有</b>。反向 ETF 同理。</p></div>
+    <div class="card reveal"><div class="thead"><span class="tcode">STK-27</span><span class="tname">经济护城河</span></div><div class="ten">Economic Moat</div>
+      <p>公司抵御竞争、长期维持高回报的结构性优势，如网络效应、转换成本、成本优势和无形资产。护城河决定盈利能力能持续多久，是所有估值假设的底层输入。</p></div>
+    <div class="card reveal"><div class="thead"><span class="tcode">STK-28</span><span class="tname">IPO 首次公开募股</span></div><div class="ten">Initial Public Offering</div>
+      <p>公司首次向公众发行股票并上市。招股书披露历史财务，但缺乏长期公开数据可验证，上市初期定价博弈激烈，锁定期到期带来的供给冲击也是需要提前排期关注的风险点。</p></div>
+  </div>
+
+  <a class="backlink" href="index.html">← 返回首页</a>&nbsp;&nbsp;<a class="backlink" href="options.html">下一模块：期权进阶 →</a>
+  <p style="color:var(--faint);font-size:13px;margin-top:22px;font-family:var(--mono)">TIP: 以上为精选词条。完整美股词条（300+，含 10-K/10-Q 解读、财务红旗清单、宏观指标等）见仓库 content/stocks 目录。</p>
+</div></main>
+
+<footer><div class="wrap">
+  <div class="fdisc">
+    <div class="fmono" style="color:var(--amber)">IFB::DISCLAIMER</div>
+    <p style="margin-top:6px">本页为开源仓库 <a href="https://github.com/xuchonglang/investing-for-beginners" target="_blank" rel="noopener">xuchonglang/investing-for-beginners</a> 的非官方静态导读，内容据仓库词条整理概括。仅供学习，不构成投资建议。</p>
+  </div>
+  <div class="fmono">MODULE: EQUITIES<br>SRC: content/stocks/*<br>PAGE: stocks.html</div>
+</div></footer>
+
+<script>
+(function(){
+  var reduce = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  if (reduce || !('IntersectionObserver' in window)) return;
+  var els = document.querySelectorAll('.reveal');
+  var io = new IntersectionObserver(function(entries){
+    entries.forEach(function(e){
+      if (e.isIntersecting) { e.target.classList.add('in'); io.unobserve(e.target); }
+    });
+  }, {threshold: 0.08, rootMargin: '0px 0px -30px 0px'});
+  els.forEach(function(el){ io.observe(el); });
+})();
+(function(){
+  var btn=document.getElementById('themeToggle');
+  if(!btn)return;
+  function label(){
+    var d=document.documentElement.getAttribute('data-theme')==='dark';
+    btn.textContent=d?'☀ 浅色':'☾ 深色';
+    btn.setAttribute('aria-label',d?'切换到浅色主题':'切换到深色主题');
+  }
+  label();
+  btn.addEventListener('click',function(){
+    var t=document.documentElement.getAttribute('data-theme')==='dark'?'light':'dark';
+    document.documentElement.setAttribute('data-theme',t);
+    try{localStorage.setItem('theme',t);}catch(e){}
+    label();
+  });
+})();
+</script>
+</body>
+</html>

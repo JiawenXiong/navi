@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>长寿 · 人体系统优化</title>
+<script>(function(){var t;try{t=localStorage.getItem("theme")}catch(e){}if(t!=="light"&&t!=="dark"){var h=new Date().getHours();t=(h>=7&&h<17)?"light":"dark"}document.documentElement.setAttribute("data-theme",t)})()</script>
+<style>
+:root{--bg:#0a0f0d;--panel:#0f1512;--panel-2:#121a16;--line:#1e2a24;--ink:#d7e2dc;--muted:#8fa69b;--accent:#34d399;--accent-2:#10b981;--nav-bg:rgba(10,15,13,.92);--nav-line:rgba(52,211,153,.16);--accent-bord:rgba(52,211,153,.4);--accent-bord-strong:rgba(52,211,153,.45);--accent-tint:rgba(52,211,153,.07);--accent-glow:rgba(52,211,153,.6);--bar-bg:#16211c;--warn:#d4b06a;--warn-tint:rgba(212,176,106,.07);color-scheme:dark;}
+[data-theme="light"]{--bg:#edf3ee;--panel:#f7faf7;--panel-2:#e6efe9;--line:#d3e0d7;--ink:#1c2b24;--muted:#4f6659;--accent:#047857;--accent-2:#059669;--nav-bg:rgba(246,250,247,.92);--nav-line:rgba(4,120,87,.2);--accent-bord:rgba(4,120,87,.35);--accent-bord-strong:rgba(4,120,87,.5);--accent-tint:rgba(4,120,87,.07);--accent-glow:rgba(4,120,87,.45);--bar-bg:#d9e5dc;--warn:#8a6a1f;--warn-tint:rgba(138,106,31,.08);color-scheme:light;}
+.tbtn{flex:0 0 auto;margin-left:4px;background:var(--accent-tint);color:var(--accent);border:1px solid var(--accent-bord);border-radius:999px;padding:5px 12px;font-size:14px;cursor:pointer;font-family:inherit;line-height:1.5;}
+.tbtn:hover{border-color:var(--accent-bord-strong);}
+.tbtn .ico-sun,.tbtn .ico-moon{display:none;}
+[data-theme="dark"] .tbtn .ico-sun{display:inline;}
+[data-theme="light"] .tbtn .ico-moon{display:inline;}
+*{margin:0;padding:0;box-sizing:border-box;}
+@media (prefers-reduced-motion: no-preference){html{scroll-behavior:smooth;}}
+body{background:var(--bg);color:var(--ink);font-family:"PingFang SC","Microsoft YaHei","Noto Sans SC",sans-serif;line-height:1.75;}
+code,.mono{font-family:ui-monospace,"Cascadia Code",Consolas,"JetBrains Mono",monospace;}
+a{color:var(--accent);text-decoration:none;}
+a:hover{text-decoration:underline;}
+.wrap{max-width:1080px;margin:0 auto;padding:0 22px;}
+nav.top{position:sticky;top:0;z-index:50;background:var(--nav-bg);backdrop-filter:blur(8px);border-bottom:1px solid var(--nav-line);}
+nav.top .row{display:flex;align-items:center;gap:4px;overflow-x:auto;white-space:nowrap;padding:12px 0;scrollbar-width:none;}
+nav.top .row::-webkit-scrollbar{display:none;}
+nav.top .brand{font-weight:700;color:var(--accent);margin-right:12px;display:flex;align-items:center;gap:8px;}
+nav.top .brand .dot{width:9px;height:9px;border-radius:50%;background:var(--accent);box-shadow:0 0 10px var(--accent);display:inline-block;}
+nav.top a.nl{color:var(--muted);padding:5px 12px;border-radius:999px;font-size:14px;border:1px solid transparent;}
+nav.top a.nl:hover{color:var(--accent);text-decoration:none;border-color:var(--accent-bord);}
+nav.top a.nl.on{color:var(--accent);border-color:var(--accent-bord-strong);background:var(--accent-tint);}
+nav.top a.nl.ext{border:1px dashed var(--accent-bord);}
+footer{border-top:1px solid var(--line);margin-top:64px;padding:32px 0 40px;color:var(--muted);font-size:13px;}
+footer .cols{display:flex;flex-wrap:wrap;gap:24px;justify-content:space-between;}
+.page-head{padding:56px 0 8px;}
+.kicker{font-family:ui-monospace,Consolas,monospace;font-size:12px;letter-spacing:.3em;color:var(--accent);margin-bottom:12px;}
+h1{font-size:clamp(28px,4.5vw,40px);}
+h1 .em{color:var(--accent);}
+.lede{color:var(--muted);max-width:780px;margin-top:14px;font-size:16px;}
+section{padding:30px 0;}
+h2.sec{font-size:23px;margin-bottom:6px;padding-left:14px;border-left:3px solid var(--accent);}
+p.sub{color:var(--muted);margin-bottom:20px;font-size:14.5px;}
+.grid{display:grid;gap:16px;}
+.grid.c2{grid-template-columns:repeat(auto-fit,minmax(min(100%,300px),1fr));}
+.grid.c3{grid-template-columns:repeat(auto-fit,minmax(min(100%,220px),1fr));}
+.card{background:var(--panel);border:1px solid var(--line);border-radius:16px;padding:22px 20px;}
+.card h3{font-size:17px;margin-bottom:10px;}
+.card h3 .idx{font-family:ui-monospace,Consolas,monospace;color:var(--accent);font-size:12px;margin-right:8px;}
+.card p{color:var(--muted);font-size:14.5px;}
+.badge{display:inline-block;font-family:ui-monospace,Consolas,monospace;font-size:12px;color:var(--accent);border:1px solid var(--accent-bord);border-radius:999px;padding:2px 12px;margin:3px 4px 3px 0;background:var(--accent-tint);}
+ul.list{list-style:none;}
+ul.list li{padding:9px 0 9px 26px;position:relative;border-bottom:1px dashed var(--line);font-size:15px;}
+ul.list li:last-child{border-bottom:none;}
+ul.list li::before{content:">";position:absolute;left:4px;color:var(--accent);font-family:ui-monospace,Consolas,monospace;font-size:13px;top:10px;}
+ul.list li b{color:var(--ink);}
+ul.list li span{color:var(--muted);}
+.stat{background:var(--panel-2);border:1px solid var(--line);border-radius:14px;padding:18px 20px;}
+.stat .n{font-family:ui-monospace,Consolas,monospace;font-size:25px;color:var(--accent);}
+.stat .l{font-size:13px;color:var(--muted);margin-top:4px;}
+.bar{height:8px;background:var(--bar-bg);border-radius:999px;overflow:hidden;margin-top:10px;}
+.bar i{display:block;height:100%;border-radius:999px;background:linear-gradient(90deg,var(--accent-2),var(--accent));}
+.note{border-left:3px solid var(--accent);background:var(--accent-tint);border-radius:0 12px 12px 0;padding:14px 18px;color:var(--muted);font-size:14px;margin-top:20px;}
+.warn{border-left:3px solid var(--warn);background:var(--warn-tint);border-radius:0 12px 12px 0;padding:14px 18px;color:var(--muted);font-size:14px;margin-top:8px;}
+.reveal{opacity:0;transform:translateY(16px);transition:opacity .6s ease,transform .6s ease;}
+.reveal.in{opacity:1;transform:none;}
+@media (prefers-reduced-motion: reduce){.reveal{opacity:1;transform:none;transition:none;}}
+</style>
+<noscript><style>.reveal{opacity:1 !important;transform:none !important}</style></noscript></head>
+<body>
+<nav class="top"><div class="wrap row">
+<a class="brand" href="index.html"><span class="dot"></span>HSO</a>
+<a class="nl" href="../index.html">返回总门户</a>
+<a class="nl" href="index.html">首页</a>
+<a class="nl" href="sleep.html">睡眠</a>
+<a class="nl" href="diet.html">饮食</a>
+<a class="nl" href="mindset.html">心态与动力</a>
+<a class="nl" href="focus.html">学习与专注</a>
+<a class="nl on" href="longevity.html">长寿</a>
+<button class="tbtn" id="themeBtn" type="button" aria-label="切换明暗主题" title="切换明暗主题"><span class="ico-sun">☀ 浅色</span><span class="ico-moon">☾ 深色</span></button>
+<a class="nl ext" href="https://github.com/zijie0/HumanSystemOptimization" target="_blank" rel="noopener">GitHub ↗</a>
+</div></nav>
+
+<header class="page-head wrap">
+<div class="kicker">MODULE 05 / LONGEVITY</div>
+<h1>长寿：把衰老当作可以<span class="em">"治疗"的疾病</span></h1>
+<p class="lede">本章内容来自 Huberman 与哈佛教授 David Sinclair 的访谈。Sinclair 认为衰老本身就是一种疾病，它导致了阿尔兹海默症、癌症等大量通常意义上的疾病，可以通过科学手段"治疗"甚至逆转。现代长寿研究的核心思想，是通过机制手段触发身体自身的衰老抵抗机制。</p>
+<div><span class="badge">epigenome</span><span class="badge">sirtuin</span><span class="badge">山中因子</span><span class="badge">寿命逃逸速度</span><span class="badge">数据监控</span></div>
+<div class="warn">⚠ 原项目 2025-06-17 更新提示：目前关于 David Sinclair 及其倡导的白藜芦醇、NMN 等抗衰老产品的科学证据仍存在较大争议，相关内容请谨慎参考和采纳。</div>
+</header>
+
+<section class="wrap">
+<h2 class="sec">衰老的本质：基因信息的损失</h2>
+<div class="grid c2 reveal">
+<div class="card"><h3><span class="idx">构成</span>两部分信息损失</h3><p>一是 DNA 本身的信息（如细胞中 DNA 结构在辐射下受破坏），仅占衰老因素的 20%；二是控制哪些基因进行表达的信息受到破坏，即表观基因组（epigenome），占 80%。人体内有天然的"衰老时钟"且并非匀速：年轻时生长发育过程中走得更快，青春期发育迅速的人整体时钟较快、寿命相对更短；侏儒很少得心脏病和癌症，明显更长寿。好在基因本身只占少数，控制基因表达的部分占大头。</p></div>
+<div class="card"><h3><span class="idx">证据</span>活了 5 年的老鼠 Yoda</h3><p>一般老鼠寿命约 2 年，Sinclair 实验室一只叫 Yoda 的老鼠活了足足 5 年，主要做法就是选取侏儒基因加执行 fasting。最重要的几个长寿实验都与 fasting 有关。</p></div>
+</div>
+<h2 class="sec" style="margin-top:26px;">fasting 为何能提升 30% 以上寿命</h2>
+<ul class="list reveal">
+<li><b>低血糖的化学状态</b><span>：抑制哺乳动物雷帕霉素靶蛋白（mTOR），激活去乙酰化酶（sirtuin），清理旧蛋白质、提高胰岛素敏感度、提供更多能量、修复细胞。sirtuin 是抵御衰老的重要武器。</span></li>
+<li><b>长寿基因激活</b><span>：胰岛素水平低时，SIRT1 等"长寿基因"会被激活。</span></li>
+<li><b>细胞休息与胰岛素敏感</b><span>：fasting 给细胞足够的休息时间；血糖水平低让身体对胰岛素更敏感，更快吸收血糖。从不感受饥饿时，衰老时钟走得更快。</span></li>
+<li><b>深度清理机制</b><span>：除了 24 小时周期 fasting 触发的 autophagic，更深层次的清理会在禁食第二、三天启动。老年老鼠实验表明长时间禁食可延长寿命 35%，但对普通人实操难度较大。</span></li>
+</ul>
+</section>
+
+<section class="wrap">
+<h2 class="sec">抗衰老手段总览</h2>
+<div class="grid c2 reveal">
+<div class="card"><h3><span class="idx">饮食</span>结构决定衰老速度</h3><p>参考 Cell 论文 Nutrition, longevity and disease 的结论：多吃植物类蛋白（花生、藜麦、豆类、西兰花等）与健康脂肪（橄榄油、坚果、牛油果等），减少精制碳水（白米饭、白面包、蛋糕、饼干等）；动物脂肪、动物蛋白质、糖总体来说是加速衰老的。进食控制方面建议缩短进食窗口至 8 小时左右。</p></div>
+<div class="card"><h3><span class="idx">锻炼</span>有氧加力量</h3><p>有氧锻炼对心肺功能、血管健康的促进对延寿很有帮助；力量训练持续保持肌肉、关节、韧带的力量与支撑保护能力，在年纪大时减少跌倒受伤风险。一般建议一周 3 小时左右有氧运动（跑步、骑车、游泳皆可），搭配每周 2 至 3 次力量训练。</p></div>
+<div class="card"><h3><span class="idx">药物</span>尚在早期</h3><p>药物研究非常多但绝大多数还在人体实验早期，可参考 Nature 综述 The quest to slow ageing through drug discovery，其中就包括著名的二甲双胍、NMN 等。</p></div>
+<div class="card"><h3><span class="idx">细胞重编程</span>山中因子</h3><p>山中伸弥团队通过慢病毒载体将 Oct4、Sox2、c-Myc、Klf4 四种转录因子基因转入成体细胞，转化为类似胚胎干细胞的多能干细胞（iPS 细胞），理论上可分化为所有器官组织，对冲细胞衰减带来的衰老。基于这些技术出现了 Life Biosciences、Altos Labs 等长寿科技公司。基因治疗重启 DNA 表达系统已在老鼠上让盲人恢复视力。</p></div>
+</div>
+</section>
+
+<section class="wrap">
+<h2 class="sec">Sinclair 的个人实践与数据监控</h2>
+<p class="sub">节目下的热门留言：这个教授竟然已经 52 岁了，完全看不出来。以下为他本人实践 10 多年并用数据监控的方案，采纳前需结合自身情况。</p>
+<ul class="list reveal">
+<li><b>进食安排</b><span>：不吃早饭，午饭吃得少（酸奶或橄榄油），晚饭以蔬菜为主加鱼和虾，基本不吃牛排；不吃糖、甜品、面包，基本达到 2 小时进食窗口的高阶 fasting 状态。偶尔尝试整天不吃，但较难坚持。</span></li>
+<li><b>补剂与药物</b><span>：每天 1 克白藜芦醇、1 克 NMN（转化为 NAD，即 sirtuin 的"燃料"）、二甲双胍；锻炼日可能跳过部分补充品，不吃复合维生素。按家族病史决定药物，如他 29 岁就开始服用降胆固醇药物。</span></li>
+<li><b>蔬菜为主食的理由</b><span>：富含营养维生素，且包含异种激素（Xenohormesis），即植物在"压力"下产生的物质，对长寿有益；也可通过槲皮素补充。</span></li>
+<li><b>运动节奏</b><span>：隔一天交替进行有氧与力量训练，有氧运动能提升 NAD 水平。他认为人造甜味剂总体安全，偶尔喝健怡可乐。</span></li>
+</ul>
+<div class="grid c3" style="margin-top:14px;">
+<div class="stat reveal"><div class="n">52 → 30</div><div class="l">实际年龄 52 岁，监控推测的生理年龄约 30 岁且持续下降</div><div class="bar"><i style="width:42%"></i></div></div>
+<div class="stat reveal"><div class="n">HbA1c / CRP / LDL</div><div class="l">建议监控的血糖、炎症与胆固醇指标</div><div class="bar"><i style="width:66%"></i></div></div>
+<div class="stat reveal"><div class="n">+1/4 年</div><div class="l">现代科学每年为平均寿命延长的增量</div><div class="bar"><i style="width:25%"></i></div></div>
+</div>
+<ul class="list reveal" style="margin-top:14px;">
+<li><b>个性化医学观</b><span>：医院约定俗成的生理指标范围不一定适合每个人。膳食胆固醇对血液胆固醇几乎没有影响，不需要戒红肉、黄油；补充铁元素可能加速衰老，低铁含量并不一定导致贫血。未来的健康数据实时监控与个性化诊断会成为主流。</span></li>
+<li><b>负面因素</b><span>：肥胖症加速衰老；吸烟破坏基因表达、加速衰老；X 光检查同理，没有必要时避免接触。</span></li>
+</ul>
+</section>
+
+<section class="wrap">
+<h2 class="sec">展望：寿命逃逸速度</h2>
+<div class="card reveal">
+<p>类比以 1000 英里每小时的速度往西飞行，太阳永远不会落下：如果每年能让平均寿命延长超过 1 年，就达到了<b>寿命"逃逸速度"</b>，实现"永生"。著名的未来学家 Ray Kurzweil 预测大约 12 年后（2034 年）就能实现，让我们拭目以待。此外，程序员群体可同时参考吴承霖的万星项目《程序员延寿指南》（HowToLiveLonger，见 GitHub）。</p>
+</div>
+<div class="note">作者本人的态度：Huberman 自己在节目中对白藜芦醇和 NMN 还在观望状态，作者查资料后发现争议不少，建议先采纳广受认可的补充剂如 EPA 鱼油、二甲双胍（后者有效性与安全性亦有争议，建议谨慎）。所有行动方案需在咨询医师、专业人员的条件下结合自身情况执行。</div>
+</section>
+
+<footer><div class="wrap cols">
+<div>人体系统优化 · 基于 <a href="https://github.com/zijie0/HumanSystemOptimization" target="_blank" rel="noopener">zijie0/HumanSystemOptimization</a> 制作</div>
+<div class="mono">S5 longevity · <a href="index.html">返回首页</a></div>
+</div></footer>
+<script>
+(function(){
+if(!window.matchMedia||!matchMedia('(prefers-reduced-motion: no-preference)').matches)return;
+var els=document.querySelectorAll('.reveal');
+if(!('IntersectionObserver' in window)){els.forEach(function(e){e.classList.add('in');});return;}
+var io=new IntersectionObserver(function(es){es.forEach(function(en){if(en.isIntersecting){en.target.classList.add('in');io.unobserve(en.target);}});},{threshold:.12});
+els.forEach(function(e){io.observe(e);});
+})();(function(){var b=document.getElementById("themeBtn");if(!b)return;b.addEventListener("click",function(){var r=document.documentElement;var n=r.getAttribute("data-theme")==="light"?"dark":"light";r.setAttribute("data-theme",n);try{localStorage.setItem("theme",n)}catch(e){}})();
+</script>
+</body>
+</html>

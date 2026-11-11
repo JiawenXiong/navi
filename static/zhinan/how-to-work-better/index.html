@@ -1,0 +1,198 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<script>(function(){try{var t=localStorage.getItem('theme');if(t!=='light'&&t!=='dark'){var h=new Date().getHours();t=(h>=7&&h<17)?'light':'dark'}document.documentElement.setAttribute('data-theme',t)}catch(e){document.documentElement.setAttribute('data-theme','light')}})();</script>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>高性价比工作指南 · 中文站点</title>
+<style>
+:root,[data-theme=light]{--bg:#f4f6f9;--card:#ffffff;--ink:#1e2430;--ink2:#5b6472;--line:#e2e7ee;--accent:#0a5cff;--accent-soft:#e8f0ff;--on-accent:#fff;--src:#8a93a3;--accent-fade:#b9cffb;--radius:14px;--mono:Consolas,Menlo,monospace;color-scheme:light}
+[data-theme=dark]{--bg:#15181e;--card:#1e232b;--ink:#e6e9ef;--ink2:#a7b0bf;--line:#353c47;--accent:#4d9fff;--accent-soft:#12233d;--on-accent:#0b1220;--src:#8f99a9;--accent-fade:#1c3d6e;color-scheme:dark}
+*{box-sizing:border-box;margin:0;padding:0}
+body{background:var(--bg);color:var(--ink);font-family:"Microsoft YaHei","PingFang SC","Segoe UI",sans-serif;line-height:1.75;font-size:15.5px}
+a{color:var(--accent);text-decoration:none}
+a:hover{text-decoration:underline}
+.wrap{max-width:1080px;margin:0 auto;padding:0 20px}
+.topbar{background:var(--card);border-bottom:1px solid var(--line);position:sticky;top:0;z-index:20}
+.nav{display:flex;align-items:center;gap:4px;white-space:nowrap;overflow-x:auto;scrollbar-width:none}
+.nav::-webkit-scrollbar{display:none}
+.brand{font-weight:700;color:var(--ink);margin-right:14px;flex:none}
+.brand span{color:var(--accent)}
+.nav a{flex:none;padding:9px 12px;border-radius:10px;color:var(--ink2);font-size:14px}
+.nav a:hover{background:var(--accent-soft);color:var(--accent);text-decoration:none}
+.nav a.on{background:var(--accent);color:var(--on-accent)}
+.nav a.gh{border:1px solid var(--line);color:var(--accent)}
+.theme-btn{flex:none;margin-left:6px;padding:8px 12px;border-radius:10px;border:1px solid var(--line);background:var(--card);color:var(--ink);font-size:13px;cursor:pointer;font-family:inherit;line-height:1.2}
+.theme-btn:hover{background:var(--accent-soft);color:var(--accent)}
+main{padding:36px 0 20px}
+.hero{background:var(--card);border:1px solid var(--line);border-radius:var(--radius);padding:34px 30px;margin-bottom:26px}
+.hero .kicker{color:var(--accent);font-weight:700;font-size:13px;letter-spacing:2px}
+.hero h1{font-size:30px;margin:8px 0 12px;letter-spacing:1px}
+.hero p{color:var(--ink2);max-width:760px}
+.stats{display:flex;flex-wrap:wrap;gap:12px;margin-top:20px}
+.stat{background:var(--bg);border:1px solid var(--line);border-radius:10px;padding:10px 18px;min-width:120px}
+.stat b{display:block;font-size:22px;color:var(--accent)}
+.stat span{font-size:12.5px;color:var(--ink2)}
+h2.sec{font-size:21px;margin:34px 0 6px}
+p.secsub{color:var(--ink2);margin-bottom:16px}
+.grid{display:grid;gap:16px}
+.g2{grid-template-columns:repeat(auto-fit,minmax(300px,1fr))}
+.g3{grid-template-columns:repeat(auto-fit,minmax(240px,1fr))}
+.card{background:var(--card);border:1px solid var(--line);border-radius:var(--radius);padding:20px 22px}
+.card h3{font-size:16px;margin-bottom:8px}
+.card p,.card li{color:var(--ink2);font-size:14.5px}
+.card ul{padding-left:18px}
+.chip{display:inline-block;font-size:12px;border-radius:999px;padding:2px 10px;margin:0 6px 6px 0;border:1px solid var(--line);color:var(--ink2);background:var(--bg)}
+.chip.blue{background:var(--accent);border-color:var(--accent);color:var(--on-accent)}
+.chip.line{border-color:var(--accent);color:var(--accent);background:var(--accent-soft)}
+table{width:100%;border-collapse:collapse;background:var(--card);border:1px solid var(--line);border-radius:var(--radius);overflow:hidden;font-size:14.5px}
+th,td{padding:10px 14px;border-bottom:1px solid var(--line);text-align:left;vertical-align:top}
+th{background:var(--bg);color:var(--ink);width:130px}
+tr:last-child td{border-bottom:none}
+td{color:var(--ink2)}
+.tblwrap{border-radius:var(--radius);overflow:hidden;border:1px solid var(--line);margin-bottom:8px}
+.tblwrap table{border:none;margin:0}
+.timeline{position:relative;margin:10px 0 6px;padding-left:26px}
+.timeline::before{content:"";position:absolute;left:8px;top:6px;bottom:6px;width:3px;border-radius:2px;background:linear-gradient(var(--accent),var(--accent-fade))}
+.tl-item{position:relative;margin-bottom:18px}
+.tl-item::before{content:"";position:absolute;left:-24px;top:7px;width:11px;height:11px;border-radius:50%;background:var(--accent);border:2.5px solid var(--card);box-shadow:0 0 0 2px var(--accent)}
+.tl-item .tl-tag{font-size:12px;color:var(--accent);font-weight:700}
+.tl-item h3{font-size:15.5px;margin:2px 0 4px}
+.tl-item p{font-size:14px;color:var(--ink2)}
+.tl-item a{font-size:13.5px}
+.blocknav{counter-reset:blk}
+.blocknav .card{margin-bottom:14px}
+.blocknav h3{display:flex;align-items:center;gap:10px;flex-wrap:wrap}
+.blknum{background:var(--accent);color:var(--on-accent);border-radius:8px;font-size:12.5px;padding:1px 9px;font-weight:700;flex:none}
+.blocknav .chapters{display:flex;flex-wrap:wrap;gap:6px;margin-top:10px}
+.blocknav .chapters span{font-size:12.5px;background:var(--bg);border:1px solid var(--line);border-radius:8px;padding:3px 9px;color:var(--ink2)}
+footer{margin-top:44px;border-top:1px solid var(--line);background:var(--card)}
+footer .wrap{padding:22px 20px;color:var(--ink2);font-size:13px}
+footer p{margin:3px 0}
+.reveal{opacity:0;transform:translateY(14px);transition:opacity .5s ease,transform .5s ease}
+.reveal.in{opacity:1;transform:none}
+@media (prefers-reduced-motion:reduce){.reveal{opacity:1;transform:none;transition:none}}
+@media (max-width:640px){.hero{padding:24px 18px}.hero h1{font-size:24px}th{width:90px}}
+</style>
+<noscript><style>.reveal,.rv{opacity:1 !important;transform:none !important}</style></noscript></head>
+<body><div style="position:fixed;left:14px;bottom:14px;z-index:99;"><a href="../index.html" style="display:inline-block;padding:7px 16px;border-radius:999px;background:rgba(20,20,20,.72);color:#fff;font-size:13px;text-decoration:none;backdrop-filter:blur(4px);font-family:system-ui,sans-serif;" onmouseover="this.style.background='rgba(20,20,20,.9)'" onmouseout="this.style.background='rgba(20,20,20,.72)'">&#8592; 总门户</a></div>
+<header class="topbar"><div class="wrap"><nav class="nav">
+<a class="brand" href="index.html">高性价比<span>工作指南</span></a>
+<a class="on" href="index.html">首页</a>
+<a href="pages/jobhunt.html">求职与谈薪</a>
+<a href="pages/onboard.html">入职与社保</a>
+<a href="pages/crisis.html">被裁与维权</a>
+<a href="pages/growth.html">成长与礼仪</a>
+<a href="pages/rights.html">健康与合同</a>
+<a class="gh" href="https://github.com/NiceCao/HowToWorkBetter" target="_blank" rel="noopener">GitHub 仓库</a>
+<button type="button" class="theme-btn" id="themeToggle" aria-label="切换明暗主题">☾ 暗色</button>
+</nav></div></header>
+
+<main class="wrap">
+<section class="hero reveal">
+<div class="kicker">NICECAO / HOWTOWORKBETTER</div>
+<h1>高性价比工作指南</h1>
+<p>用最少的钱、时间和精力，换回更多的收入、职业寿命和职业自由。讲怎么选行业、挑公司、谈薪水，怎么在入职头两年站稳，怎么晋升和转型，被裁、被欠薪、受了工伤怎么按流程把该拿的拿回来。法律、社保、工伤这些制度上的内容，按中国大陆的现行规定写。本站是从开源仓库提炼的中文静态读本，每条建议都标明要花掉什么、能换回什么、证据有多硬。</p>
+<div class="stats">
+<div class="stat"><b>454 条</b><span>建议条目</span></div>
+<div class="stat"><b>7 板块</b><span>51 章</span></div>
+<div class="stat"><b>A 212</b><span>证据 A 级条目</span></div>
+<div class="stat"><b>CC BY 4.0</b><span>正文开放许可</span></div>
+</div>
+<p style="margin-top:18px;font-size:14px">不用全做：这是按性价比排好的备选单，不是任务清单，挑走一两条就算数。完整条目与来源链接见 <a href="https://github.com/NiceCao/HowToWorkBetter" target="_blank" rel="noopener">GitHub 仓库</a> 与 <a href="https://nicecao.github.io/HowToWorkBetter/" target="_blank" rel="noopener">站内检索页</a>。</p>
+</section>
+
+<h2 class="sec reveal">方法论：每条建议怎么读</h2>
+<p class="secsub reveal">仓库里每条建议由五部分组成：标题（建议本身，能直接照做）、说人话（一句话结论加一个能核对的数字）、为什么（背后的规则、账或机制）、来源（官方统计、法规原文、学术论文与权威报告）、限制与争议（什么情况下不成立）。本站沿用其中三个核心标注。</p>
+<div class="tblwrap reveal"><table>
+<tr><th>成本（钱）</th><td>做这条要额外花的现金。0 是不花自己的钱；少是几十块以内；中及以上是上百到上千，如报名费、考证费、体检费、差旅、律师费。</td></tr>
+<tr><th>成本（时间）</th><td>一次性要搭进去的时间。少是半天以内或顺手就做；中是几个整天；多是要按周、按月往里投。</td></tr>
+<tr><th>成本（精力）</th><td>占用的注意力、体力和耐受力。低是顺手就做；中是要占一整块精力；高是要持续消耗。需要长期坚持的条目会把精力标高一档，第四样资源是毅力。</td></tr>
+</table></div>
+<div class="tblwrap reveal"><table>
+<tr><th>收益口径</th><td>收入（现金或能折成钱的待遇）、职业寿命（这份能干多久、还有没有空间）、职业自由（选择权和脱身能力）、时间精力（把每天的时间或注意力要回来）。全书带各口径的条目数：收入 248、职业寿命 233、职业自由 154、时间精力 110，一条可同时算两类。</td></tr>
+</table></div>
+<div class="tblwrap reveal"><table>
+<tr><th>证据 A</th><td>有具体数字可查，出处是官方统计（国家统计局、人社部、最高法、卫健委等）、法规原文或权威机构研究报告，能说出数字和口径。全书 212 条。</td></tr>
+<tr><th>证据 B</th><td>有间接支撑，或只有单一项来源，说不出一个确切的数字。全书 206 条。</td></tr>
+<tr><th>证据 C</th><td>经验做法，没有直接的数据或文献支撑，来源栏写「无」。全书 36 条。</td></tr>
+</table></div>
+<div class="tblwrap reveal"><table>
+<tr><th>性价比档</th><td>证据等级只回答数字可不可信，性价比档回答值不值得做：极高（成本接近零、收益大）195 条；高（收益大，或收益中等而成本极低）174 条；一般（有条件再做，或需要长期投入）85 条。「一般」不等于不该做，只是要自己掂量那笔花销值不值。</td></tr>
+</table></div>
+
+<h2 class="sec reveal">职业生命周期总览</h2>
+<p class="secsub reveal">全书 454 条按职业阶段排成一条线：不用从第 1 章读到第 51 章，直接跳到你现在所在的那一步。</p>
+<div class="card reveal"><div class="timeline">
+<div class="tl-item"><div class="tl-tag">阶段一</div><h3>还没入行：选对赛道</h3><p>选错要用几年去纠正。行业、公司、城市、前中后台、体制内外怎么选，以及择业反面清单。</p><a href="pages/jobhunt.html">看求职与谈薪</a></div>
+<div class="tl-item"><div class="tl-tag">阶段二</div><h3>拿到 offer：把条件谈清楚</h3><p>掌握市场价再报价，按年度总包折算，谈成的东西写进 offer 或劳动合同。</p><a href="pages/jobhunt.html">看谈薪要点</a></div>
+<div class="tl-item"><div class="tl-tag">阶段三</div><h3>入职前 90 天：活下来</h3><p>确认职责与考核标准、一个月内拿到书面合同、每周留业绩记录、按节点对焦转正条件。</p><a href="pages/onboard.html">看入职与社保</a></div>
+<div class="tl-item"><div class="tl-tag">阶段四</div><h3>站稳的 1 到 3 年：效率与晋升</h3><p>减少内耗、高效工作、向上管理、横向协作，把晋升往前推，让别人知道你厉害。</p><a href="pages/growth.html">看成长与礼仪</a></div>
+<div class="tl-item"><div class="tl-tag">阶段五</div><h3>遇到风险：被裁、想跳、被欺负</h3><p>先算清 N、N+1 还是 2N，把证据留好，选对受理渠道和时效，把该拿的拿回来。</p><a href="pages/crisis.html">看被裁与维权</a></div>
+<div class="tl-item"><div class="tl-tag">阶段六</div><h3>长期与兜底：技能、健康、合同</h3><p>技能投资、35 岁危机、职业转型、职场健康、劳动合同与证据保留，把身体和自由度守住。</p><a href="pages/rights.html">看健康与合同</a></div>
+</div></div>
+
+<h2 class="sec reveal">全部板块导航</h2>
+<p class="secsub reveal">7 个板块 51 章的完整地图，加粗的五站是本站的五个内容子页。</p>
+<div class="blocknav reveal">
+<div class="card">
+<h3><span class="blknum">板块一</span>选对赛道（第 1 到 8 章，66 条）</h3>
+<p>还没入行：选错要用几年去纠正。覆盖行业选择、公司选择、企业文化、城市选择、前中后台、大小公司、体制内外与择业反面清单。</p>
+<div class="chapters"><span>01 行业选择</span><span>02 公司选择</span><span>03 企业文化</span><span>04 城市选择</span><span>05 前中后台</span><span>06 大公司vs小公司</span><span>07 体制内vs体制外</span><span>08 择业反面清单</span></div>
+<p style="margin-top:8px">本站对应：<a href="pages/jobhunt.html">求职与谈薪</a></p>
+</div>
+<div class="card">
+<h3><span class="blknum">板块二</span>拿更多钱（第 9 到 16 章，77 条）</h3>
+<p>入职前后：把薪资、社保、奖金和离职补偿的账算清楚。覆盖谈薪、社保公积金、福利补贴、年终奖绩效、被裁拿最多、跳槽涨薪、副业兼职、个税发票。</p>
+<div class="chapters"><span>09 谈薪</span><span>10 社保公积金</span><span>11 福利与补贴</span><span>12 年终奖与绩效</span><span>13 被裁了怎么拿最多</span><span>14 跳槽涨薪</span><span>15 副业与兼职</span><span>16 个税与发票</span></div>
+<p style="margin-top:8px">本站对应：<a href="pages/jobhunt.html">求职与谈薪</a>、<a href="pages/onboard.html">入职与社保</a>、<a href="pages/crisis.html">被裁与维权</a></p>
+</div>
+<div class="card">
+<h3><span class="blknum">板块三</span>效率与精力（第 17 到 23 章，61 条）</h3>
+<p>日常干活：少消耗、少扯皮、少内耗。覆盖减少内耗、高效工作法、向上管理、横向协作、职场沟通、会议管理、工具与自动化。</p>
+<div class="chapters"><span>17 减少内耗</span><span>18 高效工作法</span><span>19 向上管理</span><span>20 横向协作</span><span>21 职场沟通</span><span>22 会议管理</span><span>23 工具与自动化</span></div>
+</div>
+<div class="card">
+<h3><span class="blknum">板块四</span>生存与晋升（第 24 到 31、51 章，68 条）</h3>
+<p>站稳往上走：关系、政治、情绪、带团队。覆盖人际交往、晋升、个人品牌、职场政治、反PUA与霸凌、情绪管理、新人生存法则、中层生存法则、商务宴请与职场礼仪。</p>
+<div class="chapters"><span>24 职场人际交往</span><span>25 职场晋升</span><span>26 个人品牌</span><span>27 职场政治</span><span>28 反PUA与职场霸凌</span><span>29 情绪管理</span><span>30 新人生存法则</span><span>31 中层生存法则</span><span>51 商务宴请与职场礼仪</span></div>
+<p style="margin-top:8px">本站对应：<a href="pages/growth.html">成长与礼仪</a></p>
+</div>
+<div class="card">
+<h3><span class="blknum">板块五</span>前中后台分轨（第 32 到 34 章，26 条）</h3>
+<p>按岗位分轨：前台（销售市场商务）、中台（产品技术运营）、后台（HR财务法务行政）各自的金科玉律，把业绩和动作变成可核对的数字。</p>
+<div class="chapters"><span>32 前台金科玉律</span><span>33 中台金科玉律</span><span>34 后台金科玉律</span></div>
+</div>
+<div class="card">
+<h3><span class="blknum">板块六</span>职业寿命与转型（第 35 到 40 章，54 条）</h3>
+<p>长期账：技能、年龄、健康、第二曲线。覆盖技能投资、35 岁危机、职业转型、专家vs管理、职场健康、第二曲线。</p>
+<div class="chapters"><span>35 技能投资</span><span>36 35岁危机</span><span>37 职业转型</span><span>38 专家vs管理</span><span>39 职场健康</span><span>40 第二曲线</span></div>
+<p style="margin-top:8px">本站对应：<a href="pages/growth.html">成长与礼仪</a>、<a href="pages/rights.html">健康与合同</a></p>
+</div>
+<div class="card">
+<h3><span class="blknum">板块七</span>法律与关键节点（第 41 到 50 章，82 条）</h3>
+<p>合同、红线、维权、入职离职、工伤、退休。覆盖劳动合同、法律红线、职场维权、竞业限制、入职90天、跳槽操作、离职、工伤职业病、退休规划、职场反面清单。</p>
+<div class="chapters"><span>41 劳动合同</span><span>42 法律红线</span><span>43 职场维权</span><span>44 竞业限制</span><span>45 入职90天</span><span>46 跳槽操作</span><span>47 离职</span><span>48 工伤职业病</span><span>49 退休规划</span><span>50 职场反面清单</span></div>
+<p style="margin-top:8px">本站对应：<a href="pages/crisis.html">被裁与维权</a>、<a href="pages/rights.html">健康与合同</a>、<a href="pages/onboard.html">入职与社保</a></p>
+</div>
+</div>
+</main>
+
+<footer><div class="wrap">
+<p>内容提炼自开源项目 <a href="https://github.com/NiceCao/HowToWorkBetter" target="_blank" rel="noopener">NiceCao/HowToWorkBetter（高性价比工作指南）</a>，正文以 CC BY 4.0 许可发布。</p>
+<p>所有内容仅供参考，不构成法律、医疗、投资建议；金额、时限、比例以当地主管部门最新规定为准。遇到具体纠纷请咨询专业人士，或拨打 12333（人社）、12348（法律援助）。</p>
+<p>本站为静态只读页面，无构建依赖、无外链资源、无图片。</p>
+</div></footer>
+
+<script>(function(){var b=document.getElementById('themeToggle');if(!b)return;function up(){b.textContent=document.documentElement.getAttribute('data-theme')==='dark'?'☀ 亮色':'☾ 暗色'}up();b.addEventListener('click',function(){var d=document.documentElement.getAttribute('data-theme')==='dark'?'light':'dark';document.documentElement.setAttribute('data-theme',d);try{localStorage.setItem('theme',d)}catch(e){}up()})})();</script>
+<script>
+(function(){
+var rm=window.matchMedia&&window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+var els=document.querySelectorAll('.reveal');
+if(rm||!('IntersectionObserver' in window)){for(var i=0;i<els.length;i++){els[i].classList.add('in')}return}
+var io=new IntersectionObserver(function(entries){entries.forEach(function(en){if(en.isIntersecting){en.target.classList.add('in');io.unobserve(en.target)}})},{threshold:0.06});
+for(var j=0;j<els.length;j++){io.observe(els[j])}
+})();
+</script>
+</body>
+</html>

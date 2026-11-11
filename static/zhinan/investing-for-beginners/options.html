@@ -1,0 +1,223 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>期权进阶 · 核心概念与框架 | 投资入门导读站</title>
+<script>
+document.documentElement.classList.add('js');
+(function(){var t=null;try{t=localStorage.getItem('theme');}catch(e){}
+if(t!=='light'&&t!=='dark'){var h=new Date().getHours();t=(h>=7&&h<17)?'light':'dark';}
+document.documentElement.setAttribute('data-theme',t);})();
+</script>
+<style>
+:root{
+  color-scheme:light;
+  --bg:#eef1f5; --bg2:#e3e8ef; --panel:#f7f9fc; --panel2:#fdfefe;
+  --line:#c8d1dd; --line2:#aeb9c8;
+  --txt:#1c2534; --muted:#46536a; --faint:#5b6880;
+  --amber:#8a5a00; --amber2:#6f4800; --amber-dim:rgba(138,90,0,.09); --amber-line:rgba(138,90,0,.45);
+  --amber-ink:#ffffff; --navbg:rgba(238,241,245,.92);
+  --mono:ui-monospace,"SF Mono",Consolas,"Courier New",monospace;
+  --sans:system-ui,-apple-system,"Segoe UI","PingFang SC","Microsoft YaHei",sans-serif;
+  --r:14px;
+}
+[data-theme="dark"]{
+  color-scheme:dark;
+  --bg:#060b16; --bg2:#0a1322; --panel:#0d1728; --panel2:#101d33;
+  --line:#1d2c47; --line2:#2a4166;
+  --txt:#d9e2f0; --muted:#8b9cb5; --faint:#5f7290;
+  --amber:#f2b233; --amber2:#ffd070; --amber-dim:rgba(242,178,51,.10); --amber-line:rgba(242,178,51,.38);
+  --amber-ink:#0a1322; --navbg:rgba(6,11,22,.93);
+}
+*{box-sizing:border-box;margin:0;padding:0}
+body{background:var(--bg);color:var(--txt);font-family:var(--sans);line-height:1.75;font-size:16px}
+a{color:var(--amber);text-decoration:none}
+a:hover{text-decoration:underline}
+.wrap{max-width:1080px;margin:0 auto;padding:0 22px}
+.topline{border-bottom:1px solid var(--line);background:var(--bg2);font-family:var(--mono);font-size:12px;color:var(--faint)}
+.topline .wrap{display:flex;justify-content:space-between;gap:12px;padding-top:7px;padding-bottom:7px;flex-wrap:wrap}
+.topline b{color:var(--amber);font-weight:600}
+nav.mainnav{position:sticky;top:0;z-index:50;background:var(--navbg);backdrop-filter:blur(8px);border-bottom:1px solid var(--line)}
+.mainnav .wrap{display:flex;align-items:center;gap:4px;height:56px;overflow-x:auto;white-space:nowrap}
+.brand{font-family:var(--mono);font-weight:700;color:var(--txt);margin-right:14px;letter-spacing:.5px;font-size:15px}
+.brand b{color:var(--amber)}
+.mainnav a.nl{padding:7px 13px;border-radius:9px;color:var(--muted);font-size:14.5px;border:1px solid transparent;flex:none}
+.mainnav a.nl:hover{color:var(--amber2);text-decoration:none;background:var(--amber-dim)}
+.mainnav a.nl.on{color:var(--amber);border-color:var(--amber-line);background:var(--amber-dim)}
+.mainnav a.git{border:1px solid var(--line2);font-family:var(--mono);font-size:13px}
+.mainnav .tbtn{margin-left:auto;border:1px solid var(--line2);font-family:var(--mono);font-size:13px;color:var(--muted);background:transparent;cursor:pointer;flex:none;padding:7px 13px;border-radius:9px}
+.mainnav .tbtn:hover{color:var(--amber2);border-color:var(--amber-line);background:var(--amber-dim)}
+.mainnav .tbtn:focus-visible{outline:2px solid var(--amber);outline-offset:2px}
+header.hero{padding:52px 0 20px}
+.kicker{font-family:var(--mono);font-size:13px;color:var(--amber);letter-spacing:2px}
+h1{font-size:clamp(27px,4.4vw,38px);line-height:1.25;margin:12px 0 14px;font-weight:800}
+h1 .accent{color:var(--amber)}
+.lead{color:var(--muted);font-size:16px;max-width:66ch}
+.notice{margin:26px 0;border:1px dashed var(--amber-line);background:var(--amber-dim);border-radius:12px;padding:14px 18px;font-size:14px;color:var(--amber2);max-width:820px}
+.notice .nlabel{font-family:var(--mono);font-size:11px;letter-spacing:1.5px;display:block;margin-bottom:5px;color:var(--amber)}
+h2.sec{display:flex;align-items:center;gap:12px;margin:52px 0 8px;font-size:20px;font-weight:800}
+.secno{font-family:var(--mono);color:var(--amber);font-size:12.5px;border:1px solid var(--amber-line);border-radius:7px;padding:3px 9px;background:var(--amber-dim);letter-spacing:1px;flex:none}
+.secsub{color:var(--faint);font-size:13.5px;margin-bottom:20px;font-family:var(--mono)}
+.grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(310px,1fr));gap:16px}
+.card{background:linear-gradient(180deg,var(--panel2),var(--panel));border:1px solid var(--line);border-radius:var(--r);padding:19px 19px 17px;transition:border-color .25s}
+.card:hover{border-color:var(--amber-line)}
+.thead{display:flex;align-items:center;gap:10px;flex-wrap:wrap}
+.tcode{font-family:var(--mono);font-size:10.5px;color:var(--amber);border:1px solid var(--amber-line);background:var(--amber-dim);padding:2px 7px;border-radius:6px;letter-spacing:.5px;flex:none}
+.tname{font-size:16px;font-weight:700}
+.ten{font-family:var(--mono);font-size:11.5px;color:var(--faint);margin-top:2px}
+.card p{margin-top:9px;font-size:14px;color:var(--muted);line-height:1.8}
+.card p b{color:var(--txt);font-weight:600}
+footer{margin-top:70px;border-top:1px solid var(--line);background:var(--bg2)}
+footer .wrap{padding:30px 22px;display:flex;flex-wrap:wrap;gap:16px;justify-content:space-between;align-items:flex-start;font-size:13.5px;color:var(--faint)}
+footer .fmono{font-family:var(--mono);font-size:12px}
+footer a{color:var(--muted)}
+footer .fdisc{max-width:520px}
+footer .fdisc strong{color:var(--amber);font-weight:600}
+.backlink{display:inline-block;margin-top:20px;font-family:var(--mono);font-size:13px;color:var(--muted)}
+.backlink:hover{color:var(--amber)}
+@media (max-width:480px){
+  .wrap{padding:0 16px}
+  .mainnav .wrap{gap:2px}
+  .mainnav{scrollbar-width:thin}
+  .grid{grid-template-columns:1fr}
+}
+@media (prefers-reduced-motion: no-preference){
+  html{scroll-behavior:smooth}
+  html.js .reveal{opacity:0;transform:translateY(14px);transition:opacity .6s ease,transform .6s ease}
+  html.js .reveal.in{opacity:1;transform:none}
+  .card{transition:border-color .25s}
+}
+</style>
+<noscript><style>.reveal{opacity:1 !important;transform:none !important}</style></noscript></head>
+<body><div style="position:fixed;left:14px;bottom:14px;z-index:99;"><a href="../index.html" style="display:inline-block;padding:7px 16px;border-radius:999px;background:rgba(20,20,20,.72);color:#fff;font-size:13px;text-decoration:none;backdrop-filter:blur(4px);font-family:system-ui,sans-serif;" onmouseover="this.style.background='rgba(20,20,20,.9)'" onmouseout="this.style.background='rgba(20,20,20,.72)'">&#8592; 总门户</a></div>
+<div class="topline"><div class="wrap"><span>IFB://MODULE/OPTIONS &nbsp;<b>DERIVATIVES</b></span><span>TERM CARDS: <b>23</b></span><span>MULT: <b>100</b></span></div></div>
+<nav class="mainnav"><div class="wrap">
+  <span class="brand">IFB<b>::导读站</b></span>
+  <a class="nl" href="index.html">首页</a>
+  <a class="nl" href="stocks.html">美股入门</a>
+  <a class="nl on" href="options.html" aria-current="page">期权进阶</a>
+  <a class="nl" href="crypto.html">加密货币</a>
+  <a class="nl" href="path.html">学习路径</a>
+  <a class="nl git" href="https://github.com/xuchonglang/investing-for-beginners" target="_blank" rel="noopener">GitHub ↗</a>
+  <button class="tbtn" id="themeToggle" type="button">主题</button>
+</div></nav>
+
+<header class="hero"><div class="wrap">
+  <p class="kicker">MODULE 02 · OPTIONS</p>
+  <h1>期权进阶：<span class="accent">核心概念与框架</span></h1>
+  <p class="lead">期权模块覆盖 Call / Put、期权链、希腊字母、波动率与策略风险。仓库反复强调一件事：期权价格不只由涨跌方向决定，还受剩余时间、隐含波动率、利率、分红和流动性影响，方向看对仍然亏钱是常态。以下 23 张术语卡片按四个层次展开，每张对应仓库 content/options 下的真实词条。</p>
+  <div class="notice"><span class="nlabel">RISK · DISCLAIMER</span>本页内容仅供学习交流，不构成投资建议。期权具有高风险，卖方策略的尾部亏损可能远超收取的权利金。</div>
+</div></header>
+
+<main><div class="wrap">
+
+  <h2 class="sec reveal"><span class="secno">A</span>基础构件</h2>
+  <p class="secsub reveal">BUILDING BLOCKS · 一张期权合约由什么组成</p>
+  <div class="grid">
+    <div class="card reveal"><div class="thead"><span class="tcode">OPT-01</span><span class="tname">Call 与 Put</span></div><div class="ten">Calls and Puts</div>
+      <p>期权是在约定时间、按约定价格买卖标的资产的<b>权利</b>。Call（看涨期权）给买方按行权价买入标的的权利；Put（看跌期权）给卖出权利。买方支付权利金获得选择权，最大损失通常是权利金；卖方收取权利金，同时承担履约义务，裸卖策略风险可能很大。</p></div>
+    <div class="card reveal"><div class="thead"><span class="tcode">OPT-02</span><span class="tname">行权价</span></div><div class="ten">Strike Price</div>
+      <p>合约约定的买卖价格，是判断期权价值的核心参照点。标的价格相对行权价的位置决定了实值、平值还是虚值，也决定了策略的盈亏平衡区间。</p></div>
+    <div class="card reveal"><div class="thead"><span class="tcode">OPT-03</span><span class="tname">到期日</span></div><div class="ten">Expiration Date</div>
+      <p>权利失效的日期。到期日决定了时间价值的衰减节奏和策略的时间窗口，持券过到期日前需要明确处理计划：平仓、行权还是任其归零。</p></div>
+    <div class="card reveal"><div class="thead"><span class="tcode">OPT-04</span><span class="tname">权利金与合约乘数</span></div><div class="ten">Premium / Contract Multiplier</div>
+      <p>权利金是买方支付、卖方收取的期权价格，由内在价值加时间价值组成。美股标准股票期权一张对应 <b>100 股</b>：报价 2.50 美元的合约实际花费 2.50 × 100 = 250 美元，新手最容易在这里算错仓位大小。</p></div>
+    <div class="card reveal"><div class="thead"><span class="tcode">OPT-05</span><span class="tname">内在价值与时间价值</span></div><div class="ten">Intrinsic / Time Value</div>
+      <p>内在价值是立刻行权能拿到的价值；时间价值是市场为"未来仍有变数"支付的溢价。随着到期日接近，时间价值逐步衰减到零，这是期权定价的骨架。</p></div>
+    <div class="card reveal"><div class="thead"><span class="tcode">OPT-06</span><span class="tname">实值、平值、虚值</span></div><div class="ten">Moneyness (ITM / ATM / OTM)</div>
+      <p>按标的价格与行权价的关系划分。实值期权有内在价值，虚值期权的价格全部是时间价值。不同虚实值区间的希腊值分布差异很大，风险特征完全不同。</p></div>
+    <div class="card reveal"><div class="thead"><span class="tcode">OPT-07</span><span class="tname">期权链</span></div><div class="ten">Option Chain</div>
+      <p>按到期日和行权价排列的全部合约报价表，是观察价格、买卖价差、成交量、未平仓量和隐含波动率结构的主要界面。下单前的核对清单（方向、腿数、行权价、到期日）都在期权链上完成。</p></div>
+  </div>
+
+  <h2 class="sec reveal"><span class="secno">B</span>希腊字母与波动率</h2>
+  <p class="secsub reveal">GREEKS · VOLATILITY · 期权风险的度量衡</p>
+  <div class="grid">
+    <div class="card reveal"><div class="thead"><span class="tcode">OPT-08</span><span class="tname">Delta</span></div><div class="ten">Delta</div>
+      <p>标的每变动 1 美元时期权价格的近似变化量：Delta 0.50 的 Call 在标的上涨 1 美元时约涨 0.50 美元。Call 的 Delta 在 0 到 1 之间，Put 在 -1 到 0 之间。Delta 越接近 1，价格表现越像正股，它也常被用作方向敞口的度量。</p></div>
+    <div class="card reveal"><div class="thead"><span class="tcode">OPT-09</span><span class="tname">Gamma</span></div><div class="ten">Gamma</div>
+      <p>Delta 本身随标的变化的速度：如果 Delta 是速度，Gamma 就是加速度。平值且临近到期的合约 Gamma 最高，标的小幅移动就可能让仓位方向敞口快速变化，这是短期期权弹性大、风险也集中的原因。</p></div>
+    <div class="card reveal"><div class="thead"><span class="tcode">OPT-10</span><span class="tname">Theta</span></div><div class="ten">Theta</div>
+      <p>时间流逝每天带走多少价值。买方通常承受负 Theta，卖方收取正 Theta 但承担方向、波动率和尾部风险。衰减并不匀速：临近到期时，尤其平值合约，时间损耗通常加快。</p></div>
+    <div class="card reveal"><div class="thead"><span class="tcode">OPT-11</span><span class="tname">Vega</span></div><div class="ten">Vega</div>
+      <p>隐含波动率变化 1 个百分点时期权价值的变化。事件前买入的高 Vega 合约，即使方向看对，事件后 IV 回落也会直接侵蚀利润，Vega 是事件交易里最容易被忽视的敞口。</p></div>
+    <div class="card reveal"><div class="thead"><span class="tcode">OPT-12</span><span class="tname">隐含波动率</span></div><div class="ten">Implied Volatility (IV)</div>
+      <p>从当前期权价格<b>反推</b>出的市场对未来波动的预期，不预测方向。IV 高低要结合该标的自身历史区间、财报等事件日历、合约期限和流动性判断，不能直接决定买卖。历史波动率看过去，IV 看预期。</p></div>
+    <div class="card reveal"><div class="thead"><span class="tcode">OPT-13</span><span class="tname">IV Crush</span></div><div class="ten">IV Crush</div>
+      <p>财报等重大事件落地后，隐含波动率快速回落的现象。事件前买期权的人在方向正确时仍可能亏损，因为标的移动的幅度不足以抵消 IV 回落和时间衰减，这是"方向看对仍亏钱"的最常见原因。</p></div>
+    <div class="card reveal"><div class="thead"><span class="tcode">OPT-14</span><span class="tname">波动率偏斜</span></div><div class="ten">Volatility Skew</div>
+      <p>不同行权价的隐含波动率并不在同一水平，通常虚值 Put 的 IV 更高，反映市场对下行保护的需求更强。偏斜会影响同行权价策略的定价，仓库建议选行权价时把偏斜纳入考量。</p></div>
+  </div>
+
+  <h2 class="sec reveal"><span class="secno">C</span>常用策略</h2>
+  <p class="secsub reveal">STRATEGIES · 先理解结构，再谈收益</p>
+  <div class="grid">
+    <div class="card reveal"><div class="thead"><span class="tcode">OPT-15</span><span class="tname">备兑开仓</span></div><div class="ten">Covered Call</div>
+      <p>持有正股的同时卖出 Call 收取权利金，牺牲行权价以上的上涨空间换取现金流。适合本来就愿意在行权价卖出的持仓者；执行价选择与滚仓节奏是仓库里专门的词条。</p></div>
+    <div class="card reveal"><div class="thead"><span class="tcode">OPT-16</span><span class="tname">保护性 Put</span></div><div class="ten">Protective Put</div>
+      <p>买入 Put 为持仓设置近似的价格底线，代价是持续支付的权利金，性质类似给持仓买保险。成本控制是关键：保险买太贵，长期会显著拖累收益。</p></div>
+    <div class="card reveal"><div class="thead"><span class="tcode">OPT-17</span><span class="tname">现金担保卖 Put</span></div><div class="ten">Cash-Secured Put</div>
+      <p>备足按行权价接货的全额现金再卖出 Put：被指派就接货，未被指派就留下权利金。真实收益率要按占用的全部现金计算，而不是只看权利金绝对值。</p></div>
+    <div class="card reveal"><div class="thead"><span class="tcode">OPT-18</span><span class="tname">垂直价差</span></div><div class="ten">Vertical Spread</div>
+      <p>同一到期日、不同行权价的两腿组合：借方价差支付净权利金，信用价差收取净权利金。盈亏都被封顶，最大亏损可预先算清，是控制风险的入门级多腿结构。</p></div>
+    <div class="card reveal"><div class="thead"><span class="tcode">OPT-19</span><span class="tname">铁鹰策略</span></div><div class="ten">Iron Condor</div>
+      <p>同时卖出虚值 Call 价差和虚值 Put 价差的四腿策略，在区间震荡中赚取时间价值。代价是两侧尾部风险、监控成本和较复杂的调整决策，仓库专门有亏损调整与翼宽选择的词条。</p></div>
+    <div class="card reveal"><div class="thead"><span class="tcode">OPT-20</span><span class="tname">买入跨式</span></div><div class="ten">Long Straddle</div>
+      <p>同一行权价同时买入 Call 和 Put，赌标的大幅波动但方向未知。成本高，怕的是波动不来：时间衰减和 IV 回落会同时侵蚀两腿价值。</p></div>
+  </div>
+
+  <h2 class="sec reveal"><span class="secno">D</span>交易机制与风险</h2>
+  <p class="secsub reveal">MECHANICS · RISK · 行权、指派与末日合约</p>
+  <div class="grid">
+    <div class="card reveal"><div class="thead"><span class="tcode">OPT-21</span><span class="tname">行权与指派</span></div><div class="ten">Exercise / Assignment</div>
+      <p>买方行权时，卖方被指派履行合约义务。美式期权可能被提前行权，除息日前深实值 Call、利率环境下的深实值 Put 都容易出现意外指派，裸卖空头要始终预留接货或交割的计划。</p></div>
+    <div class="card reveal"><div class="thead"><span class="tcode">OPT-22</span><span class="tname">0DTE 期权</span></div><div class="ten">0DTE Options</div>
+      <p>到期日当天交易的期权：Gamma 和 Theta 都趋于极端，权利金极低，但归零和数倍亏损都可能在几分钟内发生。仓库专门有风险限制清单词条，强调仓位上限与硬性止损，而非临场判断。</p></div>
+    <div class="card reveal"><div class="thead"><span class="tcode">OPT-23</span><span class="tname">成交量与未平仓量</span></div><div class="ten">Volume vs Open Interest</div>
+      <p>成交量是当日成交的合约数，未平仓量是尚未平仓的存量合约。退出大仓位时，未平仓量比当日成交量更能代表合约的持续流动性；窄价差加高未平仓量才是好退出的组合。</p></div>
+  </div>
+
+  <a class="backlink" href="stocks.html">← 上一模块：美股入门</a>&nbsp;&nbsp;<a class="backlink" href="crypto.html">下一模块：加密货币 →</a>&nbsp;&nbsp;<a class="backlink" href="index.html">返回首页</a>
+  <p style="color:var(--faint);font-size:13px;margin-top:22px;font-family:var(--mono)">TIP: 完整期权词条（350+，含 Black-Scholes、Put-Call Parity、税务、保证金与数十种策略组合）见仓库 content/options 目录。</p>
+</div></main>
+
+<footer><div class="wrap">
+  <div class="fdisc">
+    <div class="fmono" style="color:var(--amber)">IFB::DISCLAIMER</div>
+    <p style="margin-top:6px">本页为开源仓库 <a href="https://github.com/xuchonglang/investing-for-beginners" target="_blank" rel="noopener">xuchonglang/investing-for-beginners</a> 的非官方静态导读，内容据仓库词条整理概括。仅供学习，不构成投资建议。</p>
+  </div>
+  <div class="fmono">MODULE: OPTIONS<br>SRC: content/options/*<br>PAGE: options.html</div>
+</div></footer>
+
+<script>
+(function(){
+  var reduce = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  if (reduce || !('IntersectionObserver' in window)) return;
+  var els = document.querySelectorAll('.reveal');
+  var io = new IntersectionObserver(function(entries){
+    entries.forEach(function(e){
+      if (e.isIntersecting) { e.target.classList.add('in'); io.unobserve(e.target); }
+    });
+  }, {threshold: 0.08, rootMargin: '0px 0px -30px 0px'});
+  els.forEach(function(el){ io.observe(el); });
+})();
+(function(){
+  var btn=document.getElementById('themeToggle');
+  if(!btn)return;
+  function label(){
+    var d=document.documentElement.getAttribute('data-theme')==='dark';
+    btn.textContent=d?'☀ 浅色':'☾ 深色';
+    btn.setAttribute('aria-label',d?'切换到浅色主题':'切换到深色主题');
+  }
+  label();
+  btn.addEventListener('click',function(){
+    var t=document.documentElement.getAttribute('data-theme')==='dark'?'light':'dark';
+    document.documentElement.setAttribute('data-theme',t);
+    try{localStorage.setItem('theme',t);}catch(e){}
+    label();
+  });
+})();
+</script>
+</body>
+</html>

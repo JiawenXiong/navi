@@ -1,0 +1,291 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>学习路径与风险管理 | 投资入门导读站</title>
+<script>
+document.documentElement.classList.add('js');
+(function(){var t=null;try{t=localStorage.getItem('theme');}catch(e){}
+if(t!=='light'&&t!=='dark'){var h=new Date().getHours();t=(h>=7&&h<17)?'light':'dark';}
+document.documentElement.setAttribute('data-theme',t);})();
+</script>
+<style>
+:root{
+  color-scheme:light;
+  --bg:#eef1f5; --bg2:#e3e8ef; --panel:#f7f9fc; --panel2:#fdfefe;
+  --line:#c8d1dd; --line2:#aeb9c8;
+  --txt:#1c2534; --muted:#46536a; --faint:#5b6880;
+  --amber:#8a5a00; --amber2:#6f4800; --amber-dim:rgba(138,90,0,.09); --amber-line:rgba(138,90,0,.45);
+  --amber-ink:#ffffff; --navbg:rgba(238,241,245,.92);
+  --mono:ui-monospace,"SF Mono",Consolas,"Courier New",monospace;
+  --sans:system-ui,-apple-system,"Segoe UI","PingFang SC","Microsoft YaHei",sans-serif;
+  --r:14px;
+}
+[data-theme="dark"]{
+  color-scheme:dark;
+  --bg:#060b16; --bg2:#0a1322; --panel:#0d1728; --panel2:#101d33;
+  --line:#1d2c47; --line2:#2a4166;
+  --txt:#d9e2f0; --muted:#8b9cb5; --faint:#5f7290;
+  --amber:#f2b233; --amber2:#ffd070; --amber-dim:rgba(242,178,51,.10); --amber-line:rgba(242,178,51,.38);
+  --amber-ink:#0a1322; --navbg:rgba(6,11,22,.93);
+}
+*{box-sizing:border-box;margin:0;padding:0}
+body{background:var(--bg);color:var(--txt);font-family:var(--sans);line-height:1.75;font-size:16px}
+a{color:var(--amber);text-decoration:none}
+a:hover{text-decoration:underline}
+.wrap{max-width:1080px;margin:0 auto;padding:0 22px}
+.topline{border-bottom:1px solid var(--line);background:var(--bg2);font-family:var(--mono);font-size:12px;color:var(--faint)}
+.topline .wrap{display:flex;justify-content:space-between;gap:12px;padding-top:7px;padding-bottom:7px;flex-wrap:wrap}
+.topline b{color:var(--amber);font-weight:600}
+nav.mainnav{position:sticky;top:0;z-index:50;background:var(--navbg);backdrop-filter:blur(8px);border-bottom:1px solid var(--line)}
+.mainnav .wrap{display:flex;align-items:center;gap:4px;height:56px;overflow-x:auto;white-space:nowrap}
+.brand{font-family:var(--mono);font-weight:700;color:var(--txt);margin-right:14px;letter-spacing:.5px;font-size:15px}
+.brand b{color:var(--amber)}
+.mainnav a.nl{padding:7px 13px;border-radius:9px;color:var(--muted);font-size:14.5px;border:1px solid transparent;flex:none}
+.mainnav a.nl:hover{color:var(--amber2);text-decoration:none;background:var(--amber-dim)}
+.mainnav a.nl.on{color:var(--amber);border-color:var(--amber-line);background:var(--amber-dim)}
+.mainnav a.git{border:1px solid var(--line2);font-family:var(--mono);font-size:13px}
+.mainnav .tbtn{margin-left:auto;border:1px solid var(--line2);font-family:var(--mono);font-size:13px;color:var(--muted);background:transparent;cursor:pointer;flex:none;padding:7px 13px;border-radius:9px}
+.mainnav .tbtn:hover{color:var(--amber2);border-color:var(--amber-line);background:var(--amber-dim)}
+.mainnav .tbtn:focus-visible{outline:2px solid var(--amber);outline-offset:2px}
+header.hero{padding:52px 0 20px}
+.kicker{font-family:var(--mono);font-size:13px;color:var(--amber);letter-spacing:2px}
+h1{font-size:clamp(27px,4.4vw,38px);line-height:1.25;margin:12px 0 14px;font-weight:800}
+h1 .accent{color:var(--amber)}
+.lead{color:var(--muted);font-size:16px;max-width:66ch}
+.notice{margin:26px 0;border:1px dashed var(--amber-line);background:var(--amber-dim);border-radius:12px;padding:14px 18px;font-size:14px;color:var(--amber2);max-width:820px}
+.notice .nlabel{font-family:var(--mono);font-size:11px;letter-spacing:1.5px;display:block;margin-bottom:5px;color:var(--amber)}
+h2.sec{display:flex;align-items:center;gap:12px;margin:52px 0 8px;font-size:20px;font-weight:800}
+.secno{font-family:var(--mono);color:var(--amber);font-size:12.5px;border:1px solid var(--amber-line);border-radius:7px;padding:3px 9px;background:var(--amber-dim);letter-spacing:1px;flex:none}
+.secsub{color:var(--faint);font-size:13.5px;margin-bottom:20px;font-family:var(--mono)}
+.steps{display:grid;gap:14px}
+.step{display:flex;gap:18px;background:linear-gradient(180deg,var(--panel2),var(--panel));border:1px solid var(--line);border-radius:var(--r);padding:20px 22px;align-items:flex-start}
+.step.wide{display:block}
+.snum{font-family:var(--mono);font-size:13.5px;color:var(--amber);border:1px solid var(--amber-line);background:var(--amber-dim);border-radius:9px;padding:5px 11px;flex:none;margin-top:3px;display:inline-block}
+.step h3{font-size:16.5px;margin-bottom:5px}
+.step.wide h3{margin-top:12px}
+.step.wide h3:first-of-type{margin-top:0}
+.step p{color:var(--muted);font-size:14.5px}
+.step p b{color:var(--txt)}
+.step .src{font-family:var(--mono);font-size:12px;color:var(--faint)}
+.chips{display:flex;flex-wrap:wrap;gap:8px;margin-top:10px}
+.chip{font-family:var(--mono);font-size:12px;color:var(--amber2);border:1px solid var(--line2);background:var(--panel);border-radius:8px;padding:4px 10px}
+.chip.bad{color:var(--faint);text-decoration:line-through;text-decoration-color:rgba(242,178,51,.5)}
+.quote{border-left:3px solid var(--amber);background:var(--panel);border-radius:0 12px 12px 0;padding:16px 20px;color:var(--muted);font-size:15px;margin:16px 0}
+.quote b{color:var(--txt)}
+.check{background:linear-gradient(180deg,var(--panel2),var(--panel));border:1px solid var(--line);border-radius:var(--r);padding:20px 22px}
+.check h3{font-size:16.5px;margin-bottom:8px;display:flex;align-items:center;gap:10px}
+.check .ck{font-family:var(--mono);font-size:11px;color:var(--amber);border:1px solid var(--amber-line);background:var(--amber-dim);border-radius:6px;padding:2px 8px;letter-spacing:1px}
+.check ul{list-style:none;padding:0}
+.check li{color:var(--muted);font-size:14.5px;padding:5px 0 5px 24px;position:relative}
+.check li::before{content:"✓";position:absolute;left:2px;color:var(--amber);font-family:var(--mono);font-size:13px}
+.grid2{display:grid;grid-template-columns:repeat(auto-fit,minmax(300px,1fr));gap:16px}
+footer{margin-top:70px;border-top:1px solid var(--line);background:var(--bg2)}
+footer .wrap{padding:30px 22px;display:flex;flex-wrap:wrap;gap:16px;justify-content:space-between;align-items:flex-start;font-size:13.5px;color:var(--faint)}
+footer .fmono{font-family:var(--mono);font-size:12px}
+footer a{color:var(--muted)}
+footer .fdisc{max-width:520px}
+footer .fdisc strong{color:var(--amber);font-weight:600}
+.backlink{display:inline-block;margin-top:20px;font-family:var(--mono);font-size:13px;color:var(--muted)}
+.backlink:hover{color:var(--amber)}
+@media (max-width:480px){
+  .wrap{padding:0 16px}
+  .mainnav .wrap{gap:2px}
+  .mainnav{scrollbar-width:thin}
+  .grid2{grid-template-columns:1fr}
+  .step{gap:12px;padding:18px 16px}
+}
+@media (prefers-reduced-motion: no-preference){
+  html{scroll-behavior:smooth}
+  html.js .reveal{opacity:0;transform:translateY(14px);transition:opacity .6s ease,transform .6s ease}
+  html.js .reveal.in{opacity:1;transform:none}
+}
+</style>
+<noscript><style>.reveal{opacity:1 !important;transform:none !important}</style></noscript></head>
+<body><div style="position:fixed;left:14px;bottom:14px;z-index:99;"><a href="../index.html" style="display:inline-block;padding:7px 16px;border-radius:999px;background:rgba(20,20,20,.72);color:#fff;font-size:13px;text-decoration:none;backdrop-filter:blur(4px);font-family:system-ui,sans-serif;" onmouseover="this.style.background='rgba(20,20,20,.9)'" onmouseout="this.style.background='rgba(20,20,20,.72)'">&#8592; 总门户</a></div>
+<div class="topline"><div class="wrap"><span>IFB://ROADMAP &nbsp;<b>LEARN + RISK</b></span><span>STAGES: <b>0-4</b></span><span>EXIT SIGNALS: <b>3</b></span></div></div>
+<nav class="mainnav"><div class="wrap">
+  <span class="brand">IFB<b>::导读站</b></span>
+  <a class="nl" href="index.html">首页</a>
+  <a class="nl" href="stocks.html">美股入门</a>
+  <a class="nl" href="options.html">期权进阶</a>
+  <a class="nl" href="crypto.html">加密货币</a>
+  <a class="nl on" href="path.html" aria-current="page">学习路径</a>
+  <a class="nl git" href="https://github.com/xuchonglang/investing-for-beginners" target="_blank" rel="noopener">GitHub ↗</a>
+  <button class="tbtn" id="themeToggle" type="button">主题</button>
+</div></nav>
+
+<header class="hero"><div class="wrap">
+  <p class="kicker">ROADMAP · RISK MANAGEMENT</p>
+  <h1>学习路径与<span class="accent">风险管理</span></h1>
+  <p class="lead">本页综合仓库 README 与《投资入门指南》长文，把散落的知识点串成一条路线：先建立心态预期，再按美股、期权、加密三个模块推进，同时始终绑定风险管理。指南作者的核心观点很朴素：投资的本质是耐心 + 概率游戏 + 仓位管理，只买便宜的，不加杠杆，不追高。</p>
+  <div class="notice"><span class="nlabel">RISK · DISCLAIMER</span>本页内容仅供学习交流，不构成投资建议。文中带有"指南作者观点"字样的内容均为仓库原文立场的转述，请独立判断。</div>
+</div></header>
+
+<main><div class="wrap">
+
+  <h2 class="sec reveal"><span class="secno">01</span>总框架：先配置，再概念，后纪律</h2>
+  <p class="secsub reveal">FRAMEWORK · 出自仓库 README</p>
+  <div class="steps">
+    <div class="step reveal"><span class="snum">STEP 1</span><div><h3>资产配置先行</h3><p>根据目标、期限和风险承受能力进行资产配置，把钱分为多份，各自有各自的用处。先明确这笔钱的用途和期限，再决定它承受多大的波动。</p></div></div>
+    <div class="step reveal"><span class="snum">STEP 2</span><div><h3>理解基础概念</h3><p>复利、分散、交易成本和风险边界：看懂订单类型、财报和估值，理解利率、通胀和美元如何影响资产价格，理解各类投资的基础概念。</p></div></div>
+    <div class="step reveal"><span class="snum">STEP 3</span><div><h3>长期纪律代替情绪</h3><p>用长期纪律代替情绪化追涨杀跌。外界信息会刺激心态，能找到可复现的框架并与外界信息"解离"，才可能长期盈利。</p></div></div>
+  </div>
+
+  <h2 class="sec reveal"><span class="secno">02</span>分阶段学习路径</h2>
+  <p class="secsub reveal">STAGES · 从心态到模块的推进顺序</p>
+  <div class="steps">
+    <div class="step wide reveal">
+      <span class="snum">STAGE 0</span>
+      <h3>心态建设：先知道自己在哪里</h3>
+      <p>指南作者用达克效应描述新手轨迹：从无知到<b>愚昧之巅</b>，跌入<b>绝望之谷</b>，再爬上开悟之坡。"我觉得我懂了"是最危险的心态，它让人在极端情况下梭哈全部身价。还没亏过大钱的人，要时刻提醒自己可能正站在山顶。另两条心态纪律：<b>不试图证明自己</b>，只对自己的投资结果负责；<b>拒绝 FOMO</b>，宁可错过，不要追高。作者的经验值：从零基础到形成稳定框架大约需要 3 年，至少经历一个牛市和一个熊市。</p>
+    </div>
+    <div class="step wide reveal">
+      <span class="snum">STAGE 1</span>
+      <h3>基础资产与美股框架</h3>
+      <p>补齐四类基础资产的理解：<b>法币、债券、股票、衍生品</b>。股票部分最重要的是看懂商业模式和财务数据，目标是能回答"这家公司值多少钱、未来会变好还是变坏"。配合 <a href="stocks.html">美股入门模块</a> 的交易规则、财报与估值词条推进，理解利率、收益率曲线和宏观数据如何传导到股价。</p>
+    </div>
+    <div class="step wide reveal">
+      <span class="snum">STAGE 2</span>
+      <h3>期权：先懂风险，再谈策略</h3>
+      <p>认识收益结构、时间损耗、波动率和最大亏损，明白"方向看对仍可能亏损"的原因（IV Crush 与时间衰减）。卖方策略要预留尾部风险预算，0DTE 等高 Gamma 合约需要硬性仓位上限。配合 <a href="options.html">期权进阶模块</a>。</p>
+    </div>
+    <div class="step wide reveal">
+      <span class="snum">STAGE 3</span>
+      <h3>加密货币：钱包安全是第一课</h3>
+      <p>先学私钥、助记词和授权安全，再碰交易；理解永续合约、资金费率和强平规则，识别授权钓鱼、地址投毒、Rug Pull 与代币解锁陷阱。配合 <a href="crypto.html">加密货币模块</a>。仓库的顺序建议暗含一个原则：在能自己保管资产之前，不把大额资金带上链。</p>
+    </div>
+    <div class="step wide reveal">
+      <span class="snum">STAGE 4</span>
+      <h3>复盘与迭代</h3>
+      <p>交易复盘（仓库有期权交易日志词条）+ 定期回看决策依据。所有股票都有周期，涨多了就会跌，跌多了就会涨；验证一个框架能否复用，必须经过完整周期的时间考验。</p>
+    </div>
+  </div>
+
+  <h2 class="sec reveal"><span class="secno">03</span>技术分析：概率工具，不是水晶球</h2>
+  <p class="secsub reveal">TA · 指南作者的流派清单（均为概率，不是确定信号）</p>
+  <div class="step wide reveal">
+    <p>指南作者总结其接触过的数百位交易员经验：技术分析都是<b>部分有用</b>，没有完全 100% 有用的，这不是数学题而是概率游戏，只能帮助提高胜率。</p>
+    <h3>作者认为部分有用的工具</h3>
+    <div class="chips">
+      <span class="chip">裸K线</span><span class="chip">形态学</span><span class="chip">均线</span><span class="chip">道氏理论</span><span class="chip">威克夫操盘法</span><span class="chip">动量</span><span class="chip">斐波那契</span><span class="chip">价格行为 PA</span><span class="chip">VWAP</span><span class="chip">筹码峰</span><span class="chip">流动性</span>
+    </div>
+    <h3>作者认为无法证伪、需要警惕的流派</h3>
+    <div class="chips">
+      <span class="chip bad">波浪理论</span><span class="chip bad">谐波</span><span class="chip bad">江恩技术分析</span>
+    </div>
+    <p style="margin-top:12px"><span class="src">理由：这类理论内部存在可无限自举的缺陷（如"千人千浪"），无法证伪即无法改进。</span></p>
+  </div>
+
+  <h2 class="sec reveal"><span class="secno">04</span>仓位管理与离场纪律</h2>
+  <p class="secsub reveal">SIZING · EXIT · 投资最难的两件事</p>
+  <div class="steps">
+    <div class="step wide reveal">
+      <span class="snum">CORE</span>
+      <h3>投资的本质：耐心 + 概率 + 仓位管理</h3>
+      <p>只在某种情况下出手，只在某种情况下离场，宁可不买，不盲目入场；一旦事情有变化，立即离场，不要恋战。两个流派本质上都是概率游戏：基本面赌商业世界的"大概率"，技术分析赌"市场这次还一样"。条件越确定、越少，才越值得上大仓位。</p>
+    </div>
+    <div class="step wide reveal">
+      <span class="snum">SPEC</span>
+      <h3>投资还是投机（指南作者观点）</h3>
+      <p>作者给出的参考界限：闲置资金较小的阶段，可以先投机感受市场，但要有外部现金流支撑，心态才不会变形；达到一定规模（作者以 10 万元人民币为例）后才谈"投资"，首要目标变成如何不亏钱。当一个股票你觉得可买可不买时，<b>那就不买</b>。</p>
+    </div>
+    <div class="step wide reveal">
+      <span class="snum">EXIT</span>
+      <h3>三个离场观察信号（指南作者观点）</h3>
+      <p><b>1 · 宝妈指数、健身教练指数：</b>当最远离市场的群体开始入场时，信息传导已近最后一棒，增量资金接近枯竭。<b>2 · 交易群体情绪亢奋：</b>社群里普遍亢奋、持仓高度集中、互相打气时，大概率临近回调。<b>3 · 短期翻倍警觉：</b>正常标的几个月内涨两倍以上时，早期建仓的机构随时可能获利了结，中段入场者尤其要警醒。"最好的故事套最多的人"，买得便宜比学会止损更重要。</p>
+    </div>
+    <div class="step wide reveal">
+      <span class="snum">FAST</span>
+      <h3>作者眼中的"捷径"：定投标普 500</h3>
+      <p>指南作者认为，几乎唯一可穿越周期的做法是定投标普 500 指数，一直投到寿命终结之前，且没有仓位大小限制；其他"捷径"要么上不了仓位，要么风险远超想象，要么仅在特定周期有效。不选择这条捷径也正常，但要知道自己在放弃什么。</p>
+    </div>
+  </div>
+
+  <h2 class="sec reveal"><span class="secno">05</span>风险管理检查清单</h2>
+  <p class="secsub reveal">CHECKLIST · 下单前逐项核对</p>
+  <div class="grid2">
+    <div class="check reveal">
+      <h3><span class="ck">RISK-A</span>杠杆与账户</h3>
+      <ul>
+        <li>杠杆同时放大盈利和亏损，强平不为你选择最佳退出价</li>
+        <li>10 倍杠杆不等于能承受 10% 的反向波动</li>
+        <li>保证金账户保留缓冲，压力测试跳空与要求上调</li>
+        <li>杠杆 ETF 与反向 ETF 不适合长期持有</li>
+      </ul>
+    </div>
+    <div class="check reveal">
+      <h3><span class="ck">RISK-B</span>期权与衍生品</h3>
+      <ul>
+        <li>先算最大亏损，再算潜在收益</li>
+        <li>事件前的高 IV 意味着事件后的 IV Crush</li>
+        <li>卖方策略设定权利金风险预算与尾部预案</li>
+        <li>空头仓位始终预留指派与提前行权计划</li>
+      </ul>
+    </div>
+    <div class="check reveal">
+      <h3><span class="ck">RISK-C</span>链上安全</h3>
+      <ul>
+        <li>助记词不截图、不存云盘、不输入任何网页</li>
+        <li>转账先小额测试，核对地址首尾多位</li>
+        <li>钱包授权最小化，闲置授权及时撤销</li>
+        <li>大额资产用冷钱包，先测恢复流程再转入</li>
+      </ul>
+    </div>
+    <div class="check reveal">
+      <h3><span class="ck">RISK-D</span>通用纪律</h3>
+      <ul>
+        <li>只买自己理解的标的，可买可不买就不买</li>
+        <li>所有股票都有周期，没有永远上涨的标的</li>
+        <li>宁可错过，不要追高；不跟 KOL 的单</li>
+        <li>投资框架未经周期验证前，仓位就是风险</li>
+      </ul>
+    </div>
+  </div>
+
+  <div class="quote reveal" style="margin-top:34px"><b>指南原文的一句话总结：</b>投资其实是一件非常简单的事情，只买便宜的，不加杠杆，不追高；难的从来不是知道，而是在信息噪音里长期做到。</div>
+
+  <a class="backlink" href="crypto.html">← 上一模块：加密货币</a>&nbsp;&nbsp;<a class="backlink" href="index.html">返回首页</a>
+  <p style="color:var(--faint);font-size:13px;margin-top:22px;font-family:var(--mono)">SRC: README.md + guides/投资入门指南.md (v0.2)</p>
+</div></main>
+
+<footer><div class="wrap">
+  <div class="fdisc">
+    <div class="fmono" style="color:var(--amber)">IFB::DISCLAIMER</div>
+    <p style="margin-top:6px">本页为开源仓库 <a href="https://github.com/xuchonglang/investing-for-beginners" target="_blank" rel="noopener">xuchonglang/investing-for-beginners</a> 的非官方静态导读，内容据仓库 README 与入门指南整理概括。仅供学习，不构成投资建议。</p>
+  </div>
+  <div class="fmono">SECTION: ROADMAP<br>SRC: README + guides/*<br>PAGE: path.html</div>
+</div></footer>
+
+<script>
+(function(){
+  var reduce = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  if (reduce || !('IntersectionObserver' in window)) return;
+  var els = document.querySelectorAll('.reveal');
+  var io = new IntersectionObserver(function(entries){
+    entries.forEach(function(e){
+      if (e.isIntersecting) { e.target.classList.add('in'); io.unobserve(e.target); }
+    });
+  }, {threshold: 0.08, rootMargin: '0px 0px -30px 0px'});
+  els.forEach(function(el){ io.observe(el); });
+})();
+(function(){
+  var btn=document.getElementById('themeToggle');
+  if(!btn)return;
+  function label(){
+    var d=document.documentElement.getAttribute('data-theme')==='dark';
+    btn.textContent=d?'☀ 浅色':'☾ 深色';
+    btn.setAttribute('aria-label',d?'切换到浅色主题':'切换到深色主题');
+  }
+  label();
+  btn.addEventListener('click',function(){
+    var t=document.documentElement.getAttribute('data-theme')==='dark'?'light':'dark';
+    document.documentElement.setAttribute('data-theme',t);
+    try{localStorage.setItem('theme',t);}catch(e){}
+    label();
+  });
+})();
+</script>
+</body>
+</html>

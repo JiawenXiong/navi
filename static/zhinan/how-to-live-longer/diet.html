@@ -1,0 +1,304 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>饮食 · 药物 · 吸烟与环境 · HowToLiveLonger</title>
+<script>(function(){var t;try{t=localStorage.getItem('theme')}catch(e){}if(t!=='light'&&t!=='dark'){var h=new Date().getHours();t=(h>=7&&h<17)?'light':'dark'}document.documentElement.setAttribute('data-theme',t)})();</script>
+<style>
+:root{color-scheme:light;--blue:#1a4fc4;--blue-dark:#12358a;--blue-soft:#e8eefb;--link:#1a4fc4;--grad1:#12358a;--grad2:#1a4fc4;--ink:#1c2333;--muted:#5b6474;--bg:#f5f6f8;--card:#ffffff;--line:#dfe3ea;--ok:#1c7d43;--warn:#a15c00;--bad:#a11d2a;--bC-bg:#f0ede6;--bC-fg:#a15c00;--bD-bg:#eceef1;--bD-fg:#5b6474;--bU-bg:#e4e7ec;--bU-fg:#4b5563;--bU-line:#b7bdc9;--vok-bg:#e4f2e8;--vok-fg:#1c7d43;--vpart-bg:#fdf3e2;--vpart-fg:#a15c00;--vfix-bg:#fcebec;--vfix-fg:#a11d2a;--vno-bg:#eceef1;--vno-fg:#5b6474;--note-bg:#fbfcfe;--meta-bg:#f8f9fb;--warnbox-bg:#fdf6f6;--cwb:#fdf3f3;--cwbd:#efc9cd;--cwfg:#7c1d27;--crb:#eef7f0;--crbd:#c8e3d0;--crfg:#155c33;}
+[data-theme="dark"]{color-scheme:dark;--blue:#2e56b5;--blue-dark:#a9c4f5;--blue-soft:#243350;--link:#85a9f2;--grad1:#182645;--grad2:#26437f;--ink:#e8ecf4;--muted:#a6b0c2;--bg:#12161d;--card:#1a1f28;--line:#333c4c;--ok:#7ed9a4;--warn:#f0b45c;--bad:#f4949e;--bC-bg:#33290f;--bC-fg:#f0b45c;--bD-bg:#272e39;--bD-fg:#a6b0c2;--bU-bg:#222833;--bU-fg:#9aa5b8;--bU-line:#4a5568;--vok-bg:#17301f;--vok-fg:#7ed9a4;--vpart-bg:#33290f;--vpart-fg:#f0b45c;--vfix-bg:#3a2028;--vfix-fg:#f4949e;--vno-bg:#272e39;--vno-fg:#a6b0c2;--note-bg:#1d2430;--meta-bg:#20262f;--warnbox-bg:#2c1d22;--cwb:#33202a;--cwbd:#5c2f3c;--cwfg:#f3a3ad;--crb:#17301f;--crbd:#2d5540;--crfg:#7fdda8;}
+.themebtn{flex:0 0 auto;margin-left:6px;padding:5px 12px;font-size:13px;font-weight:600;border:1px solid var(--line);background:var(--card);color:var(--muted);border-radius:8px;cursor:pointer;line-height:1.5;}
+.themebtn:hover{color:var(--link);border-color:var(--link);}
+@media(max-width:480px){.hero,.pagehead{padding:24px 18px;}}
+*{box-sizing:border-box;}
+body{margin:0;font-family:"PingFang SC","Microsoft YaHei","Noto Sans SC",sans-serif;color:var(--ink);background:var(--bg);line-height:1.75;}
+a{color:var(--link);text-decoration:none;}
+a:hover{text-decoration:underline;}
+.nav{background:var(--card);border-bottom:1px solid var(--line);position:sticky;top:0;z-index:10;}
+.nav-inner{max-width:1080px;margin:0 auto;padding:0 16px;display:flex;align-items:center;gap:4px;overflow-x:auto;white-space:nowrap;-webkit-overflow-scrolling:touch;}
+.nav a{padding:12px 12px;font-size:14.5px;color:var(--muted);border-bottom:2.5px solid transparent;flex:0 0 auto;}
+.nav a:hover{color:var(--link);text-decoration:none;}
+.nav a[aria-current]{color:var(--link);border-bottom-color:var(--link);font-weight:600;}
+.nav .brand{font-weight:700;color:var(--ink);margin-right:8px;}
+.nav .ext{margin-left:auto;color:var(--blue-dark);}
+main{max-width:1080px;margin:0 auto;padding:28px 16px 56px;}
+.pagehead{background:linear-gradient(135deg,var(--grad1),var(--grad2));color:#fff;border-radius:14px;padding:28px 30px;margin-bottom:26px;}
+.pagehead h1{margin:0;font-size:clamp(22px,3.6vw,30px);}
+.pagehead p{margin:8px 0 0;color:#e9eefb;font-size:15px;max-width:44em;}
+h2{font-size:21px;margin:34px 0 12px;color:var(--blue-dark);}
+h3{font-size:17px;margin:22px 0 8px;}
+section{scroll-margin-top:70px;}
+.item{background:var(--card);border:1px solid var(--line);border-radius:12px;padding:18px 20px;margin-bottom:14px;}
+.item h3{margin:0 0 6px;display:flex;flex-wrap:wrap;align-items:center;gap:8px;}
+.item p{margin:6px 0;font-size:14.5px;color:var(--muted);}
+.meta{font-size:13px;color:var(--muted);background:var(--meta-bg);border-radius:8px;padding:8px 12px;margin:8px 0;}
+.badge{display:inline-block;border-radius:6px;font-size:12px;font-weight:700;padding:1px 9px;line-height:1.7;}
+.bA{background:var(--blue);color:#fff;}
+.bB{background:var(--blue-soft);color:var(--blue-dark);}
+.bC{background:var(--bC-bg);color:var(--bC-fg);}
+.bD{background:var(--bD-bg);color:var(--bD-fg);}
+.bU{background:var(--bU-bg);color:var(--bU-fg);border:1px dashed var(--bU-line);}
+.verdict{display:inline-block;border-radius:6px;font-size:12px;font-weight:600;padding:1px 9px;}
+.v-ok{background:var(--vok-bg);color:var(--vok-fg);}
+.v-part{background:var(--vpart-bg);color:var(--vpart-fg);}
+.v-fix{background:var(--vfix-bg);color:var(--vfix-fg);}
+.v-no{background:var(--vno-bg);color:var(--vno-fg);}
+.stat{display:inline-block;background:var(--blue-soft);color:var(--blue-dark);border-radius:8px;padding:2px 10px;font-size:13.5px;font-weight:600;margin:2px 4px 2px 0;font-variant-numeric:tabular-nums;}
+.stat.neg{background:var(--vfix-bg);color:var(--vfix-fg);}
+.tablewrap{overflow-x:auto;border:1px solid var(--line);border-radius:12px;background:var(--card);}
+table{border-collapse:collapse;width:100%;min-width:680px;font-size:14px;}
+th{background:var(--blue-soft);color:var(--blue-dark);text-align:left;font-weight:600;}
+th,td{padding:9px 13px;border-bottom:1px solid var(--line);vertical-align:top;}
+tr:last-child td{border-bottom:none;}
+td.num{font-variant-numeric:tabular-nums;white-space:nowrap;}
+.note{background:var(--note-bg);border-left:4px solid var(--blue);border-radius:0 10px 10px 0;padding:12px 16px;font-size:14px;color:var(--muted);margin:14px 0;}
+.note strong{color:var(--ink);}
+footer{border-top:1px solid var(--line);background:var(--card);}
+.foot-inner{max-width:1080px;margin:0 auto;padding:20px 16px;font-size:13px;color:var(--muted);display:flex;flex-wrap:wrap;gap:8px 24px;align-items:center;}
+.reveal{opacity:0;transform:translateY(12px);transition:opacity .5s ease,transform .5s ease;}
+.reveal.on{opacity:1;transform:none;}
+@media(prefers-reduced-motion:reduce){.reveal{opacity:1;transform:none;transition:none;}}
+</style>
+<noscript><style>.reveal,.rv{opacity:1 !important;transform:none !important}</style></noscript></head>
+<body>
+<nav class="nav"><div class="nav-inner">
+<span class="brand">HowToLiveLonger</span>
+<a href="index.html">首页</a>
+<a href="method.html">方法学</a>
+<a href="exercise.html">运动·睡眠·久坐</a>
+<a href="diet.html" aria-current="page">饮食·药物·环境</a>
+<a href="misread.html">误读纠正</a>
+<a class="ext" href="../index.html">返回上级</a>
+<a class="ext" href="https://github.com/geekan/HowToLiveLonger">GitHub</a>
+<button class="themebtn" id="themeToggle" type="button">主题</button>
+</div></nav>
+
+<main>
+<div class="pagehead"><h1>饮食 · 药物补剂 · 吸烟与环境</h1><p>从肉类、鸡蛋、全谷物到茶、咖啡、饮料，再到复合维生素、二甲双胍、他汀与 PM2.5，每条数字都来自 evidence.json 的核验记录。</p></div>
+
+<section id="diet">
+<h2>饮食</h2>
+
+<div class="item reveal">
+<h3>白肉、红肉与加工肉 <span class="badge bB">B</span> <span class="verdict v-part">部分支持</span></h3>
+<p>原库把两篇论文混在一段。核验口径：JAMA 六队列汇总中，每周每增加 2 份肉类，加工肉 HR 1.03、红肉 1.03、家禽 0.99（不显著）、鱼 0.99（不显著）；BMJ 八年红肉摄入变化分析中，每天增加至少半份红肉者随后八年 ACM HR 1.10。白肉无显著关联不等于证明无风险；家禽在该研究中与心血管疾病增加有关。</p>
+<div><span class="stat neg">加工肉 HR 1.03（1.02–1.05）</span><span class="stat neg">红肉 HR 1.03（1.01–1.05）</span><span class="stat">家禽 HR 0.99（0.97–1.02）</span><span class="stat">鱼 HR 0.99（0.97–1.01）</span><span class="stat neg">红肉+≥半份/天 HR 1.10（1.04–1.17）</span></div>
+<div class="meta">人群：JAMA 美国 6 队列 29,682 人（8,875 死亡）；BMJ 81,469 人（14,019 死亡）｜设计：多队列前瞻分析</div>
+<p><strong>行动：</strong>少加工肉，以豆类、坚果、鱼等替代部分红肉；注意烹调方式和整体饮食。</p>
+</div>
+
+<div class="item reveal">
+<h3>鸡蛋 <span class="badge bB">B</span> <span class="verdict v-ok">支持但需限定</span></h3>
+<p>NIH-AARP 队列中，全蛋摄入每增加半个/天（25 克）与 ACM HR 1.07 相关；用等量蛋白、家禽、鱼、乳、坚果、豆类替代半个全蛋的模型估计 ACM 分别低 6%、8%、9%、7%、13%、10%。注意替代分析是假设性模型，不是随机换食造成的死亡减少。</p>
+<div><span class="stat neg">每+半个蛋/天 HR 1.07（1.06–1.08）</span></div>
+<div class="meta">人群：NIH-AARP 521,120 人，129,328 死亡，中位 16 年｜设计：大型前瞻队列</div>
+<p><strong>行动：</strong>结合整体膳食及血脂选择蛋类；可用豆类坚果替代部分动物蛋白，勿因单一研究完全禁蛋。</p>
+</div>
+
+<div class="item reveal">
+<h3>坚果与核桃 <span class="badge bB">B</span> <span class="verdict v-part">部分支持</span></h3>
+<p>核桃：每周 ≥5 份（每份 28 克）与不吃者相比 ACM HR 0.86；所谓“健康预期寿命多 1.3 岁”实为 60 岁总预期寿命的模型估计（女 1.30 年、男 1.26 年），不能写成保证延寿。一般坚果：NEJM 队列按频率分组，每周 &lt;1、1、2–4、5–6、≥7 次对应 HR 0.93、0.89、0.87、0.85、0.80；PREDIMED 内 >3 份/周 HR 0.61，但这是试验内的观察分析，也不是“必须生吃”的证据。</p>
+<div><span class="stat">核桃≥5份/周 HR 0.86（0.79–0.93）</span><span class="stat">坚果≥7次/周 HR 0.80（0.73–0.86）</span><span class="stat">PREDIMED>3份/周 HR 0.61（0.45–0.83）</span></div>
+<div class="meta">人群：核桃 NHS/HPFS 93,340 人（30,263 死亡）；NEJM 118,962 人（27,429 死亡）；PREDIMED 7,216 人</div>
+<p><strong>行动：</strong>无过敏者用适量无盐、少糖坚果替代其他高能量零食，计入总能量。</p>
+</div>
+
+<div class="item reveal">
+<h3>全谷物、膳食纤维与植物蛋白 <span class="badge bB">B</span> <span class="verdict v-ok">支持但需限定</span></h3>
+<p>三项新增条目方向一致。全谷物摄入每增加 90 克/天（约两片面包加一碗谷物，按食品重量计）ACM RR 0.83；膳食纤维高摄入组的多个结局风险降低 15%–30%（这是多结局范围，非 ACM 单独效应，ACM 精确合并值未报告）；植物蛋白最高对最低摄入组 ACM 合并效应量 0.92。三者都是观察性关联，强调的是食物来源而非额外补剂。</p>
+<div><span class="stat">全谷物每+90g/天 RR 0.83（0.77–0.90）</span><span class="stat">植物蛋白高vs低 0.92（0.87–0.97）</span></div>
+<div class="meta">人群：全谷物 11 项前瞻研究合并；纤维综述含 185 项前瞻研究与 58 项试验；植物蛋白 31 项合并、715,128 人</div>
+<p><strong>行动：</strong>用全谷物替代精制谷物，通过豆类、蔬果逐渐增加纤维并保证饮水；用豆制品和坚果替代部分红肉。</p>
+</div>
+
+<div class="item reveal">
+<h3>碳水占比与宏量营养配比 <span class="badge bB">B</span> <span class="verdict v-ok">支持但需限定 / <span class="verdict v-fix">需纠正</span></span></h3>
+<p>ARIC 加荟萃分析支持 U 形关联：碳水供能 &lt;40% 与 >70% 分别对应 HR 1.20 和 1.23，50%–55% 附近最低。但 UK Biobank 建模显示总脂肪与 ACM 无显著线性关联，原库宣称的“通用最优配比”（&lt;24% 淀粉、15%–17% 蛋白等）与论文曲线最低区间并不一致，不能当成验证过的处方。可核验的示例：纤维 15–30g/天对 5g/天 HR 0.68；蛋白 14%–18% 供能对 10% HR 0.73。</p>
+<div><span class="stat neg">低碳水 HR 1.20（1.09–1.32）</span><span class="stat neg">高碳水 HR 1.23（1.11–1.36）</span><span class="stat">纤维15–30g HR 0.68（0.65–0.72）</span></div>
+<div class="meta">人群：ARIC 15,428 人加荟萃合计 432,179 人；UK Biobank 195,658 人｜设计：前瞻队列与非线性建模</div>
+<p><strong>行动：</strong>优先提高碳水质量（全谷、豆类），不追逐精确的宏量比例；糖尿病或治疗性饮食需个体化。</p>
+</div>
+
+<div class="item reveal">
+<h3>超加工食品 <span class="badge bC">C</span> <span class="verdict v-fix">需纠正</span></h3>
+<p>SUN 队列支持最高消费组 ACM HR 1.62、每增加一份/天 HR 1.18。但“常吃薯片汉堡的人平均死亡年龄仅 58 岁”是误读：58.0 岁是研究中 335 名死亡者的平均死亡年龄（SD 15.6），不是常吃者的预期寿命。另一篇 NutriNet-Santé 的终点是心血管发病（每 10 个百分点占比 HR 1.12），不含 ACM。</p>
+<div><span class="stat neg">最高四分位 HR 1.62（1.13–2.33）</span><span class="stat neg">每+1份/天 HR 1.18（1.05–1.33）</span></div>
+<div class="meta">人群：西班牙 SUN 19,899 人、335 死亡；NutriNet-Santé 105,159 人｜设计：前瞻队列</div>
+<p><strong>行动：</strong>以较少加工的完整食物替代部分超加工食品，兼顾必要营养与可负担性。</p>
+</div>
+
+<div class="item reveal">
+<h3>盐与低钠富钾盐 <span class="badge bA">A</span> <span class="verdict v-ok">支持但需限定</span></h3>
+<p>SSaSS 随机试验：中国 600 村 20,995 名有卒中史或高龄高血压者，用 75% 氯化钠加 25% 氯化钾的代用盐替代普通盐，ACM 率比 0.88（39.28 对 44.61 每千人年），临床高钾血症率无显著差异。适用人群有明确边界；肾功能不全或使用升钾药物者不适用。至于“多吃盐更长寿”的 181 国生态研究，详见<a href="misread.html">误读纠正页</a>。</p>
+<div><span class="stat">代用盐 vs 普通盐 ACM 率比 0.88（0.82–0.95）</span></div>
+<div class="meta">人群：中国 20,995 名高风险成人，随访 4.74 年｜设计：开放标签整群随机试验，ACM 为次要终点</div>
+<p><strong>行动：</strong>高血压等适合者在医护确认后可用富钾低钠盐；肾病、高钾或服升钾药者先咨询。</p>
+</div>
+
+<div class="item reveal">
+<h3>乳制品 <span class="badge bB">B</span> <span class="verdict v-ok">支持但需限定</span></h3>
+<p>PURE 队列中总乳制品 >2 份/日与不摄入相比 ACM HR 0.83，但这是总乳制品（奶、酸奶、奶酪、黄油合计）的关联，不是牛奶单独疗效；心血管死亡 HR 0.77 的 CI 跨 1（0.58–1.01），“降 23%”不能写成确定获益。汇总 8 项 meta 分析的综述显示每 200–244 克牛奶 RR 0.99–1.01，未见 ACM 关联。</p>
+<div><span class="stat">总乳制品>2份/日 HR 0.83（0.72–0.96）</span><span class="stat">牛奶每200–244g RR 0.99–1.01</span></div>
+<div class="meta">人群：PURE 21 国 136,384 人，中位 9.1 年，6,796 死亡｜设计：前瞻队列加荟萃综述</div>
+<p><strong>行动：</strong>可按营养需要选择无添加糖的奶或酸奶；乳糖不耐受或过敏者选合适替代，不为延寿强行加量。</p>
+</div>
+
+<div class="item reveal">
+<h3>茶 <span class="badge bB">B</span> <span class="verdict v-ok">支持但需限定</span></h3>
+<p>两个大型中国队列方向一致。China-PAR：每周 ≥3 次饮茶 ACM HR 0.85，50 岁预期寿命差 1.26 年为模型估计。CKB 438,443 人：当前非每日饮茶 HR 0.89、每日 0.92，保护关联主要见于男性（交互 P&lt;0.05）。每日饮茶并未优于非每日，不能推出“喝得越多越长寿”。</p>
+<div><span class="stat">China-PAR 每周≥3次 HR 0.85（0.79–0.90）</span><span class="stat">CKB 非每日 HR 0.89（0.86–0.91）</span><span class="stat">CKB 每日 HR 0.92（0.88–0.95）</span></div>
+<div class="meta">人群：China-PAR 100,902 人（中位 7.3 年）；CKB 438,443 人（中位 11.1 年，34,661 死亡）</div>
+<p><strong>行动：</strong>喜欢且耐受者可喝不加糖、非烫口的茶；失眠、心悸或需限咖啡因者减量，不用茶抵消烟酒风险。</p>
+</div>
+
+<div class="item reveal">
+<h3>咖啡 <span class="badge bB">B</span> <span class="verdict v-ok">支持但需限定</span></h3>
+<p>40 项研究、3,852,651 人的剂量反应荟萃显示非线性关联：拟合曲线最低点在每天约 3.5 杯，ACM RR 0.85；心血管死亡最低点约 2.5 杯 RR 0.83；癌症死亡最低点约 2 杯 RR 0.96。3.5 杯是曲线最低点，不是个人精准处方，也没有证据把风险比换算成寿命。</p>
+<div><span class="stat">ACM 最低点 RR 0.85（0.82–0.89）</span><span class="stat">CVD死亡 RR 0.83（0.80–0.87）</span></div>
+<div class="meta">人群：40 项研究、3,852,651 人、450,256 例死亡｜设计：观察性队列剂量反应荟萃</div>
+<p><strong>行动：</strong>已习惯且耐受者可适量饮用、少加糖；失眠、心悸、孕期等需限制咖啡因时个体化，不为延寿勉强开始喝。</p>
+</div>
+
+<div class="item reveal">
+<h3>含糖饮料、代糖饮料与果汁 <span class="badge bB">B</span> <span class="verdict v-part">部分支持</span></h3>
+<p>美国双队列（NHS/HPFS）：含糖饮料 ≥2 份/日对 &lt;1 份/月 ACM HR 1.21，每额外 1 份/日 HR 1.07。欧洲 EPIC 队列：≥2 杯/日人工甜味饮料 HR 1.26，但可能混有反向因果（有代谢问题的人改喝代糖）。REGARDS：每多 355 毫升/日 100% 果汁 HR 1.24；注意原库“含糖饮料 11%”实际是添加糖饮料加果汁的合计口径。果汁与含糖软饮的优劣不能凭点估计直接断言。</p>
+<div><span class="stat neg">含糖≥2份/日 HR 1.21（1.13–1.28）</span><span class="stat neg">每+1份/日 HR 1.07（1.05–1.09）</span><span class="stat neg">代糖≥2杯/日 HR 1.26（1.16–1.35）</span><span class="stat neg">每+355ml果汁 HR 1.24（1.09–1.42）</span></div>
+<div class="meta">人群：NHS/HPFS 118,363 人；EPIC 451,743 人；REGARDS 13,440 人｜设计：前瞻队列</div>
+<p><strong>行动：</strong>日常饮水优先白水或不加糖茶咖啡；从含糖饮料过渡到代糖者不必据此回到含糖饮品；果汁小量，优先完整水果。</p>
+</div>
+
+<div class="item reveal">
+<h3>槟榔 <span class="badge bC">C</span> <span class="verdict v-ok">支持但需限定</span></h3>
+<p>嚼槟榔者 ACM 合并 RR 1.21，异质性高（I² 85%），制品配方与烟酒共暴露影响解释。“不含烟草”不是安全理由。</p>
+<div><span class="stat neg">嚼槟榔 RR 1.21（1.04–1.42）</span></div>
+<div class="meta">人群：荟萃 179,582 人｜设计：观察研究系统综述</div>
+<p><strong>行动：</strong>避免或停止槟榔；依赖者寻求戒除帮助。</p>
+</div>
+</section>
+
+<section id="drugs">
+<h2>药物与补剂</h2>
+
+<div class="item reveal">
+<h3>二甲双胍 <span class="badge bB">B</span>/<span class="badge bC">C</span> <span class="verdict v-ok">支持但需限定</span> / <span class="verdict v-fix">需纠正</span></h3>
+<p>UKPDS 34：753 名超重新诊断 2 型糖尿病患者用二甲双胍强化控糖，ACM 相对降低 36%（CI 9%–55%），对象不是健康人；后续 13 项随机试验汇总 ACM RR 0.99（0.75–1.31），不支持“神药”外推。“健康人延寿”的证据链：英国回顾队列的生存时间比 STR 0.85 是观察性匹配比较；DPP/DPPOS 对 3,234 名高危者中位 21 年随访，二甲双胍 ACM HR 0.99，未见获益。所谓“糖尿病人比正常人 +3 年”已被核验否定。</p>
+<div><span class="stat">UKPDS 34 ACM 相对降低36%</span><span class="stat">13 RCT 汇总 RR 0.99（0.75–1.31）</span><span class="stat">DPP 长期 HR 0.99（0.79–1.25）</span></div>
+<div class="meta">人群：UKPDS 753 人；CPRD 匹配队列 78,241 名用药者；DPP/DPPOS 3,234 人</div>
+<p><strong>行动：</strong>有糖尿病适应证者由医生选择用药并结合肾功能与 B12 评估；健康人不为抗衰自行开始。</p>
+</div>
+
+<div class="item reveal">
+<h3>他汀（按适应证） <span class="badge bA">A</span> <span class="verdict v-ok">支持但需限定</span></h3>
+<p>27 项随机试验个体数据荟萃：无既往血管病者 LDL-C 每降低 1 mmol/L，ACM RR 0.91；主要血管事件 RR 0.79，两者不可混用。绝对获益随基线风险变化，适用于被纳入试验且适合降脂治疗的人群。</p>
+<div><span class="stat">每降1mmol/L ACM RR 0.91（0.85–0.97）</span></div>
+<div class="meta">人群：27 项 RCT 共 174,149 人，中位 4.8–5.1 年｜设计：随机试验个体数据荟萃</div>
+<p><strong>行动：</strong>已患动脉粥样硬化性心血管病或经评估达到指征者与医生讨论他汀；低风险健康人不因“延寿”自行服药。</p>
+</div>
+
+<div class="item reveal">
+<h3>维生素 D（一般人群） <span class="badge bA">A</span> <span class="verdict v-ok">支持但需限定</span></h3>
+<p>VITAL 试验：25,871 名 50 岁以上成人每天 2000 IU 维生素 D3，中位 5.3 年，978 例死亡，ACM HR 0.99（0.87–1.12），未见降低。这是一份高质量的阴性证据：不能否定缺乏症或骨病等明确适应证的治疗，也不证明任何剂量长期完全无风险。</p>
+<div><span class="stat">2000IU/日 HR 0.99（0.87–1.12）</span></div>
+<div class="meta">人群：美国 25,871 人，男性 ≥50、女性 ≥55 岁｜设计：随机双盲安慰剂对照 2×2 析因试验</div>
+<p><strong>行动：</strong>不以延寿为目的盲目大剂量补充；疑似缺乏或有骨健康指征者按医生评估补充。</p>
+</div>
+
+<div class="item reveal">
+<h3>复合维生素 <span class="badge bA">A</span> <span class="verdict v-part">部分支持</span></h3>
+<p>PHS II 男性医生试验：总癌症发病 HR 0.92，但这是发病不是 ACM，癌症死亡未显著下降（0.88，CI 0.77–1.01）。COSMOS 试验 ACM HR 0.93 且 CI 跨 1；2024 年三个美国队列 390,124 人也未见获益。结论：没有证实一般健康人吃复合维生素延寿。</p>
+<div><span class="stat">COSMOS ACM HR 0.93（0.81–1.08）</span><span class="stat">PHS II 癌症发病 HR 0.92（0.86–0.998）</span></div>
+<div class="meta">人群：PHS II 14,641 人；COSMOS 21,442 人；2024 队列 390,124 人｜设计：随机试验加大型队列</div>
+<p><strong>行动：</strong>不为延寿常规服用；有营养缺乏、特定生命阶段或吸收障碍者针对性补充。</p>
+</div>
+
+<div class="item reveal">
+<h3>NMN <span class="badge bD">D</span> <span class="verdict v-no">无直接 ACM 证据</span></h3>
+<p>原库只列了 NMN 名称而无文献。已读的人类随机试验研究的是肌肉胰岛素敏感性等替代指标；2024 年综述汇总 8 项 RCT、342 人、14 天至 12 周，主要代谢指标未见显著总体获益。没有任何降低 ACM 或延长人类寿命的证据。</p>
+<div><span class="stat">ACM 效应：未报告</span></div>
+<div class="meta">人群：原 RCT 为超重/肥胖绝经后糖尿病前期女性 10 周；综述 8 试验 342 人</div>
+<p><strong>行动：</strong>不把 NMN 当已证延寿药；参与研究应按正式试验管理，不替代慢病治疗。</p>
+</div>
+
+<div class="item reveal">
+<h3>热量限制（动物） <span class="badge bD">D</span> <span class="verdict v-no">无直接 ACM 证据</span></h3>
+<p>“正常喂养的猴子死亡风险高 3 倍”来自 2009 年恒河猴研究的早期年龄相关死亡；2014 年同项目更新为全因对照对限食 HR 1.78（1.04–3.04）。动物结果不能外推为人类的延寿幅度。</p>
+<div><span class="stat">猴全因 HR 1.78（对照/限食，1.04–3.04）</span></div>
+<div class="meta">人群：威斯康星大学 76 只恒河猴｜设计：长期动物干预</div>
+<p><strong>行动：</strong>避免过量进食并保证足够营养；孕哺期、未成年人、虚弱老人及进食障碍者不自行限热量。</p>
+</div>
+
+<div class="item reveal">
+<h3>综合抗衰药综述 <span class="badge bD">D</span> <span class="verdict v-no">无直接 ACM 证据</span></h3>
+<p>2020 年 Nature Reviews 综述讨论雷帕霉素、senolytics、二甲双胍、阿卡波糖、亚精胺、NAD 增强剂、锂等候选，分层依据是临床前与部分临床结果，不构成“这些药可降低健康人死亡风险”的证据。</p>
+<div><span class="stat">健康人 ACM 合并效应：未报告</span></div>
+<p><strong>行动：</strong>不自行组合抗衰药；有明确疾病适应证按专科治疗，实验性干预应在规范研究中进行。</p>
+</div>
+</section>
+
+<section id="smoke-env">
+<h2>吸烟与环境</h2>
+
+<div class="item reveal">
+<h3>吸烟与戒烟 <span class="badge bB">B</span> <span class="verdict v-ok">支持但需限定</span></h3>
+<p>墨西哥前瞻队列 129,151 名无既往慢病成人：与从不吸烟相比，每天 &lt;10 支 RR 1.17、≥10 支 RR 1.54，戒烟者风险低于当前每日吸烟者。美国全国队列中当前吸烟女性 ACM HR 3.0、男性 2.8（注意原文为 99% CI），寿命少 10 年以上，25–34 岁戒烟较持续吸烟约多 10 年。“低强度吸烟无害”不成立，减少支数不等同消除风险。</p>
+<div><span class="stat neg">&lt;10支/日 RR 1.17（1.10–1.25）</span><span class="stat neg">≥10支/日 RR 1.54（1.42–1.67）</span></div>
+<div class="meta">人群：墨西哥 129,151 人（随访至 2018）；美国队列验证｜设计：前瞻队列</div>
+<p><strong>行动：</strong>不开始吸烟，吸烟者尽早戒烟；需要时寻求戒烟门诊与循证药物支持。</p>
+</div>
+
+<div class="item reveal">
+<h3>长期 PM2.5 污染 <span class="badge bB">B</span> <span class="verdict v-ok">支持但需限定</span></h3>
+<p>美国 Medicare 超大型开放队列（6,092 万人、4.6 亿人年）：长期 PM2.5 每增加 10 μg/m³ 与 ACM 增加 7.3% 相关；臭氧每 10 ppb 增加 1.1%。这是环境暴露关联，不等于使用某款净化器能降低同等百分比的死亡。</p>
+<div><span class="stat neg">每+10μg/m³ ACM +7.3%（+7.1%–+7.5%）</span></div>
+<div class="meta">人群：美国 60,925,443 名 Medicare 受益者，2000–2012 年｜设计：全国开放队列</div>
+<p><strong>行动：</strong>关注本地空气质量，污染高时减少高暴露时段的户外剧烈活动，可行时改善室内空气。</p>
+</div>
+</section>
+
+<section id="summary">
+<h2>本页速查表</h2>
+<div class="tablewrap reveal">
+<table>
+<thead><tr><th>条目</th><th>效应量</th><th>95% CI</th><th>等级</th><th>结论</th></tr></thead>
+<tbody>
+<tr><td>加工肉每周每+2份</td><td class="num">HR 1.03</td><td class="num">1.02–1.05</td><td><span class="badge bB">B</span></td><td><span class="verdict v-part">部分支持</span></td></tr>
+<tr><td>全蛋每+半个/天</td><td class="num">HR 1.07</td><td class="num">1.06–1.08</td><td><span class="badge bB">B</span></td><td><span class="verdict v-ok">支持但需限定</span></td></tr>
+<tr><td>核桃 ≥5 份/周</td><td class="num">HR 0.86</td><td class="num">0.79–0.93</td><td><span class="badge bB">B</span></td><td><span class="verdict v-part">部分支持</span></td></tr>
+<tr><td>全谷物每 +90g/天</td><td class="num">RR 0.83</td><td class="num">0.77–0.90</td><td><span class="badge bB">B</span></td><td><span class="verdict v-ok">支持但需限定</span></td></tr>
+<tr><td>植物蛋白高 vs 低</td><td class="num">0.92</td><td class="num">0.87–0.97</td><td><span class="badge bB">B</span></td><td><span class="verdict v-ok">支持但需限定</span></td></tr>
+<tr><td>超加工食品最高四分位</td><td class="num">HR 1.62</td><td class="num">1.13–2.33</td><td><span class="badge bC">C</span></td><td><span class="verdict v-fix">需纠正</span></td></tr>
+<tr><td>低钠富钾盐（随机）</td><td class="num">率比 0.88</td><td class="num">0.82–0.95</td><td><span class="badge bA">A</span></td><td><span class="verdict v-ok">支持但需限定</span></td></tr>
+<tr><td>茶每周 ≥3 次</td><td class="num">HR 0.85</td><td class="num">0.79–0.90</td><td><span class="badge bB">B</span></td><td><span class="verdict v-ok">支持但需限定</span></td></tr>
+<tr><td>咖啡拟合 3.5 杯/日</td><td class="num">RR 0.85</td><td class="num">0.82–0.89</td><td><span class="badge bB">B</span></td><td><span class="verdict v-ok">支持但需限定</span></td></tr>
+<tr><td>含糖饮料每 +1 份/日</td><td class="num">HR 1.07</td><td class="num">1.05–1.09</td><td><span class="badge bB">B</span></td><td><span class="verdict v-part">部分支持</span></td></tr>
+<tr><td>他汀每降 1 mmol/L LDL-C</td><td class="num">RR 0.91</td><td class="num">0.85–0.97</td><td><span class="badge bA">A</span></td><td><span class="verdict v-ok">支持但需限定</span></td></tr>
+<tr><td>维生素 D 2000 IU/日</td><td class="num">HR 0.99</td><td class="num">0.87–1.12</td><td><span class="badge bA">A</span></td><td><span class="verdict v-ok">支持但需限定</span></td></tr>
+<tr><td>吸烟 ≥10 支/日</td><td class="num">RR 1.54</td><td class="num">1.42–1.67</td><td><span class="badge bB">B</span></td><td><span class="verdict v-ok">支持但需限定</span></td></tr>
+<tr><td>PM2.5 每 +10 μg/m³</td><td class="num">+7.3%</td><td class="num">+7.1%–+7.5%</td><td><span class="badge bB">B</span></td><td><span class="verdict v-ok">支持但需限定</span></td></tr>
+</tbody>
+</table>
+</div>
+<div class="note"><strong>阅读提醒：</strong>绿色标签表示风险降低方向的关联，红色表示升高方向，都只是组间相对比较。想了解辣椒、戒酒、氨糖、晒太阳、多吃盐、亚精胺这些容易被传错的条目，请看<a href="misread.html">误读纠正页</a>。</div>
+</section>
+</main>
+
+<footer><div class="foot-inner">
+<span>数据来源：<a href="https://github.com/geekan/HowToLiveLonger" target="_blank" rel="noopener">geekan/HowToLiveLonger</a>（data/evidence.json，核验基线 2026-10）</span>
+<span><a href="../index.html">返回上级目录</a></span>
+<span>本页为非官方中文静态站点，仅供学习参考，不构成医疗建议。</span>
+</div></footer>
+
+<script>
+(function(){
+if(!window.matchMedia||!matchMedia('(prefers-reduced-motion: no-preference)').matches)return;
+if(!('IntersectionObserver' in window))return;
+var io=new IntersectionObserver(function(es){es.forEach(function(e){if(e.isIntersecting){e.target.classList.add('on');io.unobserve(e.target);}});},{threshold:.12});
+document.querySelectorAll('.reveal').forEach(function(el){io.observe(el);});
+})();
+document.querySelectorAll('.reveal').forEach(function(el){io.observe(el);});
+})();
+(function(){var b=document.getElementById('themeToggle');if(!b)return;function set(t){document.documentElement.setAttribute('data-theme',t);try{localStorage.setItem('theme',t)}catch(e){}b.textContent=t==='dark'?'☀️ 亮色':'🌙 暗色';b.setAttribute('aria-label',t==='dark'?'切换到浅色主题':'切换到深色主题');}set(document.documentElement.getAttribute('data-theme')==='dark'?'dark':'light');b.addEventListener('click',function(){set(document.documentElement.getAttribute('data-theme')==='dark'?'light':'dark')});})();
+</script>
+</body>
+</html>

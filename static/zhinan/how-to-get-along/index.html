@@ -1,0 +1,317 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>人情世故指南 · 首页</title>
+<script>
+(function(){var t=null;try{t=localStorage.getItem('theme')}catch(e){}
+if(t!=='light'&&t!=='dark'){var h=new Date().getHours();t=(h>=7&&h<17)?'light':'dark'}
+document.documentElement.setAttribute('data-theme',t);})();
+</script>
+<style>
+*{margin:0;padding:0;box-sizing:border-box}
+:root,[data-theme="light"]{
+--bg:#f6f2ec;--bg-trans:rgba(246,242,236,.96);--text:#332e28;--accent:#b4552d;--accent-soft:#cf9a7c;
+--card:#fffdf8;--border:#e7dfd3;--subtle:#faf4ec;--subtle-border:#ead9cb;--muted:#8a8177;--menu:#6b6259;
+--menu-hover:#efe6da;--out-border:#e0d5c6;--li:#44403a;--say:#4d463e;--secondary:#7c7267;--lede:#5c554c;
+--on-accent:#fdf9f4;--hover-border:#dcc7b8;--shadow:rgba(120,90,60,.10)}
+[data-theme="dark"]{
+--bg:#241f1b;--bg-trans:rgba(36,31,27,.96);--text:#f0e9dd;--accent:#e38b5f;--accent-soft:#c97a50;
+--card:#2c2721;--border:#3d362d;--subtle:#332c25;--subtle-border:#4a4136;--muted:#b5aa9a;--menu:#c6bbaa;
+--menu-hover:#3b332b;--out-border:#4a4136;--li:#ded4c5;--say:#ece2d2;--secondary:#b5aa9a;--lede:#cbc1b1;
+--on-accent:#241f1b;--hover-border:#5c4f40;--shadow:rgba(0,0,0,.35)}
+@media (prefers-reduced-motion:no-preference){html{scroll-behavior:smooth}}
+body{background:var(--bg);color:var(--text);font:16px/1.75 -apple-system,BlinkMacSystemFont,"Segoe UI","PingFang SC","Hiragino Sans GB","Microsoft YaHei",sans-serif}
+.wrap{max-width:880px;margin:0 auto;padding:0 20px}
+a{color:var(--accent)}
+.top{position:sticky;top:0;z-index:9;background:var(--bg-trans);border-bottom:1px solid var(--border);backdrop-filter:blur(6px)}
+.top-in{max-width:1080px;margin:0 auto;padding:0 20px;display:flex;align-items:center;gap:14px;height:56px}
+.brand{font-family:Georgia,"Songti SC",STSong,SimSun,serif;font-weight:700;color:var(--text);text-decoration:none;font-size:17px;white-space:nowrap}
+.brand span{color:var(--accent)}
+.menu{display:flex;gap:4px;flex:1;min-width:0;overflow-x:auto;white-space:nowrap;-webkit-overflow-scrolling:touch;scrollbar-width:none}
+.menu::-webkit-scrollbar{display:none}
+.menu a{color:var(--menu);text-decoration:none;font-size:14.5px;padding:4px 12px;border-radius:999px;transition:color .2s,background .2s}
+.menu a:hover{color:var(--accent);background:var(--menu-hover)}
+.menu a[aria-current]{color:var(--on-accent);background:var(--accent)}
+.menu a.out{border:1px solid var(--out-border);padding:3px 12px}
+.theme-btn{flex-shrink:0;width:34px;height:34px;border-radius:50%;border:1px solid var(--out-border);background:var(--card);color:var(--menu);font-size:15px;line-height:1;cursor:pointer}
+.theme-btn:hover{color:var(--accent);border-color:var(--hover-border)}
+.hero{padding:64px 0 20px}
+.kicker{color:var(--accent);font-size:13px;letter-spacing:.35em;margin-bottom:14px}
+h1{font-family:Georgia,"Songti SC",STSong,SimSun,serif;font-size:clamp(30px,5vw,44px);line-height:1.25;letter-spacing:.02em;font-weight:700}
+.lede{margin-top:18px;font-size:17px;color:var(--lede);max-width:42em}
+.meta{margin-top:22px;display:flex;flex-wrap:wrap;gap:10px}
+.pill{display:inline-block;padding:4px 14px;border:1px solid var(--out-border);border-radius:999px;font-size:13.5px;color:var(--secondary);background:var(--card)}
+.note{margin-top:20px;background:var(--subtle);border:1px solid var(--subtle-border);border-radius:14px;padding:14px 18px;font-size:14px;color:var(--secondary)}
+h2.sec{font-family:Georgia,"Songti SC",STSong,SimSun,serif;font-size:25px;margin:56px 0 6px;font-weight:700}
+.sec-note{color:var(--muted);font-size:14.5px;margin-bottom:22px;max-width:40em}
+.chap-nav{display:grid;grid-template-columns:repeat(auto-fill,minmax(min(232px,100%),1fr));gap:14px}
+.chap{display:block;background:var(--card);border:1px solid var(--border);border-radius:16px;padding:18px 18px 16px;text-decoration:none;color:inherit;transition:transform .25s,box-shadow .25s,border-color .25s}
+.chap:hover{transform:translateY(-3px);box-shadow:0 10px 24px var(--shadow);border-color:var(--hover-border)}
+.chap .no{font-family:Georgia,serif;color:var(--accent);font-size:13px;letter-spacing:.2em}
+.chap h3{font-size:16.5px;margin:6px 0 4px;font-weight:650}
+.chap p{font-size:13.5px;color:var(--muted);line-height:1.6}
+.chap .go{margin-top:10px;font-size:13px;color:var(--accent)}
+.howto-read{background:var(--card);border:1px solid var(--border);border-radius:16px;padding:22px 24px;margin-bottom:26px}
+.howto-read .tri{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(200px,100%),1fr));gap:14px;margin-top:14px}
+.tri div{background:var(--subtle);border-radius:12px;padding:12px 14px;font-size:14px;color:var(--lede)}
+.tri b{display:block;color:var(--accent);font-size:13px;letter-spacing:.2em;margin-bottom:4px}
+.entry{background:var(--card);border:1px solid var(--border);border-radius:16px;padding:26px 26px 22px;margin-bottom:18px}
+.entry header{display:flex;align-items:baseline;gap:12px;flex-wrap:wrap;margin-bottom:4px}
+.entry .num{font-family:Georgia,serif;color:var(--accent);font-size:14px;letter-spacing:.08em}
+.entry h3{font-size:18.5px;font-weight:650}
+.entry .scene{color:var(--muted);font-size:14.5px;margin:6px 0 16px;padding-left:12px;border-left:3px solid var(--subtle-border)}
+.part{margin-top:14px}
+.part h4{font-size:13px;color:var(--accent);letter-spacing:.25em;margin-bottom:6px;font-weight:600}
+.part ul{list-style:none}
+.part li{padding-left:16px;position:relative;font-size:15px;color:var(--li);margin-bottom:4px}
+.part li::before{content:"";position:absolute;left:2px;top:.72em;width:5px;height:5px;border-radius:50%;background:var(--accent-soft)}
+.say{margin-top:8px;background:var(--subtle);border-left:3px solid var(--accent);border-radius:0 12px 12px 0;padding:12px 16px;font-size:15px;color:var(--say)}
+.say p+p{margin-top:8px}
+.say .tag{color:var(--accent);font-size:12.5px}
+.cost{margin-top:8px;font-size:14.5px;color:var(--secondary)}
+.cost b{color:var(--lede)}
+footer{margin-top:72px;border-top:1px solid var(--border);padding:30px 0 44px;color:var(--muted);font-size:13.5px;line-height:1.8}
+footer a{color:var(--accent)}
+@media (max-width:640px){.entry{padding:20px 18px 16px}.top-in{gap:10px}.hero{padding:44px 0 12px}}
+.reveal{opacity:0;transform:translateY(16px)}
+.reveal.in{opacity:1;transform:none;transition:opacity .6s ease,transform .6s ease}
+@media (prefers-reduced-motion:reduce){.reveal{opacity:1;transform:none;transition:none}.chap:hover{transform:none}}
+@media (prefers-reduced-motion:no-preference){body,.top,.entry,.say{transition:background-color .25s ease,border-color .25s ease,color .25s ease}}
+</style>
+<noscript><style>.reveal,.rv{opacity:1 !important;transform:none !important}</style></noscript></head>
+<body><div style="position:fixed;left:14px;bottom:14px;z-index:99;"><a href="../index.html" style="display:inline-block;padding:7px 16px;border-radius:999px;background:rgba(20,20,20,.72);color:#fff;font-size:13px;text-decoration:none;backdrop-filter:blur(4px);font-family:system-ui,sans-serif;" onmouseover="this.style.background='rgba(20,20,20,.9)'" onmouseout="this.style.background='rgba(20,20,20,.72)'">&#8592; 总门户</a></div>
+<header class="top">
+  <div class="top-in">
+    <a class="brand" href="index.html">人情世故<span>指南</span></a>
+    <nav class="menu" aria-label="站内导航">
+      <a href="index.html" aria-current="page">首页</a>
+      <a href="pages/campus.html">校园篇</a>
+      <a href="pages/work.html">职场篇</a>
+      <a href="pages/money.html">金钱篇</a>
+      <a href="pages/manner.html">礼节篇</a>
+      <a class="out" href="https://github.com/kkk-bot/HowToGetAlong" target="_blank" rel="noopener">GitHub</a>
+    </nav>
+    <button class="theme-btn" id="themeBtn" type="button" aria-label="切换明暗主题">◐</button>
+  </div>
+</header>
+
+<main class="wrap">
+  <section class="hero">
+    <p class="kicker">大学生与职场新人实用手册</p>
+    <h1>事情怎么做，话怎么说，<br>代价是什么</h1>
+    <p class="lede">进入社会之后，我们常常会因为人情世故而苦恼：不知道事情该怎么做，话该怎么说，也不清楚一个选择背后可能要付出什么代价。这份指南讲清大学课堂里往往没有系统教过的相处方法、沟通技巧，以及进入社会后需要了解的规则与边界。</p>
+    <div class="meta">
+      <span class="pill">10 章 · 77 条</span>
+      <span class="pill">合作 · 求助 · 拒绝</span>
+      <span class="pill">金钱 · 礼节 · 冲突</span>
+      <span class="pill">整理自开源项目 HowToGetAlong</span>
+    </div>
+    <p class="note">内容依据 GitHub 项目 kkk-bot/HowToGetAlong 整理，全部为经验建议，仅供学习与交流参考。请结合自身处境、关系与适用规则独立判断，不宜直接照搬示例。</p>
+  </section>
+
+  <h2 class="sec reveal">十章全景</h2>
+  <p class="sec-note reveal">原书十章，本站按主题归入四个分篇。点击任意一章，进入对应分篇阅读该章全部条目。</p>
+  <div class="chap-nav reveal">
+    <a class="chap" href="pages/campus.html">
+      <span class="no">第 1 章</span>
+      <h3>校园合作：把约定说清楚</h3>
+      <p>同学求助、小组分工、室友边界、代签拒绝，怎么开口才不伤合作。</p>
+      <span class="go">前往校园篇 →</span>
+    </a>
+    <a class="chap" href="pages/campus.html">
+      <span class="no">第 2 章</span>
+      <h3>求助与回报</h3>
+      <p>让对方容易理解，也容易拒绝：写清请求、跟进消息、感谢与交接。</p>
+      <span class="go">前往校园篇 →</span>
+    </a>
+    <a class="chap" href="pages/work.html">
+      <span class="no">第 3 章</span>
+      <h3>实习与职场</h3>
+      <p>确认任务，保留事实：临时加活、任务撞期、被批评、犯错与八卦。</p>
+      <span class="go">前往职场篇 →</span>
+    </a>
+    <a class="chap" href="pages/money.html">
+      <span class="no">第 4 章</span>
+      <h3>朋友与金钱</h3>
+      <p>把感情和约定都照顾到：借钱、催还、垫款、随礼与合伙。</p>
+      <span class="go">前往金钱篇 →</span>
+    </a>
+    <a class="chap" href="pages/money.html">
+      <span class="no">第 5 章</span>
+      <h3>饭局、隐私与冲突</h3>
+      <p>表达清楚，也尊重别人：敬酒、拒酒、隐私追问、玩笑与合照。</p>
+      <span class="go">前往金钱篇 →</span>
+    </a>
+    <a class="chap" href="pages/money.html">
+      <span class="no">第 6 章</span>
+      <h3>长期关系与边界</h3>
+      <p>既能互相照顾，也能调整距离：联系、倾听、分担与关系施压。</p>
+      <span class="go">前往金钱篇 →</span>
+    </a>
+    <a class="chap" href="pages/manner.html">
+      <span class="no">第 7 章</span>
+      <h3>社交礼节与场合</h3>
+      <p>先看场合，再表达心意：邀请、做客、夸赞、聚餐与拒绝邀请。</p>
+      <span class="go">前往礼节篇 →</span>
+    </a>
+    <a class="chap" href="pages/manner.html">
+      <span class="no">第 8 章</span>
+      <h3>协作与表达</h3>
+      <p>让信息能被执行：提意见、开会确认、核实消息、协商与冲突暂停。</p>
+      <span class="go">前往礼节篇 →</span>
+    </a>
+    <a class="chap" href="pages/manner.html">
+      <span class="no">第 9 章</span>
+      <h3>家庭与亲密关系</h3>
+      <p>亲近也需要说明期待：亲人建议、催问、共同花钱、陪伴与离开。</p>
+      <span class="go">前往礼节篇 →</span>
+    </a>
+    <a class="chap" href="pages/work.html">
+      <span class="no">第 10 章</span>
+      <h3>求职、入职与离开</h3>
+      <p>先确认，再承诺：内推、面试、offer 协商、新人上手与离职交接。</p>
+      <span class="go">前往职场篇 →</span>
+    </a>
+  </div>
+
+  <h2 class="sec reveal">怎么读每一条</h2>
+  <div class="howto-read reveal">
+    <p style="font-size:15px;color:#5c554c">全书 77 条共用一个结构：先看遇到的情况，再讲判断关键，然后落到三件最实用的事上。本站把每条整理成下面三要素，话术示例均参考原文风格整理，可按自己的关系与环境调整。</p>
+    <div class="tri">
+      <div><b>怎么做</b>行动前的准备和具体步骤，把范围、期限和负责人确认清楚。</div>
+      <div><b>话怎么说</b>可以直接开口的示例表达，说清边界，也给对方拒绝空间。</div>
+      <div><b>代价是什么</b>这个选择要花掉的时间、金钱、压力与关系成本，以及失效的可能。</div>
+    </div>
+  </div>
+
+  <h2 class="sec reveal">精选条目</h2>
+  <p class="sec-note reveal">从十章中各选一条高频场景，先睹为快。完整内容见四个分篇。</p>
+
+  <article class="entry reveal">
+    <header><span class="num">1.1</span><h3>同学找你帮忙时，先确认帮到哪一步</h3></header>
+    <p class="scene">同学说“帮我看一下作业”，后来变成改格式、重做内容，还希望你一直负责。</p>
+    <div class="part"><h4>怎么做</h4><ul>
+      <li>问清要解决哪个问题、什么时候需要、你能提供哪部分帮助。</li>
+      <li>把“指导”和“代做”区分开，遵守课程的合作与署名要求。</li>
+      <li>请求从一处指导扩成整份代做时，重新确认范围，必要时停止新增帮忙。</li>
+    </ul></div>
+    <div class="part"><h4>话怎么说</h4>
+      <blockquote class="say"><p>“可以，我今晚能帮你看一版思路，把需要调整的地方标出来。正文还是需要你自己改，后面几版我就没时间再看了，你看这样能不能帮上忙？”</p><p><span class="tag">对方继续要求时</span>“这部分超出我之前答应的范围了，我这次做不了。你可以先按反馈改，有具体问题再问。”</p></blockquote>
+    </div>
+    <div class="part"><h4>代价是什么</h4><p class="cost">沟通时间，以及说清限制时的不自在。即使表达得体，对方也可能失望；表达清楚不能保证关系不受影响。<b>礼貌与拒绝可以同时存在</b>，不必靠不断答应证明自己是好人。</p></div>
+  </article>
+
+  <article class="entry reveal">
+    <header><span class="num">2.1</span><h3>求助时，一次写清背景、问题和期限</h3></header>
+    <p class="scene">你发“在吗”，对方回复后还要来回问你到底需要什么。</p>
+    <div class="part"><h4>怎么做</h4><ul>
+      <li>简短介绍自己，说明具体困难、已尝试的办法、需要对方做什么和真实期限。</li>
+      <li>先查已有说明，标出你已尝试的步骤与仍卡住的一个问题，只附必要材料。</li>
+      <li>提供一句容易使用的拒绝答复，收到拒绝后按原说明另作安排。</li>
+    </ul></div>
+    <div class="part"><h4>话怎么说</h4>
+      <blockquote class="say"><p>“学姐好，我是同专业的大二学生，最近在比较两门选修课。课程介绍我看过了，还想了解一下实际作业是什么形式。你上过的那门，方便时能简单分享一下吗？如果不方便，也没关系。”</p><p><span class="tag">给出拒绝出口</span>“这周如果安排不开，直接回我‘这次没空’就可以，我会另找办法。”</p></blockquote>
+    </div>
+    <div class="part"><h4>代价是什么</h4><p class="cost">自己先整理问题的时间。“不方便也没关系”要落实到接受拒绝，不是说完后继续劝；着急不意味着别人有义务立即回应。</p></div>
+  </article>
+
+  <article class="entry reveal">
+    <header><span class="num">3.1</span><h3>同事说“顺手做一下”时，确认任务和负责人</h3></header>
+    <p class="scene">同事找你做额外工作，你不清楚是正式协作、请教，还是把整项任务交给你。</p>
+    <div class="part"><h4>怎么做</h4><ul>
+      <li>问清交付标准、期限、预计工作量和结果由谁确认。</li>
+      <li>与已有任务冲突或涉及跨部门安排时，按团队流程请负责人协调。</li>
+      <li>“着急”与真实截止时间分别确认，不为了结束催促随口承诺。</li>
+    </ul></div>
+    <div class="part"><h4>话怎么说</h4>
+      <blockquote class="say"><p>“想先确认一下，你是需要我帮你看一眼，还是把整份表做完？我今天还有两个任务，如果是接整份，我们得先和负责人确认一下优先顺序，免得两边都耽误。”</p><p><span class="tag">对方说“就顺手一下，很快的”</span>“我得先看清范围，才能判断时间。如果今天必须完成，需要负责人一起确认现有任务怎么调整。”</p></blockquote>
+    </div>
+    <div class="part"><h4>代价是什么</h4><p class="cost">澄清和协调的时间。团队内合理互助可能就是职责的一部分，不把所有让步视为吃亏，也不把持续超负荷当成必须付出的代价。</p></div>
+  </article>
+
+  <article class="entry reveal">
+    <header><span class="num">4.1</span><h3>朋友借钱时，先判断自己是否承担得起</h3></header>
+    <p class="scene">朋友急着借钱，你怕拒绝伤感情，也怕借出后影响自己的生活。</p>
+    <div class="part"><h4>怎么做</h4><ul>
+      <li>先看自己的必要支出：这笔钱即使迟还或不还，也承受得起吗？</li>
+      <li>决定借之前问清金额与还款安排，不因催促立即转账。</li>
+      <li>决定借就用双方能保存的文字写清借款人、金额、用途和还款约定，并约定还不上时如何提前通知。</li>
+    </ul></div>
+    <div class="part"><h4>话怎么说</h4>
+      <blockquote class="say"><p>“我知道你现在急着用钱。我这边也得先留足生活开支，这次没法借给你，不好意思。”</p><p><span class="tag">对方说“我们这么熟，就帮这一次”</span>“正因为是朋友，我想把能做的说清楚。我这次不借钱，这个决定不变；如果你需要核对已经找到的其他办法，我可以帮你看一看。”</p></blockquote>
+    </div>
+    <div class="part"><h4>代价是什么</h4><p class="cost">表达拒绝的压力；借出时承担资金占用与无法收回的风险。明确约定也不保证能收回钱；不要拿借钱作为测试朋友忠诚度的工具。</p></div>
+  </article>
+
+  <article class="entry reveal">
+    <header><span class="num">5.1</span><h3>参加饭局时，表达祝福并保留饮酒选择</h3></header>
+    <p class="scene">饭局上想举杯感谢或祝福却不知道说什么，也可能不想喝酒，担心显得扫兴。</p>
+    <div class="part"><h4>怎么做</h4><ul>
+      <li>选一件真实的感谢或与场合有关的祝福，准备两三句即可。</li>
+      <li>大家方便听时再简短举杯，说完即可，不要求干杯或逐人回敬。</li>
+      <li>茶水、饮料同样可以表达心意；被劝时重复自己的选择，不必不断增加理由。</li>
+    </ul></div>
+    <div class="part"><h4>话怎么说</h4>
+      <blockquote class="say"><p><span class="tag">朋友聚餐</span>“难得今天能聚齐，见到大家很开心。祝大家最近都顺顺利利，今晚好好吃饭、慢慢聊！”</p><p><span class="tag">不喝酒</span>“我今天用茶代酒，和大家一起祝贺，祝大家一切顺利！”</p></blockquote>
+    </div>
+    <div class="part"><h4>代价是什么</h4><p class="cost">开口表达的精力与可能的紧张。无需拼酒量、比杯口高低或用“我干了你随意”制造压力；遇到强迫或不安全的情况，联系信任的人协助离开。</p></div>
+  </article>
+
+  <article class="entry reveal">
+    <header><span class="num">7.10</span><h3>被夸赞时，收下认可并自然回应</h3></header>
+    <p class="scene">别人夸你能力或成果，你习惯说“没有没有”，或担心收下认可显得自负。</p>
+    <div class="part"><h4>怎么做</h4><ul>
+      <li>愿意接受时，先说“谢谢”，再按需要补一句真实感受或细节。</li>
+      <li>团队成果如实提及他人的贡献，不把功劳全推出去，也不顺势占有别人的成果。</li>
+      <li>回应认可与答应请求分开处理；夸奖后紧接借钱、合作请求时，先核对再决定。</li>
+    </ul></div>
+    <div class="part"><h4>话怎么说</h4>
+      <blockquote class="say"><p><span class="tag">普通夸奖</span>“谢谢，你这么说我挺开心的。”</p><p><span class="tag">团队成果被表扬</span>“谢谢！这次我负责内容整理，同事的复核也帮我们发现了遗漏。”</p><p><span class="tag">夸得有些过头</span>“谢谢你这么看好我，这部分我比较熟，其他方面还在学习。”</p></blockquote>
+    </div>
+    <div class="part"><h4>代价是什么</h4><p class="cost">面对认可时可能有些不自在。一句“谢谢”已经足够；不需要证明自信、强装开心或立即回报，也不必为了显得谦虚抹去自己的贡献。</p></div>
+  </article>
+
+</main>
+
+<footer>
+  <div class="wrap">
+    <p>本站内容整理自开源项目 <a href="https://github.com/kkk-bot/HowToGetAlong" target="_blank" rel="noopener">kkk-bot/HowToGetAlong</a>（10 章 77 条，© 2026 kkk-bot，个人非商业学习使用许可）。全部为经验建议，仅供参考，不保证适用于所有人或取得特定效果。</p>
+    <p>站点页面 · <a href="pages/campus.html">校园篇</a> · <a href="pages/work.html">职场篇</a> · <a href="pages/money.html">金钱篇</a> · <a href="pages/manner.html">礼节篇</a></p>
+  </div>
+</footer>
+
+<script>
+(function(){
+  var els=document.querySelectorAll('.reveal');
+  var rm=window.matchMedia&&window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  if(rm||!('IntersectionObserver' in window)){
+    els.forEach(function(el){el.classList.add('in')});return;
+  }
+  var io=new IntersectionObserver(function(entries){
+    entries.forEach(function(e){if(e.isIntersecting){e.target.classList.add('in');io.unobserve(e.target)}});
+  },{threshold:.08,rootMargin:'0px 0px -30px 0px'});
+  els.forEach(function(el){io.observe(el)});
+})();
+</script>
+<script>
+(function(){
+  var b=document.getElementById('themeBtn');
+  if(!b)return;
+  var sync=function(){
+    var dark=document.documentElement.getAttribute('data-theme')==='dark';
+    b.textContent=dark?'\u2600':'\u263E';
+    b.setAttribute('aria-label',dark?'切换到浅色主题':'切换到深色主题');
+  };
+  sync();
+  b.addEventListener('click',function(){
+    var next=document.documentElement.getAttribute('data-theme')==='dark'?'light':'dark';
+    document.documentElement.setAttribute('data-theme',next);
+    try{localStorage.setItem('theme',next)}catch(e){}
+    sync();
+  });
+})();
+</script>
+</body>
+</html>

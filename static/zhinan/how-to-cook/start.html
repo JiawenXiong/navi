@@ -1,0 +1,309 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<script>(function(){var t=null;try{t=localStorage.getItem('theme')}catch(e){}if(t!=='light'&&t!=='dark'){var h=new Date().getHours();t=(h>=7&&h<17)?'light':'dark'}document.documentElement.setAttribute('data-theme',t);})();</script>
+<title>学前准备 · 厨房搭建、用刀、焯水与去腥</title>
+<style>
+:root{
+  --bg:#faf6ef;
+  --card:#fffdf8;
+  --ink:#2d2a26;
+  --red:#d0402a;
+  --red-fill:#d0402a;
+  --red-dark:#a92f1d;
+  --line:#eadfcd;
+  --muted:#7a736a;
+  --soft:#f4ecdd;
+  --nav-bg:rgba(255,253,248,.96);
+  color-scheme:light;
+}
+[data-theme="dark"]{
+  --bg:#1b1815;
+  --card:#262019;
+  --ink:#f2e9d8;
+  --red:#e0603f;
+  --red-fill:#d0402a;
+  --red-dark:#f4a48e;
+  --line:#3b352a;
+  --muted:#b3a695;
+  --soft:#2c261d;
+  --nav-bg:rgba(27,24,21,.96);
+  color-scheme:dark;
+}
+*{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+body{
+  font-family:"Microsoft YaHei","PingFang SC","Noto Sans SC",sans-serif;
+  background:var(--bg);color:var(--ink);line-height:1.8;font-size:16px;
+}
+.wrap{max-width:920px;margin:0 auto;padding:0 20px}
+a{color:var(--red);text-decoration:none}
+a:hover{text-decoration:underline}
+
+.site-nav{
+  position:sticky;top:0;z-index:50;
+  background:var(--nav-bg);
+  border-bottom:1px solid var(--line);
+  backdrop-filter:blur(6px);
+}
+.nav-inner{
+  max-width:1040px;margin:0 auto;padding:10px 20px;
+  display:flex;align-items:center;gap:4px;
+  white-space:nowrap;overflow-x:auto;
+  -webkit-overflow-scrolling:touch;
+}
+.brand{font-weight:700;color:var(--red);font-size:17px;margin-right:14px;flex:none}
+.brand .dot{color:var(--ink)}
+.nav-inner a.link{color:var(--ink);font-size:15px;padding:6px 12px;border-radius:999px;flex:none}
+.nav-inner a.link:hover{background:var(--soft);text-decoration:none;color:var(--red-dark)}
+.nav-inner a.link.active{background:var(--red-fill);color:#fff}
+.nav-inner a.gh{margin-left:auto;color:var(--muted);font-size:14px;flex:none}
+.nav-inner a.gh:hover{color:var(--red)}
+.theme-btn{
+  flex:none;margin-left:10px;width:36px;height:32px;
+  border:1px solid var(--line);border-radius:999px;
+  background:var(--card);color:var(--ink);font-size:15px;
+  cursor:pointer;line-height:1;padding:0;
+}
+.theme-btn:hover{border-color:var(--red)}
+
+.page-head{padding:52px 0 8px;text-align:center}
+.page-head .kicker{
+  display:inline-block;background:var(--soft);color:var(--red-dark);
+  border-radius:999px;padding:4px 16px;font-size:14px;margin-bottom:16px;
+}
+.page-head h1{font-size:clamp(28px,4.5vw,40px);font-weight:800;line-height:1.3}
+.page-head p{color:var(--muted);max-width:640px;margin:14px auto 0}
+
+section.block{padding:36px 0}
+.card{
+  background:var(--card);border:1px solid var(--line);border-radius:18px;
+  padding:28px 30px;margin-bottom:22px;
+}
+.card > h2{
+  font-size:22px;font-weight:800;margin-bottom:6px;
+  padding-left:12px;border-left:5px solid var(--red);border-radius:2px;
+}
+.card > p.note{color:var(--muted);font-size:15px;margin-bottom:16px}
+.card h3{font-size:17px;margin:20px 0 8px;color:var(--red-dark)}
+.card ul,.card ol{padding-left:22px;margin:8px 0}
+.card li{margin:5px 0;font-size:15.5px}
+.card p{font-size:15.5px;margin:8px 0}
+.card .tip{
+  background:var(--soft);border-radius:12px;padding:12px 18px;
+  font-size:14.5px;color:var(--red-dark);margin-top:14px;
+}
+code{
+  background:var(--soft);border-radius:6px;padding:1px 8px;
+  font-size:14px;color:var(--red-dark);
+}
+table{width:100%;border-collapse:collapse;margin:12px 0;font-size:14.5px}
+th,td{border:1px solid var(--line);padding:8px 12px;text-align:left;vertical-align:top}
+th{background:var(--soft);color:var(--red-dark);font-weight:700}
+
+footer{
+  margin-top:30px;border-top:1px solid var(--line);
+  padding:28px 0 36px;color:var(--muted);font-size:14px;text-align:center;
+}
+footer .f-links{margin-top:8px}
+footer a{color:var(--muted)}
+footer a:hover{color:var(--red)}
+
+.reveal{opacity:0;transform:translateY(14px)}
+.reveal.in{opacity:1;transform:none;transition:opacity .6s ease,transform .6s ease}
+@media (max-width:600px){
+  .card{padding:22px 20px}
+  .brand{font-size:15px}
+  table{display:block;overflow-x:auto;white-space:normal}
+}
+
+@media (prefers-reduced-motion: reduce){.reveal{opacity:1 !important;transform:none !important}}</style>
+<noscript><style>.reveal,.rv{opacity:1 !important;transform:none !important}</style></noscript></head>
+<body><div style="position:fixed;left:14px;bottom:14px;z-index:99;"><a href="../index.html" style="display:inline-block;padding:7px 16px;border-radius:999px;background:rgba(20,20,20,.72);color:#fff;font-size:13px;text-decoration:none;backdrop-filter:blur(4px);font-family:system-ui,sans-serif;" onmouseover="this.style.background='rgba(20,20,20,.9)'" onmouseout="this.style.background='rgba(20,20,20,.72)'">&#8592; 总门户</a></div>
+
+<nav class="site-nav">
+  <div class="nav-inner">
+    <a class="brand" href="index.html">做饭指南<span class="dot">·HowToCook</span></a>
+    <a class="link" href="index.html">首页</a>
+    <a class="link active" href="start.html">学前准备</a>
+    <a class="link" href="vegetable.html">素菜精选</a>
+    <a class="link" href="meat.html">荤菜精选</a>
+    <a class="link" href="soup.html">汤粥主食</a>
+    <a class="link" href="dessert.html">甜品酱料</a>
+    <a class="gh" href="https://github.com/Anduin2017/HowToCook" target="_blank" rel="noopener">GitHub 仓库 ↗</a>
+    <button class="theme-btn" id="themeBtn" type="button" aria-label="切换明暗主题">🌙</button>
+  </div>
+</nav>
+
+<header class="page-head wrap">
+  <span class="kicker">开火之前，先读这一页</span>
+  <h1>学前准备</h1>
+  <p>厨房搭建清单、用刀安全、焯水与去腥，以及厨具选择的要点。全部整理自 HowToCook 仓库的 tips 文档。</p>
+</header>
+
+<main class="wrap">
+
+<section class="block">
+  <div class="card reveal">
+    <h2>一、厨房搭建</h2>
+    <p class="note">在阅读菜谱之前，先假设你的厨房已经备好下列物品。它们不会在每道菜的原材料里重复出现。</p>
+    <h3>基础设备与工具</h3>
+    <p>燃气灶、饮用水、炒锅、蒸锅、煮锅、电饭锅、食用油、洗菜盆、碟子、碗、筷子、勺子、汤勺、漏勺、洗涤剂、抹布、钢丝球、菜刀、生食案板、熟食案板、削皮刀、热水壶。</p>
+    <h3>高频调料（建议常备且保持新鲜）</h3>
+    <p>大葱、小葱、生姜、大蒜、花椒、八角、桂皮、香叶、干辣椒、小米椒、生抽、老抽、蚝油、料酒（黄酒，可选）、黑醋（香醋、陈醋）、白醋、豆瓣酱、冰糖、棉白糖、盐、味精或鸡精、黑胡椒、白胡椒、五香粉、玉米淀粉、番薯淀粉。</p>
+    <h3>应急与长期居家储备</h3>
+    <p>冰箱、微波炉、保鲜膜、保鲜袋；鸡蛋、青椒、胡萝卜、黄瓜、西红柿、木耳、里脊肉、茄子、米、挂面或方便面。</p>
+    <h3>追求标准化的有趣选项</h3>
+    <p>电子秤（或天平）、游标卡尺、量筒、停表、烧杯、测温枪、移液器。想节约时间也可以购买半成品：预炸过的炸鸡块、冷冻手抓饼、包好的饺子、袋装咖喱、自热食品等。</p>
+  </div>
+
+  <div class="card reveal">
+    <h2>二、如何选购食用油</h2>
+    <p class="note">选油前先了解脂肪酸：饱和脂肪酸尽量避免，反式脂肪酸尤其要注意避免。</p>
+    <h3>按场景选油</h3>
+    <table>
+      <tr><th>场景</th><th>推荐油品</th><th>说明</th></tr>
+      <tr><td>炒菜（中温）</td><td>芥花油（双低菜籽油）、花生油、精炼橄榄油</td><td>单不饱和脂肪酸较多，烟点适中或较高，胜任大多数中式炒菜。</td></tr>
+      <tr><td>煎炸（高温）</td><td>椰子油、棕榈油、猪油、牛油</td><td>热稳定性好，产生的氧化产物更少；但从心血管健康考虑，最根本的策略是减少煎炸频率。</td></tr>
+      <tr><td>凉拌、低温、炖煮</td><td>亚麻籽油、紫苏油、特级初榨橄榄油、芝麻油、核桃油</td><td>亚麻籽油和紫苏油富含 Omega-3 但极度怕热，只适合凉拌。</td></tr>
+    </table>
+    <h3>关键原则</h3>
+    <ul>
+      <li>没有任何一种油是完美的，家中建议常备 2 到 3 种不同类型的油替换使用。</li>
+      <li>不要用热不稳定的油（如大豆油、玉米油）爆炒，也不要加热过久，以减少反式脂肪酸。</li>
+      <li>不要重复使用油品；不要长期单一用油；不要大量食用煎炸食品。</li>
+      <li>特级初榨橄榄油烟点较低（约 160 至 190 摄氏度），不适合高温爆炒；中高温炒菜请选精炼橄榄油。</li>
+    </ul>
+  </div>
+
+  <div class="card reveal">
+    <h2>三、学习用刀</h2>
+    <p class="note">目标：切得稳定、大小合适、清洁安全，不追求速度。遇到硬骨、坚硬外壳或冻硬的食物，换工具或买预处理食材。</p>
+    <h3>必须养成的安全习惯</h3>
+    <ul>
+      <li>刀掉了就退开，绝不伸手接。不拿刀指人、比画或转身讲话。</li>
+      <li>不把刀藏在洗碗水、泡沫、抹布或食材下面，不散放在抽屉里。</li>
+      <li>递刀时先放在稳定台面，等对方握住刀柄再取走。</li>
+      <li>不用厨刀开罐、撬瓶盖、拧螺丝、剥硬壳。卡刀时停止用力，不扭刀、不敲刀背。</li>
+      <li>生肉、生鱼与熟食、即食果蔬使用分开的刀板。</li>
+    </ul>
+    <h3>握刀与辅助手</h3>
+    <p>持刀手推荐捏握法：拇指和食指轻捏靠近刀柄处的刀身两侧，其余手指环握刀柄，指腹远离刃口。辅助手摆"猫爪手"：指尖向掌心弯曲，用指尖固定食材，指关节朝向刀的侧面；刃口始终低于引导关节，每切一次先让刀停稳，再把辅助手向后挪一点。</p>
+    <h3>基本刀法速查</h3>
+    <table>
+      <tr><th>刀法</th><th>做法</th><th>示例</th></tr>
+      <tr><td>切片</td><td>平底贴板，稳定进刀，逐次退手</td><td>炒土豆片可从约 2 至 3 毫米练起</td></tr>
+      <tr><td>切条、切丝</td><td>先切片，少量叠齐再切长条</td><td>初学者从粗条开始，熟练后再切细丝</td></tr>
+      <tr><td>切丁</td><td>条状食材转向，再横切</td><td>配菜丁可从约 1 厘米练起</td></tr>
+      <tr><td>滚刀块</td><td>斜切后转动食材，再斜切</td><td>胡萝卜、茄子</td></tr>
+      <tr><td>切末</td><td>先薄片、细条、小丁，再少量切碎</td><td>姜、蒜、香草</td></tr>
+      <tr><td>拉切、推切</td><td>刀刃带着水平移动切入，不是垂直猛压</td><td>无骨肉、较软蔬菜</td></tr>
+    </table>
+    <h3>切肉看纹理</h3>
+    <p>肉上细长平行的纤维就是纹理。逆纹理切是让切口横跨纤维，缩短每口肉中的长纤维，快炒的嫩口肉片适合这样切，厚度可从约 2 至 4 毫米练起。不要冲洗生鸡肉，以免飞溅污染；切生禽后要清洗双手、刀板和台面。</p>
+    <div class="tip">分阶段练习建议：第一阶段只练摆台、握刀、猫爪手和停刀；第二阶段用有平底的土豆练片、条、丁；第三阶段练洋葱丁、椒丝与叶菜段；第四阶段在生肉专用刀板上练无骨肉片。每阶段以能稳定慢做为进入下一阶段的条件。</div>
+  </div>
+
+  <div class="card reveal">
+    <h2>四、学习焯水</h2>
+    <p class="note">焯水（chāo shuǐ）指将初步加工的原料放在开水锅中加热至半熟或全熟，取出以备进一步烹调或调味。大部分蔬菜和带有腥膻气味的肉类原料都需要焯水。</p>
+    <h3>开水锅焯水（适合蔬菜）</h3>
+    <p>水加热后原料下锅，及时翻动，时间要短。多用于芹菜、菠菜、莴笋等植物性原料。要点：</p>
+    <ul>
+      <li>叶类蔬菜先焯水再切片，以免营养损失过多。</li>
+      <li>水宽火旺，投入原料后能及时开锅；绿叶菜略滚即捞出。</li>
+      <li>焯水后立即投凉控干，避免余热使蔬菜变黄、熟烂。</li>
+      <li>可以放适量花生油、玉米油等保持翠绿。</li>
+    </ul>
+    <h3>冷水锅焯水（适合大块与肉类）</h3>
+    <p>原料与冷水同时下锅，水没过原料再烧开。土豆、胡萝卜等体积大不易熟的需要久煮；白肉、牛百叶等动物性原料以及煮汤用的肉也适合冷水下锅，让营养物质在逐渐加热中溢出，汤味更鲜美。</p>
+    <h3>肉的焯水</h3>
+    <ul>
+      <li>肉类开水焯过后变色即可，捞出沥干进行下一步烹调。</li>
+      <li>焯水后要用温水洗去血沫污渍：冷水会让肉热胀冷缩吸附污渍，导致无法洗净。</li>
+    </ul>
+    <div class="tip">额外注意：动物类与植物类原料分别焯水；色味重与色味轻的分别焯水；块大与块小的分别焯水，防止串味。焯制动物性原料后的汤汁，撇沫澄清后可作鲜汤使用。</div>
+  </div>
+
+  <div class="card reveal">
+    <h2>五、去腥</h2>
+    <p class="note">去腥指通过添加调料、焯水等手段去除肉类、水产中的腥膻味。腥膻味也是某些食物的风味来源，过度去腥可能让食物丧失风味，要灵活选择。</p>
+    <h3>添加调料</h3>
+    <p>最简单的手段。鸡蛋类菜肴可在蛋液中加盐、料酒、食醋去腥；炖肉时可在汤底加花椒、八角、香叶、桂皮、小茴香、辣椒等香料。</p>
+    <h3>炝锅</h3>
+    <p>炒菜过程中用葱、姜、蒜、干辣椒炝锅，香味物质在高温下挥发出来，既能覆盖腥味又增加成菜风味。</p>
+    <h3>冷水锅焯水</h3>
+    <p>鸡肉、猪蹄、排骨等残留血液的原料冷水下锅：血液分散到水中，随温度升高蛋白质凝固形成浮沫飘在水面上，用勺撇去浮沫即可完成去腥，剩下的清汤还能继续当汤底。</p>
+    <h3>蘸料兜底</h3>
+    <p>烹后仍有腥味的食物可以配蘸料：食醋、酱油、香油、豆瓣酱、甜面酱、芝麻酱、花生酱、豆腐乳、食盐、大蒜、生姜等，搭配见仁见智。</p>
+    <div class="tip">花椒、麻椒体积小容易残留到成菜，可用纱布包成调料包或用食品级不锈钢调料盒，方便成菜前挑出。八角香味浓郁，应适量添加。</div>
+  </div>
+
+  <div class="card reveal">
+    <h2>六、常见厨具与去哪道菜用到它</h2>
+    <table>
+      <tr><th>厨具</th><th>用途</th><th>本站对应菜例</th></tr>
+      <tr><td>炒锅</td><td>爆炒、煎制、收汁，绝大多数菜的主力</td><td><a href="vegetable.html">酸辣土豆丝</a>、<a href="meat.html">回锅肉</a></td></tr>
+      <tr><td>蒸锅</td><td>蒸蛋羹、蒸鱼、加热面食</td><td><a href="vegetable.html">鸡蛋羹</a></td></tr>
+      <tr><td>煮锅</td><td>焯水、煮面、煮粥、煮汤</td><td><a href="soup.html">米粥</a>、<a href="soup.html">葱油拌面</a></td></tr>
+      <tr><td>电饭锅</td><td>蒸米饭，也可做焖饭</td><td><a href="soup.html">蛋炒饭</a>的米饭基底</td></tr>
+      <tr><td>砂锅</td><td>小火慢炖，受热均匀</td><td><a href="soup.html">玉米排骨汤</a>、<a href="meat.html">黄焖鸡</a></td></tr>
+      <tr><td>烤箱</td><td>烘焙与烤制</td><td><a href="dessert.html">烤蛋挞</a></td></tr>
+      <tr><td>不粘平底锅</td><td>熬酱、熬糖，怕粘的活交给它</td><td><a href="dessert.html">草莓酱</a>、<a href="dessert.html">雪花酥</a></td></tr>
+      <tr><td>雪克杯</td><td>摇制饮品</td><td><a href="dessert.html">柠檬水</a></td></tr>
+    </table>
+    <p>进阶之后还可以学习<strong>油温判断技巧</strong>与<strong>糖色的炒制</strong>，详见仓库 <code>tips/advanced</code> 目录。</p>
+  </div>
+</section>
+
+</main>
+
+<footer>
+  <div>内容整理自开源项目 HowToCook（程序员做饭指南），菜谱版权归原作者与社区所有。</div>
+  <div class="f-links">
+    <a href="index.html">首页</a> ·
+    <a href="start.html">学前准备</a> ·
+    <a href="vegetable.html">素菜</a> ·
+    <a href="meat.html">荤菜</a> ·
+    <a href="soup.html">汤粥主食</a> ·
+    <a href="dessert.html">甜品酱料</a> ·
+    <a href="https://github.com/Anduin2017/HowToCook" target="_blank" rel="noopener">GitHub</a>
+  </div>
+</footer>
+
+<script>
+(function(){
+  var b=document.getElementById('themeBtn');
+  function sync(){
+    var t=document.documentElement.getAttribute('data-theme');
+    if(b){b.textContent=t==='dark'?'☀':'🌙';b.title=t==='dark'?'切换到明亮主题':'切换到暗色主题';}
+  }
+  sync();
+  if(b){b.addEventListener('click',function(){
+    var t=document.documentElement.getAttribute('data-theme')==='dark'?'light':'dark';
+    document.documentElement.setAttribute('data-theme',t);
+    try{localStorage.setItem('theme',t)}catch(e){}
+    sync();
+  });}
+})();
+</script>
+<script>
+(function(){
+  if (!window.matchMedia('(prefers-reduced-motion: no-preference)').matches) return;
+  var els = document.querySelectorAll('.reveal');
+  if (!('IntersectionObserver' in window)) {
+    els.forEach(function(el){ el.classList.add('in'); });
+    return;
+  }
+  var io = new IntersectionObserver(function(entries){
+    entries.forEach(function(e){
+      if (e.isIntersecting) { e.target.classList.add('in'); io.unobserve(e.target); }
+    });
+  }, {threshold:.1});
+  els.forEach(function(el){ io.observe(el); });
+})();
+</script>
+</body>
+</html>

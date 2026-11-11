@@ -1,0 +1,247 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>人生进阶指南 | AI 时代终身学习</title>
+<script>
+(function(){
+  var t=null;try{t=localStorage.getItem("theme")}catch(e){}
+  if(t!=="light"&&t!=="dark"){var h=new Date().getHours();t=(h>=7&&h<17)?"light":"dark"}
+  document.documentElement.setAttribute("data-theme",t);
+})();
+</script>
+<style>
+:root{
+  --bg:#0a0f13;--panel:#0f171d;--panel2:#121c23;--line:#1e2b33;
+  --acc:#2ee6d6;--acc-ink:#04211d;--text:#e6f1f2;--muted:#8fa3ab;--body:#c6d4d9;
+  --nav-bg:rgba(10,15,19,.92);--badge-bg:rgba(24,32,38,.82);--badge-bg-h:rgba(24,32,38,.95);--badge-ink:#e6f1f2;
+  --radius:14px;color-scheme:dark;
+}
+:root[data-theme="light"]{
+  --bg:#f3f7f7;--panel:#ffffff;--panel2:#ecf2f2;--line:#d5dfe1;
+  --acc:#0b6b63;--acc-ink:#ffffff;--text:#1c262b;--muted:#56686d;--body:#2e3c42;
+  --nav-bg:rgba(243,247,247,.92);--badge-bg:rgba(255,255,255,.9);--badge-bg-h:#ffffff;--badge-ink:#0b6b63;
+  color-scheme:light;
+}
+*{margin:0;padding:0;box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{background:var(--bg);color:var(--text);font-family:"Segoe UI","PingFang SC","Hiragino Sans GB","Microsoft YaHei",sans-serif;line-height:1.75}
+a{color:inherit;text-decoration:none}
+.wrap{max-width:1080px;margin:0 auto;padding:0 24px}
+/* nav */
+.nav{position:sticky;top:0;z-index:20;background:var(--nav-bg);border-bottom:1px solid var(--line);backdrop-filter:blur(8px)}
+.nav-in{display:flex;align-items:center;gap:22px;height:64px;white-space:nowrap;overflow-x:auto;scrollbar-width:none}
+.nav-in::-webkit-scrollbar{display:none}
+@media(max-width:600px){
+  .nav-in{flex-wrap:wrap;height:auto;padding:10px 0;gap:12px;row-gap:8px;overflow-x:visible}
+  .brand{font-size:15px}
+  .nav a.link{font-size:13px}
+  .nav .gh{padding:4px 10px;font-size:12px}
+}
+.brand{font-weight:800;font-size:17px;color:var(--acc);flex:none}
+.nav a.link{color:var(--muted);font-size:14px;flex:none;transition:color .2s}
+.nav a.link:hover,.nav a.link[aria-current]{color:var(--text)}
+.nav a.link[aria-current]{color:var(--acc)}
+.nav .gh{margin-left:auto;border:1px solid var(--line);border-radius:999px;padding:5px 14px;font-size:13px;color:var(--text)}
+.nav .gh:hover{border-color:var(--acc);color:var(--acc)}
+.tbtn{flex:none;margin-left:6px;width:32px;height:32px;border-radius:999px;border:1px solid var(--line);background:transparent;color:var(--text);font-size:15px;cursor:pointer;line-height:1;display:inline-flex;align-items:center;justify-content:center;padding:0}
+.tbtn:hover{border-color:var(--acc);color:var(--acc)}
+.portal{position:fixed;left:14px;bottom:14px;z-index:99}
+.portal a{display:inline-block;padding:7px 16px;border-radius:999px;background:var(--badge-bg);color:var(--badge-ink);font-size:13px;text-decoration:none;backdrop-filter:blur(4px);font-family:system-ui,sans-serif}
+.portal a:hover{background:var(--badge-bg-h)}
+/* hero */
+.hero{padding:88px 0 56px}
+.kicker{color:var(--acc);font-size:13px;letter-spacing:.35em;font-weight:700}
+h1{font-size:clamp(38px,7vw,68px);font-weight:900;letter-spacing:-.02em;line-height:1.15;margin:18px 0 8px}
+h1 em{font-style:normal;color:var(--acc)}
+.lede{max-width:38em;color:var(--muted);font-size:17px;margin-top:18px}
+.cta-row{display:flex;gap:14px;margin-top:34px;flex-wrap:wrap}
+.btn{display:inline-block;border-radius:999px;padding:12px 26px;font-size:15px;font-weight:600;transition:transform .15s}
+.btn:active{transform:translateY(1px)}
+.btn.pri{background:var(--acc);color:var(--acc-ink)}
+.btn.ghost{border:1px solid var(--line);color:var(--text)}
+.btn.ghost:hover{border-color:var(--acc)}
+/* marquee */
+.band{border-top:1px solid var(--line);border-bottom:1px solid var(--line);overflow:hidden;background:var(--panel)}
+.band-track{display:flex;gap:48px;width:max-content;padding:11px 0;animation:slide 36s linear infinite;color:var(--muted);font-size:13px;letter-spacing:.12em}
+.band-track span{flex:none}
+@keyframes slide{from{transform:translateX(0)}to{transform:translateX(-50%)}}
+/* sections */
+section.block{padding:64px 0}
+.sec-head{margin-bottom:34px}
+h2{font-size:clamp(26px,4vw,36px);font-weight:800;letter-spacing:-.01em}
+.sec-sub{color:var(--muted);margin-top:10px;max-width:44em}
+/* theme grid */
+.themes{display:grid;grid-template-columns:repeat(3,1fr);gap:18px}
+@media(max-width:860px){.themes{grid-template-columns:1fr 1fr}}
+@media(max-width:560px){.themes{grid-template-columns:1fr}}
+.theme{background:var(--panel);border:1px solid var(--line);border-radius:var(--radius);padding:26px 24px;display:flex;flex-direction:column;gap:10px;transition:border-color .25s,transform .25s}
+.theme:hover{border-color:var(--acc);transform:translateY(-3px)}
+.theme .no{font-size:12px;color:var(--acc);letter-spacing:.3em;font-weight:700}
+.theme h3{font-size:20px;font-weight:800}
+.theme p{color:var(--muted);font-size:14px;flex:1}
+.theme .go{color:var(--acc);font-size:14px;font-weight:600;margin-top:6px}
+/* workline */
+.steps{display:grid;grid-template-columns:repeat(6,1fr);gap:10px;counter-reset:st}
+@media(max-width:860px){.steps{grid-template-columns:repeat(3,1fr)}}
+@media(max-width:560px){.steps{grid-template-columns:repeat(2,1fr)}}
+.step{background:var(--panel);border:1px solid var(--line);border-radius:var(--radius);padding:20px 16px;counter-increment:st;position:relative}
+.step::before{content:counter(st,decimal-leading-zero);display:block;color:var(--acc);font-weight:800;font-size:13px;letter-spacing:.2em;margin-bottom:8px}
+.step strong{display:block;font-size:16px;margin-bottom:4px}
+.step span{color:var(--muted);font-size:13px;display:block}
+.note{background:var(--panel);border-left:3px solid var(--acc);border-radius:0 var(--radius) var(--radius) 0;padding:22px 26px;color:var(--muted);margin-top:26px;font-size:15px}
+.note strong{color:var(--text)}
+/* quote */
+.quote{border-left:3px solid var(--acc);padding:6px 0 6px 24px;margin:40px 0;font-size:19px;line-height:1.9;color:var(--text)}
+.quote small{display:block;color:var(--muted);margin-top:10px;font-size:13px}
+/* footer */
+footer{border-top:1px solid var(--line);padding:40px 0 56px;color:var(--muted);font-size:14px}
+.foot-grid{display:flex;justify-content:space-between;gap:20px;flex-wrap:wrap}
+footer a{color:var(--acc)}
+/* reveal */
+.rv{opacity:0;transform:translateY(18px)}
+.rv.on{opacity:1;transform:none;transition:opacity .7s ease,transform .7s ease}
+@media(prefers-reduced-motion:reduce){
+  html{scroll-behavior:auto}
+  .rv{opacity:1;transform:none}
+  .band-track{animation:none}
+  .theme,.btn{transition:none}
+}
+</style>
+<noscript><style>.reveal,.rv{opacity:1 !important;transform:none !important}</style></noscript></head>
+<body><div class="portal"><a href="../index.html">&#8592; 总门户</a></div>
+
+<nav class="nav">
+  <div class="wrap nav-in">
+    <a class="brand" href="index.html">人生进阶指南</a>
+    <a class="link" href="ai-learn.html">AI 与学习</a>
+    <a class="link" href="wealth.html">创业与财富</a>
+    <a class="link" href="life.html">爱情与人生</a>
+    <a class="link gh" href="https://github.com/byoungd/up">GitHub</a>
+    <button class="tbtn" id="themeToggle" type="button" aria-label="切换主题">◑</button>
+  </div>
+</nav>
+
+<header class="hero wrap">
+  <div class="kicker rv">韩先凯 · 开放书稿 · 中英双语</div>
+  <h1 class="rv">AI 时代的<br><em>终身学习</em>指南</h1>
+  <p class="lede rv">从英语这扇具体的门出发，走向 AI 学习、真实项目、创业验证、生活恢复。这不是一张漂亮的人生计划表，更像一间可以随时回来的工作室：带着一个真实问题进来，找到起点，完成一个足够小的动作，留下可复查的证据，再决定下一步。</p>
+  <div class="cta-row rv">
+    <a class="btn pri" href="#themes">浏览六大主题</a>
+    <a class="btn ghost" href="#workline">看共用工作线</a>
+  </div>
+</header>
+
+<div class="band" aria-hidden="true">
+  <div class="band-track">
+    <span>发现问题 → 主动学习 → 与 AI 协作 → 完成真实任务 → 保存证据 → 复盘迁移</span>
+    <span>五分钟起步 · 十四天复测 · 九十天复盘</span>
+    <span>发现问题 → 主动学习 → 与 AI 协作 → 完成真实任务 → 保存证据 → 复盘迁移</span>
+    <span>五分钟起步 · 十四天复测 · 九十天复盘</span>
+  </div>
+</div>
+
+<section class="block wrap" id="themes">
+  <div class="sec-head rv">
+    <h2>六大主题</h2>
+    <p class="sec-sub">不必同时打开所有主题。从眼前的问题选一条线，完成一轮，再决定是否继续。三条阅读线分别对应三个子页，每页都把对应主题的方法与路径完整展开。</p>
+  </div>
+  <div class="themes">
+    <a class="theme rv" href="ai-learn.html">
+      <span class="no">01</span><h3>AI 学习</h3>
+      <p>让 AI 帮助提问、研究和反馈，同时把事实核验与最终判断留在人手中。七步闭环、五个层次、三次对照。</p>
+      <span class="go">进入 AI 与学习 →</span>
+    </a>
+    <a class="theme rv" href="ai-learn.html#english">
+      <span class="no">02</span><h3>英语与基础能力</h3>
+      <p>用英语连接全球知识与技术文档。以可理解度而不是口音相似度进入跨文化协作，听说读写分开建档复测。</p>
+      <span class="go">进入 AI 与学习 →</span>
+    </a>
+    <a class="theme rv" href="wealth.html#startup">
+      <span class="no">03</span><h3>创业验证</h3>
+      <p>从真实问题到首批用户：访谈过去的行为而不是预测，用人工试点和付费证据检验假设，允许结论是停止。</p>
+      <span class="go">进入创业与财富 →</span>
+    </a>
+    <a class="theme rv" href="wealth.html#cash">
+      <span class="no">04</span><h3>财富与现金流</h3>
+      <p>现金流比估值更诚实。功能堆不成产品，技术债最终会变成经营债，能活下来的小生意并不低级。</p>
+      <span class="go">进入创业与财富 →</span>
+    </a>
+    <a class="theme rv" href="life.html#love">
+      <span class="no">05</span><h3>爱情与关系</h3>
+      <p>在场比及时给建议更重要。边界不是惩罚对方，冲突先处理安全再谈输赢，修复要留下可观察的改变。</p>
+      <span class="go">进入爱情与人生 →</span>
+    </a>
+    <a class="theme rv" href="life.html#life-recovery">
+      <span class="no">06</span><h3>人生与恢复</h3>
+      <p>低谷里第一件事不是加速，而是停止继续坠落。按安全、降档、重建三种模式决定今天的负荷。</p>
+      <span class="go">进入爱情与人生 →</span>
+    </a>
+  </div>
+</section>
+
+<section class="block wrap" id="workline">
+  <div class="sec-head rv">
+    <h2>共用工作线</h2>
+    <p class="sec-sub">所有主题共用同一条工作线。AI 可以帮你拆解、提问、比较和反馈；目标、来源、隐私、验收和最终责任仍由人确认。</p>
+  </div>
+  <div class="steps rv">
+    <div class="step"><strong>定义问题</strong><span>写清场景、受众、动作、截止时间和验收标准</span></div>
+    <div class="step"><strong>保存基线</strong><span>先独立做一次，暴露知识缺口和判断盲点</span></div>
+    <div class="step"><strong>最小任务</strong><span>拆出 25 至 45 分钟能完成的一个动作</span></div>
+    <div class="step"><strong>记录证据</strong><span>保存笔记、代码、录音或反馈，不只存聊天记录</span></div>
+    <div class="step"><strong>延迟复测</strong><span>间隔数天换条件重做，看能力是否真的留下</span></div>
+    <div class="step"><strong>决定迁移</strong><span>复盘后决定继续、调整、缩小还是停止</span></div>
+  </div>
+  <div class="note rv"><strong>AI 让答案变便宜，稀缺的是判断。</strong>几秒钟就能得到解释、代码和计划，真正稀缺的东西没有消失：知道什么问题值得追问，辨别什么证据可以相信，把建议变成真实作品，并为最后的判断负责。</div>
+</section>
+
+<section class="block wrap">
+  <div class="sec-head rv"><h2>从今天的一件小事开始</h2></div>
+  <div class="quote rv">
+    终身学习不是同时打开十门课程，而是在今天完成一个能够留下痕迹的动作。你不需要先看见整条路；今天留下的第一份证据，就是下一步可以站立的地方。
+    <small>《人生进阶指南》· 韩先凯，绰号法海（不懂AI）</small>
+  </div>
+  <div class="note rv" style="margin-top:0">
+    <strong>今天的五步：</strong>选一个真实问题；写下当前基线（已知道什么、还不会什么、什么算完成）；让 AI 拆出一个最小任务但亲自核对来源；保存一页笔记、一段代码或一次录音；一周后复盘完成、质量、保持与迁移，再决定下一步。
+  </div>
+</section>
+
+<footer>
+  <div class="wrap foot-grid">
+    <div>人生进阶指南 · 基于 <a href="https://github.com/byoungd/up">byoungd/up</a> 开放书稿整理 · 正文 CC BY-NC 4.0</div>
+    <div><a href="ai-learn.html">AI 与学习</a> · <a href="wealth.html">创业与财富</a> · <a href="life.html">爱情与人生</a></div>
+  </div>
+</footer>
+
+<script>
+(function(){
+  var b=document.getElementById("themeToggle");if(!b)return;
+  function sync(){
+    var d=document.documentElement.getAttribute("data-theme")==="dark";
+    b.textContent=d?"◑":"◐";
+    b.setAttribute("aria-label",d?"切换到浅色主题":"切换到深色主题");
+  }
+  sync();
+  b.addEventListener("click",function(){
+    var n=document.documentElement.getAttribute("data-theme")==="dark"?"light":"dark";
+    document.documentElement.setAttribute("data-theme",n);
+    try{localStorage.setItem("theme",n)}catch(e){}
+    sync();
+  });
+})();
+</script>
+<script>
+(function(){
+  if(window.matchMedia&&window.matchMedia("(prefers-reduced-motion: reduce)").matches)return;
+  var els=document.querySelectorAll(".rv");
+  if(!("IntersectionObserver"in window)){els.forEach(function(e){e.classList.add("on")});return}
+  var io=new IntersectionObserver(function(en){
+    en.forEach(function(e){if(e.isIntersecting){e.target.classList.add("on");io.unobserve(e.target)}})
+  },{threshold:.12});
+  els.forEach(function(e){io.observe(e)});
+})();
+</script>
+</body>
+</html>

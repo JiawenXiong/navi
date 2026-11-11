@@ -1,0 +1,195 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<script>(function(){try{var t=localStorage.getItem('theme');if(t!=='light'&&t!=='dark'){var h=new Date().getHours();t=(h>=7&&h<17)?'light':'dark'}document.documentElement.setAttribute('data-theme',t)}catch(e){document.documentElement.setAttribute('data-theme','light')}})();</script>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>求职与谈薪 · 高性价比工作指南</title>
+<style>
+:root,[data-theme=light]{--bg:#f4f6f9;--card:#ffffff;--ink:#1e2430;--ink2:#5b6472;--line:#e2e7ee;--accent:#0a5cff;--accent-soft:#e8f0ff;--on-accent:#fff;--src:#8a93a3;--accent-fade:#b9cffb;--radius:14px;color-scheme:light}
+[data-theme=dark]{--bg:#15181e;--card:#1e232b;--ink:#e6e9ef;--ink2:#a7b0bf;--line:#353c47;--accent:#4d9fff;--accent-soft:#12233d;--on-accent:#0b1220;--src:#8f99a9;--accent-fade:#1c3d6e;color-scheme:dark}
+*{box-sizing:border-box;margin:0;padding:0}
+body{background:var(--bg);color:var(--ink);font-family:"Microsoft YaHei","PingFang SC","Segoe UI",sans-serif;line-height:1.75;font-size:15.5px}
+a{color:var(--accent);text-decoration:none}
+a:hover{text-decoration:underline}
+.wrap{max-width:1000px;margin:0 auto;padding:0 20px}
+.topbar{background:var(--card);border-bottom:1px solid var(--line);position:sticky;top:0;z-index:20}
+.nav{display:flex;align-items:center;gap:4px;white-space:nowrap;overflow-x:auto;scrollbar-width:none}
+.nav::-webkit-scrollbar{display:none}
+.brand{font-weight:700;color:var(--ink);margin-right:14px;flex:none}
+.brand span{color:var(--accent)}
+.nav a{flex:none;padding:9px 12px;border-radius:10px;color:var(--ink2);font-size:14px}
+.nav a:hover{background:var(--accent-soft);color:var(--accent);text-decoration:none}
+.nav a.on{background:var(--accent);color:var(--on-accent)}
+.nav a.gh{border:1px solid var(--line);color:var(--accent)}
+.theme-btn{flex:none;margin-left:6px;padding:8px 12px;border-radius:10px;border:1px solid var(--line);background:var(--card);color:var(--ink);font-size:13px;cursor:pointer;font-family:inherit;line-height:1.2}
+.theme-btn:hover{background:var(--accent-soft);color:var(--accent)}
+main{padding:34px 0 10px}
+.pagehead{margin-bottom:22px}
+.pagehead .crumb{font-size:13px;color:var(--ink2)}
+.pagehead h1{font-size:26px;margin:6px 0 8px}
+.pagehead p{color:var(--ink2);max-width:760px}
+h2.sec{font-size:19px;margin:34px 0 4px;padding-left:12px;border-left:4px solid var(--accent)}
+p.secsub{color:var(--ink2);font-size:14px;margin:0 0 14px 16px}
+.card{background:var(--card);border:1px solid var(--line);border-radius:var(--radius);padding:20px 22px;margin-bottom:14px}
+.card .head{display:flex;gap:12px;align-items:baseline}
+.card .num{font-family:Consolas,Menlo,monospace;font-size:13px;color:var(--accent);border:1px solid var(--accent);border-radius:8px;padding:0 8px;flex:none}
+.card h3{font-size:16px;line-height:1.5}
+.meta{margin:8px 0 8px}
+.chip{display:inline-block;font-size:12px;border-radius:999px;padding:2px 10px;margin:0 6px 6px 0;border:1px solid var(--line);color:var(--ink2);background:var(--bg)}
+.chip.blue{background:var(--accent);border-color:var(--accent);color:var(--on-accent)}
+.chip.line{border-color:var(--accent);color:var(--accent);background:var(--accent-soft)}
+.card p{color:var(--ink2);font-size:14.5px}
+.card p b{color:var(--ink)}
+.src{margin-top:8px;font-size:12.5px;color:var(--src)}
+footer{margin-top:44px;border-top:1px solid var(--line);background:var(--card)}
+footer .wrap{padding:22px 20px;color:var(--ink2);font-size:13px}
+footer p{margin:3px 0}
+.reveal{opacity:0;transform:translateY(14px);transition:opacity .5s ease,transform .5s ease}
+.reveal.in{opacity:1;transform:none}
+@media (prefers-reduced-motion:reduce){.reveal{opacity:1;transform:none;transition:none}}
+@media (max-width:640px){.card{padding:16px}}
+</style>
+<noscript><style>.reveal,.rv{opacity:1 !important;transform:none !important}</style></noscript></head>
+<body>
+<header class="topbar"><div class="wrap"><nav class="nav">
+<a class="brand" href="../index.html">高性价比<span>工作指南</span></a>
+<a href="../index.html">返回首页</a>
+<a class="on" href="jobhunt.html">求职与谈薪</a>
+<a href="onboard.html">入职与社保</a>
+<a href="crisis.html">被裁与维权</a>
+<a href="growth.html">成长与礼仪</a>
+<a href="rights.html">健康与合同</a>
+<a class="gh" href="https://github.com/NiceCao/HowToWorkBetter" target="_blank" rel="noopener">GitHub 仓库</a>
+<button type="button" class="theme-btn" id="themeToggle" aria-label="切换明暗主题">☾ 暗色</button>
+</nav></div></header>
+
+<main class="wrap">
+<div class="pagehead reveal">
+<div class="crumb">板块一 · 选对赛道 + 板块二 · 拿更多钱（第 1、2、3、8、9 章）</div>
+<h1>求职与谈薪</h1>
+<p>选行业决定收入水平、职业寿命和转行成本；谈薪靠两样东西：同岗位的市场信息，和一份能落地的备选 offer。以下条目提炼自仓库第 1 到 3 章、第 8 章择业反面清单与第 9 章谈薪。</p>
+</div>
+
+<h2 class="sec reveal">一、选行业与挑公司</h2>
+<p class="secsub">来自第 1 章行业选择、第 2 章公司选择、第 3 章企业文化：先看长期增长，再看天花板、护城河和匹配度。</p>
+
+<article class="card reveal"><div class="head"><span class="num">01</span><h3>选行业先看长期增长，再看天花板、护城河和匹配度</h3></div>
+<div class="meta"><span class="chip blue">证据 A</span><span class="chip line">性价比 极高</span><span class="chip">成本 钱=0 · 时间=中 · 精力=低</span><span class="chip">口径：职业寿命 / 收入</span></div>
+<p><b>怎么做：</b>行业选择是职业规划的第一步，判断一个行业值不值得进，按四条核对：长期是否增长、天花板够不够高、有没有护城河、和自己的匹配度。用分行业工资、行业产量和人口等公开数据逐条核对，别只听招聘广告。</p>
+<p class="src">来源：国家统计局分行业平均工资等官方统计（见仓库第 1 章各条来源）。</p></article>
+
+<article class="card reveal"><div class="head"><span class="num">02</span><h3>用分行业工资数据给赛道排序，全国量级可先记两个数</h3></div>
+<div class="meta"><span class="chip blue">证据 A</span><span class="chip line">性价比 极高</span><span class="chip">成本 钱=0 · 时间=中 · 精力=低</span><span class="chip">口径：收入</span></div>
+<p><b>说人话：</b>2025 年城镇非私营单位就业人员年平均工资 129441 元、城镇私营单位 71590 元。这两个数是全国量级参照：官方平均是税前应发、受高薪人群拉动，中位数通常更低，落不到某个具体岗位，只能看量级。</p>
+<p class="src">来源：国家统计局对 2025 年城镇单位就业人员平均工资数据的解读。</p></article>
+
+<article class="card reveal"><div class="head"><span class="num">03</span><h3>同时拿到几家公司的机会时，按可核对项比较再决定去哪家</h3></div>
+<div class="meta"><span class="chip">证据 B</span><span class="chip line">性价比 高</span><span class="chip">成本 钱=0 · 时间=少 · 精力=低</span><span class="chip">口径：职业寿命</span></div>
+<p><b>怎么做：</b>第 2 章公司选择解决的是：手里有几个机会时怎么判断哪家值得去。把薪资结构、业务前景、直属领导、团队情况逐项列出来比，能核对的核对了再选，别只看品牌和口头描述。</p>
+<p class="src">来源：见仓库第 2 章各条；比较框架属经验做法与公开资料结合。</p></article>
+
+<article class="card reveal"><div class="head"><span class="num">04</span><h3>面试时怎么看穿企业文化的真假</h3></div>
+<div class="meta"><span class="chip">证据 C</span><span class="chip">性价比 高</span><span class="chip">成本 钱=0 · 时间=少 · 精力=低</span><span class="chip">口径：职业寿命</span></div>
+<p><b>怎么做：</b>第 3 章给出面试时判断公司文化是真还是装的方法：看面试流程本身是否规范、面试官怎么谈加班和离职、在职员工的评价怎么说，用可观察的行为而不是墙上的口号来判断。</p>
+<p class="src">来源：无（经验判断，仓库第 3 章在限制里说明了这一点的边界）。</p></article>
+
+<article class="card reveal"><div class="head"><span class="num">05</span><h3>择业反面清单：无底薪纯提成的岗位要警惕</h3></div>
+<div class="meta"><span class="chip blue">证据 A</span><span class="chip line">性价比 极高</span><span class="chip">成本 钱=0 · 时间=少 · 精力=低</span><span class="chip">口径：收入</span></div>
+<p><b>说人话：</b>有些岗位在招聘和合同环节就埋着问题，进去以后才发现收入、保障可能落空。第 8 章把常见陷阱拆开讲，每一类都给出识别方法和对应的法律依据；无底薪纯提成是第一类，收入完全挂在不由你控制的提成上。</p>
+<p class="src">来源：劳动合同法等法规原文（见仓库第 8 章各条来源）。</p></article>
+
+<article class="card reveal"><div class="head"><span class="num">06</span><h3>反面清单：试用期不签合同不发工资、入职先收钱，都是硬信号</h3></div>
+<div class="meta"><span class="chip blue">证据 A</span><span class="chip line">性价比 极高</span><span class="chip">成本 钱=0 · 时间=少 · 精力=低</span><span class="chip">口径：收入 / 职业自由</span></div>
+<p><b>说人话：</b>建立劳动关系应当订立书面劳动合同，已用工未签的应自用工之日起一个月内订立；用人单位招用劳动者不得要求提供担保或以其他名义向劳动者收取财物。试用期不发工资、入职先交押金培训费，直接排除这家公司。</p>
+<p class="src">来源：中华人民共和国劳动合同法第十条、第九条。</p></article>
+
+<article class="card reveal"><div class="head"><span class="num">07</span><h3>反面清单：境外高薪招聘、以租代招、兼职垫钱、抬头虚高</h3></div>
+<div class="meta"><span class="chip blue">证据 A</span><span class="chip line">性价比 极高</span><span class="chip">成本 钱=0 · 时间=少 · 精力=低</span><span class="chip">口径：职业自由</span></div>
+<p><b>怎么做：</b>这几类陷阱的共性是承诺的收益拿不到、还可能搭进去钱或人身自由：境外高薪招聘先核实渠道资质；以租代招把招聘变成设备租赁；兼职垫钱先买货再返款的多数是骗局；抬头虚高的岗位名与实际职责不符，影响后续跳槽定价。遇到就绕开。</p>
+<p class="src">来源：仓库第 8 章逐条附法规依据与识别方法。</p></article>
+
+<h2 class="sec reveal">二、投简历与面试</h2>
+<p class="secsub">来自第 14 章跳槽涨薪：渠道、面试与时机。</p>
+
+<article class="card reveal"><div class="head"><span class="num">08</span><h3>找工作优先走内推，别只靠海投</h3></div>
+<div class="meta"><span class="chip">证据 B</span><span class="chip line">性价比 高</span><span class="chip">成本 钱=0 · 时间=少 · 精力=低</span><span class="chip">口径：职业寿命</span></div>
+<p><b>说人话：</b>内推能让简历直接到用人团队手里，反馈快、命中率高。平时把同行关系维护好，找工作时才有人可找；海投只作为补充渠道。</p>
+<p class="src">来源：见仓库第 14 章第 5 条，附招聘平台数据。</p></article>
+
+<article class="card reveal"><div class="head"><span class="num">09</span><h3>面试时把公司的业务、团队和岗位空缺原因问清楚，再决定去不去</h3></div>
+<div class="meta"><span class="chip">证据 B</span><span class="chip line">性价比 高</span><span class="chip">成本 钱=0 · 时间=少 · 精力=低</span><span class="chip">口径：职业寿命</span></div>
+<p><b>怎么做：</b>面试是双向筛选。问清三样：这个岗位的业务在公司里什么位置、团队多大怎么分工、岗位为什么空出来（新增还是前任走了）。答复含糊的，当作风险信号记下。</p>
+<p class="src">来源：见仓库第 14 章第 6 条。</p></article>
+
+<article class="card reveal"><div class="head"><span class="num">10</span><h3>优先骑驴找马，辞职前先确认能承受 3 到 6 个月没有收入</h3></div>
+<div class="meta"><span class="chip">证据 B</span><span class="chip line">性价比 高</span><span class="chip">成本 钱=中 · 时间=中 · 精力=中</span><span class="chip">口径：收入 / 职业自由</span></div>
+<p><b>说人话：</b>裸辞的底气是现金流。辞职前备好 3 到 6 个月的生活费，跳槽前把量化成果、目标岗位清单和现金流三样准备齐，谈判和等待期都不慌。</p>
+<p class="src">来源：见仓库第 14 章第 4、7 条。</p></article>
+
+<h2 class="sec reveal">三、谈薪资</h2>
+<p class="secsub">来自第 9 章谈薪，按性价比从高到低排。</p>
+
+<article class="card reveal"><div class="head"><span class="num">11</span><h3>先让对方给出薪资区间，自己不要先报具体数字</h3></div>
+<div class="meta"><span class="chip blue">证据 A</span><span class="chip line">性价比 极高</span><span class="chip">成本 钱=0 · 时间=0 · 精力=低</span><span class="chip">口径：收入</span></div>
+<p><b>说人话：</b>HR 问期望薪资时，先报数字的一方先把底牌亮出去：报低了公司按低的给，报高了可能直接被筛掉。先反问岗位的薪资区间；被要求先给数时给区间不给单点，比如市场价 18 千到 22 千，报 20 千到 24 千。</p>
+<p class="src">来源：中国大学生在线（2023，转智联招聘）求职面试如何谈薪。限制：来自招聘平台通用经验，薪资带固定的岗位能谈的是级别、签字费和入职时间。</p></article>
+
+<article class="card reveal"><div class="head"><span class="num">12</span><h3>谈薪前先查出同岗位的市场价，给自己的报数定区间</h3></div>
+<div class="meta"><span class="chip blue">证据 A</span><span class="chip line">性价比 极高</span><span class="chip">成本 钱=0 · 时间=中 · 精力=低</span><span class="chip">口径：收入</span></div>
+<p><b>说人话：</b>你值多少看同岗位在市场上给多少。谈之前拿到三个数：同岗位市场价、公司薪资带、你现在的收入。官方平均只到行业和岗位大类，实际区间要到招聘 APP 上搜、多个岗位取中间值，再对照薪酬报告；低于市场下限的 offer 先当作压价信号。</p>
+<p class="src">来源：国家统计局 2025 年城镇单位就业人员平均工资解读。限制：招聘平台挂出的薪资上限常用来吸引投递，实际到手多在区间偏下。</p></article>
+
+<article class="card reveal"><div class="head"><span class="num">13</span><h3>同时面 3 到 5 家，用书面 offer 当备选方案</h3></div>
+<div class="meta"><span class="chip blue">证据 A</span><span class="chip line">性价比 极高</span><span class="chip">成本 钱=0 · 时间=中 · 精力=低</span><span class="chip">口径：收入</span></div>
+<p><b>说人话：</b>谈薪最硬的筹码是有别的选择。同时推进 3 到 5 家，把终面和发 offer 的时间凑在一起；拿到第一个 offer 先别答应，问清最晚答复时间。备选要落到书面，口头承诺不算；来回两三轮就够，别编造不存在的 offer。</p>
+<p class="src">来源：中国大学生在线（2023，转智联招聘）。限制：备选和这家差距太大说服力有限。</p></article>
+
+<article class="card reveal"><div class="head"><span class="num">14</span><h3>谈总包而不是月薪，把年终奖、补贴和社保基数一起折算</h3></div>
+<div class="meta"><span class="chip blue">证据 A</span><span class="chip line">性价比 极高</span><span class="chip">成本 钱=0 · 时间=少 · 精力=低</span><span class="chip">口径：收入</span></div>
+<p><b>说人话：</b>只盯月薪会漏掉一大块。问清基本工资、绩效、年终奖各多少怎么分；把签字费、股票、交通餐补住房、社保公积金按实际工资还是最低基数交都折进来，加总成年度总包再和现在比。「最高 6 个月年终奖」里的最高要看过去真实发几个月，通常只有两个月。</p>
+<p class="src">来源：中国大学生在线（2023，转智联招聘）。限制：股票期权没上市、没到归属期之前不能当现金算；年终奖属浮动薪酬，优先把确定性高的部分谈到位。</p></article>
+
+<article class="card reveal"><div class="head"><span class="num">15</span><h3>把谈钱放在对方明确要你之后，面试阶段先谈清岗位和职责</h3></div>
+<div class="meta"><span class="chip">证据 B</span><span class="chip line">性价比 高</span><span class="chip">成本 钱=0 · 时间=少 · 精力=低</span><span class="chip">口径：收入</span></div>
+<p><b>说人话：</b>面试早期谈，对方还没认定你；等对方想招你了再谈，筹码最多。业务面只谈能力，HR 面给范围不定死，拿到录用意向后是主战场。入职后涨薪多半只能等下一年调薪，要在入职前谈到位。</p>
+<p class="src">来源：中国大学生在线（2023，转智联招聘）。限制：拿到意向后再谈属流程通用经验，无官方成功率数据。</p></article>
+
+<article class="card reveal"><div class="head"><span class="num">16</span><h3>报价前按到手倒推税前数，年终奖两种计税都算一遍选低的</h3></div>
+<div class="meta"><span class="chip">证据 B</span><span class="chip line">性价比 高</span><span class="chip">成本 钱=0 · 时间=少 · 精力=低</span><span class="chip">口径：收入</span></div>
+<p><b>说人话：</b>谈的是税前，到手的是税后。工资按 3% 到 45% 超额累进，社保公积金个人缴费基数设 60% 下限和 300% 上限，各省每年公布；年终奖可单独计税也可并入综合所得，发放前两种都算一遍选低的，单独计税政策执行到 2027 年 12 月 31 日。</p>
+<p class="src">来源：财政部税务总局 2023 年第 30 号公告；国家税务总局个人所得税税率表；国办发〔2019〕13 号。限制：两种计税哪种更省没有通用答案，社保上下限查本省当年数字。</p></article>
+
+<article class="card reveal"><div class="head"><span class="num">17</span><h3>被压价时把话题从基本工资转到总包和调整机制</h3></div>
+<div class="meta"><span class="chip">证据 B</span><span class="chip line">性价比 高</span><span class="chip">成本 钱=0 · 时间=少 · 精力=低</span><span class="chip">口径：收入</span></div>
+<p><b>说人话：</b>压价是招聘的常规动作。对方说预算就这么多，接受预算再转到级别、签字费、年终奖保底；拿你过去工资低压你，把锚点换到同岗位市场价。基本工资谈不动时还能谈级别、试用期长短、年假、弹性工时和调薪周期；不当场答应也不当场拒绝，先争取考虑时间。</p>
+<p class="src">来源：中国大学生在线（2023，转智联招聘）。限制：没有必胜话术，不要编造虚假信息。</p></article>
+
+<article class="card reveal"><div class="head"><span class="num">18</span><h3>谈成的东西写进 offer 或劳动合同，口头承诺不入账</h3></div>
+<div class="meta"><span class="chip">证据 B</span><span class="chip">性价比 一般</span><span class="chip">成本 钱=0 · 时间=少 · 精力=低</span><span class="chip">口径：收入</span></div>
+<p><b>说人话：</b>面试时说好的年终奖、调薪、签字费，只要没落到书面，随时可以不认。写清工资金额和发放时间、试用期工资和期限、工作地点与岗位级别、签字费金额与退还条件、股票数量与归属。对方说不能写时注意：工资、岗位、地点属于劳动合同必备内容，不写本身就有问题。</p>
+<p class="src">来源：中华人民共和国劳动合同法。限制：浮动薪酬公司确实难写死，可在 offer 里写明目标口径；微信、邮件里的书面记录争议时也能作为证据。</p></article>
+
+<article class="card reveal"><div class="head"><span class="num">19</span><h3>这几种情况薪资谈判空间很小，先把精力放在换岗位上</h3></div>
+<div class="meta"><span class="chip">证据 B</span><span class="chip">性价比 一般</span><span class="chip">成本 钱=0 · 时间=少 · 精力=低</span><span class="chip">口径：收入</span></div>
+<p><b>说人话：</b>国企、事业单位、公务员按级别和工龄定薪，大厂校招同级别统一价，岗位替代性强时谈判力最弱。2025 年规模以上企业中层及以上管理人员年平均工资 210016 元，社会生产服务和生活服务人员 79857 元，差距来自岗位和行业，很难靠一次谈薪补上，把精力转到提升稀缺度上。</p>
+<p class="src">来源：国家统计局 2025 年城镇单位就业人员平均工资解读。限制：平均工资只说明差距存在，不能直接推出换岗位能涨多少。</p></article>
+</main>
+
+<footer><div class="wrap">
+<p>内容提炼自开源项目 <a href="https://github.com/NiceCao/HowToWorkBetter" target="_blank" rel="noopener">NiceCao/HowToWorkBetter（高性价比工作指南）</a>第 1、2、3、8、9、14 章，正文以 CC BY 4.0 许可发布。</p>
+<p>所有内容仅供参考，不构成法律建议；金额、时限、比例以当地主管部门最新规定为准。遇到具体纠纷请咨询专业人士，或拨打 12333（人社）、12348（法律援助）。</p>
+</div></footer>
+
+<script>(function(){var b=document.getElementById('themeToggle');if(!b)return;function up(){b.textContent=document.documentElement.getAttribute('data-theme')==='dark'?'☀ 亮色':'☾ 暗色'}up();b.addEventListener('click',function(){var d=document.documentElement.getAttribute('data-theme')==='dark'?'light':'dark';document.documentElement.setAttribute('data-theme',d);try{localStorage.setItem('theme',d)}catch(e){}up()})})();</script>
+<script>
+(function(){
+var rm=window.matchMedia&&window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+var els=document.querySelectorAll('.reveal');
+if(rm||!('IntersectionObserver' in window)){for(var i=0;i<els.length;i++){els[i].classList.add('in')}return}
+var io=new IntersectionObserver(function(entries){entries.forEach(function(en){if(en.isIntersecting){en.target.classList.add('in');io.unobserve(en.target)}})},{threshold:0.06});
+for(var j=0;j<els.length;j++){io.observe(els[j])}
+})();
+</script>
+</body>
+</html>

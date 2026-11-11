@@ -1,0 +1,172 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>程序员延寿指南 · HowToLiveLonger 中文站点</title>
+<script>(function(){var t;try{t=localStorage.getItem('theme')}catch(e){}if(t!=='light'&&t!=='dark'){var h=new Date().getHours();t=(h>=7&&h<17)?'light':'dark'}document.documentElement.setAttribute('data-theme',t)})();</script>
+<style>
+:root{color-scheme:light;--blue:#1a4fc4;--blue-dark:#12358a;--blue-soft:#e8eefb;--link:#1a4fc4;--grad1:#12358a;--grad2:#1a4fc4;--ink:#1c2333;--muted:#5b6474;--bg:#f5f6f8;--card:#ffffff;--line:#dfe3ea;--ok:#1c7d43;--warn:#a15c00;--bad:#a11d2a;--bC-bg:#f0ede6;--bC-fg:#a15c00;--bD-bg:#eceef1;--bD-fg:#5b6474;--bU-bg:#e4e7ec;--bU-fg:#4b5563;--bU-line:#b7bdc9;--vok-bg:#e4f2e8;--vok-fg:#1c7d43;--vpart-bg:#fdf3e2;--vpart-fg:#a15c00;--vfix-bg:#fcebec;--vfix-fg:#a11d2a;--vno-bg:#eceef1;--vno-fg:#5b6474;--note-bg:#fbfcfe;--meta-bg:#f8f9fb;--warnbox-bg:#fdf6f6;--cwb:#fdf3f3;--cwbd:#efc9cd;--cwfg:#7c1d27;--crb:#eef7f0;--crbd:#c8e3d0;--crfg:#155c33;}
+[data-theme="dark"]{color-scheme:dark;--blue:#2e56b5;--blue-dark:#a9c4f5;--blue-soft:#243350;--link:#85a9f2;--grad1:#182645;--grad2:#26437f;--ink:#e8ecf4;--muted:#a6b0c2;--bg:#12161d;--card:#1a1f28;--line:#333c4c;--ok:#7ed9a4;--warn:#f0b45c;--bad:#f4949e;--bC-bg:#33290f;--bC-fg:#f0b45c;--bD-bg:#272e39;--bD-fg:#a6b0c2;--bU-bg:#222833;--bU-fg:#9aa5b8;--bU-line:#4a5568;--vok-bg:#17301f;--vok-fg:#7ed9a4;--vpart-bg:#33290f;--vpart-fg:#f0b45c;--vfix-bg:#3a2028;--vfix-fg:#f4949e;--vno-bg:#272e39;--vno-fg:#a6b0c2;--note-bg:#1d2430;--meta-bg:#20262f;--warnbox-bg:#2c1d22;--cwb:#33202a;--cwbd:#5c2f3c;--cwfg:#f3a3ad;--crb:#17301f;--crbd:#2d5540;--crfg:#7fdda8;}
+.themebtn{flex:0 0 auto;margin-left:6px;padding:5px 12px;font-size:13px;font-weight:600;border:1px solid var(--line);background:var(--card);color:var(--muted);border-radius:8px;cursor:pointer;line-height:1.5;}
+.themebtn:hover{color:var(--link);border-color:var(--link);}
+@media(max-width:480px){.hero,.pagehead{padding:24px 18px;}}
+*{box-sizing:border-box;}
+body{margin:0;font-family:"PingFang SC","Microsoft YaHei","Noto Sans SC",sans-serif;color:var(--ink);background:var(--bg);line-height:1.75;}
+a{color:var(--link);text-decoration:none;}
+a:hover{text-decoration:underline;}
+.nav{background:var(--card);border-bottom:1px solid var(--line);position:sticky;top:0;z-index:10;}
+.nav-inner{max-width:1080px;margin:0 auto;padding:0 16px;display:flex;align-items:center;gap:4px;overflow-x:auto;white-space:nowrap;-webkit-overflow-scrolling:touch;}
+.nav a{padding:12px 12px;font-size:14.5px;color:var(--muted);border-bottom:2.5px solid transparent;flex:0 0 auto;}
+.nav a:hover{color:var(--link);text-decoration:none;}
+.nav a[aria-current]{color:var(--link);border-bottom-color:var(--link);font-weight:600;}
+.nav .brand{font-weight:700;color:var(--ink);margin-right:8px;}
+.nav .ext{margin-left:auto;color:var(--blue-dark);}
+main{max-width:1080px;margin:0 auto;padding:28px 16px 56px;}
+.hero{background:linear-gradient(135deg,var(--grad1),var(--grad2));color:#fff;border-radius:14px;padding:36px 30px;margin-bottom:28px;}
+.hero h1{margin:0 0 10px;font-size:clamp(24px,4vw,34px);line-height:1.3;}
+.hero p{margin:6px 0;max-width:46em;color:#e9eefb;font-size:15.5px;}
+.hero .tags{margin-top:14px;display:flex;flex-wrap:wrap;gap:8px;}
+.hero .tag{background:rgba(255,255,255,.14);border:1px solid rgba(255,255,255,.28);border-radius:999px;padding:2px 12px;font-size:12.5px;}
+h2{font-size:21px;margin:34px 0 12px;color:var(--blue-dark);}
+h3{font-size:17px;margin:22px 0 8px;}
+section{scroll-margin-top:70px;}
+.grid{display:grid;gap:14px;}
+@media(min-width:720px){.grid.c2{grid-template-columns:1fr 1fr;}.grid.c3{grid-template-columns:repeat(3,1fr);}}
+.card{background:var(--card);border:1px solid var(--line);border-radius:12px;padding:18px 20px;}
+.card h3{margin-top:0;}
+.card p{margin:8px 0;font-size:14.5px;color:var(--muted);}
+.badge{display:inline-block;border-radius:6px;font-size:12px;font-weight:700;padding:1px 9px;line-height:1.7;}
+.bA{background:var(--blue);color:#fff;}
+.bB{background:var(--blue-soft);color:var(--blue-dark);}
+.bC{background:var(--bC-bg);color:var(--bC-fg);}
+.bD{background:var(--bD-bg);color:var(--bD-fg);}
+.bU{background:var(--bU-bg);color:var(--bU-fg);border:1px dashed var(--bU-line);}
+.verdict{display:inline-block;border-radius:6px;font-size:12px;font-weight:600;padding:1px 9px;}
+.v-ok{background:var(--vok-bg);color:var(--vok-fg);}
+.v-part{background:var(--vpart-bg);color:var(--vpart-fg);}
+.v-fix{background:var(--vfix-bg);color:var(--vfix-fg);}
+.v-no{background:var(--vno-bg);color:var(--vno-fg);}
+.tablewrap{overflow-x:auto;border:1px solid var(--line);border-radius:12px;background:var(--card);}
+table{border-collapse:collapse;width:100%;min-width:640px;font-size:14px;}
+th{background:var(--blue-soft);color:var(--blue-dark);text-align:left;font-weight:600;}
+th,td{padding:9px 13px;border-bottom:1px solid var(--line);vertical-align:top;}
+tr:last-child td{border-bottom:none;}
+td.num{font-variant-numeric:tabular-nums;white-space:nowrap;}
+.note{background:var(--note-bg);border-left:4px solid var(--blue);border-radius:0 10px 10px 0;padding:12px 16px;font-size:14px;color:var(--muted);margin:14px 0;}
+.note strong{color:var(--ink);}
+footer{border-top:1px solid var(--line);background:var(--card);}
+.foot-inner{max-width:1080px;margin:0 auto;padding:20px 16px;font-size:13px;color:var(--muted);display:flex;flex-wrap:wrap;gap:8px 24px;align-items:center;}
+.btn{display:inline-block;background:var(--blue);color:#fff;border-radius:10px;padding:9px 18px;font-size:14.5px;font-weight:600;}
+.btn:hover{background:var(--blue-dark);text-decoration:none;color:#fff;}
+.pagelist{display:grid;gap:12px;}
+@media(min-width:720px){.pagelist{grid-template-columns:1fr 1fr;}}
+.pagelink{display:block;background:var(--card);border:1px solid var(--line);border-radius:12px;padding:16px 18px;color:var(--ink);}
+.pagelink:hover{border-color:var(--blue);text-decoration:none;box-shadow:0 2px 10px rgba(26,79,196,.08);}
+.pagelink .t{font-weight:700;color:var(--blue-dark);}
+.pagelink .d{font-size:13.5px;color:var(--muted);margin-top:4px;}
+.reveal{opacity:0;transform:translateY(12px);transition:opacity .5s ease,transform .5s ease;}
+.reveal.on{opacity:1;transform:none;}
+@media(prefers-reduced-motion:reduce){.reveal{opacity:1;transform:none;transition:none;}}
+</style>
+<noscript><style>.reveal,.rv{opacity:1 !important;transform:none !important}</style></noscript></head>
+<body>
+<nav class="nav"><div class="nav-inner">
+<span class="brand">HowToLiveLonger</span>
+<a href="index.html" aria-current="page">首页</a>
+<a href="method.html">方法学</a>
+<a href="exercise.html">运动·睡眠·久坐</a>
+<a href="diet.html">饮食·药物·环境</a>
+<a href="misread.html">误读纠正</a>
+<a class="ext" href="../index.html">返回上级</a>
+<a class="ext" href="https://github.com/geekan/HowToLiveLonger">GitHub</a>
+<button class="themebtn" id="themeToggle" type="button">主题</button>
+</div></nav>
+
+<main>
+<div class="hero reveal">
+<h1>程序员延寿指南：一份被逐条核验过证据的长寿常识手册</h1>
+<p>HowToLiveLonger 是 GitHub 上广受欢迎的开源项目，围绕全因死亡率（ACM）整理了食物、运动、睡眠和日常习惯的研究结论。本站基于仓库的 README 与 data/evidence.json 证据台账制作，把原始数据转成可以直接在浏览器里读完的中文页面。</p>
+<p>重要提醒：仓库的核验版数据已经放弃了早期“某习惯等于加 X 年寿命”的换算写法。HR、RR 等相对指标不能相加、不能相乘，也不能换算成个人寿命年数。全站所有数字均来自仓库数据，未做任何推算或编造。</p>
+<div class="tags"><span class="tag">64 篇研究摘要</span><span class="tag">63 条核验记录</span><span class="tag">81 个证据来源</span><span class="tag">核验基线 2026-10</span></div>
+</div>
+
+<section id="intro">
+<h2>这个项目在做什么</h2>
+<div class="grid c2">
+<div class="card reveal"><h3>面向普通人的循证清单</h3><p>项目把散落在论文里的长寿研究汇总成可执行的行动项：运动、睡眠、饮食、补剂、吸烟与环境暴露，每一条都标注了证据等级、研究人群、效应量和置信区间，并给出谨慎的行动建议。</p></div>
+<div class="card reveal"><h3>先核验，再传播</h3><p>证据团队对原始引文逐条回溯到论文原文：核对数字是否真实存在、结局是不是全因死亡、引文和结论是否错配。中文 README 第 3 至 6 节的 77 次文本引用被合并为 74 条独立出处，逐条保留了台账。</p></div>
+<div class="card reveal"><h3>敢于否定自己</h3><p>旧版 README 曾按“加或减多少年寿命”给每个习惯打分。核验后仓库明确否定了这种换算：观察性研究的 HR 不是个人因果效应，多个条目的收益也不能累加。本站遵循新版口径。</p></div>
+<div class="card reveal"><h3>给 AI 和人类共用</h3><p>仓库提供结构化 JSON 证据数据，可供 AI 助手引用作答，也欢迎社区通过提交记录补充和纠错。所有条目都附原始论文链接，读者可以自行查证。</p></div>
+</div>
+</section>
+
+<section id="method-brief">
+<h2>三分钟读懂方法论</h2>
+<div class="note"><strong>核心指标是 ACM（全因死亡率）。</strong>只看单一疾病会被“降低了某病风险却没降低总死亡”的结论误导，因此台账统一以全因死亡为主要终点，个别条目另注明心血管死亡、癌症发病等替代终点。</div>
+<div class="grid c3">
+<div class="card reveal"><h3><span class="badge bA">A</span> 随机试验证据</h3><p>直接 ACM 终点的大型随机试验。注意 A 只表示设计质量，高质量的阴性结果（如维生素 D 未见获益）同样可以是 A。</p></div>
+<div class="card reveal"><h3><span class="badge bB">B</span> 高质量队列</h3><p>多队列汇总或高质量大型队列的直接 ACM 关联，证据较强但不构成因果证明。</p></div>
+<div class="card reveal"><h3><span class="badge bC">C</span> 单队列或局限明显</h3><p>单一队列、事件数少或混杂显著，直接 ACM 证据有限。</p></div>
+<div class="card reveal"><h3><span class="badge bD">D</span> 间接证据</h3><p>动物实验、生态学分析、替代终点或间接暴露推断，不能直接外推到个体人类的 ACM。</p></div>
+<div class="card reveal"><h3><span class="badge bU">U</span> 证据缺失</h3><p>尚无可靠证据，与“已证明无效”是两回事。</p></div>
+<div class="card reveal"><h3>四档核验结论</h3><p>支持但需限定、部分支持、需纠正、无直接 ACM 证据。不少流传甚广的说法最终落在“需纠正”一档，详见<a href="misread.html">误读纠正页</a>。</p></div>
+</div>
+</section>
+
+<section id="data">
+<h2>数据总览：精选条目速查</h2>
+<p>下表从证据台账中挑出读者最常问的条目，完整版按主题分布在四个子页。效应量均为原文报告值，CI 为 95% 置信区间。</p>
+<div class="tablewrap reveal">
+<table>
+<thead><tr><th>因素</th><th>对比</th><th>效应量</th><th>95% CI</th><th>等级</th><th>核验结论</th></tr></thead>
+<tbody>
+<tr><td>挥拍运动</td><td>参与 vs 未参与</td><td class="num">HR 0.53</td><td class="num">0.40–0.69</td><td><span class="badge bB">B</span></td><td><span class="verdict v-ok">支持但需限定</span></td></tr>
+<tr><td>每日步数 7000–9999 步</td><td>vs 少于 7000 步</td><td class="num">HR 0.28</td><td class="num">0.15–0.54</td><td><span class="badge bC">C</span></td><td><span class="verdict v-ok">支持但需限定</span></td></tr>
+<tr><td>睡眠 10 小时以上（女性）</td><td>vs 7 小时</td><td class="num">HR 1.48</td><td class="num">1.36–1.61</td><td><span class="badge bB">B</span></td><td><span class="verdict v-ok">支持但需限定</span></td></tr>
+<tr><td>很少/从不刷牙</td><td>vs 规律刷牙</td><td class="num">HR 1.25</td><td class="num">1.21–1.28</td><td><span class="badge bB">B</span></td><td><span class="verdict v-ok">支持但需限定</span></td></tr>
+<tr><td>每天泡澡（CVD 发病）</td><td>vs 每周 0–2 次</td><td class="num">HR 0.72</td><td class="num">0.62–0.84</td><td><span class="badge bD">D</span></td><td><span class="verdict v-no">无直接 ACM 证据</span></td></tr>
+<tr><td>低钠富钾盐替代</td><td>随机分组，ACM 次要终点</td><td class="num">率比 0.88</td><td class="num">0.82–0.95</td><td><span class="badge bA">A</span></td><td><span class="verdict v-ok">支持但需限定</span></td></tr>
+<tr><td>全谷物每增加 90 克/天</td><td>剂量反应合并</td><td class="num">RR 0.83</td><td class="num">0.77–0.90</td><td><span class="badge bB">B</span></td><td><span class="verdict v-ok">支持但需限定</span></td></tr>
+<tr><td>核桃每周 5 份以上</td><td>vs 不吃</td><td class="num">HR 0.86</td><td class="num">0.79–0.93</td><td><span class="badge bB">B</span></td><td><span class="verdict v-part">部分支持</span></td></tr>
+<tr><td>酒精 65 克/日及以上</td><td>vs 终生不饮</td><td class="num">RR 1.35</td><td class="num">1.23–1.47</td><td><span class="badge bB">B</span></td><td><span class="verdict v-fix">需纠正</span></td></tr>
+<tr><td>当前吸烟 ≥10 支/日</td><td>vs 从不吸烟</td><td class="num">RR 1.54</td><td class="num">1.42–1.67</td><td><span class="badge bB">B</span></td><td><span class="verdict v-ok">支持但需限定</span></td></tr>
+<tr><td>维生素 D 2000 IU/日</td><td>随机 vs 安慰剂</td><td class="num">HR 0.99</td><td class="num">0.87–1.12</td><td><span class="badge bA">A</span></td><td><span class="verdict v-ok">支持但需限定</span></td></tr>
+<tr><td>NMN 补充</td><td>短期随机试验</td><td class="num">ACM 未报告</td><td class="num">未报告</td><td><span class="badge bD">D</span></td><td><span class="verdict v-no">无直接 ACM 证据</span></td></tr>
+</tbody>
+</table>
+</div>
+<div class="note">台账规模：结构化核验覆盖 63 条记录、81 个来源、74 条出处；2026-10-21 的第二轮审计对其中 14 条记录的 24 个来源重新读取了原始论文摘要，另核对 4 篇关键正文。以上数字来自 evidence.json 的 metadata 字段。</div>
+</section>
+
+<section id="pages">
+<h2>继续阅读</h2>
+<div class="pagelist">
+<a class="pagelink reveal" href="method.html"><span class="t">方法学：ACM、A/B/C/D/U 与阅读原则</span><span class="d">为什么只认全因死亡率，等级怎么读，哪些换算是被仓库明确否定的。</span></a>
+<a class="pagelink reveal" href="exercise.html"><span class="t">运动 · 睡眠 · 久坐</span><span class="d">挥拍运动、剧烈运动、步数、家务、睡眠时长、就寝时间与久坐的核验数据。</span></a>
+<a class="pagelink reveal" href="diet.html"><span class="t">饮食 · 药物 · 吸烟与环境</span><span class="d">肉类、鸡蛋、坚果、全谷物、饮料、茶与咖啡、补剂、他汀、吸烟与空气污染。</span></a>
+<a class="pagelink reveal" href="misread.html"><span class="t">常见误读纠正</span><span class="d">辣椒、戒酒、氨糖、晒太阳、多吃盐、亚精胺等流行说法哪里出了错。</span></a>
+</div>
+<p style="margin-top:20px"><a class="btn" href="https://github.com/geekan/HowToLiveLonger" target="_blank" rel="noopener">前往 GitHub 仓库</a></p>
+</section>
+</main>
+
+<footer><div class="foot-inner">
+<span>数据来源：<a href="https://github.com/geekan/HowToLiveLonger" target="_blank" rel="noopener">geekan/HowToLiveLonger</a>（data/evidence.json，核验基线 2026-10）</span>
+<span><a href="../index.html">返回上级目录</a></span>
+<span>本页为非官方中文静态站点，仅供学习参考，不构成医疗建议。</span>
+</div></footer>
+
+<script>
+(function(){
+if(!window.matchMedia||!matchMedia('(prefers-reduced-motion: no-preference)').matches)return;
+if(!('IntersectionObserver' in window))return;
+var io=new IntersectionObserver(function(es){es.forEach(function(e){if(e.isIntersecting){e.target.classList.add('on');io.unobserve(e.target);}});},{threshold:.12});
+document.querySelectorAll('.reveal').forEach(function(el){io.observe(el);});
+})();
+document.querySelectorAll('.reveal').forEach(function(el){io.observe(el);});
+})();
+(function(){var b=document.getElementById('themeToggle');if(!b)return;function set(t){document.documentElement.setAttribute('data-theme',t);try{localStorage.setItem('theme',t)}catch(e){}b.textContent=t==='dark'?'☀️ 亮色':'🌙 暗色';b.setAttribute('aria-label',t==='dark'?'切换到浅色主题':'切换到深色主题');}set(document.documentElement.getAttribute('data-theme')==='dark'?'dark':'light');b.addEventListener('click',function(){set(document.documentElement.getAttribute('data-theme')==='dark'?'light':'dark')});})();
+</script>
+</body>
+</html>

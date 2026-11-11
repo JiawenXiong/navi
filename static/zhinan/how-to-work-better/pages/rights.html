@@ -1,0 +1,194 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<script>(function(){try{var t=localStorage.getItem('theme');if(t!=='light'&&t!=='dark'){var h=new Date().getHours();t=(h>=7&&h<17)?'light':'dark'}document.documentElement.setAttribute('data-theme',t)}catch(e){document.documentElement.setAttribute('data-theme','light')}})();</script>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>健康与合同 · 高性价比工作指南</title>
+<style>
+:root,[data-theme=light]{--bg:#f4f6f9;--card:#ffffff;--ink:#1e2430;--ink2:#5b6472;--line:#e2e7ee;--accent:#0a5cff;--accent-soft:#e8f0ff;--on-accent:#fff;--src:#8a93a3;--accent-fade:#b9cffb;--radius:14px;color-scheme:light}
+[data-theme=dark]{--bg:#15181e;--card:#1e232b;--ink:#e6e9ef;--ink2:#a7b0bf;--line:#353c47;--accent:#4d9fff;--accent-soft:#12233d;--on-accent:#0b1220;--src:#8f99a9;--accent-fade:#1c3d6e;color-scheme:dark}
+*{box-sizing:border-box;margin:0;padding:0}
+body{background:var(--bg);color:var(--ink);font-family:"Microsoft YaHei","PingFang SC","Segoe UI",sans-serif;line-height:1.75;font-size:15.5px}
+a{color:var(--accent);text-decoration:none}
+a:hover{text-decoration:underline}
+.wrap{max-width:1000px;margin:0 auto;padding:0 20px}
+.topbar{background:var(--card);border-bottom:1px solid var(--line);position:sticky;top:0;z-index:20}
+.nav{display:flex;align-items:center;gap:4px;white-space:nowrap;overflow-x:auto;scrollbar-width:none}
+.nav::-webkit-scrollbar{display:none}
+.brand{font-weight:700;color:var(--ink);margin-right:14px;flex:none}
+.brand span{color:var(--accent)}
+.nav a{flex:none;padding:9px 12px;border-radius:10px;color:var(--ink2);font-size:14px}
+.nav a:hover{background:var(--accent-soft);color:var(--accent);text-decoration:none}
+.nav a.on{background:var(--accent);color:var(--on-accent)}
+.nav a.gh{border:1px solid var(--line);color:var(--accent)}
+.theme-btn{flex:none;margin-left:6px;padding:8px 12px;border-radius:10px;border:1px solid var(--line);background:var(--card);color:var(--ink);font-size:13px;cursor:pointer;font-family:inherit;line-height:1.2}
+.theme-btn:hover{background:var(--accent-soft);color:var(--accent)}
+main{padding:34px 0 10px}
+.pagehead{margin-bottom:22px}
+.pagehead .crumb{font-size:13px;color:var(--ink2)}
+.pagehead h1{font-size:26px;margin:6px 0 8px}
+.pagehead p{color:var(--ink2);max-width:760px}
+h2.sec{font-size:19px;margin:34px 0 4px;padding-left:12px;border-left:4px solid var(--accent)}
+p.secsub{color:var(--ink2);font-size:14px;margin:0 0 14px 16px}
+.card{background:var(--card);border:1px solid var(--line);border-radius:var(--radius);padding:20px 22px;margin-bottom:14px}
+.card .head{display:flex;gap:12px;align-items:baseline}
+.card .num{font-family:Consolas,Menlo,monospace;font-size:13px;color:var(--accent);border:1px solid var(--accent);border-radius:8px;padding:0 8px;flex:none}
+.card h3{font-size:16px;line-height:1.5}
+.meta{margin:8px 0 8px}
+.chip{display:inline-block;font-size:12px;border-radius:999px;padding:2px 10px;margin:0 6px 6px 0;border:1px solid var(--line);color:var(--ink2);background:var(--bg)}
+.chip.blue{background:var(--accent);border-color:var(--accent);color:var(--on-accent)}
+.chip.line{border-color:var(--accent);color:var(--accent);background:var(--accent-soft)}
+.card p{color:var(--ink2);font-size:14.5px}
+.card p b{color:var(--ink)}
+.src{margin-top:8px;font-size:12.5px;color:var(--src)}
+.evd{background:var(--card);border:1px solid var(--line);border-radius:var(--radius);padding:20px 22px;margin:14px 0}
+.evd h3{font-size:16px;margin-bottom:8px}
+.evd li{color:var(--ink2);font-size:14.5px;margin:6px 0}
+.evd ul{padding-left:18px}
+footer{margin-top:44px;border-top:1px solid var(--line);background:var(--card)}
+footer .wrap{padding:22px 20px;color:var(--ink2);font-size:13px}
+footer p{margin:3px 0}
+.reveal{opacity:0;transform:translateY(14px);transition:opacity .5s ease,transform .5s ease}
+.reveal.in{opacity:1;transform:none}
+@media (prefers-reduced-motion:reduce){.reveal{opacity:1;transform:none;transition:none}}
+@media (max-width:640px){.card,.evd{padding:16px}}
+</style>
+<noscript><style>.reveal,.rv{opacity:1 !important;transform:none !important}</style></noscript></head>
+<body>
+<header class="topbar"><div class="wrap"><nav class="nav">
+<a class="brand" href="../index.html">高性价比<span>工作指南</span></a>
+<a href="../index.html">返回首页</a>
+<a href="jobhunt.html">求职与谈薪</a>
+<a href="onboard.html">入职与社保</a>
+<a href="crisis.html">被裁与维权</a>
+<a href="growth.html">成长与礼仪</a>
+<a class="on" href="rights.html">健康与合同</a>
+<a class="gh" href="https://github.com/NiceCao/HowToWorkBetter" target="_blank" rel="noopener">GitHub 仓库</a>
+<button type="button" class="theme-btn" id="themeToggle" aria-label="切换明暗主题">☾ 暗色</button>
+</nav></div></header>
+
+<main class="wrap">
+<div class="pagehead reveal">
+<div class="crumb">板块六 · 职业寿命与转型 + 板块七 · 法律与关键节点（第 39、41、43、44 章）</div>
+<h1>健康与合同</h1>
+<p>把身体维持在一个能长期干活的状态，办法大多不花钱或只花小钱，靠的是把几个动作固定成习惯；劳动合同签之前，把影响收入和自由度的条款看清楚、写具体，证据从入职起留好。以下条目提炼自仓库第 39 章职场健康、第 41 章劳动合同与第 43 章职场维权的证据条目。</p>
+</div>
+
+<h2 class="sec reveal">一、职场健康</h2>
+<p class="secsub">来自第 39 章：减少久坐、盯屏、熬夜和情绪压力带来的损耗。</p>
+
+<article class="card reveal"><div class="head"><span class="num">01</span><h3>每坐满一小时起身活动几分钟，把一天的久坐时间切碎</h3></div>
+<div class="meta"><span class="chip blue">证据 A</span><span class="chip line">性价比 极高</span><span class="chip">成本 钱=0到200 · 时间=少 · 精力=低</span><span class="chip">口径：职业寿命 / 时间精力</span></div>
+<p><b>怎么做：</b>每坐 45 到 60 分钟起身活动 2 到 3 分钟，接水、走动、拉伸都行，用闹钟或插件提醒；调坐姿：臀部坐满椅子、腰背贴住椅背、屏幕上沿与视线齐平。世界卫生组织建议成年人每周做 150 到 300 分钟中等强度身体活动，每周另做两次针对主要肌群的力量练习。出现手麻、腿疼、走路发飘这类表现的先去医院检查，别当习惯问题拖着。</p>
+<p class="src">来源：WHO 身体活动与久坐行为指南（2020）。限制：属习惯调整不构成治疗，确诊颈椎腰椎问题的人听医生的。</p></article>
+
+<article class="card reveal"><div class="head"><span class="num">02</span><h3>按 20-20-20 法则安排用眼，屏幕距离保持 50 到 70 厘米</h3></div>
+<div class="meta"><span class="chip blue">证据 A</span><span class="chip line">性价比 极高</span><span class="chip">成本 钱=50到500 · 时间=极少 · 精力=低</span><span class="chip">口径：职业寿命 / 时间精力</span></div>
+<p><b>说人话：</b>每看屏幕 20 分钟，抬头看大约 6 米外的地方 20 秒；屏幕与眼睛保持 50 到 70 厘米、上沿略低于视线；有意识地多眨眼，不在关灯后长时间看手机。眼睛干时用不含防腐剂的人工泪液，每年做一次视力检查。报道引用的《中国干眼专家共识（2024 年）》给出的我国干眼患病率区间为 21% 到 52.4%；防蓝光眼镜对眼疲劳和视网膜损伤的证据不足。</p>
+<p class="src">来源：新华网（2025）干眼症报道。限制：患病率区间很宽，不能当成个人概率；眼睛红肿疼痛、视力突然下降要就医。</p></article>
+
+<article class="card reveal"><div class="head"><span class="num">03</span><h3>固定入睡和起床时间，成年人每天睡 7 到 8 小时</h3></div>
+<div class="meta"><span class="chip blue">证据 A</span><span class="chip line">性价比 极高</span><span class="chip">成本 钱=0 · 时间=多 · 精力=低</span><span class="chip">口径：职业寿命 / 时间精力 / 收入</span></div>
+<p><b>说人话：</b>全国爱卫办建议成年人每天睡 7 到 8 小时，推荐晚上 10 点到 11 点入睡、早上 6 点到 7 点起床，睡前不刷手机、不靠喝酒助眠。长时间工作与健康相关：世界卫生组织和国际劳工组织估算，每周工作 55 小时及以上的人中风风险约高 35%、死于缺血性心脏病的风险约高 17%，这是群体关联。</p>
+<p class="src">来源：全国爱卫办睡眠健康核心信息（2025）；WHO 与 ILO（2021）。限制：长期失眠、打鼾伴呼吸暂停要就诊。</p></article>
+
+<article class="card reveal"><div class="head"><span class="num">04</span><h3>情绪困扰持续两周就先减负并寻求专业帮助，热线 12356</h3></div>
+<div class="meta"><span class="chip blue">证据 A</span><span class="chip line">性价比 极高</span><span class="chip">成本 钱=0到几千 · 时间=中 · 精力=中</span><span class="chip">口径：职业寿命 / 时间精力 / 收入</span></div>
+<p><b>说人话：</b>持续的情绪低落、提不起劲、睡不好是常见的健康问题，和意志强弱无关。不花钱的先做：规律运动、减少睡前刷屏、把话说给信得过的人、留一件和工作无关的爱好、拒绝超出职责和精力的要求。情绪低落、失去兴趣、睡眠和食欲明显变化持续两周以上且影响生活的，该找专业帮助；出现伤害自己的念头立即就医，或拨打全国统一心理援助热线 12356。来自长期被否定、被孤立的环境的影响，单靠个人调节消化不了。</p>
+<p class="src">来源：WHO 精神卫生实况报道；中国政府网（2024）12356 热线。限制：是否需要治疗由专业机构判断，别用网上自测题下结论。</p></article>
+
+<article class="card reveal"><div class="head"><span class="num">05</span><h3>久站久坐、粉尘噪音岗位：职业健康检查班前班中班后三次别省</h3></div>
+<div class="meta"><span class="chip blue">证据 A</span><span class="chip line">性价比 极高</span><span class="chip">成本 钱=0 · 时间=中 · 精力=中</span><span class="chip">口径：职业寿命</span></div>
+<p><b>说人话：</b>一天站十个小时或坐十个小时，账都记在腰、颈、膝盖和腿上：每小时动一动换一次重心，鞋里加软垫，回宿舍把腿抬高。接触职业病危害的岗位要做上岗前、在岗期间和离岗时的职业健康检查，费用由单位出、结果要书面告知；没做离岗前检查，单位不得解除或终止合同。动手清单：问人事要本岗位的职业病危害告知书和检测报告；确认体检机构有资质；体检结果要书面件自己留一份。</p>
+<p class="src">来源：职业病防治法第三十五条。限制：有调查显示离岗检查是三个环节里落实最差的一环，不能光等厂里安排。</p></article>
+
+<article class="card reveal"><div class="head"><span class="num">06</span><h3>出差在外先把安全防线设好：夜到、打车、证件财物、报备</h3></div>
+<div class="meta"><span class="chip">证据 C</span><span class="chip line">性价比 极高</span><span class="chip">成本 钱=少 · 时间=少 · 精力=中</span><span class="chip">口径：人身安全</span></div>
+<p><b>怎么做：</b>夜间到达提前订好离站近的正规酒店、让酒店接站或走平台打车，不坐无牌黑车；上车前把车牌和行程分享给同事或家人，落座后排；身份证、银行卡、备用现金分开放；到达、见完客户、离开各给同事发一条消息，把酒店名和房间号告诉一位同事；遇到异常先离开现场再处理。</p>
+<p class="src">来源：无（通识经验）。限制：不同城市、性别和身体状况的风险不一样，以当地治安提示和公司差旅制度为准。</p></article>
+
+<article class="card reveal"><div class="head"><span class="num">07</span><h3>按年龄和风险选项目，固定每年做一次体检</h3></div>
+<div class="meta"><span class="chip blue">证据 A</span><span class="chip line">性价比 高</span><span class="chip">成本 钱=300到2000每年 · 时间=少 · 精力=低</span><span class="chip">口径：职业寿命 / 收入</span></div>
+<p><b>说人话：</b>2025 年国家卫生健康委印发《成人健康体检项目推荐指引（2025 年版）》，把基本体检项目和慢性病风险筛查项目分开，选项目照它来。每年一次基础体检；按年龄、家族史和生活习惯加做；把往年报告放在一起比趋势，比只看单次数值更有用。公司套餐偏基础的可自费加做几项，结果对个人保密。</p>
+<p class="src">来源：国家卫生健康委（2025）成人健康体检项目推荐指引。限制：体检存在查不出的情况和假阳性，加做项目听医生建议，不必追求又贵又全的套餐。</p></article>
+
+<article class="card reveal"><div class="head"><span class="num">08</span><h3>把每天盐油糖的量压到目标内，按最低标准补上活动量</h3></div>
+<div class="meta"><span class="chip blue">证据 A</span><span class="chip line">性价比 高</span><span class="chip">成本 钱=可多可少 · 时间=中 · 精力=中</span><span class="chip">口径：职业寿命 / 时间精力 / 收入</span></div>
+<p><b>说人话：</b>《健康中国行动（2019 到 2030 年）》目标是人均每日食盐不超过 5 克、食用油 25 到 30 克、添加糖不超过 25 克；我国成年人实际平均每天摄入食盐约 10.5 克、食用油约 42.1 克、添加糖约 30 克，都超标。怎么做：外卖备注少油少盐、主食按需减量、少喝含糖饮料；活动量从每周 150 到 300 分钟中等强度起步，提前一站下车、午休走 15 分钟凑时间，别搞周末突击运动。</p>
+<p class="src">来源：WHO 健康饮食（中国）；中国居民膳食指南（2022）。限制：人群推荐量，个体结合体重和疾病情况调整。</p></article>
+
+<article class="card reveal"><div class="head"><span class="num">09</span><h3>先分清普通疾病和法定职业病：目录 12 类 135 种，看目录和工种</h3></div>
+<div class="meta"><span class="chip blue">证据 A</span><span class="chip line">性价比 高</span><span class="chip">成本 钱=0（公司承担） · 时间=中 · 精力=中</span><span class="chip">口径：收入 / 职业寿命</span></div>
+<p><b>说人话：</b>2024 年调整后的《职业病分类和目录》自 2025 年 8 月 1 日起实施，共 12 类 135 种。新增的职业性肌肉骨骼疾病只列了两项：腕管综合征，限长时间腕部重复作业或用力作业的制造业工人；滑囊炎，限井下工人。长期伏案引起的颈肩腰不适不在目录内，腰肌劳损、久站引起的下肢静脉曲张也不在，只能按普通病走医保。符合条件时到职业病诊断机构做诊断，单位不配合提供资料的可向卫生健康主管部门投诉。</p>
+<p class="src">来源：国家卫生健康委等四部门（2024）职业病分类和目录。限制：诊断要证明职业接触与疾病的因果关系，门槛不低。</p></article>
+
+<article class="card reveal"><div class="head"><span class="num">10</span><h3>上夜班、两班倒：先看清代价，再把能减的伤害减掉</h3></div>
+<div class="meta"><span class="chip blue">证据 A</span><span class="chip line">性价比 高</span><span class="chip">成本 钱=0 · 时间=中 · 精力=高</span><span class="chip">口径：职业寿命</span></div>
+<p><b>说人话：</b>长期夜班被国际癌症研究机构列为「很可能对人类致癌」（2A 类），这个级别说的是证据强度，跟每个人会不会得癌是两回事。能争取的：尽量固定班次、少来回倒；下班后尽快睡，把白天睡眠当正事办，遮光帘、眼罩、耳塞备齐；睡前几小时不喝咖啡浓茶；夜班吃饭清淡，别拿泡面当正餐；每年体检做全；连续几个月睡不好、心慌，就去医院看。有得选就优先选固定白班的岗位。</p>
+<p class="src">来源：IARC Monographs Vol. 124: Night Shift Work（2020）。限制：倒班多由生产安排决定，个人能改的有限。</p></article>
+
+<article class="card reveal"><div class="head"><span class="num">11</span><h3>发生工伤后在时效内申请认定，别错过一年期限</h3></div>
+<div class="meta"><span class="chip blue">证据 A</span><span class="chip">性价比 一般</span><span class="chip">成本 钱=0 · 时间=中 · 精力=中</span><span class="chip">口径：收入 / 职业寿命</span></div>
+<p><b>说人话：</b>工作中受伤、上下班途中发生非本人主要责任的交通事故、被诊断为职业病，都可以走工伤保险。单位应在事故发生后 30 日内申请认定，单位不申请的本人或近亲属可在 1 年内自行申请；认定为工伤、伤情稳定后做劳动能力鉴定再申领待遇。一次性工亡补助金为上一年度全国城镇居民人均可支配收入的 20 倍，按 2024 年数据 54188 元算约 108.4 万元，每年更新。工伤是事后补救，重点是预防。</p>
+<p class="src">来源：工伤保险条例；国家统计局（2025）居民收入数据。限制：上下班途中的事故须本人不承担主要责任，自己摔伤一般不算。</p></article>
+
+<h2 class="sec reveal">二、劳动合同：签之前看什么</h2>
+<p class="secsub">来自第 41 章：把影响收入和自由度的条款看清楚、写具体。</p>
+
+<article class="card reveal"><div class="head"><span class="num">12</span><h3>入职一个月内把书面合同签掉，公司拖着不签可以主张二倍工资</h3></div>
+<div class="meta"><span class="chip blue">证据 A</span><span class="chip line">性价比 极高</span><span class="chip">成本 钱=0 · 时间=少 · 精力=低</span><span class="chip">口径：收入 / 职业自由</span></div>
+<p><b>说人话：</b>用工之日起超过一个月不满一年未订立书面劳动合同的，单位应当每月支付二倍工资；主动催签、留好催签记录，既保住权利也不给对方拖的空隙。</p>
+<p class="src">来源：劳动合同法第十条、第八十二条（见仓库第 41 章第 1 条）。</p></article>
+
+<article class="card reveal"><div class="head"><span class="num">13</span><h3>把工资构成全部写进合同，工作地点写到具体城市，不签空白合同</h3></div>
+<div class="meta"><span class="chip blue">证据 A</span><span class="chip line">性价比 极高</span><span class="chip">成本 钱=0 · 时间=少 · 精力=低</span><span class="chip">口径：收入 / 职业自由</span></div>
+<p><b>怎么做：</b>不要只写一个基本工资，绩效、奖金、补贴的构成和发放条件写清楚；工作地点写到具体城市，不签「全国」或「服从公司安排」；岗位和职责写具体，不写「管理岗」「公司安排的其他工作」。空白合同不要签，签完当场拿回自己那一份。</p>
+<p class="src">来源：见仓库第 41 章第 3、4、5、11 条，附劳动合同法相关条文。</p></article>
+
+<article class="card reveal"><div class="head"><span class="num">14</span><h3>违约金只认服务期和竞业限制两种，保密协议不等于不能去同行</h3></div>
+<div class="meta"><span class="chip blue">证据 A</span><span class="chip line">性价比 高</span><span class="chip">成本 钱=0 · 时间=少 · 精力=低</span><span class="chip">口径：职业自由</span></div>
+<p><b>说人话：</b>劳动合同法只允许就服务期（单位出钱专项培训）和竞业限制约定违约金，其余名目的违约金可以提出异议。保密协议和竞业限制是两回事：签保密协议不等于不能去同行；竞业限制适用对象限于高管、高级技术人员和其他负有保密义务的人员，期限不超过 2 年，单位要在限制期内按月给经济补偿（通行口径不低于离职前 12 个月平均工资的 30% 且不低于当地最低工资），约定了却不支付的，可主张不受约束。</p>
+<p class="src">来源：劳动合同法第二十三、二十四条；见仓库第 41 章第 6、7 条与第 44 章。</p></article>
+
+<article class="card reveal"><div class="head"><span class="num">15</span><h3>看清合同写的是哪种工时制度；无固定期限合同挡住的是到期不续</h3></div>
+<div class="meta"><span class="chip blue">证据 A</span><span class="chip">性价比 高</span><span class="chip">成本 钱=0 · 时间=少 · 精力=低</span><span class="chip">口径：职业自由 / 收入</span></div>
+<p><b>说人话：</b>标准工时、综合计算工时、不定时工时，对应的加班费算法不同，签之前问清自己岗位是哪种。无固定期限合同不是不能解除，它挡住的是「合同到期不续」；另外多数情况下合同到期单位不续签的，也要给经济补偿。</p>
+<p class="src">来源：见仓库第 41 章第 8、9、10 条，附法规原文。</p></article>
+
+<h2 class="sec reveal">三、证据保留要点</h2>
+<p class="secsub">来自第 43 章：从入职起按四类攒，原件不要只留截图。</p>
+<article class="card reveal"><div class="head"><span class="num">16</span><h3>按劳动关系、工资报酬、工作内容、公司违法四类留证据</h3></div>
+<div class="meta"><span class="chip blue">证据 A</span><span class="chip line">性价比 极高</span><span class="chip">成本 钱=0 · 时间=少 · 精力=低</span><span class="chip">口径：收入 / 职业自由</span></div>
+<p><b>怎么做：</b>劳动关系类：劳动合同、录用通知、工牌、社保或公积金缴费记录、工资银行流水；工资报酬类：工资条、带交易对手名称的银行流水、奖金提成的书面约定；工作内容类：考勤记录、周报日报、工作群记录、审批记录、交付物；公司违法类：解除通知、调岗降薪通知、处罚通知、辱骂或威胁的原始记录、加班安排、愿作证的同事。</p>
+<p class="src">来源：劳动争议调解仲裁法第六条；最高法劳动争议解释（一）第四十四条。</p></article>
+<div class="evd reveal">
+<h3>留证的五条做法</h3>
+<ul>
+<li><b>留原件：</b>微信、钉钉、邮件算电子数据，作为证据应当提供原件；聊天记录保留原始载体，不删、不换手机，换机做完整迁移，截图只能辅助；怕丢的用另一台设备把对话页、对方身份和时间一起录屏。</li>
+<li><b>录音有边界：</b>工作场所的谈话录音一般不因未经对方同意就无效，但不要进入对方家中或私密场所录制；擅自录制他人隐私内容可能不被采信。</li>
+<li><b>邮件备份：</b>重要邮件转发私人邮箱备份；纸质文件拍清公章和签字、边角拍全。</li>
+<li><b>三类自己留、两类公司举证：</b>自己重点留劳动关系、工资数额、公司违法三类材料；考勤记录和工资支付记录属公司掌握的证据，由公司提供、不提供承担不利后果（公司须书面记录工资支付并保存两年以上）。</li>
+<li><b>大的做公证：</b>金额大的可以在立案前做证据保全公证；原始手机不要恢复出厂设置、不要退出登录、不要删对话。</li>
+</ul>
+<p class="src">来源：最高法关于民事诉讼证据的若干规定第十四、十五条；人社部与最高法典型案例（2025）。</p>
+</div>
+</main>
+
+<footer><div class="wrap">
+<p>内容提炼自开源项目 <a href="https://github.com/NiceCao/HowToWorkBetter" target="_blank" rel="noopener">NiceCao/HowToWorkBetter（高性价比工作指南）</a>第 39、41、43、44 章，正文以 CC BY 4.0 许可发布。</p>
+<p>所有内容仅供参考，不构成法律、医疗建议；金额、时限、比例以当地主管部门最新规定为准。遇到具体纠纷请咨询专业人士，或拨打 12333（人社）、12348（法律援助）。</p>
+</div></footer>
+
+<script>(function(){var b=document.getElementById('themeToggle');if(!b)return;function up(){b.textContent=document.documentElement.getAttribute('data-theme')==='dark'?'☀ 亮色':'☾ 暗色'}up();b.addEventListener('click',function(){var d=document.documentElement.getAttribute('data-theme')==='dark'?'light':'dark';document.documentElement.setAttribute('data-theme',d);try{localStorage.setItem('theme',d)}catch(e){}up()})})();</script>
+<script>
+(function(){
+var rm=window.matchMedia&&window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+var els=document.querySelectorAll('.reveal');
+if(rm||!('IntersectionObserver' in window)){for(var i=0;i<els.length;i++){els[i].classList.add('in')}return}
+var io=new IntersectionObserver(function(entries){entries.forEach(function(en){if(en.isIntersecting){en.target.classList.add('in');io.unobserve(en.target)}})},{threshold:0.06});
+for(var j=0;j<els.length;j++){io.observe(els[j])}
+})();
+</script>
+</body>
+</html>

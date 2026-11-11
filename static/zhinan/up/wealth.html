@@ -1,0 +1,229 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>创业与财富 | 人生进阶指南</title>
+<script>
+(function(){
+  var t=null;try{t=localStorage.getItem("theme")}catch(e){}
+  if(t!=="light"&&t!=="dark"){var h=new Date().getHours();t=(h>=7&&h<17)?"light":"dark"}
+  document.documentElement.setAttribute("data-theme",t);
+})();
+</script>
+<style>
+:root{
+  --bg:#0a0f13;--panel:#0f171d;--panel2:#121c23;--line:#1e2b33;
+  --acc:#2ee6d6;--acc-ink:#04211d;--text:#e6f1f2;--muted:#8fa3ab;--body:#c6d4d9;
+  --nav-bg:rgba(10,15,19,.92);--badge-bg:rgba(24,32,38,.82);--badge-bg-h:rgba(24,32,38,.95);--badge-ink:#e6f1f2;
+  --radius:14px;color-scheme:dark;
+}
+:root[data-theme="light"]{
+  --bg:#f3f7f7;--panel:#ffffff;--panel2:#ecf2f2;--line:#d5dfe1;
+  --acc:#0b6b63;--acc-ink:#ffffff;--text:#1c262b;--muted:#56686d;--body:#2e3c42;
+  --nav-bg:rgba(243,247,247,.92);--badge-bg:rgba(255,255,255,.9);--badge-bg-h:#ffffff;--badge-ink:#0b6b63;
+  color-scheme:light;
+}
+*{margin:0;padding:0;box-sizing:border-box}
+body{background:var(--bg);color:var(--text);font-family:"Segoe UI","PingFang SC","Hiragino Sans GB","Microsoft YaHei",sans-serif;line-height:1.8}
+a{color:inherit;text-decoration:none}
+.wrap{max-width:960px;margin:0 auto;padding:0 24px}
+.nav{position:sticky;top:0;z-index:20;background:var(--nav-bg);border-bottom:1px solid var(--line);backdrop-filter:blur(8px)}
+.nav-in{display:flex;align-items:center;gap:20px;height:64px;white-space:nowrap;overflow-x:auto;scrollbar-width:none}
+.nav-in::-webkit-scrollbar{display:none}
+@media(max-width:600px){
+  .nav-in{flex-wrap:wrap;height:auto;padding:10px 0;gap:12px;row-gap:8px;overflow-x:visible}
+  .brand{font-size:15px}
+  .nav a.link{font-size:13px}
+  .nav .gh{padding:4px 10px;font-size:12px}
+}
+.brand{font-weight:800;font-size:16px;color:var(--acc);flex:none}
+.nav a.link{color:var(--muted);font-size:14px;flex:none}
+.nav a.link:hover,.nav a.link[aria-current]{color:var(--acc)}
+.nav .gh{margin-left:auto;border:1px solid var(--line);border-radius:999px;padding:5px 14px;font-size:13px}
+.nav .gh:hover{border-color:var(--acc);color:var(--acc)}
+.tbtn{flex:none;margin-left:6px;width:32px;height:32px;border-radius:999px;border:1px solid var(--line);background:transparent;color:var(--text);font-size:15px;cursor:pointer;line-height:1;display:inline-flex;align-items:center;justify-content:center;padding:0}
+.tbtn:hover{border-color:var(--acc);color:var(--acc)}
+.portal{position:fixed;left:14px;bottom:14px;z-index:99}
+.portal a{display:inline-block;padding:7px 16px;border-radius:999px;background:var(--badge-bg);color:var(--badge-ink);font-size:13px;text-decoration:none;backdrop-filter:blur(4px);font-family:system-ui,sans-serif}
+.portal a:hover{background:var(--badge-bg-h)}
+.hero{padding:72px 0 44px}
+.kicker{color:var(--acc);font-size:13px;letter-spacing:.35em;font-weight:700}
+h1{font-size:clamp(34px,6vw,54px);font-weight:900;letter-spacing:-.02em;line-height:1.18;margin:16px 0 8px}
+h1 em{font-style:normal;color:var(--acc)}
+.lede{color:var(--muted);font-size:16px;max-width:40em;margin-top:16px}
+section.block{padding:48px 0}
+h2{font-size:clamp(24px,3.6vw,32px);font-weight:800;margin-bottom:8px}
+h2 .tag{color:var(--acc)}
+.sec-sub{color:var(--muted);margin-bottom:26px;max-width:44em}
+h3{font-size:18px;font-weight:700;margin:26px 0 10px}
+h3::before{content:"§";color:var(--acc);margin-right:8px;font-weight:800}
+p{margin-bottom:14px}
+p,li{color:var(--body);font-size:15.5px}
+.card{background:var(--panel);border:1px solid var(--line);border-radius:var(--radius);padding:26px 28px;margin-bottom:18px;overflow-x:auto}
+.card p:last-child{margin-bottom:0}
+ol.steps-list{counter-reset:n;list-style:none}
+ol.steps-list li{position:relative;padding-left:44px;margin-bottom:14px;counter-increment:n}
+ol.steps-list li::before{content:counter(n);position:absolute;left:0;top:2px;width:28px;height:28px;border-radius:999px;background:var(--acc);color:var(--acc-ink);font-weight:800;font-size:14px;display:flex;align-items:center;justify-content:center}
+table{width:100%;border-collapse:collapse;font-size:14px;margin:14px 0 20px}
+th{text-align:left;color:var(--acc);font-weight:700;padding:10px 12px;border-bottom:1px solid var(--line)}
+td{padding:10px 12px;border-bottom:1px solid var(--line);vertical-align:top;color:var(--body)}
+tr:last-child td{border-bottom:none}
+blockquote{border-left:3px solid var(--acc);padding:8px 0 8px 22px;margin:20px 0;color:var(--text);font-size:16.5px}
+blockquote small{display:block;color:var(--muted);font-size:13px;margin-top:6px}
+.timeline{border-left:2px solid var(--line);margin:8px 0 8px 8px;padding-left:24px}
+.timeline .tl{position:relative;margin-bottom:22px}
+.timeline .tl::before{content:"";position:absolute;left:-31px;top:8px;width:12px;height:12px;border-radius:999px;background:var(--acc)}
+.timeline .tl b{color:var(--text)}
+.timeline .tl .yr{color:var(--acc);font-weight:800;font-size:13px;letter-spacing:.15em;display:block;margin-bottom:2px}
+footer{border-top:1px solid var(--line);padding:36px 0 48px;color:var(--muted);font-size:14px}
+.foot-grid{display:flex;justify-content:space-between;gap:16px;flex-wrap:wrap}
+footer a{color:var(--acc)}
+.backtop{display:inline-block;margin-top:10px;color:var(--acc);font-size:14px}
+.rv{opacity:0;transform:translateY(16px)}
+.rv.on{opacity:1;transform:none;transition:opacity .7s ease,transform .7s ease}
+@media(prefers-reduced-motion:reduce){.rv{opacity:1;transform:none}}
+</style>
+<noscript><style>.reveal,.rv{opacity:1 !important;transform:none !important}</style></noscript></head>
+<body><div class="portal"><a href="../index.html">&#8592; 总门户</a></div>
+
+<nav class="nav">
+  <div class="wrap nav-in">
+    <a class="brand" href="index.html">← 人生进阶指南</a>
+    <a class="link" href="ai-learn.html">AI 与学习</a>
+    <a class="link" href="wealth.html" aria-current="page">创业与财富</a>
+    <a class="link" href="life.html">爱情与人生</a>
+    <a class="link gh" href="https://github.com/byoungd/up">GitHub</a>
+    <button class="tbtn" id="themeToggle" type="button" aria-label="切换主题">◑</button>
+  </div>
+</nav>
+
+<header class="hero wrap">
+  <div class="kicker rv">主题三 · 主题四</div>
+  <h1 class="rv">创业是一面迟来的镜子，<br><em>现金流比估值更诚实</em></h1>
+  <p class="lede rv">勇气和贪念会同时显影，才华与幼稚也会一起放大。这一页整理《人生进阶指南》中创业验证与财富经营两大主题：从作者亲历的失败复盘出发，到客户验证的实操流程，再到创业想法该继续、调整还是停止的判定门槛。没有成功公式，只有可复查的证据。</p>
+</header>
+
+<div class="wrap">
+
+<section class="block rv" id="startup">
+  <h2><span class="tag">主题三</span> · 创业验证：从野心到使命</h2>
+  <p class="sec-sub">这篇复盘不提供成功学结论或投资建议，只把亲身走过的路重新摊开。按事实层级阅读：已发生的事实、事后的解释、可复用的门槛、尚待验证的计划，证据标准各不相同。</p>
+
+  <div class="card">
+    <h3>一条缓慢显影的时间线</h3>
+    <div class="timeline">
+      <div class="tl"><span class="yr">大学时期</span><b>最早的技术生意。</b>开发 iOS 越狱插件发布在 Cydia 商店，被陌生用户安装使用并带来收入；随后经营 WordPress 主题。第一次体会：技术作品进入公开分发渠道后，价值要由真实用户来回答。</div>
+      <div class="tl"><span class="yr">2016</span><b>第一次把自己推向市场。</b>折腾电影网站 bt0.com，接网站设计单子。没有漂亮的增长曲线，只有一个事实：有人愿意把时间交给你做的东西。有人使用、评价，甚至因为某个细节离开，才真正改变判断。</div>
+      <div class="tl"><span class="yr">2017</span><b>把自己押进一家公司。</b>以普通前端开发入职，做到部门负责人、总经理、合伙人。主导 Vue 重构，发版后很长时间没有开单。努力、重构和功能数量都不能替代需求治理、用户验证和团队协作。</div>
+      <div class="tl"><span class="yr">2022</span><b>在失败中看见地基。</b>销量断崖下滑，才发现项目结构老旧，所谓「大数据」和「AI」缺少数据集与训练基础，内核只是搜索和预设结果。公司解散。演示效果不等于能力，生成速度不等于交付质量。</div>
+      <div class="tl"><span class="yr">2023</span><b>退场之后，先活下来。</b>关掉 GitHub、退出群聊、沉迷游戏之后，重新吃饭、睡觉、出门、面对过去，把事情缩小到今天能完成的尺度。活下来也可以是当天最重要的工作。</div>
+      <div class="tl"><span class="yr">2026</span><b>重新进入真实产业。</b>探索把 AI 接入农、林、牧、渔等真实场景，计划为农村合作社提供免费基础培训。培训、试点和服务都还没有被结果证明；让问题先于答案，让用户的时间、成本和反馈决定方向。</div>
+    </div>
+  </div>
+
+  <div class="card">
+    <h3>下一次创业的五道现实门槛</h3>
+    <p>每一扇门都要留下可供别人复查的证据；创始人的信心只能作为起点：</p>
+    <ol class="steps-list">
+      <li><b>问题门</b>：谁在什么场景里反复遇到问题？有没有真实访谈、订单或使用记录？</li>
+      <li><b>价值门</b>：解决之后节省了什么时间、风险或成本？用户愿意用什么方式验收？</li>
+      <li><b>交付门</b>：谁负责实施、支持、培训和故障处理？换一个人能否接手？</li>
+      <li><b>生存门</b>：收入、固定成本、变动成本和最坏情形是否写进账本？何时暂停或退出？</li>
+      <li><b>关系门</b>：团队、家人、客户和第三方承担什么代价？授权、隐私与承诺是否清楚？</li>
+    </ol>
+  </div>
+
+  <div class="card">
+    <h3>这些年的五条教训</h3>
+    <p><b>功能堆不成产品。</b>用户不关心你堆了多少模块，只关心自己的问题有没有被更快、更稳、更低成本地解决。<b>技术债最终会变成经营债。</b>代码混乱、数据缺失、安全隐患短期看是研发问题，长期看都是经营问题。<b>现金流比估值更诚实。</b>餐饮让每天的收入和成本贴身肉搏，让生意服从现实。<b>警惕英雄叙事。</b>「我再坚持一下就能成」没有事实校验时，容易变成对团队和家人的二次伤害。<b>失败之后还愿意学习，是一个人最后的资产。</b>痛苦需要沉淀为判断力，否则失败便只剩失败。</p>
+    <p>好的创业，应该让自己越来越清醒，让团队越来越有秩序，让用户越来越受益，让家人越来越安心。冒险不等于鲁莽，坚持不等于死扛，相信未来不等于拒绝看见现实。</p>
+  </div>
+
+  <blockquote>我不再需要用一家公司证明自己从低谷里站了起来。值得做的事，应该在我离开讲台以后仍然对别人有用；即使最后没有成为宏大的事业，也没有要求爱我的人继续替我的确信付款。<small>《创业篇：从野心到使命》</small></blockquote>
+</section>
+
+<section class="block rv" id="cash">
+  <h2><span class="tag">主题四</span> · 财富验证：从真实问题到首批用户</h2>
+  <p class="sec-sub">一个创业想法可以先写成一句可被推翻的话：哪一类人，在什么情境下，反复遇到什么问题，正在付出什么代价，愿意为怎样的结果改变做法？这句话写不清时，先做调查比先做完整产品更容易找到下一步。</p>
+
+  <div class="card">
+    <h3>第一步：缩小到一次任务</h3>
+    <p>「帮助小企业使用 AI」不足以指导行动；缩小为「每周更新商品介绍的小店经营者，需要把已确认的信息整理为发布草稿，目前逐项复制，经常漏掉规格」：这里有一个人、一项任务、一种既有做法和一个可以观察的问题。</p>
+    <p>分开记录三个角色：使用者、决定是否采用的人、付款的人。使用者觉得方便，并不表示负责人同意付费。再写出最可能让计划失败的一条假设。寻找做过这项任务的人，包括继续手工做、使用现成工具和已经放弃的人；只采访热心朋友，不能解释陌生用户是否需要。</p>
+  </div>
+
+  <div class="card">
+    <h3>第二步：询问过去的行为，而不是预测</h3>
+    <p>访谈的目标是重建一次真实过程，不是说服对方称赞创意。问：最近一次做这件事是什么时候、什么触发？能按顺序讲讲从接到任务到完成都做了什么吗？哪一步需要等待、返工或找别人帮助？目前用什么办法，为什么仍在用？谁认定完成、谁决定花钱？</p>
+    <p>「这个功能你会买吗」得到的是预测；「上次为解决它做了什么」更接近已发生的行为。对方说「很麻烦」，还要追问频率和后果。也主动问：什么时候这件事根本不值得解决？记录时把「对方原话」「观察到的行为」「自己的解释」分开，不把自己的解释放进引号里。</p>
+  </div>
+
+  <div class="card">
+    <h3>第三步：和现有办法比较，证据分层判读</h3>
+    <p>替代方案不只包括同类产品，也包括手工、外包、少做一次、推迟和不做。给每种办法写下完成结果、全部耗时、直接支出和出错后的处理。</p>
+    <table>
+      <tr><th>观察</th><th>可以支持的判断</th><th>暂时不能支持的判断</th></tr>
+      <tr><td>说「听起来不错」</td><td>愿意继续交流</td><td>愿意使用或付款</td></tr>
+      <tr><td>展示最近的工作样例</td><td>任务发生过</td><td>任务足够频繁</td></tr>
+      <tr><td>安排试做并提供材料</td><td>愿意投入时间测试</td><td>新流程胜过原流程</td></tr>
+      <tr><td>按明确范围付款并验收</td><td>这一次交换得到接受</td><td>稳定需求或可盈利</td></tr>
+      <tr><td>类似条件下再次购买</td><td>重复需求的信号</td><td>更大人群都愿意购买</td></tr>
+    </table>
+  </div>
+
+  <div class="card">
+    <h3>第四步：人工试点与两周实验</h3>
+    <p>在自动化之前，先用人工完成一个很窄的服务：明确告诉参与者哪些由人完成，不把人工操作展示为已有的自动化能力。保存原流程基线，记录新流程里双方的全部工作。服务方省下的时间，如果变成用户额外核对的时间，就不能直接宣称节省。免费试用没有检验价格是否被接受；折扣、熟人和额外陪伴也要记录，因为下一次交易可能不再有这些条件。</p>
+    <p>把两周安排成一个问题：第 1 至 2 天写主要假设、投入上限和预先约定的判定条件；第 3 至 5 天访谈并寻找反例；第 6 至 7 天提出同范围试点，记录价格和拒绝原因；第 8 至 11 天交付少量试点，记录质量、时间和返工；第 12 至 14 天按事先写下的条件判读，留下下一轮唯一改动。</p>
+  </div>
+
+  <div class="card">
+    <h3>允许结论是调整或停止</h3>
+    <p><b>继续</b>：事先条件满足、投入未超限，只扩大一点样本或观察重复购买。<b>调整</b>：有需要但流程、范围或价格假设不成立，下一轮只改一个主要变量。<b>停止或暂缓</b>：核心条件未满足、无法触达目标人群或投入到上限；结清承诺，记录重启需要的新证据。样本不足时，结论是「证据不足」，不是成功，也不必包装成失败。无论哪种结论，都写下「什么新事实会让我改变判断」。</p>
+  </div>
+
+  <blockquote>任何生意终究都要回到交易：用户是否付钱，成本结构能否长期成立，波动来临时组织能否活下来。这些问题比叙事更朴素，也更残酷。一个能活下来的小生意，未必比一个听起来宏大的互联网项目低级。<small>《创业篇》与《从真实问题到首批用户》</small></blockquote>
+
+  <a class="backtop" href="#startup">回到本页顶部 ↑</a>
+</section>
+
+</div>
+
+<footer>
+  <div class="wrap foot-grid">
+    <div>人生进阶指南 · 基于 <a href="https://github.com/byoungd/up">byoungd/up</a> 开放书稿整理 · 个人复盘不构成投资建议</div>
+    <div><a href="index.html">首页</a> · <a href="ai-learn.html">AI 与学习</a> · <a href="life.html">爱情与人生</a></div>
+  </div>
+</footer>
+
+<script>
+(function(){
+  var b=document.getElementById("themeToggle");if(!b)return;
+  function sync(){
+    var d=document.documentElement.getAttribute("data-theme")==="dark";
+    b.textContent=d?"◑":"◐";
+    b.setAttribute("aria-label",d?"切换到浅色主题":"切换到深色主题");
+  }
+  sync();
+  b.addEventListener("click",function(){
+    var n=document.documentElement.getAttribute("data-theme")==="dark"?"light":"dark";
+    document.documentElement.setAttribute("data-theme",n);
+    try{localStorage.setItem("theme",n)}catch(e){}
+    sync();
+  });
+})();
+</script>
+<script>
+(function(){
+  if(window.matchMedia&&window.matchMedia("(prefers-reduced-motion: reduce)").matches)return;
+  var els=document.querySelectorAll(".rv");
+  if(!("IntersectionObserver"in window)){els.forEach(function(e){e.classList.add("on")});return}
+  var io=new IntersectionObserver(function(en){
+    en.forEach(function(e){if(e.isIntersecting){e.target.classList.add("on");io.unobserve(e.target)}})
+  },{threshold:.1});
+  els.forEach(function(e){io.observe(e)});
+})();
+</script>
+</body>
+</html>

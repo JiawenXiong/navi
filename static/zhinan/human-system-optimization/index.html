@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>人体系统优化 · 人类系统调优指南</title>
+<script>(function(){var t;try{t=localStorage.getItem("theme")}catch(e){}if(t!=="light"&&t!=="dark"){var h=new Date().getHours();t=(h>=7&&h<17)?"light":"dark"}document.documentElement.setAttribute("data-theme",t)})()</script>
+<style>
+:root{--bg:#0a0f0d;--panel:#0f1512;--panel-2:#121a16;--line:#1e2a24;--ink:#d7e2dc;--muted:#8fa69b;--accent:#34d399;--accent-2:#10b981;--nav-bg:rgba(10,15,13,.92);--nav-line:rgba(52,211,153,.16);--accent-bord:rgba(52,211,153,.4);--accent-bord-strong:rgba(52,211,153,.45);--accent-tint:rgba(52,211,153,.07);--accent-glow:rgba(52,211,153,.6);--bar-bg:#16211c;--warn:#d4b06a;--warn-tint:rgba(212,176,106,.07);color-scheme:dark;}
+[data-theme="light"]{--bg:#edf3ee;--panel:#f7faf7;--panel-2:#e6efe9;--line:#d3e0d7;--ink:#1c2b24;--muted:#4f6659;--accent:#047857;--accent-2:#059669;--nav-bg:rgba(246,250,247,.92);--nav-line:rgba(4,120,87,.2);--accent-bord:rgba(4,120,87,.35);--accent-bord-strong:rgba(4,120,87,.5);--accent-tint:rgba(4,120,87,.07);--accent-glow:rgba(4,120,87,.45);--bar-bg:#d9e5dc;--warn:#8a6a1f;--warn-tint:rgba(138,106,31,.08);color-scheme:light;}
+.tbtn{flex:0 0 auto;margin-left:4px;background:var(--accent-tint);color:var(--accent);border:1px solid var(--accent-bord);border-radius:999px;padding:5px 12px;font-size:14px;cursor:pointer;font-family:inherit;line-height:1.5;}
+.tbtn:hover{border-color:var(--accent-bord-strong);}
+.tbtn .ico-sun,.tbtn .ico-moon{display:none;}
+[data-theme="dark"] .tbtn .ico-sun{display:inline;}
+[data-theme="light"] .tbtn .ico-moon{display:inline;}
+*{margin:0;padding:0;box-sizing:border-box;}
+@media (prefers-reduced-motion: no-preference){html{scroll-behavior:smooth;}}
+body{background:var(--bg);color:var(--ink);font-family:"PingFang SC","Microsoft YaHei","Noto Sans SC",sans-serif;line-height:1.75;}
+code,.mono{font-family:ui-monospace,"Cascadia Code",Consolas,"JetBrains Mono",monospace;}
+a{color:var(--accent);text-decoration:none;}
+a:hover{text-decoration:underline;}
+.wrap{max-width:1080px;margin:0 auto;padding:0 22px;}
+nav.top{position:sticky;top:0;z-index:50;background:var(--nav-bg);backdrop-filter:blur(8px);border-bottom:1px solid var(--nav-line);}
+nav.top .row{display:flex;align-items:center;gap:4px;overflow-x:auto;white-space:nowrap;padding:12px 0;scrollbar-width:none;}
+nav.top .row::-webkit-scrollbar{display:none;}
+nav.top .brand{font-weight:700;color:var(--accent);margin-right:12px;display:flex;align-items:center;gap:8px;}
+nav.top .brand .dot{width:9px;height:9px;border-radius:50%;background:var(--accent);box-shadow:0 0 10px var(--accent);display:inline-block;}
+nav.top a.nl{color:var(--muted);padding:5px 12px;border-radius:999px;font-size:14px;border:1px solid transparent;}
+nav.top a.nl:hover{color:var(--accent);text-decoration:none;border-color:var(--accent-bord);}
+nav.top a.nl.on{color:var(--accent);border-color:var(--accent-bord-strong);background:var(--accent-tint);}
+nav.top a.nl.ext{border:1px dashed var(--accent-bord);}
+footer{border-top:1px solid var(--line);margin-top:64px;padding:32px 0 40px;color:var(--muted);font-size:13px;}
+footer .cols{display:flex;flex-wrap:wrap;gap:24px;justify-content:space-between;}
+.hero{padding:72px 0 40px;}
+.kicker{font-size:12px;letter-spacing:.35em;color:var(--accent);text-transform:uppercase;margin-bottom:14px;}
+h1{font-size:clamp(30px,5vw,46px);line-height:1.25;letter-spacing:.01em;}
+h1 .em{color:var(--accent);}
+.lede{color:var(--muted);max-width:760px;margin-top:18px;font-size:16.5px;}
+.grid{display:grid;gap:18px;}
+.grid.c3{grid-template-columns:repeat(auto-fit,minmax(min(100%,280px),1fr));}
+.grid.c2{grid-template-columns:repeat(auto-fit,minmax(min(100%,320px),1fr));}
+.card{background:var(--panel);border:1px solid var(--line);border-radius:16px;padding:24px 22px;transition:transform .25s ease,border-color .25s ease;}
+.card:hover{border-color:var(--accent-bord);transform:translateY(-2px);}
+.card h3{font-size:18px;margin-bottom:10px;}
+.card h3 .idx{font-family:ui-monospace,Consolas,monospace;color:var(--accent);font-size:13px;margin-right:8px;}
+.card p{color:var(--muted);font-size:14.5px;}
+.card .go{display:inline-block;margin-top:12px;font-size:13px;color:var(--accent);}
+section{padding:36px 0;}
+h2.sec{font-size:26px;margin-bottom:6px;}
+p.sub{color:var(--muted);margin-bottom:22px;font-size:14.5px;}
+.badge{display:inline-block;font-family:ui-monospace,Consolas,monospace;font-size:12px;color:var(--accent);border:1px solid var(--accent-bord);border-radius:999px;padding:2px 12px;margin:3px 4px 3px 0;background:var(--accent-tint);}
+ul.list{list-style:none;}
+ul.list li{padding:9px 0 9px 26px;position:relative;border-bottom:1px dashed var(--line);font-size:15px;}
+ul.list li:last-child{border-bottom:none;}
+ul.list li::before{content:">";position:absolute;left:4px;color:var(--accent);font-family:ui-monospace,Consolas,monospace;font-size:13px;top:10px;}
+ul.list li b{color:var(--ink);}
+ul.list li span{color:var(--muted);}
+.stat{background:var(--panel-2);border:1px solid var(--line);border-radius:14px;padding:18px 20px;}
+.stat .n{font-family:ui-monospace,Consolas,monospace;font-size:26px;color:var(--accent);}
+.stat .l{font-size:13px;color:var(--muted);margin-top:4px;}
+.bar{height:8px;background:var(--bar-bg);border-radius:999px;overflow:hidden;margin-top:10px;}
+.bar i{display:block;height:100%;border-radius:999px;background:linear-gradient(90deg,var(--accent-2),var(--accent));}
+.note{border-left:3px solid var(--accent);background:var(--accent-tint);border-radius:0 12px 12px 0;padding:14px 18px;color:var(--muted);font-size:14px;margin-top:20px;}
+.reveal{opacity:0;transform:translateY(16px);transition:opacity .6s ease,transform .6s ease;}
+.reveal.in{opacity:1;transform:none;}
+@media (prefers-reduced-motion: reduce){.reveal{opacity:1;transform:none;transition:none;}.card:hover{transform:none;}}
+</style>
+<noscript><style>.reveal{opacity:1 !important;transform:none !important}</style></noscript></head>
+<body>
+<nav class="top"><div class="wrap row">
+<a class="brand" href="index.html"><span class="dot"></span>HSO</a>
+<a class="nl" href="../index.html">返回总门户</a>
+<a class="nl on" href="index.html">首页</a>
+<a class="nl" href="sleep.html">睡眠</a>
+<a class="nl" href="diet.html">饮食</a>
+<a class="nl" href="mindset.html">心态与动力</a>
+<a class="nl" href="focus.html">学习与专注</a>
+<a class="nl" href="longevity.html">长寿</a>
+<button class="tbtn" id="themeBtn" type="button" aria-label="切换明暗主题" title="切换明暗主题"><span class="ico-sun">☀ 浅色</span><span class="ico-moon">☾ 深色</span></button>
+<a class="nl ext" href="https://github.com/zijie0/HumanSystemOptimization" target="_blank" rel="noopener">GitHub ↗</a>
+</div></nav>
+
+<header class="hero wrap">
+<div class="kicker mono">HUMAN SYSTEM OPTIMIZATION</div>
+<h1>像调优软件那样，<span class="em">调优你自己的人体系统</span></h1>
+<p class="lede">本站基于开源项目 zijie0/HumanSystemOptimization 制作，系统整理斯坦福神经科学教授 Andrew Huberman 的播客内容：从睡眠、饮食、多巴胺、神经可塑性到长寿科学，用经过同行评议的研究成果与零成本实践工具，优化你的健康、专注与长期表现。</p>
+<div style="margin-top:18px;">
+<span class="badge">peer-reviewed 科学依据</span><span class="badge">零成本实操工具</span><span class="badge">神经科学原理</span><span class="badge">开源项目 zh 万星</span>
+</div>
+</header>
+
+<section class="wrap">
+<h2 class="sec">极简健康基础列表</h2>
+<p class="sub">作者提供的四条底线，做到即可达到一个还不错的健康状态，其余再按身体状况补充调整。</p>
+<div class="grid c2">
+<div class="card"><h3><span class="idx">01</span>保持睡眠时长与质量</h3><p>绝大多数人 6 至 8 小时的睡眠时长比较健康，睡眠是免疫、新陈代谢、心情与专注的共同前提。</p></div>
+<div class="card"><h3><span class="idx">02</span>不要吸烟</h3><p>尼古丁会把多巴胺 baseline 提升到 2.5 倍，吸烟还会破坏基因表达、加速衰老，是明确的负面因素。</p></div>
+<div class="card"><h3><span class="idx">03</span>尽可能每天做点运动</h3><p>有氧运动对心肺与大脑供能帮助最大，力量训练则在年老时保护肌肉、关节与韧带，减少跌倒风险。</p></div>
+<div class="card"><h3><span class="idx">04</span>减少糖分的摄入</h3><p>糖与动物脂肪、动物蛋白总体上加速衰老；精制碳水（白米、白面包、糕点）也在减寿清单上。</p></div>
+</div>
+</section>
+
+<section class="wrap">
+<h2 class="sec">章节导航</h2>
+<p class="sub">五大系统模块，从底层原理到具体实践，全部内容提炼自原项目 README。</p>
+<div class="grid c3">
+<div class="card reveal"><h3><span class="idx">S1</span>睡眠</h3><p>生物钟、光照与体温三大机理；晨间日晒 2 至 10 分钟、晚间避光、营养与补剂的时间安排。</p><a class="go" href="sleep.html">进入章节 →</a></div>
+<div class="card reveal"><h3><span class="idx">S2</span>饮食</h3><p>间歇性禁食的小鼠实验与人体研究；8 小时进食窗口、肠道菌群、发酵食品与地中海饮食。</p><a class="go" href="diet.html">进入章节 →</a></div>
+<div class="card reveal"><h3><span class="idx">S3</span>心态与动力</h3><p>多巴胺的储备、峰值与低谷；间歇性随机奖励机制、成长型思维与自我暗示的神经科学。</p><a class="go" href="mindset.html">进入章节 →</a></div>
+<div class="card reveal"><h3><span class="idx">S4</span>学习与专注</h3><p>神经可塑性的两个触发条件：专注与犯错信号；生理叹息、17 分钟冥想与大脑营养清单。</p><a class="go" href="focus.html">进入章节 →</a></div>
+<div class="card reveal"><h3><span class="idx">S5</span>长寿</h3><p>衰老即基因信息损失；Sinclair 的 fasting、运动、数据监控实践与寿命逃逸速度展望。</p><a class="go" href="longevity.html">进入章节 →</a></div>
+</div>
+</section>
+
+<section class="wrap">
+<h2 class="sec">全站精华要点</h2>
+<p class="sub">十条最有迁移价值的结论，每条在各章节页均有完整展开。</p>
+<ul class="list reveal">
+<li><b>起床后接触阳光 2 至 10 分钟</b><span>：皮质醇释放与生物钟设定都依赖晨光，隔窗日光的强度会降低 50% 以上，户外效果最好。</span></li>
+<li><b>晚上 11 点到凌晨 4 点避光</b><span>：此时段接触光源会抑制之后几天的多巴胺释放，半夜刷手机的代价远超当晚。</span></li>
+<li><b>何时吃与吃什么同等重要</b><span>：8 小时进食窗口的小鼠即使吃高脂食物，健康水平仍保持甚至提升。</span></li>
+<li><b>天然发酵食品每天两次</b><span>：显著提升菌群多样性，几十个免疫标志物下降，对各类炎症均有抑制作用。</span></li>
+<li><b>多巴胺储备有限</b><span>：工作、娱乐、社交消耗的是同一种"快乐货币"，work hard play hard 长期会耗尽 baseline。</span></li>
+<li><b>峰值越高，低谷越长</b><span>：多巴胺叠加效应让快乐透支，随机化叠加因素可模拟赌场式间歇奖励。</span></li>
+<li><b>犯错是学习状态的入口</b><span>：挫折触发肾上腺素、乙酰胆碱与多巴胺释放，激活神经可塑性；此时放弃会连入"放弃回路"。</span></li>
+<li><b>Mood follows action</b><span>：很难用思想直接控制神经系统，从行动出发逆向影响情绪、认知才是可行路径。</span></li>
+<li><b>17 分钟冥想可永久改善注意力</b><span>：研究显示一次冥想即可对神经元重新连接，完全值得尝试。</span></li>
+<li><b>不感受饥饿时，衰老时钟走得更快</b><span>：低血糖状态激活 sirtuin 与长寿基因，禁食清理旧蛋白质、修复细胞。</span></li>
+</ul>
+<div class="note">本站内容为科普性质的原理与实验陈述，所有行动方案需在咨询医师、专业人员的条件下结合自身情况执行。数据与结论提炼自项目 README，忠于原文，不构成医疗建议。</div>
+</section>
+
+<footer><div class="wrap cols">
+<div>人体系统优化 · 基于 <a href="https://github.com/zijie0/HumanSystemOptimization" target="_blank" rel="noopener">zijie0/HumanSystemOptimization</a> 制作</div>
+<div class="mono">sleep · diet · mindset · focus · longevity</div>
+</div></footer>
+<script>
+(function(){
+if(!window.matchMedia||!matchMedia('(prefers-reduced-motion: no-preference)').matches)return;
+var els=document.querySelectorAll('.reveal');
+if(!('IntersectionObserver' in window)){els.forEach(function(e){e.classList.add('in');});return;}
+var io=new IntersectionObserver(function(es){es.forEach(function(en){if(en.isIntersecting){en.target.classList.add('in');io.unobserve(en.target);}});},{threshold:.12});
+els.forEach(function(e){io.observe(e);});
+})();(function(){var b=document.getElementById("themeBtn");if(!b)return;b.addEventListener("click",function(){var r=document.documentElement;var n=r.getAttribute("data-theme")==="light"?"dark":"light";r.setAttribute("data-theme",n);try{localStorage.setItem("theme",n)}catch(e){}})();
+</script>
+</body>
+</html>

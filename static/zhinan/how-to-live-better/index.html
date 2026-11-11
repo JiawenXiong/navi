@@ -1,0 +1,243 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>高性价比人生指南 · 精读版</title>
+<script>
+(function(){var t=null;try{t=localStorage.getItem('theme')}catch(e){}
+if(t!=='light'&&t!=='dark'){var h=new Date().getHours();t=(h>=7&&h<17)?'light':'dark'}
+document.documentElement.setAttribute('data-theme',t)})();
+</script>
+<style>
+*{box-sizing:border-box;margin:0;padding:0}
+:root{--bg:#f7f3ea;--ink:#2a2a24;--soft:#4a4a3f;--muted:#5a5a4d;--muted2:#7a7a6c;--body-ink:#3d3d33;--link:#2d5a4a;--accent:#2d5a4a;--deep:#1f4437;--head-bg:#f2ecdd;--nav-hover:#e3ead9;--nav-hover-ink:#1f4437;--on-bg:#2d5a4a;--on-ink:#f7f3ea;--card:#fffdf7;--line:#e4ddc9;--th-bg:#e7efe9;--chip-bg:#e7efe9;--chip-ink:#24503f;--chip-hover:#d5e3d8;--bA-bg:#2d5a4a;--bA-ink:#f7f3ea;--bB-bg:#dce8df;--bB-ink:#24503f;--bB-line:#9dbcaa;--bC-ink:#6a6a5f;--bC-line:#b9b5a6;--note-bg:#f0ead9;--note-line:#e0d8c2;--kick-bg:#eef3ec;--src:#9a9684;--tag-bg:#f6e8d8;--tag-ink:#8a5a1e;--tag-line:#e0c9a6;--foot-bg:#243b32;--foot-ink:#cfd8cf;--foot-link:#a8d0b8}
+[data-theme="dark"]{--bg:#0f1e18;--ink:#ece7d9;--soft:#c9c6b6;--muted:#bfc4b4;--muted2:#a3ab9d;--body-ink:#d6d9cc;--link:#7cc9a4;--accent:#6fbf98;--deep:#a9e0c3;--head-bg:#14251d;--nav-hover:#24382e;--nav-hover-ink:#e2efe6;--on-bg:#2f6b52;--on-ink:#f2f7f0;--card:#16291f;--line:#2e463a;--th-bg:#1d3a2d;--chip-bg:#1d3a2d;--chip-ink:#a8e3c4;--chip-hover:#274a39;--bA-bg:#5fbf95;--bA-ink:#0c1b14;--bB-bg:#1d3a2d;--bB-ink:#a8e3c4;--bB-line:#3d6a55;--bC-ink:#b9c2b4;--bC-line:#55645c;--note-bg:#1c2f24;--note-line:#35503f;--kick-bg:#16291f;--src:#97a496;--tag-bg:#3a2c17;--tag-ink:#e8c088;--tag-line:#6a5232;--foot-bg:#0b1712;--foot-ink:#b7c4b7;--foot-link:#8fd4b4}
+html{scroll-behavior:smooth}
+body{font-family:"Microsoft YaHei","PingFang SC","Noto Sans SC",system-ui,sans-serif;background:var(--bg);color:var(--ink);line-height:1.75;font-size:16px}
+.wrap{max-width:1060px;margin:0 auto;padding:0 20px}
+a{color:var(--link)}
+header.site{position:sticky;top:0;z-index:20;background:var(--head-bg);border-bottom:2px solid var(--accent)}
+nav.top{display:flex;align-items:center;gap:2px;white-space:nowrap;overflow-x:auto;padding:9px 0;font-size:14.5px;-webkit-overflow-scrolling:touch}
+nav.top::-webkit-scrollbar{display:none}
+nav.top a{text-decoration:none;color:var(--ink);padding:5px 12px;border-radius:8px;flex:0 0 auto}
+nav.top a:hover{background:var(--nav-hover)}
+nav.top a.on{background:var(--on-bg);color:var(--on-ink)}
+nav.top a.gh{margin-left:auto;color:var(--link);font-weight:700}
+nav.top a.gh:hover{background:var(--nav-hover);color:var(--nav-hover-ink)}
+.theme-btn{flex:0 0 auto;font-size:14px;line-height:1;padding:6px 11px;border-radius:8px;border:1px solid var(--line);background:var(--card);color:var(--ink);cursor:pointer}
+.theme-btn:hover{background:var(--nav-hover);color:var(--nav-hover-ink)}
+.hero{padding:52px 0 34px;border-bottom:1px solid var(--line)}
+.hero .kicker{display:inline-block;font-size:13px;letter-spacing:.12em;color:var(--accent);border:1px solid var(--bB-line);border-radius:999px;padding:2px 14px;margin-bottom:14px;background:var(--kick-bg)}
+.hero h1{font-size:clamp(26px,4.5vw,40px);line-height:1.3;color:var(--deep);margin-bottom:14px}
+.hero p.lead{max-width:46em;color:var(--soft);font-size:16.5px}
+.stats{display:flex;flex-wrap:wrap;gap:10px;margin-top:22px}
+.stat{background:var(--card);border:1px solid var(--line);border-radius:12px;padding:10px 18px;text-align:center;min-width:118px}
+.stat b{display:block;font-size:22px;color:var(--accent)}
+.stat span{font-size:12.5px;color:var(--muted2)}
+section.block{padding:42px 0 6px}
+h2.sec{font-size:24px;color:var(--deep);border-left:6px solid var(--accent);padding-left:14px;margin-bottom:8px}
+p.secdesc{color:var(--muted);margin-bottom:20px;max-width:46em}
+.grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(300px,1fr));gap:16px;margin-bottom:26px}
+.panel{background:var(--card);border:1px solid var(--line);border-radius:12px;padding:22px}
+.panel h3{font-size:17px;color:var(--accent);margin-bottom:10px}
+.panel p,.panel li{font-size:14.8px;color:var(--body-ink)}
+.panel ul{padding-left:20px}
+.panel li{margin-bottom:6px}
+table.grade{width:100%;border-collapse:collapse;margin:10px 0 16px;background:var(--card);border:1px solid var(--line);border-radius:12px;overflow:hidden}
+table.grade th,table.grade td{padding:10px 14px;border-bottom:1px solid var(--line);text-align:left;font-size:14.5px;vertical-align:top}
+table.grade th{background:var(--th-bg);color:var(--deep);font-size:14px}
+table.grade tr:last-child td{border-bottom:none}
+.badge{display:inline-block;font-size:12px;font-weight:700;padding:2px 10px;border-radius:999px;white-space:nowrap;vertical-align:middle}
+.badge.a{background:var(--bA-bg);color:var(--bA-ink)}
+.badge.b{background:var(--bB-bg);color:var(--bB-ink);border:1px solid var(--bB-line)}
+.badge.c{background:transparent;color:var(--bC-ink);border:1px solid var(--bC-line)}
+.card{background:var(--card);border:1px solid var(--line);border-radius:12px;padding:20px 22px}
+.card h4{font-size:16px;color:var(--deep);margin-bottom:8px}
+.card dl div{margin-bottom:8px;font-size:14.8px}
+.card dt{display:inline;font-weight:700;color:var(--accent)}
+.card dd{display:inline;margin:0}
+.sample{max-width:640px;margin-bottom:26px;box-shadow:0 2px 6px rgba(60,50,20,.08)}
+.sample .card-head{display:flex;justify-content:space-between;align-items:flex-start;gap:10px;margin-bottom:10px}
+.navcard{display:block;text-decoration:none;background:var(--card);border:1px solid var(--line);border-radius:12px;padding:22px;color:var(--ink);transition:border-color .2s,box-shadow .2s}
+.navcard:hover{border-color:var(--accent);box-shadow:0 3px 10px rgba(45,90,74,.15)}
+.navcard h3{font-size:19px;color:var(--deep);margin-bottom:6px}
+.navcard p{font-size:14.5px;color:var(--muted);margin-bottom:10px}
+.navcard .chips{display:flex;flex-wrap:wrap;gap:6px}
+.navcard .chip{font-size:12px;background:var(--chip-bg);color:var(--chip-ink);border-radius:999px;padding:2px 10px}
+.navcard .go{display:inline-block;margin-top:12px;font-size:14px;font-weight:700;color:var(--accent)}
+.note{background:var(--note-bg);border:1px solid var(--note-line);border-radius:12px;padding:16px 20px;font-size:14.3px;color:var(--muted);margin-bottom:30px}
+footer.site{margin-top:48px;background:var(--foot-bg);color:var(--foot-ink);padding:30px 0 26px;font-size:13.5px}
+footer.site a{color:var(--foot-link)}
+footer.site .wrap p{margin-bottom:6px}
+@media (prefers-reduced-motion: no-preference){
+.reveal{opacity:0;transform:translateY(14px);transition:opacity .5s ease,transform .5s ease}
+.reveal.in{opacity:1;transform:none}
+.navcard{transition:border-color .25s,box-shadow .25s,opacity .5s ease,transform .5s ease}
+}
+
+@media (prefers-reduced-motion: reduce){.reveal{opacity:1 !important;transform:none !important}}</style>
+<noscript><style>.reveal{opacity:1 !important;transform:none !important}</style></noscript></head>
+<body><div style="position:fixed;left:14px;bottom:14px;z-index:99;"><a href="../index.html" style="display:inline-block;padding:7px 16px;border-radius:999px;background:rgba(20,20,20,.72);color:#fff;font-size:13px;text-decoration:none;backdrop-filter:blur(4px);font-family:system-ui,sans-serif;" onmouseover="this.style.background='rgba(20,20,20,.9)'" onmouseout="this.style.background='rgba(20,20,20,.72)'">&#8592; 总门户</a></div>
+<header class="site">
+  <div class="wrap">
+    <nav class="top">
+      <a class="on" href="index.html">首页</a>
+      <a href="pages/health.html">健康与急救</a>
+      <a href="pages/money.html">金钱与红线</a>
+      <a href="pages/security.html">失业与保障</a>
+      <a href="pages/family.html">恋爱与育儿</a>
+      <a href="pages/career.html">创业与技能</a>
+      <a class="gh" href="https://github.com/eternity4719/HowToLiveBetter" target="_blank" rel="noopener">GitHub 仓库</a>
+      <button class="theme-btn" type="button" aria-label="切换明暗主题">🌓</button>
+    </nav>
+  </div>
+</header>
+
+<main>
+  <div class="hero wrap">
+    <span class="kicker">精读版 · 摘编自开源书仓库</span>
+    <h1>高性价比人生指南<br>用最少的钱、时间和精力，换回最多的寿命、金钱和人身自由</h1>
+    <p class="lead">讲怎么活得久、怎么少生病，出了意外怎么救；讲怎么少花冤枉钱，哪些事会让人被骗、摊上官司；讲没工作没钱时能去领什么，开店、开公司、做网站要办什么手续；也讲恋爱结婚生孩子、出国和学手艺。原书共 34 章 772 条建议，每条写明花掉什么、换回什么、证据有多硬，来源只引期刊论文和官方文件。本站按主题精选其中最有代表性的条目，读者在网页里就能读到完整有用的内容。</p>
+    <div class="stats">
+      <div class="stat"><b>772</b><span>条建议</span></div>
+      <div class="stat"><b>34</b><span>章</span></div>
+      <div class="stat"><b>A 497</b><span>证据等级 A</span></div>
+      <div class="stat"><b>B 223</b><span>证据等级 B</span></div>
+      <div class="stat"><b>C 52</b><span>证据等级 C</span></div>
+      <div class="stat"><b>2600+</b><span>条原始文献链接</span></div>
+    </div>
+  </div>
+
+  <section class="block wrap" id="method">
+    <h2 class="sec">方法论：这本书怎么算账</h2>
+    <p class="secdesc">每条建议回答两个问题：要花掉什么（钱、时间、精力、毅力），能换回什么（死亡率变化、特定死因下降、时间精力节省、金钱节省、保障与人身自由）。下面是一条真实条目的完整样子。</p>
+
+    <div class="card sample reveal">
+      <div class="card-head">
+        <h4>样例：把家里的食盐换成低钠盐（钾盐）</h4>
+        <span class="badge a">证据 A</span>
+      </div>
+      <dl>
+        <div><dt>成本：</dt><dd>一袋比普通盐贵几元。买的时候顺手换，不额外占时间。口味几乎不变。</dd></div>
+        <div><dt>收益：</dt><dd>一项把人随机分成两组的试验，在中国农村做的，20995 人，都是得过卒中的人或者 60 岁以上的高血压病人，跟踪了 4.74 年。用低钠盐的那组比用普通盐的那组，死亡风险低约 12%（RR 0.88），卒中低约 14%（RR 0.86）。</dd></div>
+        <div><dt>备注：</dt><dd>有争议。试验对象是高危老人，健康年轻人换盐得到的好处要小得多；肾功能不全或正在吃保钾类药物的人，换盐前先问医生。</dd></div>
+      </dl>
+    </div>
+
+    <div class="grid">
+      <div class="panel reveal">
+        <h3>四种资源、四个口径</h3>
+        <p>这本书想帮你多留住的不只是寿命，一共四样：</p>
+        <ul>
+          <li><b>寿命</b>：活得更久，少死于本来可以避免的事</li>
+          <li><b>时间与精力</b>：活着的时间不花在没有回报的事上</li>
+          <li><b>金钱</b>：少花冤枉钱，把钱花在收益确定的地方</li>
+          <li><b>人身自由</b>：不因为不知道一条红线，把自己送进拘留所或看守所</li>
+        </ul>
+        <p>四个口径各算各的，不互相折算：「总死亡率降 12%」和「每年省 500 元」不在一把尺子上，没法分高下。</p>
+      </div>
+      <div class="panel reveal">
+        <h3>好处落在谁身上，分四档</h3>
+        <p>按「这份好处将来有多大可能回到你自己身上」从高到低：</p>
+        <ul>
+          <li>① 你自己</li>
+          <li>② 配偶和直系亲属</li>
+          <li>③ 朋友、同事和其他亲属（互惠关系）</li>
+          <li>④ 陌生人（最低一档，但不是零，好处和风险一起算）</li>
+        </ul>
+        <p>急救那一节照这个读：学按压首先是为了按在自家人身上；「看到有人溺水自己不下水」这类规则本身就是自保规则。</p>
+      </div>
+      <div class="panel reveal">
+        <h3>性价比怎么分档</h3>
+        <p>每条除证据等级外还标收益量级（大、中、小）和口径，合成性价比档：</p>
+        <ul>
+          <li><b>极高</b>：好处大、三项成本都在最低档（不花钱、用时少、不需要毅力），全书 123 条</li>
+          <li><b>高</b>：好处大成本不高，或好处中等成本最低，343 条</li>
+          <li><b>一般</b>：剩下的 306 条，不是不该做，是要自己掂量</li>
+        </ul>
+        <p>这一档是作者自己的判断（按本书标准只算 C 级），和证据等级互不影响：一条可以证据 A 级、性价比一般，也可以证据 C 级、性价比极高。</p>
+      </div>
+    </div>
+  </section>
+
+  <section class="block wrap" id="evidence">
+    <h2 class="sec">证据分级：数字有多硬</h2>
+    <table class="grade">
+      <tr><th style="width:90px">等级</th><th>含义</th><th style="width:90px">条数</th></tr>
+      <tr><td><span class="badge a">A</span></td><td>有具体数字可查，出处是荟萃分析、大型队列或随机分组试验（RCT），能说出降了多少（HR、RR、下降百分比）；法律政策类指引到法条或官方文件原文</td><td>497</td></tr>
+      <tr><td><span class="badge b">B</span></td><td>有研究支持，但说不出确切数字；或者只有小样本、单独一项研究撑着</td><td>223</td></tr>
+      <tr><td><span class="badge c">C</span></td><td>作者自己的经验，或大家公认的做法，没有直接的研究文献</td><td>52</td></tr>
+    </table>
+    <div class="note reveal">
+      两点提醒：一，A 级只说明「有具体数字、出处可核」，不说明一定是因果，收益栏里写着「随机分成两组」的才最有说服力，写着「只记录、不分组」的要打点折看。二，百分比多数是「比没做的人低几成」，不是每一百人里少几个；同样低 12%，本来风险就高的老人少掉的死亡人数远多于风险低的年轻人，先看这条说的是哪些人。
+    </div>
+  </section>
+
+  <section class="block wrap" id="topics">
+    <h2 class="sec">全部主题导航</h2>
+    <p class="secdesc">原书 34 章按主题重新分成五个专题页。每页 15 条以上，条条含建议、成本、收益和证据等级，并注明出自原书第几节第几条。</p>
+    <div class="grid">
+      <a class="navcard reveal" href="pages/health.html">
+        <h3>健康与急救</h3>
+        <p>长寿防病：血压、疫苗、筛查、戒烟、饮食运动；急救：心脏骤停、卒中、大出血、烫伤、孩子噎住。</p>
+        <div class="chips"><span class="chip">第1节 不要早死</span><span class="chip">第2节 不要慢慢死</span><span class="chip">第13节 紧急情况</span></div>
+        <span class="go">30 条精选 · 打开</span>
+      </a>
+      <a class="navcard reveal" href="pages/money.html">
+        <h3>金钱与红线</h3>
+        <p>省钱理财：订阅、彩票、基金、保险、养老保险；法律红线：谣言、跑分、高空抛物、盗版、器官买卖。</p>
+        <div class="chips"><span class="chip">第5节 不要浪费钱</span><span class="chip">第9节 普通人容易踩的法律红线</span></div>
+        <span class="go">18 条精选 · 打开</span>
+      </a>
+      <a class="navcard reveal" href="pages/security.html">
+        <h3>失业与保障</h3>
+        <p>失业与工伤：失业金、欠薪、裁员补偿、工伤认定；医保社保：居民医保、异地结算、双通道、分级诊疗。</p>
+        <div class="chips"><span class="chip">第7节 没钱的时候怎么活</span><span class="chip">第19节 在职离职和工伤</span><span class="chip">第24节 看病</span><span class="chip">第16节 慢性病</span></div>
+        <span class="go">28 条精选 · 打开</span>
+      </a>
+      <a class="navcard reveal" href="pages/family.html">
+        <h3>恋爱与育儿</h3>
+        <p>恋爱婚育：择偶、彩礼房产、领证、离婚；怀孕育儿：叶酸、产检、安全睡眠、疫苗、出生办证。</p>
+        <div class="chips"><span class="chip">第10节 恋爱和结婚</span><span class="chip">第18节 养孩子</span><span class="chip">第27节 怀孕和生产</span><span class="chip">第20节 刚出生的孩子</span></div>
+        <span class="go">25 条精选 · 打开</span>
+      </a>
+      <a class="navcard reveal" href="pages/career.html">
+        <h3>创业与技能</h3>
+        <p>创业与平台合规：主体、担保、许可证、年报、备案；出国与技能：留学认证、打工时数、教育回报、考证。</p>
+        <div class="chips"><span class="chip">第12节 创业与做生意</span><span class="chip">第26节 做网站或平台</span><span class="chip">第21/32节 出国</span><span class="chip">第23节 学什么技能</span></div>
+        <span class="go">26 条精选 · 打开</span>
+      </a>
+    </div>
+    <div class="note">
+      <b>怎么读：</b>这是一份备选单，不是任务清单。挑走一两条就算数，剩下的放着，需要时再回来查。书里的政策各地执行不一样、也可能过时，真去办事、看病、打官司时，以当地部门、医生和律师的说法为准。本站是摘编版，完整 772 条请看原仓库的在线检索页和电子书。
+    </div>
+  </section>
+</main>
+
+<footer class="site">
+  <div class="wrap">
+    <p>内容摘编自开源书《高性价比人生指南》（作者 eternity4719，原文以 <a href="https://creativecommons.org/licenses/by/4.0/" target="_blank" rel="noopener">CC BY 4.0</a> 许可发布），本站作了浓缩与重新分组。</p>
+    <p>完整原文、来源核实记录与在线检索：<a href="https://github.com/eternity4719/HowToLiveBetter" target="_blank" rel="noopener">GitHub 仓库 eternity4719/HowToLiveBetter</a></p>
+    <p>本站为静态摘编页面，不构成医疗、法律或投资建议；政策与补贴标准随时间变化，以官方最新规定为准。</p>
+  </div>
+</footer>
+
+<script>
+(function(){
+  if (!window.matchMedia('(prefers-reduced-motion: no-preference)').matches) return;
+  var els = document.querySelectorAll('.reveal');
+  if (!('IntersectionObserver' in window)) { els.forEach(function(e){e.classList.add('in')}); return; }
+  var io = new IntersectionObserver(function(entries){
+    entries.forEach(function(en){ if (en.isIntersecting) { en.target.classList.add('in'); io.unobserve(en.target); } });
+  }, {threshold:0.12});
+  els.forEach(function(e){ io.observe(e); });
+})();
+</script>
+<script>
+(function(){var b=document.querySelector('.theme-btn');if(!b)return;
+function sync(){var d=document.documentElement.getAttribute('data-theme')==='dark';b.textContent=d?'\u2600\uFE0F':'\uD83C\uDF19';b.setAttribute('aria-label',d?'\u5207\u6362\u5230\u6D45\u8272\u4E3B\u9898':'\u5207\u6362\u5230\u6DF1\u8272\u4E3B\u9898')}
+b.addEventListener('click',function(){var t=document.documentElement.getAttribute('data-theme')==='dark'?'light':'dark';document.documentElement.setAttribute('data-theme',t);try{localStorage.setItem('theme',t)}catch(e){}sync()});
+sync()})();
+</script></body>
+</html>

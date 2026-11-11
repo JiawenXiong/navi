@@ -1,0 +1,167 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>睡眠 · 人体系统优化</title>
+<script>(function(){var t;try{t=localStorage.getItem("theme")}catch(e){}if(t!=="light"&&t!=="dark"){var h=new Date().getHours();t=(h>=7&&h<17)?"light":"dark"}document.documentElement.setAttribute("data-theme",t)})()</script>
+<style>
+:root{--bg:#0a0f0d;--panel:#0f1512;--panel-2:#121a16;--line:#1e2a24;--ink:#d7e2dc;--muted:#8fa69b;--accent:#34d399;--accent-2:#10b981;--nav-bg:rgba(10,15,13,.92);--nav-line:rgba(52,211,153,.16);--accent-bord:rgba(52,211,153,.4);--accent-bord-strong:rgba(52,211,153,.45);--accent-tint:rgba(52,211,153,.07);--accent-glow:rgba(52,211,153,.6);--bar-bg:#16211c;--warn:#d4b06a;--warn-tint:rgba(212,176,106,.07);color-scheme:dark;}
+[data-theme="light"]{--bg:#edf3ee;--panel:#f7faf7;--panel-2:#e6efe9;--line:#d3e0d7;--ink:#1c2b24;--muted:#4f6659;--accent:#047857;--accent-2:#059669;--nav-bg:rgba(246,250,247,.92);--nav-line:rgba(4,120,87,.2);--accent-bord:rgba(4,120,87,.35);--accent-bord-strong:rgba(4,120,87,.5);--accent-tint:rgba(4,120,87,.07);--accent-glow:rgba(4,120,87,.45);--bar-bg:#d9e5dc;--warn:#8a6a1f;--warn-tint:rgba(138,106,31,.08);color-scheme:light;}
+.tbtn{flex:0 0 auto;margin-left:4px;background:var(--accent-tint);color:var(--accent);border:1px solid var(--accent-bord);border-radius:999px;padding:5px 12px;font-size:14px;cursor:pointer;font-family:inherit;line-height:1.5;}
+.tbtn:hover{border-color:var(--accent-bord-strong);}
+.tbtn .ico-sun,.tbtn .ico-moon{display:none;}
+[data-theme="dark"] .tbtn .ico-sun{display:inline;}
+[data-theme="light"] .tbtn .ico-moon{display:inline;}
+*{margin:0;padding:0;box-sizing:border-box;}
+@media (prefers-reduced-motion: no-preference){html{scroll-behavior:smooth;}}
+body{background:var(--bg);color:var(--ink);font-family:"PingFang SC","Microsoft YaHei","Noto Sans SC",sans-serif;line-height:1.75;}
+code,.mono{font-family:ui-monospace,"Cascadia Code",Consolas,"JetBrains Mono",monospace;}
+a{color:var(--accent);text-decoration:none;}
+a:hover{text-decoration:underline;}
+.wrap{max-width:1080px;margin:0 auto;padding:0 22px;}
+nav.top{position:sticky;top:0;z-index:50;background:var(--nav-bg);backdrop-filter:blur(8px);border-bottom:1px solid var(--nav-line);}
+nav.top .row{display:flex;align-items:center;gap:4px;overflow-x:auto;white-space:nowrap;padding:12px 0;scrollbar-width:none;}
+nav.top .row::-webkit-scrollbar{display:none;}
+nav.top .brand{font-weight:700;color:var(--accent);margin-right:12px;display:flex;align-items:center;gap:8px;}
+nav.top .brand .dot{width:9px;height:9px;border-radius:50%;background:var(--accent);box-shadow:0 0 10px var(--accent);display:inline-block;}
+nav.top a.nl{color:var(--muted);padding:5px 12px;border-radius:999px;font-size:14px;border:1px solid transparent;}
+nav.top a.nl:hover{color:var(--accent);text-decoration:none;border-color:var(--accent-bord);}
+nav.top a.nl.on{color:var(--accent);border-color:var(--accent-bord-strong);background:var(--accent-tint);}
+nav.top a.nl.ext{border:1px dashed var(--accent-bord);}
+footer{border-top:1px solid var(--line);margin-top:64px;padding:32px 0 40px;color:var(--muted);font-size:13px;}
+footer .cols{display:flex;flex-wrap:wrap;gap:24px;justify-content:space-between;}
+.page-head{padding:56px 0 8px;}
+.kicker{font-family:ui-monospace,Consolas,monospace;font-size:12px;letter-spacing:.3em;color:var(--accent);margin-bottom:12px;}
+h1{font-size:clamp(28px,4.5vw,40px);}
+h1 .em{color:var(--accent);}
+.lede{color:var(--muted);max-width:780px;margin-top:14px;font-size:16px;}
+section{padding:30px 0;}
+h2.sec{font-size:23px;margin-bottom:6px;padding-left:14px;border-left:3px solid var(--accent);}
+p.sub{color:var(--muted);margin-bottom:20px;font-size:14.5px;}
+.grid{display:grid;gap:16px;}
+.grid.c2{grid-template-columns:repeat(auto-fit,minmax(min(100%,300px),1fr));}
+.grid.c3{grid-template-columns:repeat(auto-fit,minmax(min(100%,220px),1fr));}
+.card{background:var(--panel);border:1px solid var(--line);border-radius:16px;padding:22px 20px;}
+.card h3{font-size:17px;margin-bottom:10px;}
+.card h3 .idx{font-family:ui-monospace,Consolas,monospace;color:var(--accent);font-size:12px;margin-right:8px;}
+.card p{color:var(--muted);font-size:14.5px;}
+.badge{display:inline-block;font-family:ui-monospace,Consolas,monospace;font-size:12px;color:var(--accent);border:1px solid var(--accent-bord);border-radius:999px;padding:2px 12px;margin:3px 4px 3px 0;background:var(--accent-tint);}
+ul.list{list-style:none;}
+ul.list li{padding:9px 0 9px 26px;position:relative;border-bottom:1px dashed var(--line);font-size:15px;}
+ul.list li:last-child{border-bottom:none;}
+ul.list li::before{content:">";position:absolute;left:4px;color:var(--accent);font-family:ui-monospace,Consolas,monospace;font-size:13px;top:10px;}
+ul.list li b{color:var(--ink);}
+ul.list li span{color:var(--muted);}
+.stat{background:var(--panel-2);border:1px solid var(--line);border-radius:14px;padding:18px 20px;}
+.stat .n{font-family:ui-monospace,Consolas,monospace;font-size:25px;color:var(--accent);}
+.stat .l{font-size:13px;color:var(--muted);margin-top:4px;}
+.bar{height:8px;background:var(--bar-bg);border-radius:999px;overflow:hidden;margin-top:10px;}
+.bar i{display:block;height:100%;border-radius:999px;background:linear-gradient(90deg,var(--accent-2),var(--accent));}
+.note{border-left:3px solid var(--accent);background:var(--accent-tint);border-radius:0 12px 12px 0;padding:14px 18px;color:var(--muted);font-size:14px;margin-top:20px;}
+.timeline{border-left:2px solid var(--accent-bord);margin:8px 0 0 8px;padding-left:22px;}
+.timeline .t{position:relative;padding-bottom:18px;}
+.timeline .t::before{content:"";position:absolute;left:-28px;top:7px;width:10px;height:10px;border-radius:50%;background:var(--accent);box-shadow:0 0 8px var(--accent-glow);}
+.timeline .t .tt{font-family:ui-monospace,Consolas,monospace;color:var(--accent);font-size:13px;}
+.timeline .t p{color:var(--muted);font-size:14.5px;}
+.reveal{opacity:0;transform:translateY(16px);transition:opacity .6s ease,transform .6s ease;}
+.reveal.in{opacity:1;transform:none;}
+@media (prefers-reduced-motion: reduce){.reveal{opacity:1;transform:none;transition:none;}}
+</style>
+<noscript><style>.reveal{opacity:1 !important;transform:none !important}</style></noscript></head>
+<body>
+<nav class="top"><div class="wrap row">
+<a class="brand" href="index.html"><span class="dot"></span>HSO</a>
+<a class="nl" href="../index.html">返回总门户</a>
+<a class="nl" href="index.html">首页</a>
+<a class="nl on" href="sleep.html">睡眠</a>
+<a class="nl" href="diet.html">饮食</a>
+<a class="nl" href="mindset.html">心态与动力</a>
+<a class="nl" href="focus.html">学习与专注</a>
+<a class="nl" href="longevity.html">长寿</a>
+<button class="tbtn" id="themeBtn" type="button" aria-label="切换明暗主题" title="切换明暗主题"><span class="ico-sun">☀ 浅色</span><span class="ico-moon">☾ 深色</span></button>
+<a class="nl ext" href="https://github.com/zijie0/HumanSystemOptimization" target="_blank" rel="noopener">GitHub ↗</a>
+</div></nav>
+
+<header class="page-head wrap">
+<div class="kicker">MODULE 01 / SLEEP</div>
+<h1>睡眠：一切优化的<span class="em">前提条件</span></h1>
+<p class="lede">想要健康、更好的工作学习状态、更强的免疫与新陈代谢、更好的心情与专注能力，最最重要的前提是一个良好的睡眠。睡眠由内在生物钟驱动，而生物钟的钥匙握在光照与体温手里。</p>
+<div><span class="badge">生物钟</span><span class="badge">皮质醇</span><span class="badge">褪黑素</span><span class="badge">黑视素神经节细胞</span><span class="badge">体温节律</span></div>
+</header>
+
+<section class="wrap">
+<h2 class="sec">原理：生物钟如何运转</h2>
+<p class="sub">Huberman 教授对生物钟作用方式的形象描述，以及两大外部控制手段。</p>
+<div class="grid c2 reveal">
+<div class="card"><h3><span class="idx">机理</span>化学物质的昼夜节律</h3><p>早上身体释放皮质醇（cortisol）和肾上腺素（adrenaline）让我们醒来，同时设定松果体释放褪黑素的倒计时钟，十多个小时后让我们再次感到困意。体内各类化学物质与体温随生物钟变化，影响内在状态与外在行为。通宵后太阳升起，生物钟被重置到"起床态"，人突然又有精神，正是这个原因。</p></div>
+<div class="card"><h3><span class="idx">钥匙一</span>光照</h3><p>眼睛除视觉外的另一重大作用，是通过黑视素神经节细胞接收光照信息来设定内在生物钟。这类细胞不负责成像，因此该机制对视盲人士同样有效。后续几乎所有睡眠最佳实践都与控制光照的时间点、类型和时长有关。</p></div>
+<div class="card"><h3><span class="idx">钥匙二</span>体温</h3><p>体温从深睡眠中的低点逐渐升高，醒来后持续上升，到一天后半段开始下降，直到再次入睡。用体温干预周期是可行路径：早上冷水澡让身体快速升温，把睡眠周期前移（早起）；晚上锻炼保持高体温，把周期后移（晚睡）。</p></div>
+<div class="card"><h3><span class="idx">时长</span>6 至 8 小时</h3><p>对于绝大多数人，6 至 8 小时的睡眠时长是比较健康的。休息与睡眠期间会发生大量神经元重连接活动，高质量睡眠是生理与心理健康强壮的先决条件。</p></div>
+</div>
+</section>
+
+<section class="wrap">
+<h2 class="sec">光照实践：一天的用光时刻表</h2>
+<div class="timeline reveal">
+<div class="t"><div class="tt">起床后 · 晨光窗口</div><p>到户外接触阳光 <b>2 至 10 分钟</b>，对血压控制、心理状态、设定睡眠倒计时钟都有很大好处。户外日光效果最好；人造光源中蓝光较好，且最好是上部（天空位置）光源。隔着窗户接收日光，强度会降低 50% 以上，达到同样效果需要 50 到 100 倍的光照时间。</p></div>
+<div class="t"><div class="tt">白天 · 午间低谷</div><p>人一天的精神状态在中间有个短暂低谷，午睡对有些人有帮助。也可用非睡眠深度休息替代：Yoga Nidra、冥想、自我催眠（可借助 Reveri 等 App）。</p></div>
+<div class="t"><div class="tt">傍晚 · 落日时刻</div><p>观察落日对后续入睡有帮助，甚至能减轻晚上摄入光照的负面影响。</p></div>
+<div class="t"><div class="tt">夜间 · 23:00 至 04:00 避光</div><p>晚上尽量减少光源接触，否则生物钟会误以为仍是白天。尤其晚上 11 点到次日凌晨 4 点之间接触光源，会抑制后续几天的多巴胺释放，影响心情、心理健康、专注度、学习能力与新陈代谢。</p></div>
+<div class="t"><div class="tt">不可避免时 · 降低伤害</div><p>选择处于较低位置、暗淡的红光或蜡烛。要看电脑建议戴 blue blockers 眼镜，效果与自动调节屏幕色温的软件类似。</p></div>
+</div>
+</section>
+
+<section class="wrap">
+<h2 class="sec">摄入物对睡眠的影响</h2>
+<p class="sub">营养、补剂与药物的取舍，相关补充剂可检索 examine.com。</p>
+<ul class="list reveal">
+<li><b>咖啡因</b><span>：占据腺苷（adenosine）受体，阻断入睡信号。"中午后别喝咖啡"的说法并无实验表明对所有人一致，需自行测试；Huberman 本人下午 5 点喝咖啡也能正常入睡。</span></li>
+<li><b>镁</b><span>：对入睡有帮助，属于相对可靠的补充方向。</span></li>
+<li><b>芹黄素</b><span>：也能帮助入睡，但要注意对雌性激素的影响。</span></li>
+<li><b>牛磺酸</b><span>：建议不要摄入太多。</span></li>
+<li><b>褪黑素</b><span>：不建议通过摄入褪黑素助眠。药物规格把控不严格，且褪黑素容易引起抑郁情绪，还会引起多巴胺减少。</span></li>
+<li><b>午餐策略</b><span>：吃低卡路里、含酪氨酸的食物，如坚果、大豆、部分蔬菜，提升多巴胺与肾上腺素，保持清醒。</span></li>
+<li><b>晚餐策略</b><span>：吃点淀粉、白肉等富含色氨酸的食物，进而转化为血清素，让人更平静、容易入睡。</span></li>
+<li><b>锻炼时点</b><span>：一般建议在醒来后 30 分钟、3 小时和 11 小时这三个时间点锻炼，不过总体影响度较小。</span></li>
+</ul>
+</section>
+
+<section class="wrap">
+<h2 class="sec">延伸：工具与辅助手段</h2>
+<ul class="list reveal">
+<li><b>智能床垫</b><span>：可以选购自动控制体温的智能床垫来提升睡眠质量，这是利用体温节律原理的商品化方案。</span></li>
+<li><b>生物钟追踪</b><span>：My Circadian Clock App 由 Satchin Panda 等大佬参与开发，值得信赖，可以用来追踪自己的生物钟与进食窗口。</span></li>
+<li><b>非睡眠深度休息</b><span>：午间低谷不必强求睡着，Yoga Nidra、冥想（如 Headspace）、自我催眠（Michael Sealey 的视频、Reveri App）都是可替代的休息方式。</span></li>
+<li><b>作者的现身说法</b><span>：带娃期间晚上睡眠质量一般，但坚持 11 点后不接触手机光源；早起光照通过遛狗或开车通勤完成，基本没有执行压力。说明最佳实践可以从低成本、易坚持的少数几条做起。</span></li>
+</ul>
+</section>
+
+<section class="wrap">
+<h2 class="sec">关键数据速览</h2>
+<div class="grid c3 reveal">
+<div class="stat"><div class="n">2-10 min</div><div class="l">起床后户外接触阳光的推荐时长</div><div class="bar"><i style="width:18%"></i></div></div>
+<div class="stat"><div class="n">-50%</div><div class="l">隔着窗户接收日光时的强度损失</div><div class="bar"><i style="width:50%"></i></div></div>
+<div class="stat"><div class="n">50-100x</div><div class="l">隔窗达到同等效果所需的日晒时长倍数</div><div class="bar"><i style="width:88%"></i></div></div>
+<div class="stat"><div class="n">23:00-04:00</div><div class="l">光源接触伤害最大的时段，抑制多巴胺数天</div><div class="bar"><i style="width:64%"></i></div></div>
+<div class="stat"><div class="n">6-8 h</div><div class="l">绝大多数人的健康睡眠时长区间</div><div class="bar"><i style="width:40%"></i></div></div>
+<div class="stat"><div class="n">10+ h</div><div class="l">晨光设定的褪黑素释放倒计时时长</div><div class="bar"><i style="width:72%"></i></div></div>
+</div>
+<div class="note">作者的个人实践：带娃期间睡眠质量一般，但坚持晚上 11 点后尽量不接触手机光源；早起光照通过早晨遛狗或开车通勤完成。讲究的同学可以用 Satchin Panda 等人参与开发的 My Circadian Clock App 追踪生物钟。</div>
+</section>
+
+<footer><div class="wrap cols">
+<div>人体系统优化 · 基于 <a href="https://github.com/zijie0/HumanSystemOptimization" target="_blank" rel="noopener">zijie0/HumanSystemOptimization</a> 制作</div>
+<div class="mono">S1 sleep · next: <a href="diet.html">饮食</a></div>
+</div></footer>
+<script>
+(function(){
+if(!window.matchMedia||!matchMedia('(prefers-reduced-motion: no-preference)').matches)return;
+var els=document.querySelectorAll('.reveal');
+if(!('IntersectionObserver' in window)){els.forEach(function(e){e.classList.add('in');});return;}
+var io=new IntersectionObserver(function(es){es.forEach(function(en){if(en.isIntersecting){en.target.classList.add('in');io.unobserve(en.target);}});},{threshold:.12});
+els.forEach(function(e){io.observe(e);});
+})();(function(){var b=document.getElementById("themeBtn");if(!b)return;b.addEventListener("click",function(){var r=document.documentElement;var n=r.getAttribute("data-theme")==="light"?"dark":"light";r.setAttribute("data-theme",n);try{localStorage.setItem("theme",n)}catch(e){}})();
+</script>
+</body>
+</html>

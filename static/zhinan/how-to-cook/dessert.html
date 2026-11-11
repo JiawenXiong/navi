@@ -1,0 +1,2242 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<script>(function(){var t=null;try{t=localStorage.getItem('theme')}catch(e){}if(t!=='light'&&t!=='dark'){var h=new Date().getHours();t=(h>=7&&h<17)?'light':'dark'}document.documentElement.setAttribute('data-theme',t);})();</script>
+<title>甜品与饮料 &#183; 42 道 · HowToCook</title>
+<style>
+:root{
+  --bg:#faf6ef;
+  --card:#fffdf8;
+  --ink:#2d2a26;
+  --red:#d0402a;
+  --red-fill:#d0402a;
+  --red-dark:#a92f1d;
+  --line:#eadfcd;
+  --muted:#7a736a;
+  --soft:#f4ecdd;
+  --nav-bg:rgba(255,253,248,.96);
+  color-scheme:light;
+}
+[data-theme="dark"]{
+  --bg:#1b1815;
+  --card:#262019;
+  --ink:#f2e9d8;
+  --red:#e0603f;
+  --red-fill:#d0402a;
+  --red-dark:#f4a48e;
+  --line:#3b352a;
+  --muted:#b3a695;
+  --soft:#2c261d;
+  --nav-bg:rgba(27,24,21,.96);
+  color-scheme:dark;
+}
+*{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+body{
+  font-family:"Microsoft YaHei","PingFang SC","Noto Sans SC",sans-serif;
+  background:var(--bg);color:var(--ink);line-height:1.8;font-size:16px;
+}
+.wrap{max-width:960px;margin:0 auto;padding:0 20px}
+a{color:var(--red);text-decoration:none}
+a:hover{text-decoration:underline}
+
+.site-nav{
+  position:sticky;top:0;z-index:50;
+  background:var(--nav-bg);
+  border-bottom:1px solid var(--line);
+  backdrop-filter:blur(6px);
+}
+.nav-inner{
+  max-width:1040px;margin:0 auto;padding:10px 20px;
+  display:flex;align-items:center;gap:4px;
+  white-space:nowrap;overflow-x:auto;
+  -webkit-overflow-scrolling:touch;
+}
+.brand{font-weight:700;color:var(--red);font-size:17px;margin-right:14px;flex:none}
+.brand .dot{color:var(--ink)}
+.nav-inner a.link{color:var(--ink);font-size:15px;padding:6px 12px;border-radius:999px;flex:none}
+.nav-inner a.link:hover{background:var(--soft);text-decoration:none;color:var(--red-dark)}
+.nav-inner a.link.active{background:var(--red-fill);color:#fff}
+.nav-inner a.gh{margin-left:auto;color:var(--muted);font-size:14px;flex:none}
+.nav-inner a.gh:hover{color:var(--red)}
+.theme-btn{
+  flex:none;margin-left:10px;width:36px;height:32px;
+  border:1px solid var(--line);border-radius:999px;
+  background:var(--card);color:var(--ink);font-size:15px;
+  cursor:pointer;line-height:1;padding:0;
+}
+.theme-btn:hover{border-color:var(--red)}
+
+.page-head{padding:52px 0 8px;text-align:center}
+.page-head .kicker{
+  display:inline-block;background:var(--soft);color:var(--red-dark);
+  border-radius:999px;padding:4px 16px;font-size:14px;margin-bottom:16px;
+}
+.page-head h1{font-size:clamp(28px,4.5vw,40px);font-weight:800;line-height:1.3}
+.page-head p{color:var(--muted);max-width:660px;margin:14px auto 0}
+
+.toc{
+  display:flex;flex-wrap:wrap;gap:10px;justify-content:center;
+  margin:26px auto 8px;
+}
+.toc a{
+  background:var(--card);border:1px solid var(--line);border-radius:999px;
+  padding:5px 16px;font-size:14px;color:var(--ink);
+}
+.toc a:hover{background:var(--soft);color:var(--red-dark);text-decoration:none;border-color:var(--red)}
+
+section.block{padding:30px 0}
+.dish{
+  background:var(--card);border:1px solid var(--line);border-radius:18px;
+  padding:28px 30px;margin-bottom:26px;scroll-margin-top:80px;
+}
+.dish-head{display:flex;align-items:baseline;gap:12px;flex-wrap:wrap}
+.dish h2{font-size:22px;font-weight:800}
+.dish h2 .idx{
+  display:inline-flex;align-items:center;justify-content:center;
+  width:30px;height:30px;border-radius:9px;background:var(--red-fill);color:#fff;
+  font-size:15px;margin-right:10px;vertical-align:2px;
+}
+.chips{display:flex;gap:8px;flex-wrap:wrap;margin:8px 0 4px}
+.chip{
+  background:var(--soft);color:var(--red-dark);border-radius:8px;
+  padding:2px 10px;font-size:13px;
+}
+.dish .desc{color:var(--muted);font-size:15px;margin:8px 0 16px}
+.dish h3{
+  font-size:15px;color:var(--red-dark);margin:16px 0 6px;
+  letter-spacing:1px;
+}
+.ingredients{list-style:none;padding:0;display:grid;grid-template-columns:1fr 1fr;gap:2px 22px}
+.ingredients li{font-size:15px;padding:4px 0 4px 18px;position:relative}
+.ingredients li::before{
+  content:"";position:absolute;left:2px;top:14px;width:7px;height:7px;
+  border-radius:50%;background:var(--red);
+}
+.steps{padding-left:0;list-style:none;counter-reset:step}
+.steps li{
+  counter-increment:step;position:relative;padding:6px 0 6px 42px;
+  font-size:15.5px;
+}
+.steps li::before{
+  content:counter(step);position:absolute;left:0;top:8px;
+  width:26px;height:26px;border-radius:50%;background:var(--soft);
+  color:var(--red-dark);font-weight:700;font-size:14px;
+  display:flex;align-items:center;justify-content:center;
+}
+.steps li ul{padding-left:20px;margin-top:4px}
+.steps li ul li{padding:2px 0 2px 0;list-style:disc;font-size:14.5px;color:var(--muted)}
+.steps li ul li::before{display:none}
+.tipbox{
+  background:var(--soft);border-radius:12px;padding:12px 18px;
+  font-size:14.5px;color:var(--red-dark);margin-top:16px;
+}
+.tipbox b{display:block;margin-bottom:4px}
+
+footer{
+  margin-top:30px;border-top:1px solid var(--line);
+  padding:28px 0 36px;color:var(--muted);font-size:14px;text-align:center;
+}
+footer .f-links{margin-top:8px}
+footer a{color:var(--muted)}
+footer a:hover{color:var(--red)}
+
+.reveal{opacity:0;transform:translateY(14px)}
+.reveal.in{opacity:1;transform:none;transition:opacity .6s ease,transform .6s ease}
+@media (max-width:640px){
+  .dish{padding:22px 18px}
+  .ingredients{grid-template-columns:1fr}
+  .brand{font-size:15px}
+}
+
+
+/* difficulty filter */
+.dfilter{display:flex;flex-wrap:wrap;gap:8px;justify-content:center;align-items:center;margin:18px auto 2px}
+.dfilter .df-label{font-size:14px;color:var(--muted)}
+.dfilter .dBtn{border:1px solid var(--line);background:var(--card);color:var(--ink);border-radius:999px;padding:4px 16px;font-size:14px;cursor:pointer;line-height:1.6}
+.dfilter .dBtn:hover{border-color:var(--red);color:var(--red-dark)}
+.dfilter .dBtn.on{background:var(--red-fill);border-color:var(--red-fill);color:#fff}
+.dfilter .df-count{font-size:13px;color:var(--muted)}
+.dfilter .df-note{font-size:12px;color:var(--muted)}
+.dish.hide{display:none}
+@media (prefers-reduced-motion: reduce){.reveal{opacity:1 !important;transform:none !important}}</style>
+<noscript><style>.reveal{opacity:1 !important;transform:none !important}</style><style>.dfilter{display:none}</style></noscript></head>
+
+<body><div style="position:fixed;left:14px;bottom:14px;z-index:99;"><a href="../index.html" style="display:inline-block;padding:7px 16px;border-radius:999px;background:rgba(20,20,20,.72);color:#fff;font-size:13px;text-decoration:none;backdrop-filter:blur(4px);font-family:system-ui,sans-serif;" onmouseover="this.style.background='rgba(20,20,20,.9)'" onmouseout="this.style.background='rgba(20,20,20,.72)'">&#8592; 总门户</a></div>
+
+<nav class="site-nav">
+  <div class="nav-inner">
+    <a class="brand" href="index.html">做饭指南<span class="dot">·HowToCook</span></a>
+    <a class="link" href="index.html">首页</a>
+    <a class="link" href="start.html">学前准备</a>
+    <a class="link" href="vegetable.html">素菜</a>
+    <a class="link" href="meat.html">荤菜</a>
+    <a class="link" href="meat2.html">荤菜 II</a>
+    <a class="link" href="aquatic.html">水产</a>
+    <a class="link" href="breakfast.html">早餐</a>
+    <a class="link" href="soup.html">汤与粥</a>
+    <a class="link" href="staple.html">主食</a>
+    <a class="link active" href="dessert.html">甜品饮品</a>
+    <a class="link" href="sauce.html">酱料</a>
+    <a class="gh" href="https://github.com/Anduin2017/HowToCook" target="_blank" rel="noopener">GitHub 仓库 ↗</a>
+    <button class="theme-btn" id="themeBtn" type="button" aria-label="切换明暗主题">🌙</button>
+  </div>
+</nav>
+
+<header class="page-head wrap">
+  <span class="kicker">dessert / drink</span>
+  <h1>甜品与饮料 &#183; 42 道</h1>
+  <p>饭后甜点与解腻饮品，冷热皆有。</p>
+  <div class="dfilter" id="dfilter">
+  <span class="df-label">按难度筛选：</span>
+  <button type="button" class="dBtn on" data-f="all">全部</button>
+  <button type="button" class="dBtn" data-f="easy">简单</button>
+  <button type="button" class="dBtn" data-f="mid">中等</button>
+  <button type="button" class="dBtn" data-f="hard">困难</button>
+  <span class="df-count" id="dfCount"></span>
+
+</div>
+  <nav class="toc">
+    <a href="#d1">奥利奥冰淇淋</a>
+    <a href="#d2">草莓冰淇淋</a>
+    <a href="#d3">反沙芋头</a>
+    <a href="#d4">龟苓膏</a>
+    <a href="#d5">红柚蛋糕</a>
+    <a href="#d6">胡萝卜甜糕</a>
+    <a href="#d7">咖啡椰奶冻</a>
+    <a href="#d8">烤蛋挞</a>
+    <a href="#d9">烤箱版巴斯克芝士蛋糕</a>
+    <a href="#d10">玛格丽特饼干</a>
+    <a href="#d11">魔芋蛋糕</a>
+    <a href="#d12">戚风蛋糕</a>
+    <a href="#d13">酸奶意式奶冻</a>
+    <a href="#d14">提拉米苏</a>
+    <a href="#d15">无厨师机蜂蜜面包</a>
+    <a href="#d16">雪花酥</a>
+    <a href="#d17">英式司康</a>
+    <a href="#d18">芋泥雪媚娘</a>
+    <a href="#d19">炸鲜奶</a>
+    <a href="#d20">耙耙柑茶</a>
+    <a href="#d21">百香果橙子特调</a>
+    <a href="#d22">冰粉</a>
+    <a href="#d23">菠萝咖啡特调</a>
+    <a href="#d24">冬瓜茶</a>
+    <a href="#d25">海边落日</a>
+    <a href="#d26">金菲士</a>
+    <a href="#d27">金汤力</a>
+    <a href="#d28">酒酿醪糟</a>
+    <a href="#d29">可乐桶</a>
+    <a href="#d30">奶茶</a>
+    <a href="#d31">柠檬水</a>
+    <a href="#d32">牛油果拉西</a>
+    <a href="#d33">奇异果菠菜特调</a>
+    <a href="#d34">砂糖椰子冰沙</a>
+    <a href="#d35">酸梅汤</a>
+    <a href="#d36">酸梅汤（半成品加工）</a>
+    <a href="#d37">泰国手标红茶</a>
+    <a href="#d38">杨枝甘露</a>
+    <a href="#d39">印度奶茶</a>
+    <a href="#d40">长岛冰茶</a>
+    <a href="#d41">B52轰炸机</a>
+    <a href="#d42">Mojito莫吉托</a>
+  </nav>
+</header>
+
+<main class="wrap">
+<section class="block">
+
+<article class="dish reveal" id="d1" data-diff="mid">
+  <div class="dish-head"><h2><span class="idx">1</span>奥利奥冰淇淋</h2></div>
+  <div class="chips"><span class="chip">用料 9 项</span><span class="chip">步骤 7 步</span></div>
+  <p class="desc">奥利奥冰淇淋口感细腻，奶香与奥利奥的酥脆甜蜜相融，纯动物奶油令整体轻盈不腻。它主要提供能量，含有脂肪和碳水化合物，适合作为消暑小甜点。制作过程较为简单，只需处理饼干夹心和搅打奶油，新手稍加耐心也可完成，全程准备约需半小时，再冷冻 4 小时以上即可享用。 预估烹饪难度：★★★ 预估卡路里：1160 大卡</p>
+  <h3>用料</h3>
+  <ul class="ingredients">
+    <li>淡奶油（推荐品牌 安佳动物淡奶油）</li>
+    <li>原味奥利奥</li>
+    <li>电动打蛋器</li>
+    <li>一个容量在 600 毫升以上且直径小（PS: 需要注意能放得下电动打蛋仪）深度深的容器（如准备了冰淇淋模具 容器需要有尖嘴方便转移）</li>
+    <li>小刀（或者可以去除夹心的工具）</li>
+    <li>冰淇淋模具（可选）</li>
+    <li>奥利奥 6 块</li>
+    <li>白砂糖 18 克</li>
+    <li>淡奶油 250 毫升</li>
+  </ul>
+  <h3>步骤</h3>
+  <ol class="steps">
+    <li>将奥利奥拧开后去除利利（夹心），备用
+    </li>
+    <li>用筷子将奥奥剁碎，需要有一半奥奥变成粉状，另一半的奥奥最大长度小于 0.5 厘米，备用（某宝可搜“奥利奥饼干碎”，节省时间精力^-^）
+    </li>
+    <li>将奶油全部倒置于深容器中，并加入准备好的糖
+    </li>
+    <li>开始用电动打蛋器高速挡 搅打至 电动打蛋器提起后下方会出现悬挂住的奶油（ 0.5 厘米 - 1 厘米），而不是全部像液体一样滴下（部分滴下是正常现象）。
+    </li>
+    <li>搅打完成后将奥奥放入奶油中，搅拌均匀直至底部有奥奥。
+    </li>
+    <li>可选：将混合物倒入冰淇淋模具中
+    </li>
+    <li>放置冰箱冷冻室（ -18 度） 4 小时以上可取出
+    </li>
+  </ol>
+  <div class="tipbox"><b>附加内容</b>剁碎奥利奥的容器注意不要使用易碎容器。；去除奥利奥夹心时切忌注意割到手。；参考资料：5分钟搞定【奥利奥麦旋风】太解馋叭！</div>
+</article>
+
+<article class="dish reveal" id="d2" data-diff="easy">
+  <div class="dish-head"><h2><span class="idx">2</span>草莓冰淇淋</h2></div>
+  <div class="chips"><span class="chip">用料 15 项</span><span class="chip">步骤 7 步</span></div>
+  <p class="desc">这是一道不需要搅拌机就能轻松制作的家常草莓冰淇淋，果香浓郁、口感绵密。草莓富含维生素 C，搭配奶香四溢的炼乳和奶油，能提供能量和钙质。做法简单不考验厨艺，新手也能一次成功。全程制作耗时约八小时，其中大部分是冷冻时间，实际动手只需短短几十分钟。 预估烹饪难度：★★ 预估卡路里：1653 大卡</p>
+  <h3>用料</h3>
+  <ul class="ingredients">
+    <li>加糖炼乳</li>
+    <li>草莓</li>
+    <li>重奶油</li>
+    <li>香草精</li>
+    <li>冰淇淋模具（可选）</li>
+    <li>草莓糖浆:</li>
+    <li>草莓 500 克</li>
+    <li>白砂糖 45 克</li>
+    <li>香草精 1 克</li>
+    <li>食盐 1 克</li>
+    <li>冰淇淋底料:</li>
+    <li>香草精 5 克</li>
+    <li>食盐 1 克</li>
+    <li>重奶油 6 克</li>
+    <li>加糖炼乳 400 克</li>
+  </ul>
+  <h3>步骤</h3>
+  <ol class="steps">
+    <li>先做草莓糖浆。把草莓洗干净，去掉顶部叶子。将草莓切成 5mm 的小块。保留一半切碎的草莓，稍后折叠成冰淇淋。
+    </li>
+    <li>将另一半切碎的草莓和糖一起放入酱汁锅中。用中火搅拌和烹饪，直到草莓释放液体并在锅中形成糖浆。
+    </li>
+    <li>让草莓在糖浆中加热，不时搅拌，直到它们分解并变形，糖浆稍微变稠。
+    </li>
+    <li>当糖浆保持分开 3秒钟 时，就已经准备好了。把糖浆从火上移开，加入香草和盐搅拌。将草莓糖浆放在一边冷却。
+    </li>
+    <li>当糖浆冷却时，准备冰淇淋基料。在碗中加入甜炼乳、浓奶油、香草精和盐。使用手动搅拌器搅打混合物，直到它变得轻盈蓬松，并形成柔软的尖峰。
+    </li>
+    <li>将保留的切碎的新鲜草莓折叠到冰淇淋底座中。将生过的冰淇淋底座转移到冷冻安全容器中。将冷却的草莓糖浆淋在冰淇淋上，然后轻轻地将其旋入混合物中。
+    </li>
+    <li>盖上冰淇淋并冷冻 八小时 ，然后舀取和食用。
+    </li>
+  </ol>
+  <div class="tipbox"><b>附加内容</b>制作过程中注意安全，避免割/烫到手。</div>
+</article>
+
+<article class="dish reveal" id="d3" data-diff="mid">
+  <div class="dish-head"><h2><span class="idx">3</span>反沙芋头</h2></div>
+  <div class="chips"><span class="chip">用料 7 项</span><span class="chip">步骤 7 步</span></div>
+  <p class="desc">反沙芋头是一道外酥里糯、甜香可口的潮汕传统小吃，常作下午茶点。荔浦芋头富含膳食纤维、钾和多种维生素，能提供持久饱腹感。制作不难但需要掌握熬糖火候，适合稍有基础的初学者尝试，全程大约 20 分钟即可完成。 预估烹饪难度：★★★ 预估卡路里：397 大卡</p>
+  <h3>用料</h3>
+  <ul class="ingredients">
+    <li>荔浦芋头（电商平台购买即可，实惠新鲜）</li>
+    <li>白砂糖或冰糖</li>
+    <li>水</li>
+    <li>葱</li>
+    <li>荔浦芋头 200g</li>
+    <li>白砂糖 30g</li>
+    <li>水 15g</li>
+  </ul>
+  <h3>步骤</h3>
+  <ol class="steps">
+    <li>芋头切长条（稍微大条一点，翻炒过程不容易烂）
+    </li>
+    <li>加入可以没过芋头的油，等油温起来（插入筷子冒小泡即可）
+    </li>
+    <li>放进芋头到油里，去炸到芋头浮起来，一般是微微泛黄并且可以用筷子很轻松戳洞
+    </li>
+    <li>炸芋头的油放起来别浪费，后面炒菜啥的都能用
+    </li>
+    <li>接下来关键的一步，把糖(30g)和水(15g)按照 2：1 比例，加热至不变色且冒小泡
+    </li>
+    <li>倒入葱花和芋头，关火翻炒，此时等温度下来，糖就会有反沙的效果
+    </li>
+    <li>装盘上桌！
+    </li>
+  </ol>
+  <div class="tipbox"><b>附加内容</b>刚做好的反沙芋头很烫，小心烫嘴哦；再配上茶，啊~真惬意啊</div>
+</article>
+
+<article class="dish reveal" id="d4" data-diff="easy">
+  <div class="dish-head"><h2><span class="idx">4</span>龟苓膏</h2></div>
+  <div class="chips"><span class="chip">用料 7 项</span><span class="chip">步骤 6 步</span></div>
+  <p class="desc">龟苓膏是一道广式传统甜品，口感嫩滑微苦回甘，常作为夏日消暑小食。龟苓膏能清热祛湿、滋阴养颜，是营养健康的一款点心。做法简单，新手也能轻松掌握，全程只需备料、搅拌和加热，冷藏等待约两小时后即可享用。 预估烹饪难度：★★ 预估卡路里：129 大卡 ---</p>
+  <h3>用料</h3>
+  <ul class="ingredients">
+    <li>龟苓膏粉 25 克</li>
+    <li>冷水 120 毫升</li>
+    <li>开水 500 毫升</li>
+    <li>白砂糖 100 克</li>
+    <li>小锅</li>
+    <li>搅拌工具</li>
+    <li>模具或碗</li>
+  </ul>
+  <h3>步骤</h3>
+  <ol class="steps">
+    <li>在锅中倒入龟苓膏粉 25 克与冷水 120 毫升，充分搅拌至无颗粒感。
+    </li>
+    <li>在另一个容器中加入白砂糖 100 克，倒入沸水 500 毫升，搅拌至糖完全溶解。
+    </li>
+    <li>将糖水缓慢倒入龟苓膏粉液中，立即搅拌均匀，避免结块。
+    </li>
+    <li>将混合液体放入锅中，加热时保持中小火，并持续搅拌以防粘锅。
+    </li>
+    <li>加热至液体变粘稠并开始冒小泡，即可关火。
+    </li>
+    <li>快速将液体倒入模具中，自然冷却凝固。建议冷藏 1~2 小时后食用，口感更佳。---
+    </li>
+  </ol>
+  <div class="tipbox"><b>附加内容</b>龟苓膏冷却过程中不可随意移动容器，否则可能影响成型。；加热时应避免使用大火，防止结块或糊底。；可根据个人口味添加蜂蜜、炼乳或水果食用。；不同品牌龟苓膏粉浓度略有差异，建议参照包装说明调整配比。；---</div>
+</article>
+
+<article class="dish reveal" id="d5" data-diff="mid">
+  <div class="dish-head"><h2><span class="idx">5</span>红柚蛋糕</h2></div>
+  <div class="chips"><span class="chip">用料 14 项</span><span class="chip">步骤 10 步</span></div>
+  <p class="desc">红柚蛋糕是一道用空气炸锅就能轻松完成的清新甜点，融合了红柚果粒的微酸果香与蛋糕的松软口感，适合作为单人份下午茶。鸡蛋和面粉提供蛋白质与碳水，红柚富含维生素 C，带来简单的基础营养。制作难度中等，关键在于分次搅拌成无颗粒的淡黄色面糊，新手只要耐心按步骤操作就能成功。从备料到出锅大约需要 35 分钟，想吃现烤甜点时不会占用太多时间。 预估烹饪难度：★★★ 预估卡路里：622 大卡</p>
+  <h3>用料</h3>
+  <ul class="ingredients">
+    <li>空气炸锅</li>
+    <li>鸡蛋</li>
+    <li>红柚果肉</li>
+    <li>面粉</li>
+    <li>锡纸盘</li>
+    <li>油</li>
+    <li>糖</li>
+    <li>水</li>
+    <li>鸡蛋 2 个</li>
+    <li>面粉 80g</li>
+    <li>红柚果肉 20g</li>
+    <li>油 15ml</li>
+    <li>水 80ml</li>
+    <li>糖 15g</li>
+  </ul>
+  <h3>步骤</h3>
+  <ol class="steps">
+    <li>锡纸盘里打入鸡蛋 2 个， 加入红柚果肉 20g
+    </li>
+    <li>锡纸盘中倒入 15ml 油并摇晃锡纸盘时期均匀覆盖盘底
+    </li>
+    <li>锡纸盘中放入 10g 糖， 以及 40g 面粉和 40ml 水
+    </li>
+    <li>用筷子顺时针方向搅拌至淡黄色糊状
+    </li>
+    <li>锡纸盘中放入 5g 糖， 以及 40g 面粉和 40ml 水
+    </li>
+    <li>继续用筷子搅拌至淡黄色糊状
+    </li>
+    <li>锡纸盘放入空气炸锅的烤篮上，用 180 摄氏度烤 15 分钟
+    </li>
+    <li>打开空气炸锅，小心取出锡纸盘，用筷子或勺子将蛋糕翻面
+    </li>
+    <li>继续 180 摄氏度烤 8 分钟
+    </li>
+    <li>取出即可食用
+    </li>
+  </ol>
+  <div class="tipbox"><b>附加内容</b>如果喜欢较甜的口感可以增加 10g 糖；红柚果肉可以酌情添加，但每份最好不超过 40g 以免影响成品观感；糊状指没有面粉疙瘩且整体颜色均匀；刚出锅的锡纸盘比较烫，请用夹子夹取或使用湿抹布之类的隔热材料拿取</div>
+</article>
+
+<article class="dish reveal" id="d6" data-diff="mid">
+  <div class="dish-head"><h2><span class="idx">6</span>胡萝卜甜糕</h2></div>
+  <div class="chips"><span class="chip">用料 18 项</span><span class="chip">步骤 12 步</span></div>
+  <p class="desc">胡萝卜甜糕是印度家喻户晓的冬季甜品，胡萝卜丝与牛奶慢炖浓缩，融入酥油和坚果，口感绵密香甜、色泽金红。富含胡萝卜素、钙质和优质脂肪，暖身滋养。制作过程简单，但对新手需要些耐心，全程约需 45 分钟即可完成。 预估烹饪难度：★★★ 预估卡路里：374 大卡</p>
+  <h3>用料</h3>
+  <ul class="ingredients">
+    <li>胡萝卜（建议选用红色胡萝卜）</li>
+    <li>全脂牛奶</li>
+    <li>糖</li>
+    <li>酥油(Ghee)&#183; 可用黄油替代</li>
+    <li>小豆蔻粉(Cardamom Powder)</li>
+    <li>腰果</li>
+    <li>杏仁</li>
+    <li>葡萄干</li>
+    <li>刨丝器</li>
+    <li>厚底锅</li>
+    <li>胡萝卜 500g（约 5-6 根中等大小）</li>
+    <li>全脂牛奶 500ml</li>
+    <li>糖 80g（可根据个人口味调整至 60g-100g）</li>
+    <li>酥油 40g</li>
+    <li>小豆蔻粉 3g</li>
+    <li>腰果 15g</li>
+    <li>杏仁 15g</li>
+    <li>葡萄干 15g</li>
+  </ul>
+  <h3>步骤</h3>
+  <ol class="steps">
+    <li>将胡萝卜去皮，用刨丝器刨成细丝
+    </li>
+    <li>在厚底锅中倒入酥油 20g（一半量），中火加热融化
+    </li>
+    <li>放入胡萝卜丝，翻炒 3-5 分钟，直至*胡萝卜丝变软且散发香味*
+    </li>
+    <li>倒入全脂牛奶 500ml，搅拌均匀
+    </li>
+    <li>大火煮沸后转中小火，保持*缓慢沸腾*状态
+    </li>
+    <li>持续翻搅 25-30 分钟，直至*牛奶几乎完全被胡萝卜吸收蒸发*（这是最关键的步骤，需要耐心且不断搅拌防止糊底）
+    </li>
+    <li>当锅中几乎没有液体时，加入糖 80g，搅拌均匀
+    </li>
+    <li>加糖后会重新出水，继续中小火翻炒 5-8 分钟，直至*水分再次蒸发*
+    </li>
+    <li>加入剩余的酥油 20g 和小豆蔻粉 3g，翻炒 2 分钟
+    </li>
+    <li>在另一个小锅中，用少量酥油将腰果、杏仁片和葡萄干分别炸至*金黄*（约 1 分钟），注意葡萄干会膨胀
+    </li>
+    <li>将炸好的坚果和葡萄干的一半拌入胡萝卜甜糕中
+    </li>
+    <li>盛盘，将剩余坚果和葡萄干撒在表面作为装饰
+    </li>
+  </ol>
+  <div class="tipbox"><b>附加内容</b>胡萝卜甜糕可以热吃也可以冷吃，两种风味各有特色。；使用红色胡萝卜比橙色胡萝卜做出来的色泽更好看。；如果想要更浓郁的口感，可以用淡奶油替代部分牛奶。；密封冷藏可保存 4-5 天。食用前可用微波炉加热 1 分钟。；这道甜品在印度几乎每个家庭都会做，是排灯节(Diwali)和婚礼上必不可少的甜品。</div>
+</article>
+
+<article class="dish reveal" id="d7" data-diff="hard">
+  <div class="dish-head"><h2><span class="idx">7</span>咖啡椰奶冻</h2></div>
+  <div class="chips"><span class="chip">用料 13 项</span><span class="chip">步骤 8 步</span></div>
+  <p class="desc">这款甜品融合了咖啡的醇厚与椰奶的清甜，口感像布丁般细腻滑嫩，层次丰富。淡奶油和椰汁提供了优质脂肪与植物营养，食用能带来满足感。做法非常友好，只需混合加热，无需复杂技巧，新手也能一次成功。不算冷藏的话，实际操作约需 1 小时，加上冷藏定型共 大约 4 小时即可享用。 预估烹饪难度：★★★★ 预估卡路里：162 大卡</p>
+  <h3>用料</h3>
+  <ul class="ingredients">
+    <li>125ml 淡奶油</li>
+    <li>250ml 椰树牌椰汁</li>
+    <li>35ml espresso 意式浓缩</li>
+    <li>50ml 椰子水</li>
+    <li>10g 吉利丁(gelatin)</li>
+    <li>过滤网（可选）</li>
+    <li>（那个...有摆盘需求的话，可以来点蓝莓 and/or 咖啡粉）</li>
+    <li>125ml 淡奶油(whipping cream, 35% M.E)</li>
+    <li>250ml 椰树牌椰汁</li>
+    <li>35ml espresso 意式浓缩（个人不推荐用 fruity 的咖啡豆）</li>
+    <li>50ml 椰子水（推荐 vita coco coconut water，有条件可以敲一个椰子）</li>
+    <li>10g 吉利丁</li>
+    <li>糖（可选）</li>
+  </ul>
+  <h3>步骤</h3>
+  <ol class="steps">
+    <li>将定量淡奶油，椰树牌椰汁，espresso，椰子水混合备用。
+    </li>
+    <li>将以上液体加热 1 分钟，温度达到 50-60 度即可。
+    </li>
+    <li>（可选）如果格外嗜甜可以加额外的糖。
+    </li>
+    <li>倒入吉利丁，搅拌至融化，煮 1 分钟。
+    </li>
+    <li>（可选）过筛 （这一步可以让椰奶冻口感更佳顺畅）。
+    </li>
+    <li>放入模具。
+    </li>
+    <li>（可选）过滤掉表层的泡泡。这一步可以让椰奶冻口感更好，并且看着也会更棒。
+    </li>
+    <li>放入冰箱冷藏区，等待 3 小时。
+    </li>
+  </ol>
+  <div class="tipbox"><b>附加内容</b>注意事项：请务必不要让液体煮沸！！！也不要冒泡泡！！！；关于厨具清洗：建议直接用洗碗机，如果没有的话可以用温水洗。（因为 gelatin 不好清洗，洗碗机会比较好）</div>
+</article>
+
+<article class="dish reveal" id="d8" data-diff="hard">
+  <div class="dish-head"><h2><span class="idx">8</span>烤蛋挞</h2></div>
+  <div class="chips"><span class="chip">用料 14 项</span><span class="chip">步骤 12 步</span></div>
+  <p class="desc">烤蛋挞是一款经典的中式甜品，外皮酥脆、内馅嫩滑，奶香浓郁。富含蛋白质、钙质和多种维生素，能提供丰富能量。制作过程十分简单，新手也能轻松上手，而且半成品可冷冻保存，随吃随取。从准备到出炉，大约需要 1 小时。 预估烹饪难度：★★★★ 预估卡路里：169 大卡</p>
+  <h3>用料</h3>
+  <ul class="ingredients">
+    <li>蛋挞皮 品牌不限</li>
+    <li>鸡蛋</li>
+    <li>牛奶</li>
+    <li>淡奶油</li>
+    <li>白砂糖</li>
+    <li>烤箱 大小不限</li>
+    <li>克数称</li>
+    <li>搅拌器 包含且不限于筷子 打蛋器等工具</li>
+    <li>筛网 网孔约为 1 毫米</li>
+    <li>蛋挞皮 品牌不限 整包蛋挞皮约为 30 只</li>
+    <li>鸡蛋 8 个 普通鸡蛋即可</li>
+    <li>牛奶 200 毫升 普通袋装牛奶即可</li>
+    <li>淡奶油 450 毫升 烘焙店或超市即有售</li>
+    <li>白砂糖 80 克 普通砂糖即可 细砂糖更优 易于融化</li>
+  </ul>
+  <h3>步骤</h3>
+  <ol class="steps">
+    <li>将碗置于克数称上 称量 450 克 淡奶油（淡奶油密度在此处记为 1 ）
+    </li>
+    <li>加入 80 克白砂糖 （甜度中等 可按个人口味增减 建议范围 60-100 克）
+    </li>
+    <li>加入 200 克牛奶 （牛奶密度在此处记为 1 ）
+    </li>
+    <li>取 8 个蛋黄加入 蛋清可留作他用
+    </li>
+    <li>均匀搅拌所有材料直至白砂糖全部融化
+    </li>
+    <li>使用网筛对搅拌完成的食材进行过滤 滤除鸡蛋黏膜 鸡蛋壳 未融化的白砂糖 结块的淡奶油
+    </li>
+    <li>此时请将烤箱设置 220 摄氏度开始预热（约 10 分钟） 记得拿出烤盘
+    </li>
+    <li>将蛋挞皮以 0.5 厘米的间隔均匀放置于烤盘中
+    </li>
+    <li>将过滤完成的食材倒入蛋挞皮中 液面距离蛋挞皮上沿 0.5 厘米即可不宜过多
+    </li>
+    <li>截止此步骤 半成品蛋挞的制作已经完成 可直接放入冰箱速冻 12 小时以上保存
+    </li>
+    <li>将半成品蛋挞放入烤箱中进行烤制 温度为 200 摄氏度 时间为 25 分钟
+    </li>
+    <li>烤制结束后即可食用
+    </li>
+  </ol>
+  <div class="tipbox"><b>附加内容</b>操作时 请务必小心烤箱高温 防止烫伤</div>
+</article>
+
+<article class="dish reveal" id="d9" data-diff="easy">
+  <div class="dish-head"><h2><span class="idx">9</span>烤箱版巴斯克芝士蛋糕</h2></div>
+  <div class="chips"><span class="chip">用料 7 项</span><span class="chip">步骤 7 步</span></div>
+  <p class="desc">巴斯克芝士蛋糕是一道口感浓郁绵密、表面焦香内部湿润的甜品，属于西班牙巴斯克地区的经典风味。主要原料为奶油奶酪和鸡蛋，富含优质蛋白质和钙质。制作过程非常简单，新手也能轻松驾驭。从准备到出炉仅需约 30 分钟，但建议冷藏过夜后食用，总耗时约 8 小时以上。 预估烹饪难度：★★ 预估卡路里：266 大卡</p>
+  <h3>用料</h3>
+  <ul class="ingredients">
+    <li>奶油奶酪：212g （这是一块的质量，比较方便，原教程是 250g）</li>
+    <li>白砂糖：60g</li>
+    <li>鸡蛋：2 个</li>
+    <li>鸡蛋黄：1 个</li>
+    <li>淡奶油：120g</li>
+    <li>低筋面粉：10g</li>
+    <li>巧克力：38g（只尝试过将普通巧克力融化，在淡奶油那一步加入搅拌均匀即可）</li>
+  </ul>
+  <h3>步骤</h3>
+  <ol class="steps">
+    <li>奶油奶酪软化，微波炉 10s + 10s。
+    </li>
+    <li>奶油奶酪加入白砂糖，打蛋器打至顺滑。
+    </li>
+    <li>加入 2 个全蛋 + 1 个蛋黄，搅拌均匀。
+    </li>
+    <li>加入淡奶油，搅拌均匀。
+    </li>
+    <li>加入低筋面粉，搅拌均匀。
+    </li>
+    <li>烤箱 220&#176;(425&#176;F)，20 - 25 分钟（本人一般 20 或者 22 分钟）。
+    </li>
+    <li>放凉之后放入冰箱，最好过夜。
+    </li>
+  </ol>
+  <div class="tipbox"><b>附加内容</b>烤箱出来成品抖动是正常的，放凉后口感还不是最好的，一定要冷藏才好吃！；参考资料：下厨房 - 巴斯克芝士蛋糕『最简单的蛋糕』零失败&#128293;芝士控</div>
+</article>
+
+<article class="dish reveal" id="d10" data-diff="mid">
+  <div class="dish-head"><h2><span class="idx">10</span>玛格丽特饼干</h2></div>
+  <div class="chips"><span class="chip">用料 13 项</span><span class="chip">步骤 7 步</span></div>
+  <p class="desc">玛格丽特饼干口感酥松，黄油香气浓郁，是一款经典的西式小甜点。它主要由蛋黄、黄油和面粉制成，含有丰富的碳水化合物与脂肪，能快速补充能量。制作难度适中，从准备到出炉大约需要 45 分钟，新手也能轻松上手。 预估烹饪难度：★★★ 预估卡路里：863 大卡</p>
+  <h3>用料</h3>
+  <ul class="ingredients">
+    <li>熟蛋黄</li>
+    <li>黄油</li>
+    <li>白砂糖</li>
+    <li>盐</li>
+    <li>低筋面粉</li>
+    <li>玉米淀粉</li>
+    <li>烤箱</li>
+    <li>熟蛋黄 1 个</li>
+    <li>黄油  50 克</li>
+    <li>白砂糖  20 克</li>
+    <li>盐 1 克</li>
+    <li>低筋面粉 50 克</li>
+    <li>玉米淀粉 50 克</li>
+  </ul>
+  <h3>步骤</h3>
+  <ol class="steps">
+    <li>黄油隔热水融化、将蛋黄磨碎备用。
+    </li>
+    <li>在融化的黄油中添加糖、盐、以及碾碎的鸡蛋黄，搅拌均匀
+    </li>
+    <li>加入低筋面粉与玉米淀粉，揉成面团
+    </li>
+    <li>将面团均匀分割成大约 8 克重的小面团，然后将它们搓成球状。
+    </li>
+    <li>使用大拇指轻压在每个小面团上，以形成裂纹。
+    </li>
+    <li>预热烤箱至 150℃，将小面团放入烤箱中，烘烤 20 分钟。
+    </li>
+    <li>微微放凉即可食用
+    </li>
+  </ol>
+  <div class="tipbox"><b>附加内容</b>可根据个人口味微调盐与糖的比例，如果喜欢其他风味可以把每份的 3 克玉米淀粉换成可可粉或抹茶粉。；如果条件允许可以把蛋黄、低筋面粉等食材过筛，口感会更好。；介于材料获取难度选择了白砂糖，如果条件允许可以换成糖粉 30 克。；如果没有烤箱可使用微波炉、空气炸锅等，微波炉为高火 2-3 分钟，空气炸锅为 150℃20 分钟；参考资料：第一百种可邮寄的小饼干 酥酥糯糯入口即化~-哔哩哔哩</div>
+</article>
+
+<article class="dish reveal" id="d11" data-diff="hard">
+  <div class="dish-head"><h2><span class="idx">11</span>魔芋蛋糕</h2></div>
+  <div class="chips"><span class="chip">用料 17 项</span><span class="chip">步骤 22 步</span></div>
+  <p class="desc">魔芋蛋糕是一款低热量、无麸质的甜点，用赤藓糖醇代替白砂糖，口感轻盈湿润，带有可可香气，尤其适合减脂人群。它富含膳食纤维和蛋白质，饱腹感强。制作有一定难度，需要打发蛋白并注意翻拌手法，但整体耗时仅约半小时，算是快手健康的烘焙选择。 预估烹饪难度：★★★★ 预估卡路里：234 大卡</p>
+  <h3>用料</h3>
+  <ul class="ingredients">
+    <li>烤箱</li>
+    <li>电动打蛋器</li>
+    <li>金属蛋糕模具（形状任意）</li>
+    <li>烘焙纸</li>
+    <li>餐刀（用于翻拌和抹平蛋糕糊）</li>
+    <li>隔热手套</li>
+    <li>[可选] 分蛋器</li>
+    <li>鸡蛋</li>
+    <li>赤藓糖醇</li>
+    <li>可可粉</li>
+    <li>魔芋粉</li>
+    <li>塔塔粉</li>
+    <li>3 个鸡蛋</li>
+    <li>赤藓糖醇 50g</li>
+    <li>可可粉 10g</li>
+    <li>魔芋粉 10g</li>
+    <li>塔塔粉 1g</li>
+  </ul>
+  <h3>步骤</h3>
+  <ol class="steps">
+    <li>在准备蛋糕糊之前，可以开始预热烤箱至 350 ℉( 150 ℃)以节省时间
+    </li>
+    <li>从冰箱中取出新鲜的鸡蛋
+    </li>
+    <li>准备两个容器并擦干，分别盛放蛋清与蛋黄
+    </li>
+    <li>对盛放蛋清的容器，可稍有水珠，但不能有任何油；盛放蛋黄的容器不能有水珠
+    </li>
+    <li>打蛋，手工或利用分蛋器，将蛋清与蛋黄分离到两个容器中。
+    </li>
+    <li>分离过程中蛋黄不能破碎，蛋清中不能混有任何蛋黄，否则会严重影响打发。（白色系带可进入蛋清，不影响）
+    </li>
+    <li>（注意，不使用厨房机的情况下，盛放蛋清的容器也是打蛋的容器，为避免溢出，加入全部蛋清后不要超过容器的 1/8）
+    </li>
+    <li>蛋清中加入 1g 塔塔粉
+    </li>
+    <li>打蛋器高速，打发蛋白至*粗大气泡的状态*，加入 50g 赤藓糖醇
+    </li>
+    <li>打蛋器中低速，打发蛋白至*干性发泡*的状态（提起打蛋器头，有短小直立的尖角；倒扣容器，蛋白可粘住容器不掉下来）
+    </li>
+    <li>此时蛋白打发程度已符合要求
+    <ul>
+      <li>打蛋器应尽量贴近容器底部，防止出现上面浮着的表层打发，底部仍然是液体的情况）</li>
+    </ul>
+    </li>
+    <li>把分离的蛋黄加入打发的蛋清中，打蛋器中低速搅拌均匀
+    </li>
+    <li>蛋清中加入 10g 可可粉和 10g 魔芋粉，先用餐刀翻拌，这是由于如果直接用打蛋器搅拌会造成粉末飞溅
+    </li>
+    <li>翻拌手法是
+    <ul>
+      <li>先用右手拿刮刀从搅拌盆中心插入面糊底部</li>
+      <li>向 8 点钟方向刮去直到碰到盆壁，顺势舀起面糊提到空中，然后再移回盆中心将面糊放入盆内</li>
+      <li>左手握住搅拌盆从 9 点钟方向转到 7 点钟方向，刚好旋转了 60 度，就完成了 1 次循环</li>
+      <li>速度大约是 1 秒钟 2 下</li>
+      <li>此方法出自《小岛老师的蛋糕教室》。用接地气的话说就是，像炒菜一样翻炒。</li>
+    </ul>
+    </li>
+    <li>翻拌结束后，打蛋器低速搅拌均匀
+    </li>
+    <li>模具铺好烘焙纸，贴合底部与内壁
+    </li>
+    <li>将蛋糕糊倒入模具，然后用餐刀抹平，再然后震荡几下避免大气泡
+    </li>
+    <li>烘烤 25 分钟
+    </li>
+    <li>烤好后，戴好隔热手套取出
+    </li>
+    <li>（可选） 将模具从高处落下，震出其中的热气
+    </li>
+    <li>模具倒扣 10 分钟，使蛋糕冷却
+    <ul>
+      <li>没有冷却的蛋糕立刻脱模会损伤蛋糕</li>
+      <li>此操作可能会烫手，注意戴好隔热手套</li>
+    </ul>
+    </li>
+    <li>脱模，餐刀切块食用
+    </li>
+  </ol>
+  <div class="tipbox"><b>附加内容</b>本食谱主要参考视频Keto Konjac Chocolate Cake｜生酮蛋糕；打发蛋白等部分大幅借鉴戚风蛋糕制作流程</div>
+</article>
+
+<article class="dish reveal" id="d12" data-diff="hard">
+  <div class="dish-head"><h2><span class="idx">12</span>戚风蛋糕</h2></div>
+  <div class="chips"><span class="chip">用料 10 项</span><span class="chip">步骤 37 步</span></div>
+  <p class="desc">这道烘焙入门甜品口感细腻绵软，拥有云朵般的轻盈质地，属于西点中的经典基础款。主要原料鸡蛋和牛奶提供了优质蛋白与钙质，营养丰富。制作过程对打发、翻拌及烘烤火候要求较高，具有一定挑战，但只要耐心按步骤操作，新手也能成功。从准备到出炉一般需要 1.5 至 2 小时。 预估烹饪难度：★★★★★ 预估卡路里：274 大卡</p>
+  <h3>用料</h3>
+  <ul class="ingredients">
+    <li>烤箱（电饭锅可替代，但大多情况下由于锅胆材质问题易失败）</li>
+    <li>打蛋器（电动最好，手动费力且有一定失败概率）或筷子（非常不推荐）</li>
+    <li>铝合金阳极模具（千万不能选不沾模具，常用尺寸为 6 寸或 8 寸）</li>
+    <li>刮刀（用于翻拌蛋糕糊）</li>
+    <li>鸡蛋</li>
+    <li>白糖</li>
+    <li>牛奶（或水）</li>
+    <li>食用油（或黄油，但需加热软化）</li>
+    <li>低筋面粉（推荐惠宜）</li>
+    <li>[可选] 柠檬汁或白醋</li>
+  </ul>
+  <h3>步骤</h3>
+  <ol class="steps">
+    <li>从冰箱中取出新鲜的鸡蛋
+    </li>
+    <li>准备两个容器并擦干，分别盛放蛋清与蛋黄
+    </li>
+    <li>对盛放蛋清的容器，可稍有水珠，但不能有任何油；盛放蛋黄的容器不能有水珠
+    </li>
+    <li>打蛋，手工或利用分蛋器，将蛋清与蛋黄分离到两个容器中。
+    </li>
+    <li>分离过程中蛋黄不能破碎，蛋清中不能混有任何蛋黄，否则会严重影响打发。（白色系带可进入蛋清，不影响）
+    </li>
+    <li>（注意，不使用厨房机的情况下，盛放蛋清的容器也是打蛋的容器，为避免溢出，加入全部蛋清后不要超过容器的 1/8）
+    </li>
+    <li>准备一个新的空碗，加入配方中全部的食用油和全部的牛奶
+    </li>
+    <li>用打蛋器手动快速搅拌，直到油水完全融合，呈现乳白色悬浊液状态（完成乳化）
+    </li>
+    <li>将配方中全部的低筋面粉过筛，加入上述乳化液中。用刮刀以”Z 字形”划拌至没有明显干粉即可（此时面糊可能会有些粗糙，属于正常现象）
+    </li>
+    <li>将分离好的全部蛋黄加入碗中，继续用刮刀”Z 字形”划拌
+    </li>
+    <li>此时面糊会变得非常细腻顺滑，且不易产生面筋。将其静置备用
+    </li>
+    <li>准备好剩余 3/4 的白糖。分为三份，每份为总量的 1/4
+    </li>
+    <li>蛋清中加入柠檬汁或白醋（可选）
+    </li>
+    <li>打蛋器中速，打发蛋白至有*粗大气泡的状态*，加入第一份白糖
+    </li>
+    <li>打蛋器高速，打发蛋白至*气泡较细腻的状态*，加入第二份白糖
+    </li>
+    <li>打蛋器高速，打发蛋白至”湿性发泡”的状态，加入第三份白糖&gt; 视觉特征：提起打蛋器头，蛋白霜带出长长且向下弯曲的尖角（俗称大弯勾）。此状态适合做蛋糕卷。
+    </li>
+    <li>打蛋器中低速，打发蛋白至”干性发泡”的状态&gt; 视觉特征：提起打蛋器头，蛋白霜呈现短小、直立且坚挺的尖角（俗称小直尖）；倒扣容器，蛋白霜牢牢粘在盆底，完全不会滑落。这是做戚风蛋糕所需的标准状态。
+    </li>
+    <li>此时蛋白打发程度已符合要求
+    <ul>
+      <li>关于蛋白状态的判断可参考附件链接中的图片。）</li>
+      <li>打蛋器应尽量贴近容器底部，防止出现上面浮着的表层打发，底部仍然是液体的情况）</li>
+    </ul>
+    </li>
+    <li>简单搅拌几下蛋黄液
+    </li>
+    <li>用刮刀取 1/3 的蛋白霜，加入到蛋黄糊中
+    </li>
+    <li>采用“翻拌”的手法，此手法是为了避免消泡
+    <ul>
+      <li>翻拌手法是</li>
+      <li>先用右手拿刮刀从搅拌盆中心插入面糊底部</li>
+      <li>向 8 点钟方向刮去直到碰到盆壁，顺势舀起面糊提到空中，然后再移回盆中心将面糊放入盆内</li>
+      <li>左手握住搅拌盆从 9 点钟方向转到 7 点钟方向，刚好旋转了 60 度，就完成了一次循环</li>
+      <li>速度大约是 1 秒钟两下</li>
+      <li>此方法出自《小岛老师的蛋糕教室》。用接地气的话说就是，像炒菜一样翻炒。</li>
+    </ul>
+    </li>
+    <li>将 1/3 的蛋白霜与蛋黄液的混合液倒入剩余 2/3 的蛋白霜中，继续翻拌均匀
+    </li>
+    <li>将蛋糕糊倒入模具，震荡几下避免大气泡
+    </li>
+    <li>烘烤总时间：6 寸蛋糕 30-35 分钟，8 寸蛋糕 50 分钟。根据自己烤箱特性灵活调整，一般不超过 $\pm 5$ 分钟。（最后几分钟时可在烤箱前观察）
+    </li>
+    <li>以上管 150 摄氏度，下管 160 摄氏度预热烘烤，约 10 分钟可到达预定温度。
+    </li>
+    <li>预热完成后，将模具放入烤箱下层
+    </li>
+    <li>选择变温烘烤，分为两个阶段。
+    <ul>
+      <li>第一阶段烤箱设定温度为：上管 150 摄氏度，下管 160 摄氏度；</li>
+      <li>烘烤总时长的前 3/5 为第一阶段烘烤</li>
+      <li>第二阶段温度为：上管 160 摄氏度，下管 170 摄氏度；</li>
+      <li>烘烤总时长的后 2/5 为第二阶段烘烤。直接调整烤箱温度即可切换。</li>
+    </ul>
+    </li>
+    <li>烤好后，出炉空气炸锅热风循环极强且离发热管极近，直接使用烤箱温度会导致顶部焦糊而内部夹生。请严格遵守以下降温与遮盖流程：
+    <ul>
+      <li>此操作可能会烫手，注意用毛巾辅助</li>
+    </ul>
+    </li>
+    <li>预热：空气炸锅设置 130&#176;C 预热 5 分钟
+    </li>
+    <li>入锅与遮盖：将装有蛋糕糊的模具放入炸锅。立刻在模具上方盖上一层锡纸（亮面朝上，哑光面接触食物），锡纸边缘捏紧，防止被热风吹开
+    </li>
+    <li>第一阶段烘烤：设置 130&#176;C，烘烤 35 分钟
+    </li>
+    <li>第二阶段上色：打开炸锅，撤掉锡纸。将温度调高至 150&#176;C，继续烘烤 10&#183;15 分钟
+    </li>
+    <li>判断熟透：蛋糕顶部膨胀且上色呈金黄色即可出锅。用牙签扎入中心，拔出后没有湿润面糊带出即代表已烤熟
+    </li>
+    <li>出锅后的震热气与倒扣脱模操作，与烤箱版完全一致
+    </li>
+    <li>（可选） 将模具从高处落下，震出其中的热气
+    </li>
+    <li>模具倒扣 10 分钟，使蛋糕冷却
+    <ul>
+      <li>没有冷却的蛋糕立刻脱模会损伤蛋糕</li>
+      <li>此操作可能会烫手，注意用毛巾辅助</li>
+    </ul>
+    </li>
+    <li>脱模，食用
+    </li>
+  </ol>
+  <div class="tipbox"><b>附加内容</b>参考了以下教程，文中说明非常详细且有每一步骤的配图。同时，对于为什么做某一个操作、背后的原理也有阐释，以及出现某些问题的分析：；为了做好这个戚风蛋糕，用了一整箱鸡蛋，从此告别凹底和塌陷；对戚风蛋糕而言，蛋清打发是次要问题，关键是烤制时的温度和时间。；蛋清容器而言，可有水珠，蛋黄容器不能有。；原因：油会影响蛋白的打发，蛋清 85%是水，稍有水珠并不影响打发。；特别新鲜的鸡蛋蛋清会比较硬，应对硬蛋清 5 个鸡蛋配方的话加 15ml 水会帮助蛋清打发（1 个鸡蛋配方则是 3g 水）；蛋清打发途中加的糖，实际也是先融于蛋清中的水里，成为糖浆溶液包裹在气泡外，对打发的气泡起保护作用。；温度对糖融于水的速率以及溶解度影响较大，刚从冰箱拿出的蛋清不易打发。但温度较低的鸡蛋容易分离蛋清蛋黄，建议分离后恢复室温再进行打发。；一些参考图片</div>
+</article>
+
+<article class="dish reveal" id="d13" data-diff="hard">
+  <div class="dish-head"><h2><span class="idx">13</span>酸奶意式奶冻</h2></div>
+  <div class="chips"><span class="chip">用料 9 项</span><span class="chip">步骤 6 步</span></div>
+  <p class="desc">一道改良自意大利经典的甜品，融入原味酸奶后口感更为清爽顺滑，甜而不腻，适合作为餐后小点搭配水果或果酱。奶制品带来丰富的钙质和蛋白质，营养温和。制作步骤简单，只需加热搅拌和冷藏定型，新手也能顺利上手，从准备到冷藏完成大约需要 5 小时。 预估烹饪难度：★★★★ 预估卡路里：1034 大卡</p>
+  <h3>用料</h3>
+  <ul class="ingredients">
+    <li>淡奶油</li>
+    <li>糖</li>
+    <li>原味酸奶</li>
+    <li>吉利丁片</li>
+    <li>筛网</li>
+    <li>淡奶油 200g</li>
+    <li>糖 40g</li>
+    <li>原味酸奶 250g</li>
+    <li>吉利丁片 6g</li>
+  </ul>
+  <h3>步骤</h3>
+  <ol class="steps">
+    <li>吉利丁片剪成小片，泡入冷水中
+    </li>
+    <li>淡奶油和糖放入锅中，加热至 60 度
+    </li>
+    <li>关火，吉利丁从水中取出，控干水份，加入热淡奶油中，搅拌均匀
+    </li>
+    <li>淡奶油降温至 40 度，加入原味酸奶，搅拌均匀
+    </li>
+    <li>将上述步骤得到的混合物过两遍筛网
+    </li>
+    <li>分装入合适的容器，放入冰箱冷藏 4 小时以上
+    </li>
+  </ol>
+  <div class="tipbox"><b>附加内容</b>传统版本的意式奶冻只用淡奶油，且糖量更大，比较甜腻。此版本做了改良，吃起来负担更小。</div>
+</article>
+
+<article class="dish reveal" id="d14" data-diff="hard">
+  <div class="dish-head"><h2><span class="idx">14</span>提拉米苏</h2></div>
+  <div class="chips"><span class="chip">用料 16 项</span><span class="chip">步骤 10 步</span></div>
+  <p class="desc">这道意大利传统甜品无需烤箱，奶酪糊绵密轻盈，浸润咖啡液的手指饼干香醇柔软，属于入门级甜点。富含蛋白质和钙质，但糖分与热量较高，宜偶尔享用。操作简便，对烘焙新手十分友好，只需大约半 小时动手，再冷藏四小时即可成型品尝。 预估烹饪难度：★★★★ 预估卡路里：809 大卡</p>
+  <h3>用料</h3>
+  <ul class="ingredients">
+    <li>马斯卡彭芝士</li>
+    <li>手指饼干</li>
+    <li>放凉浓缩咖啡</li>
+    <li>无菌鸡蛋</li>
+    <li>白砂糖</li>
+    <li>可可粉</li>
+    <li>朗姆酒（不喜欢酒的朋友可省略，可按照自己口味调节）</li>
+    <li>一个装成品的容器（这里用的是玻璃乐扣）</li>
+    <li>打蛋器（手劲儿大的朋友也可以锻炼臂力）</li>
+    <li>马斯卡彭芝士 450g</li>
+    <li>手指饼干 1 包</li>
+    <li>放凉浓缩咖啡 350ml</li>
+    <li>无菌鸡蛋 4 个</li>
+    <li>白砂糖 50g</li>
+    <li>可可粉 10g</li>
+    <li>朗姆酒 35ml</li>
+  </ul>
+  <h3>步骤</h3>
+  <ol class="steps">
+    <li>分离蛋黄蛋清
+    </li>
+    <li>盛有蛋白的碗中加 10g 白砂糖湿性打发
+    </li>
+    <li>盛有蛋黄的碗中将 40g 白砂糖分三次加入，搅拌至均匀
+    </li>
+    <li>蛋黄中分三次加入马斯卡彭芝士，搅拌至均匀
+    </li>
+    <li>蛋黄中最后加入朗姆酒，搅拌均匀
+    </li>
+    <li>将打发好的蛋白分三次加入蛋黄芝士液中
+    </li>
+    <li>手指饼干两面浸湿咖啡液，平铺入容器
+    </li>
+    <li>两层芝士液两层饼干交替放入容器（这一步按照大家意愿及容器高度酌情处理）
+    </li>
+    <li>放入冰箱冷藏四个小时（心急的小伙伴可以提早拿出来）
+    </li>
+    <li>取出后在表面筛上可可粉，即可享用啦
+    </li>
+  </ol>
+  <div class="tipbox"><b>附加内容</b>下厨房蛋白打发具体教程</div>
+</article>
+
+<article class="dish reveal" id="d15" data-diff="hard">
+  <div class="dish-head"><h2><span class="idx">15</span>无厨师机蜂蜜面包</h2></div>
+  <div class="chips"><span class="chip">用料 10 项</span><span class="chip">步骤 15 步</span></div>
+  <p class="desc">这是一款无需厨师机的家常蜂蜜小面包，松软香甜，底部略带脆感，表面刷满蜂蜜水再撒上芝麻，透着朴实的甜香。主要用料为高筋面粉、牛奶、鸡蛋和黄油，提供充足的碳水化合物、蛋白质和钙质，作为早餐或加餐都很安心。做法简单，全程手揉，发酵时间灵活，甚至可以提前一晚放入冰箱冷藏，第二天再烘烤，对新手相当友好。制作耗时大约 3 小时，其中大部分是发面等待时间，实际动手并不费力。 预估烹饪难度：★★★★★ 预估卡路里：176 大卡</p>
+  <h3>用料</h3>
+  <ul class="ingredients">
+    <li>高筋面粉：400g</li>
+    <li>牛奶: 200g</li>
+    <li>酵母：4g</li>
+    <li>鸡蛋：1 个</li>
+    <li>白砂糖：70g</li>
+    <li>盐: 2g</li>
+    <li>黄油: 30g</li>
+    <li>蜂蜜：20g</li>
+    <li>水: 20g</li>
+    <li>芝麻</li>
+  </ul>
+  <h3>步骤</h3>
+  <ol class="steps">
+    <li>制作面团：将面粉，牛奶（建议加热到 40&#176;，本人使用微波炉 15 - 20s），酵母，鸡蛋，面粉，糖和盐混合起来。
+    </li>
+    <li>搅拌面团，将原料混合均匀成团。
+    </li>
+    <li>加入黄油混合。
+    </li>
+    <li>继续搅拌 + 手揉，均匀混合。
+    </li>
+    <li>开始发面，使用保鲜膜覆盖容器，普通气温(10 - 20&#176;)放置 1 - 2 小时，稍长时间对效果影响不大。
+    </li>
+    <li>明显看到面团发酵变大（2 倍）即可开始切分面团, 此时面团应该不再十分黏手。
+    </li>
+    <li>切分面团：理想状态每一份 60g（美观），可根据喜好适当调整大小。
+    </li>
+    <li>将每一份小面团使用擀面杖擀成舌状后卷起, 再次醒面 10。
+    </li>
+    <li>再次使用擀面杖擀成舌状后卷起, 从中间切开（一个变成两个）。
+    </li>
+    <li>再次使用擀面杖擀成舌状后卷起, 从中间切开（两个变成四个）。（此步骤可以按照自己的时间多擀/卷几次, 把握一份的大小就行）
+    </li>
+    <li>烤盘放入油纸并倒入花生油, （每份卷好的）底部蘸水 + 面粉后放入烤盘。
+    </li>
+    <li>再次醒发（盖上保鲜膜）, 这一步可以放入冰箱, 第二天再烤。
+    </li>
+    <li>刷上蛋液。
+    </li>
+    <li>烤箱 180&#176;(355&#176;F), 18 - 20 分钟。
+    </li>
+    <li>出炉后, 刷上蜂蜜水, 撒上芝麻。
+    </li>
+  </ol>
+  <div class="tipbox"><b>附加内容</b>发面时间并不固定, 每 1 小时看一下确认就可以, 明显发酵变大即可, 建议发酵 2 - 2.5 倍大。；面团大小不会显著影响口感和烘烤效果，可根据喜好调整。；参考资料：下厨房 - 脆底蜂蜜小面包</div>
+</article>
+
+<article class="dish reveal" id="d16" data-diff="mid">
+  <div class="dish-head"><h2><span class="idx">16</span>雪花酥</h2></div>
+  <div class="chips"><span class="chip">用料 15 项</span><span class="chip">步骤 8 步</span></div>
+  <p class="desc">雪花酥是一道口感酥脆香甜、奶香浓郁的小甜点，属于简单快手的家常烘焙，也很适合装盒送礼。由于含有黄油、奶粉和混合坚果，能提供丰富的能量和蛋白质，不过热量较高，适合偶尔享用。制作难度适中，对新手有一定挑战，但只要注意火候和搅拌手法，一般只需 30 分钟就能完成。 预估烹饪难度：★★★ 预估卡路里：1313 大卡</p>
+  <h3>用料</h3>
+  <ul class="ingredients">
+    <li>不粘平底锅</li>
+    <li>烘焙刮刀（可用锅铲代替，小心使用破坏不粘锅涂层）</li>
+    <li>一次性塑料手套</li>
+    <li>雪花酥/牛轧糖模具</li>
+    <li>擀面杖</li>
+    <li>无盐黄油</li>
+    <li>棉花糖</li>
+    <li>全脂奶粉</li>
+    <li>混合坚果（三只松鼠每日坚果）</li>
+    <li>饼干（非夹心型饼干，推荐小奇福或购买使用雪花酥烘焙专用小饼干）</li>
+    <li>无盐黄油 20g</li>
+    <li>棉花糖 75g</li>
+    <li>全脂奶粉 40g</li>
+    <li>混合坚果 60g</li>
+    <li>饼干 75g</li>
+  </ul>
+  <h3>步骤</h3>
+  <ol class="steps">
+    <li>饼干超过一元硬币大小先切成小块
+    </li>
+    <li>无盐黄油加入锅中，小火加热至无盐黄油完全融化
+    </li>
+    <li>棉花糖加入锅中，使用刮刀搅拌，直至棉花糖融化并与无盐黄油均匀融合
+    </li>
+    <li>20g 奶粉加入锅中，使用刮刀搅拌，奶粉与黄油棉花糖混合物搅拌均匀后立即关火
+    </li>
+    <li>准备好的所有混合坚果与饼干趁热加入锅中，使用刮刀搅拌
+    </li>
+    <li>搅拌到温度下降到手可以接触的温度后，戴上一次塑料手套，在锅中搓揉或者双手拿起拉扯，让饼干混合坚果与棉花糖黄油奶粉混合物分散均匀。
+    </li>
+    <li>将上述步骤混合物压入模具中，边角压实，擀面杖擀平，未满的一边用手尽量压成直边
+    </li>
+    <li>室温放凉，完全冷却后脱模，按照模具纹路切块，或切成自己喜欢的大小，撒上剩余奶粉，尽量使雪花酥每面都沾上奶粉
+    </li>
+  </ol>
+  <div class="tipbox"><b>附加内容</b>棉花糖加热时间越长，最后成品越硬；参考资料：【一口小锅 十分钟搞定的网红草莓“雪花酥”-哔哩哔哩】</div>
+</article>
+
+<article class="dish reveal" id="d17" data-diff="mid">
+  <div class="dish-head"><h2><span class="idx">17</span>英式司康</h2></div>
+  <div class="chips"><span class="chip">用料 16 项</span><span class="chip">步骤 7 步</span></div>
+  <p class="desc">英式司康是一款经典英式下午茶点心，外酥内软，蛋奶香气浓郁，搭配果酱或奶油食用风味更佳。它主要由面粉、黄油、鸡蛋和淡奶油制成，富含碳水化合物和蛋白质，能快速补充能量。制作过程较为简单，只要掌握基本揉面手法，新手也能胜任，从准备到出炉大约需要一小时。 预估烹饪难度：★★★ 预估卡路里：1197 大卡</p>
+  <h3>用料</h3>
+  <ul class="ingredients">
+    <li>无盐黄油（推荐品牌总统）</li>
+    <li>低筋面粉</li>
+    <li>糖</li>
+    <li>盐</li>
+    <li>泡打粉</li>
+    <li>鸡蛋</li>
+    <li>淡奶油</li>
+    <li>奶油奶酪（可选）</li>
+    <li>无盐黄油 40g</li>
+    <li>低筋面粉 180g</li>
+    <li>糖 30g</li>
+    <li>盐 1g</li>
+    <li>泡打粉 5g</li>
+    <li>鸡蛋 1 个（约 50g）</li>
+    <li>淡奶油 45g</li>
+    <li>奶油奶酪 50g</li>
+  </ul>
+  <h3>步骤</h3>
+  <ol class="steps">
+    <li>鸡蛋打散，称量出 30g 蛋液放入干净容器中，放入全量淡奶油和奶油奶酪混合均匀。如果奶酪太硬可以水浴加热至大约 40 度再混合。
+    </li>
+    <li>将低筋面粉，盐，糖，泡打粉放入干净容器中混合均匀
+    </li>
+    <li>黄油切成小块，放入上一步的混合物中，用手将黄油捏入混合物中，呈粗玉米粉质地
+    </li>
+    <li>将第一步的蛋奶混合液倒入上一步得到的粉油混合物种，搅拌均接近。叠压成均匀面团
+    </li>
+    <li>面团放到案板上，擀成 1.5cm 厚的面片，用刀或者模具分切成合适的形状
+    </li>
+    <li>用刷子蘸取剩余的 20g 鸡蛋液，刷在司康表面
+    </li>
+    <li>烤箱预热 180 度，烤制 27 分钟
+    </li>
+  </ol>
+  <div class="tipbox"><b>附加内容</b>最简单的分切方案是擀成圆形面皮，用刀切成 6 个扇形</div>
+</article>
+
+<article class="dish reveal" id="d18" data-diff="hard">
+  <div class="dish-head"><h2><span class="idx">18</span>芋泥雪媚娘</h2></div>
+  <div class="chips"><span class="chip">用料 21 项</span><span class="chip">步骤 10 步</span></div>
+  <p class="desc">芋泥雪媚娘外皮软糯 Q 弹，内馅是细腻香甜的芋泥与轻盈奶油，口感层次丰富，是一道源自家常创意的中式甜品。芋头和紫薯提供膳食纤维与花青素，牛奶和淡奶油补充钙质，营养均衡。制作无需烤箱，步骤简单，对新手很友好，即使不擅烘焙也能轻松完成。从头到尾大约需要两小时，就能做出让孩子爱不释口的自制小点心。 预估烹饪难度：★★★★★ 预估卡路里：160 大卡</p>
+  <h3>用料</h3>
+  <ul class="ingredients">
+    <li>荔浦芋头（电商平台购买即可，实惠新鲜）</li>
+    <li>紫薯粉</li>
+    <li>牛奶</li>
+    <li>糯米粉</li>
+    <li>玉米淀粉</li>
+    <li>黄油</li>
+    <li>淡奶油</li>
+    <li>白砂糖</li>
+    <li>料理搅拌机（电动打蛋器也可以）</li>
+    <li>筛网</li>
+    <li>保鲜膜</li>
+    <li>白砂糖</li>
+    <li>荔浦芋头 200g</li>
+    <li>紫薯粉 3g</li>
+    <li>牛奶 165g</li>
+    <li>糯米粉 a 50g</li>
+    <li>糯米粉 b 75g</li>
+    <li>玉米淀粉 22g</li>
+    <li>黄油 30g</li>
+    <li>淡奶油（推荐安佳） 145g</li>
+    <li>白砂糖 26g</li>
+  </ul>
+  <h3>步骤</h3>
+  <ol class="steps">
+    <li>芋头切块，大火煮熟至软（40 分钟即可），全部放入料理机
+    </li>
+    <li>向内加入 30g 牛奶，25g 淡奶油，将其打成泥状
+    </li>
+    <li>再向内加入 3g 紫薯粉，18g 白砂糖，继续搅拌打成细腻芋泥
+    </li>
+    <li>取出另一个碗，加入全部糯米粉 b，22g 玉米淀粉，135g 牛奶，50g 白砂糖，混匀并过筛一遍，保鲜膜盖上并扎小洞，中火蒸半个小时
+    </li>
+    <li>在蒸的过程中，将糯米粉 a 放入平底锅小火翻炒至微微发黄（即炒熟），作为手粉备用
+    </li>
+    <li>将中火蒸完半小时的糯米牛奶混合物（果冻状）趁热加入黄油 30g，将黄油揉至面团完全吸收，然后放冰箱冷藏一小时
+    </li>
+    <li>取出另一只碗，加入 120g 淡奶油，8g 白砂糖，打发至有纹路，装进裱花袋备用
+    </li>
+    <li>取出冷藏后的面团，搓揉 5 分钟，分成 30g 一个，均匀撒上 2g 手粉防粘，擀成圆形，先挤上 5g 裱花奶油，然后放上 30g 芋泥，最后将面饼像包包子一样包起来（可以减去多余的皮）
+    </li>
+    <li>包好后再均匀撒 2g 手粉防粘
+    </li>
+    <li>重复以上两步直至原材料用光
+    </li>
+  </ol>
+  <div class="tipbox"><b>附加内容</b>制作时最好佩戴不粘手套；制作完即可食用，不用再加热</div>
+</article>
+
+<article class="dish reveal" id="d19" data-diff="mid">
+  <div class="dish-head"><h2><span class="idx">19</span>炸鲜奶</h2></div>
+  <div class="chips"><span class="chip">用料 15 项</span><span class="chip">步骤 12 步</span></div>
+  <p class="desc">炸鲜奶是一道外壳酥脆、内馅柔软的甜点。制作本身不难，但奶糊必须充分加热并冷藏定型，否则切块和油炸时容易散开。实际操作约需 30 分钟，另需至少 2 小时冷藏定型。 预估烹饪难度：★★★ 预估卡路里：1100 大卡</p>
+  <h3>用料</h3>
+  <ul class="ingredients">
+    <li>牛奶</li>
+    <li>玉米淀粉</li>
+    <li>低筋面粉或普通面粉</li>
+    <li>面包糠</li>
+    <li>鸡蛋</li>
+    <li>白糖</li>
+    <li>大约 20cm &#215; 15cm 的耐热方形容器</li>
+    <li>厨房纸</li>
+    <li>牛奶 250ml</li>
+    <li>玉米淀粉 30g</li>
+    <li>白糖 25g</li>
+    <li>低筋面粉或普通面粉 40g</li>
+    <li>鸡蛋 1 个，去壳后约 50g</li>
+    <li>面包糠 80g</li>
+    <li>食用油 700ml，实际消耗量会少于此数值</li>
+  </ul>
+  <h3>步骤</h3>
+  <ol class="steps">
+    <li>从牛奶中取出 80ml，与玉米淀粉混合，搅拌至没有可见颗粒
+    </li>
+    <li>将剩余的 170ml 牛奶和白糖倒入锅中，小火加热并持续搅拌，直至白糖完全溶解
+    </li>
+    <li>再次搅匀玉米淀粉液，将其缓慢倒入锅中，同时持续搅拌
+    </li>
+    <li>保持小火加热并不断搅拌约 3 - 5 分钟，直至奶糊浓稠，刮过锅底后留下的纹路能保持 3 秒不消失
+    </li>
+    <li>在耐热容器内壁均匀涂抹约 2ml 食用油，倒入奶糊并将表面抹平，使奶糊厚度约为 2cm
+    </li>
+    <li>奶糊冷却至室温后盖好，放入冰箱冷藏至少 2 小时；轻按表面不粘手且整体不会流动时即可取出
+    </li>
+    <li>将定型后的奶糊脱模，切成约 6cm &#215; 2cm &#215; 2cm 的长条，共约 12 条
+    </li>
+    <li>将面粉、打散的鸡蛋液和面包糠分别放入 3 个容器
+    </li>
+    <li>每块奶条依次均匀裹上面粉、鸡蛋液和面包糠，确保各面都被覆盖
+    </li>
+    <li>锅中倒入 700ml 食用油，中火加热至 165 - 175℃；没有温度计时，可放入少量面包糠测试，面包糠应在 2 秒内浮起并持续冒出小气泡
+    </li>
+    <li>将奶条分 2 - 3 批放入油中，每批炸约 60 - 90 秒；期间翻动 1 - 2 次，使各面受热均匀
+    </li>
+    <li>奶条表面呈均匀金黄色时捞出，放在厨房纸上沥油约 2 分钟后食用
+    </li>
+  </ol>
+  <div class="tipbox"><b>附加内容</b>玉米淀粉容易沉底，倒入锅前必须再次搅匀。；一次放入过多奶条会使油温快速下降，导致外壳吸油且容易破裂。；刚炸好的奶馅温度较高，食用前应先从中间掰开散热，避免烫伤。；参考资料：王刚的教学视频</div>
+</article>
+
+<article class="dish reveal" id="d20" data-diff="easy">
+  <div class="dish-head"><h2><span class="idx">20</span>耙耙柑茶</h2></div>
+  <div class="chips"><span class="chip">用料 11 项</span><span class="chip">步骤 2 步</span></div>
+  <p class="desc">耙耙柑茶是一款融合了柑橘清甜与茉莉花香的果茶饮品，口感清爽回甘，属于创意调饮，不限于特定菜系。耙耙柑富含维生素 C 与膳食纤维，搭配绿茶饮用能带来清新提神的体验。做法非常简单，新手友好，从泡茶到搅拌全程仅需约 15 分钟即可完成。 预估烹饪难度：★★ 预估卡路里：81 大卡</p>
+  <h3>用料</h3>
+  <ul class="ingredients">
+    <li>原料:</li>
+    <li>耙耙柑（替换物请看附加内容）</li>
+    <li>茉莉绿茶</li>
+    <li>冰块</li>
+    <li>蔗糖糖浆（可选）</li>
+    <li>工具</li>
+    <li>搅拌机</li>
+    <li>耙耙柑 1~2 个（200 克以上）</li>
+    <li>茉莉绿茶 2~4 克</li>
+    <li>冰块 60 克</li>
+    <li>1 : 1 蔗糖糖浆 10 克（可选）</li>
+  </ul>
+  <h3>步骤</h3>
+  <ol class="steps">
+    <li>茉莉绿茶调配（推荐比例=&gt;茶 : 水 : 冰 = 1~2 : 50 : 30）
+    <ul>
+      <li>称量 2~4 克茶叶置于容器，加入 100 毫升开水，泡 6 分钟</li>
+      <li>往泡好的绿茶中放入 60 克冰块冷却，可搅拌加速冷却</li>
+      <li>待冰块消失后，将茶叶过滤得到茉莉绿茶茶水约 160 毫升</li>
+    </ul>
+    </li>
+    <li>正式调配开始享受
+    <ul>
+      <li>选择一个杯子，建议使用容量在大约 300 毫升的透明玻璃杯</li>
+      <li>取出耙耙柑的肉瓣，并将外皮剥去，取得果肉</li>
+      <li>取 130 克果肉和 130 毫升茉莉绿茶放入搅拌机中</li>
+      <li>倒入 10 克蔗糖糖浆（可选，如果喜甜可放）</li>
+      <li>封盖启动搅拌机，搅拌 20 秒后将搅拌产物倒入杯中</li>
+      <li>取一点果肉撕碎撒在液面上</li>
+    </ul>
+    </li>
+  </ol>
+  <div class="tipbox"><b>附加内容</b>耙耙柑可以用其他容易分离果肉的柑橘替代，比如丑橘；果肉和茶水比例为 1 : 1，如果需要配置更大的分量，可按比例提升用量</div>
+</article>
+
+<article class="dish reveal" id="d21" data-diff="mid">
+  <div class="dish-head"><h2><span class="idx">21</span>百香果橙子特调</h2></div>
+  <div class="chips"><span class="chip">用料 19 项</span><span class="chip">步骤 4 步</span></div>
+  <p class="desc">这是一道酸甜清爽的夏日饮品，融合了百香果的热带果香与橙子的鲜甜，搭配茉莉绿茶或苏打气泡水，口感层次分明，冰爽解腻。富含维生素 C，有助增强免疫力和滋润肌肤。包含腌制、泡茶、榨汁等步骤，操作略多但难度适中，新手也能尝试。需提前一天腌制百香果，总耗时约 24 小时，实际动手时间仅 大约 30 分钟。 预估烹饪难度：★★★ 预估卡路里：173 大卡</p>
+  <h3>用料</h3>
+  <ul class="ingredients">
+    <li>原料:</li>
+    <li>百香果</li>
+    <li>橙子</li>
+    <li>茉莉绿茶茶叶/苏打气泡水二选一</li>
+    <li>白砂糖</li>
+    <li>冰块</li>
+    <li>蜂蜜（可选）</li>
+    <li>薄荷叶或其他绿叶（可选，装饰使用）</li>
+    <li>工具</li>
+    <li>手动压汁器</li>
+    <li>基于茉莉绿茶版本准备，一杯分量，约 380 毫升</li>
+    <li>橙子 1 个（约 200 克，拳头大小）</li>
+    <li>茉莉绿茶茶叶 3~6 克</li>
+    <li>开水 150 毫升</li>
+    <li>冰块 160 克以上</li>
+    <li>腌制百香果部分（因为量小不好配置，这里是两次的分量）</li>
+    <li>百香果 3 个</li>
+    <li>白砂糖 30 克</li>
+    <li>蜂蜜 10 克（如果没有可以用 5 克白砂糖代替）</li>
+  </ul>
+  <h3>步骤</h3>
+  <ol class="steps">
+    <li>百香果腌制（因为量小不好配置，这里是两次的分量）
+    <ul>
+      <li>将三个百香果的果肉取出来（里面的汁也不能放过），置于容器中</li>
+      <li>称量 30 克白砂糖放入</li>
+      <li>称量 10 克蜂蜜放入（如果没有可以用 5 克白砂糖代替）</li>
+      <li>搅拌均匀</li>
+      <li>容器保鲜膜封口，放入冰箱中进行 12~24 小时的腌制</li>
+    </ul>
+    </li>
+    <li>茉莉绿茶调配（推荐比例=&gt;茶 : 水 : 冰 = 1~2 : 50 : 30）
+    <ul>
+      <li>称量 3~6 克茶叶置于容器，加入 150 毫升开水，泡 6 分钟</li>
+      <li>往泡好的绿茶中放入 90 克冰块冷却，可搅拌加速冷却</li>
+      <li>待冰块消失后，将茶叶过滤得到茉莉绿茶茶水约 240 毫升</li>
+    </ul>
+    </li>
+    <li>橙子的处理（可在泡茶期间处理）
+    <ul>
+      <li>将橙子对半切（刀方向垂直于橙子的头尾连线），并从其中的一半中切取一片橙子备用</li>
+      <li>再次将橙子对半切，将得到的 4 角橙子用压汁器压出橙汁置于容器中备用</li>
+    </ul>
+    </li>
+    <li>正式调配搅拌均匀后享用
+    <ul>
+      <li>选择一个杯子，建议使用容量在 350~400 毫升的透明玻璃杯</li>
+      <li>将 70 克冰块放置在杯底，并将所有橙汁倒入</li>
+      <li>将之前准备的一片橙子贴杯内壁放置</li>
+      <li>将一次分量的腌制百香果浇在冰上</li>
+      <li>缓慢注入茉莉绿茶直至满杯，便于分层</li>
+      <li>在液面放置好装饰用的绿叶（可选）</li>
+    </ul>
+    </li>
+  </ol>
+  <div class="tipbox"><b>附加内容</b>如果缺少或不喜欢茉莉绿茶，可以使用苏打气泡水代替，免去茉莉绿茶的调配流程</div>
+</article>
+
+<article class="dish reveal" id="d22" data-diff="easy">
+  <div class="dish-head"><h2><span class="idx">22</span>冰粉</h2></div>
+  <div class="chips"><span class="chip">用料 9 项</span><span class="chip">步骤 5 步</span></div>
+  <p class="desc">成品1.jpg) 成品2.jpg) 石凉粉是河南信阳的传统小吃，口感爽滑如果冻，配以薄荷汁或柠檬汁清凉解暑，属于豫菜系。由冰粉籽手工揉搓而成，天然无添加，含有丰富的植物胶质。制作非常简单，对新手友好，全程约需 3 小时，其中 2.5 小时为静置凝固时间，几乎不占用人工。 预估烹饪难度：★★ 预估卡路里：110 大卡</p>
+  <h3>用料</h3>
+  <ul class="ingredients">
+    <li>冰粉籽 200g</li>
+    <li>过滤豆浆渣的纱布一块</li>
+    <li>凉白开 2000g</li>
+    <li>薄荷汁 10ml / 薄荷粉 10g</li>
+    <li>一次性透明塑料杯（可选）</li>
+    <li>遇水发光冰块（可选）</li>
+    <li>冰粉籽 200g</li>
+    <li>凉白开 2000g</li>
+    <li>薄荷汁 10ml / 薄荷粉 10g</li>
+  </ul>
+  <h3>步骤</h3>
+  <ol class="steps">
+    <li>将凉白开倒入盆中；
+    </li>
+    <li>将冰粉籽全部用纱布包起来，开口处打结
+    </li>
+    <li>将包好的冰粉籽放入凉白开中，在凉白开中用力揉搓 6 分钟
+    </li>
+    <li>然后将凉白开放置 2.5 小时，即可成型
+    </li>
+    <li>随后将石凉粉用勺子装进准备好的一次性透明塑料杯中，加入 10ml 薄荷汁或者 10g 薄荷粉（柠檬汁、山楂汁、桑椹汁也可），再放入遇水发光冰块，用勺子慢慢搅拌均匀
+    </li>
+  </ol>
+  <div class="tipbox"><b>附加内容</b>操作时，需要注意观察凉白开的颜色和粘度变化，如颜色过浅或者水不黏，则说明冰粉籽量不足，或者是揉搓力度和时间没有到位。</div>
+</article>
+
+<article class="dish reveal" id="d23" data-diff="mid">
+  <div class="dish-head"><h2><span class="idx">23</span>菠萝咖啡特调</h2></div>
+  <div class="chips"><span class="chip">用料 18 项</span><span class="chip">步骤 4 步</span></div>
+  <p class="desc">这道特调饮品融合了咖啡的醇香与菠萝的酸甜，气泡清爽、奶盖绵密，口感层次丰富。菠萝富含维生素 C 和膳食纤维，搭配咖啡能提神醒脑。制作难度中等，只需打发奶油并混合液体，全程约 10 分钟即可完成。 预估烹饪难度：★★★ 预估卡路里：180 大卡</p>
+  <h3>用料</h3>
+  <ul class="ingredients">
+    <li>咖啡液（推荐浓缩或者冷萃）</li>
+    <li>菠萝汁（鲜榨或者 nfc）</li>
+    <li>冰块</li>
+    <li>苏打水</li>
+    <li>奶油</li>
+    <li>牛奶</li>
+    <li>糖</li>
+    <li>海盐（可选）</li>
+    <li>朗姆酒 （可选）</li>
+    <li>咖啡液 30ml</li>
+    <li>菠萝汁 60ml</li>
+    <li>冰块 50g</li>
+    <li>苏打水 30ml</li>
+    <li>奶油 30ml</li>
+    <li>牛奶 10ml</li>
+    <li>糖 8g</li>
+    <li>海盐 0.5g</li>
+    <li>朗姆酒 5ml</li>
+  </ul>
+  <h3>步骤</h3>
+  <ol class="steps">
+    <li>杯子里依次加入冰块，咖啡液，菠萝汁和苏打水
+    </li>
+    <li>奶油加糖打发至湿性发泡，加入朗姆酒和牛奶均匀只有流动性
+    </li>
+    <li>在第一部混合液上方倒入奶油
+    </li>
+    <li>奶油顶面撒上海盐
+    </li>
+  </ol>
+  <div class="tipbox"><b>附加内容</b>咖啡液建议选用花果风味，浓缩可以用中烘豆，冷萃可以用普通水洗或者日晒；倒入奶油时，高度尽量放低，让奶油能均匀漂浮在饮料表面形成奶盖；用新鲜的咖啡液和菠萝汁能大大提升整体风味口感</div>
+</article>
+
+<article class="dish reveal" id="d24" data-diff="easy">
+  <div class="dish-head"><h2><span class="idx">24</span>冬瓜茶</h2></div>
+  <div class="chips"><span class="chip">用料 7 项</span><span class="chip">步骤 6 步</span></div>
+  <p class="desc">冬瓜茶是一款清爽解暑的传统饮品，口感甘甜柔和，带有冬瓜特有的清香，冰镇后风味更佳。冬瓜本身低热量、富含水分，搭配冰糖熬制，能补充能量、生津止渴。制作不复杂，但对新手而言需要一些耐心，全程大约需要 4 到 5 小时。 预估烹饪难度：★★ 预估卡路里：296 大卡</p>
+  <h3>用料</h3>
+  <ul class="ingredients">
+    <li>冬瓜</li>
+    <li>冰糖</li>
+    <li>保鲜膜</li>
+    <li>过滤网</li>
+    <li>大锅</li>
+    <li>冬瓜 1000g</li>
+    <li>冰糖 300g</li>
+  </ul>
+  <h3>步骤</h3>
+  <ol class="steps">
+    <li>准备冬瓜：将冬瓜去皮，去籽，切成小块（每块不超过 4cm）。
+    </li>
+    <li>加入冰糖：冬瓜加入冰糖，搅拌均匀，盖上保鲜膜放冰箱冷藏 2 小时以上。
+    </li>
+    <li>煮冬瓜： 此时冬瓜出了很多水, 倒入锅中 大火煮开，然后转中小火慢慢熬制 1~2 个小时，中途多搅拌防止糊锅。
+    </li>
+    <li>过滤冬瓜茶：使用过滤网将煮好的冬瓜茶液过滤，取出冬瓜块，只保留茶液。
+    </li>
+    <li>冷却：将冬瓜茶液放凉后，倒入干净的容器中，放入冰箱冷藏即可。
+    </li>
+    <li>享用: 熬好的冬瓜茶液是浓缩汁，根据个人喜好添加水或其他饮品，冷热皆宜。
+    </li>
+  </ol>
+  <div class="tipbox"><b>附加内容</b>口感调整：冰糖的用量可以调整，以达到个人喜好的甜度。；保存方法：冷藏保存，建议 1 周内喝完。</div>
+</article>
+
+<article class="dish reveal" id="d25" data-diff="mid">
+  <div class="dish-head"><h2><span class="idx">25</span>海边落日</h2></div>
+  <div class="chips"><span class="chip">用料 22 项</span><span class="chip">步骤 10 步</span></div>
+  <p class="desc">这款鸡尾酒色彩层次分明，底部红石榴糖浆似晚霞，中间橙汁透亮，上层蓝橙酒液如海水，整体呈现海边落日的意境，喝起来酸甜清爽，带朗姆酒香。橙汁和柠檬汁含少量维生素 C，酒精能帮助放松。调酒步骤不复杂，但倒液沿搅拌棒做出分层需要一点耐心，新手跟着做也能成功，准备加调制大约一刻钟搞定。 预估烹饪难度：★★★ 预估卡路里：173 大卡</p>
+  <h3>用料</h3>
+  <ul class="ingredients">
+    <li>红石榴糖浆</li>
+    <li>NFC 橙汁</li>
+    <li>苏打水</li>
+    <li>白朗姆</li>
+    <li>蓝橙力娇酒</li>
+    <li>柠檬汁</li>
+    <li>冰块</li>
+    <li>柠檬</li>
+    <li>大号的玻璃杯</li>
+    <li>搅拌棒</li>
+    <li>量酒器</li>
+    <li>调酒杯</li>
+    <li>吸管</li>
+    <li>水果刀</li>
+    <li>红石榴糖浆 15ml</li>
+    <li>橙汁 35~50ml</li>
+    <li>苏打水 50ml</li>
+    <li>白朗姆 30ml</li>
+    <li>蓝橙力娇酒 15ml</li>
+    <li>柠檬汁 15ml</li>
+    <li>大冰块差不多就行</li>
+    <li>柠檬 1 片</li>
+  </ul>
+  <h3>步骤</h3>
+  <ol class="steps">
+    <li>柠檬洗净切出一片正式调配
+    </li>
+    <li>选择一个杯子，建议使用容量在 350~400 毫升的透明玻璃杯
+    </li>
+    <li>放入大冰块，用搅拌棒搅拌冰杯
+    </li>
+    <li>加入红石榴糖浆
+    </li>
+    <li>让橙汁沿搅拌棒导入酒杯，到就被一半就行
+    </li>
+    <li>轻轻搅拌半圈
+    </li>
+    <li>倒入苏打水
+    </li>
+    <li>拿出调酒杯，加入白朗姆 + 蓝橙力娇酒 + 柠檬汁 + 冰块。然后 shake，shake
+    </li>
+    <li>轻轻倒入酒杯中
+    </li>
+    <li>插上柠檬和吸管
+    </li>
+  </ol>
+</article>
+
+<article class="dish reveal" id="d26" data-diff="easy">
+  <div class="dish-head"><h2><span class="idx">26</span>金菲士</h2></div>
+  <div class="chips"><span class="chip">用料 13 项</span><span class="chip">步骤 14 步</span></div>
+  <p class="desc">经典金酒鸡尾酒，酸甜适口，气泡激爽。柠檬提供丰富维 C，搭配蔗糖糖浆平衡酸度。制作非常简单，新手只需 5 分钟即可调制完成，适合在家轻松享用。注意饮酒有害健康，请勿过量。 预估烹饪难度：★★ 预估卡路里：150 大卡</p>
+  <h3>用料</h3>
+  <ul class="ingredients">
+    <li>金酒</li>
+    <li>苏打气泡水</li>
+    <li>柠檬</li>
+    <li>蔗糖糖浆</li>
+    <li>冰块</li>
+    <li>新鲜绿叶（可选，装饰用）</li>
+    <li>手动压汁器</li>
+    <li>雪克瓶（可选）</li>
+    <li>金酒 30~40 毫升</li>
+    <li>苏打气泡水 1 罐</li>
+    <li>柠檬 1 个</li>
+    <li>1 : 1 蔗糖糖浆 30~40 克</li>
+    <li>冰块 100 克</li>
+  </ul>
+  <h3>步骤</h3>
+  <ol class="steps">
+    <li>将柠檬对半切（刀方向垂直于柠檬的头尾连线），并从其中的一半中切取一片柠檬备用
+    </li>
+    <li>再次将柠檬对半切，将得到的 4 角柠檬用压汁器压出柠檬汁置于容器中备用正式调配（无雪克瓶）
+    </li>
+    <li>选择一个杯子，建议使用容量在 350~400 毫升的透明玻璃杯
+    </li>
+    <li>将 100 克冰块放置在杯底
+    </li>
+    <li>倒入 30~40 毫升金酒
+    </li>
+    <li>倒入 20 毫升柠檬汁（如果喜酸可以加多点或全加）
+    </li>
+    <li>倒入 30~40 克蔗糖糖浆
+    </li>
+    <li>用勺子搅拌均匀
+    </li>
+    <li>将之前准备的一片柠檬放置好
+    </li>
+    <li>缓慢沿杯壁注入苏打气泡水直至满杯（不要倒在冰上，避免起泡流失）
+    </li>
+    <li>用勺子轻轻上下提拉将液体搅拌均匀（不要旋转搅拌，避免起泡流失）
+    </li>
+    <li>在液面放置好装饰用的绿叶（可选）如果有雪克瓶，可以将以上步骤 2~6 替换为以下步骤
+    </li>
+    <li>将冰块、金酒、柠檬汁、蔗糖糖浆倒入雪克瓶，雪克均匀
+    </li>
+    <li>将充分雪克的产物倒到杯子中（如果里面的冰太碎了，可以选择过滤其中的冰，重新往杯中补充冰块）
+    </li>
+  </ol>
+</article>
+
+<article class="dish reveal" id="d27" data-diff="easy">
+  <div class="dish-head"><h2><span class="idx">27</span>金汤力</h2></div>
+  <div class="chips"><span class="chip">用料 10 项</span><span class="chip">步骤 11 步</span></div>
+  <p class="desc">这是一款经典的金酒鸡尾酒，口感清爽微苦，带有柠檬的明亮酸香与汤力水的细腻气泡，入口轻盈畅快。虽然主要提供水分和少量酒精带来的热量，新鲜柠檬汁能补充维生素 C，帮助提神。做法非常简单，新手也能轻松掌握，预计只需 5 分钟即可完成。 预估烹饪难度：★★ 预估卡路里：205 大卡</p>
+  <h3>用料</h3>
+  <ul class="ingredients">
+    <li>金酒</li>
+    <li>汤力水气泡水</li>
+    <li>柠檬</li>
+    <li>冰块</li>
+    <li>新鲜绿叶（可选，装饰用）</li>
+    <li>手动压汁器</li>
+    <li>金酒 30~40 毫升</li>
+    <li>汤力水气泡水 1 罐</li>
+    <li>柠檬 1 个</li>
+    <li>冰块 100 克</li>
+  </ul>
+  <h3>步骤</h3>
+  <ol class="steps">
+    <li>将柠檬对半切（刀方向垂直于柠檬的头尾连线），并从其中的一半中切取一片柠檬备用
+    </li>
+    <li>再次将柠檬对半切，将得到的 4 角柠檬用压汁器压出柠檬汁置于容器中备用正式调配
+    </li>
+    <li>选择一个杯子，建议使用容量在 350~400 毫升的透明玻璃杯
+    </li>
+    <li>将 100 克冰块放置在杯底
+    </li>
+    <li>倒入 30~40 毫升金酒
+    </li>
+    <li>倒入 15 毫升柠檬汁（如果喜酸可以加多点或全加）
+    </li>
+    <li>用勺子搅拌均匀
+    </li>
+    <li>将之前准备的一片柠檬放置好
+    </li>
+    <li>缓慢沿杯壁注入汤力水直至满杯（不要倒在冰上，避免起泡流失）
+    </li>
+    <li>用勺子轻轻上下提拉将液体搅拌均匀（不要旋转搅拌，避免起泡流失）
+    </li>
+    <li>在液面放置好装饰用的绿叶（可选）
+    </li>
+  </ol>
+</article>
+
+<article class="dish reveal" id="d28" data-diff="hard">
+  <div class="dish-head"><h2><span class="idx">28</span>酒酿醪糟</h2></div>
+  <div class="chips"><span class="chip">用料 6 项</span><span class="chip">步骤 15 步</span></div>
+  <p class="desc">这是一道传统中式发酵甜品，口感清甜微醺，带着淡淡的酒香。具有健脾开胃、促进消化的作用。制作过程简单有趣，虽然需要等待发酵，但动手操作并不复杂，非常适合作为发酵入门。预计制作总时长约 2 天，其中实际动手时间仅需 大约 1 小时。 预估烹饪难度：★★★★ 预估卡路里：420 大卡</p>
+  <h3>用料</h3>
+  <ul class="ingredients">
+    <li>糯米 800g（推荐使用圆糯米）</li>
+    <li>安琪甜酒曲一包 (8g)（虽然按比例为每 1000g 糯米用 3g，但多放酒曲能提高成功概率）</li>
+    <li>清水 720g + 600g（720 克用于蒸饭，后 500g 用于发酵）</li>
+    <li>蒸锅（电饭煲即可）</li>
+    <li>温度计（可选但推荐）</li>
+    <li>干净密封玻璃或陶瓷容器 1 个</li>
+  </ul>
+  <h3>步骤</h3>
+  <ol class="steps">
+    <li>将 800g 糯米淘洗干净放入电饭煲，加入 720g 清水选择蒸饭模式
+    </li>
+    <li>蒸熟后将米饭倒出摊凉，使用干净的工具将其摊至 30&#176;C （用温度计测量为宜，体感温热但不烫手）
+    </li>
+    <li>将 8g 安琪甜酒曲用 20ml 温水（约 30&#176;C）化开，均匀撒在糯米饭中，同时翻拌均匀
+    </li>
+    <li>向糯米饭中加入 600g 清水帮助酒曲翻拌均匀。静置 2-3 分钟后发现糯米饭吸饱水分。这次加水可以让酒酿首次发酵便汤汁丰富
+    </li>
+    <li>用擀面杖在糯米饭中央挖一个小洞（便于出酒）
+    </li>
+    <li>将混合好的米饭装入干净容器中，轻轻压平表面，盖上盖子或保鲜膜密封好
+    </li>
+    <li>放置于 28 ～ 32&#176;C 环境下发酵 24 ～ 48 小时。发酵期间不可剧烈摇晃或移动
+    </li>
+    <li>发酵成功标准为：中间凹槽有透明酒液渗出，整体略带酒香，无异味、不酸败
+    </li>
+    <li>发酵结束后可立即冷藏保存（过程中可以加入桂花），每次食用用干净工具取出，可冷藏保存 7 ～ 10 天
+    </li>
+    <li>可以继续二次发酵，加入 500ml 清水增加酒酿产量（800g 水以内即可）
+    </li>
+    <li>酒酿会一直持续发酵。如果想停止发酵，可以上锅蒸 10 分钟杀菌，或放入冰箱冷藏
+    </li>
+    <li>将 800g 糯米淘洗干净，倒入清水中浸泡 6 ～ 8 小时（冬季建议泡 8 ～ 10 小时），泡至米粒饱满
+    </li>
+    <li>沥干糯米，放入蒸布中，隔水蒸 40 ～ 60 分钟。每 20 分钟打开锅盖翻动一次确保蒸熟均匀
+    </li>
+    <li>蒸熟后将米饭倒出摊凉，加入酒曲，后续步骤同上
+    </li>
+    <li>当然，酒酿老手可以随意尝试不同米搭配。可以替换 20%的糯米为小米、燕麦、黄米、血糯米等
+    </li>
+  </ol>
+  <div class="tipbox"><b>附加内容</b>发酵温度至关重要，低温会发酵缓慢或失败，高温会杀死酒曲；发酵失败常见原因：温度过高、米饭太热时拌入酒曲、容器未清洁干净或进水进油；可搭配汤圆、蛋花、枸杞等加热食用，但注意不要煮沸时间过长以免酒香散失；酒酿汁可用于制作酒酿米糕、酒酿饼等，还可以用作调料为肥牛饭、照烧汁增添风味</div>
+</article>
+
+<article class="dish reveal" id="d29" data-diff="easy">
+  <div class="dish-head"><h2><span class="idx">29</span>可乐桶</h2></div>
+  <div class="chips"><span class="chip">用料 9 项</span><span class="chip">步骤 8 步</span></div>
+  <p class="desc">可乐桶是一款简单易调的休闲鸡尾酒，口感清爽甜润，可乐的气泡和柠檬汁很好地中和了威士忌的烈感，适合聚会场合。主要提供能量，柠檬补充维生素 C。整个调配过程只需 5 分钟即可完成，新手也能轻松上手。 预估烹饪难度：★★ 预估卡路里：450 大卡</p>
+  <h3>用料</h3>
+  <ul class="ingredients">
+    <li>波旁威士忌</li>
+    <li>可口可乐</li>
+    <li>冰块</li>
+    <li>柠檬（可选，提升口感用）</li>
+    <li>手动压汁器</li>
+    <li>威士忌 100 毫升</li>
+    <li>可口可乐 500 毫升</li>
+    <li>柠檬 1 个</li>
+    <li>冰块 300 克</li>
+  </ul>
+  <h3>步骤</h3>
+  <ol class="steps">
+    <li>将柠檬对半切（刀方向垂直于柠檬的头尾连线），并从其中的一半中切取一片柠檬备用
+    </li>
+    <li>再次将柠檬对半切，将得到的 4 角柠檬用压汁器压出柠檬汁置于容器中备用
+    </li>
+    <li>将挤压过的柠檬置于容器中备用正式调配
+    </li>
+    <li>选择一个杯子，建议使用容量在大约 1 升的大型玻璃杯或铁皮酒桶
+    </li>
+    <li>将冰块和挤压过的柠檬入杯中（可根据个人喜好设计柠檬与冰块的摆放）
+    </li>
+    <li>倒入 15 毫升柠檬汁（如果喜酸可以加多点或全加）
+    </li>
+    <li>沿杯壁缓慢倒入可口可乐至距离杯口 3/4 处（控制可乐和威士忌的比例约在 5:1 ）
+    </li>
+    <li>倒入威士忌直至满杯
+    </li>
+  </ol>
+  <div class="tipbox"><b>附加内容</b>可乐桶因冰块和可乐的口感掩盖了威士忌的酒味，因此不善酒力的人也容易在不知不觉中过量饮酒，请在保证个人与饮酒者的安全下调配。</div>
+</article>
+
+<article class="dish reveal" id="d30" data-diff="easy">
+  <div class="dish-head"><h2><span class="idx">30</span>奶茶</h2></div>
+  <div class="chips"><span class="chip">用料 6 项</span><span class="chip">步骤 4 步</span></div>
+  <p class="desc">这是一道用红茶和奶粉轻松调制的家常饮品，茶香与奶香交融，口感顺滑温暖。红茶中的茶多酚搭配牛奶的蛋白质和钙质，既能提神又补充日常营养。做法非常简单，新手也能一次成功，仅需大约半 小时就能喝上自制奶茶。 预估烹饪难度：★★ 预估卡路里：81 大卡</p>
+  <h3>用料</h3>
+  <ul class="ingredients">
+    <li>袋泡红茶（推荐立顿黄牌精选红茶）</li>
+    <li>全脂奶粉或淡奶</li>
+    <li>杯子，例如带刻度的杯子，陶瓷杯或保温杯</li>
+    <li>袋泡红茶 2 包（约 4g）</li>
+    <li>奶粉 11-12g</li>
+    <li>砂糖 5-7g</li>
+  </ul>
+  <h3>步骤</h3>
+  <ol class="steps">
+    <li>取袋泡红茶 2 包放入杯中，加入 180-200mL 沸水。
+    </li>
+    <li>等待 20 - 30 分钟。
+    </li>
+    <li>称取 11-12g 奶粉和 5-7g 砂糖，分别加入前一步骤得到的液体中。
+    </li>
+    <li>搅拌均匀即可饮用。
+    </li>
+  </ol>
+  <div class="tipbox"><b>附加内容</b>加入沸水后，尽量保持杯子内部温暖，例如使用开口较小的杯子或盖上盖子。如果气温较低时，使用量杯量取可能导致沸水在冲入红茶前冷却，则可以不使用量杯量取而直接估计其体积。；等待时间结束后可提起或搅动茶包以使冲泡更加均匀。</div>
+</article>
+
+<article class="dish reveal" id="d31" data-diff="easy">
+  <div class="dish-head"><h2><span class="idx">31</span>柠檬水</h2></div>
+  <div class="chips"><span class="chip">用料 9 项</span><span class="chip">步骤 6 步</span></div>
+  <p class="desc">这道饮品以新鲜柠檬为主角，搭配果蜜调和，酸甜平衡，冰镇后更感清凉解暑。柠檬富含维生素 C，经常饮用有助于补充营养、提神美白。制作步骤极简，只需捶打、加料、摇晃，新手也能在三五分钟内完成。 预估烹饪难度：★ 预估卡路里：141 大卡</p>
+  <h3>用料</h3>
+  <ul class="ingredients">
+    <li>原料</li>
+    <li>柠檬</li>
+    <li>果蜜</li>
+    <li>冰（可选）</li>
+    <li>工具</li>
+    <li>雪克杯</li>
+    <li>柠檬 40~45 克</li>
+    <li>果蜜 40~45 克</li>
+    <li>冰几块（可选）</li>
+  </ul>
+  <h3>步骤</h3>
+  <ol class="steps">
+    <li>称 40~45 克柠檬，放入雪克杯中
+    </li>
+    <li>雪克杯盖盖子锤大约 10 次
+    </li>
+    <li>加入果蜜 40~45 克
+    </li>
+    <li>补水
+    </li>
+    <li>摇晃均匀
+    </li>
+    <li>最后根据喜好加冰
+    </li>
+  </ol>
+  <div class="tipbox"><b>附加内容</b>参考资料：柠檬水教程</div>
+</article>
+
+<article class="dish reveal" id="d32" data-diff="easy">
+  <div class="dish-head"><h2><span class="idx">32</span>牛油果拉西</h2></div>
+  <div class="chips"><span class="chip">用料 12 项</span><span class="chip">步骤 6 步</span></div>
+  <p class="desc">这是一款融合了印度传统酸奶饮品“拉西”的创新饮品，口感绵密顺滑、清甜不腻，特别适合作为早餐或午后提神饮品。牛油果富含单不饱和脂肪酸与膳食纤维，搭配酸奶的优质蛋白和益生菌，一杯便能提供持久饱腹感。制作极为简单，新手也能零失败，从备料到享用只需 大约 5 分钟。 预估烹饪难度：★ 预估卡路里：392 大卡</p>
+  <h3>用料</h3>
+  <ul class="ingredients">
+    <li>原味酸奶 (Plain yogurt)</li>
+    <li>熟透的牛油果</li>
+    <li>蜂蜜</li>
+    <li>冷牛奶</li>
+    <li>小豆蔻粉（可选）</li>
+    <li>薄荷叶或坚果碎（可选，用于装饰）</li>
+    <li>搅拌机（破壁机/榨汁机）</li>
+    <li>原味酸奶 120 ml</li>
+    <li>熟透的牛油果 1 个</li>
+    <li>蜂蜜 1 汤匙（可根据口味增减）</li>
+    <li>冷牛奶 60 ml</li>
+    <li>小豆蔻粉 1 撮（可选）</li>
+  </ul>
+  <h3>步骤</h3>
+  <ol class="steps">
+    <li>将牛油果对半切开，去核，剥去外皮，将果肉切成小块备用。
+    </li>
+    <li>在搅拌机中加入 120ml 原味酸奶、切好的牛油果块、1 汤匙蜂蜜以及 60ml 冷牛奶。
+    </li>
+    <li>（可选）加入一小撮小豆蔻粉以增加独特风味。
+    </li>
+    <li>启动搅拌机，搅拌大约 1 分钟直至液体变得完全顺滑和浓郁。
+    </li>
+    <li>将打好的饮品倒入杯中。
+    </li>
+    <li>（可选）在表面放上几片薄荷叶或撒上 5g 切碎的坚果作为装饰。
+    </li>
+  </ol>
+  <div class="tipbox"><b>附加内容</b>牛油果必须选择熟透的，这样才能保证饮品的绵密口感和颜色。；如果喜欢更冰凉的口感，可以适当减少一点牛奶，加入几块冰块一起搅拌。</div>
+</article>
+
+<article class="dish reveal" id="d33" data-diff="easy">
+  <div class="dish-head"><h2><span class="idx">33</span>奇异果菠菜特调</h2></div>
+  <div class="chips"><span class="chip">用料 13 项</span><span class="chip">步骤 8 步</span></div>
+  <p class="desc">这是一道清爽健康的果蔬特饮，口感酸甜细腻，带有奇异果与苹果的天然果香，菠菜味清淡不抢。富含维生素 C 和膳食纤维，有助于促进消化。制作非常简单，新手也能一次成功，全程预计只需 10 分钟。 预估烹饪难度：★ 预估卡路里：184 大卡</p>
+  <h3>用料</h3>
+  <ul class="ingredients">
+    <li>原料:</li>
+    <li>奇异果</li>
+    <li>苹果</li>
+    <li>菠菜叶（ 2-5 片）</li>
+    <li>水</li>
+    <li>白砂糖</li>
+    <li>工具</li>
+    <li>榨汁机</li>
+    <li>饮用水 700ml</li>
+    <li>奇异果 2 个</li>
+    <li>苹果 1/2 个</li>
+    <li>菠菜叶 4 叶</li>
+    <li>白砂糖 12 克</li>
+  </ul>
+  <h3>步骤</h3>
+  <ol class="steps">
+    <li>将猕猴桃切成两半，每半再分四份小块
+    </li>
+    <li>将苹果切丁
+    </li>
+    <li>将菠菜叶去梗，只留叶子部分
+    </li>
+    <li>将菠菜切碎
+    </li>
+    <li>一起倒入榨汁机搅拌杯
+    </li>
+    <li>注水
+    </li>
+    <li>加入白砂糖
+    </li>
+    <li>启动搅拌机，搅拌约 4 个 15 秒（每 15 秒停下看状态）
+    </li>
+  </ol>
+  <div class="tipbox"><b>附加内容</b>关于白砂糖的量：全糖为 12g，可根据个人情况在 0-12g 中调整；本品是仿照宜家的奇异果菠菜汁自己研制的，没有宜家的好喝，但也不错；欢迎改进！</div>
+</article>
+
+<article class="dish reveal" id="d34" data-diff="easy">
+  <div class="dish-head"><h2><span class="idx">34</span>砂糖椰子冰沙</h2></div>
+  <div class="chips"><span class="chip">用料 5 项</span><span class="chip">步骤 6 步</span></div>
+  <p class="desc">砂糖椰子冰沙是一道极具热带风情的快手冷饮，清甜的椰香融合粗粒黄糖的焦香，口感绵密冰爽。椰子水富含天然电解质与矿物质，能快速补充水分，咖啡调糖增添碳水能量。制作门槛极低，只要提前将椰汁冻硬，敲打成沙即可，对新手毫无压力。从冷冻到出品需提前准备 10 小时以上，但动手操作仅需几分钟，很适合作为悠闲的午后冰品。 预估烹饪难度：★ 预估卡路里：231 大卡</p>
+  <h3>用料</h3>
+  <ul class="ingredients">
+    <li>瓶装椰汁（瓶口较大为佳）</li>
+    <li>咖啡调糖（黄色粗粒）</li>
+    <li>瓶装椰子汁 500ml</li>
+    <li>咖啡调糖 10g（两包太古咖啡调糖）</li>
+    <li>坚果碎（可选）</li>
+  </ul>
+  <h3>步骤</h3>
+  <ol class="steps">
+    <li>500ml 瓶装椰汁倒掉 200ml，立刻拧紧瓶盖。
+    </li>
+    <li>将这瓶椰汁放入冰箱冷冻区并冷冻 10 小时以上。
+    </li>
+    <li>将这瓶椰汁取出，若确认瓶中椰汁已彻底冻结，则在墙角、椅背、桌角等坚硬表面上用力抽打。（请务必确认表面不会因此受到损伤）
+    </li>
+    <li>当抽打到冻结椰汁变成冰沙状态，打开瓶盖倒出冰沙。
+    </li>
+    <li>在冰沙表面均匀撒上咖啡调糖或坚果碎。
+    </li>
+    <li>完成
+    </li>
+  </ol>
+  <div class="tipbox"><b>附加内容</b>在以上步骤中，瓶装椰汁可以提前冰冻，但是不宜超过 7 天，否则有变质风险。</div>
+</article>
+
+<article class="dish reveal" id="d35" data-diff="easy">
+  <div class="dish-head"><h2><span class="idx">35</span>酸梅汤</h2></div>
+  <div class="chips"><span class="chip">用料 18 项</span><span class="chip">步骤 6 步</span></div>
+  <p class="desc">酸梅汤是一道酸甜可口、清凉解暑的传统饮品，冰镇后饮用尤为沁人心脾。配方中的乌梅、山楂、甘草等原料有助于生津止渴、消食开胃。做法简单，新手友好，只需浸泡、熬煮和冷藏即可。制作全程包括浸泡、两次煎煮和冷藏，大约需要 6 小时以上，建议提前准备。 预估烹饪难度：★★ 预估卡路里：359 大卡</p>
+  <h3>用料</h3>
+  <ul class="ingredients">
+    <li>水</li>
+    <li>乌枣</li>
+    <li>乌梅</li>
+    <li>山楂片（生）</li>
+    <li>黄冰糖</li>
+    <li>甘草</li>
+    <li>陈皮</li>
+    <li>红豆蔻</li>
+    <li>干桂花</li>
+    <li>两升水</li>
+    <li>乌枣 25 克</li>
+    <li>乌梅 25g</li>
+    <li>黄冰糖 100 克</li>
+    <li>山楂片 30 克</li>
+    <li>甘草 2 克</li>
+    <li>陈皮 4 克</li>
+    <li>红豆蔻 1 克</li>
+    <li>干桂花 3 克</li>
+  </ul>
+  <h3>步骤</h3>
+  <ol class="steps">
+    <li>冲洗材料（干桂花和冰糖除外）， 1.5 升水常温浸泡两小时以上（干桂花和冰糖除外）
+    </li>
+    <li>开中大火煮沸，盖盖，转小火煮 40 分钟，为头煎
+    </li>
+    <li>将冰糖放入盆内，再将沥好用材的头汤趁热倒入，搅拌至冰糖融化。
+    </li>
+    <li>药材重新装回锅内再 600 毫升的水，开大火煮沸，盖盖，转中火，再煮 20 分钟为二煎
+    </li>
+    <li>最后将二煎和冰糖水趁热混合为成品。在成品 60-70℃加入干桂花（不要超过 80℃）加盖晾凉再放入冰箱冷藏 3 小时以上。
+    </li>
+    <li>饮用时记得将干桂花沥出。如饮茶般细啜，冰凉振齿，酸醒人、甜适度，滋味丰满而悠长
+    </li>
+  </ol>
+  <div class="tipbox"><b>附加内容</b>放入冰箱冷藏后再饮用效果更佳。</div>
+</article>
+
+<article class="dish reveal" id="d36" data-diff="easy">
+  <div class="dish-head"><h2><span class="idx">36</span>酸梅汤（半成品加工）</h2></div>
+  <div class="chips"><span class="chip">用料 7 项</span><span class="chip">步骤 5 步</span></div>
+  <p class="desc">酸梅汤（半成品加工）是一道酸甜爽口的夏日消暑饮品，传统京味风格。酸梅汤本身有生津止渴、帮助消化的好处。做法极其简单，只需按顺序搅拌即可，对新手毫无难度，全程大约五分钟就能完成。 预估烹饪难度：★ 预估卡路里：603 大卡</p>
+  <h3>用料</h3>
+  <ul class="ingredients">
+    <li>酸梅晶固体饮料</li>
+    <li>方糖（可选）</li>
+    <li>北京二锅头酒（可选）</li>
+    <li>饮用水 1177 克</li>
+    <li>酸梅晶固体饮料 120 克</li>
+    <li>方糖 9 克</li>
+    <li>北京二锅头酒 48 克</li>
+  </ul>
+  <h3>步骤</h3>
+  <ol class="steps">
+    <li>取饮用水 1177 克。
+    </li>
+    <li>放入酸梅晶固体饮料 60 克，使用汤匙顺时针搅拌 50 圈。
+    </li>
+    <li>再放入剩下 60 克酸梅晶固体饮料，再次使用汤匙顺时针搅拌 50 圈。
+    </li>
+    <li>放入 9 克的方糖，使用汤匙顺时针搅拌 100 圈。
+    </li>
+    <li>放入北京二锅头酒 48 克，用汤匙顺时针搅拌 30 圈。
+    </li>
+  </ol>
+  <div class="tipbox"><b>附加内容</b>如果没有准备方糖或北京二锅头，可以省略操作中的第 4 步或第 5 步。；放入冰箱冷藏后再饮用效果更佳。；饮酒请勿驾车。</div>
+</article>
+
+<article class="dish reveal" id="d37" data-diff="mid">
+  <div class="dish-head"><h2><span class="idx">37</span>泰国手标红茶</h2></div>
+  <div class="chips"><span class="chip">用料 13 项</span><span class="chip">步骤 6 步</span></div>
+  <p class="desc">这是一道源自泰国街头的经典奶茶，茶香浓郁，口感绵密顺滑，炼乳与牛奶带来香甜奶味。茶奶结合可提供少量蛋白质和钙，但含糖量较高，适宜作为消暑解渴的饮品。制作步骤简单，但需反复过滤茶汤并等待长时间冷藏，整体耗时约 4 小时 20 分钟，对新手稍有耐心即可完成。 预估烹饪难度：★★★ 预估卡路里：185 大卡</p>
+  <h3>用料</h3>
+  <ul class="ingredients">
+    <li>水</li>
+    <li>茶粉</li>
+    <li>炼乳</li>
+    <li>白糖</li>
+    <li>牛奶</li>
+    <li>克称</li>
+    <li>带刻度容器</li>
+    <li>港式奶茶过滤袋</li>
+    <li>水(600cc)</li>
+    <li>茶粉(20g)</li>
+    <li>白糖(24g)</li>
+    <li>牛奶(18ml)</li>
+    <li>炼乳(24g)</li>
+  </ul>
+  <h3>步骤</h3>
+  <ol class="steps">
+    <li>600cc 水大火烧开
+    </li>
+    <li>在过滤袋中装入 20g 茶粉，开水倒入过滤袋中，过滤 20 遍
+    </li>
+    <li>使用克称量取 24g 炼乳、24g 白糖和 18ml 牛奶放入 1000ml 以上的水壶中
+    </li>
+    <li>将过滤好的茶水倒入水壶中搅拌，直到白糖融化
+    </li>
+    <li>将水壶放到冰箱 4 小时以上
+    </li>
+    <li>喝前可以加 6-8 颗冰块
+    </li>
+  </ol>
+</article>
+
+<article class="dish reveal" id="d38" data-diff="easy">
+  <div class="dish-head"><h2><span class="idx">38</span>杨枝甘露</h2></div>
+  <div class="chips"><span class="chip">用料 13 项</span><span class="chip">步骤 5 步</span></div>
+  <p class="desc">这是一道改良版的经典港式甜品，用奇亚籽代替西谷米，口感滑嫩又带有籽粒的细微嚼劲，芒果的香甜与葡萄柚的微酸交织，椰奶增添浓郁。富含膳食纤维、维生素 C 和优质脂肪，清爽解暑。制作非常简单，新手也能轻松完成，从备料到享用只需约 20 分钟。 预估烹饪难度：★★ 预估卡路里：661 大卡</p>
+  <h3>用料</h3>
+  <ul class="ingredients">
+    <li>杯子</li>
+    <li>水果刀</li>
+    <li>牛奶</li>
+    <li>冰块</li>
+    <li>调理机/果汁机</li>
+    <li>奇亚籽 24g</li>
+    <li>牛奶 50ml</li>
+    <li>冰块 2 小块</li>
+    <li>芒果 1 粒</li>
+    <li>葡萄柚 1/2 粒</li>
+    <li>椰奶 150ml</li>
+    <li>切丝芒果干 （可选）</li>
+    <li>切丝柳橙干 （可选）</li>
+  </ul>
+  <h3>步骤</h3>
+  <ol class="steps">
+    <li>奇亚籽泡牛奶 10 分钟。
+    </li>
+    <li>泡籽之时，把半粒芒果、葡萄柚去皮切丁，放入杯中。
+    </li>
+    <li>半粒芒果切小块放入调理机加冰块、椰奶打成泥。
+    </li>
+    <li>倒入杯中，放上点缀材料（如有）。
+    </li>
+    <li>一边享用一边写代码！！
+    </li>
+  </ol>
+</article>
+
+<article class="dish reveal" id="d39" data-diff="easy">
+  <div class="dish-head"><h2><span class="idx">39</span>印度奶茶</h2></div>
+  <div class="chips"><span class="chip">用料 18 项</span><span class="chip">步骤 14 步</span></div>
+  <p class="desc">印度奶茶是一道充满异域风情的家常饮品，以红茶、牛奶和多种香料现煮而成，口感浓郁顺滑，带有生姜、豆蔻、肉桂交织的辛香暖意。牛奶提供优质蛋白和钙质，香料则有助于暖身驱寒、促进消化。制作过程简单直观，对新手友好，从备料到入口只需大约 10 分钟。 预估烹饪难度：★★ 预估卡路里：135 大卡</p>
+  <h3>用料</h3>
+  <ul class="ingredients">
+    <li>红茶（CTC 红茶最佳，或阿萨姆红茶）</li>
+    <li>全脂牛奶</li>
+    <li>生姜</li>
+    <li>小豆蔻（绿色）</li>
+    <li>肉桂棒</li>
+    <li>丁香</li>
+    <li>黑胡椒粒</li>
+    <li>糖</li>
+    <li>小奶锅</li>
+    <li>水 120ml</li>
+    <li>全脂牛奶 120ml</li>
+    <li>红茶 8g（约 2 茶匙）</li>
+    <li>生姜 5g（约 1cm 一块），拍碎</li>
+    <li>绿色小豆蔻 2 颗，拍开</li>
+    <li>肉桂棒 1 小段（约 2cm）</li>
+    <li>丁香 2 颗</li>
+    <li>黑胡椒粒 2 颗，拍碎</li>
+    <li>糖 10-15g（根据个人口味调整）</li>
+  </ul>
+  <h3>步骤</h3>
+  <ol class="steps">
+    <li>将生姜拍碎（不用切太碎，拍开即可释放姜汁）
+    </li>
+    <li>将小豆蔻用刀背拍开，露出里面的籽
+    </li>
+    <li>将黑胡椒粒拍碎
+    </li>
+    <li>在小奶锅中倒入 120ml 水
+    </li>
+    <li>放入拍碎的生姜、小豆蔻、肉桂棒、丁香、黑胡椒粒
+    </li>
+    <li>大火煮沸后转小火，煮 2 分钟，让香料的味道充分释出
+    </li>
+    <li>加入红茶 8g，继续小火煮 2 分钟，直至*茶汤颜色变深*
+    </li>
+    <li>倒入全脂牛奶 120ml
+    </li>
+    <li>中火加热，注意观察，当奶茶开始*冒泡上升*时立即转小火（牛奶极易溢出）
+    </li>
+    <li>小火煮 2-3 分钟，期间可以将锅提起倒回（反复提拉 3-4 次），使茶汤与牛奶充分融合
+    </li>
+    <li>加入糖，搅拌溶解
+    </li>
+    <li>关火
+    </li>
+    <li>用滤网过滤到茶盏中，去除茶叶和香料残渣
+    </li>
+    <li>趁热饮用
+    </li>
+  </ol>
+  <div class="tipbox"><b>附加内容</b>CTC 红茶（Crush, Tear, Curl 工艺制成）是印度奶茶的最佳选择，因为其颗粒细碎，能在短时间内释放浓厚的茶味。中国的祁门红茶或滇红也可以替代。；牛奶和水的比例可以根据个人喜好调整。更浓的奶茶用牛奶多水少，更清爽的用水多牛奶少。；生姜是印度奶茶的灵魂，不建议省略。；印度人喜欢将奶茶煮得很甜，如果不习惯可以减少糖量。；在印度，Chai 不仅是饮品，更是一种社交文化。朋友聚会、商务谈判、甚至初次见面，都从一份 Chai 开始。据统计印度每天消耗超过 10 亿份茶。；印度街头奶茶摊(Chai Wala)通常使用陶土杯(Kulhad)盛茶，赋予茶汤一种独特的泥土芬芳。</div>
+</article>
+
+<article class="dish reveal" id="d40" data-diff="easy">
+  <div class="dish-head"><h2><span class="idx">40</span>长岛冰茶</h2></div>
+  <div class="chips"><span class="chip">用料 20 项</span><span class="chip">步骤 7 步</span></div>
+  <p class="desc">长岛冰茶是一款口感酷似冰茶、入口柔和但酒精度颇高的经典鸡尾酒。它本身营养价值不高，偶尔小酌可放松身心，但切勿过量。做法非常简单，只需按比例混合四种基酒、甜酒和果汁，新手也能轻松调制。从准备到完成仅需 大约 5 分钟。 预估烹饪难度：★★ 预估卡路里：281 大卡</p>
+  <h3>用料</h3>
+  <ul class="ingredients">
+    <li>金酒</li>
+    <li>龙舌兰酒</li>
+    <li>伏特加</li>
+    <li>白朗姆酒</li>
+    <li>橙味甜酒</li>
+    <li>柠檬</li>
+    <li>枫糖浆</li>
+    <li>可乐</li>
+    <li>冰块</li>
+    <li>高球杯（容量 300ml）</li>
+    <li>金酒 15ml</li>
+    <li>龙舌兰酒 15ml</li>
+    <li>伏特加 15ml</li>
+    <li>白朗姆酒 15ml</li>
+    <li>橙味甜酒 15ml</li>
+    <li>柠檬汁 30ml</li>
+    <li>枫糖浆 20ml</li>
+    <li>可乐 75ml</li>
+    <li>柠檬 1 个</li>
+    <li>冰块 100 克</li>
+  </ul>
+  <h3>步骤</h3>
+  <ol class="steps">
+    <li>柠檬对半切，挤出 30ml 柠檬汁至杯中；
+    </li>
+    <li>依次向杯中加入：
+    <ul>
+      <li>15ml 金酒，</li>
+      <li>15ml 龙舌兰酒，</li>
+      <li>15ml 伏特加，</li>
+      <li>15ml 白朗姆酒，</li>
+      <li>15ml 橙味甜酒；</li>
+    </ul>
+    </li>
+    <li>向杯中缓慢倒入 20ml 枫糖浆，边倒边搅拌；
+    </li>
+    <li>向杯中加入 75ml 可乐；
+    </li>
+    <li>向杯中加入冰块直至满杯；
+    </li>
+    <li>轻轻搅拌 20 秒；
+    </li>
+    <li>开始享用.
+    </li>
+  </ol>
+  <div class="tipbox"><b>附加内容</b>长岛冰茶，不含茶却有着冰茶的口感，是一种有着较高酒精度（约 15%），但口感柔和易于接受的鸡尾酒。；参考资料：国际调酒师协会：长岛冰茶</div>
+</article>
+
+<article class="dish reveal" id="d41" data-diff="mid">
+  <div class="dish-head"><h2><span class="idx">41</span>B52轰炸机</h2></div>
+  <div class="chips"><span class="chip">用料 9 项</span><span class="chip">步骤 5 步</span></div>
+  <p class="desc">这款鸡尾酒口感层次分明，入口先是伏特加的烈，紧接着是咖啡奶油的回甘，点燃后饮用有独特的冰火体验，属于经典创意鸡尾酒。咖啡酒与百利甜酒提供了少量咖啡因和奶脂，但整体营养以酒精为主。制作需要练习分层倒酒和点火技巧，对新手稍有难度，整个过程大约只需 5 分钟。 预估烹饪难度：★★★ 预估卡路里：80 大卡</p>
+  <h3>用料</h3>
+  <ul class="ingredients">
+    <li>甘露咖啡酒</li>
+    <li>爱尔兰百利甜酒</li>
+    <li>蓝天原味伏特加</li>
+    <li>吧勺</li>
+    <li>利口酒杯</li>
+    <li>打火机</li>
+    <li>甘露咖啡酒 10ml</li>
+    <li>爱尔兰百利甜酒 10ml</li>
+    <li>蓝天原味伏特加 10ml</li>
+  </ul>
+  <h3>步骤</h3>
+  <ol class="steps">
+    <li>在利口酒杯的最底层倒入甘露咖啡酒到 1/3 处。(10ml)
+    </li>
+    <li>顺着吧勺缓缓倒入爱尔兰百利甜酒，也是 1/3 处 (10ml)。注意要慢，保证层次分明。（太快甜酒会和咖啡混合）
+    </li>
+    <li>最后在上层倒入蓝天原味伏特加 （10ml)
+    </li>
+    <li>用打火机热一下杯口
+    </li>
+    <li>最后一步点火： 看到淡蓝色的小火苗了吗？
+    </li>
+  </ol>
+  <div class="tipbox"><b>附加内容</b>喝的时候，现在酒吧常用的方法是提供一个吸管，在火还燃烧的时候插入，然后快速全部吸入。；由于吸管太细，其中氧气不足，所以火苗会灭掉，不必担心。这时候，会感到一股热辣顺着喉咙一直烈到胃，之后就是久久的咖啡奶油回甘。非常刺激又好喝。</div>
+</article>
+
+<article class="dish reveal" id="d42" data-diff="mid">
+  <div class="dish-head"><h2><span class="idx">42</span>Mojito莫吉托</h2></div>
+  <div class="chips"><span class="chip">用料 10 项</span><span class="chip">步骤 11 步</span></div>
+  <p class="desc">这款鸡尾酒口感清爽酸甜，带有薄荷的清凉和朗姆酒的微醺，是经典的夏季饮品。酒精含量较低，佐以富含维生素 C 的青柠，能生津解渴、提神醒脑。制作十分简单，对新手友好，从备料到完成只需大约十 分钟。 预估烹饪难度：★★★ 预估卡路里：187 大卡</p>
+  <h3>用料</h3>
+  <ul class="ingredients">
+    <li>打碎的冰块</li>
+    <li>冰镇苏打水</li>
+    <li>压汁器</li>
+    <li>海波杯</li>
+    <li>研杵</li>
+    <li>一块青柠（切成两个半块）</li>
+    <li>五珠薄荷叶</li>
+    <li>糖浆 20ml</li>
+    <li>金色朗姆酒 45ml</li>
+    <li>蓝天原味伏特加 10ml</li>
+  </ul>
+  <h3>步骤</h3>
+  <ol class="steps">
+    <li>将切成半块的青柠之一切成小块，放入海波杯，随后用研杵将其捣出汁；
+    </li>
+    <li>用 3-4 珠薄荷叶沿着杯口涂抹，随后将其放入杯中；
+    </li>
+    <li>加入 糖浆 20ml；
+    </li>
+    <li>加入 金色朗姆酒 45ml；
+    </li>
+    <li>将剩下的半块青柠压出汁水放入杯中；
+    </li>
+    <li>轻轻搅拌，使砂糖/糖浆处于半融合状态；
+    </li>
+    <li>将打碎的冰块放入杯中，直到占杯中 3/4；
+    </li>
+    <li>加入冰镇苏打水直到刚好淹没碎冰；
+    </li>
+    <li>旋转搅拌半分钟；
+    </li>
+    <li>使用碎冰将海波杯补满；
+    </li>
+    <li>将剩下的一株薄荷叶拍醒，插入碎冰，作装饰。
+    </li>
+  </ol>
+  <div class="tipbox"><b>附加内容</b>参考资料：【哔哩哔哩】莫吉托(Mojito)世界上最著名的经典鸡尾酒之一。</div>
+</article>
+
+</section>
+</main>
+
+
+<footer>
+  <div>内容整理自开源项目 HowToCook（程序员做饭指南），菜谱版权归原作者与社区所有。</div>
+  <div class="f-links">
+    <a href="index.html">首页</a> ·
+    <a href="start.html">学前准备</a> ·
+    <a href="vegetable.html">素菜</a> ·
+    <a href="meat.html">荤菜</a> ·
+    <a href="meat2.html">荤菜 II</a> ·
+    <a href="aquatic.html">水产</a> ·
+    <a href="breakfast.html">早餐</a> ·
+    <a href="soup.html">汤与粥</a> ·
+    <a href="staple.html">主食</a> ·
+    <a href="dessert.html">甜品饮品</a> ·
+    <a href="sauce.html">酱料</a> ·
+    <a href="https://github.com/Anduin2017/HowToCook" target="_blank" rel="noopener">GitHub</a>
+  </div>
+</footer>
+
+<script>
+(function(){
+  var b=document.getElementById('themeBtn');
+  function sync(){
+    var t=document.documentElement.getAttribute('data-theme');
+    if(b){b.textContent=t==='dark'?'☀':'🌙';b.title=t==='dark'?'切换到明亮主题':'切换到暗色主题';}
+  }
+  sync();
+  if(b){b.addEventListener('click',function(){
+    var t=document.documentElement.getAttribute('data-theme')==='dark'?'light':'dark';
+    document.documentElement.setAttribute('data-theme',t);
+    try{localStorage.setItem('theme',t)}catch(e){}
+    sync();
+  });}
+})();
+</script>
+<script>
+(function(){
+  if (!window.matchMedia('(prefers-reduced-motion: no-preference)').matches) return;
+  var els = document.querySelectorAll('.reveal');
+  if (!('IntersectionObserver' in window)) {
+    els.forEach(function(el){ el.classList.add('in'); });
+    return;
+  }
+  var io = new IntersectionObserver(function(entries){
+    entries.forEach(function(e){
+      if (e.isIntersecting) { e.target.classList.add('in'); io.unobserve(e.target); }
+    });
+  }, {threshold:.08});
+  els.forEach(function(el){ io.observe(el); });
+})();
+</script>
+
+<script>
+(function(){
+  var dishes=[].slice.call(document.querySelectorAll('article.dish[data-diff]'));
+  if(!dishes.length)return;
+  var bar=document.getElementById('dfilter');
+  var count=document.getElementById('dfCount');
+  var btns=[].slice.call(document.querySelectorAll('.dfilter .dBtn'));
+  if(!bar||!count||!btns.length)return;
+  function apply(f){
+    var n=0;
+    dishes.forEach(function(d){
+      var show=(f==='all')||d.getAttribute('data-diff')===f;
+      d.classList.toggle('hide',!show);
+      if(show)n++;
+    });
+    btns.forEach(function(b){b.classList.toggle('on',b.getAttribute('data-f')===f);});
+    count.textContent='当前 '+n+' 道';
+  }
+  btns.forEach(function(b){b.addEventListener('click',function(){apply(b.getAttribute('data-f'));});});
+  function checkHash(){
+    var h=location.hash;
+    if(!h||h.length<2)return;
+    var t=document.getElementById(h.slice(1));
+    if(t&&t.classList.contains('hide')){apply('all');t.scrollIntoView();}
+  }
+  window.addEventListener('hashchange',checkHash);
+  [].slice.call(document.querySelectorAll('.toc a')).forEach(function(a){
+    a.addEventListener('click',function(){setTimeout(checkHash,0);});
+  });
+  apply('all');
+  checkHash();
+})();
+</script>
+</body>
+</html>

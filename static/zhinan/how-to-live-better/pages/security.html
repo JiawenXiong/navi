@@ -1,0 +1,384 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>失业与保障 · 高性价比人生指南精读版</title>
+<script>
+(function(){var t=null;try{t=localStorage.getItem('theme')}catch(e){}
+if(t!=='light'&&t!=='dark'){var h=new Date().getHours();t=(h>=7&&h<17)?'light':'dark'}
+document.documentElement.setAttribute('data-theme',t)})();
+</script>
+<style>
+*{box-sizing:border-box;margin:0;padding:0}
+:root{--bg:#f7f3ea;--ink:#2a2a24;--soft:#4a4a3f;--muted:#5a5a4d;--muted2:#7a7a6c;--body-ink:#3d3d33;--link:#2d5a4a;--accent:#2d5a4a;--deep:#1f4437;--head-bg:#f2ecdd;--nav-hover:#e3ead9;--nav-hover-ink:#1f4437;--on-bg:#2d5a4a;--on-ink:#f7f3ea;--card:#fffdf7;--line:#e4ddc9;--th-bg:#e7efe9;--chip-bg:#e7efe9;--chip-ink:#24503f;--chip-hover:#d5e3d8;--bA-bg:#2d5a4a;--bA-ink:#f7f3ea;--bB-bg:#dce8df;--bB-ink:#24503f;--bB-line:#9dbcaa;--bC-ink:#6a6a5f;--bC-line:#b9b5a6;--note-bg:#f0ead9;--note-line:#e0d8c2;--kick-bg:#eef3ec;--src:#9a9684;--tag-bg:#f6e8d8;--tag-ink:#8a5a1e;--tag-line:#e0c9a6;--foot-bg:#243b32;--foot-ink:#cfd8cf;--foot-link:#a8d0b8}
+[data-theme="dark"]{--bg:#0f1e18;--ink:#ece7d9;--soft:#c9c6b6;--muted:#bfc4b4;--muted2:#a3ab9d;--body-ink:#d6d9cc;--link:#7cc9a4;--accent:#6fbf98;--deep:#a9e0c3;--head-bg:#14251d;--nav-hover:#24382e;--nav-hover-ink:#e2efe6;--on-bg:#2f6b52;--on-ink:#f2f7f0;--card:#16291f;--line:#2e463a;--th-bg:#1d3a2d;--chip-bg:#1d3a2d;--chip-ink:#a8e3c4;--chip-hover:#274a39;--bA-bg:#5fbf95;--bA-ink:#0c1b14;--bB-bg:#1d3a2d;--bB-ink:#a8e3c4;--bB-line:#3d6a55;--bC-ink:#b9c2b4;--bC-line:#55645c;--note-bg:#1c2f24;--note-line:#35503f;--kick-bg:#16291f;--src:#97a496;--tag-bg:#3a2c17;--tag-ink:#e8c088;--tag-line:#6a5232;--foot-bg:#0b1712;--foot-ink:#b7c4b7;--foot-link:#8fd4b4}
+html{scroll-behavior:smooth}
+body{font-family:"Microsoft YaHei","PingFang SC","Noto Sans SC",system-ui,sans-serif;background:var(--bg);color:var(--ink);line-height:1.75;font-size:16px}
+.wrap{max-width:1060px;margin:0 auto;padding:0 20px}
+a{color:var(--link)}
+header.site{position:sticky;top:0;z-index:20;background:var(--head-bg);border-bottom:2px solid var(--accent)}
+nav.top{display:flex;align-items:center;gap:2px;white-space:nowrap;overflow-x:auto;padding:9px 0;font-size:14.5px;-webkit-overflow-scrolling:touch}
+nav.top::-webkit-scrollbar{display:none}
+nav.top a{text-decoration:none;color:var(--ink);padding:5px 12px;border-radius:8px;flex:0 0 auto}
+nav.top a:hover{background:var(--nav-hover)}
+nav.top a.on{background:var(--on-bg);color:var(--on-ink)}
+nav.top a.gh{margin-left:auto;color:var(--link);font-weight:700}
+nav.top a.gh:hover{background:var(--nav-hover);color:var(--nav-hover-ink)}
+.theme-btn{flex:0 0 auto;font-size:14px;line-height:1;padding:6px 11px;border-radius:8px;border:1px solid var(--line);background:var(--card);color:var(--ink);cursor:pointer}
+.theme-btn:hover{background:var(--nav-hover);color:var(--nav-hover-ink)}
+.pagehead{padding:40px 0 24px;border-bottom:1px solid var(--line)}
+.pagehead h1{font-size:clamp(24px,4vw,34px);color:var(--deep);margin-bottom:10px}
+.pagehead p{color:var(--soft);max-width:46em;font-size:15.5px}
+.subnav{display:flex;flex-wrap:wrap;gap:8px;margin-top:18px}
+.subnav a{font-size:13.5px;text-decoration:none;background:var(--chip-bg);color:var(--chip-ink);border-radius:999px;padding:4px 14px}
+.subnav a:hover{background:var(--chip-hover)}
+section.block{padding:38px 0 8px}
+h2.sec{font-size:23px;color:var(--deep);border-left:6px solid var(--accent);padding-left:14px;margin-bottom:6px}
+p.secdesc{color:var(--muted);margin-bottom:18px;max-width:46em;font-size:15px}
+.list{display:flex;flex-direction:column;gap:14px;margin-bottom:28px}
+.card{background:var(--card);border:1px solid var(--line);border-radius:12px;padding:18px 22px}
+.card-head{display:flex;justify-content:space-between;align-items:flex-start;gap:12px;margin-bottom:8px}
+.card-head h3{font-size:16.5px;color:var(--deep);line-height:1.5}
+.badge{display:inline-block;font-size:12px;font-weight:700;padding:2px 10px;border-radius:999px;white-space:nowrap;flex:0 0 auto;margin-top:2px}
+.badge.a{background:var(--bA-bg);color:var(--bA-ink)}
+.badge.b{background:var(--bB-bg);color:var(--bB-ink);border:1px solid var(--bB-line)}
+.badge.c{background:transparent;color:var(--bC-ink);border:1px solid var(--bC-line)}
+.card dl div{margin-bottom:6px;font-size:14.6px;color:var(--body-ink)}
+.card dt{display:inline;font-weight:700;color:var(--accent)}
+.card dd{display:inline;margin:0}
+.card .src{font-size:12.5px;color:var(--src);margin-top:8px;border-top:1px dashed var(--line);padding-top:8px}
+.note{background:var(--note-bg);border:1px solid var(--note-line);border-radius:12px;padding:16px 20px;font-size:14.3px;color:var(--muted);margin-bottom:30px}
+footer.site{margin-top:44px;background:var(--foot-bg);color:var(--foot-ink);padding:28px 0 24px;font-size:13.5px}
+footer.site a{color:var(--foot-link)}
+footer.site .wrap p{margin-bottom:6px}
+@media (max-width:560px){.card{padding:15px 16px}.card-head{flex-direction:column;gap:4px}}
+@media (prefers-reduced-motion: no-preference){
+.reveal{opacity:0;transform:translateY(14px);transition:opacity .5s ease,transform .5s ease}
+.reveal.in{opacity:1;transform:none}
+}
+
+@media (prefers-reduced-motion: reduce){.reveal{opacity:1 !important;transform:none !important}}</style>
+<noscript><style>.reveal{opacity:1 !important;transform:none !important}</style></noscript></head>
+<body>
+<header class="site">
+  <div class="wrap">
+    <nav class="top">
+      <a href="../index.html">首页</a>
+      <a href="health.html">健康与急救</a>
+      <a href="money.html">金钱与红线</a>
+      <a class="on" href="security.html">失业与保障</a>
+      <a href="family.html">恋爱与育儿</a>
+      <a href="career.html">创业与技能</a>
+      <a class="gh" href="https://github.com/eternity4719/HowToLiveBetter" target="_blank" rel="noopener">GitHub 仓库</a>
+      <button class="theme-btn" type="button" aria-label="切换明暗主题">🌓</button>
+    </nav>
+  </div>
+</header>
+
+<main>
+  <div class="pagehead wrap">
+    <h1>失业与保障</h1>
+    <p>失业与工伤、医保与社保两个主题，摘编自原书第 7 节（没钱的时候怎么活）、第 19 节（在职、离职和工伤）、第 24 节（看病）和第 16 节（得了慢性病之后怎么活）。这一整页几乎条条不花钱，换回的是保障与金钱：知道去哪领钱、怎么留证据、看病怎么少花钱。</p>
+    <div class="subnav">
+      <a href="#shiye">失业、欠薪与工伤</a>
+      <a href="#yibao">医保与社保</a>
+    </div>
+  </div>
+
+  <section class="block wrap" id="shiye">
+    <h2 class="sec">失业、欠薪与工伤</h2>
+    <p class="secdesc">口径：金钱与保障。先记住三个不收费：劳动监察投诉不收费、劳动仲裁不收费、法律援助不收费。</p>
+    <div class="list">
+
+      <article class="card reveal">
+        <div class="card-head"><h3>失业了先在线申领失业保险金</h3><span class="badge a">证据 A</span></div>
+        <dl>
+          <div><dt>成本：</dt><dd>不花钱。手机就能办：「掌上 12333」App、电子社保卡小程序或国家社会保险公共服务平台，多数地区不用跑现场。前提是先办好失业登记。</dd></div>
+          <div><dt>收益：</dt><dd>单位和本人交满 1 年、又不是自己主动辞职的，就能领：交满 1 年不到 5 年最多领 12 个月，满 5 年不到 10 年最多 18 个月，10 年以上最多 24 个月。领钱这段时间职工医保由失业保险替你交。</dd></div>
+        </dl>
+        <p class="src">出自第 7 节第 1 条</p>
+      </article>
+
+      <article class="card reveal">
+        <div class="card-head"><h3>被欠薪先投诉劳动监察，再申请劳动仲裁，两条路都不收费</h3><span class="badge a">证据 A</span></div>
+        <dl>
+          <div><dt>成本：</dt><dd>不花钱。备齐劳动合同、工资条、考勤、转账和聊天记录，跑人社局或仲裁委 1 到 3 趟。已离职的要在离职起 1 年内提出仲裁。</dd></div>
+          <div><dt>收益：</dt><dd>打 12333 或去劳动监察投诉，立案后 60 个工作日内查完，查实了责令限期付钱，逾期不付还要多赔 50% 到 100%；再不行申请劳动仲裁，45 天内结案。注意「结案」不等于「到账」，公司没财产也可能赢了拿不到钱。</dd></div>
+        </dl>
+        <p class="src">出自第 7 节第 2 条</p>
+      </article>
+
+      <article class="card reveal">
+        <div class="card-head"><h3>打不起官司就申请法律援助，讨薪、工伤本来就在范围内</h3><span class="badge a">证据 A</span></div>
+        <dl>
+          <div><dt>成本：</dt><dd>不花钱，法律援助不向被援助人收一分钱。</dd></div>
+          <div><dt>收益：</dt><dd>讨薪、要赡养费、要社保或低保待遇、工伤索赔都能申请。打 12348 或去当地法律援助中心；现在不用回原籍开经济困难证明，本人如实说明就行。</dd></div>
+        </dl>
+        <p class="src">出自第 7 节第 3 条</p>
+      </article>
+
+      <article class="card reveal">
+        <div class="card-head"><h3>走投无路时去救助站，管吃住和返乡车票</h3><span class="badge a">证据 A</span></div>
+        <dl>
+          <div><dt>成本：</dt><dd>不花钱，自己到救助管理站或让民警、民政部门带你去，进站如实登记。难在要开口说没钱、没地方去。</dd></div>
+          <div><dt>收益：</dt><dd>救助站管吃管住，生病送医院，没钱回家的发车票，一般住不超过 10 天。自愿来自愿走，不是收容，也不发现金。</dd></div>
+        </dl>
+        <p class="src">出自第 7 节第 4 条</p>
+      </article>
+
+      <article class="card reveal">
+        <div class="card-head"><h3>收入低于当地低保线就申请低保</h3><span class="badge a">证据 A</span></div>
+        <dl>
+          <div><dt>成本：</dt><dd>不花钱。由一起过日子的家庭成员向户籍地乡镇政府或街道办交书面申请，接受收入财产核查，通常跑 2 到 3 趟。难在把家底摊开给人查、等公示。</dd></div>
+          <div><dt>收益：</dt><dd>全家人均收入低于当地低保线、财产符合规定的就能申请。2024 年末全国城市低保线平均每人每月 798.1 元、农村 593.9 元，钱按差额补。比低保线略高或看病上学花得多的，还能申请医疗、教育、住房、就业救助。</dd></div>
+        </dl>
+        <p class="src">出自第 7 节第 7 条</p>
+      </article>
+
+      <article class="card reveal">
+        <div class="card-head"><h3>找活先用免费的公共就业服务和零工市场，不找收费中介</h3><span class="badge a">证据 A</span></div>
+        <dl>
+          <div><dt>成本：</dt><dd>不花钱。到县级以上就业服务中心、人力资源市场或零工市场登记，不知道地址拨 12333 问。</dd></div>
+          <div><dt>收益：</dt><dd>公家机构的职业介绍、指导、政策咨询全都不收钱，法律明文不许它们拿这些服务赚钱。顺手把失业登记办掉，领失业金和认定就业困难人员都要用它。</dd></div>
+        </dl>
+        <p class="src">出自第 7 节第 5 条</p>
+      </article>
+
+      <article class="card reveal">
+        <div class="card-head"><h3>失业期间去领职业培训补贴，别自费上培训班</h3><span class="badge a">证据 A</span></div>
+        <dl>
+          <div><dt>成本：</dt><dd>不花钱，培训要占时间。难在要连着上完课、考出证书才拿得到补贴。</dd></div>
+          <div><dt>收益：</dt><dd>登记失业人员等符合条件的人，培训后取得规定证书可领培训补贴，累计最多 3 次；离校两年内未就业高校毕业生和 16 到 24 岁登记失业青年可参加就业见习，期间领基本生活费。先查当地人社局官网的补贴目录，再决定学什么。</dd></div>
+        </dl>
+        <p class="src">出自第 7 节第 13 条</p>
+      </article>
+
+      <article class="card reveal">
+        <div class="card-head"><h3>住房困难先排公租房</h3><span class="badge b">证据 B</span></div>
+        <dl>
+          <div><dt>成本：</dt><dd>申请不收费，向市县住房保障部门交材料并书面同意核实，轮候期一般不超过 5 年。</dd></div>
+          <div><dt>收益：</dt><dd>要同时占三条：本地没房或面积低于标准、收入财产低于标准、外来务工的稳定就业满规定年限。这是远水解不了近渴，但排队不花钱，早报名早轮到。</dd></div>
+        </dl>
+        <p class="src">出自第 7 节第 16 条</p>
+      </article>
+
+      <article class="card reveal">
+        <div class="card-head"><h3>社保断缴不要慌：养老按累计算，医保按规则补</h3><span class="badge a">证据 A</span></div>
+        <dl>
+          <div><dt>成本：</dt><dd>不花钱。断了也不必为「别断档」花钱找人挂靠。</dd></div>
+          <div><dt>收益：</dt><dd>养老金按累计年限算，断了不清零，到退休年龄累计满 15 年就能按月领（2030 年起逐年提到 20 年）。断缴影响两样：居民医保重新交上后有段时间不给报，各地买房、落户、积分常要求连续缴费。</dd></div>
+        </dl>
+        <p class="src">出自第 7 节第 18 条</p>
+      </article>
+
+      <article class="card reveal">
+        <div class="card-head"><h3>信用卡、网贷还不上，自己打客服申请个性化分期，别找中介</h3><span class="badge b">证据 B</span></div>
+        <dl>
+          <div><dt>成本：</dt><dd>不花钱。打官方客服电话说清还不上但愿意还，备好收入、失业或生病证明，常要打好几次。难在一遍遍讲自己的难处。</dd></div>
+          <div><dt>收益：</dt><dd>信用卡还不上又愿意还的，可找银行谈个性化分期，最长 5 年，签了协议银行停止催收；但银行可以不答应，逾期记录照样留在征信上。收钱帮你「停息挂账」「洗白征信」的中介，监管部门专门提示过，别找，也别借新还旧。</dd></div>
+        </dl>
+        <p class="src">出自第 7 节第 23 条</p>
+      </article>
+
+      <article class="card reveal">
+        <div class="card-head"><h3>加班费按 1.5 倍、2 倍、3 倍三档算，不给就投诉</h3><span class="badge a">证据 A</span></div>
+        <dl>
+          <div><dt>成本：</dt><dd>不花钱。平时顺手存打卡记录、排班表、加班审批单，工作群派活消息截图。难在每个月都记得存。</dd></div>
+          <div><dt>收益：</dt><dd>平时加班 1.5 倍，休息日加班没补休的 2 倍，法定假日上班 3 倍（没有拿补休顶掉的选项）。公司不给就投诉劳动监察，被责令限期付款后还不给的，单位另加付欠款的一半到一倍。</dd></div>
+        </dl>
+        <p class="src">出自第 19 节第 1 条</p>
+      </article>
+
+      <article class="card reveal">
+        <div class="card-head"><h3>年休假按累计工龄算 5、10、15 天，没休成的按日工资 300% 折钱</h3><span class="badge a">证据 A</span></div>
+        <dl>
+          <div><dt>成本：</dt><dd>不花钱，把所有单位干过的年头加起来算一遍，社保缴费记录就是证明。难在「自愿放弃年休假」的表要能不签。</dd></div>
+          <div><dt>收益：</dt><dd>连续工作满 12 个月就有年休假：满 1 年不满 10 年每年 5 天，满 10 年 10 天，满 20 年 15 天。单位安排不了、本人同意不休的，那几天按日工资 3 倍给钱；「自愿放弃」一签就只剩正常工资。</dd></div>
+        </dl>
+        <p class="src">出自第 19 节第 2 条</p>
+      </article>
+
+      <article class="card reveal">
+        <div class="card-head"><h3>被裁先算清 N：每满一年一个月工资，不满六个月按半个月</h3><span class="badge a">证据 A</span></div>
+        <dl>
+          <div><dt>成本：</dt><dd>不花钱，拿计算器算一次十分钟。</dd></div>
+          <div><dt>收益：</dt><dd>干满一年给一个月工资，满半年不满一年按一年算，不满半年给半个月；月工资按走人前 12 个月平均数，奖金、津贴都算进去。工资高过当地上年度月平均工资 3 倍的按 3 倍封顶，年限最多算 12 年。公司违法解除的，赔偿金是这个的两倍。</dd></div>
+        </dl>
+        <p class="src">出自第 19 节第 4、6 条</p>
+      </article>
+
+      <article class="card reveal">
+        <div class="card-head"><h3>不要签「个人原因主动辞职」，那一签就没有 N 了</h3><span class="badge b">证据 B</span></div>
+        <dl>
+          <div><dt>成本：</dt><dd>不花钱，难在顶住当场签字的压力。不必当天签，冷静一晚再说。</dd></div>
+          <div><dt>收益：</dt><dd>签字承认「个人原因主动辞职」，经济补偿和失业保险金通常一起落空；公司欠薪、不缴社保这类过错除外。</dd></div>
+        </dl>
+        <p class="src">出自第 19 节第 7 条</p>
+      </article>
+
+      <article class="card reveal">
+        <div class="card-head"><h3>离职前把工资条、考勤、劳动合同、社保记录和聊天记录先存下来</h3><span class="badge b">证据 B</span></div>
+        <dl>
+          <div><dt>成本：</dt><dd>不花钱，花半小时存好材料。难在走之前记得存。</dd></div>
+          <div><dt>收益：</dt><dd>辞退、扣工资这类争议由单位举证，但加班要你先证明，单位工资记录也只留两年。电脑和账号一交回去这些就拿不到了；手里有材料，单位不认账时你才有东西可拿。</dd></div>
+        </dl>
+        <p class="src">出自第 19 节第 8 条</p>
+      </article>
+
+      <article class="card reveal">
+        <div class="card-head"><h3>上班受伤第一件事是工伤认定，单位不报你自己报</h3><span class="badge a">证据 A</span></div>
+        <dl>
+          <div><dt>成本：</dt><dd>不花钱，跑一趟社保行政部门，带申请表、劳动关系证明、医疗诊断证明三样。</dd></div>
+          <div><dt>收益：</dt><dd>上班因工作受伤算工伤，上下班路上被撞、主要责任不在你的也算。不做认定，医药费、养伤期间照发的工资、伤残补助金就全部落空。单位应 30 天内申报，不报的你或家属、工会可在一年内自己去报。</dd></div>
+        </dl>
+        <p class="src">出自第 19 节第 11 条</p>
+      </article>
+
+      <article class="card reveal">
+        <div class="card-head"><h3>单位没交工伤保险，工伤待遇一样有，由单位全额出</h3><span class="badge a">证据 A</span></div>
+        <dl>
+          <div><dt>成本：</dt><dd>不花钱。单位不认的要走仲裁甚至官司，几个月起步，难在这几个月一直跟着办。</dd></div>
+          <div><dt>收益：</dt><dd>没参保只罚单位：责令补缴、按日加收万分之五滞纳金，逾期罚欠缴额 1 到 3 倍。你的待遇改成由单位按同样项目和标准全额付，一分不少。「公司没买工伤险所以赔不了」是假话。</dd></div>
+        </dl>
+        <p class="src">出自第 19 节第 13 条</p>
+      </article>
+
+      <article class="card reveal">
+        <div class="card-head"><h3>伤情稳定后去做劳动能力鉴定，伤残等级直接换算成钱</h3><span class="badge a">证据 A</span></div>
+        <dl>
+          <div><dt>成本：</dt><dd>不花钱，走一次鉴定流程，前后要等一段时间。</dd></div>
+          <div><dt>收益：</dt><dd>一次性伤残补助金按本人工资算：五级 18 个月、六级 16 个月、七级 13 个月、八级 11 个月、九级 9 个月、十级 7 个月。鉴定结果出来之前，不要签「一次性了结」的协议。</dd></div>
+        </dl>
+        <p class="src">出自第 19 节第 14 条</p>
+      </article>
+
+      <article class="card reveal">
+        <div class="card-head"><h3>工亡的三笔钱要分清：丧葬补助金、供养亲属抚恤金、一次性工亡补助金</h3><span class="badge a">证据 A</span></div>
+        <dl>
+          <div><dt>成本：</dt><dd>不花钱，办一套手续。</dd></div>
+          <div><dt>收益：</dt><dd>丧葬补助金是当地上年度职工月平均工资 6 个月；供养亲属抚恤金按死者工资按月发，配偶每月 40%、其他亲属每人每月 30%；一次性工亡补助金是上年度全国城镇居民人均可支配收入的 20 倍，全国就这一个数。</dd></div>
+        </dl>
+        <p class="src">出自第 19 节第 15 条</p>
+      </article>
+
+      <article class="card reveal">
+        <div class="card-head"><h3>入职满一个月没签书面合同，从第二个月起可要双倍工资</h3><span class="badge a">证据 A</span></div>
+        <dl>
+          <div><dt>成本：</dt><dd>不花钱，平时留好工资流水、考勤、工牌、工作群记录。仲裁不收费，45 天内结案，最多再延 15 天。</dd></div>
+          <div><dt>收益：</dt><dd>满一个月还没签书面劳动合同，从第二个月起每月多给一份工资，最多 11 个月；满一年还不签，就当已签无固定期限合同。单位把合同递给你就签、自己故意拖着不签的，拿不到这笔钱。</dd></div>
+        </dl>
+        <p class="src">出自第 19 节第 20 条</p>
+      </article>
+
+      <article class="card reveal">
+        <div class="card-head"><h3>单位不交社保：先投诉让它补缴；想辞职拿补偿，通知里要写明原因</h3><span class="badge a">证据 A</span></div>
+        <dl>
+          <div><dt>成本：</dt><dd>不花钱。先查社保缴费记录截图存好；补缴打 12333 或去劳动监察投诉。难在辞职以后要先有下一份收入。</dd></div>
+          <div><dt>收益：</dt><dd>单位没交或没交够，可以投诉让它补上并交滞纳金；也可以书面通知解除合同并要经济补偿，通知里要写明理由是单位没依法缴社保，写成个人原因就拿不到。「员工自愿放弃社保」的约定不算数。</dd></div>
+        </dl>
+        <p class="src">出自第 19 节第 21 条</p>
+      </article>
+
+    </div>
+  </section>
+
+  <section class="block wrap" id="yibao">
+    <h2 class="sec">医保与社保</h2>
+    <p class="secdesc">口径：金钱。看病这件事上，「知道规则」本身就值几百到几千元。</p>
+    <div class="list">
+
+      <article class="card reveal">
+        <div class="card-head"><h3>居民医保每年 400 元不要断，困难户可减免</h3><span class="badge a">证据 A</span></div>
+        <dl>
+          <div><dt>成本：</dt><dd>个人交的那部分每人每年不低于 400 元（2024、2025 年国家标准），要在集中缴费期交；特困人员全额资助，低保对象定额资助。</dd></div>
+          <div><dt>收益：</dt><dd>2025 年财政再按人头补不低于 700 元。断缴有代价：没在集中期参保或没连着交的，交完之后有 3 个月看病不给报，每多断 1 年原则上再多加 1 个月。</dd></div>
+        </dl>
+        <p class="src">出自第 7 节第 9 条</p>
+      </article>
+
+      <article class="card reveal">
+        <div class="card-head"><h3>得了重病按固定顺序走：医保、大病保险、医疗救助，不碰网贷</h3><span class="badge a">证据 A</span></div>
+        <dl>
+          <div><dt>成本：</dt><dd>不花钱。跨省住院前在「国家医保局」微信公众号里办异地就医备案，出院直接结算；报完还掏不起的向乡镇或街道申请医疗救助。跑 2 到 4 趟，难在人在病中还要跑手续。</dd></div>
+          <div><dt>收益：</dt><dd>备案后出院直接结算，不用先垫全款。在职的按工龄有 3 到 24 个月医疗期，这期间公司不能辞你；属于工伤的走工伤保险。网贷和民间高息借款不要碰。</dd></div>
+        </dl>
+        <p class="src">出自第 7 节第 10 条</p>
+      </article>
+
+      <article class="card reveal">
+        <div class="card-head"><h3>常见病先在社区看，经基层转诊上去，住院起付线接着算</h3><span class="badge a">证据 A</span></div>
+        <dl>
+          <div><dt>成本：</dt><dd>不花钱，要先去一趟社区。难在忍住不直接挂专家号。</dd></div>
+          <div><dt>收益：</dt><dd>先去社区再由社区转大医院住院，自己先掏的起付线可以接着算，不用重新掏一遍（各地算法不同，四川是只补两家起付线的差额）；由大医院转回社区接着住的，同一个病也不再重算。</dd></div>
+        </dl>
+        <p class="src">出自第 24 节第 1 条</p>
+      </article>
+
+      <article class="card reveal">
+        <div class="card-head"><h3>同一个统筹地区里，医院级别越低报销比例越高，差距约 10 个百分点</h3><span class="badge a">证据 A</span></div>
+        <dl>
+          <div><dt>成本：</dt><dd>不花钱，难在忍住不往大医院跑。</dd></div>
+          <div><dt>收益：</dt><dd>按文件要求，同一笔住院费医院级别越低报销比例越高，每往上一级差十个百分点左右：比如 1 万元住院费，报销从八成降到七成，自己掏的从 2000 元变成 3000 元。新增医保基金也往基层倾斜。</dd></div>
+        </dl>
+        <p class="src">出自第 24 节第 2 条</p>
+      </article>
+
+      <article class="card reveal">
+        <div class="card-head"><h3>急重的伤病直奔急诊预检分诊台，别去挂号窗口排队</h3><span class="badge a">证据 A</span></div>
+        <dl>
+          <div><dt>成本：</dt><dd>不花钱，进门多走几步找到分诊台，把最要命的症状用一句话说清。</dd></div>
+          <div><dt>收益：</dt><dd>急诊不按先来后到，按病情轻重分四级排，定级的地方是预检分诊台。到了先报最危险的那一条：大出血、喘不上气、意识不清、像心脏病那样的胸痛、疼得受不了。没带钱、没带证件，急诊也必须先救。</dd></div>
+        </dl>
+        <p class="src">出自第 24 节第 7、8 条</p>
+      </article>
+
+      <article class="card reveal">
+        <div class="card-head"><h3>先办门诊慢特病认定再办异地备案，五种慢病异地直接结算</h3><span class="badge a">证据 A</span></div>
+        <dl>
+          <div><dt>成本：</dt><dd>不花钱，出发前在医保 App 上办一次异地就医备案，手机上就能办。</dd></div>
+          <div><dt>收益：</dt><dd>高血压、糖尿病、恶性肿瘤门诊放化疗、尿毒症透析、器官移植后抗排异，这五种在外地看门诊基本都能直接刷医保，不用先垫钱再回参保地报销。但要先办慢特病认定、再办异地备案，两件事都办了才管用。</dd></div>
+        </dl>
+        <p class="src">出自第 16 节第 2 条</p>
+      </article>
+
+      <article class="card reveal">
+        <div class="card-head"><h3>医院说谈判药没货，让医生开处方去「双通道」药店买，照样报销</h3><span class="badge a">证据 A</span></div>
+        <dl>
+          <div><dt>成本：</dt><dd>不花钱。请医生开一张处方，再去指定药店跑一趟，有的地方要先办一次用药资格认定。</dd></div>
+          <div><dt>收益：</dt><dd>国家谈判药进了本省「双通道」的，拿到定点药店去买，报销政策和在医院一样。按国家文件，医院也不能拿医保总额、药占比当理由拖着不配。</dd></div>
+        </dl>
+        <p class="src">出自第 24 节第 13 条</p>
+      </article>
+
+    </div>
+    <div class="note">本页是摘编。第 7 节还有临时救助、住宿吃饭省钱法，第 19 节还有试用期、调岗、劳务派遣，第 24 节还有病历封存、种植牙、伤残鉴定等条目，完整内容见原仓库。</div>
+  </section>
+</main>
+
+<footer class="site">
+  <div class="wrap">
+    <p><a href="../index.html">返回首页</a> · 内容摘编自开源书《高性价比人生指南》（<a href="https://creativecommons.org/licenses/by/4.0/" target="_blank" rel="noopener">CC BY 4.0</a>），本站作了浓缩与重新分组。</p>
+    <p>完整原文、来源核实记录与在线检索：<a href="https://github.com/eternity4719/HowToLiveBetter" target="_blank" rel="noopener">GitHub 仓库 eternity4719/HowToLiveBetter</a></p>
+    <p>社保医保政策各地执行不一，办事前以当地部门最新说法为准。</p>
+  </div>
+</footer>
+
+<script>
+(function(){
+  if (!window.matchMedia('(prefers-reduced-motion: no-preference)').matches) return;
+  var els = document.querySelectorAll('.reveal');
+  if (!('IntersectionObserver' in window)) { els.forEach(function(e){e.classList.add('in')}); return; }
+  var io = new IntersectionObserver(function(entries){
+    entries.forEach(function(en){ if (en.isIntersecting) { en.target.classList.add('in'); io.unobserve(en.target); } });
+  }, {threshold:0.1});
+  els.forEach(function(e){ io.observe(e); });
+})();
+</script>
+<script>
+(function(){var b=document.querySelector('.theme-btn');if(!b)return;
+function sync(){var d=document.documentElement.getAttribute('data-theme')==='dark';b.textContent=d?'\u2600\uFE0F':'\uD83C\uDF19';b.setAttribute('aria-label',d?'\u5207\u6362\u5230\u6D45\u8272\u4E3B\u9898':'\u5207\u6362\u5230\u6DF1\u8272\u4E3B\u9898')}
+b.addEventListener('click',function(){var t=document.documentElement.getAttribute('data-theme')==='dark'?'light':'dark';document.documentElement.setAttribute('data-theme',t);try{localStorage.setItem('theme',t)}catch(e){}sync()});
+sync()})();
+</script></body>
+</html>

@@ -1,0 +1,254 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>开源生活指南合集 · 八个项目的完整中文阅读站</title>
+<meta name="description" content="八个开源人生指南项目的中文多页阅读站：健康、做饭、延寿、生活、投资、人情世故、工作与人生进阶，内容可直接在网页中完整阅读。">
+<script>
+(function () {
+  var t = null;
+  try { t = localStorage.getItem('theme'); } catch (e) {}
+  if (t !== 'light' && t !== 'dark') {
+    var h = new Date().getHours();
+    t = (h >= 7 && h < 18) ? 'light' : 'dark';
+  }
+  document.documentElement.setAttribute('data-theme', t);
+})();
+</script>
+<style>
+  :root[data-theme="light"] {
+    --bg: #fafaf9; --card: #ffffff; --ink: #1c1917; --muted: #57534e;
+    --line: #e7e5e4; --accent: #0f766e; --accent-ink: #ffffff;
+  }
+  :root[data-theme="dark"] {
+    --bg: #141a18; --card: #1b2220; --ink: #e8e6e1; --muted: #a8a29e;
+    --line: #2b3330; --accent: #34d399; --accent-ink: #0a1512;
+  }
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  html { scroll-behavior: smooth; }
+  body {
+    font-family: "PingFang SC", "Hiragino Sans GB", "Microsoft YaHei", "Noto Sans SC", system-ui, sans-serif;
+    background: var(--bg); color: var(--ink); line-height: 1.75;
+  }  .wrap { max-width: 1000px; margin: 0 auto; padding: 0 24px; }
+
+  header.site { border-bottom: 1px solid var(--line); background: var(--bg); position: sticky; top: 0; z-index: 10; }
+  nav.bar { display: flex; align-items: center; justify-content: space-between; height: 64px; }
+  .brand { font-weight: 700; font-size: 17px; }
+  .brand a { color: var(--ink); text-decoration: none; }
+  nav.bar ul { display: flex; gap: 26px; list-style: none; }
+  nav.bar ul a { color: var(--muted); text-decoration: none; font-size: 14px; }
+  nav.bar ul a:hover { color: var(--accent); }
+  @media (max-width: 720px) { nav.bar ul { display: none; } }
+
+  .hero { padding: 84px 0 60px; }
+  .hero .eyebrow { display: inline-block; font-size: 12px; letter-spacing: .18em; color: var(--accent); font-weight: 700; margin-bottom: 18px; }
+  .hero h1 { font-size: clamp(36px, 6vw, 58px); line-height: 1.14; letter-spacing: -0.02em; font-weight: 800; max-width: 16em; }
+  .hero p.sub { margin-top: 22px; font-size: 17px; color: var(--muted); max-width: 36em; }
+  .hero .ctas { margin-top: 32px; display: flex; gap: 14px; flex-wrap: wrap; }
+  .btn { display: inline-block; padding: 12px 26px; border-radius: 999px; font-size: 15px; font-weight: 600; text-decoration: none; transition: transform .15s ease, box-shadow .15s ease; }
+  .btn:active { transform: translateY(1px); }
+  .btn.primary { background: var(--accent); color: var(--accent-ink); }
+  .btn.primary:hover { box-shadow: 0 6px 18px rgba(52,211,153,.25); }
+  .btn.ghost { border: 1px solid var(--line); color: var(--ink); background: var(--card); }
+  .btn.ghost:hover { border-color: var(--accent); color: var(--accent); }
+
+  .stats { border-top: 1px solid var(--line); border-bottom: 1px solid var(--line); padding: 24px 0; }
+  .stats .wrap { display: flex; gap: 48px; flex-wrap: wrap; }
+  .stat b { font-size: 26px; font-weight: 800; }
+  .stat span { display: block; font-size: 13px; color: var(--muted); }
+
+  section.sites { padding: 64px 0 24px; }
+  section.sites > .wrap > h2 { font-size: 26px; font-weight: 800; margin-bottom: 8px; }
+  section.sites > .wrap > p.lead { color: var(--muted); margin-bottom: 28px; font-size: 15px; }
+  .site-block { border: 1px solid var(--line); border-radius: var(--radius); background: var(--card); padding: 26px 26px 22px; margin-bottom: 18px; }
+  .site-block .head { display: flex; align-items: baseline; justify-content: space-between; gap: 16px; flex-wrap: wrap; }
+  .site-block h3 { font-size: 20px; font-weight: 800; }
+  .site-block h3 a { color: var(--ink); text-decoration: none; }
+  .site-block h3 a:hover { color: var(--accent); }
+  .site-block .repo { font-size: 12px; color: var(--muted); font-family: ui-monospace, Consolas, monospace; }
+  .site-block p.desc { margin-top: 8px; color: var(--muted); font-size: 15px; max-width: 46em; }
+  .pages { margin-top: 16px; display: flex; flex-wrap: wrap; gap: 8px; }
+  .pages a {
+    font-size: 13.5px; text-decoration: none; color: var(--accent);
+    border: 1px solid var(--line); border-radius: 999px; padding: 5px 14px; background: var(--bg);
+  }
+  .pages a:hover { border-color: var(--accent); background: rgba(52,211,153,.10); }
+
+  footer.site { border-top: 1px solid var(--line); padding: 32px 0 44px; color: var(--muted); font-size: 14px; }
+
+  .reveal { opacity: 0; transform: translateY(14px); transition: opacity .5s ease, transform .5s ease; }
+  .reveal.in { opacity: 1; transform: none; }
+  @media (prefers-reduced-motion: reduce) { html { scroll-behavior: auto; } .reveal { opacity: 1; transform: none; transition: none; } }
+
+@media (prefers-reduced-motion: reduce){.reveal{opacity:1 !important;transform:none !important}}</style>
+</head>
+<body>
+
+<header class="site">
+  <nav class="wrap bar">
+    <div class="brand"><a href="index.html">开源生活指南合集</a></div>
+    <ul>
+      <li><a href="#sites">八个站点</a></li>
+      <li><button id="themeToggle" type="button" aria-label="切换明暗主题" style="border:1px solid var(--line);background:var(--card);color:var(--ink);border-radius:999px;padding:5px 14px;font-size:13px;cursor:pointer;">切换主题</button></li>
+    </ul>
+  </nav>
+</header>
+
+<main>
+  <section class="hero wrap">
+    <span class="eyebrow">八个开源项目 · 完整中文阅读站</span>
+    <h1>八个开源人生指南，一页直达全部正文</h1>
+    <p class="sub">健康、做饭、延寿、生活、投资、人情世故、职场与人生进阶。每个项目一个独立站点，内容按主题分成多个页面，直接在网页里完整阅读，无需跳回 GitHub。</p>
+    <div class="ctas">
+      <a class="btn primary" href="#sites">选择一个站点开始阅读</a>
+    </div>
+  </section>
+
+  <div class="stats">
+    <div class="wrap">
+      <div class="stat"><b>8</b><span>独立站点</span></div>
+      <div class="stat"><b>50+</b><span>内容页面</span></div>
+      <div class="stat"><b>0</b><span>构建依赖</span></div>
+      <div class="stat"><b>0</b><span>图片与外部资源</span></div>
+    </div>
+  </div>
+
+  <section class="sites" id="sites">
+    <div class="wrap">
+      <h2>八个站点</h2>
+      <p class="lead">点击标题进入站点首页，或从标签直达任意子页面。</p>
+
+      <div class="site-block reveal">
+        <div class="head"><h3><a href="human-system-optimization/index.html">健康学习到 150 岁 · 人体系统调优指南</a></h3><span class="repo">zijie0/HumanSystemOptimization</span></div>
+        <p class="desc">把人体当作系统来调优：睡眠、饮食、心态、学习专注与长寿五个维度的科学方法与数据。</p>
+        <div class="pages">
+          <a href="human-system-optimization/index.html">首页</a>
+          <a href="human-system-optimization/sleep.html">睡眠</a>
+          <a href="human-system-optimization/diet.html">饮食</a>
+          <a href="human-system-optimization/mindset.html">心态与动力</a>
+          <a href="human-system-optimization/focus.html">学习与专注</a>
+          <a href="human-system-optimization/longevity.html">长寿</a>
+        </div>
+      </div>
+
+      <div class="site-block reveal">
+        <div class="head"><h3><a href="how-to-cook/index.html">程序员在家做饭指南</a></h3><span class="repo">Anduin2017/HowToCook</span></div>
+        <p class="desc">373 道菜谱全收录：从搭厨房、学用刀到素菜、荤菜、水产、早餐、主食、汤粥、甜品与酱料，用料与步骤整理自仓库原文。</p>
+        <div class="pages">
+          <a href="how-to-cook/index.html">首页</a>
+          <a href="how-to-cook/start.html">学前准备</a>
+          <a href="how-to-cook/vegetable.html">素菜 65</a>
+          <a href="how-to-cook/meat.html">荤菜上 56</a>
+          <a href="how-to-cook/meat2.html">荤菜下 55</a>
+          <a href="how-to-cook/aquatic.html">水产 28</a>
+          <a href="how-to-cook/breakfast.html">早餐 25</a>
+          <a href="how-to-cook/soup.html">汤与粥 24</a>
+          <a href="how-to-cook/staple.html">主食 59</a>
+          <a href="how-to-cook/dessert.html">甜品饮料 42</a>
+          <a href="how-to-cook/sauce.html">酱料 19</a>
+        </div>
+      </div>
+
+      <div class="site-block reveal">
+        <div class="head"><h3><a href="how-to-live-longer/index.html">程序员延寿指南</a></h3><span class="repo">geekan/HowToLiveLonger</span></div>
+        <p class="desc">以全因死亡率为统一指标、按证据分级整理的干预措施数据库，附常见误读纠正。</p>
+        <div class="pages">
+          <a href="how-to-live-longer/index.html">首页</a>
+          <a href="how-to-live-longer/method.html">方法学</a>
+          <a href="how-to-live-longer/exercise.html">运动与睡眠</a>
+          <a href="how-to-live-longer/diet.html">饮食与补剂</a>
+          <a href="how-to-live-longer/misread.html">常见误读</a>
+        </div>
+      </div>
+
+      <div class="site-block reveal">
+        <div class="head"><h3><a href="how-to-live-better/index.html">高性价比人生指南</a></h3><span class="repo">eternity4719/HowToLiveBetter</span></div>
+        <p class="desc">34 章 772 条：长寿防病、急救、理财、法律红线、医保社保、婚育、创业合规与出国，每条注明成本收益与证据等级。</p>
+        <div class="pages">
+          <a href="how-to-live-better/index.html">首页</a>
+          <a href="how-to-live-better/pages/health.html">长寿防病与急救</a>
+          <a href="how-to-live-better/pages/money.html">理财与法律红线</a>
+          <a href="how-to-live-better/pages/security.html">失业工伤与医保社保</a>
+          <a href="how-to-live-better/pages/family.html">恋爱婚育与育儿</a>
+          <a href="how-to-live-better/pages/career.html">创业合规与出国技能</a>
+        </div>
+      </div>
+
+      <div class="site-block reveal">
+        <div class="head"><h3><a href="investing-for-beginners/index.html">投资入门知识框架</a></h3><span class="repo">xuchonglang/investing-for-beginners</span></div>
+        <p class="desc">美股、期权与加密货币三大模块、1000 余词条的知识框架与学习路径。内容仅供学习，不构成投资建议。</p>
+        <div class="pages">
+          <a href="investing-for-beginners/index.html">首页</a>
+          <a href="investing-for-beginners/stocks.html">美股入门</a>
+          <a href="investing-for-beginners/options.html">期权进阶</a>
+          <a href="investing-for-beginners/crypto.html">加密货币</a>
+          <a href="investing-for-beginners/path.html">学习路径与风险管理</a>
+        </div>
+      </div>
+
+      <div class="site-block reveal">
+        <div class="head"><h3><a href="how-to-get-along/index.html">人情世故实践指南</a></h3><span class="repo">kkk-bot/HowToGetAlong</span></div>
+        <p class="desc">面向大学生与职场新人：合作、求助、拒绝、金钱、礼节与冲突，每条讲清怎么做、话怎么说、代价是什么。</p>
+        <div class="pages">
+          <a href="how-to-get-along/index.html">首页</a>
+          <a href="how-to-get-along/pages/campus.html">校园与求助</a>
+          <a href="how-to-get-along/pages/work.html">实习与职场</a>
+          <a href="how-to-get-along/pages/money.html">金钱与边界</a>
+          <a href="how-to-get-along/pages/manner.html">礼节与亲密关系</a>
+        </div>
+      </div>
+
+      <div class="site-block reveal">
+        <div class="head"><h3><a href="how-to-work-better/index.html">高性价比工作指南</a></h3><span class="repo">NiceCao/HowToWorkBetter</span></div>
+        <p class="desc">从选行业、面试谈薪到被裁维权、职业转型的全周期手册，454 条建议均注明成本收益与证据等级。</p>
+        <div class="pages">
+          <a href="how-to-work-better/index.html">首页</a>
+          <a href="how-to-work-better/pages/jobhunt.html">求职与谈薪</a>
+          <a href="how-to-work-better/pages/onboard.html">入职与社保</a>
+          <a href="how-to-work-better/pages/crisis.html">被裁与维权</a>
+          <a href="how-to-work-better/pages/growth.html">转型与礼仪</a>
+          <a href="how-to-work-better/pages/rights.html">职场健康与证据</a>
+        </div>
+      </div>
+
+      <div class="site-block reveal">
+        <div class="head"><h3><a href="up/index.html">人生进阶指南 · AI 时代的终身学习地图</a></h3><span class="repo">byoungd/up</span></div>
+        <p class="desc">中英双语：AI、学习、创业、财富、爱情与人生六大主题，以及一条贯穿全书的个人工作线。</p>
+        <div class="pages">
+          <a href="up/index.html">首页</a>
+          <a href="up/ai-learn.html">AI 与学习</a>
+          <a href="up/wealth.html">创业与财富</a>
+          <a href="up/life.html">爱情与人生</a>
+        </div>
+      </div>
+    </div>
+  </section>
+</main>
+
+<footer class="site">
+  <div class="wrap">内容整理自各开源项目的公开仓库，版权归原作者所有 · 站点为中文阅读版，完整原文请访问各项目仓库。</div>
+</footer>
+
+<script>
+  (function () {
+    var btn = document.getElementById('themeToggle');
+    if (btn) btn.addEventListener('click', function () {
+      var cur = document.documentElement.getAttribute('data-theme') === 'dark' ? 'light' : 'dark';
+      document.documentElement.setAttribute('data-theme', cur);
+      try { localStorage.setItem('theme', cur); } catch (e) {}
+    });
+  })();
+  (function () {
+    if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) return;
+    var io = new IntersectionObserver(function (entries) {
+      entries.forEach(function (e) {
+        if (e.isIntersecting) { e.target.classList.add('in'); io.unobserve(e.target); }
+      });
+    }, { threshold: 0.12 });
+    document.querySelectorAll('.reveal').forEach(function (el) { io.observe(el); });
+  })();
+</script>
+
+</body>
+</html>

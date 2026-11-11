@@ -1,0 +1,223 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>加密货币 · 核心概念与框架 | 投资入门导读站</title>
+<script>
+document.documentElement.classList.add('js');
+(function(){var t=null;try{t=localStorage.getItem('theme');}catch(e){}
+if(t!=='light'&&t!=='dark'){var h=new Date().getHours();t=(h>=7&&h<17)?'light':'dark';}
+document.documentElement.setAttribute('data-theme',t);})();
+</script>
+<style>
+:root{
+  color-scheme:light;
+  --bg:#eef1f5; --bg2:#e3e8ef; --panel:#f7f9fc; --panel2:#fdfefe;
+  --line:#c8d1dd; --line2:#aeb9c8;
+  --txt:#1c2534; --muted:#46536a; --faint:#5b6880;
+  --amber:#8a5a00; --amber2:#6f4800; --amber-dim:rgba(138,90,0,.09); --amber-line:rgba(138,90,0,.45);
+  --amber-ink:#ffffff; --navbg:rgba(238,241,245,.92);
+  --mono:ui-monospace,"SF Mono",Consolas,"Courier New",monospace;
+  --sans:system-ui,-apple-system,"Segoe UI","PingFang SC","Microsoft YaHei",sans-serif;
+  --r:14px;
+}
+[data-theme="dark"]{
+  color-scheme:dark;
+  --bg:#060b16; --bg2:#0a1322; --panel:#0d1728; --panel2:#101d33;
+  --line:#1d2c47; --line2:#2a4166;
+  --txt:#d9e2f0; --muted:#8b9cb5; --faint:#5f7290;
+  --amber:#f2b233; --amber2:#ffd070; --amber-dim:rgba(242,178,51,.10); --amber-line:rgba(242,178,51,.38);
+  --amber-ink:#0a1322; --navbg:rgba(6,11,22,.93);
+}
+*{box-sizing:border-box;margin:0;padding:0}
+body{background:var(--bg);color:var(--txt);font-family:var(--sans);line-height:1.75;font-size:16px}
+a{color:var(--amber);text-decoration:none}
+a:hover{text-decoration:underline}
+.wrap{max-width:1080px;margin:0 auto;padding:0 22px}
+.topline{border-bottom:1px solid var(--line);background:var(--bg2);font-family:var(--mono);font-size:12px;color:var(--faint)}
+.topline .wrap{display:flex;justify-content:space-between;gap:12px;padding-top:7px;padding-bottom:7px;flex-wrap:wrap}
+.topline b{color:var(--amber);font-weight:600}
+nav.mainnav{position:sticky;top:0;z-index:50;background:var(--navbg);backdrop-filter:blur(8px);border-bottom:1px solid var(--line)}
+.mainnav .wrap{display:flex;align-items:center;gap:4px;height:56px;overflow-x:auto;white-space:nowrap}
+.brand{font-family:var(--mono);font-weight:700;color:var(--txt);margin-right:14px;letter-spacing:.5px;font-size:15px}
+.brand b{color:var(--amber)}
+.mainnav a.nl{padding:7px 13px;border-radius:9px;color:var(--muted);font-size:14.5px;border:1px solid transparent;flex:none}
+.mainnav a.nl:hover{color:var(--amber2);text-decoration:none;background:var(--amber-dim)}
+.mainnav a.nl.on{color:var(--amber);border-color:var(--amber-line);background:var(--amber-dim)}
+.mainnav a.git{border:1px solid var(--line2);font-family:var(--mono);font-size:13px}
+.mainnav .tbtn{margin-left:auto;border:1px solid var(--line2);font-family:var(--mono);font-size:13px;color:var(--muted);background:transparent;cursor:pointer;flex:none;padding:7px 13px;border-radius:9px}
+.mainnav .tbtn:hover{color:var(--amber2);border-color:var(--amber-line);background:var(--amber-dim)}
+.mainnav .tbtn:focus-visible{outline:2px solid var(--amber);outline-offset:2px}
+header.hero{padding:52px 0 20px}
+.kicker{font-family:var(--mono);font-size:13px;color:var(--amber);letter-spacing:2px}
+h1{font-size:clamp(27px,4.4vw,38px);line-height:1.25;margin:12px 0 14px;font-weight:800}
+h1 .accent{color:var(--amber)}
+.lead{color:var(--muted);font-size:16px;max-width:66ch}
+.notice{margin:26px 0;border:1px dashed var(--amber-line);background:var(--amber-dim);border-radius:12px;padding:14px 18px;font-size:14px;color:var(--amber2);max-width:820px}
+.notice .nlabel{font-family:var(--mono);font-size:11px;letter-spacing:1.5px;display:block;margin-bottom:5px;color:var(--amber)}
+h2.sec{display:flex;align-items:center;gap:12px;margin:52px 0 8px;font-size:20px;font-weight:800}
+.secno{font-family:var(--mono);color:var(--amber);font-size:12.5px;border:1px solid var(--amber-line);border-radius:7px;padding:3px 9px;background:var(--amber-dim);letter-spacing:1px;flex:none}
+.secsub{color:var(--faint);font-size:13.5px;margin-bottom:20px;font-family:var(--mono)}
+.grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(310px,1fr));gap:16px}
+.card{background:linear-gradient(180deg,var(--panel2),var(--panel));border:1px solid var(--line);border-radius:var(--r);padding:19px 19px 17px;transition:border-color .25s}
+.card:hover{border-color:var(--amber-line)}
+.thead{display:flex;align-items:center;gap:10px;flex-wrap:wrap}
+.tcode{font-family:var(--mono);font-size:10.5px;color:var(--amber);border:1px solid var(--amber-line);background:var(--amber-dim);padding:2px 7px;border-radius:6px;letter-spacing:.5px;flex:none}
+.tname{font-size:16px;font-weight:700}
+.ten{font-family:var(--mono);font-size:11.5px;color:var(--faint);margin-top:2px}
+.card p{margin-top:9px;font-size:14px;color:var(--muted);line-height:1.8}
+.card p b{color:var(--txt);font-weight:600}
+footer{margin-top:70px;border-top:1px solid var(--line);background:var(--bg2)}
+footer .wrap{padding:30px 22px;display:flex;flex-wrap:wrap;gap:16px;justify-content:space-between;align-items:flex-start;font-size:13.5px;color:var(--faint)}
+footer .fmono{font-family:var(--mono);font-size:12px}
+footer a{color:var(--muted)}
+footer .fdisc{max-width:520px}
+footer .fdisc strong{color:var(--amber);font-weight:600}
+.backlink{display:inline-block;margin-top:20px;font-family:var(--mono);font-size:13px;color:var(--muted)}
+.backlink:hover{color:var(--amber)}
+@media (max-width:480px){
+  .wrap{padding:0 16px}
+  .mainnav .wrap{gap:2px}
+  .mainnav{scrollbar-width:thin}
+  .grid{grid-template-columns:1fr}
+}
+@media (prefers-reduced-motion: no-preference){
+  html{scroll-behavior:smooth}
+  html.js .reveal{opacity:0;transform:translateY(14px);transition:opacity .6s ease,transform .6s ease}
+  html.js .reveal.in{opacity:1;transform:none}
+  .card{transition:border-color .25s}
+}
+</style>
+<noscript><style>.reveal{opacity:1 !important;transform:none !important}</style></noscript></head>
+<body><div style="position:fixed;left:14px;bottom:14px;z-index:99;"><a href="../index.html" style="display:inline-block;padding:7px 16px;border-radius:999px;background:rgba(20,20,20,.72);color:#fff;font-size:13px;text-decoration:none;backdrop-filter:blur(4px);font-family:system-ui,sans-serif;" onmouseover="this.style.background='rgba(20,20,20,.9)'" onmouseout="this.style.background='rgba(20,20,20,.72)'">&#8592; 总门户</a></div>
+<div class="topline"><div class="wrap"><span>IFB://MODULE/CRYPTO &nbsp;<b>ON-CHAIN</b></span><span>TERM CARDS: <b>23</b></span><span>UPTIME: <b>24/7</b></span></div></div>
+<nav class="mainnav"><div class="wrap">
+  <span class="brand">IFB<b>::导读站</b></span>
+  <a class="nl" href="index.html">首页</a>
+  <a class="nl" href="stocks.html">美股入门</a>
+  <a class="nl" href="options.html">期权进阶</a>
+  <a class="nl on" href="crypto.html" aria-current="page">加密货币</a>
+  <a class="nl" href="path.html">学习路径</a>
+  <a class="nl git" href="https://github.com/xuchonglang/investing-for-beginners" target="_blank" rel="noopener">GitHub ↗</a>
+  <button class="tbtn" id="themeToggle" type="button">主题</button>
+</div></nav>
+
+<header class="hero"><div class="wrap">
+  <p class="kicker">MODULE 03 · CRYPTO</p>
+  <h1>加密货币：<span class="accent">核心概念与框架</span></h1>
+  <p class="lead">加密货币模块覆盖现货、合约、杠杆、钱包、链上机制与风险控制。这个市场全年无休，美元稳定币把美元价值带到链上流转，但仓库反复提醒：USDT、USDC 不是美元现金本身，持有人仍需承担储备、赎回、监管、地址冻结、智能合约和脱锚风险。以下 23 张术语卡片按四个层次展开，每张对应仓库 content/crypto 下的真实词条。</p>
+  <div class="notice"><span class="nlabel">RISK · DISCLAIMER</span>本页内容仅供学习交流，不构成投资建议。加密资产波动剧烈，使用杠杆和衍生品可能放大亏损，链上操作失误与骗局可能造成全部资产损失。</div>
+</div></header>
+
+<main><div class="wrap">
+
+  <h2 class="sec reveal"><span class="secno">A</span>资产与市场</h2>
+  <p class="secsub reveal">ASSETS · MARKET · 先认识标的，再谈交易</p>
+  <div class="grid">
+    <div class="card reveal"><div class="thead"><span class="tcode">CRY-01</span><span class="tname">比特币</span></div><div class="ten">Bitcoin (BTC)</div>
+      <p>第一个区块链加密资产，总量上限 2100 万枚，通过工作量证明发行，产出每四年减半。去中心化、固定供给和抗审查性是"数字黄金"叙事的核心，也是整个加密市场的定价锚。</p></div>
+    <div class="card reveal"><div class="thead"><span class="tcode">CRY-02</span><span class="tname">以太坊</span></div><div class="ten">Ethereum (ETH)</div>
+      <p>支持智能合约的可编程区块链平台，是链上应用和 DeFi 的主要结算网络。网络上的计算资源以 Gas 计量并用 ETH 支付，升级路线和费用结构直接影响其作为资产的现金流逻辑。</p></div>
+    <div class="card reveal"><div class="thead"><span class="tcode">CRY-03</span><span class="tname">区块链</span></div><div class="ten">Blockchain</div>
+      <p>由密码学链接、多方共同维护的分布式账本，历史记录难以被单方篡改，无需单一中心背书。理解账本、共识和最终性，是判断链上资产风险边界的基础。</p></div>
+    <div class="card reveal"><div class="thead"><span class="tcode">CRY-04</span><span class="tname">稳定币</span></div><div class="ten">Stablecoin</div>
+      <p>尝试锚定美元等稳定资产的加密代币，目标是 1 枚约等于 1 美元，用于交易计价、链上转账和 DeFi 结算。但"稳定"只是设计目标：能否维持锚定取决于储备资产、赎回能力、市场流动性、发行方信用和监管环境，它也不等同于银行存款。</p></div>
+    <div class="card reveal"><div class="thead"><span class="tcode">CRY-05</span><span class="tname">USDT / USDC / DAI</span></div><div class="ten">Fiat-backed vs Crypto-backed</div>
+      <p>三种主流美元稳定币：USDT、USDC 由发行方以储备支撑；DAI 由链上资产超额抵押生成。它们提供更开放的美元数字载体，但存在储备透明度、赎回、地址冻结和合约风险，选择时要核对发行方、储备报告与合约地址。</p></div>
+    <div class="card reveal"><div class="thead"><span class="tcode">CRY-06</span><span class="tname">稳定币脱锚</span></div><div class="ten">Depeg</div>
+      <p>稳定币二级市场价格明显偏离 1 美元。短暂脱锚可能被套利拉回，持续脱锚往往反映储备或信任出了问题。算法稳定币的死亡螺旋是仓库专门警示的反面案例。</p></div>
+  </div>
+
+  <h2 class="sec reveal"><span class="secno">B</span>交易与合约</h2>
+  <p class="secsub reveal">TRADING · DERIVATIVES · 交易所与杠杆的真实规则</p>
+  <div class="grid">
+    <div class="card reveal"><div class="thead"><span class="tcode">CRY-07</span><span class="tname">中心化交易所</span></div><div class="ten">CEX</div>
+      <p>托管用户资产并提供交易的平台，体验接近券商。代价是资产在交易所手里：要承担平台挪用、黑客攻击甚至破产的风险，可参考储备证明（PoR）与提币政策做尽调。</p></div>
+    <div class="card reveal"><div class="thead"><span class="tcode">CRY-08</span><span class="tname">去中心化交易所</span></div><div class="ten">DEX</div>
+      <p>由链上智能合约驱动的交易场所：资产自托管，用钱包签名直接成交。托管风险转移了，但风险并未消失：合约漏洞、流动性池深度、滑点和授权钓鱼都落到用户自己头上。</p></div>
+    <div class="card reveal"><div class="thead"><span class="tcode">CRY-09</span><span class="tname">永续合约</span></div><div class="ten">Perpetual Futures</div>
+      <p>没有固定到期日的加密合约，可以持续持有多头或空头仓位，平台通过资金费率让合约价格贴近现货指数。没有到期日不等于没有成本：仓位可能要持续支付资金费率，杠杆会同时放大盈亏。</p></div>
+    <div class="card reveal"><div class="thead"><span class="tcode">CRY-10</span><span class="tname">资金费率</span></div><div class="ten">Funding Rate</div>
+      <p>永续合约多空之间周期性转移的费用：费率为正时多头向空头支付，为负时空头向多头支付。费用按<b>名义仓位</b>而非保证金计算，高杠杆和长期持有会让成本非常可观。费率能反映拥挤程度，但不能预测涨跌。</p></div>
+    <div class="card reveal"><div class="thead"><span class="tcode">CRY-11</span><span class="tname">爆仓与强平</span></div><div class="ten">Liquidation</div>
+      <p>账户权益低于维持保证金时，平台接管并强制减仓的过程，目的是控制平台和账户的债务风险，<b>不是替你选最佳退出价</b>。10 倍杠杆不等于能承受 10% 的反向波动：手续费、资金费率、维持保证金和滑点都会让清算更早发生。</p></div>
+    <div class="card reveal"><div class="thead"><span class="tcode">CRY-12</span><span class="tname">标记价格</span></div><div class="ten">Mark Price</div>
+      <p>平台用于计算未实现盈亏和触发强平的参考价格，通常由指数价格加权得到，以降低单笔异常成交导致误清算的概率。交易前要确认强平用的是标记价格、指数价格还是最新成交价。</p></div>
+  </div>
+
+  <h2 class="sec reveal"><span class="secno">C</span>钱包与安全</h2>
+  <p class="secsub reveal">WALLETS · SECURITY · 自托管的自由与责任</p>
+  <div class="grid">
+    <div class="card reveal"><div class="thead"><span class="tcode">CRY-13</span><span class="tname">加密钱包</span></div><div class="ten">Wallet</div>
+      <p>管理私钥、签名和发送链上资产的工具。钱包本身并不"存储"币：资产记录在链上，钱包保存的是控制权。选钱包先看它是托管还是自托管，风险结构完全不同。</p></div>
+    <div class="card reveal"><div class="thead"><span class="tcode">CRY-14</span><span class="tname">助记词</span></div><div class="ten">Seed Phrase</div>
+      <p>用于恢复钱包密钥的一组单词，可派生多个账户和地址：<b>谁拿到完整助记词，谁就能在另一台设备恢复并控制资产</b>。不截图、不发聊天软件、不存云盘、不输入任何网页；大额资产转入前先测试恢复流程，备份要兼顾防火防盗和可继承。</p></div>
+    <div class="card reveal"><div class="thead"><span class="tcode">CRY-15</span><span class="tname">公钥与私钥</span></div><div class="ten">Public / Private Key</div>
+      <p>私钥是签名和控制资产的唯一凭证，必须保密；公钥和地址可以公开用于收款。私钥泄露后，修改设备密码或删除应用都无效，应尽快在干净设备上生成新钱包并迁移资产。</p></div>
+    <div class="card reveal"><div class="thead"><span class="tcode">CRY-16</span><span class="tname">热钱包与冷钱包</span></div><div class="ten">Hot / Cold Wallet</div>
+      <p>联网设备上的钱包是热钱包，方便交易但攻击面大；离线保存私钥（硬件钱包等）是冷钱包，适合大额与长期存储。常见做法是小额放热钱包、大额放冷钱包，动账前先小额测试。</p></div>
+    <div class="card reveal"><div class="thead"><span class="tcode">CRY-17</span><span class="tname">Gas 费</span></div><div class="ten">Gas Fee</div>
+      <p>区块链执行计算和写入状态的资源费用，复杂合约调用比普通转账贵。费用取决于实际消耗的 Gas、当前 Gas 价格、优先费和所在网络。<b>交易失败时，已执行的计算照样扣费</b>；它支付给网络，不等同于交易所手续费或协议费用。</p></div>
+    <div class="card reveal"><div class="thead"><span class="tcode">CRY-18</span><span class="tname">钱包授权</span></div><div class="ten">Approval</div>
+      <p>向智能合约授予代币支出额度的操作，是 DeFi 的日常，也是钓鱼攻击的主要目标：骗局骗的往往不是一次转账，而是一份无限授权。用完的授权应及时撤销，额度能设小就不要拉满。</p></div>
+    <div class="card reveal"><div class="thead"><span class="tcode">CRY-19</span><span class="tname">钓鱼与地址投毒</span></div><div class="ten">Phishing / Address Poisoning</div>
+      <p>伪造官网、假空投和客服话术骗取助记词或危险签名；地址投毒则用与你地址首尾相同的假地址诱导复制出错。对策：只从官方渠道进入，转账前小额测试并逐位核对地址首尾。</p></div>
+  </div>
+
+  <h2 class="sec reveal"><span class="secno">D</span>DeFi 与链上</h2>
+  <p class="secsub reveal">DEFI · ON-CHAIN · 收益的另一面是合约风险</p>
+  <div class="grid">
+    <div class="card reveal"><div class="thead"><span class="tcode">CRY-20</span><span class="tname">智能合约</span></div><div class="ten">Smart Contract</div>
+      <p>部署在链上自动执行的程序，是 DeFi 的基础设施。代码漏洞、可升级权限和管理密钥是主要风险来源；审计和漏洞赏金能降低风险，但不能证明绝对安全。</p></div>
+    <div class="card reveal"><div class="thead"><span class="tcode">CRY-21</span><span class="tname">DeFi 与无常损失</span></div><div class="ten">DeFi / Impermanent Loss</div>
+      <p>DeFI 用智能合约替代金融中介，涵盖借贷、交易和做市。为 DEX 的流动性池提供流动性能赚取手续费，但当池中两种资产价格发生偏离时会产生无常损失：偏离越大损失越大，"无常"不等于没有损失。</p></div>
+    <div class="card reveal"><div class="thead"><span class="tcode">CRY-22</span><span class="tname">代币解锁</span></div><div class="ten">Token Unlock / Vesting</div>
+      <p>团队与投资人的代币按归属时间表逐步解锁流通，解锁时点前后的潜在卖压需要纳入交易计划。看代币要同时看流通量、解锁日历和持仓集中度，警惕解锁前的拉盘。</p></div>
+    <div class="card reveal"><div class="thead"><span class="tcode">CRY-23</span><span class="tname">Rug Pull 跑路盘</span></div><div class="ten">Rug Pull</div>
+      <p>项目方撤走流动性或增发卷款跑路的骗局，是 meme 币和新项目最经典的死法。事前检查合约权限、流动性锁定和持仓集中度，事前排除远比事后维权有效。</p></div>
+  </div>
+
+  <a class="backlink" href="options.html">← 上一模块：期权进阶</a>&nbsp;&nbsp;<a class="backlink" href="path.html">下一页：学习路径与风险管理 →</a>&nbsp;&nbsp;<a class="backlink" href="index.html">返回首页</a>
+  <p style="color:var(--faint);font-size:13px;margin-top:22px;font-family:var(--mono)">TIP: 完整加密词条（300+，含 Layer2、共识机制、链上攻击向量与数十份安全检查清单）见仓库 content/crypto 目录。</p>
+</div></main>
+
+<footer><div class="wrap">
+  <div class="fdisc">
+    <div class="fmono" style="color:var(--amber)">IFB::DISCLAIMER</div>
+    <p style="margin-top:6px">本页为开源仓库 <a href="https://github.com/xuchonglang/investing-for-beginners" target="_blank" rel="noopener">xuchonglang/investing-for-beginners</a> 的非官方静态导读，内容据仓库词条整理概括。仅供学习，不构成投资建议。</p>
+  </div>
+  <div class="fmono">MODULE: CRYPTO<br>SRC: content/crypto/*<br>PAGE: crypto.html</div>
+</div></footer>
+
+<script>
+(function(){
+  var reduce = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  if (reduce || !('IntersectionObserver' in window)) return;
+  var els = document.querySelectorAll('.reveal');
+  var io = new IntersectionObserver(function(entries){
+    entries.forEach(function(e){
+      if (e.isIntersecting) { e.target.classList.add('in'); io.unobserve(e.target); }
+    });
+  }, {threshold: 0.08, rootMargin: '0px 0px -30px 0px'});
+  els.forEach(function(el){ io.observe(el); });
+})();
+(function(){
+  var btn=document.getElementById('themeToggle');
+  if(!btn)return;
+  function label(){
+    var d=document.documentElement.getAttribute('data-theme')==='dark';
+    btn.textContent=d?'☀ 浅色':'☾ 深色';
+    btn.setAttribute('aria-label',d?'切换到浅色主题':'切换到深色主题');
+  }
+  label();
+  btn.addEventListener('click',function(){
+    var t=document.documentElement.getAttribute('data-theme')==='dark'?'light':'dark';
+    document.documentElement.setAttribute('data-theme',t);
+    try{localStorage.setItem('theme',t);}catch(e){}
+    label();
+  });
+})();
+</script>
+</body>
+</html>

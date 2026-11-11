@@ -1,0 +1,400 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<script>(function(){var t=null;try{t=localStorage.getItem('theme')}catch(e){}if(t!=='light'&&t!=='dark'){var h=new Date().getHours();t=(h>=7&&h<17)?'light':'dark'}document.documentElement.setAttribute('data-theme',t);})();</script>
+<title>程序员做饭指南 · HowToCook 中文精选站</title>
+<style>
+:root{
+  --bg:#faf6ef;
+  --card:#fffdf8;
+  --ink:#2d2a26;
+  --red:#d0402a;
+  --red-fill:#d0402a;
+  --red-dark:#a92f1d;
+  --line:#eadfcd;
+  --muted:#7a736a;
+  --soft:#f4ecdd;
+  --nav-bg:rgba(255,253,248,.96);
+  color-scheme:light;
+}
+[data-theme="dark"]{
+  --bg:#1b1815;
+  --card:#262019;
+  --ink:#f2e9d8;
+  --red:#e0603f;
+  --red-fill:#d0402a;
+  --red-dark:#f4a48e;
+  --line:#3b352a;
+  --muted:#b3a695;
+  --soft:#2c261d;
+  --nav-bg:rgba(27,24,21,.96);
+  color-scheme:dark;
+}
+*{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+body{
+  font-family:"Microsoft YaHei","PingFang SC","Noto Sans SC",sans-serif;
+  background:var(--bg);
+  color:var(--ink);
+  line-height:1.75;
+  font-size:16px;
+}
+.wrap{max-width:1040px;margin:0 auto;padding:0 20px}
+a{color:var(--red);text-decoration:none}
+a:hover{text-decoration:underline}
+
+/* 顶部导航 */
+.site-nav{
+  position:sticky;top:0;z-index:50;
+  background:var(--nav-bg);
+  border-bottom:1px solid var(--line);
+  backdrop-filter:blur(6px);
+}
+.nav-inner{
+  max-width:1040px;margin:0 auto;padding:10px 20px;
+  display:flex;align-items:center;gap:4px;
+  white-space:nowrap;overflow-x:auto;
+  -webkit-overflow-scrolling:touch;
+}
+.brand{
+  font-weight:700;color:var(--red);font-size:17px;
+  margin-right:14px;flex:none;
+}
+.brand .dot{color:var(--ink)}
+.nav-inner a.link{
+  color:var(--ink);font-size:15px;padding:6px 12px;
+  border-radius:999px;flex:none;
+}
+.nav-inner a.link:hover{background:var(--soft);text-decoration:none;color:var(--red-dark)}
+.nav-inner a.link.active{background:var(--red-fill);color:#fff}
+.nav-inner a.gh{margin-left:auto;color:var(--muted);font-size:14px;flex:none}
+.nav-inner a.gh:hover{color:var(--red)}
+.theme-btn{
+  flex:none;margin-left:10px;width:36px;height:32px;
+  border:1px solid var(--line);border-radius:999px;
+  background:var(--card);color:var(--ink);font-size:15px;
+  cursor:pointer;line-height:1;padding:0;
+}
+.theme-btn:hover{border-color:var(--red)}
+
+/* 首屏 */
+.hero{padding:64px 0 40px;text-align:center}
+.hero .kicker{
+  display:inline-block;background:var(--soft);color:var(--red-dark);
+  border-radius:999px;padding:4px 16px;font-size:14px;margin-bottom:18px;
+}
+.hero h1{font-size:clamp(30px,5vw,46px);line-height:1.3;font-weight:800}
+.hero h1 em{font-style:normal;color:var(--red)}
+.hero p.lead{
+  max-width:680px;margin:18px auto 0;color:var(--muted);font-size:17px;
+}
+.hero .cta-row{margin-top:28px;display:flex;gap:14px;justify-content:center;flex-wrap:wrap}
+.btn{
+  display:inline-block;padding:11px 26px;border-radius:12px;
+  font-size:16px;font-weight:600;
+}
+.btn-primary{background:var(--red-fill);color:#fff}
+.btn-primary:hover{background:var(--red-dark);text-decoration:none;color:#fff}
+.btn-ghost{border:1.5px solid var(--red);color:var(--red)}
+.btn-ghost:hover{background:var(--soft);text-decoration:none}
+
+.stats{
+  display:flex;gap:12px;justify-content:center;flex-wrap:wrap;
+  margin:42px auto 0;max-width:720px;
+}
+.stat{
+  background:var(--card);border:1px solid var(--line);border-radius:14px;
+  padding:14px 22px;text-align:center;flex:1;min-width:140px;
+}
+.stat b{display:block;font-size:24px;color:var(--red)}
+.stat span{font-size:13px;color:var(--muted)}
+
+/* 分区 */
+section.block{padding:48px 0}
+.section-head{text-align:center;margin-bottom:30px}
+.section-head h2{font-size:28px;font-weight:800}
+.section-head p{color:var(--muted);margin-top:6px}
+
+/* 分类卡片 */
+.cat-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(230px,1fr));gap:18px}
+.cat-card{
+  background:var(--card);border:1px solid var(--line);border-radius:16px;
+  padding:24px 22px;display:flex;flex-direction:column;gap:8px;
+  transition:transform .25s ease,box-shadow .25s ease;
+}
+.cat-card:hover{transform:translateY(-4px);box-shadow:0 10px 24px rgba(45,42,38,.08);text-decoration:none}
+.cat-card .tag{
+  align-self:flex-start;background:var(--soft);color:var(--red-dark);
+  border-radius:8px;padding:2px 10px;font-size:13px;
+}
+.cat-card h3{color:var(--ink);font-size:19px}
+.cat-card p{color:var(--muted);font-size:14px;flex:1}
+.cat-card .go{color:var(--red);font-size:14px;font-weight:600}
+.cat-card .easy-stat{display:block;color:var(--muted);font-size:12.5px;margin-top:2px}
+
+/* 入门路径 */
+.path{display:flex;flex-direction:column;gap:14px;max-width:760px;margin:0 auto}
+.step{
+  display:flex;gap:18px;background:var(--card);
+  border:1px solid var(--line);border-radius:16px;padding:20px 22px;
+}
+.step .num{
+  flex:none;width:44px;height:44px;border-radius:50%;
+  background:var(--red-fill);color:#fff;font-weight:800;font-size:19px;
+  display:flex;align-items:center;justify-content:center;
+}
+.step h3{font-size:17px;margin-bottom:4px}
+.step p{color:var(--muted);font-size:14.5px}
+.step a{font-weight:600}
+
+/* 关于 */
+.about{
+  background:var(--card);border:1px solid var(--line);border-radius:18px;
+  padding:30px;max-width:820px;margin:0 auto;
+}
+.about p{color:var(--muted);margin-bottom:12px;font-size:15.5px}
+.about p:last-child{margin-bottom:0}
+.about strong{color:var(--ink)}
+
+/* 页脚 */
+footer{
+  margin-top:40px;border-top:1px solid var(--line);
+  padding:28px 0 36px;color:var(--muted);font-size:14px;
+  text-align:center;
+}
+footer .f-links{margin-top:8px}
+footer a{color:var(--muted)}
+footer a:hover{color:var(--red)}
+
+/* 动画 */
+.reveal{opacity:0;transform:translateY(14px)}
+.reveal.in{opacity:1;transform:none;transition:opacity .6s ease,transform .6s ease}
+
+@media (max-width:600px){
+  .hero{padding:44px 0 28px}
+  section.block{padding:36px 0}
+  .brand{font-size:15px}
+}
+
+@media (prefers-reduced-motion: reduce){.reveal{opacity:1 !important;transform:none !important}}</style>
+<noscript><style>.reveal,.rv{opacity:1 !important;transform:none !important}</style></noscript></head>
+<body><div style="position:fixed;left:14px;bottom:14px;z-index:99;"><a href="../index.html" style="display:inline-block;padding:7px 16px;border-radius:999px;background:rgba(20,20,20,.72);color:#fff;font-size:13px;text-decoration:none;backdrop-filter:blur(4px);font-family:system-ui,sans-serif;" onmouseover="this.style.background='rgba(20,20,20,.9)'" onmouseout="this.style.background='rgba(20,20,20,.72)'">&#8592; 总门户</a></div>
+
+<nav class="site-nav">
+  <div class="nav-inner">
+    <a class="brand" href="index.html">做饭指南<span class="dot">·HowToCook</span></a>
+    <a class="link active" href="index.html">首页</a>
+    <a class="link" href="start.html">学前准备</a>
+    <a class="link" href="vegetable.html">素菜</a>
+    <a class="link" href="meat.html">荤菜</a>
+    <a class="link" href="meat2.html">荤菜 II</a>
+    <a class="link" href="aquatic.html">水产</a>
+    <a class="link" href="breakfast.html">早餐</a>
+    <a class="link" href="soup.html">汤与粥</a>
+    <a class="link" href="staple.html">主食</a>
+    <a class="link" href="dessert.html">甜品饮品</a>
+    <a class="link" href="sauce.html">酱料</a>
+    <a class="gh" href="https://github.com/Anduin2017/HowToCook" target="_blank" rel="noopener">GitHub 仓库 ↗</a>
+    <button class="theme-btn" id="themeBtn" type="button" aria-label="切换明暗主题">🌙</button>
+  </div>
+</nav>
+
+<header class="hero wrap">
+  <span class="kicker">开源社区菜谱 · 程序员写给程序员的家常菜指南</span>
+  <h1>把做饭这件事，<br>写得像<em>代码</em>一样清楚</h1>
+  <p class="lead">
+    网上的菜谱常常写法千奇百怪，中间莫名冒出一些材料，对习惯了形式语言的人来说极不友好。
+    HowToCook 用清晰精准的描述整理常见家常菜的做法：每道菜都有明确的用料表、精确到克与毫升的用量，和按序号排列的操作步骤。
+  </p>
+  <div class="cta-row">
+    <a class="btn btn-primary" href="start.html">从零开始搭厨房</a>
+    <a class="btn btn-ghost" href="vegetable.html">直接看菜谱</a>
+  </div>
+  <div class="stats reveal">
+    <div class="stat"><b>300+</b><span>社区贡献菜谱</span></div>
+    <div class="stat"><b>10 大类</b><span>素菜 / 荤菜 / 汤粥 / 主食等</span></div>
+    <div class="stat"><b>373 道</b><span>本站收录完整做法</span></div>
+    <div class="stat"><b>开源</b><span>欢迎提交 Pull Request</span></div>
+  </div>
+</header>
+
+<section class="block wrap">
+  <div class="section-head reveal">
+    <h2>分类导航</h2>
+    <p>九大分类页面，覆盖从早餐到甜品酱料的完整一餐</p>
+  </div>
+  <div class="cat-grid">
+    <a class="cat-card reveal" href="start.html">
+      <span class="tag">入门必读</span>
+      <h3>学前准备</h3>
+      <p>厨房搭建清单、用刀安全与刀法、焯水与去腥的原理、常见厨具怎么选。</p>
+      <span class="go">开始准备 →</span>
+    </a>
+    <a class="cat-card reveal" href="vegetable.html">
+      <span class="tag">65 道菜</span>
+      <h3>素菜</h3>
+      <p>西红柿炒鸡蛋、酸辣土豆丝、蒜蓉西兰花、地三鲜、手撕包菜、虎皮青椒等。</p>
+      <span class="easy-stat">其中简单 40 道</span>
+      <span class="go">去做素菜 →</span>
+    </a>
+    <a class="cat-card reveal" href="meat.html">
+      <span class="tag">111 道菜</span>
+      <h3>荤菜（上/下两页）</h3>
+      <p>可乐鸡翅、简易红烧肉、宫保鸡丁、糖醋排骨、回锅肉、麻婆豆腐、黄焖鸡等。</p>
+      <span class="easy-stat">其中简单 7 道</span>
+      <span class="go">去做荤菜 →</span>
+    </a>
+    <a class="cat-card reveal" href="aquatic.html">
+      <span class="tag">28 道菜</span>
+      <h3>水产</h3>
+      <p>清蒸鲈鱼、油焖大虾、水煮鱼、咖喱炒蟹、蒜蓉虾、葱烧海参等。</p>
+      <span class="easy-stat">其中简单 3 道</span>
+      <span class="go">去做水产 →</span>
+    </a>
+    <a class="cat-card reveal" href="breakfast.html">
+      <span class="tag">25 道菜</span>
+      <h3>早餐</h3>
+      <p>完美水煮蛋、太阳蛋、微波炉蒸蛋、手抓饼、吐司果酱等。</p>
+      <span class="easy-stat">其中简单 20 道</span>
+      <span class="go">去做早餐 →</span>
+    </a>
+    <a class="cat-card reveal" href="soup.html">
+      <span class="tag">24 道菜</span>
+      <h3>汤与粥</h3>
+      <p>西红柿鸡蛋汤、紫菜蛋花汤、米粥、玉米排骨汤、罗宋汤等。</p>
+      <span class="easy-stat">其中简单 11 道</span>
+      <span class="go">去炖汤煮粥 →</span>
+    </a>
+    <a class="cat-card reveal" href="staple.html">
+      <span class="tag">59 道菜</span>
+      <h3>主食</h3>
+      <p>蛋炒饭、葱油拌面、馒头、饺子、炒面等米面主食一应俱全。</p>
+      <span class="easy-stat">其中简单 21 道</span>
+      <span class="go">去做主食 →</span>
+    </a>
+    <a class="cat-card reveal" href="dessert.html">
+      <span class="tag">42 道</span>
+      <h3>甜品与饮料</h3>
+      <p>烤蛋挞、雪花酥、草莓酱、柠檬水、酸梅汤等饭后甜点与饮品。</p>
+      <span class="easy-stat">其中简单 19 道</span>
+      <span class="go">去做甜品 →</span>
+    </a>
+    <a class="cat-card reveal" href="sauce.html">
+      <span class="tag">19 道</span>
+      <h3>酱料与半成品</h3>
+      <p>油泼辣子、葱油等万能酱料，以及可提前备好的半成品。</p>
+      <span class="easy-stat">其中简单 12 道</span>
+      <span class="go">去调酱料 →</span>
+    </a>
+  </div>
+</section>
+
+<section class="block wrap">
+  <div class="section-head reveal">
+    <h2>新手入门路径</h2>
+    <p>按这个顺序练，四周就能稳定做出一桌两菜一汤</p>
+  </div>
+  <div class="path">
+    <div class="step reveal">
+      <div class="num">1</div>
+      <div>
+        <h3>第一周：搭好厨房，学会用刀</h3>
+        <p>对照<a href="start.html">学前准备页</a>的清单备齐基础工具和高频调料，练稳握刀、猫爪手和切片。目标不是快，是稳。</p>
+      </div>
+    </div>
+    <div class="step reveal">
+      <div class="num">2</div>
+      <div>
+        <h3>第二周：从两道零失败素菜开始</h3>
+        <p>先做<a href="vegetable.html">蚝油生菜和蒜蓉西兰花</a>：只需要焯水加淋汁，几乎不可能翻车。再挑战西红柿炒鸡蛋和酸辣土豆丝。</p>
+      </div>
+    </div>
+    <div class="step reveal">
+      <div class="num">3</div>
+      <div>
+        <h3>第三周：掌握肉菜的核心工序</h3>
+        <p>焯水、去腥、煎制、收汁。跟着<a href="meat.html">可乐鸡翅和简易红烧肉</a>的步骤走，重点是学会看火候和撇浮沫。</p>
+      </div>
+    </div>
+    <div class="step reveal">
+      <div class="num">4</div>
+      <div>
+        <h3>第四周：一桌完整的饭</h3>
+        <p>用<a href="soup.html">玉米排骨汤或西红柿鸡蛋汤</a>配一锅<a href="soup.html">蛋炒饭</a>，饭后来一份<a href="dessert.html">柠檬水</a>。至此你已能独立开火请客。</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="block wrap">
+  <div class="section-head reveal">
+    <h2>关于这个项目</h2>
+  </div>
+  <div class="about reveal">
+    <p>
+      <strong>HowToCook（程序员做饭指南）</strong>是一个由社区驱动和维护的开源项目。作者在宅家做饭时发现网上的菜谱写法千奇百怪，对习惯了形式语言的程序员极其不友好，于是决定结合实际做菜经验，用更清晰精准的描述整理常见菜的做法。
+    </p>
+    <p>
+      项目托管在 GitHub，所有菜谱以 Markdown 维护，非常欢迎任何人通过 Pull Request 贡献新菜或修正问题。本站收录了仓库全部 373 道菜谱与入门技巧，整理成便于阅读的多页站点，内容忠于仓库原文。
+    </p>
+    <p>
+      想浏览完整菜谱库或参与贡献，请访问
+      <a href="https://github.com/Anduin2017/HowToCook" target="_blank" rel="noopener">GitHub 仓库 Anduin2017/HowToCook</a>。
+    </p>
+  </div>
+</section>
+
+<footer>
+  <div>内容整理自开源项目 HowToCook（程序员做饭指南），菜谱版权归原作者与社区所有。</div>
+  <div class="f-links">
+    <a href="index.html">首页</a> ·
+    <a href="start.html">学前准备</a> ·
+    <a href="vegetable.html">素菜</a> ·
+    <a href="meat.html">荤菜</a> ·
+    <a href="meat2.html">荤菜 II</a> ·
+    <a href="aquatic.html">水产</a> ·
+    <a href="breakfast.html">早餐</a> ·
+    <a href="soup.html">汤与粥</a> ·
+    <a href="staple.html">主食</a> ·
+    <a href="dessert.html">甜品饮品</a> ·
+    <a href="sauce.html">酱料</a> ·
+    <a href="https://github.com/Anduin2017/HowToCook" target="_blank" rel="noopener">GitHub</a>
+  </div>
+</footer>
+
+<script>
+(function(){
+  var b=document.getElementById('themeBtn');
+  function sync(){
+    var t=document.documentElement.getAttribute('data-theme');
+    if(b){b.textContent=t==='dark'?'☀':'🌙';b.title=t==='dark'?'切换到明亮主题':'切换到暗色主题';}
+  }
+  sync();
+  if(b){b.addEventListener('click',function(){
+    var t=document.documentElement.getAttribute('data-theme')==='dark'?'light':'dark';
+    document.documentElement.setAttribute('data-theme',t);
+    try{localStorage.setItem('theme',t)}catch(e){}
+    sync();
+  });}
+})();
+</script>
+<script>
+(function(){
+  if (!window.matchMedia('(prefers-reduced-motion: no-preference)').matches) return;
+  var els = document.querySelectorAll('.reveal');
+  if (!('IntersectionObserver' in window)) {
+    els.forEach(function(el){ el.classList.add('in'); });
+    return;
+  }
+  var io = new IntersectionObserver(function(entries){
+    entries.forEach(function(e){
+      if (e.isIntersecting) { e.target.classList.add('in'); io.unobserve(e.target); }
+    });
+  }, {threshold:.12});
+  els.forEach(function(el){ io.observe(el); });
+})();
+</script>
+</body>
+</html>

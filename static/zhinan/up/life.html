@@ -1,0 +1,238 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>爱情与人生 | 人生进阶指南</title>
+<script>
+(function(){
+  var t=null;try{t=localStorage.getItem("theme")}catch(e){}
+  if(t!=="light"&&t!=="dark"){var h=new Date().getHours();t=(h>=7&&h<17)?"light":"dark"}
+  document.documentElement.setAttribute("data-theme",t);
+})();
+</script>
+<style>
+:root{
+  --bg:#0a0f13;--panel:#0f171d;--panel2:#121c23;--line:#1e2b33;
+  --acc:#2ee6d6;--acc-ink:#04211d;--text:#e6f1f2;--muted:#8fa3ab;--body:#c6d4d9;
+  --nav-bg:rgba(10,15,19,.92);--badge-bg:rgba(24,32,38,.82);--badge-bg-h:rgba(24,32,38,.95);--badge-ink:#e6f1f2;
+  --radius:14px;color-scheme:dark;
+}
+:root[data-theme="light"]{
+  --bg:#f3f7f7;--panel:#ffffff;--panel2:#ecf2f2;--line:#d5dfe1;
+  --acc:#0b6b63;--acc-ink:#ffffff;--text:#1c262b;--muted:#56686d;--body:#2e3c42;
+  --nav-bg:rgba(243,247,247,.92);--badge-bg:rgba(255,255,255,.9);--badge-bg-h:#ffffff;--badge-ink:#0b6b63;
+  color-scheme:light;
+}
+*{margin:0;padding:0;box-sizing:border-box}
+body{background:var(--bg);color:var(--text);font-family:"Segoe UI","PingFang SC","Hiragino Sans GB","Microsoft YaHei",sans-serif;line-height:1.8}
+a{color:inherit;text-decoration:none}
+.wrap{max-width:960px;margin:0 auto;padding:0 24px}
+.nav{position:sticky;top:0;z-index:20;background:var(--nav-bg);border-bottom:1px solid var(--line);backdrop-filter:blur(8px)}
+.nav-in{display:flex;align-items:center;gap:20px;height:64px;white-space:nowrap;overflow-x:auto;scrollbar-width:none}
+.nav-in::-webkit-scrollbar{display:none}
+@media(max-width:600px){
+  .nav-in{flex-wrap:wrap;height:auto;padding:10px 0;gap:12px;row-gap:8px;overflow-x:visible}
+  .brand{font-size:15px}
+  .nav a.link{font-size:13px}
+  .nav .gh{padding:4px 10px;font-size:12px}
+}
+.brand{font-weight:800;font-size:16px;color:var(--acc);flex:none}
+.nav a.link{color:var(--muted);font-size:14px;flex:none}
+.nav a.link:hover,.nav a.link[aria-current]{color:var(--acc)}
+.nav .gh{margin-left:auto;border:1px solid var(--line);border-radius:999px;padding:5px 14px;font-size:13px}
+.nav .gh:hover{border-color:var(--acc);color:var(--acc)}
+.tbtn{flex:none;margin-left:6px;width:32px;height:32px;border-radius:999px;border:1px solid var(--line);background:transparent;color:var(--text);font-size:15px;cursor:pointer;line-height:1;display:inline-flex;align-items:center;justify-content:center;padding:0}
+.tbtn:hover{border-color:var(--acc);color:var(--acc)}
+.portal{position:fixed;left:14px;bottom:14px;z-index:99}
+.portal a{display:inline-block;padding:7px 16px;border-radius:999px;background:var(--badge-bg);color:var(--badge-ink);font-size:13px;text-decoration:none;backdrop-filter:blur(4px);font-family:system-ui,sans-serif}
+.portal a:hover{background:var(--badge-bg-h)}
+.hero{padding:72px 0 44px}
+.kicker{color:var(--acc);font-size:13px;letter-spacing:.35em;font-weight:700}
+h1{font-size:clamp(34px,6vw,54px);font-weight:900;letter-spacing:-.02em;line-height:1.18;margin:16px 0 8px}
+h1 em{font-style:normal;color:var(--acc)}
+.lede{color:var(--muted);font-size:16px;max-width:40em;margin-top:16px}
+section.block{padding:48px 0}
+h2{font-size:clamp(24px,3.6vw,32px);font-weight:800;margin-bottom:8px}
+h2 .tag{color:var(--acc)}
+.sec-sub{color:var(--muted);margin-bottom:26px;max-width:44em}
+h3{font-size:18px;font-weight:700;margin:26px 0 10px}
+h3::before{content:"§";color:var(--acc);margin-right:8px;font-weight:800}
+p{margin-bottom:14px}
+p,li{color:var(--body);font-size:15.5px}
+.card{background:var(--panel);border:1px solid var(--line);border-radius:var(--radius);padding:26px 28px;margin-bottom:18px;overflow-x:auto}
+.card p:last-child{margin-bottom:0}
+ol.steps-list{counter-reset:n;list-style:none}
+ol.steps-list li{position:relative;padding-left:44px;margin-bottom:14px;counter-increment:n}
+ol.steps-list li::before{content:counter(n);position:absolute;left:0;top:2px;width:28px;height:28px;border-radius:999px;background:var(--acc);color:var(--acc-ink);font-weight:800;font-size:14px;display:flex;align-items:center;justify-content:center}
+table{width:100%;border-collapse:collapse;font-size:14px;margin:14px 0 20px}
+th{text-align:left;color:var(--acc);font-weight:700;padding:10px 12px;border-bottom:1px solid var(--line)}
+td{padding:10px 12px;border-bottom:1px solid var(--line);vertical-align:top;color:var(--body)}
+tr:last-child td{border-bottom:none}
+blockquote{border-left:3px solid var(--acc);padding:8px 0 8px 22px;margin:20px 0;color:var(--text);font-size:16.5px}
+blockquote small{display:block;color:var(--muted);font-size:13px;margin-top:6px}
+.mode-row{display:grid;grid-template-columns:repeat(3,1fr);gap:12px;margin:8px 0 16px}
+@media(max-width:700px){.mode-row{grid-template-columns:1fr}}
+.mode{background:var(--panel2);border:1px solid var(--line);border-radius:var(--radius);padding:18px}
+.mode b{color:var(--acc);display:block;margin-bottom:6px;font-size:16px}
+.mode span{font-size:13.5px;color:var(--muted)}
+footer{border-top:1px solid var(--line);padding:36px 0 48px;color:var(--muted);font-size:14px}
+.foot-grid{display:flex;justify-content:space-between;gap:16px;flex-wrap:wrap}
+footer a{color:var(--acc)}
+.backtop{display:inline-block;margin-top:10px;color:var(--acc);font-size:14px}
+.rv{opacity:0;transform:translateY(16px)}
+.rv.on{opacity:1;transform:none;transition:opacity .7s ease,transform .7s ease}
+@media(prefers-reduced-motion:reduce){.rv{opacity:1;transform:none}}
+</style>
+<noscript><style>.reveal,.rv{opacity:1 !important;transform:none !important}</style></noscript></head>
+<body><div class="portal"><a href="../index.html">&#8592; 总门户</a></div>
+
+<nav class="nav">
+  <div class="wrap nav-in">
+    <a class="brand" href="index.html">← 人生进阶指南</a>
+    <a class="link" href="ai-learn.html">AI 与学习</a>
+    <a class="link" href="wealth.html">创业与财富</a>
+    <a class="link" href="life.html" aria-current="page">爱情与人生</a>
+    <a class="link gh" href="https://github.com/byoungd/up">GitHub</a>
+    <button class="tbtn" id="themeToggle" type="button" aria-label="切换主题">◑</button>
+  </div>
+</nav>
+
+<header class="hero wrap">
+  <div class="kicker rv">主题五 · 主题六</div>
+  <h1 class="rv">让爱有边界，<br><em>先把自己接住</em></h1>
+  <p class="lede rv">一个人很容易在独处时相信自己已经成熟；真正的检验发生在关系里。而在低谷里，第一件事通常不是加速，而是停止继续坠落。这一页整理《人生进阶指南》中爱情与关系、人生与恢复两大主题。个人故事不是医疗、心理或法律建议；若你正处于紧迫危险，请先联系可信任的人和当地专业支持。</p>
+</header>
+
+<div class="wrap">
+
+<section class="block rv" id="love">
+  <h2><span class="tag">主题五</span> · 爱情与关系：在关系中成为成年人</h2>
+  <p class="sec-sub">在关系中成为成年人，不是永远冷静，也不是从不犯错，而是逐渐学会把感受说清楚，把责任分开，把承诺写得小一点，把对方的自由当作现实的一部分。</p>
+
+  <div class="card">
+    <h3>在场：先让对方被听见</h3>
+    <p>很多争吵不是因为两个人没有答案，而是其中一个人还没有被真正听见。一次完整的倾听分三步：复述事实（「我听见你今天在会议上被当众否定了」）、确认感受（「这让你很委屈，也有些孤单」）、询问需要（「你想让我听你说，还是一起想办法」）。倾听不是等待反驳的间隙。</p>
+    <p>在场也包括承认自己的容量：「我现在很累，但我愿意认真听十分钟。十分钟后如果还没说完，我们明天继续。」有限的在场，比敷衍的全天候承诺更可靠。</p>
+  </div>
+
+  <div class="card">
+    <h3>边界与冲突：先处理安全，再处理观点</h3>
+    <p>边界不是「你必须怎样」，而是「当某件事发生时，我会怎样保护自己并说明后果」。控制说「你不许再和那个人联系」；边界说「如果谈话继续出现辱骂，我会先结束这次通话，等双方冷静后再约时间」。边界应尽量具体：行为是什么、我能做什么、什么时候重新沟通；它不需要对方赞同才成立，但需要你自己愿意执行。</p>
+    <p>冲突里真正需要优先处理的是威胁、暴力、持续羞辱和经济控制；安全没有被保障时，沟通技巧不是首要工具。在相对安全的冲突里，可以用一个结构：当我观察到【具体事实】时，我感到【具体影响】；我需要的是【可说明的需要】；我希望我们尝试【一个具体请求】；如果做不到，我会【自己能执行的边界】。它不保证对方接受，但能让你停止用人格判断代替事实沟通。</p>
+  </div>
+
+  <div class="card">
+    <h3>道歉与修复：和好不能被当作验收条件</h3>
+    <p>真正的道歉不以「我也很难受」开头。它包含五件事：具体说出自己做了什么；承认给对方造成的影响；不用环境、压力或善意替自己减刑；说明一个可观察的修正动作；接受对方可能不回复、不原谅或需要离开的事实。</p>
+    <p>修复至少四步：先停止伤害；让影响被说清楚，不急着证明动机；归还能够归还的东西（时间、钱、选择权、署名、隐私）；在一段时间里改变行为。写了一封很长的道歉信不等于修复；真正的证据是受影响的行为停止了、边界被持续遵守。修复不等于和好：对方可以承认你在改变，同时仍决定保持距离；不要把「你必须回来」藏在道歉和补偿里面。</p>
+  </div>
+
+  <div class="card">
+    <h3>共同生活与权力差异</h3>
+    <p>亲密关系不是持续浪漫的表演，而是许多具体事务的共同管理：钱、家务、睡眠、工作、孩子、父母和未来的不确定。可以每周安排一次 30 分钟的生活会议，只讨论四件事：这周什么让我们感到被支持；哪件具体事务正在制造压力；下周谁负责什么；哪个问题不在今晚解决但约定复查日期。浪漫需要空间，可靠也需要日历。</p>
+    <p>人格尊严可以平等，现实权力却常常不平等。真实同意至少需要四个条件：具体（同意一件事不等于同意所有后续用途）、知情（重要代价没有被隐藏）、当下（过去的同意不能无限延长）、可撤回（拒绝不会立刻带来羞辱或报复）。沉默不是自动同意，依赖也不是空白授权。</p>
+  </div>
+
+  <div class="card">
+    <h3>AI 时代的关系伦理与离开</h3>
+    <p>不上传未经同意的私密聊天、照片和录音；不让 AI 伪造自己的情绪、承诺或道歉；不用模型批量生成操控或施压的消息；不把 AI 对一个人的推测当作诊断或道德判决。AI 可以帮你整理感受草稿，真正的谈话、同意和责任仍然必须由人完成。</p>
+    <p>不是所有关系都需要被挽回。一段关系如果长期让人恐惧、羞耻、失去安全或无法保持自我，离开可能是对双方最诚实的选择。离开前先区分：我在逃避一次可修复的冲突，还是在回应持续的伤害？是否已清楚表达过边界和需要？继续留下的代价由谁承担？离开也需要边界：说清必要事实，安排物品、财务和照护，不用新的伤害证明旧的决定正确。</p>
+  </div>
+
+  <blockquote>爱不是替另一个人设计人生，也不是把自己牺牲到无法呼吸。爱更像一种持续的尊重：我愿意在场，也承认你拥有自己的路；我愿意修复，也接受你可能选择离开。<small>《关系篇：在关系中成为成年人》</small></blockquote>
+</section>
+
+<section class="block rv" id="life-recovery">
+  <h2><span class="tag">主题六</span> · 人生与恢复：先把自己接住</h2>
+  <p class="sec-sub">恢复不是成功故事里等待被剪掉的空白，也不是完成目标之后才配领取的奖励。它是一项基础工程：让身体重新拥有节奏，让情绪不再独自掌舵，让关系回到诚实的边界，让工作缩小到能够承担的重量。</p>
+
+  <div class="card">
+    <h3>先确认安全，再选择今天的模式</h3>
+    <p>当一个人长期失眠、绝望、疼痛或被债务压住时，判断力会变窄。最重要的不是证明自己坚强，而是把不可逆的风险暂时移开：告诉一个可信任的人「我最近状态不安全」；暂停大额借贷、冲动辞职等高风险决定；必要时联系当地专业支持。求助不是失去控制，而是在最需要的时候把控制权交给更可靠的支持网络。</p>
+    <div class="mode-row">
+      <div class="mode"><b>安全模式</b><span>有紧迫危险或严重失序：不独处，联系支持与专业服务，移开不可逆风险</span></div>
+      <div class="mode"><b>降档模式</b><span>睡眠、饮食、疼痛或债务明显影响功能：保护基本生活，只保留一个最小动作</span></div>
+      <div class="mode"><b>重建模式</b><span>基本安全稳定：用短时可逆的任务试载，记录第二天代价，不立即恢复全部负荷</span></div>
+    </div>
+    <p>三种模式不是诊断，也不是等级；一个人可以在一天里反复切换。模式变化不是失败，而是新事实进入了计划。根据今天的现实选模式，不凭羞耻决定负荷。</p>
+  </div>
+
+  <div class="card">
+    <h3>先恢复身体，把羞耻还原成事实</h3>
+    <p>更稳妥的恢复顺序：持续或反复的症状交给合格的医疗专业人士；先固定起床时间，不把一晚的好坏当作人格评分；从能接受的简单食物开始，规律比完美重要；每天出门走一小段，活动量以第二天不会明显恶化为准；记下时间、症状、诱因和已尝试的办法，带着记录去求助。恢复身体不等于制定一套更严厉的自律计划；你不需要在已经透支时再向自己收取利息。</p>
+    <p>失败之后，我们容易把一串事实压缩成一句判决：我没用、我不配再开始。试着写三栏：事实（项目没有获得持续订单）、我的解释（我把功能数量误当成用户价值）、我愿意承担的责任（下次先做付费意愿和交付成本验证）。事实让问题有边界，解释让我们看见偏差，责任让下一步变得具体。</p>
+  </div>
+
+  <div class="card">
+    <h3>复工不是开关，而是逐级试载</h3>
+    <p>复工前至少检查五个门槛：安全（恶化时知道联系谁）、基本生活（饮食睡眠和关键账单没有因试工失守）、任务（能在限定时间完成一个清晰切片）、边界（相关人知道当前工时和紧急联络）、复查（有日期、有记录、有人能帮助看见恶化）。一次试载只增加一个变量：从 15 分钟到 30 分钟，或从内部练习到一次真实沟通，不同时增加时长、复杂度和公开压力。</p>
+    <p>把任务缩小到可以保存的结果：整理一页资料而不是「重新规划职业」；修复一个测试而不是「重写整套系统」；写三句话而不是「写出代表作」。每个小结果留下证据，不是向别人表演，而是让你在情绪再次下沉时，仍然看得见自己做过什么。</p>
+  </div>
+
+  <div class="card">
+    <h3>求助要具体，与自己做终身朋友</h3>
+    <p>「我很难受」是真实的，但不一定能帮别人知道怎样靠近你。把求助写成一个动作：「请今晚陪我吃饭，不需要劝我」「请帮我看一眼这份合同」「请在这周提醒我两次出门走路」。支持者也需要边界清楚的协议：可以做什么、不替代什么、何时升级、风险降低后如何归还决定权。</p>
+    <p>与自己做终身朋友，是用朋友的四种责任对待自己：记得（为自己写一页「生活使用说明」：我在什么条件下最容易开始、最容易逃避、哪些代价不想再支付）、诚实（复盘用「事实、影响、责任、尊严」四段式，让标准针对行为，不向整个人扩散）、照料（把承诺写成小而可信的约定：最小动作、自动降档条件、留下的证据）、回归（每月给未来的自己写一封不夸张的信，中断后知道从哪里回来）。</p>
+    <p>方向改变不是背叛过去。如果你把「坚持原计划」当成忠诚，就会开始保护旧目标，而不是保护真实生活。每半年问一次：我现在仍然想解决这个问题吗？这个目标服务谁？我正在付出什么代价？如果今天第一次遇到它，我还会选择吗？</p>
+  </div>
+
+  <div class="card">
+    <h3>七天恢复最小秩序</h3>
+    <table>
+      <tr><th>日程</th><th>主事</th><th>留下的证据</th></tr>
+      <tr><td>第 1 天</td><td>写安全联系人、症状和需暂停的高风险决定</td><td>一页安全清单</td></tr>
+      <tr><td>第 2 天</td><td>吃一顿规律的饭，预约或确认一次专业支持</td><td>预约记录</td></tr>
+      <tr><td>第 3 天</td><td>出门走 10 至 20 分钟，观察身体反应</td><td>时间与感受</td></tr>
+      <tr><td>第 4 天</td><td>把一件亏欠拆成事实、影响和责任</td><td>一段道歉草稿</td></tr>
+      <tr><td>第 5 天</td><td>按当前模式完成一个 15 分钟工作切片</td><td>文件或下一步提示</td></tr>
+      <tr><td>第 6 天</td><td>和可信的人约定支持边界</td><td>一份支持边界</td></tr>
+      <tr><td>第 7 天</td><td>回看这一周，决定保留、停止、求助和试载</td><td>下周模式与复查日期</td></tr>
+    </table>
+    <p>这不是挑战赛。某一天做不到，就把主事缩小，不补作业，不熬夜追赶。恢复的目标是重新拥有边界，而不是制造另一种失败感。</p>
+  </div>
+
+  <blockquote>一个人能够重新开始，并不是因为他终于变得无坚不摧，而是因为他学会承认自己的重量，也学会在需要时让别人帮忙托住一部分。人生最大的进阶，也许不是终于成为一个无懈可击的人，而是无论走到哪里，都还认得出这个值得被诚实对待、被认真照料的人。<small>《恢复篇》与《与自己做终身朋友》</small></blockquote>
+
+  <a class="backtop" href="#love">回到本页顶部 ↑</a>
+</section>
+
+</div>
+
+<footer>
+  <div class="wrap foot-grid">
+    <div>人生进阶指南 · 基于 <a href="https://github.com/byoungd/up">byoungd/up</a> 开放书稿整理 · 不构成医疗或心理建议</div>
+    <div><a href="index.html">首页</a> · <a href="ai-learn.html">AI 与学习</a> · <a href="wealth.html">创业与财富</a></div>
+  </div>
+</footer>
+
+<script>
+(function(){
+  var b=document.getElementById("themeToggle");if(!b)return;
+  function sync(){
+    var d=document.documentElement.getAttribute("data-theme")==="dark";
+    b.textContent=d?"◑":"◐";
+    b.setAttribute("aria-label",d?"切换到浅色主题":"切换到深色主题");
+  }
+  sync();
+  b.addEventListener("click",function(){
+    var n=document.documentElement.getAttribute("data-theme")==="dark"?"light":"dark";
+    document.documentElement.setAttribute("data-theme",n);
+    try{localStorage.setItem("theme",n)}catch(e){}
+    sync();
+  });
+})();
+</script>
+<script>
+(function(){
+  if(window.matchMedia&&window.matchMedia("(prefers-reduced-motion: reduce)").matches)return;
+  var els=document.querySelectorAll(".rv");
+  if(!("IntersectionObserver"in window)){els.forEach(function(e){e.classList.add("on")});return}
+  var io=new IntersectionObserver(function(en){
+    en.forEach(function(e){if(e.isIntersecting){e.target.classList.add("on");io.unobserve(e.target)}})
+  },{threshold:.1});
+  els.forEach(function(e){io.observe(e)});
+})();
+</script>
+</body>
+</html>

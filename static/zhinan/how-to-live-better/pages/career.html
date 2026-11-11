@@ -1,0 +1,375 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>创业与技能 · 高性价比人生指南精读版</title>
+<script>
+(function(){var t=null;try{t=localStorage.getItem('theme')}catch(e){}
+if(t!=='light'&&t!=='dark'){var h=new Date().getHours();t=(h>=7&&h<17)?'light':'dark'}
+document.documentElement.setAttribute('data-theme',t)})();
+</script>
+<style>
+*{box-sizing:border-box;margin:0;padding:0}
+:root{--bg:#f7f3ea;--ink:#2a2a24;--soft:#4a4a3f;--muted:#5a5a4d;--muted2:#7a7a6c;--body-ink:#3d3d33;--link:#2d5a4a;--accent:#2d5a4a;--deep:#1f4437;--head-bg:#f2ecdd;--nav-hover:#e3ead9;--nav-hover-ink:#1f4437;--on-bg:#2d5a4a;--on-ink:#f7f3ea;--card:#fffdf7;--line:#e4ddc9;--th-bg:#e7efe9;--chip-bg:#e7efe9;--chip-ink:#24503f;--chip-hover:#d5e3d8;--bA-bg:#2d5a4a;--bA-ink:#f7f3ea;--bB-bg:#dce8df;--bB-ink:#24503f;--bB-line:#9dbcaa;--bC-ink:#6a6a5f;--bC-line:#b9b5a6;--note-bg:#f0ead9;--note-line:#e0d8c2;--kick-bg:#eef3ec;--src:#9a9684;--tag-bg:#f6e8d8;--tag-ink:#8a5a1e;--tag-line:#e0c9a6;--foot-bg:#243b32;--foot-ink:#cfd8cf;--foot-link:#a8d0b8}
+[data-theme="dark"]{--bg:#0f1e18;--ink:#ece7d9;--soft:#c9c6b6;--muted:#bfc4b4;--muted2:#a3ab9d;--body-ink:#d6d9cc;--link:#7cc9a4;--accent:#6fbf98;--deep:#a9e0c3;--head-bg:#14251d;--nav-hover:#24382e;--nav-hover-ink:#e2efe6;--on-bg:#2f6b52;--on-ink:#f2f7f0;--card:#16291f;--line:#2e463a;--th-bg:#1d3a2d;--chip-bg:#1d3a2d;--chip-ink:#a8e3c4;--chip-hover:#274a39;--bA-bg:#5fbf95;--bA-ink:#0c1b14;--bB-bg:#1d3a2d;--bB-ink:#a8e3c4;--bB-line:#3d6a55;--bC-ink:#b9c2b4;--bC-line:#55645c;--note-bg:#1c2f24;--note-line:#35503f;--kick-bg:#16291f;--src:#97a496;--tag-bg:#3a2c17;--tag-ink:#e8c088;--tag-line:#6a5232;--foot-bg:#0b1712;--foot-ink:#b7c4b7;--foot-link:#8fd4b4}
+html{scroll-behavior:smooth}
+body{font-family:"Microsoft YaHei","PingFang SC","Noto Sans SC",system-ui,sans-serif;background:var(--bg);color:var(--ink);line-height:1.75;font-size:16px}
+.wrap{max-width:1060px;margin:0 auto;padding:0 20px}
+a{color:var(--link)}
+header.site{position:sticky;top:0;z-index:20;background:var(--head-bg);border-bottom:2px solid var(--accent)}
+nav.top{display:flex;align-items:center;gap:2px;white-space:nowrap;overflow-x:auto;padding:9px 0;font-size:14.5px;-webkit-overflow-scrolling:touch}
+nav.top::-webkit-scrollbar{display:none}
+nav.top a{text-decoration:none;color:var(--ink);padding:5px 12px;border-radius:8px;flex:0 0 auto}
+nav.top a:hover{background:var(--nav-hover)}
+nav.top a.on{background:var(--on-bg);color:var(--on-ink)}
+nav.top a.gh{margin-left:auto;color:var(--link);font-weight:700}
+nav.top a.gh:hover{background:var(--nav-hover);color:var(--nav-hover-ink)}
+.theme-btn{flex:0 0 auto;font-size:14px;line-height:1;padding:6px 11px;border-radius:8px;border:1px solid var(--line);background:var(--card);color:var(--ink);cursor:pointer}
+.theme-btn:hover{background:var(--nav-hover);color:var(--nav-hover-ink)}
+.pagehead{padding:40px 0 24px;border-bottom:1px solid var(--line)}
+.pagehead h1{font-size:clamp(24px,4vw,34px);color:var(--deep);margin-bottom:10px}
+.pagehead p{color:var(--soft);max-width:46em;font-size:15.5px}
+.subnav{display:flex;flex-wrap:wrap;gap:8px;margin-top:18px}
+.subnav a{font-size:13.5px;text-decoration:none;background:var(--chip-bg);color:var(--chip-ink);border-radius:999px;padding:4px 14px}
+.subnav a:hover{background:var(--chip-hover)}
+section.block{padding:38px 0 8px}
+h2.sec{font-size:23px;color:var(--deep);border-left:6px solid var(--accent);padding-left:14px;margin-bottom:6px}
+p.secdesc{color:var(--muted);margin-bottom:18px;max-width:46em;font-size:15px}
+.list{display:flex;flex-direction:column;gap:14px;margin-bottom:28px}
+.card{background:var(--card);border:1px solid var(--line);border-radius:12px;padding:18px 22px}
+.card-head{display:flex;justify-content:space-between;align-items:flex-start;gap:12px;margin-bottom:8px}
+.card-head h3{font-size:16.5px;color:var(--deep);line-height:1.5}
+.badge{display:inline-block;font-size:12px;font-weight:700;padding:2px 10px;border-radius:999px;white-space:nowrap;flex:0 0 auto;margin-top:2px}
+.badge.a{background:var(--bA-bg);color:var(--bA-ink)}
+.badge.b{background:var(--bB-bg);color:var(--bB-ink);border:1px solid var(--bB-line)}
+.badge.c{background:transparent;color:var(--bC-ink);border:1px solid var(--bC-line)}
+.card dl div{margin-bottom:6px;font-size:14.6px;color:var(--body-ink)}
+.card dt{display:inline;font-weight:700;color:var(--accent)}
+.card dd{display:inline;margin:0}
+.card .src{font-size:12.5px;color:var(--src);margin-top:8px;border-top:1px dashed var(--line);padding-top:8px}
+.note{background:var(--note-bg);border:1px solid var(--note-line);border-radius:12px;padding:16px 20px;font-size:14.3px;color:var(--muted);margin-bottom:30px}
+footer.site{margin-top:44px;background:var(--foot-bg);color:var(--foot-ink);padding:28px 0 24px;font-size:13.5px}
+footer.site a{color:var(--foot-link)}
+footer.site .wrap p{margin-bottom:6px}
+@media (max-width:560px){.card{padding:15px 16px}.card-head{flex-direction:column;gap:4px}}
+@media (prefers-reduced-motion: no-preference){
+.reveal{opacity:0;transform:translateY(14px);transition:opacity .5s ease,transform .5s ease}
+.reveal.in{opacity:1;transform:none}
+}
+
+@media (prefers-reduced-motion: reduce){.reveal{opacity:1 !important;transform:none !important}}</style>
+<noscript><style>.reveal{opacity:1 !important;transform:none !important}</style></noscript></head>
+<body>
+<header class="site">
+  <div class="wrap">
+    <nav class="top">
+      <a href="../index.html">首页</a>
+      <a href="health.html">健康与急救</a>
+      <a href="money.html">金钱与红线</a>
+      <a href="security.html">失业与保障</a>
+      <a href="family.html">恋爱与育儿</a>
+      <a class="on" href="career.html">创业与技能</a>
+      <a class="gh" href="https://github.com/eternity4719/HowToLiveBetter" target="_blank" rel="noopener">GitHub 仓库</a>
+      <button class="theme-btn" type="button" aria-label="切换明暗主题">🌓</button>
+    </nav>
+  </div>
+</header>
+
+<main>
+  <div class="pagehead wrap">
+    <h1>创业与技能</h1>
+    <p>创业与平台合规、出国与技能两个主题，摘编自原书第 12 节（创业与做生意）、第 26 节（做一个网站或平台）、第 21 节（出国、旅行与境外安全）、第 32 节（出国留学）和第 23 节（学什么技能划算）。口径：金钱、时间与人身自由，开公司做平台这条线上，很多「不做什么」比「做什么」更值钱。</p>
+    <div class="subnav">
+      <a href="#chuangye">创业与平台合规</a>
+      <a href="#jineng">出国与技能</a>
+    </div>
+  </div>
+
+  <section class="block wrap" id="chuangye">
+    <h2 class="sec">创业与平台合规</h2>
+    <p class="secdesc">摘编自第 12 节和第 26 节。核心思路：别把家底赔进去，证没下来不开张，钱别经自己的手。</p>
+    <div class="list">
+
+      <article class="card reveal">
+        <div class="card-head"><h3>只拿亏得起的钱创业，不动家底、不借钱开张</h3><span class="badge b">证据 B</span></div>
+        <dl>
+          <div><dt>成本：</dt><dd>不花钱。动手前定一个数：这笔钱全亏光，也不影响还房贷、养孩子、看病；家里人的钱和借来的钱不算在这个数里。难的是生意有起色时忍住不再追加。</dd></div>
+          <div><dt>收益：</dt><dd>个体户欠的钱要拿你自己的钱和东西还，分不清是不是全家一起做的就拿全家财产还；公司还不上债时，你认缴未出资的部分债主可以要求提前掏出来。这条守住的是全家的财务底线。</dd></div>
+        </dl>
+        <p class="src">出自第 12 节第 1 条</p>
+      </article>
+
+      <article class="card reveal">
+        <div class="card-head"><h3>不给公司贷款签个人担保，配偶更不要跟着签</h3><span class="badge a">证据 A</span></div>
+        <dl>
+          <div><dt>成本：</dt><dd>不花钱。银行、供应商、房东要你签「股东个人连带担保」时先停一下；非签不可就只签「一般保证」，并写清最多担保多少钱。难的是顶住「不签就不放款」。</dd></div>
+          <div><dt>收益：</dt><dd>签的是「连带责任保证」，公司还不上钱，债主可以绕开公司直接找你要；「一般保证」才是先告公司、卖完公司财产还差多少才轮到你。配偶跟着签字，两人的家产一起搭进去，有限公司的「有限」对你个人就不算数了。</dd></div>
+        </dl>
+        <p class="src">出自第 12 节第 2 条</p>
+      </article>
+
+      <article class="card reveal">
+        <div class="card-head"><h3>开张前选对主体：个体户和合伙人赔到底，有限公司才「有限」</h3><span class="badge a">证据 A</span></div>
+        <dl>
+          <div><dt>成本：</dt><dd>登记在网上办一次几个小时；开有限公司后每月记账报税是长期开销，自己做花时间，请人代记账花钱。</dd></div>
+          <div><dt>收益：</dt><dd>个体户和普通合伙人欠多少还多少；有限公司股东只赔注册时答应出的那个数。但答应多少，5 年内就要真拿出多少：填 100 万就是可能欠着 100 万。公司账和自家账混着用，「有限」也会失效；只有一个股东的，还得自己拿账证明没混。</dd></div>
+        </dl>
+        <p class="src">出自第 12 节第 3 条</p>
+      </article>
+
+      <article class="card reveal">
+        <div class="card-head"><h3>加盟前先查商务部备案，拿到书面披露，把「冷静期」写进合同</h3><span class="badge a">证据 A</span></div>
+        <dl>
+          <div><dt>成本：</dt><dd>不花钱。上商务部「商业特许经营信息管理系统」查品牌方有没有备案，再要求对方签约前把该交代的事写成书面材料，几个小时能做完。</dd></div>
+          <div><dt>收益：</dt><dd>按规定品牌方要先开 2 个直营店、经营满 1 年，签约后 15 日内备案；签约前必须把加盟费、保证金怎么退、现有门店赚不赚钱等 12 项写成书面材料给你。查不到备案、不肯给材料、要先交钱才让看合同的，直接走人。</dd></div>
+        </dl>
+        <p class="src">出自第 12 节第 5 条</p>
+      </article>
+
+      <article class="card reveal">
+        <div class="card-head"><h3>要许可证的行当，证没下来不开张</h3><span class="badge a">证据 A</span></div>
+        <dl>
+          <div><dt>成本：</dt><dd>不花钱。开张前查清楚自己这门生意要不要许可证：做餐饮、卖食品要办食品经营许可；只卖别人做好的整包装食品改成备案就行。</dd></div>
+          <div><dt>收益：</dt><dd>没证开张由管这张证的部门查处；连营业执照都没有的，勒令停业、没收挣到的钱、罚 1 万元以下。卖专营专卖的东西或做证券、期货、保险、支付结算，情节严重的构成非法经营罪，最低一档判 5 年以下。</dd></div>
+        </dl>
+        <p class="src">出自第 12 节第 7 条</p>
+      </article>
+
+      <article class="card reveal">
+        <div class="card-head"><h3>领了执照就按期如实申报，没有收入也要报</h3><span class="badge a">证据 A</span></div>
+        <dl>
+          <div><dt>成本：</dt><dd>不花钱。在电子税务局按月或按季申报，一次几分钟。难的是没生意的月份也记着按时报。</dd></div>
+          <div><dt>收益：</dt><dd>不报会被责令限期改正、罚 2000 元以下，情节严重的罚 2000 到 1 万；连续三个月所有税种都不报，会成为非正常户并停用发票。自称税务局、催你往指定账号交钱报税的都是骗子，办税只走电子税务局和 12366。</dd></div>
+        </dl>
+        <p class="src">出自第 12 节第 12、14 条</p>
+      </article>
+
+      <article class="card reveal">
+        <div class="card-head"><h3>收钱写「定金」不写「订金」，账期当放贷来审</h3><span class="badge a">证据 A</span></div>
+        <dl>
+          <div><dt>成本：</dt><dd>不花钱。合同里写「定金」两个字，金额不超过合同总额的 20%，先收钱再发货。</dd></div>
+          <div><dt>收益：</dt><dd>写「定金」才有双倍规则：你毁约这笔钱要不回来，对方毁约要退你双倍；写「订金」法律上没有这套规则。给账期等于把自己的钱白借给对方，对方倒了就是坏账。</dd></div>
+        </dl>
+        <p class="src">出自第 12 节第 15 条</p>
+      </article>
+
+      <article class="card reveal">
+        <div class="card-head"><h3>请人代运营、上开店培训、做「无货源」之前，先问清后面还要不要加钱</h3><span class="badge b">证据 B</span></div>
+        <dl>
+          <div><dt>成本：</dt><dd>不花钱。交钱前要到三样东西：书面合同、对方公司全称、退钱条件；钱只付给合同上那家公司，不转个人账号。难的是看到「学员月入过万」截图时忍住不当场交钱。</dd></div>
+          <div><dt>收益：</dt><dd>这类骗局先收一笔钱，再拿「升级套餐」、垫付货款、解冻金让你一次次加钱，后台的订单和收益可能是做出来的，想提现时提不出来。靠刷单冲销量本身就违法，被查到的代运营要挨罚。</dd></div>
+        </dl>
+        <p class="src">出自第 12 节第 24 条</p>
+      </article>
+
+      <article class="card reveal">
+        <div class="card-head"><h3>每年 1 月到 6 月上网报上一年的年报，没生意也要报</h3><span class="badge a">证据 A</span></div>
+        <dl>
+          <div><dt>成本：</dt><dd>不花钱。登录国家企业信用信息公示系统填报，一年一次，个体户也可交纸质。难的是一年只有一次，容易忘。</dd></div>
+          <div><dt>收益：</dt><dd>不报就进经营异常名录，补报以后能申请移出。年报不收费，打电话说你漏报、让你去小程序交钱代办的是骗子（这样骗人的主犯被判过 10 年以上）。报了税不等于报了年报，两回事。</dd></div>
+        </dl>
+        <p class="src">出自第 12 节第 25 条</p>
+      </article>
+
+      <article class="card reveal">
+        <div class="card-head"><h3>几个人合伙开店，开张前把出资、分钱、谁说了算、怎么退出写成书面协议</h3><span class="badge c">证据 C</span></div>
+        <dl>
+          <div><dt>成本：</dt><dd>不花钱。合伙人坐下来谈一两次，照合伙企业法列的十项逐项填进范本。难的是熟人之间不好意思开口谈钱。</dd></div>
+          <div><dt>收益：</dt><dd>不写协议，法律替你们定规矩：作决定要全体一致同意，利润按各自实际交的钱分，天天看店的那个人默认不拿工资；没约定期限的，谁都可以提前一段合理时间通知后退出。想改只能事先写进协议。</dd></div>
+        </dl>
+        <p class="src">出自第 12 节第 28 条</p>
+      </article>
+
+      <article class="card reveal">
+        <div class="card-head"><h3>平台不要自己收钱再转给卖家，让钱走持牌支付机构直接结算</h3><span class="badge a">证据 A</span></div>
+        <dl>
+          <div><dt>成本：</dt><dd>不花钱，要花时间接一家持牌支付机构的产品，用分账或担保交易功能让买家的钱直接结给卖家、不进平台自己的账户。</dd></div>
+          <div><dt>收益：</dt><dd>买家的钱先进你的账户再转给卖家，就是在做支付业务：要央行批准还要真拿出一亿元本钱，没批准就干会被关停、收走收入、罚款，严重的判刑。稳妥做法只有一条：钱不进你的账户。</dd></div>
+        </dl>
+        <p class="src">出自第 26 节第 1 条</p>
+      </article>
+
+      <article class="card reveal">
+        <div class="card-head"><h3>收钱的网站多数要许可证，免费的只要备案</h3><span class="badge a">证据 A</span></div>
+        <dl>
+          <div><dt>成本：</dt><dd>备案不花钱；增值电信业务经营许可证要花钱，先得有公司，省内经营注册资本不低于 100 万元、跨省不低于 1000 万元，审查期 60 日。</dd></div>
+          <div><dt>收益：</dt><dd>向用户收钱的网站多数要先办这张证（个人办不了）；只在自己网站卖货不让别人入驻的不用办，只开小程序或网店的也不用。该办没办就收钱开站，会被没收收入再罚款，严重的关站。</dd></div>
+        </dl>
+        <p class="src">出自第 26 节第 2 条</p>
+      </article>
+
+      <article class="card reveal">
+        <div class="card-head"><h3>服务器放境内就要备案，App 和小程序上架前也要备案</h3><span class="badge a">证据 A</span></div>
+        <dl>
+          <div><dt>成本：</dt><dd>备案不花钱，跟着服务器在服务商那里提交，等几天到几周；App 和小程序备案材料齐了 20 个工作日内办完。</dd></div>
+          <div><dt>收益：</dt><dd>没备案先责令改正、罚 1 万元，不改就关站；App 和小程序没备案的，应用商店和小程序平台不许上架。选服务器先看停机能不能忍、有没有人运维，最后才比价。</dd></div>
+        </dl>
+        <p class="src">出自第 26 节第 4、11 条</p>
+      </article>
+
+      <article class="card reveal">
+        <div class="card-head"><h3>不给未满 16 周岁的人开直播，打赏按年龄分档处理</h3><span class="badge a">证据 A</span></div>
+        <dl>
+          <div><dt>成本：</dt><dd>不花钱，在注册和付款两步各加一道流程：先判断年龄，再确认监护人同意过。</dd></div>
+          <div><dt>收益：</dt><dd>不满 8 岁不能打赏，8 到 16 岁要监护人同意，16 岁以上要监护人同意或核验收入证明。孩子背着监护人打赏的钱，监护人来要，法院会判退还。不做这道流程，平台就要自己吃下退款和处罚。</dd></div>
+        </dl>
+        <p class="src">出自第 26 节第 8 条</p>
+      </article>
+
+      <article class="card reveal">
+        <div class="card-head"><h3>卖自动续费会员：开通前和每次扣钱前都要显著提醒</h3><span class="badge a">证据 A</span></div>
+        <dl>
+          <div><dt>成本：</dt><dd>不花钱。开通页写明白，每次扣钱前单独发提醒，个人中心放一个随时能取消的按钮。难在会有一部分用户收到提醒就顺手取消了。</dd></div>
+          <div><dt>收益：</dt><dd>没提醒就扣钱，可以罚违法所得 1 到 5 倍，没有违法所得的罚 30 万元以下。会员期间要给随时能取消或变更的入口，不许另收不合理的费用。</dd></div>
+        </dl>
+        <p class="src">出自第 26 节第 13 条</p>
+      </article>
+
+    </div>
+  </section>
+
+  <section class="block wrap" id="jineng">
+    <h2 class="sec">出国与技能</h2>
+    <p class="secdesc">摘编自第 21、32、23 节。出国这条线的多数条目是「查一次，几分钟」，技能这条线先算回报再交钱。</p>
+    <div class="list">
+
+      <article class="card reveal">
+        <div class="card-head"><h3>出发前查一次外交部安全提醒，标了「暂勿前往」的地方就别去</h3><span class="badge a">证据 A</span></div>
+        <dl>
+          <div><dt>成本：</dt><dd>不花钱，打开中国领事服务网翻一遍，几分钟看完。</dd></div>
+          <div><dt>收益：</dt><dd>外交部把国外安全风险分四档，最高一档叫「暂勿前往」；2026 年 9 月 15 日起，避开高风险国家和地区写进了行政法规，办证件和出境过关时工作人员会提醒、必要时劝阻。</dd></div>
+        </dl>
+        <p class="src">出自第 21 节第 1 条</p>
+      </article>
+
+      <article class="card reveal">
+        <div class="card-head"><h3>「境外高薪招聘」一律当诈骗看</h3><span class="badge a">证据 A</span></div>
+        <dl>
+          <div><dt>成本：</dt><dd>不花钱，难的是亲手推掉一份看起来很好的工作。</dd></div>
+          <div><dt>收益：</dt><dd>月薪高得离谱、不问学历经验、不签正规合同、先到边境城市集合、还替你保管护照：这种活去了，人和护照都不在自己手上。出境时材料造假会被边检拦下；在境外违法犯罪的，回国之后还可能 6 个月到 3 年不准出境。</dd></div>
+        </dl>
+        <p class="src">出自第 21 节第 5 条</p>
+      </article>
+
+      <article class="card reveal">
+        <div class="card-head"><h3>留学交学费之前，先查学校在不在留服中心认证院校名单里</h3><span class="badge a">证据 A</span></div>
+        <dl>
+          <div><dt>成本：</dt><dd>不花钱，在留服中心「认证院校查询」里输一次学校名，几分钟查完。</dd></div>
+          <div><dt>收益：</dt><dd>回国升学、找工作、考试要用这张文凭，得向教育部留学服务中心申请认证。名单里不保证能过，不在名单里也不一定不受理，但交学费前查一次，不在名单里的多问一句，能省下几年学费打水漂的风险。</dd></div>
+        </dl>
+        <p class="src">出自第 32 节第 1 条</p>
+      </article>
+
+      <article class="card reveal">
+        <div class="card-head"><h3>盯住美国 F-1 新规的官司：眼下仍是「读完为止」</h3><span class="badge a">证据 A</span></div>
+        <dl>
+          <div><dt>成本：</dt><dd>不花钱。把 I-20 上的项目结束日期抄进日历，提前 90 天提醒一次；每学期看一次学校国际学生办公室的通知。</dd></div>
+          <div><dt>收益：</dt><dd>美国原本要把 F-1 改成最长四年、读完 30 天内走，生效前一天被联邦法院暂停，眼下仍是老规矩：读多久算多久，读完有 60 天准备走人。暂停不是废除，政府还能上诉，规矩随时可能再变。</dd></div>
+        </dl>
+        <p class="src">出自第 32 节第 2 条</p>
+      </article>
+
+      <article class="card reveal">
+        <div class="card-head"><h3>留学打工先查各国时数上限，学期、假期和工作类型分开算</h3><span class="badge a">证据 A</span></div>
+        <dl>
+          <div><dt>成本：</dt><dd>不花钱，自己按周把工时记下来。难在雇主说「多干几个小时没人查」时别信。</dd></div>
+          <div><dt>收益：</dt><dd>美国校内和获批校外兼职学期中每周最多 20 小时；英国符合条件的课程每周 20 或 10 小时；加拿大学期中校外每周最多 24 小时；澳大利亚课程期间每两周 48 小时。超时干，身份就悬了；减为非全日制、休学、退学、转学前都要先重新核对资格。</dd></div>
+        </dl>
+        <p class="src">出自第 32 节第 3、4 条</p>
+      </article>
+
+      <article class="card reveal">
+        <div class="card-head"><h3>澳大利亚 OSHC 必须覆盖全程且中间不能断</h3><span class="badge a">证据 A</span></div>
+        <dl>
+          <div><dt>成本：</dt><dd>数千到上万元人民币，按签证时长一次性买，读几年买几年。</dd></div>
+          <div><dt>收益：</dt><dd>澳大利亚把留学生医疗保险写进了签证条件：保险要盖住整个停留期，续签换保单时不能有空档，入境时拿不出保险证明可能当场被拒绝入境，陪读的家人也都要有。</dd></div>
+        </dl>
+        <p class="src">出自第 32 节第 7 条</p>
+      </article>
+
+      <article class="card reveal">
+        <div class="card-head"><h3>记住基准线：多受一年教育，私人回报约为每年 9%</h3><span class="badge a">证据 A</span></div>
+        <dl>
+          <div><dt>成本：</dt><dd>不花钱，把这个数记住当尺子用。</dd></div>
+          <div><dt>收益：</dt><dd>按全世界平均算，多读一年书，个人收入每年高约 9%，女性回报一直高于男性。这个数说的是正规上学，报一个班不能直接套：一个课程要你花 3 万元和半年，就问它带来的收入变化抵不抵多读一年书。</dd></div>
+        </dl>
+        <p class="src">出自第 23 节第 7 条</p>
+      </article>
+
+      <article class="card reveal">
+        <div class="card-head"><h3>读书有没有用也算进死亡率账：每多受一年教育，成人死亡风险降约 1.9%</h3><span class="badge a">证据 A</span></div>
+        <dl>
+          <div><dt>成本：</dt><dd>不花钱，花的是多读那几年的时间和精力。难在一直读下去不放弃。</dd></div>
+          <div><dt>收益：</dt><dd>每多读一年书，成年后死亡风险平均低约 1.9%；18 到 49 岁最明显，每多一年低约 2.9%，70 岁以上只低 0.8%。能一直读下去的人往往本来条件就好，这里面有多少是读书本身的功劳，分不清。</dd></div>
+        </dl>
+        <p class="src">出自第 23 节第 2 条（原书标注：A 级，有争议）</p>
+      </article>
+
+      <article class="card reveal">
+        <div class="card-head"><h3>花钱考证之前，先查这张证在不在国家职业资格目录里</h3><span class="badge a">证据 A</span></div>
+        <dl>
+          <div><dt>成本：</dt><dd>不花钱，查一次十几分钟。</dd></div>
+          <div><dt>收益：</dt><dd>有些机构打着新职业、技能等级的名义乱办班、乱收费、滥发证，还有假冒权威机构的，人社部专门治理过。报名前查三步：这个职业在不在国家职业资格目录、发证机构是不是人社部门备案的评价机构、证书编号能不能在官方平台查到。查不到的就别报。</dd></div>
+        </dl>
+        <p class="src">出自第 23 节第 8 条</p>
+      </article>
+
+      <article class="card reveal">
+        <div class="card-head"><h3>培训优先走政府补贴渠道，别一上来就自费报商业班</h3><span class="badge a">证据 A</span></div>
+        <dl>
+          <div><dt>成本：</dt><dd>不花钱或大幅减免，培训本身占时间。难在忍住别冲动自费报班，先查补贴目录。</dd></div>
+          <div><dt>收益：</dt><dd>2025 年到 2027 年底，国家计划办 3000 万人次以上的补贴培训，钱从就业补助资金、失业保险基金等多个口子出；越缺人的工种、培训成本越高的，补贴越高。在职的先问单位，其余人先翻当地人社局的补贴目录再决定学什么。</dd></div>
+        </dl>
+        <p class="src">出自第 23 节第 9 条</p>
+      </article>
+
+      <article class="card reveal">
+        <div class="card-head"><h3>挑技能优先看「要不要动手、要不要现场判断」</h3><span class="badge b">证据 B</span></div>
+        <dl>
+          <div><dt>成本：</dt><dd>不花钱，选之前按这个维度把想学的活过一遍。</dd></div>
+          <div><dt>收益：</dt><dd>机器难过的坎有三样：手上的灵巧劲、想出新东西、跟人打交道。要到现场、环境不标准、得临场判断的活更难被自动化顶掉；流程固定、主要处理信息的岗位风险最高。学什么之前先用这把尺子量一遍。</dd></div>
+        </dl>
+        <p class="src">出自第 23 节第 10 条</p>
+      </article>
+
+      <article class="card reveal">
+        <div class="card-head"><h3>要不要接着读硕士：先算学费和少挣的两三年工资，再看专业</h3><span class="badge b">证据 B</span></div>
+        <dl>
+          <div><dt>成本：</dt><dd>不花钱，查一次招生简章和学费标准，按手上的工作机会算一次账，一两个小时。</dd></div>
+          <div><dt>收益：</dt><dd>读硕士要交学费还少挣两三年工资，后者通常是大头。英国一项研究扣掉家庭和本科成绩的差别后：35 岁时读过硕士的女性多挣约 2%、男性少挣约 2%，各专业差别很大。已上班的可读非全日制，证书和全日制效力相同，但没有国家助学金。</dd></div>
+        </dl>
+        <p class="src">出自第 23 节第 24 条</p>
+      </article>
+
+    </div>
+    <div class="note">本页是摘编。第 12 节还有食品刑事线、用人合同、量产清单，第 26 节还有实名、数据出境、信息泄露通知，第 23 节还有职称申报、学法本身（分散练习、交错练习）等条目，完整内容见原仓库。</div>
+  </section>
+</main>
+
+<footer class="site">
+  <div class="wrap">
+    <p><a href="../index.html">返回首页</a> · 内容摘编自开源书《高性价比人生指南》（<a href="https://creativecommons.org/licenses/by/4.0/" target="_blank" rel="noopener">CC BY 4.0</a>），本站作了浓缩与重新分组。</p>
+    <p>完整原文、来源核实记录与在线检索：<a href="https://github.com/eternity4719/HowToLiveBetter" target="_blank" rel="noopener">GitHub 仓库 eternity4719/HowToLiveBetter</a></p>
+    <p>各国签证与平台监管规定变化快，办事前以官方最新文件为准。</p>
+  </div>
+</footer>
+
+<script>
+(function(){
+  if (!window.matchMedia('(prefers-reduced-motion: no-preference)').matches) return;
+  var els = document.querySelectorAll('.reveal');
+  if (!('IntersectionObserver' in window)) { els.forEach(function(e){e.classList.add('in')}); return; }
+  var io = new IntersectionObserver(function(entries){
+    entries.forEach(function(en){ if (en.isIntersecting) { en.target.classList.add('in'); io.unobserve(en.target); } });
+  }, {threshold:0.1});
+  els.forEach(function(e){ io.observe(e); });
+})();
+</script>
+<script>
+(function(){var b=document.querySelector('.theme-btn');if(!b)return;
+function sync(){var d=document.documentElement.getAttribute('data-theme')==='dark';b.textContent=d?'\u2600\uFE0F':'\uD83C\uDF19';b.setAttribute('aria-label',d?'\u5207\u6362\u5230\u6D45\u8272\u4E3B\u9898':'\u5207\u6362\u5230\u6DF1\u8272\u4E3B\u9898')}
+b.addEventListener('click',function(){var t=document.documentElement.getAttribute('data-theme')==='dark'?'light':'dark';document.documentElement.setAttribute('data-theme',t);try{localStorage.setItem('theme',t)}catch(e){}sync()});
+sync()})();
+</script></body>
+</html>

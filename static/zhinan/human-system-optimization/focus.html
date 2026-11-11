@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>学习与专注 · 人体系统优化</title>
+<script>(function(){var t;try{t=localStorage.getItem("theme")}catch(e){}if(t!=="light"&&t!=="dark"){var h=new Date().getHours();t=(h>=7&&h<17)?"light":"dark"}document.documentElement.setAttribute("data-theme",t)})()</script>
+<style>
+:root{--bg:#0a0f0d;--panel:#0f1512;--panel-2:#121a16;--line:#1e2a24;--ink:#d7e2dc;--muted:#8fa69b;--accent:#34d399;--accent-2:#10b981;--nav-bg:rgba(10,15,13,.92);--nav-line:rgba(52,211,153,.16);--accent-bord:rgba(52,211,153,.4);--accent-bord-strong:rgba(52,211,153,.45);--accent-tint:rgba(52,211,153,.07);--accent-glow:rgba(52,211,153,.6);--bar-bg:#16211c;--warn:#d4b06a;--warn-tint:rgba(212,176,106,.07);color-scheme:dark;}
+[data-theme="light"]{--bg:#edf3ee;--panel:#f7faf7;--panel-2:#e6efe9;--line:#d3e0d7;--ink:#1c2b24;--muted:#4f6659;--accent:#047857;--accent-2:#059669;--nav-bg:rgba(246,250,247,.92);--nav-line:rgba(4,120,87,.2);--accent-bord:rgba(4,120,87,.35);--accent-bord-strong:rgba(4,120,87,.5);--accent-tint:rgba(4,120,87,.07);--accent-glow:rgba(4,120,87,.45);--bar-bg:#d9e5dc;--warn:#8a6a1f;--warn-tint:rgba(138,106,31,.08);color-scheme:light;}
+.tbtn{flex:0 0 auto;margin-left:4px;background:var(--accent-tint);color:var(--accent);border:1px solid var(--accent-bord);border-radius:999px;padding:5px 12px;font-size:14px;cursor:pointer;font-family:inherit;line-height:1.5;}
+.tbtn:hover{border-color:var(--accent-bord-strong);}
+.tbtn .ico-sun,.tbtn .ico-moon{display:none;}
+[data-theme="dark"] .tbtn .ico-sun{display:inline;}
+[data-theme="light"] .tbtn .ico-moon{display:inline;}
+*{margin:0;padding:0;box-sizing:border-box;}
+@media (prefers-reduced-motion: no-preference){html{scroll-behavior:smooth;}}
+body{background:var(--bg);color:var(--ink);font-family:"PingFang SC","Microsoft YaHei","Noto Sans SC",sans-serif;line-height:1.75;}
+code,.mono{font-family:ui-monospace,"Cascadia Code",Consolas,"JetBrains Mono",monospace;}
+a{color:var(--accent);text-decoration:none;}
+a:hover{text-decoration:underline;}
+.wrap{max-width:1080px;margin:0 auto;padding:0 22px;}
+nav.top{position:sticky;top:0;z-index:50;background:var(--nav-bg);backdrop-filter:blur(8px);border-bottom:1px solid var(--nav-line);}
+nav.top .row{display:flex;align-items:center;gap:4px;overflow-x:auto;white-space:nowrap;padding:12px 0;scrollbar-width:none;}
+nav.top .row::-webkit-scrollbar{display:none;}
+nav.top .brand{font-weight:700;color:var(--accent);margin-right:12px;display:flex;align-items:center;gap:8px;}
+nav.top .brand .dot{width:9px;height:9px;border-radius:50%;background:var(--accent);box-shadow:0 0 10px var(--accent);display:inline-block;}
+nav.top a.nl{color:var(--muted);padding:5px 12px;border-radius:999px;font-size:14px;border:1px solid transparent;}
+nav.top a.nl:hover{color:var(--accent);text-decoration:none;border-color:var(--accent-bord);}
+nav.top a.nl.on{color:var(--accent);border-color:var(--accent-bord-strong);background:var(--accent-tint);}
+nav.top a.nl.ext{border:1px dashed var(--accent-bord);}
+footer{border-top:1px solid var(--line);margin-top:64px;padding:32px 0 40px;color:var(--muted);font-size:13px;}
+footer .cols{display:flex;flex-wrap:wrap;gap:24px;justify-content:space-between;}
+.page-head{padding:56px 0 8px;}
+.kicker{font-family:ui-monospace,Consolas,monospace;font-size:12px;letter-spacing:.3em;color:var(--accent);margin-bottom:12px;}
+h1{font-size:clamp(28px,4.5vw,40px);}
+h1 .em{color:var(--accent);}
+.lede{color:var(--muted);max-width:780px;margin-top:14px;font-size:16px;}
+section{padding:30px 0;}
+h2.sec{font-size:23px;margin-bottom:6px;padding-left:14px;border-left:3px solid var(--accent);}
+p.sub{color:var(--muted);margin-bottom:20px;font-size:14.5px;}
+.grid{display:grid;gap:16px;}
+.grid.c2{grid-template-columns:repeat(auto-fit,minmax(min(100%,300px),1fr));}
+.grid.c3{grid-template-columns:repeat(auto-fit,minmax(min(100%,220px),1fr));}
+.card{background:var(--panel);border:1px solid var(--line);border-radius:16px;padding:22px 20px;}
+.card h3{font-size:17px;margin-bottom:10px;}
+.card h3 .idx{font-family:ui-monospace,Consolas,monospace;color:var(--accent);font-size:12px;margin-right:8px;}
+.card p{color:var(--muted);font-size:14.5px;}
+.badge{display:inline-block;font-family:ui-monospace,Consolas,monospace;font-size:12px;color:var(--accent);border:1px solid var(--accent-bord);border-radius:999px;padding:2px 12px;margin:3px 4px 3px 0;background:var(--accent-tint);}
+ul.list{list-style:none;}
+ul.list li{padding:9px 0 9px 26px;position:relative;border-bottom:1px dashed var(--line);font-size:15px;}
+ul.list li:last-child{border-bottom:none;}
+ul.list li::before{content:">";position:absolute;left:4px;color:var(--accent);font-family:ui-monospace,Consolas,monospace;font-size:13px;top:10px;}
+ul.list li b{color:var(--ink);}
+ul.list li span{color:var(--muted);}
+.stat{background:var(--panel-2);border:1px solid var(--line);border-radius:14px;padding:18px 20px;}
+.stat .n{font-family:ui-monospace,Consolas,monospace;font-size:25px;color:var(--accent);}
+.stat .l{font-size:13px;color:var(--muted);margin-top:4px;}
+.bar{height:8px;background:var(--bar-bg);border-radius:999px;overflow:hidden;margin-top:10px;}
+.bar i{display:block;height:100%;border-radius:999px;background:linear-gradient(90deg,var(--accent-2),var(--accent));}
+.note{border-left:3px solid var(--accent);background:var(--accent-tint);border-radius:0 12px 12px 0;padding:14px 18px;color:var(--muted);font-size:14px;margin-top:20px;}
+.reveal{opacity:0;transform:translateY(16px);transition:opacity .6s ease,transform .6s ease;}
+.reveal.in{opacity:1;transform:none;}
+@media (prefers-reduced-motion: reduce){.reveal{opacity:1;transform:none;transition:none;}}
+</style>
+<noscript><style>.reveal{opacity:1 !important;transform:none !important}</style></noscript></head>
+<body>
+<nav class="top"><div class="wrap row">
+<a class="brand" href="index.html"><span class="dot"></span>HSO</a>
+<a class="nl" href="../index.html">返回总门户</a>
+<a class="nl" href="index.html">首页</a>
+<a class="nl" href="sleep.html">睡眠</a>
+<a class="nl" href="diet.html">饮食</a>
+<a class="nl" href="mindset.html">心态与动力</a>
+<a class="nl on" href="focus.html">学习与专注</a>
+<a class="nl" href="longevity.html">长寿</a>
+<button class="tbtn" id="themeBtn" type="button" aria-label="切换明暗主题" title="切换明暗主题"><span class="ico-sun">☀ 浅色</span><span class="ico-moon">☾ 深色</span></button>
+<a class="nl ext" href="https://github.com/zijie0/HumanSystemOptimization" target="_blank" rel="noopener">GitHub ↗</a>
+</div></nav>
+
+<header class="page-head wrap">
+<div class="kicker">MODULE 04 / FOCUS &amp; LEARNING</div>
+<h1>学习与专注：<span class="em">犯错</span>是学习状态的入口</h1>
+<p class="lede">学习的本质是神经元的重新连接（rewire），它需要大脑处于神经可塑性（neuroplasticity）的化学状态。触发这个状态的两个重要条件：足够的专注度，以及"犯错"的信号。而具体的神经重连接主要发生在休息和睡眠时，有点像 JVM 的垃圾回收机制。</p>
+<div><span class="badge">neuroplasticity</span><span class="badge">犯错信号</span><span class="badge">生理叹息</span><span class="badge">Default / Task networks</span><span class="badge">大脑营养</span></div>
+</header>
+
+<section class="wrap">
+<h2 class="sec">学习的原理</h2>
+<div class="grid c2 reveal">
+<div class="card"><h3><span class="idx">机理</span>犯错激活可塑性</h3><p>尝试做事但没有达到预期时，身体给大脑发"我犯错了"的信号。在犯错、沮丧的认知状态下，神经系统释放肾上腺素（提升警觉）、乙酰胆碱（提升专注）、多巴胺（促进神经元重连接），激活神经可塑性。这跟机器学习训练模型一模一样。注意：心流并非学习最佳状态，它是高度集中且接近自动化的状态，做的是已经知道怎么做的事，而不是在学习新知识技能。</p></div>
+<div class="card"><h3><span class="idx">实验</span>偏移眼镜与持续的可塑性</h3><p>经典实验让人戴上能转变角度的眼镜做抓取任务，起初动作总偏离，进入神经可塑性状态后逐渐适应视觉偏移并顺利完成任务。更有意思的是这个化学状态可以持续：可以先通过其它操作触发大脑的机制，再去进行真正的学习以加快速度。隐藏逻辑：遇到挫折进入可塑性状态时若放弃，神经元会重新连接到容易放弃的行为模式，形成恶性循环。</p></div>
+<div class="card"><h3><span class="idx">年龄</span>25 岁分水岭</h3><p>年幼时期大脑天然神经可塑性较好，25 岁以后大大下降，但仍有办法提升（见下节）。未满 25 岁的读者应尽可能广泛学习各种知识与技能：乐器、语言、运动、专业技能，通过广阔的体验找到最有兴趣的方向再深入经营。</p></div>
+<div class="card"><h3><span class="idx">链路</span>Mood follows action</h3><p>大脑的主要功能链路是感知、认知、情感、思想、行动。很难用精神思想直接控制神经系统（比如不断默念"不能分心"），更可行的是逆向链路：从行动出发，利用神经系统运作原理，逐渐影响思想、情感、认知甚至感知。这是 Huberman 推崇各种"行动工具"的原因。</p></div>
+</div>
+</section>
+
+<section class="wrap">
+<h2 class="sec">25 岁后如何提升神经可塑性</h2>
+<ul class="list reveal">
+<li><b>小幅度增量学习</b><span>：成年人对小幅增量完全可以适应掌握，例如视觉偏差每次只有 7 度（而不是 180 度大颠倒）就能很快从错误中纠正。实际学习中每次学习内容不要太多，多次积累完成神经系统的调整。</span></li>
+<li><b>提高渴求度</b><span>：对目标越渴求、重要性越大、奖励刺激越大（比如为了生存），神经可塑性越容易出现。符合直觉但可操作性不高。</span></li>
+<li><b>扰乱前庭神经系统</b><span>：让身体有"新颖的重力体验"，如倒立、瑜伽、体操、滑板等任何让身体失去平衡的状态，会快速激发"我犯错了"的信号进入学习状态，之后再去学别的任务也更快。淘宝成立初期的"倒立文化"竟真的有科学依据。注意体验必须新颖：倒立已经熟练，就只是日常行为，不再产生需要纠正的刺激。</span></li>
+</ul>
+</section>
+
+<section class="wrap">
+<h2 class="sec">学习的理想状态与工具</h2>
+<ul class="list reveal">
+<li><b>状态调节</b><span>：不能太放松以至于昏昏欲睡，也不能太紧张激动而无法清晰思考，与多巴胺、肾上腺素、乙酰胆碱、血清素、褪黑素的水平都有关。</span></li>
+<li><b>生理叹息（Physiological Sigh）</b><span>：吸两口气，然后出一口长气。通常一两次就足以让压力和警觉水平迅速下降，更加平静，提升学习表现。</span></li>
+<li><b>成长型思维</b><span>：遇到错误导致的沮丧时，不断增强自我暗示：失败是帮助我们学习成长的唯一路径，是有益的。以此增加多巴胺释放，提升学习动力与过程中的愉悦感。</span></li>
+<li><b>节拍记忆法</b><span>：学习时听有规律的节拍，入睡时播放同样微弱的节拍，能提升学习和记忆效果。</span></li>
+<li><b>90 分钟周期</b><span>：学习 90 分钟（人体生物钟周期）后进行 20 分钟的 non-sleep deep rest 休息，加强学习效果。</span></li>
+<li><b>Gap effect</b><span>：学习中随机停止 10 秒钟，这些停止会在睡眠中加速"播放"，提升学习效果。</span></li>
+</ul>
+</section>
+
+<section class="wrap">
+<h2 class="sec">提升专注</h2>
+<p class="sub">专注的机理是大脑两种网络模式的协调：Default network（无所事事时激活）与 Task networks（专注做事时激活），两者像跷跷板。多动症患者两者无法很好协调，因此多动症药物多与提升多巴胺有关。</p>
+<ul class="list reveal">
+<li><b>谨慎看待聪明药</b><span>：Adderall、Modafinil 等在美国被滥用的程度甚至超过大麻。一方面多巴胺刺激后的高峰必然带来低谷，另一方面可能导致上瘾并扰动新陈代谢，对长期学习与记忆效果可能并没有提升作用。严格控制使用频率。</span></li>
+<li><b>最好的方法</b><span>：控制好多巴胺系统本身，把行动与背后的意义相连接，给自己正面心理暗示；把任务拆成多个小里程碑，用过程自身的激励促进多巴胺释放。</span></li>
+<li><b>Omega-3 EPA 鱼油</b><span>：神经细胞组成原料之一，有效减轻抑郁，对治疗多动症（ADHD）也有帮助。</span></li>
+<li><b>身体其它部分释放运动</b><span>：神经科医生开刀时半蹲半站（运动释放），拿手术刀的手更稳定。转笔、指尖陀螺、站立办公可能都是类似效果。</span></li>
+<li><b>限制视野范围</b><span>：眼睛瞟到任务栏消息提示闪动就会分心，可通过设置进入"专注模式"。</span></li>
+<li><b>视线高度影响神经状态</b><span>：往下看偏镇静、放松甚至困倦；往上看提升警惕。工作时至少把显示器放在鼻子位置之上。</span></li>
+<li><b>避免频繁 context switch</b><span>：刷抖音式的快速信息切换对注意力有伤害。2014 年研究建议每天手机使用时间少于 60 分钟（青少年）/ 120 分钟（成年）。</span></li>
+<li><b>17 分钟冥想</b><span>：研究表明 17 分钟冥想能对大脑神经元做重新连接，永久改善注意力，只需做一次，完全值得尝试。</span></li>
+</ul>
+</section>
+
+<section class="wrap">
+<h2 class="sec">大脑健康清单</h2>
+<div class="grid c3 reveal">
+<div class="stat"><div class="n">150-180 min</div><div class="l">每周有氧训练量，对大脑直接帮助最大</div><div class="bar"><i style="width:78%"></i></div></div>
+<div class="stat"><div class="n">1.5-3 g</div><div class="l">每日 Omega-3 EPA 摄入，至少 1.5 克，理想 3 克以上</div><div class="bar"><i style="width:55%"></i></div></div>
+<div class="stat"><div class="n">5 g</div><div class="l">不吃肉的人每天需要的肌酸摄入量</div><div class="bar"><i style="width:30%"></i></div></div>
+</div>
+<ul class="list reveal" style="margin-top:14px;">
+<li><b>大脑食物前三名</b><span>：Omega-3（尤其 EPA 脂肪酸，多吃鱼、牡蛎、鱼子酱、奇亚籽、核桃、大豆，不爱吃鱼可辅助鱼油）；磷脂酰丝氨酸（鱼、肉类、卷心菜）；乙酰胆碱（最重要的来源是鸡蛋尤其蛋黄，土豆、坚果、水果中也含有，补充剂可选 Alpha-GPC）。</span></li>
+<li><b>其它有益成分</b><span>：花青素（蓝莓、黑莓、葡萄，约每天 60 至 120 克蓝莓，降低 DNA 损伤、缓解认知下降）；谷氨酰胺（牛肉、鸡肉、鱼肉、鸡蛋、大豆、卷心菜、菠菜、芹菜，提升大脑缺氧表现并抑制对糖的需求）；水、钠、钾、镁等电解质是神经元信号传递的基础元素。</span></li>
+<li><b>训练食物喜好</b><span>：身体通过味觉、营养成分下意识判断、以及大脑代谢活跃度三个渠道判断食物喜好。不爱吃鱼，可以把鱼跟爱吃的食物一起吃，或给自己"吃鱼有益健康"的心理暗示，让大脑释放多巴胺，逐渐提升对鱼的喜好。</span></li>
+</ul>
+</section>
+
+<footer><div class="wrap cols">
+<div>人体系统优化 · 基于 <a href="https://github.com/zijie0/HumanSystemOptimization" target="_blank" rel="noopener">zijie0/HumanSystemOptimization</a> 制作</div>
+<div class="mono">S4 focus · next: <a href="longevity.html">长寿</a></div>
+</div></footer>
+<script>
+(function(){
+if(!window.matchMedia||!matchMedia('(prefers-reduced-motion: no-preference)').matches)return;
+var els=document.querySelectorAll('.reveal');
+if(!('IntersectionObserver' in window)){els.forEach(function(e){e.classList.add('in');});return;}
+var io=new IntersectionObserver(function(es){es.forEach(function(en){if(en.isIntersecting){en.target.classList.add('in');io.unobserve(en.target);}});},{threshold:.12});
+els.forEach(function(e){io.observe(e);});
+})();(function(){var b=document.getElementById("themeBtn");if(!b)return;b.addEventListener("click",function(){var r=document.documentElement;var n=r.getAttribute("data-theme")==="light"?"dark":"light";r.setAttribute("data-theme",n);try{localStorage.setItem("theme",n)}catch(e){}})();
+</script>
+</body>
+</html>

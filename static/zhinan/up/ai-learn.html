@@ -1,0 +1,248 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>AI 与学习 | 人生进阶指南</title>
+<script>
+(function(){
+  var t=null;try{t=localStorage.getItem("theme")}catch(e){}
+  if(t!=="light"&&t!=="dark"){var h=new Date().getHours();t=(h>=7&&h<17)?"light":"dark"}
+  document.documentElement.setAttribute("data-theme",t);
+})();
+</script>
+<style>
+:root{
+  --bg:#0a0f13;--panel:#0f171d;--panel2:#121c23;--line:#1e2b33;
+  --acc:#2ee6d6;--acc-ink:#04211d;--text:#e6f1f2;--muted:#8fa3ab;--body:#c6d4d9;
+  --nav-bg:rgba(10,15,19,.92);--badge-bg:rgba(24,32,38,.82);--badge-bg-h:rgba(24,32,38,.95);--badge-ink:#e6f1f2;
+  --radius:14px;color-scheme:dark;
+}
+:root[data-theme="light"]{
+  --bg:#f3f7f7;--panel:#ffffff;--panel2:#ecf2f2;--line:#d5dfe1;
+  --acc:#0b6b63;--acc-ink:#ffffff;--text:#1c262b;--muted:#56686d;--body:#2e3c42;
+  --nav-bg:rgba(243,247,247,.92);--badge-bg:rgba(255,255,255,.9);--badge-bg-h:#ffffff;--badge-ink:#0b6b63;
+  color-scheme:light;
+}
+*{margin:0;padding:0;box-sizing:border-box}
+body{background:var(--bg);color:var(--text);font-family:"Segoe UI","PingFang SC","Hiragino Sans GB","Microsoft YaHei",sans-serif;line-height:1.8}
+a{color:inherit;text-decoration:none}
+.wrap{max-width:960px;margin:0 auto;padding:0 24px}
+.nav{position:sticky;top:0;z-index:20;background:var(--nav-bg);border-bottom:1px solid var(--line);backdrop-filter:blur(8px)}
+.nav-in{display:flex;align-items:center;gap:20px;height:64px;white-space:nowrap;overflow-x:auto;scrollbar-width:none}
+.nav-in::-webkit-scrollbar{display:none}
+@media(max-width:600px){
+  .nav-in{flex-wrap:wrap;height:auto;padding:10px 0;gap:12px;row-gap:8px;overflow-x:visible}
+  .brand{font-size:15px}
+  .nav a.link{font-size:13px}
+  .nav .gh{padding:4px 10px;font-size:12px}
+}
+.brand{font-weight:800;font-size:16px;color:var(--acc);flex:none}
+.nav a.link{color:var(--muted);font-size:14px;flex:none}
+.nav a.link:hover,.nav a.link[aria-current]{color:var(--acc)}
+.nav .gh{margin-left:auto;border:1px solid var(--line);border-radius:999px;padding:5px 14px;font-size:13px}
+.nav .gh:hover{border-color:var(--acc);color:var(--acc)}
+.tbtn{flex:none;margin-left:6px;width:32px;height:32px;border-radius:999px;border:1px solid var(--line);background:transparent;color:var(--text);font-size:15px;cursor:pointer;line-height:1;display:inline-flex;align-items:center;justify-content:center;padding:0}
+.tbtn:hover{border-color:var(--acc);color:var(--acc)}
+.portal{position:fixed;left:14px;bottom:14px;z-index:99}
+.portal a{display:inline-block;padding:7px 16px;border-radius:999px;background:var(--badge-bg);color:var(--badge-ink);font-size:13px;text-decoration:none;backdrop-filter:blur(4px);font-family:system-ui,sans-serif}
+.portal a:hover{background:var(--badge-bg-h)}
+.hero{padding:72px 0 44px}
+.kicker{color:var(--acc);font-size:13px;letter-spacing:.35em;font-weight:700}
+h1{font-size:clamp(34px,6vw,54px);font-weight:900;letter-spacing:-.02em;line-height:1.18;margin:16px 0 8px}
+h1 em{font-style:normal;color:var(--acc)}
+.lede{color:var(--muted);font-size:16px;max-width:40em;margin-top:16px}
+section.block{padding:48px 0}
+h2{font-size:clamp(24px,3.6vw,32px);font-weight:800;margin-bottom:8px}
+h2 .tag{color:var(--acc)}
+.sec-sub{color:var(--muted);margin-bottom:26px;max-width:44em}
+h3{font-size:18px;font-weight:700;margin:26px 0 10px}
+h3::before{content:"§";color:var(--acc);margin-right:8px;font-weight:800}
+p{margin-bottom:14px}
+p,li{color:var(--body);font-size:15.5px}
+.card{background:var(--panel);border:1px solid var(--line);border-radius:var(--radius);padding:26px 28px;margin-bottom:18px;overflow-x:auto}
+.card p:last-child{margin-bottom:0}
+ol.steps-list{counter-reset:n;list-style:none}
+ol.steps-list li{position:relative;padding-left:44px;margin-bottom:14px;counter-increment:n}
+ol.steps-list li::before{content:counter(n);position:absolute;left:0;top:2px;width:28px;height:28px;border-radius:999px;background:var(--acc);color:var(--acc-ink);font-weight:800;font-size:14px;display:flex;align-items:center;justify-content:center}
+table{width:100%;border-collapse:collapse;font-size:14px;margin:14px 0 20px}
+th{text-align:left;color:var(--acc);font-weight:700;padding:10px 12px;border-bottom:1px solid var(--line)}
+td{padding:10px 12px;border-bottom:1px solid var(--line);vertical-align:top;color:var(--body)}
+tr:last-child td{border-bottom:none}
+blockquote{border-left:3px solid var(--acc);padding:8px 0 8px 22px;margin:20px 0;color:var(--text);font-size:16.5px}
+blockquote small{display:block;color:var(--muted);font-size:13px;margin-top:6px}
+code{background:var(--panel2);border:1px solid var(--line);border-radius:6px;padding:2px 8px;font-size:13.5px;color:var(--acc);font-family:Consolas,"JetBrains Mono",monospace}
+.pill-row{display:flex;gap:10px;flex-wrap:wrap;margin:6px 0 18px}
+.pill{border:1px solid var(--line);border-radius:999px;padding:6px 16px;font-size:13px;color:var(--muted)}
+.pill b{color:var(--acc);font-weight:700}
+footer{border-top:1px solid var(--line);padding:36px 0 48px;color:var(--muted);font-size:14px}
+.foot-grid{display:flex;justify-content:space-between;gap:16px;flex-wrap:wrap}
+footer a{color:var(--acc)}
+.backtop{display:inline-block;margin-top:10px;color:var(--acc);font-size:14px}
+.rv{opacity:0;transform:translateY(16px)}
+.rv.on{opacity:1;transform:none;transition:opacity .7s ease,transform .7s ease}
+@media(prefers-reduced-motion:reduce){.rv{opacity:1;transform:none}}
+</style>
+<noscript><style>.reveal,.rv{opacity:1 !important;transform:none !important}</style></noscript></head>
+<body><div class="portal"><a href="../index.html">&#8592; 总门户</a></div>
+
+<nav class="nav">
+  <div class="wrap nav-in">
+    <a class="brand" href="index.html">← 人生进阶指南</a>
+    <a class="link" href="ai-learn.html" aria-current="page">AI 与学习</a>
+    <a class="link" href="wealth.html">创业与财富</a>
+    <a class="link" href="life.html">爱情与人生</a>
+    <a class="link gh" href="https://github.com/byoungd/up">GitHub</a>
+    <button class="tbtn" id="themeToggle" type="button" aria-label="切换主题">◑</button>
+  </div>
+</nav>
+
+<header class="hero wrap">
+  <div class="kicker rv">主题一 · 主题二</div>
+  <h1 class="rv">使用 AI 学习一切，<br><em>把能力留在人身上</em></h1>
+  <p class="lede rv">真正的学习结果必须在 AI 退出之后仍然存在：你能解释、判断、完成、迁移，并留下别人可以检查的证据。回答可以很完整，产品却可能没有用户；一个人可以在聊天里显得很聪明，关闭对话后却不能独立完成任务。这一页整理《人生进阶指南》中 AI 学习与英语学习两大主题的核心方法与路径。</p>
+</header>
+
+<div class="wrap">
+
+<section class="block rv" id="ai">
+  <h2><span class="tag">主题一</span> · AI 学习：先做事，再谈提示词</h2>
+  <p class="sec-sub">不从「哪个模型最好」开始，而从「我要解决什么问题」开始。AI 可以提问、解释、比较和生成练习；人仍要确定目标、选择来源、识别幻觉，并在关闭对话后独立使用所学。</p>
+
+  <div class="card">
+    <h3>七步闭环</h3>
+    <ol class="steps-list">
+      <li><b>定义真实结果</b>：写清场景、受众、动作、截止时间和验收标准。</li>
+      <li><b>保存无 AI 基线</b>：先独立做一次，暴露知识缺口和判断盲点。</li>
+      <li><b>准备可信材料</b>：优先官方文档、教材、论文、数据、现有代码和真实案例。</li>
+      <li><b>设计引导练习</b>：让 AI 提问、解释、比较、提示和生成平行题，不代替关键步骤。</li>
+      <li><b>主动产出</b>：关闭材料后解释、编码、写作、计算、演示或做决定。</li>
+      <li><b>通过多源反馈</b>：AI 只是一个意见；来源、测试、专家、用户和安全审查共同判断。</li>
+      <li><b>更新状态</b>：保存作品、错误、成本、未决问题和下一项最小任务。</li>
+    </ol>
+    <p>缺少第 1 步，AI 会把愿望包装成答案；缺少第 2 步，你不知道能力是否增长；缺少第 6、7 步，错误会在下一次对话里重复。</p>
+  </div>
+
+  <div class="card">
+    <h3>学习 AI 的五个层次</h3>
+    <p>「使用 AI 学习」和「学习构建 AI 应用」可以相互促进，却需要不同的练习。用下面的层次定位问题，不必一开始就训练模型：</p>
+    <table>
+      <tr><th>层次</th><th>要能用自己的话解释</th><th>一项能留下证据的练习</th></tr>
+      <tr><td>模型与输出</td><td>回答受输入与生成过程影响；流畅不等于真实</td><td>找一个熟悉问题的错误答案，保存反证</td></tr>
+      <tr><td>上下文与检索</td><td>上下文是本次提供的材料；检索是找出相关材料再交给模型</td><td>用三页公开文档回答问题，每条结论标到原文位置</td></tr>
+      <tr><td>结构与工具</td><td>输出符合字段格式不代表字段真实；提出工具调用不代表动作已完成</td><td>检查缺字段、错误数字和工具失败三种情况</td></tr>
+      <tr><td>工作流与评测</td><td>步骤、权限、失败处理和验收共同决定系统是否可用</td><td>比较人工与 AI 流程，保留失败和总耗时</td></tr>
+      <tr><td>学习与迁移</td><td>有工具时的成品质量与独立能力要分别衡量</td><td>三到七天后换一个条件，不看旧答案重做</td></tr>
+    </table>
+    <p>检索增强生成（RAG）通常在回答前引入检索到的材料；微调则通过训练改变模型参数。资料更新、缺少出处或检索范围错误，应先检查材料与检索，不能指望微调自动赋予最新事实。</p>
+  </div>
+
+  <div class="card">
+    <h3>一页任务简报与会话协议</h3>
+    <p>把一次 AI 协作变成可重复任务前，先写任务简报的最小字段：<code>真实场景</code>、<code>使用者与受众</code>、<code>截止时间</code>、<code>已知事实与来源</code>、<code>数据敏感等级</code>、<code>验收标准</code>、<code>AI 可以做与不可以做</code>、<code>失败时如何回滚</code>。「体验好」「学会 AI」都不是验收标准；把它写成可观察的动作，例如「用户能在 10 分钟内完成一次导入，并看到一份可以解释的错误报告」。</p>
+    <p>一次会话的最小协议分三段：开始前让 AI 只做边界复述，用不超过 8 条要点复述目标、受众、限制和未知项，先指出最可能导致返工的三个风险；进行中每次只推进一个可检查的切片，前提冲突时暂停提问而不是悄悄替换需求；结束时生成状态更新，列出已完成与证据位置、仍会重复的错误、下一项最小任务，不声称记得其他会话。</p>
+  </div>
+
+  <div class="card">
+    <h3>三次对照：证明 AI 帮了什么</h3>
+    <p>为同一个任务至少留下三份样本：<b>无 AI 基线</b>（独立完成，记录用时、质量、卡点和信心）、<b>AI 辅助版</b>（只让 AI 做约定的工作，记录采纳与拒绝的建议）、<b>延迟独立版</b>（间隔 3 至 7 天，关闭聊天和答案，换一个相近条件重新完成）。</p>
+    <table>
+      <tr><th>对照结果</th><th>更谨慎的解释</th></tr>
+      <tr><td>辅助版与独立版都变好</td><td>AI 可能提供了有效脚手架，能力有机会留下</td></tr>
+      <tr><td>辅助版变好，独立版退步</td><td>成品改善了，但关键步骤可能被外包</td></tr>
+      <tr><td>时间变短，返工和错误变多</td><td>获得了速度，却积累了「速度债」</td></tr>
+      <tr><td>信心变高，准确度不变或下降</td><td>需要先校准信心，再增加工具权限</td></tr>
+    </table>
+    <p>一次对照不能证明因果，但比「感觉 AI 很有用」更接近可复查的判断。</p>
+  </div>
+
+  <div class="card">
+    <h3>常见失控与数据边界</h3>
+    <p>编造事实（找不到原文位置就暂停传播、标记未核验）、需求漂移（回答越来越完整却不再回答原任务，重新粘贴简报）、隐私泄露（输入包含客户或密钥信息就停止上传、脱敏）、假完成（代码能运行但没有边界测试，不接受流畅作为完成）、会话依赖（离开聊天就无法解释下一步，把结果写入学习状态）。</p>
+    <p>数据分四级处理：公开材料核对来源后使用；内部资料只用组织批准的工具；机密资料未获明确批准不上传；密钥、身份与医疗资料、儿童数据不进入通用模型。删除文件不等于删除历史、共享链接和备份。</p>
+  </div>
+
+  <div class="card">
+    <h3>7 天、30 天、12 周路径</h3>
+    <p><b>7 天</b>：写任务简报和验收标准，保存无 AI 基线，用七步闭环完成一个 1 至 3 小时交付物，写下 AI 帮了什么、误导了什么。<b>30 天</b>：对同类任务完成四次闭环，比较时间、质量、返工和成本，做一次失败复盘而不只展示成功。<b>12 周</b>：每 2 至 4 周邀请真实受众反馈，完成事实、测试、安全、隐私与成本检查；证据不足时缩小问题或停止，不用更多提示词掩盖缺口。</p>
+  </div>
+
+  <blockquote>AI 最容易制造的不只是错误答案，还有一种过早的完成感。答案出现的速度，常常快过判断形成的速度。能力若能跟着你离开对话，它才真正留了下来。<small>《使用 AI 学习一切：从真实问题到可验证交付》</small></blockquote>
+</section>
+
+<section class="block rv" id="english">
+  <h2><span class="tag">主题二</span> · 学习与英语：能力由真实任务证明</h2>
+  <p class="sec-sub">英语不再是这份指南的全部，却仍是终身学习的重要基础：阅读全球知识与技术文档、理解国际课程、使用更多 AI 工具，让跨文化合作少一层转述。英语水平不由收藏的单词量证明，而由你能否在真实场景中理解、表达和完成任务证明。它是一座桥，不是一堵用来评价自己的墙。</p>
+
+  <div class="card">
+    <h3>五分钟先留一项基线</h3>
+    <p>选一个近期真实会用到的主题，设五分钟计时器，完成一项并保存证据：听 60 至 90 秒音频一次，写一句主旨和一个听到的细节；或读 150 至 250 词材料，写一句主张和一个支持它的证据；或不看稿录 60 秒口语，标记一次说不清之处；或写一条真实工作消息，圈出一个不确定的表达。</p>
+    <p>先不要用 AI 润色。写下具体卡点，把样本私下保存，选一个卡点练习，十四天后换一个相近主题复测。需要判断听说读写分别卡在哪里时再做完整诊断：听 2 至 4 分钟音频、读 600 至 1000 词、录 2 分钟口语、用 20 分钟完成写作，再比较条件、错误和迁移表现。四项能力差异很大时，不要取平均分替自己下结论。</p>
+  </div>
+
+  <div class="card">
+    <h3>语法与写作：从被听清开始</h3>
+    <p>语法不从背完整规则开始，而从时间、责任、条件与确定性是否被听清开始，用一项高影响结构完成十四天复测。写作保留无辅助初稿、事实来源和修改理由，让邮件、报告、决定与交接在作者离线后仍然可用。以可理解度而不是口音相似度进入跨文化协作。</p>
+  </div>
+
+  <div class="card">
+    <h3>把学习带进真实任务</h3>
+    <p>学习目标要写成真实任务而不是「了解某主题」。把「学习产品经理」改写成「在 45 分钟内为一个真实用户写出一页需求简报，并让对方指出一个不成立的假设」。每一步都要有受众和验收标准。作品比收藏的答案更能暴露缺口。</p>
+    <p>自律不是加码：排查卡在哪里（日程被挤掉、打开电脑不知做什么、做很久无法结束、计划越来越多作品没有增加），本轮只试一个改动，写下投入上限和一周后的判定条件。中断后回来时，先恢复运行入口、保存状态记录，不补作业，不熬夜追赶，不把未完成样本写成已验证。</p>
+  </div>
+
+  <div class="card">
+    <h3>让长期学习有季节</h3>
+    <div class="pill-row">
+      <span class="pill"><b>进入季</b>：明确真实场景，建立基线</span>
+      <span class="pill"><b>集中季</b>：减少材料，反复练核心任务</span>
+      <span class="pill"><b>交付季</b>：把能力放入会议、邮件与作品</span>
+      <span class="pill"><b>保温季</b>：降低强度，保留理解与表达通道</span>
+    </div>
+    <p>保温不是停滞。它让能力不必每次从遗忘里重新启动，也让你在生活有其他责任时不必用愧疚维持关系。一个能陪你多年的学习系统，必须容得下季节变化。</p>
+  </div>
+
+  <blockquote>诊断的结果不是标签，而是下一项值得修复的障碍。不要把诊断变成一次考试：先保存一份不借助 AI 的样本，再用 AI 解释错误、生成练习或模拟对话，最后由你确认含义和可迁移性。<small>《英语能力诊断：找到可复测的起点》</small></blockquote>
+
+  <a class="backtop" href="#ai">回到本页顶部 ↑</a>
+</section>
+
+</div>
+
+<footer>
+  <div class="wrap foot-grid">
+    <div>人生进阶指南 · 基于 <a href="https://github.com/byoungd/up">byoungd/up</a> 开放书稿整理</div>
+    <div><a href="index.html">首页</a> · <a href="wealth.html">创业与财富</a> · <a href="life.html">爱情与人生</a></div>
+  </div>
+</footer>
+
+<script>
+(function(){
+  var b=document.getElementById("themeToggle");if(!b)return;
+  function sync(){
+    var d=document.documentElement.getAttribute("data-theme")==="dark";
+    b.textContent=d?"◑":"◐";
+    b.setAttribute("aria-label",d?"切换到浅色主题":"切换到深色主题");
+  }
+  sync();
+  b.addEventListener("click",function(){
+    var n=document.documentElement.getAttribute("data-theme")==="dark"?"light":"dark";
+    document.documentElement.setAttribute("data-theme",n);
+    try{localStorage.setItem("theme",n)}catch(e){}
+    sync();
+  });
+})();
+</script>
+<script>
+(function(){
+  if(window.matchMedia&&window.matchMedia("(prefers-reduced-motion: reduce)").matches)return;
+  var els=document.querySelectorAll(".rv");
+  if(!("IntersectionObserver"in window)){els.forEach(function(e){e.classList.add("on")});return}
+  var io=new IntersectionObserver(function(en){
+    en.forEach(function(e){if(e.isIntersecting){e.target.classList.add("on");io.unobserve(e.target)}})
+  },{threshold:.1});
+  els.forEach(function(e){io.observe(e)});
+})();
+</script>
+</body>
+</html>
