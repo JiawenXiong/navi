@@ -12,13 +12,13 @@
 body{background:var(--bg);color:var(--ink);font-family:"Microsoft YaHei","PingFang SC","Segoe UI",sans-serif;line-height:1.75;font-size:15.5px}
 a{color:var(--accent);text-decoration:none}
 a:hover{text-decoration:underline}
-.wrap{max-width:1000px;margin:0 auto;padding:0 20px}
+.wrap{max-width:1120px;margin:0 auto;padding:0 20px}
 .topbar{background:var(--card);border-bottom:1px solid var(--line);position:sticky;top:0;z-index:20}
 .nav{display:flex;align-items:center;gap:4px;flex-wrap:wrap;row-gap:4px;min-height:44px}
 .nav-menu{display:contents}
 .brand{font-weight:700;color:var(--ink);margin-right:14px;flex:none}
 .brand span{color:var(--accent)}
-.nav a{flex:none;padding:9px 12px;border-radius:10px;color:var(--ink2);font-size:14px}
+.nav a{flex:none;padding:10px 12px;border-radius:10px;color:var(--ink2);font-size:14px}
 .nav a:hover{background:var(--accent-soft);color:var(--accent);text-decoration:none}
 .nav a.on{background:var(--accent);color:var(--on-accent)}
 .nav a.gh{border:1px solid var(--line);color:var(--accent)}
@@ -34,6 +34,7 @@ html.js .nav-toggle{display:inline-flex;align-items:center}
 html.js .nav.open{flex-wrap:wrap;padding-bottom:6px}
 html.js .nav.open .nav-menu{display:flex;flex-direction:column;align-items:stretch;gap:2px;flex-basis:100%;width:100%;margin-top:4px;padding:6px 0 2px;border-top:1px solid var(--line)}
 html.js .nav.open .nav-menu a{padding:10px 12px}
+.theme-btn,.nav-toggle{min-height:44px}
 }
 @media (prefers-reduced-motion:no-preference){
 .nav-menu a{transition:background .15s ease,color .15s ease}
@@ -46,18 +47,21 @@ main{padding:34px 0 10px}
 .pagehead h1{font-size:26px;margin:6px 0 8px}
 .pagehead p{color:var(--ink2);max-width:760px}
 h2.sec{font-size:19px;margin:34px 0 4px;padding-left:12px;border-left:4px solid var(--accent)}
-p.secsub{color:var(--ink2);font-size:14px;margin:0 0 14px 16px}
+p.secsub{color:var(--ink2);font-size:15px;margin:0 0 14px 16px}
 .card{background:var(--card);border:1px solid var(--line);border-radius:var(--radius);padding:20px 22px;margin-bottom:14px}
 .card .head{display:flex;gap:12px;align-items:baseline}
 .card .num{font-family:var(--mono);font-size:13px;color:var(--accent);border:1px solid var(--accent);border-radius:8px;padding:0 8px;flex:none}
 .card h3{font-size:16px;line-height:1.5}
 .meta{margin:8px 0 8px}
-.chip{display:inline-block;font-size:12px;border-radius:999px;padding:2px 10px;margin:0 6px 6px 0;border:1px solid var(--line);color:var(--ink2);background:var(--bg)}
+.chip{display:inline-block;font-size:12.5px;border-radius:999px;padding:3px 10px;line-height:1.5;max-width:100%;margin:0 6px 6px 0;border:1px solid var(--line);color:var(--ink2);background:var(--bg)}
 .chip.blue{background:var(--accent);border-color:var(--accent);color:var(--on-accent)}
 .chip.line{border-color:var(--accent);color:var(--accent);background:var(--accent-soft)}
 .card p{color:var(--ink2);font-size:15px}
 .card p b{color:var(--ink)}
-.src{margin-top:8px;font-size:12.5px;color:var(--src)}
+.src{margin-top:8px;font-size:13.5px;line-height:1.6;color:var(--src)}
+.cards{display:grid;grid-template-columns:1fr;gap:14px;margin-bottom:8px}
+.cards .card{margin-bottom:0}
+@media (min-width:920px){.cards{grid-template-columns:repeat(2,1fr);gap:16px 18px}}
 footer{margin-top:44px;border-top:1px solid var(--line);background:var(--card)}
 footer .wrap{padding:22px 20px;color:var(--ink2);font-size:13px}
 footer p{margin:3px 0}
@@ -65,11 +69,11 @@ footer p{margin:3px 0}
 .reveal.in{opacity:1;transform:none}
 @media (prefers-reduced-motion:reduce){.reveal{opacity:1;transform:none;transition:none}}
 @media (max-width:640px){.card{padding:16px}}
-.portal{position:fixed;left:14px;bottom:14px;z-index:99}.portal a{display:inline-block;padding:7px 16px;border-radius:999px;background:rgba(20,20,20,.72);color:#fff;font-size:13px;text-decoration:none;backdrop-filter:blur(4px);font-family:system-ui,sans-serif}.portal a:hover{background:rgba(20,20,20,.9)}
-.toTop{position:fixed;right:14px;bottom:14px;z-index:98;display:none;border:none;cursor:pointer;padding:7px 14px;border-radius:999px;background:rgba(20,20,20,.72);color:#fff;font-size:14px;line-height:1;backdrop-filter:blur(4px);font-family:system-ui,sans-serif}.toTop:hover{background:rgba(20,20,20,.9)}.toTop.show{display:inline-block}
+.portal{position:fixed;left:14px;bottom:14px;z-index:99}.portal a{display:inline-flex;align-items:center;min-height:44px;padding:0 18px;border-radius:999px;background:rgba(20,20,20,.72);color:#fff;font-size:14px;text-decoration:none;backdrop-filter:blur(4px);font-family:system-ui,sans-serif}.portal a:hover{background:rgba(20,20,20,.9)}
+.toTop{position:fixed;right:14px;bottom:14px;z-index:98;display:none;border:none;cursor:pointer;padding:0 14px;min-width:44px;min-height:44px;border-radius:999px;background:rgba(20,20,20,.72);color:#fff;font-size:14px;line-height:1;backdrop-filter:blur(4px);font-family:system-ui,sans-serif}.toTop:hover{background:rgba(20,20,20,.9)}.toTop.show{display:inline-flex;align-items:center;justify-content:center}
 </style>
-<noscript><style>.reveal,.rv{opacity:1 !important;transform:none !important}.portal{position:fixed;left:14px;bottom:14px;z-index:99}.portal a{display:inline-block;padding:7px 16px;border-radius:999px;background:rgba(20,20,20,.72);color:#fff;font-size:13px;text-decoration:none;backdrop-filter:blur(4px);font-family:system-ui,sans-serif}.portal a:hover{background:rgba(20,20,20,.9)}
-.toTop{position:fixed;right:14px;bottom:14px;z-index:98;display:none;border:none;cursor:pointer;padding:7px 14px;border-radius:999px;background:rgba(20,20,20,.72);color:#fff;font-size:14px;line-height:1;backdrop-filter:blur(4px);font-family:system-ui,sans-serif}.toTop:hover{background:rgba(20,20,20,.9)}.toTop.show{display:inline-block}
+<noscript><style>.reveal,.rv{opacity:1 !important;transform:none !important}.portal{position:fixed;left:14px;bottom:14px;z-index:99}.portal a{display:inline-flex;align-items:center;min-height:44px;padding:0 18px;border-radius:999px;background:rgba(20,20,20,.72);color:#fff;font-size:14px;text-decoration:none;backdrop-filter:blur(4px);font-family:system-ui,sans-serif}.portal a:hover{background:rgba(20,20,20,.9)}
+.toTop{position:fixed;right:14px;bottom:14px;z-index:98;display:none;border:none;cursor:pointer;padding:0 14px;min-width:44px;min-height:44px;border-radius:999px;background:rgba(20,20,20,.72);color:#fff;font-size:14px;line-height:1;backdrop-filter:blur(4px);font-family:system-ui,sans-serif}.toTop:hover{background:rgba(20,20,20,.9)}.toTop.show{display:inline-flex;align-items:center;justify-content:center}
 </style></noscript></head>
 <body>
 <header class="topbar"><div class="wrap"><nav class="nav" id="siteNav" aria-label="站内导航">
@@ -98,6 +102,7 @@ footer p{margin:3px 0}
 <p class="secsub">来自第 45 章入职前90天：怎么活下来。</p>
 <p class="src">组内按证据等级 A→C 排序</p>
 
+<div class="cards">
 <article class="card reveal"><div class="head"><span class="num">01</span><h3>入职第一周确认岗位职责、汇报对象和考核标准，用文字留痕</h3></div>
 <div class="meta"><span class="chip blue">证据 A</span><span class="chip line">性价比 极高</span><span class="chip">成本 钱=0 · 时间=高 · 精力=中</span><span class="chip">口径：职业寿命</span></div>
 <p><b>怎么做：</b>你负责什么、向谁汇报、谁给你打分，这些不会主动递到你手上。对着录用通知和岗位说明明确核心职责；问清直属领导是谁、试用期考核什么怎么算通过；把确认到的内容写成一段话，用邮件或工作群发给直属领导，请他回一句确认。</p>
@@ -135,10 +140,12 @@ footer p{margin:3px 0}
 
 
 
+</div>
 <h2 class="sec reveal">二、加班与考勤</h2>
 <p class="secsub">来自第 39 章职场健康与第 43 章职场维权的加班条目。</p>
 <p class="src">组内按证据等级 A→C 排序</p>
 
+<div class="cards">
 <article class="card reveal"><div class="head"><span class="num">08</span><h3>把加班挡在法定上限之外：每日不超 8 小时，每月加班不超 36 小时</h3></div>
 <div class="meta"><span class="chip blue">证据 A</span><span class="chip line">性价比 极高</span><span class="chip">成本 钱=0 · 时间=多 · 精力=低</span><span class="chip">口径：职业寿命 / 时间精力</span></div>
 <p><b>说人话：</b>法定标准是每日工作不超过 8 小时、每周不超过 40 小时，加班一般每日不超过 1 小时，特殊原因每日不超过 3 小时、每月不超过 36 小时。长时间工作与健康相关：世界卫生组织和国际劳工组织估算，每周工作 55 小时及以上的人中风风险约高 35%、死于缺血性心脏病的风险约高 17%，这是群体关联，不能推算个人风险。</p>
@@ -159,10 +166,12 @@ footer p{margin:3px 0}
 <p><b>说人话：</b>厂里贴的罚款规定不等于合法：2008 年《企业职工奖惩条例》废止后，用人单位已没有对员工罚款的法律依据。真从工资里扣钱（比如让你赔损失），每月不超过当月工资的两成，扣完到手的不能低于当地最低工资。动手顺序：每月主动要工资条，看清每一项扣款名目；扣款写「罚款」的问依据要制度文件；把工资条、考勤、罚款单拍照留档，带去劳动保障监察大队投诉或申请仲裁，也可拨 12333。</p>
 <p class="src">来源：工资支付暂行规定第十五、十六、十八条；劳动合同法第八十五条；新华社（2016）。限制：绩效工资可依制度浮动，能否算克扣要个案看；不给工资条本身也是可以投诉的事。</p></article>
 
+</div>
 <h2 class="sec reveal">三、社保与公积金</h2>
 <p class="secsub">来自第 45、43、10、36 章：登记是单位的义务，缴没缴、按什么基数缴，自己核对。</p>
 <p class="src">组内按证据等级 A→C 排序</p>
 
+<div class="cards">
 <article class="card reveal"><div class="head"><span class="num">12</span><h3>单位应在用工 30 日内办社保登记和公积金缴存登记，拿到工资自己核基数</h3></div>
 <div class="meta"><span class="chip blue">证据 A</span><span class="chip line">性价比 极高</span><span class="chip">成本 钱=0 · 时间=少 · 精力=低</span><span class="chip">口径：收入 / 职业寿命</span></div>
 <p><b>说人话：</b>单位应自用工之日起三十日内为职工向社保经办机构申请办理社会保险登记，自录用之日起三十日内办理住房公积金缴存登记。办理登记和足额缴纳是两件事：办没办、按实际工资还是最低基数缴，要拿到第一个月工资后自己核对。</p>
@@ -184,6 +193,7 @@ footer p{margin:3px 0}
 <p class="src">来源：见仓库第 36 章第 2 条、第 10 章第 10 条。</p></article>
 
 
+</div>
 </main>
 
 <footer><div class="wrap">
@@ -191,7 +201,7 @@ footer p{margin:3px 0}
 <p>所有内容仅供参考，不构成法律建议；金额、时限、比例以当地主管部门最新规定为准。遇到具体纠纷请咨询专业人士，或拨打 12333（人社）、12348（法律援助）。</p>
 </div></footer>
 
-<script>(function(){var b=document.getElementById('themeToggle');if(!b)return;function up(){b.textContent=document.documentElement.getAttribute('data-theme')==='dark'?'☀ 亮色':'☾ 暗色'}up();b.addEventListener('click',function(){var d=document.documentElement.getAttribute('data-theme')==='dark'?'light':'dark';document.documentElement.setAttribute('data-theme',d);try{localStorage.setItem('theme',d)}catch(e){}up()})();var n=document.getElementById('siteNav'),t=document.getElementById('navToggle');if(n&&t){t.addEventListener('click',function(){var o=n.classList.toggle('open');t.setAttribute('aria-expanded',o?'true':'false');t.textContent=o?'\u2715':'\u2630'});n.addEventListener('click',function(e){var a=e.target&&e.target.closest?e.target.closest('a'):null;if(a&&n.classList.contains('open')){n.classList.remove('open');t.setAttribute('aria-expanded','false');t.textContent='\u2630'}})}})();</script>
+<script>(function(){var b=document.getElementById('themeToggle');if(!b)return;function up(){b.textContent=document.documentElement.getAttribute('data-theme')==='dark'?'☀ 亮色':'☾ 暗色'}up();b.addEventListener('click',function(){var d=document.documentElement.getAttribute('data-theme')==='dark'?'light':'dark';document.documentElement.setAttribute('data-theme',d);try{localStorage.setItem('theme',d)}catch(e){}up()});var n=document.getElementById('siteNav'),t=document.getElementById('navToggle');if(n&&t){t.addEventListener('click',function(){var o=n.classList.toggle('open');t.setAttribute('aria-expanded',o?'true':'false');t.textContent=o?'\u2715':'\u2630'});n.addEventListener('click',function(e){var a=e.target&&e.target.closest?e.target.closest('a'):null;if(a&&n.classList.contains('open')){n.classList.remove('open');t.setAttribute('aria-expanded','false');t.textContent='\u2630'}})}})();</script>
 <script>
 (function(){
 var rm=window.matchMedia&&window.matchMedia('(prefers-reduced-motion: reduce)').matches;

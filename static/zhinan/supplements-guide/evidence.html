@@ -15,14 +15,14 @@ a:hover{text-decoration:underline}
 .wrap{max-width:960px;margin:0 auto;padding:0 20px}
 .site-head{background:var(--surface);border-bottom:1px solid var(--line);position:sticky;top:0;z-index:50}
 .head-in{display:flex;align-items:center;gap:12px;min-height:56px;position:relative}
-.brand{font-weight:700;color:var(--ink);font-size:1.05rem;white-space:nowrap}
+.brand{font-weight:700;color:var(--ink);font-size:1.05rem;white-space:nowrap;display:inline-flex;align-items:center;min-height:44px}
 .site-nav{display:flex;gap:4px;flex-wrap:wrap;margin-left:auto}
 .site-nav a{padding:6px 10px;border-radius:6px;color:var(--muted);font-size:.92rem;white-space:nowrap}
 .site-nav a:hover{color:var(--accent);text-decoration:none;background:var(--surface2)}
 .site-nav a[aria-current=page]{color:var(--on-accent);background:var(--accent)}
 .head-actions{margin-left:auto;display:flex;gap:8px;align-items:center}
 .site-nav + .head-actions{margin-left:0}
-.icon-btn{border:1px solid var(--line);background:var(--surface);color:var(--ink);border-radius:8px;width:40px;height:40px;font-size:1.1rem;cursor:pointer;flex:none;display:inline-flex;align-items:center;justify-content:center}
+.icon-btn{border:1px solid var(--line);background:var(--surface);color:var(--ink);border-radius:8px;width:44px;height:44px;font-size:1.1rem;cursor:pointer;flex:none;display:inline-flex;align-items:center;justify-content:center}
 html.js .site-nav{display:none}
 html.js .icon-btn.js-menu{display:inline-flex}
 @media(min-width:721px){
@@ -46,7 +46,7 @@ p{margin:.8em 0}
 .lede{font-size:1.05rem;color:var(--muted)}
 .callout{border-left:4px solid var(--accent);background:var(--surface2);padding:12px 16px;border-radius:0 8px 8px 0;margin:1.2em 0}
 .callout.warn{border-left-color:var(--danger);background:var(--warn-bg);color:var(--warn-ink)}
-.table-scroll{overflow-x:auto;margin:1.2em 0;border:1px solid var(--line);border-radius:10px;background:var(--surface)}
+.table-scroll{overflow-x:auto;overscroll-behavior-x:contain;margin:1.2em 0;border:1px solid var(--line);border-radius:10px;background:var(--surface)}
 table{width:100%;border-collapse:collapse;font-size:.94rem;min-width:620px}
 th,td{padding:10px 12px;border-bottom:1px solid var(--line);text-align:left;vertical-align:top}
 th{background:var(--surface2);color:var(--ink);font-weight:600;white-space:nowrap}
@@ -60,18 +60,40 @@ tr:last-child td{border-bottom:none}
 ul,ol{padding-left:1.4em;margin:.7em 0}
 li{margin:.4em 0}
 footer{background:var(--surface);border-top:1px solid var(--line);padding:30px 0 36px;margin-top:20px}
-.foot-nav{display:flex;flex-wrap:wrap;gap:6px 16px;margin-bottom:14px;font-size:.92rem}
+.foot-nav{display:flex;flex-wrap:wrap;gap:0 16px;margin-bottom:14px;font-size:.92rem}.foot-nav a{padding:8px 0;display:inline-block}
 .disclaimer{background:var(--warn-bg);border:1px solid var(--warn-line);color:var(--warn-ink);padding:14px 16px;border-radius:10px;font-size:.92rem}
 @media(prefers-reduced-motion:no-preference){
  .js .reveal{opacity:0;transform:translateY(14px);transition:opacity .6s ease,transform .6s ease}
  .js .reveal.in{opacity:1;transform:none}
 }
 @media(prefers-reduced-motion:reduce){.reveal{opacity:1!important;transform:none!important}}
-.portal{position:fixed;left:14px;bottom:14px;z-index:99}.portal a{display:inline-block;padding:7px 16px;border-radius:999px;background:rgba(20,20,20,.72);color:#fff;font-size:13px;text-decoration:none;backdrop-filter:blur(4px);font-family:system-ui,sans-serif}.portal a:hover{background:rgba(20,20,20,.9)}
-.toTop{position:fixed;right:14px;bottom:14px;z-index:98;display:none;border:none;cursor:pointer;padding:7px 14px;border-radius:999px;background:rgba(20,20,20,.72);color:#fff;font-size:14px;line-height:1;backdrop-filter:blur(4px);font-family:system-ui,sans-serif}.toTop:hover{background:rgba(20,20,20,.9)}.toTop.show{display:inline-block}
+.portal{position:fixed;left:14px;bottom:14px;z-index:99}.portal a{display:inline-flex;align-items:center;min-height:44px;padding:10px 18px;border-radius:999px;background:rgba(20,20,20,.72);color:#fff;font-size:13px;text-decoration:none;backdrop-filter:blur(4px);font-family:system-ui,sans-serif}.portal a:hover{background:rgba(20,20,20,.9)}
+.toTop{position:fixed;right:14px;bottom:14px;z-index:98;display:none;border:none;cursor:pointer;padding:10px 16px;min-height:44px;min-width:44px;border-radius:999px;background:rgba(20,20,20,.72);color:#fff;font-size:15px;line-height:1;backdrop-filter:blur(4px);font-family:system-ui,sans-serif}.toTop:hover{background:rgba(20,20,20,.9)}.toTop.show{display:inline-flex;align-items:center;justify-content:center}
+/* == 阅读体验精修：新增基础规则与媒体查询统一置于全部既有规则之后，避免级联覆盖 == */
+[id]{scroll-margin-top:80px}
+main>.wrap>p,main>.wrap>ul,main>.wrap>ol{max-width:60ch}
+th,td{line-height:1.62}
+.card .more{font-size:.94rem}
+.disclaimer{font-size:.95rem}
+.portal a,.toTop.show{display:inline-flex;align-items:center;justify-content:center;min-height:44px;min-width:44px}
+@media(min-width:721px){
+ .jump a,.quick-nav a{padding:9px 14px}
+}
+@media(max-width:720px){
+ .jump a,.quick-nav a{font-size:.92rem;padding:10px 14px}
+ .badge,.fld{white-space:normal}
+ .table-scroll{scrollbar-width:thin;scrollbar-color:var(--line) transparent}
+ .table-scroll::-webkit-scrollbar{height:8px}
+ .table-scroll::-webkit-scrollbar-thumb{background:var(--line);border-radius:8px}
+ .table-scroll::-webkit-scrollbar-track{background:transparent}
+}
+@media(min-width:1180px){
+ .page-toc{position:sticky;top:66px;z-index:40;background:var(--bg);padding:12px 2px 11px;margin:0 0 8px;border-bottom:1px solid var(--line)}
+ [id]{scroll-margin-top:138px}
+}
 </style>
-<noscript><style>.reveal{opacity:1!important;transform:none!important}.portal{position:fixed;left:14px;bottom:14px;z-index:99}.portal a{display:inline-block;padding:7px 16px;border-radius:999px;background:rgba(20,20,20,.72);color:#fff;font-size:13px;text-decoration:none;backdrop-filter:blur(4px);font-family:system-ui,sans-serif}.portal a:hover{background:rgba(20,20,20,.9)}
-.toTop{position:fixed;right:14px;bottom:14px;z-index:98;display:none;border:none;cursor:pointer;padding:7px 14px;border-radius:999px;background:rgba(20,20,20,.72);color:#fff;font-size:14px;line-height:1;backdrop-filter:blur(4px);font-family:system-ui,sans-serif}.toTop:hover{background:rgba(20,20,20,.9)}.toTop.show{display:inline-block}
+<noscript><style>.reveal{opacity:1!important;transform:none!important}.portal{position:fixed;left:14px;bottom:14px;z-index:99}.portal a{display:inline-flex;align-items:center;min-height:44px;padding:10px 18px;border-radius:999px;background:rgba(20,20,20,.72);color:#fff;font-size:13px;text-decoration:none;backdrop-filter:blur(4px);font-family:system-ui,sans-serif}.portal a:hover{background:rgba(20,20,20,.9)}
+.toTop{position:fixed;right:14px;bottom:14px;z-index:98;display:none;border:none;cursor:pointer;padding:10px 16px;min-height:44px;min-width:44px;border-radius:999px;background:rgba(20,20,20,.72);color:#fff;font-size:15px;line-height:1;backdrop-filter:blur(4px);font-family:system-ui,sans-serif}.toTop:hover{background:rgba(20,20,20,.9)}.toTop.show{display:inline-flex;align-items:center;justify-content:center}
 </style></noscript>
 </head>
 <body>
@@ -102,8 +124,11 @@ footer{background:var(--surface);border-top:1px solid var(--line);padding:30px 0
   <h1 class="reveal">证据分级：各品类究竟有多少科学依据</h1>
   <p class="lede reveal">下表汇总常见品类的证据等级（A 证据充分、B 较好、C 有限、D 不足或反对）与对一般健康成年人的总体结论。等级针对表中注明的具体用途，而非笼统的"有没有用"。前 20 类为核心品类详表，另设"更多市售品类速览"分组表再覆盖 40 个常见品类；正文逐条解读共 49 段，核心品类 9 段合并解读在前，速览 40 类逐类简评在后。主要依据：NIH ODS 各类膳食补充剂事实清单、USPSTF 推荐声明、Cochrane 系统评价、梅奥诊所与哈佛公共卫生学院资料、中国营养学会 DRIs（2023 版）。</p>
    <p class="src reveal">下表已按证据等级从高到低排序（A、B、C、D），同等级内按品类类别聚拢（维生素、矿物质、脂类、功能成分、健身、睡眠等）。</p>
+   <nav class="jump page-toc reveal" aria-label="本页速览">
+    <a href="#core-table">核心证据大表</a><a href="#quick-vit">速览一：维生素与矿物质</a><a href="#quick-anti">速览二：抗氧化与新兴成分</a><a href="#quick-fit">速览三：健身减脂与睡眠</a><a href="#readings">逐条解读</a><a href="#quick-notes">速览品类逐条解读</a>
+   </nav>
 
-  <div class="table-scroll reveal">
+  <div class="table-scroll reveal" id="core-table">
    <table>
     <thead><tr><th>品类</th><th>等级</th><th>总体结论</th><th>对一般人群是否推荐</th></tr></thead>
     <tbody>
@@ -135,7 +160,7 @@ footer{background:var(--surface);border-top:1px solid var(--line);padding:30px 0
   <p class="reveal">以下三张分组表覆盖货架与直播间里最常见的其余品类。口径不变：等级针对"表中注明的具体用途"，结论以 NIH ODS、Cochrane、EFSA、USPSTF 与中国营养学会等机构的公开立场为准，证据不足就直说"证据不足"。</p>
    <p class="src reveal">三张速览表同样各自按证据等级 A 至 D 从高到低排序，等级相同者按品类相近程度排列。</p>
 
-  <h3 class="reveal">维生素与矿物质</h3>
+  <h3 class="reveal" id="quick-vit">维生素与矿物质</h3>
   <div class="table-scroll reveal">
    <table>
     <thead><tr><th>品类</th><th>主打声称</th><th>等级</th><th>一句话结论</th></tr></thead>
@@ -154,7 +179,7 @@ footer{background:var(--surface);border-top:1px solid var(--line);padding:30px 0
    </table>
   </div>
 
-  <h3 class="reveal">抗氧化、新兴成分与功能脂类</h3>
+  <h3 class="reveal" id="quick-anti">抗氧化、新兴成分与功能脂类</h3>
   <div class="table-scroll reveal">
    <table>
     <thead><tr><th>品类</th><th>主打声称</th><th>等级</th><th>一句话结论</th></tr></thead>
@@ -178,7 +203,7 @@ footer{background:var(--surface);border-top:1px solid var(--line);padding:30px 0
    </table>
   </div>
 
-  <h3 class="reveal">健身减脂、睡眠情绪与红曲</h3>
+  <h3 class="reveal" id="quick-fit">健身减脂、睡眠情绪与红曲</h3>
   <div class="table-scroll reveal">
    <table>
     <thead><tr><th>品类</th><th>主打声称</th><th>等级</th><th>一句话结论</th></tr></thead>
@@ -202,7 +227,7 @@ footer{background:var(--surface);border-top:1px solid var(--line);padding:30px 0
    </table>
   </div>
 
-  <h2 class="reveal">逐条解读</h2>
+  <h2 class="reveal" id="readings">逐条解读</h2>
   <h3 class="reveal">维生素 D <span class="badge bA">A</span>（针对缺乏与骨骼健康）</h3>
   <p class="reveal">NIH ODS 的结论是：维生素 D 对钙吸收和骨骼健康必不可少，缺乏者补充可改善骨密度、降低佝偻病和骨软化风险；老年人与缺乏风险高的人群补充联合钙剂可降低骨折风险。但维生素 D 大规模干预研究（如美国 VITAL 试验）显示，对维生素 D 不缺乏的一般人群，每日 2000 IU 并未显著降低癌症或心血管事件风险。中国营养学会推荐成人每日 10 微克（400 IU），可耐受最高摄入量（UL）为 50 微克（2000 IU）。长期超量可致高钙血症。</p>
 

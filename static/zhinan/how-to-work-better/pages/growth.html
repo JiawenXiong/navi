@@ -12,13 +12,13 @@
 body{background:var(--bg);color:var(--ink);font-family:"Microsoft YaHei","PingFang SC","Segoe UI",sans-serif;line-height:1.75;font-size:15.5px}
 a{color:var(--accent);text-decoration:none}
 a:hover{text-decoration:underline}
-.wrap{max-width:1000px;margin:0 auto;padding:0 20px}
+.wrap{max-width:1120px;margin:0 auto;padding:0 20px}
 .topbar{background:var(--card);border-bottom:1px solid var(--line);position:sticky;top:0;z-index:20}
 .nav{display:flex;align-items:center;gap:4px;flex-wrap:wrap;row-gap:4px;min-height:44px}
 .nav-menu{display:contents}
 .brand{font-weight:700;color:var(--ink);margin-right:14px;flex:none}
 .brand span{color:var(--accent)}
-.nav a{flex:none;padding:9px 12px;border-radius:10px;color:var(--ink2);font-size:14px}
+.nav a{flex:none;padding:10px 12px;border-radius:10px;color:var(--ink2);font-size:14px}
 .nav a:hover{background:var(--accent-soft);color:var(--accent);text-decoration:none}
 .nav a.on{background:var(--accent);color:var(--on-accent)}
 .nav a.gh{border:1px solid var(--line);color:var(--accent)}
@@ -34,6 +34,7 @@ html.js .nav-toggle{display:inline-flex;align-items:center}
 html.js .nav.open{flex-wrap:wrap;padding-bottom:6px}
 html.js .nav.open .nav-menu{display:flex;flex-direction:column;align-items:stretch;gap:2px;flex-basis:100%;width:100%;margin-top:4px;padding:6px 0 2px;border-top:1px solid var(--line)}
 html.js .nav.open .nav-menu a{padding:10px 12px}
+.theme-btn,.nav-toggle{min-height:44px}
 }
 @media (prefers-reduced-motion:no-preference){
 .nav-menu a{transition:background .15s ease,color .15s ease}
@@ -46,18 +47,21 @@ main{padding:34px 0 10px}
 .pagehead h1{font-size:26px;margin:6px 0 8px}
 .pagehead p{color:var(--ink2);max-width:760px}
 h2.sec{font-size:19px;margin:34px 0 4px;padding-left:12px;border-left:4px solid var(--accent)}
-p.secsub{color:var(--ink2);font-size:14px;margin:0 0 14px 16px}
+p.secsub{color:var(--ink2);font-size:15px;margin:0 0 14px 16px}
 .card{background:var(--card);border:1px solid var(--line);border-radius:var(--radius);padding:20px 22px;margin-bottom:14px}
 .card .head{display:flex;gap:12px;align-items:baseline}
 .card .num{font-family:var(--mono);font-size:13px;color:var(--accent);border:1px solid var(--accent);border-radius:8px;padding:0 8px;flex:none}
 .card h3{font-size:16px;line-height:1.5}
 .meta{margin:8px 0 8px}
-.chip{display:inline-block;font-size:12px;border-radius:999px;padding:2px 10px;margin:0 6px 6px 0;border:1px solid var(--line);color:var(--ink2);background:var(--bg)}
+.chip{display:inline-block;font-size:12.5px;border-radius:999px;padding:3px 10px;line-height:1.5;max-width:100%;margin:0 6px 6px 0;border:1px solid var(--line);color:var(--ink2);background:var(--bg)}
 .chip.blue{background:var(--accent);border-color:var(--accent);color:var(--on-accent)}
 .chip.line{border-color:var(--accent);color:var(--accent);background:var(--accent-soft)}
 .card p{color:var(--ink2);font-size:15px}
 .card p b{color:var(--ink)}
-.src{margin-top:8px;font-size:12.5px;color:var(--src)}
+.src{margin-top:8px;font-size:13.5px;line-height:1.6;color:var(--src)}
+.cards{display:grid;grid-template-columns:1fr;gap:14px;margin-bottom:8px}
+.cards .card{margin-bottom:0}
+@media (min-width:920px){.cards{grid-template-columns:repeat(2,1fr);gap:16px 18px}}
 footer{margin-top:44px;border-top:1px solid var(--line);background:var(--card)}
 footer .wrap{padding:22px 20px;color:var(--ink2);font-size:13px}
 footer p{margin:3px 0}
@@ -65,11 +69,11 @@ footer p{margin:3px 0}
 .reveal.in{opacity:1;transform:none}
 @media (prefers-reduced-motion:reduce){.reveal{opacity:1;transform:none;transition:none}}
 @media (max-width:640px){.card{padding:16px}}
-.portal{position:fixed;left:14px;bottom:14px;z-index:99}.portal a{display:inline-block;padding:7px 16px;border-radius:999px;background:rgba(20,20,20,.72);color:#fff;font-size:13px;text-decoration:none;backdrop-filter:blur(4px);font-family:system-ui,sans-serif}.portal a:hover{background:rgba(20,20,20,.9)}
-.toTop{position:fixed;right:14px;bottom:14px;z-index:98;display:none;border:none;cursor:pointer;padding:7px 14px;border-radius:999px;background:rgba(20,20,20,.72);color:#fff;font-size:14px;line-height:1;backdrop-filter:blur(4px);font-family:system-ui,sans-serif}.toTop:hover{background:rgba(20,20,20,.9)}.toTop.show{display:inline-block}
+.portal{position:fixed;left:14px;bottom:14px;z-index:99}.portal a{display:inline-flex;align-items:center;min-height:44px;padding:0 18px;border-radius:999px;background:rgba(20,20,20,.72);color:#fff;font-size:14px;text-decoration:none;backdrop-filter:blur(4px);font-family:system-ui,sans-serif}.portal a:hover{background:rgba(20,20,20,.9)}
+.toTop{position:fixed;right:14px;bottom:14px;z-index:98;display:none;border:none;cursor:pointer;padding:0 14px;min-width:44px;min-height:44px;border-radius:999px;background:rgba(20,20,20,.72);color:#fff;font-size:14px;line-height:1;backdrop-filter:blur(4px);font-family:system-ui,sans-serif}.toTop:hover{background:rgba(20,20,20,.9)}.toTop.show{display:inline-flex;align-items:center;justify-content:center}
 </style>
-<noscript><style>.reveal,.rv{opacity:1 !important;transform:none !important}.portal{position:fixed;left:14px;bottom:14px;z-index:99}.portal a{display:inline-block;padding:7px 16px;border-radius:999px;background:rgba(20,20,20,.72);color:#fff;font-size:13px;text-decoration:none;backdrop-filter:blur(4px);font-family:system-ui,sans-serif}.portal a:hover{background:rgba(20,20,20,.9)}
-.toTop{position:fixed;right:14px;bottom:14px;z-index:98;display:none;border:none;cursor:pointer;padding:7px 14px;border-radius:999px;background:rgba(20,20,20,.72);color:#fff;font-size:14px;line-height:1;backdrop-filter:blur(4px);font-family:system-ui,sans-serif}.toTop:hover{background:rgba(20,20,20,.9)}.toTop.show{display:inline-block}
+<noscript><style>.reveal,.rv{opacity:1 !important;transform:none !important}.portal{position:fixed;left:14px;bottom:14px;z-index:99}.portal a{display:inline-flex;align-items:center;min-height:44px;padding:0 18px;border-radius:999px;background:rgba(20,20,20,.72);color:#fff;font-size:14px;text-decoration:none;backdrop-filter:blur(4px);font-family:system-ui,sans-serif}.portal a:hover{background:rgba(20,20,20,.9)}
+.toTop{position:fixed;right:14px;bottom:14px;z-index:98;display:none;border:none;cursor:pointer;padding:0 14px;min-width:44px;min-height:44px;border-radius:999px;background:rgba(20,20,20,.72);color:#fff;font-size:14px;line-height:1;backdrop-filter:blur(4px);font-family:system-ui,sans-serif}.toTop:hover{background:rgba(20,20,20,.9)}.toTop.show{display:inline-flex;align-items:center;justify-content:center}
 </style></noscript></head>
 <body>
 <header class="topbar"><div class="wrap"><nav class="nav" id="siteNav" aria-label="站内导航">
@@ -98,6 +102,7 @@ footer p{margin:3px 0}
 <p class="secsub">来自第 35 章技能投资与第 37 章职业转型，均按性价比从高到低排。</p>
 <p class="src">组内按证据等级 A→C 排序</p>
 
+<div class="cards">
 <article class="card reveal"><div class="head"><span class="num">01</span><h3>先把一项能独立交付的硬技能练到能用，再补沟通汇报这类软技能</h3></div>
 <div class="meta"><span class="chip blue">证据 A</span><span class="chip line">性价比 极高</span><span class="chip">成本 钱=0到中等 · 时间=高 · 精力=高</span><span class="chip">口径：职业寿命 / 收入</span></div>
 <p><b>说人话：</b>能独立交付的硬技能是你吃饭的本钱，也是别人找你合作的理由；先把它练到能独立交付，再补软技能。优先练能带到下一家公司用的能力：数据分析、写作、项目管理。</p>
@@ -130,10 +135,12 @@ footer p{margin:3px 0}
 
 
 
+</div>
 <h2 class="sec reveal">二、副业与兼职</h2>
 <p class="secsub">来自第 15 章：下班了怎么赚外快。</p>
 <p class="src">组内按证据等级 A→C 排序</p>
 
+<div class="cards">
 <article class="card reveal"><div class="head"><span class="num">07</span><h3>副业从主业技能延伸，别从外卖、问卷这类纯体力活起步</h3></div>
 <div class="meta"><span class="chip blue">证据 A</span><span class="chip line">性价比 极高</span><span class="chip">成本 钱=0 · 时间=少 · 精力=低</span><span class="chip">口径：收入</span></div>
 <p><b>说人话：</b>把已经在领工资的技能下班后再卖给第二个客户，是最顺的副业路径；用你所在行业的信息差做副业，先把外行不懂的东西整理成产品。纯体力活时薪低、攒不下可复用的能力。</p>
@@ -159,10 +166,12 @@ footer p{margin:3px 0}
 <p><b>说人话：</b>别让副业变成被解除合同的理由。先看自己合同里有没有兼职限制、竞业范围和保密条款；接私活不碰主业的客户和保密信息，收入该报税的报税。别指望被动收入：2025 年全国居民人均财产净收入一年只有 3490 元，门槛比想象的高。</p>
 <p class="src">来源：见仓库第 15 章第 7、8 条，附国家统计局数据。</p></article>
 
+</div>
 <h2 class="sec reveal">三、公务与商务礼仪</h2>
 <p class="secsub">来自第 51 章商务宴请与职场礼仪：先看高性价比的点菜、敬酒、酒局之后三条，再看座次、买单、名片、着装、电梯五条。涉及公款、报销、饮酒的地方都有合规红线和拒绝权。</p>
 <p class="src">组内按证据等级 A→C 排序</p>
 
+<div class="cards">
 <article class="card reveal"><div class="head"><span class="num">12</span><h3>点菜的分寸：谁点、先问忌口、控住菜量和预算</h3></div>
 <div class="meta"><span class="chip blue">证据 A</span><span class="chip line">性价比 高</span><span class="chip">成本 钱=中（做东承担） · 时间=少 · 精力=中</span><span class="chip">口径：收入</span></div>
 <p><b>怎么做：</b>先把菜单递给主客，客人谦让再由做东的人点；点之前问一圈忌口（不吃辣、海鲜过敏、清真等硬性要求提前问清）；热菜数量大体按人数配，宁可少点、不够中途再加；预算先看菜单价位定下来，酒水往往是大头、单独估一个数。不点野生保护动物和高档食材，公务活动用餐另有标准约束。</p>
@@ -202,6 +211,7 @@ footer p{margin:3px 0}
 <div class="meta"><span class="chip">证据 C</span><span class="chip">性价比 一般</span><span class="chip">成本 钱=0 · 时间=少 · 精力=少</span><span class="chip">口径：时间精力</span></div>
 <p><b>怎么做：</b>有人操作的电梯客人先进先出；自动电梯陪同先进去按住开门键、客人再进，出时客人先出。往外开的门主人拉开门请客人先过；往里开的门主人先推门扶住。走廊引导的人走在客人侧前方，让客人走内侧；送客送到电梯口或车边，等电梯门关上或车开走再回。拿不准时以「让客人方便」为原则，不必死记顺序。</p>
 <p class="src">来源：外交部礼宾知识（迎宾、陪同部分）加通识惯例。限制：不同企业、城市松紧不一，年轻团队里过分讲究反而不自然。</p></article>
+</div>
 </main>
 
 <footer><div class="wrap">
@@ -209,7 +219,7 @@ footer p{margin:3px 0}
 <p>所有内容仅供参考，不构成法律建议；金额、时限、比例以当地主管部门最新规定为准。遇到具体纠纷请咨询专业人士，或拨打 12333（人社）、12348（法律援助）。</p>
 </div></footer>
 
-<script>(function(){var b=document.getElementById('themeToggle');if(!b)return;function up(){b.textContent=document.documentElement.getAttribute('data-theme')==='dark'?'☀ 亮色':'☾ 暗色'}up();b.addEventListener('click',function(){var d=document.documentElement.getAttribute('data-theme')==='dark'?'light':'dark';document.documentElement.setAttribute('data-theme',d);try{localStorage.setItem('theme',d)}catch(e){}up()})();var n=document.getElementById('siteNav'),t=document.getElementById('navToggle');if(n&&t){t.addEventListener('click',function(){var o=n.classList.toggle('open');t.setAttribute('aria-expanded',o?'true':'false');t.textContent=o?'\u2715':'\u2630'});n.addEventListener('click',function(e){var a=e.target&&e.target.closest?e.target.closest('a'):null;if(a&&n.classList.contains('open')){n.classList.remove('open');t.setAttribute('aria-expanded','false');t.textContent='\u2630'}})}})();</script>
+<script>(function(){var b=document.getElementById('themeToggle');if(!b)return;function up(){b.textContent=document.documentElement.getAttribute('data-theme')==='dark'?'☀ 亮色':'☾ 暗色'}up();b.addEventListener('click',function(){var d=document.documentElement.getAttribute('data-theme')==='dark'?'light':'dark';document.documentElement.setAttribute('data-theme',d);try{localStorage.setItem('theme',d)}catch(e){}up()});var n=document.getElementById('siteNav'),t=document.getElementById('navToggle');if(n&&t){t.addEventListener('click',function(){var o=n.classList.toggle('open');t.setAttribute('aria-expanded',o?'true':'false');t.textContent=o?'\u2715':'\u2630'});n.addEventListener('click',function(e){var a=e.target&&e.target.closest?e.target.closest('a'):null;if(a&&n.classList.contains('open')){n.classList.remove('open');t.setAttribute('aria-expanded','false');t.textContent='\u2630'}})}})();</script>
 <script>
 (function(){
 var rm=window.matchMedia&&window.matchMedia('(prefers-reduced-motion: reduce)').matches;

@@ -35,13 +35,14 @@
   header.site { border-bottom: 1px solid var(--line); background: var(--bg); position: sticky; top: 0; z-index: 10; }
   nav.bar { display: flex; align-items: center; justify-content: space-between; height: 64px; }
   .brand { font-weight: 700; font-size: 17px; }
-  .brand a { color: var(--ink); text-decoration: none; }
-  nav.bar ul { display: flex; gap: 26px; list-style: none; }
+  .brand a { color: var(--ink); text-decoration: none; display: inline-flex; align-items: center; min-height: 44px; }
+  nav.bar ul { display: flex; gap: 26px; list-style: none; align-items: center; }
   nav.bar ul a { color: var(--muted); text-decoration: none; font-size: 14px; }
   nav.bar ul a:hover { color: var(--accent); }
-  @media (max-width: 720px) { nav.bar ul { display: none; } }
+  @media (max-width: 720px) { nav.bar ul li.hide-sm { display: none; } }
+  #sites { scroll-margin-top: 76px; }
 
-  .hero { padding: 84px 0 60px; }
+  .hero{ padding-top:84px;padding-bottom:60px; }
   .hero .eyebrow { display: inline-block; font-size: 12px; letter-spacing: .18em; color: var(--accent); font-weight: 700; margin-bottom: 18px; }
   .hero h1 { font-size: clamp(36px, 6vw, 58px); line-height: 1.14; letter-spacing: -0.02em; font-weight: 800; max-width: 16em; }
   .hero p.sub { margin-top: 22px; font-size: 17px; color: var(--muted); max-width: 36em; }
@@ -53,7 +54,7 @@
   .btn.ghost { border: 1px solid var(--line); color: var(--ink); background: var(--card); }
   .btn.ghost:hover { border-color: var(--accent); color: var(--accent); }
 
-  section.sites { padding: 64px 0 24px; }
+  section.sites{ padding-top:64px;padding-bottom:24px; }
   section.sites > .wrap > h2 { font-size: 26px; font-weight: 800; margin-bottom: 8px; }
   section.sites > .wrap > p.lead { color: var(--muted); margin-bottom: 28px; font-size: 15px; }
   .group-h {
@@ -75,13 +76,25 @@
   }
   .pages a:hover { border-color: var(--accent); background: rgba(52,211,153,.10); }
 
-  footer.site { border-top: 1px solid var(--line); padding: 32px 0 44px; color: var(--muted); font-size: 14px; }
+  footer.site{ border-top: 1px solid var(--line); padding-top:32px;padding-bottom:44px; color: var(--muted); font-size: 14px; }
 
   .reveal { opacity: 0; transform: translateY(14px); transition: opacity .5s ease, transform .5s ease; }
   .reveal.in { opacity: 1; transform: none; }
   @media (prefers-reduced-motion: reduce) { html { scroll-behavior: auto; } .reveal { opacity: 1; transform: none; transition: none; } }
 
-@media (prefers-reduced-motion: reduce){.reveal{opacity:1 !important;transform:none !important}}.toTop{position:fixed;right:14px;bottom:14px;z-index:98;display:none;border:none;cursor:pointer;padding:7px 14px;border-radius:999px;background:rgba(20,20,20,.72);color:#fff;font-size:14px;line-height:1;backdrop-filter:blur(4px);font-family:system-ui,sans-serif}.toTop:hover{background:rgba(20,20,20,.9)}.toTop.show{display:inline-block}
+  @media (max-width: 640px) {
+    .wrap { padding: 0 22px; }
+    .hero{ padding-top:52px;padding-bottom:40px; }
+    .hero h1 { font-size: clamp(30px, 8.5vw, 40px); }
+    .hero p.sub { font-size: 16px; }
+    .site-block { padding: 20px 18px 18px; }
+    .site-block h3 { font-size: 18px; }
+    .pages a { padding: 8px 15px; }
+    .group-h { letter-spacing: .1em; margin-top: 32px; }
+    section.sites > .wrap > h2 { font-size: 22px; }
+  }
+
+@media (prefers-reduced-motion: reduce){.reveal{opacity:1 !important;transform:none !important}}.toTop{position:fixed;right:14px;bottom:14px;z-index:98;display:none;border:none;cursor:pointer;padding:10px 16px;min-height:44px;min-width:44px;border-radius:999px;background:rgba(20,20,20,.72);color:#fff;font-size:15px;line-height:1;backdrop-filter:blur(4px);font-family:system-ui,sans-serif}.toTop:hover{background:rgba(20,20,20,.9)}.toTop.show{display:inline-flex;align-items:center;justify-content:center}
 </style>
 </head>
 <body>
@@ -90,8 +103,8 @@
   <nav class="wrap bar">
     <div class="brand"><a href="index.html">开源生活指南合集</a></div>
     <ul>
-      <li><a href="#sites">九个站点</a></li>
-      <li><button id="themeToggle" type="button" aria-label="切换明暗主题" style="border:1px solid var(--line);background:var(--card);color:var(--ink);border-radius:999px;padding:5px 14px;font-size:13px;cursor:pointer;">切换主题</button></li>
+      <li class="hide-sm"><a href="#sites">九个站点</a></li>
+      <li><button id="themeToggle" type="button" aria-label="切换明暗主题" style="border:1px solid var(--line);background:var(--card);color:var(--ink);border-radius:999px;padding:8px 16px;font-size:13px;cursor:pointer;">切换主题</button></li>
     </ul>
   </nav>
 </header>
